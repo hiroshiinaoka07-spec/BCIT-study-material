@@ -1,0 +1,297 @@
+Chapter 10
+The Core Networking Services
+THE AWS CERTIFIED CLOUD PRACTITIONER EXAM OBJECTIVES COVERED IN THIS CHAPTER MAY INCLUDE, BUT ARE NOT LIMITED TO, THE FOLLOWING:
+
+Domain 3: Technology
+images 3.1 Define methods of deploying and operating in the AWS Cloud
+images 3.2 Define the AWS global infrastructure
+images 3.3 Identify the core AWS services
+images 
+
+Introduction
+Networking is ultimately about transporting data to and from your AWS resources. How you achieve this depends on many factors, including the type of data, the speed of data transport, your security requirements, who or what will be accessing that data, and how they’ll be accessing it. In this chapter, you’ll learn about the following three core networking services AWS offers:
+
+Virtual Private Cloud
+Route 53
+CloudFront
+Virtual Private Cloud
+The Amazon Virtual Private Cloud (VPC) service provides the network backbone for many AWS services. A virtual private cloud is a virtual network in the AWS cloud that’s logically isolated from other networks. The most well-known use of VPCs is connecting EC2 instances together and to other AWS services and networks, including the internet.
+
+When you create an AWS account, Amazon automatically creates a default VPC in each region. The default VPC is configured to allow instances within the VPC to access the internet. This way you don’t have to create and configure your own VPC just to use EC2.
+
+You can create your own nondefault VPCs. Nondefault VPCs are fully isolated from every other network and AWS resource, including other VPCs. This means you’ll have to configure them explicitly if you want them to have access to other networks and AWS resources outside of the VPC.
+
+VPC CIDR Blocks
+Each VPC requires a Classless Inter-Domain Routing (CIDR) block to define the range of IP version 4 (IPv4) addresses that resources within the VPC can use. Default VPCs have a CIDR of 172.31.0.0/16, which includes all addresses from 172.31.0.0 to 172.31.255.255. The /16 refers to the size of the CIDR. You must choose a CIDR size between /16 and /28, but otherwise, any CIDR you could assign to a traditional network can also be assigned to a VPC. The smaller the CIDR size, the greater the number of IP addresses available to the VPC. The following are a few examples of CIDR blocks that you could assign to a VPC:
+
+10.0.0.0/16 (10.0.0.0–10.0.255.255)
+192.168.0.0/24 (192.168.0.0–192.168.0.255)
+172.16.0.0/28 (172.16.0.0–172.16.0.15)
+At your request, AWS can also assign an IPv6 CIDR block to your VPC. The IPv6 CIDR will be a global unicast IPv6 address with a size of /56.
+
+ The acronym CIDR is usually pronounced “cider” for brevity.
+
+Subnets
+Each VPC requires further division into one or more subnets. A subnet provides logical separation and isolation of resources within the same VPC. For example, you may want to have web servers and application servers in the same VPC, but you want only the web servers to be accessible from the internet.
+
+As with a VPC, you must define a CIDR for each subnet. The subnet CIDR must be a subset of the VPC CIDR, with a size between /16 and /28. For example, if the default VPC CIDR is 172.31.0.0/16, then a subnet CIDR could be 172.31.16.0/20. Each subnet exists only within a single Availability Zone. Refer to Figure 10.1 for a sample VPC topology with two subnets.
+
+The figure shows a sample VPC topology with two subnets. 
+FIGURE 10.1 A VPC with two subnets in different Availability Zones.
+
+Each EC2 instance exists within a subnet. This is why within each default VPC, Amazon creates a default subnet in each Availability Zone. This way, you can launch EC2 instances without ever having to configure a VPC.
+
+Internet Access
+An internet gateway is a VPC resource that allows EC2 instances to obtain a public IP address and access the internet.
+
+For instances in a subnet to have internet access, that subnet must contain a default route to the internet gateway that’s attached to the VPC. A subnet with a default route to an internet gateway is called a public subnet.
+
+Each instance must also have a public IP address. When you launch an instance, you can choose to have AWS automatically assign it one. You can’t reassign an automatically assigned public IP address, and when the instance stops or terminates, you lose it. Alternatively, you can allocate an elastic IP address and then assign it to an instance. Elastic IP addresses can be reassigned to different instances and don’t change until you deallocate them.
+
+Security Groups
+A security group is a firewall that determines what network traffic can pass into and out of an instance. Each instance must have least one security group attached.
+
+Security groups consist of inbound and outbound rules that permit network traffic according to IP address and protocol. Inbound rules control what IP addresses can send traffic to the instance, whereas outbound rules control what IP addresses an instance may send traffic to. By default, security groups don’t contain inbound rules. This ensures no unsolicited traffic can reach the instance. For example, if you want anyone to be able to reach a web server in a public subnet, you would need to create an inbound rule to allow HTTP traffic from any IP address.
+
+Each security group by default contains an outbound rule that allows access to any IP address. It’s important to note that when an instance sends traffic out, the security group will allow reply traffic to reach the instance, regardless of what inbound rules are configured.
+
+Every VPC, not just the default VPC, contains a default security group that you can modify to meet your needs.
+
+Network Access Control Lists
+A network access control list (NACL) is a firewall that operates at the subnet level. A NACL consists of inbound and outbound rules that, by default, allow all traffic. A NACL can’t restrict traffic between instances in the same subnet, but it can prevent traffic from entering or leaving a subnet. Each VPC has a default NACL that can be associated with one or more subnets.
+
+VPC Peering
+A VPC peering connection is a private, point-to-point connection between only two VPCs. VPC peering allows resources in different VPCs to communicate with each other over the private AWS network instead of the internet. A VPC peering connection allows instances in one VPC to access certain types of resources in another VPC, such as another instance or a network load balancer.
+
+VPC peering connections are fast, reliable, and secure. There’s also no need for VPC resources to have internet access in order to use VPC peering. Peered VPCs can be in the same region or in different regions.
+
+Virtual Private Networks
+A virtual private network (VPN) allows you to connect a VPC to an external network, such as a data center or office, via a secure connection that traverses the public internet. To set up a VPN connection, you create a virtual private gateway and attach it to a VPC. You then configure your customer gateway—a physical or virtual router or firewall on your network—to connect to the virtual private gateway. AWS has tested a variety of customer gateways from different manufacturers including Cisco, Juniper, Palo Alto Networks, and Check Point.
+
+VPN connections are encrypted using AES 128- or 256-bit encryption. IP routing can be configured statically, or you can use the Border Gateway Protocol (BGP) to share routes between your VPC and external network. A single VPC can have up to 10 VPN connections.
+
+Direct Connect
+Direct Connect provides private network connectivity to your VPC and public services such as Amazon S3 and Glacier. There’s no need to have a separate internet circuit just to access these services. This means you can bypass the internet altogether when accessing your AWS resources. Keep in mind that Direct Connect doesn’t provide internet access, so if you need it, you’ll still need a separate internet connection.
+
+Direct Connect links are offered through AWS Partner Network (APN) partners. Direct Connect operates using a dedicated link that operates at 1 or 10 Gbps. Because of this, it’s not subject to the high and unpredictable latency of a broadband internet connection. If you need fast, consistent connectivity to AWS, Direct Connect is a good option versus connecting via the internet. It is, however, more expensive.
+
+If you need less than 1 Gbps of bandwidth, you can obtain a hosted Direct Connect connection from an APN partner. A hosted connection comes in speeds of 50 Mbps, 100 Mbps, 200 Mbps, 300 Mbps, 400 Mbps, and 500 Mbps.
+
+Route 53
+Route 53 is Amazon’s global Domain Name System (DNS) service. The primary purpose of DNS is to translate human-readable domain names (such as example.com) into IP addresses. Here’s a simplified version of how it works: when you enter the domain name example.com into your web browser, your computer sends out a query to its configured DNS server asking for the IP address of that domain. The DNS server then sends the query to the domain’s authoritative DNS server—the one that’s in charge of the example.com domain name. The authoritative DNS server responds with the IP address for example.com. This process of translating a domain name to an IP address is called name resolution.
+
+Resource Records
+Name resolution goes beyond just mapping domain names to IP addresses. DNS can store mappings for different types of data, including IPv6 addresses, mail servers, and even arbitrary text. When you send an email to someone, DNS provides the lookup mechanism to ensure it gets routed to the correct mail server for that domain.
+
+For DNS to work, someone must first define some resource records for a domain. A resource record consists of several fields, but the most important are the name, type, and value. Refer to Table 10.1 for some example resource records.
+
+TABLE 10.1 Resource Records for the benpiper.com Domain
+
+Name	Type	Value
+benpiper.com	A - IPv4 address	93.184.216.34
+www.benpiper.com	A - IPv4 address	93.184.216.34
+benpiper.com	MX - Mail exchange	10 in1-smtp.messagingengine.com
+Domain Name Registration
+A public domain name is one that anyone on the internet can resolve. To ensure that no two entities try to use the same domain name, anyone who wants to have a public domain name must register it with a domain registrar. When you register a domain name, you must do so under a top-level domain (TLD) such as .com, .net, or .org. For example, you might register the name example.com or example.org. Route 53 is a domain registrar for hundreds of TLDs.
+
+Registering a domain gives you control of it for the duration of the lease, which can be in yearly increments between 1 year and 10 years. Regardless of how long you initially register a domain for, you can renew it in yearly increments indefinitely. If you have an existing domain name with another registrar, you can transfer it to Route 53. Transferring a domain entails extending the registration by at least one year.
+
+It’s important to understand that domain name registration and DNS hosting are two different functions. Registering a domain name gives you control over it for the duration of the lease, including the right to specify the service you want to provide DNS hosting for the domain. This means the domain registrar and DNS hosting provider don’t have to be the same company, but they often are. Route 53 is both a registrar and a DNS hosting provider.
+
+Hosted Zones
+To have Route 53 host the DNS for a public domain name, you create a public hosted zone and specify the domain name. You can then define the resource records for that domain. If you use Route 53 to register a domain name, it automatically takes care of creating a public hosted zone for the domain.
+
+Route 53 can also provide name resolution for private domain names. A private domain name is one used on a network other than the internet. Route 53 private hosted zones provide DNS resolution for a single domain name within multiple VPCs. This is useful for assigning user-friendly domain names to VPC resources such as EC2 instances or application load balancers. For example, instead of hardcoding a database server’s IP in an application, you can define a record in a private hosted zone with the name db.example.com that points to the database server’s IP address. Because private domain names aren’t accessible from the internet, there are no registrars, so you can pick any domain name you want. Name resolution for private hosted zones is not available outside of the VPC you select.
+
+Routing Policies
+In some cases, you just need a domain name to resolve to a particular IP address. But there are other times when you want the value of a resource record to change dynamically to work around failures or ensure users get pointed to the least busy server. Route 53 lets you accomplish this with a variety of routing policies.
+
+Simple The Simple routing policy is the default for new resource records. It simply lets you map a domain name to a single static value, such as an IP address. It doesn’t check whether the resource the record points to is available.
+
+Weighted A Weighted policy distributes traffic across multiple resources according to a ratio. For example, when introducing a new web server, you may want to route only 10 percent of the traffic to the new server while evenly distributing the load across the rest.
+
+Latency A Latency policy sends users to resources in the AWS Region that’s closest to them. This is useful if, for instance, you want to send European users to the eu-west-1 region while sending users in the United States to the us-east-1 region.
+
+Failover A Failover policy lets you route traffic to a primary resource unless it’s unavailable. In that case, traffic will be redirected to a secondary resource.
+
+Geolocation A Geolocation policy lets you route users based on their specific continent, country, or state.
+
+Multivalue Answer A Multivalue Answer policy allows you to evenly distribute traffic across multiple resources. Unlike Weighted policies that return a single record, a Multivalue Answer policy returns all records, sorted in a random order.
+
+Health Checks
+All routing policies with the exception of Simple can use health checks to determine whether they should route users to a given resource. A health check can check one of three things: an endpoint, a CloudWatch alarm, or another health check. All health checks occur every 10 seconds or 30 seconds.
+
+Endpoint Endpoint health checks work by connecting to the endpoint you want to monitor via HTTP, HTTPS, or TCP. Route 53 has health checkers in several AWS Regions, and you can choose which health checkers a health check uses. This lets you ensure that an endpoint is reachable from various locations around the world.
+
+CloudWatch alarm A Route 53 health check can monitor the status of a CloudWatch alarm. This is useful if you want to consider a resource unhealthy if it’s experiencing high latency or is servicing a high number of connections.
+
+Calculated This type of health check monitors the status of other health checks. For example, if you want to consider the status of both an Endpoint health check and a CloudWatch alarm health check, you can create a Calculated health check to take both into account.
+
+Traffic Flow and Traffic Policies
+If you require complex routing scenarios for a public hosted zone, creating multiple resource records with a variety of different routing policies can become an administrative nightmare. As an alternative to manually engineering routing policies, you can use the Route 53 Traffic Flow visual editor to create a diagram to represent the desired routing.
+
+The diagram you create represents a traffic policy that you can save and associate with a domain name by creating a policy record. Route 53 doesn’t create the individual resource records but instead hides the routing behind the single policy record. The cost is currently $50 USD per month per policy record.
+
+You can use the same routing policies that are available with normal resource records: Simple, Weighted, Latency, Failover, Geolocation, and Multivalue Answer. But in addition, Traffic Flow offers another routing policy that’s not otherwise available: Geoproximity. The Geoproximity routing policy lets you direct users to a resource based on how close they are to a geographic location. This differs from the Geolocation routing policy that routes based on the user’s specific continent, country, or state.
+
+CloudFront
+Amazon CloudFront is a content delivery network (CDN) that helps deliver static and dynamic web content to users faster than just serving it out of an AWS Region. For example, if you’re hosting a website from a single AWS Region, as a general rule, the farther a user is away from that region, the more network latency they’ll encounter when accessing it. CloudFront solves this problem by caching your content in a number of data centers called edge locations. There are more than 150 edge locations spread out around the world on six continents.
+
+CloudFront works by sending users to the edge location that will give them the best performance. Typically, this is the edge location that’s physically closest to them. CloudFront also increases the availability of your content because copies of it are stored in multiple edge locations.
+
+The more edge locations you use, the more redundancy you have and the better performance you can expect. As you might expect, the price of CloudFront increases as you utilize more edge locations. You can’t select individual edge locations. Rather, you must choose from the following three options:
+
+United States, Canada, and Europe
+United States, Canada, Europe, Asia, and Africa
+All edge locations
+To make your content available via CloudFront, you must create a distribution. A distribution defines the type of content you want CloudFront to cache, as well as the content’s origin—where CloudFront should retrieve the content from. There are two types of distributions: Web and Real-Time Messaging Protocol (RTMP).
+
+Web A Web distribution is the most common type. It’s used for static and dynamic content such as web pages, graphic files, and live or on-demand streaming video. Users can access Web distributions via HTTP or HTTPS. When creating a Web distribution, you must specify an origin to act as the authoritative source for your content. An origin can be a web server or a public S3 bucket. You can’t use nonpublic S3 buckets.
+
+RTMP The Real-Time Messaging Protocol (RTMP) delivers streaming video or audio content to end users. To set up an RTMP distribution, you must provide both a media player and media files to stream, and these must be stored in S3 buckets.
+
+Summary
+Virtual Private Cloud (VPC) provides the virtual network infrastructure for many AWS resources, most notably EC2. VPCs can connect to other networks, including the following:
+
+The internet via an internet gateway
+External, private networks via Direct Connect or a virtual private network (VPN)
+Other VPCs using VPC peering
+The Route 53 service provides two distinct but related Domain Name System (DNS) services. Route 53 functions as a registrar for many top-level internet domain names (TLDs). You can register a new domain with Route 53 or transfer an existing one that you control. Route 53 also provides DNS hosting services. To use Route 53 with a public domain, you must create a public hosted zone. To use Route 53 for name resolution within a VPC, you must create a private hosted zone.
+
+CloudFront is Amazon’s content delivery network (CDN). It improves delivery of data to end users by storing content in edge locations around the world. When a user connects to a CloudFront distribution to retrieve content, CloudFront serves the content from the edge location that will give them the best performance.
+
+Exam Essentials
+Know the components of a VPC. The key components of a VPC include at least one subnet, security groups, network access control lists (NACLs), and internet gateways.
+
+Understand the different options for connecting to resources in a VPC. You can connect to resources in a VPC over the internet, a Direct Connect link, a VPC peering connection, or a virtual private network (VPN) connection.
+
+Understand the difference between a Route 53 public hosted zone and a private hosted zone. A public hosted zone allows anyone on the internet to resolve records for the associated domain name. A private hosted zone allows resolution only from resources within the associated VPCs.
+
+Be able to select the best Route 53 routing policy for a given scenario. All routing policies except the Simple routing policy can use health checks to route around failures. If you want to direct traffic to any available resource, Failover, Weighted, and Multivalue Answer routing policies will suffice. If performance is a concern, choose a Latency routing policy. If you need to direct users based on their specific location, use a Geolocation routing policy.
+
+Know how CloudFront improves the speed of content delivery. CloudFront caches objects in edge locations around the world and automatically directs users to the edge location that will give them the best performance at any given time.
+
+Be able to identify scenarios where CloudFront would be appropriate. CloudFront is designed to give users the fastest possible access to content regardless of their physical location. By caching content in edge locations that are distributed around the world, CloudFront helps ensure that your content is always close to your users.
+
+Review Questions
+Which of the following are true of a default VPC? (Select TWO.)
+
+A default VPC spans multiple regions.
+AWS creates a default VPC in each region.
+AWS creates a default VPC in each Availability Zone.
+By default, each default VPC is available to one AWS account.
+Which of the following is a valid CIDR for a VPC or subnet?
+
+10.0.0.0/28
+10.0.0.0/29
+10.0.0.0/8
+10.0.0.0/15
+Which of the following are true regarding subnets? (Select TWO.)
+
+A VPC must have at least two subnets.
+A subnet must have a CIDR that’s a subset of the CIDR of the VPC in which it resides.
+A subnet spans one Availability Zone.
+A subnet spans multiple Availability Zones.
+Which of the following is true of a new security group?
+
+It contains an inbound rule denying access from public IP addresses.
+It contains an outbound rule denying access to public IP addresses.
+It contains an outbound rule allowing access to any IP address.
+It contains an inbound rule allowing access from any IP address.
+It contains an inbound rule denying access from any IP address.
+What’s the difference between a security group and a network access control list (NACL)? (Select TWO.)
+
+A network access control list operates at the instance level.
+A security group operates at the instance level.
+A security group operates at the subnet level.
+A network access control list operates at the subnet level.
+Which of the following is true of a VPC peering connection?
+
+It’s a private connection that connects more than three VPCs.
+It’s a private connection between two VPCs.
+It’s a public connection between two VPCs.
+It’s a virtual private network (VPN) connection between two VPCs.
+What are two differences between a virtual private network (VPN) connection and a Direct Connect connection? (Select TWO.)
+
+A Direct Connect connection offers predictable latency because it doesn’t traverse the internet.
+A VPN connection uses the internet for transport.
+A Direct Connect connection uses AES 128- or 256-bit encryption.
+A VPN connection requires proprietary hardware.
+Which of the following are true about registering a domain name with Route 53? (Select TWO.)
+
+The registrar you use to register a domain name determines who will host DNS for that domain.
+You can register a domain name for a term of up to 10 years.
+Route 53 creates a private hosted zone for the domain.
+Route 53 creates a public hosted zone for the domain.
+Which of the following Route 53 routing policies can return set of randomly ordered values?
+
+Simple
+Multivalue Answer
+Failover
+Latency
+Which of the following Route 53 routing policies doesn’t use health checks?
+
+Latency
+Multivalue Answer
+Simple
+Geolocation
+Which of the following types of Route 53 health checks works by making a test connection to a TCP port?
+
+Simple
+CloudWatch alarm
+Endpoint
+Calculated
+You have two EC2 instances hosting a web application. You want to distribute 20 percent of traffic to one instance and 80 percent to the other. Which of the following Route 53 routing policies should you use?
+
+Weighted
+Failover
+Multivalue Answer
+Simple
+Resources in a VPC need to be able to resolve internal IP addresses for other resources in the VPC. No one outside of the VPC should be able to resolve these addresses. Which of the following Route 53 resources can help you achieve this?
+
+A public hosted zone
+A private hosted zone
+Domain name registration
+Health checks
+You want to provide private name resolution for two VPCs using the domain name company.pri. How many private hosted zones do you need to create?
+
+1
+2
+3
+4
+On how many continents are CloudFront edge locations distributed?
+
+7
+6
+5
+4
+From where does CloudFront retrieve content to store for caching?
+
+Regions
+Origins
+Distributions
+Edge locations
+Which CloudFront distribution type requires you to provide a media player?
+
+Streaming
+RTMP
+Web
+Edge
+You need to deliver content to users in the United States and Canada. Which of the following edge location options will be the most cost effective for your CloudFront distribution?
+
+United States, Canada, and Europe
+United States, Canada, Europe, and Asia
+United States, Canada, Europe, Asia, and Africa
+All edge locations
+Approximately how many different CloudFront edge locations are there?
+
+About 50
+More than 150
+More than 300
+More than 500
+Which of the following are valid origins for a CloudFront distribution? (Select TWO.)
+
+EC2 instance
+A public S3 bucket
+A private S3 bucket that you don’t have access to
+A private S3 bucket that you own

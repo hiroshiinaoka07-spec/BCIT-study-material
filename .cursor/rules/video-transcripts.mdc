@@ -1,0 +1,20 @@
+---
+description: How to watch/understand video files (mp4, mkv, mov, webm) the user uploads or asks about
+alwaysApply: true
+---
+
+# Understanding videos
+
+When the user uploads or references a video (e.g. a lesson recording), run the converter instead of guessing:
+
+```powershell
+.\.venv\Scripts\python tools\video_to_notes.py "path\to\video.mp4"
+# or, with no argument, process every new video in videos\
+.\.venv\Scripts\python tools\video_to_notes.py
+```
+
+- Output: `transcripts/<video name>/transcript.md` (timestamped transcript interleaved with screenshot links), plus `transcript.txt`, `transcript.srt`, and `frames/*.jpg`.
+- Read `transcript.md` first, then open the screenshots in `frames/` with the Read tool to see slides, consoles, and diagrams. Treat on-screen text as more reliable than the transcript for names and commands.
+- Transcription runs on the user's RTX 5070 Ti (CUDA) with `large-v3` by default; a 10-minute video takes well under a minute. If CUDA fails it falls back to CPU with `small` (much slower), so give long videos a generous timeout.
+- Options: `--model`, `--device cpu|cuda`, `--language en`, `--scene 0.15` (more screenshots), `--max-gap 30`, `--force` (redo).
+- If `.venv` is missing: `python -m venv .venv; .\.venv\Scripts\python -m pip install -r requirements.txt`.

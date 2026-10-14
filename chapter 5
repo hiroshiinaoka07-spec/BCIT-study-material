@@ -1,0 +1,301 @@
+Chapter 5
+Securing Your AWS Resources
+THE AWS CERTIFIED CLOUD PRACTITIONER EXAM OBJECTIVES COVERED IN THIS CHAPTER MAY INCLUDE, BUT ARE NOT LIMITED TO, THE FOLLOWING:
+
+Domain 2: Security
+images 2.2 Define AWS Cloud security and compliance concepts
+images 2.3 Identify AWS access management capabilities
+images 
+
+Introduction
+Everyone in the IT world knows that application and infrastructure security are critically important elements of any deployment. Unfortunately, the constant stream of news about catastrophic data breaches suggests that some of us may not yet realize just how important.
+
+No matter what role you play within your organization’s cloud deployment life cycle, ensuring that your assets are properly protected is part of your job. This chapter will help you explore the tools AWS provides to help you with that responsibility.
+
+You’ll learn how to use the Identity and Access Management (IAM) service to control which people and processes get past the wall guarding your resources (authentication) and what they’re allowed to do once they’re in (authorization). You’ll learn how IAM does that through the smart use of users, groups, roles, and federated identities.
+
+We’ll discuss applying encryption to your cloud data—both while it’s on its way from your local data center and after it’s comfortably settled into its AWS home—and managing the encryption keys that do all that heavy lifting. Finally, we’ll talk about all the work AWS has done ensuring that its infrastructure is compliant with as wide a range of regulatory frameworks as possible.
+
+AWS Identity and Access Management
+We’ll start with IAM, whose management dashboard (https://console.aws.amazon.com/iam) connects you to all the administration tools you’ll need to manage the basics of account security. As you can see in Figure 5.1, the Security Status section of that page provides a friendly reminder that there might be some issues requiring your attention.
+
+Those suggestions include protecting your account by locking down the root user (the user identity that was generated when you first created your AWS account) and replacing the effective functionality of root by setting up IAM users and groups for your day-to-day administration tasks. The coming sections will explain both why and how these changes are made.
+
+The figure shows the Security Status section of the IAM Dashboard which includes important configuration advice that’s especially important for new accounts.
+FIGURE 5.1 The Security Status section of the IAM Dashboard includes important configuration advice that’s especially important for new accounts
+
+Protecting the Root User
+For practical reasons, the root user has the permissions necessary to perform any task on your account. That includes launching any resources in any region and authorizing any expenses. The problem is that actively using the root user over the long term with only minimal protections presents a significant security risk. Should the root credentials ever be compromised through an attack, there will be no limit to the potential for mischief. All your data could be stolen or deleted or the attacker could run up hundreds of thousands of dollars of charges running a rogue crypto mining operation.
+
+The recommended best practice is, therefore, to protect the root user by creating a complex password and implementing multifactor authentication and, for most administration activities, use IAM users instead. That will be covered next.
+
+Authentication
+Whether you’re logging in to work with your AWS account via the AWS Management Console, running a command from the terminal of your personal laptop, or connecting a remote application to AWS resources at the programming code level, you’ll need to prove you are who you claim to be and that “who you claim to be” has a right to the access you’re after. Often that will mean providing some kind of user ID and password. In the case of programmatic or command-line access, you’ll need a set of access keys. Opening a remote login session to a Linux instance on Elastic Compute Cloud (EC2) will require a valid key pair. Let’s look at those one at a time.
+
+Passwords
+While you’re still learning your way around AWS, you’ll probably do most of your work from the browser’s AWS Management Console. As you’ll learn in Chapter 6, “Working with Your AWS Resources,” using the command line (specifically, AWS CLI) can be a far more efficient way to get things done, but the AWS Management Console works too.
+
+The root user logs into the AWS Management Console with the associated email address along with the password set when the account was created (or subsequently updated). But as you’re no doubt already well aware, not all passwords are created equal. If you want your account to have any chance of surviving an attack, you should avoid passwords that can be easily guessed. Instead, choose complex and long passwords that include uppercase and lowercase characters, numbers, and symbols. Even better, use only randomly generated strings that aren’t even distantly based on the stuff going on in your life (like your birthday). And never (ever) reuse passwords across multiple accounts.
+
+ Don’t think you can remember passwords like those? Welcome to the club. The simplest and most effective solution is to use a password manager like LastPass, Dashlane, or KeePass2.
+
+As mentioned, the first step in protecting your root user is to give it a high-quality password. But that doesn’t mean you should let other users off the hook. You’ll soon see how to create such users. But before that happens, you should have an appropriate password policy already in place. You can configure a policy from the Account Settings section of the IAM Dashboard that will require the passwords used by all users on the account to conform with minimum complexity. Figure 5.2 shows the policy options available to you on the Password Policy page.
+
+The figure shows a screenshot illustrating the availability of policy options on the Password Policy page.
+FIGURE 5.2 The IAM Account Settings page where you can set an account-wide password policy
+
+Multi-factor authentication (MFA) adds a second layer of security to your logins. Once it’s enabled, a user will need to provide not only a password to authenticate (“something you know”) but also, as a second factor, a temporary digital token sent through a preset device (“something you have”), like a smartphone running an Authenticator app.
+
+MFA works by associating a physical device—either a Universal 2nd Factor (U2F) or MFA-compliant device like YubiKey or a smartphone with the Authenticator app installed—with your account. When you try to log in, you’ll first enter a password, and then a short-lived code (usually a six-digit number) will be sent to your MFA device. You only need to read the number and enter it into the appropriate field on the login page, and you’ll be allowed in.
+
+While complex passwords and MFA are important for any account user, they’re both especially critical for your root user. Exercise 5.1 will walk you through some of the possible settings for creating a password policy for your users from the IAM Dashboard.
+
+EXERCISE 5.1
+Create a Password Policy for Your IAM Users
+From the IAM Dashboard, choose Account Settings, which will take you to a page that includes the Password Policy tool.
+If appropriate for your account, change the value of Minimum Password Length from 6 to 8. This will require all new passwords to contain at least eight characters.
+Again, if appropriate, check these boxes:
+Require At Least One Uppercase Letter
+Require At Least One Lowercase Letter
+Require At Least One Number
+Require At Least One Non-alphanumeric Character
+ Since recent thinking in the security industry has questioned the value of forcing users to regularly change their passwords, unless we had no choice, we wouldn’t set a password expiration period.
+
+Choose Apply Password Policy.
+Access Keys
+As we mentioned, programmatic and command-line access to many AWS resources is authenticated by access keys (without the option of MFA). You can generate a new set of keys while logged into the AWS Management Console from the Security Credentials page—which is accessed from the account drop-down menu at the top right of the AWS Management Console page.
+
+Choosing the Create New Access Key button will get you there. You’ll then have the option of downloading the key to your computer as a text file or showing the actual Access Key ID and Secret Access Key values in the dialog where you can copy and paste them somewhere safe. Just make sure you choose one of those options, because you’ll never be shown the secret access key itself again. You should also remember that it’s never a good idea to expose the Secret Access Key in plain text—as part of an email, for example.
+
+The Security Credentials page also lists all your keys and allows you to deactivate, activate, or delete existing keys. This is where, while logged in as the root user, you should take the time to delete all keys associated with the root account.
+
+Secure Shell Key Pairs
+The industry-standard tool for safely encrypting remote login sessions is the Secure Shell (SSH) protocol. Without encryption, all commands and keystrokes you enter during a terminal session run over an insecure network will be easily readable by anyone with access to that network. When that “network” is the internet, that can add up to a lot of unfriendly eyes on your data.
+
+Encryption converts those plain-text data packets into what looks like gibberish. Indeed, ideally—assuming no one has yet cracked the encryption algorithm you’re using—that text is and will remain gibberish, unless you happen to have the decryption key required to decrypt it. The SSH protocol manages the encryption and decryption steps in the process as long as compatible keys are present at both ends of the connection.
+
+When you launch a new EC2 Linux instance (and a heavy majority of EC2 instances are running one flavor or another of Linux), you’ll be prompted either to use an existing SSH key pair or to create a new one. Similar to access keys, you’ll get only one opportunity to download the private half of the SSH key pair to your own computer. Again, do so without publicly exposing the file.
+
+Once the private key is downloaded (and, for Linux and macOS, given appropriate permissions), you open SSH sessions to your instances by invoking the key in a connection command that might look something like this:
+
+ssh -i keyname.pem ec2-user@<public_ip_address_of_instance>
+Since the release of Windows 10, you can even launch SSH sessions into remote Linux servers natively from Windows machines.
+
+Users, Groups, and Roles
+We think it’s safe to assume that the readers of this book are a pretty sharp bunch. But even if you haven’t been paying all that much attention, we’re pretty sure that, by now, you’d have picked up on our theme that you shouldn’t be using the root user for regular administration duties. Instead, as you’ve seen, you’re better off creating users to whom you can assign only the permissions needed for a specific set of tasks (thus adhering to the principle of least privilege) and then having your team authenticate with those user identities.
+
+IAM Users
+Curious to see how creating and managing IAM users happens in the real world? Follow the steps in Exercise 5.2—it won’t cost you anything.
+
+EXERCISE 5.2
+Create an IAM User and Assign Limited Permissions
+Choose the Users link in the IAM Dashboard, and then choose the Add User button.
+Give your user a name (we’ll use Steve for this exercise), and select one or both of the access types shown. Selecting the Programmatic Access option will guide you to create an access key ID and secret access key as part of the process, while the AWS Management Console Access option will let you set a login password. For this exercise, just select AWS Management Console Access.
+Choose the Custom Password radio button that will appear, and enter a password for your user that meets any password policy requirements you set for your account earlier. Leave the Require Password Reset box checked so your user will be forced to create a new password when signing in for the first time. Choose the Next: Permissions button.
+On the Set Permissions page, select the Attach Existing Policies Directly tab, and enter ec2 into the Filter Policies search field. Scroll down a bit through the results, and choose the box next to the AmazonEC2FullAccess entry. This will give your user the authority to create, launch, and destroy EC2 instances (for this exercise, we’ll assume that those are all the permissions you want to give this user). Choose the Next: Tags button.
+You don’t need to create a tag for your user, but it can help you keep track of things as your account gets busier. So, for this example, enter Unit as the key and then EC2-admin as its value. (If you were to add a different user for managing Simple Storage Service [S3] resources at some point, you could enter a key-value combination of Unit/S3-admin.) Choose Next: Review.
+When you’ve confirmed that everything is set the way you want, choose Create User. You’ll be shown a URL (that looks something like https://signin.aws.amazon.com/console) that your new user can access to log in with the user name (Steve in this example) and the password you’ve created. The number at the start of the address portion is your AWS account number. You could also have AWS send the new user an email with login instructions.
+If you wanted to create a primary admin to replace your root user for day-to-day administration, you would select the AdministratorAccess policy, which would provide enough permissions to get most admin tasks done without exposing your account to unnecessary risk.
+
+IAM Groups
+As your organization devotes more team members to your AWS infrastructure, manually assigning permissions to each individual user one at a time will become a tedious and time-consuming chore. Using groups to administrate the permissions associated with multiple users in batches can get all that done much more efficiently.
+
+You could, for instance, have one group called EC2-admins and a second called S3-admins. When someone new signed up to your team, you would only need to create an IAM user and then attach it to the appropriate group. The user would automatically inherit all the permissions of that group. And if at some time down the line you needed to add to or reduce the group’s permissions, editing the group itself would instantly apply the changes to all the group’s members. Try it for yourself in Exercise 5.3.
+
+EXERCISE 5.3
+Assign Multiple Users to an IAM Group
+Choose the Groups link in the IAM Dashboard and then the Create New Group button. Give your group a name (we’ll use S3-admins for this example).
+Enter s3 in the Policy Type filter field, and then select AmazonS3FullAccess from the policies that will be displayed. Review and create the group.
+From the Groups page, select the S3-admins group, and choose the Group Actions drop-down menu button. Choose Add Users To Group. Select the user Steve you created in Exercise 5.2 (or the name of any other user you might want to include), and then choose the Add Users button. Your user will now have full admin powers over all S3 resources in your account.
+IAM Roles
+Like users and groups, IAM roles define the limits for what can be done within your AWS account. The important difference is that, unlike users and groups, roles are, for the most part, used by applications and services rather than people.
+
+When creating a role, you begin by defining a trusted entity—the entity (or beneficiary) that will be trusted to use the role. That entity could be an AWS service (like EC2), an identity provided by a third-party federated identify provider (like Google or Amazon Cognito—which allow a digital identity to be linked across multiple identity management systems), or a different AWS account.
+
+You might, for instance, need to give users logged in to your mobile application through their Google accounts access to specific resources on AWS services (such as data kept on S3). You’ll have to specify exactly what permissions you want to give the role or, in other words, what you want the beneficiary processes to be able to do. You’ll then choose the policy that best fits your anticipated needs and associate it with the role. From that point any authenticated mobile app users will have access to those S3 resources.
+
+Providing Federated Access
+Well, now that we’ve brought up this whole business of federated identities, we should discuss how you can incorporate them into your authentication profile. Federation expands the available tools for managing authentication beyond the simple IAM options you’ve already seen.
+
+You can integrate third-party standards like the Security Assertion Markup Language 2.0 (SAML) or Microsoft’s Active Directory into your infrastructure. This lets you use users’ existing login sessions to add single sign-on (SSO) across your AWS infrastructure and enable seamless access between your mobile apps and backend resources like DynamoDB databases or S3-based objects.
+
+Besides the IAM role configuration options you saw a bit earlier in this chapter, federated access to AWS resources can be handled through the AWS Single Sign-On service. For Active Directory integration with cloud-based MS SharePoint, .NET, and SQL Server–based workloads, you would use the AWS Directory Service for Microsoft Active Directory (more commonly known as AWS Microsoft AD).
+
+Credential Report
+There’s one more IAM resource you should know about: credential reports. Accessed from the IAM Dashboard, a credential report displays a simple interface with no more (or less) than one lonely button: Download Report. We’ll let you handle the practical details from there.
+
+But we strongly suggest you make a point of regularly downloading the comma-separated values (CSV) files the service generates. Reports contain important information about the state of your account security, listing all current IAM users and giving you key intelligence, such as when each of them last logged in, whether they have MFA enabled, whether they have active access keys, and when those keys were last rotated.
+
+This is a quick and (fairly) painless way to monitor your account for security holes that you shouldn’t ignore.
+
+Encryption
+We’ve already mentioned data encryption and, in general terms, how it works in the context of SSH connectivity. But the need to protect the integrity of your data goes well beyond remote login sessions. You should consider encrypting your data just about wherever you store or consume it. Whether or not your particular use cases and privacy needs justify the effort, AWS provides a number of enterprise-strength encryption tools that are conveniently and effectively integrated into relevant services.
+
+Encryption keys—the data files used to control an object’s cryptographic transformation—are mostly managed on AWS by the AWS Key Management Service (KMS). When you select to encrypt an AWS resource, KMS will apply encryption using a customer master key (CMK) that’s been generated especially for your account. You can manage your keys—including creating new keys or scheduling the deletion of old ones—through either the KMS Dashboard or the Encryption Keys page within IAM.
+
+What can be encrypted? Just about any data managed by an AWS service, including Relational Database Service (RDS) and DynamoDB databases. Elastic Block Store (EBS) volumes that you attach to EC2 instances can also be encrypted when you create them. When they’re encrypted, those resources will, for all practical purposes, be unreadable without the decryption key. AWS will invisibly decrypt your data only when the access request is accompanied by successful authentication.
+
+Encryption for S3 works in much the same way, but there’s a twist. You can have S3 encrypt the objects of a bucket at any time—during or after bucket creation. You can select either S3-managed server-side encryption keys (SSE-S3) or KMS-managed keys (SSE-KMS). Either way, the process will often all take place “under the hood” without requiring any further input from you.
+
+But besides ensuring that the wrong people won’t be able to read the objects living in your S3 buckets (server-side encryption), you also have to worry about the bad guys intercepting those objects while in transit from your local infrastructure (client-side encryption).
+
+Client-side encryption is a bit more complicated. You’ll need to encrypt your data before uploading it to S3 using either a KMS-managed customer master key or a client-side master key. That key will then be used to manage the encryption and decryption throughout the data’s life cycle on the S3 platform.
+
+Regulatory Compliance (AWS Artifact)
+Will the application you plan to run on AWS be processing credit card transactions? What about private health records, personal employment histories, or restricted military information? Are you sure the AWS security and reliability environment is good enough to meet the regulatory standards required by your industry and government?
+
+Those are questions you’ll need to answer before you dive too deeply into your deployment planning. But where can you find authoritative answers? AWS Artifact.
+
+At this point, you may be wondering, what’s with the name Artifact? Well, the service home page is a set of links to documents describing various regulatory standards and how AWS meets them. Each of those documents is referred to by Amazon as an artifact.
+
+When you choose a link, you’re first asked to agree to the terms and conditions included in an AWS Artifact nondisclosure agreement. When you choose the agreement box, the actual artifact will be generated, opening a download pop-up.
+
+What’s available? There are national documents like the U.S. government’s Federal Risk and Authorization Management Program (FedRAMP), the Government of Canada (GC) Partner Package, and the Australian Prudential Regulation Authority (APRA) “Management of Security Risk in Information and Information Technology” workbook. You’ll also find industry standards like the PCI DSS Attestation of Compliance (AOC) and Responsibility Summary for handling credit card transaction data.
+
+You’ll also find official reports of Service Organization Controls (SOC) 1, 2, and 3 audits of AWS infrastructure. Those documents can, for instance, be used by AWS customers in the United States as part of their Sarbanes–Oxley compliance reporting.
+
+Summary
+You should enforce the use of strong passwords by your users by creating a password policy in IAM. Ideally, you should also require multi-factor authentication (MFA).
+
+Programmatic and command-line access to resources is authenticated using security credentials consisting of an access key ID and a secret access key. SSH access to EC2 Linux instances must be authenticated using a key pair generated by AWS—the private key must be installed on the client (user) computer.
+
+You can efficiently control resource access for large numbers of users with different access needs through IAM groups. The principle of least privilege supports giving your users and groups only the minimum permissions they’ll need to do their jobs.
+
+An IAM role is a set of permissions permitting access to a beneficiary process to a defined set of resources. This is an important tool for securely enabling functionality between parts of your AWS infrastructure.
+
+You can review important information on the security status of your users from the credential report in IAM and read about AWS compliance with regulatory and industry standards in AWS Artifact.
+
+Exam Essentials
+Know how to lock down your account’s root user to reduce your exposure to risk. Make sure your root user has a strong password that is MFA-enabled and is never used for day-to-day administration tasks.
+
+Know how to enforce the use of strong passwords for all your users. Set an IAM password policy to force longer passwords using uppercase and lowercase letters, numbers, and nonstandard characters.
+
+Understand how AWS manages access credentials for EC2 key pairs, secret access keys, and encryption keys. Whether you’re looking to secure terminal connections to your EC2 servers, API access, or the privacy of your data, you’ll need to make use of AWS encryption services of one sort or another.
+
+Know how to provide (federated) access to your AWS resources based on third-party authentication systems like Google. Using standards such as SAML 2.0 and Microsoft’s Active Directory, you can incorporate external authentication into your AWS infrastructure, making it easy, for instance, for users of your mobile application to retrieve data from a DynamoDB database.
+
+Be aware that AWS Key Management Service (KMS) manages encryption keys. KMS-managed keys are used across a wide range of AWS services, including EBS, RDS, DynamoDB, and S3.
+
+Be aware that AWS Artifact is a compliance information resource. AWS Artifact provides access to official documentation on the compliance of AWS infrastructure relating to any one of dozens of government or industry security standards.
+
+Review Questions
+What is the primary function of the AWS IAM service?
+
+Identity and access management
+Access key management
+SSH key pair management
+Federated access management
+Which of the following are requirements you can include in an IAM password policy? (Select THREE.)
+
+Require at least one uppercase letter.
+Require at least one number.
+Require at least one space or null character.
+Require at least one nonalphanumeric character.
+Which of the following should you do to secure your AWS root user? (Select TWO.)
+
+Assign the root user to the “admins” IAM group.
+Use the root user for day-to-day administration tasks.
+Enable MFA.
+Create a strong password.
+How does multi-factor authentication work?
+
+Instead of an access password, users authenticate via a physical MFA device.
+In addition to an access password, users also authenticate via a physical MFA device.
+Users authenticate using tokens sent to at least two MFA devices.
+Users authenticate using a password and also either a physical or virtual MFA device.
+Which of the following SSH commands will successfully connect to an EC2 Amazon Linux instance with an IP address of 54.7.35.103 using a key named mykey.pem?
+
+echo "mykey.pem ubuntu@54.7.35.103" | ssh -i
+ssh -i mykey.pem ec2-user@54.7.35.103
+ssh -i mykey.pem@54.7.35.103
+ssh ec2-user@mykey.pem:54.7.35.103 -i
+What’s the most efficient method for managing permissions for multiple IAM users?
+
+Assign users requiring similar permissions to IAM roles.
+Assign users requiring similar permissions to IAM groups.
+Assign IAM users permissions common to others with similar administration responsibilities.
+Create roles based on IAM policies, and assign them to IAM users.
+What is an IAM role?
+
+A set of permissions allowing access to specified AWS resources
+A set of IAM users given permission to access specified AWS resources
+Permissions granted a trusted entity over specified AWS resources
+Permissions granted an IAM user over specified AWS resources
+How can federated identities be incorporated into AWS workflows? (Select TWO.)
+
+You can provide users authenticated through a third-party identity provider access to backend resources used by your mobile app.
+You can use identities to guide your infrastructure design decisions.
+You can use authenticated identities to import external data (like email records from Gmail) into AWS databases.
+You can provide admins authenticated through AWS Microsoft AD with access to a Microsoft SharePoint farm running on AWS.
+Which of the following are valid third-party federated identity standards? (Select TWO.)
+
+Secure Shell
+SSO
+SAML 2.0
+Active Directory
+What information does the IAM credential report provide?
+
+A record of API requests against your account resources
+A record of failed password account login attempts
+The current state of your account security settings
+The current state of security of your IAM users’ access credentials
+What text format does the credential report use?
+
+JSON
+CSV
+ASCII
+XML
+Which of the following IAM policies is the best choice for the admin user you create in order to replace the root user for day-to-day administration tasks?
+
+AdministratorAccess
+AmazonS3FullAccess
+AmazonEC2FullAccess
+AdminAccess
+What will you need to provide for a new IAM user you’re creating who will use “programmatic access” to AWS resources?
+
+A password
+A password and MFA
+An access key ID
+An access key ID and secret access key
+What will IAM users with AWS Management Console access need to successfully log in?
+
+Their username, account_number, and a password
+Their username and password
+Their account number and secret access key
+Their username, password, and secret access key
+Which of the following will encrypt your data while in transit between your office and Amazon S3?
+
+DynamoDB
+SSE-S3
+A client-side master key
+SSE-KMS
+Which of the following AWS resources cannot be encrypted using KMS?
+
+Existing AWS Elastic Block Store volumes
+RDS databases
+S3 buckets
+DynamoDB databases
+What does KMS use to encrypt objects stored on your AWS account?
+
+SSH master key
+KMS master key
+Client-side master key
+Customer master key
+Which of the following standards governs AWS-based applications processing credit card transactions?
+
+SSE-KMS
+FedRAMP
+PCI DSS
+ARPA
+What is the purpose of the Service Organization Controls (SOC) reports found on AWS Artifact?
+
+They can be used to help you design secure and reliable credit card transaction applications.
+They attest to AWS infrastructure compliance with data accountability standards like Sarbanes–Oxley.
+They guarantee that all AWS-based applications are, by default, compliant with Sarbanes–Oxley standards.
+They’re an official, ongoing risk-assessment profiler for AWS-based deployments.
+What role can the documents provided by AWS Artifact play in your application planning? (Select TWO.)
+
+They can help you confirm that your deployment infrastructure is compliant with regulatory standards.
+They can provide insight into various regulatory and industry standards that represent best practices.
+They can provide insight into the networking and storage design patterns your AWS applications use.
+They represent AWS infrastructure design policy.
