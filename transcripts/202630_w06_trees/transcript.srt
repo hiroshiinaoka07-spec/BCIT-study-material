@@ -1,0 +1,1339 @@
+1
+00:00:00,210 --> 00:00:04,610
+Hello, in this video I'm introducing Trees, a data structure for representing hierarchical
+
+2
+00:00:04,610 --> 00:00:09,130
+relationships. We'll look at what makes a tree a tree, we'll learn the terminology we're going to
+
+3
+00:00:09,130 --> 00:00:14,670
+use, and then briefly we'll look at implementation. I'm just going to take a moment to talk about why
+
+4
+00:00:14,670 --> 00:00:17,550
+we care about trees because there are some different reasons and I think it helps to
+
+5
+00:00:17,550 --> 00:00:26,150
+have a little bit of overview. I have four reasons. Reason number one, trees are a natural
+
+6
+00:00:26,150 --> 00:00:31,230
+fit for hierarchical data. If you work for a company, you have a boss and your boss has a boss
+
+7
+00:00:31,230 --> 00:00:39,730
+and so on. If you want to understand spoken language, most linguistic theories think that
+
+8
+00:00:39,730 --> 00:00:46,490
+human language is hierarchical. The evolutionary tree of life is called a tree for a reason,
+
+9
+00:00:46,570 --> 00:00:52,610
+it's hierarchical. Often tournaments are organized into hierarchical single elimination brackets,
+
+10
+00:00:52,950 --> 00:00:56,090
+i.e. trees. So trees can be good
+
+11
+00:00:56,090 --> 00:00:56,130
+for hierarchical relationships. If you work for a company, you have a boss and your boss has a
+
+12
+00:00:56,130 --> 00:01:01,070
+for representing stuff that comes from outside of computing. I think this reason is overrated.
+
+13
+00:01:01,270 --> 00:01:12,360
+I'm not going to go into why, but anyway, this is an argument. Okay. Reason number two, trees can
+
+14
+00:01:12,360 --> 00:01:17,900
+be used as ingredients in more complicated data structures. So we got compression algorithms. I
+
+15
+00:01:17,900 --> 00:01:24,300
+got an example of some spatial partitioning algorithms. We got some self-balancing BSTs.
+
+16
+00:01:24,300 --> 00:01:28,400
+We got all sorts of stuff, right? If you're going to go on to do more computing science
+
+17
+00:01:28,400 --> 00:01:33,400
+theory, a whole bunch of this stuff comes up. People want to teach you this stuff. Maybe you
+
+18
+00:01:33,400 --> 00:01:38,560
+are interested in this stuff. And most of these use binary trees. These are binary trees. These
+
+19
+00:01:38,560 --> 00:01:45,460
+are binary trees. These are binary trees. Most of these fancy algorithms use binary trees and
+
+20
+00:01:45,460 --> 00:01:50,800
+binary trees are mostly used for fancy algorithms. But I'm assuming that most of you watching this
+
+21
+00:01:50,800 --> 00:01:56,320
+video are not expecting to go to a whole bunch of computing science theory. So I'm not putting a lot
+
+22
+00:01:56,320 --> 00:01:57,520
+of emphasis on this kind of tree.
+
+23
+00:01:58,400 --> 00:02:04,560
+As such, we will not be discussing binary trees in any detail. And so you should be aware of that.
+
+24
+00:02:04,660 --> 00:02:09,880
+If you have exposure to binary trees from other courses or something, you might need to pay extra
+
+25
+00:02:09,880 --> 00:02:16,180
+attention because we're not doing binary trees. So don't get mixed up. Okay. Reason number three,
+
+26
+00:02:16,520 --> 00:02:22,760
+and I think this is the big one for the audience of this video. Reason number three is that,
+
+27
+00:02:22,760 --> 00:02:28,380
+uh, you know, theory or not, the people who came before you to make technology,
+
+28
+00:02:28,400 --> 00:02:33,940
+the computer scientists, the software developers, the it organizers, the, you know, the people who
+
+29
+00:02:33,940 --> 00:02:39,700
+make operating systems, these people like trees. So they use trees for a lot of things because
+
+30
+00:02:39,700 --> 00:02:45,340
+trees make sense to them. And so when you work in technology, you're going to see a lot of trees.
+
+31
+00:02:46,200 --> 00:02:52,520
+Uh, you know, a file system is a tree. Um, not everything on this page is about HTML,
+
+32
+00:02:52,520 --> 00:02:57,640
+but the HTML results, they're all trees, right? Because the HTML DOM is a tree.
+
+33
+00:02:58,400 --> 00:03:06,220
+Um, lots of serialization formats like JSON or XML. Those are trees. Um, uh, the great majority of
+
+34
+00:03:06,220 --> 00:03:12,260
+serialization formats, actually, um, programming languages are sort of trees under the hood and
+
+35
+00:03:12,260 --> 00:03:17,520
+so on. So if you work in tech, it's good to be comfortable with trees so that if something comes
+
+36
+00:03:17,520 --> 00:03:22,500
+up, uh, you're just like, Oh yeah, yeah, it's a tree, whatever, no big deal. And the fourth reason
+
+37
+00:03:22,500 --> 00:03:26,680
+is that, and this is again, a kind of an, if you go on in computing science, but this is when it's
+
+38
+00:03:26,680 --> 00:03:28,380
+maybe a bit more practical than the thing I said at the beginning. So if you go on and you're
+
+39
+00:03:28,400 --> 00:03:34,940
+learning, um, you might want to learn about graphs and graphs are not the same as trees,
+
+40
+00:03:34,960 --> 00:03:38,540
+but they have a lot of the same concepts and trees are kind of all stepping stone to learning about
+
+41
+00:03:38,540 --> 00:03:44,420
+that. So there's four reasons that you would care about trees. Uh, I would argue the one about file
+
+42
+00:03:44,420 --> 00:03:51,640
+systems and HTML and stuff. Um, that's probably the most practical reason. Oh, um, or, oh, right.
+
+43
+00:03:51,640 --> 00:03:58,360
+Here's something I didn't think of. Uh, just a quick search network administration, uh, network
+
+44
+00:03:58,400 --> 00:04:04,280
+system. Uh, I think they're, they're often organized as trees or thinking about whether or not they're
+
+45
+00:04:04,280 --> 00:04:09,560
+currently a tree is a big deal. Blah, blah, blah, blah, blah. Okay. Lots of reasons for caring
+
+46
+00:04:09,560 --> 00:04:15,260
+about trees. Okay. So let's get into some more details. So a tree is a container for putting
+
+47
+00:04:15,260 --> 00:04:21,640
+stuff in. Um, it's a little bit like a list or a dictionary. Let's stop for a second and restate
+
+48
+00:04:21,640 --> 00:04:28,060
+some obvious facts about lists and dictionaries. Lists are sequences. There are a bunch of things
+
+49
+00:04:28,060 --> 00:04:30,080
+in a line. Um,
+
+50
+00:04:30,360 --> 00:04:33,440
+They intrinsically have, unlike what I just drew here,
+
+51
+00:04:33,440 --> 00:04:36,860
+they have a first and a last, they have an order.
+
+52
+00:04:38,280 --> 00:04:40,080
+That's really essential to what lists are,
+
+53
+00:04:40,080 --> 00:04:41,420
+is that they're sequences.
+
+54
+00:04:43,060 --> 00:04:48,060
+Dictionaries are not sequences,
+
+55
+00:04:48,860 --> 00:04:51,620
+and instead they're just organized around keys
+
+56
+00:04:51,620 --> 00:04:53,440
+and their respective values.
+
+57
+00:04:53,440 --> 00:04:56,060
+That's kind of the essential organizing principle
+
+58
+00:04:56,060 --> 00:04:57,320
+of dictionaries.
+
+59
+00:04:57,320 --> 00:05:01,220
+I guess we also had linked lists,
+
+60
+00:05:01,220 --> 00:05:04,180
+and linked lists are not the same as lists,
+
+61
+00:05:04,180 --> 00:05:06,120
+but they are still sequence-like.
+
+62
+00:05:06,120 --> 00:05:11,080
+They really emphasize being in a line, having an order.
+
+63
+00:05:11,080 --> 00:05:13,540
+So that's three containers we already know about.
+
+64
+00:05:13,540 --> 00:05:16,800
+And I guess tuples are like lists,
+
+65
+00:05:16,800 --> 00:05:19,680
+and sets are kind of like dictionaries, sort of.
+
+66
+00:05:19,680 --> 00:05:21,680
+I don't want to dwell on that right now.
+
+67
+00:05:22,660 --> 00:05:25,600
+Okay, so all of these data structures have,
+
+68
+00:05:25,600 --> 00:05:27,300
+well, it's right in the name, data and structure.
+
+69
+00:05:27,300 --> 00:05:34,950
+Trees also have structure, but it's not in a line.
+
+70
+00:05:43,140 --> 00:05:44,400
+I said I wasn't going to do binary trees,
+
+71
+00:05:44,400 --> 00:05:45,300
+but that was a binary tree here.
+
+72
+00:05:45,300 --> 00:05:46,560
+I'll fix it now, it's not a binary tree.
+
+73
+00:05:46,560 --> 00:05:48,060
+If you know, you know, and if you don't know,
+
+74
+00:05:48,060 --> 00:05:51,080
+that doesn't matter.
+
+75
+00:05:53,480 --> 00:05:57,080
+Trees are a, the structure of a tree is hierarchical,
+
+76
+00:05:57,080 --> 00:05:59,180
+as I said a few times already.
+
+77
+00:05:59,180 --> 00:06:01,600
+They're a little bit like a linked list though, right?
+
+78
+00:06:01,600 --> 00:06:06,660
+So a linked list has a bunch of,
+
+79
+00:06:06,660 --> 00:06:07,880
+this is a really terrible diagram,
+
+80
+00:06:07,880 --> 00:06:09,520
+but hopefully you know what I'm doing here.
+
+81
+00:06:09,580 --> 00:06:14,060
+A linked list has a bunch of nodes connected up,
+
+82
+00:06:14,060 --> 00:06:19,270
+and a tree also has a bunch of nodes connected up.
+
+83
+00:06:19,270 --> 00:06:21,190
+Okay, let me just delete all these scribbles
+
+84
+00:06:21,190 --> 00:06:24,570
+and draw a better tree that we can talk about.
+
+85
+00:06:24,570 --> 00:06:31,410
+Delete scribbles.
+
+86
+00:06:31,410 --> 00:06:33,390
+Okay, this is probably far too much tree,
+
+87
+00:06:33,390 --> 00:06:47,500
+but you know, just connect these things up.
+
+88
+00:06:47,500 --> 00:06:51,250
+Okay, we got a tree.
+
+89
+00:06:51,250 --> 00:06:52,870
+So the funny thing about computer scientists,
+
+90
+00:06:52,870 --> 00:06:55,070
+apparently computer scientists don't know
+
+91
+00:06:55,070 --> 00:06:57,150
+about how trees grow in nature.
+
+92
+00:06:57,150 --> 00:06:59,010
+And so they start the tree at the top,
+
+93
+00:06:59,010 --> 00:07:01,310
+and they grow down, right?
+
+94
+00:07:02,190 --> 00:07:04,670
+I don't know, go touch, well, not touch grass,
+
+95
+00:07:04,670 --> 00:07:05,530
+touch trees more, I guess.
+
+96
+00:07:05,530 --> 00:07:07,310
+But anyway, that's how we do it.
+
+97
+00:07:07,310 --> 00:07:08,330
+It's weird, but it's how we do it,
+
+98
+00:07:08,330 --> 00:07:10,190
+is we start our trees at the top and we grow down.
+
+99
+00:07:10,190 --> 00:07:11,310
+So this tree has, let me see,
+
+100
+00:07:11,310 --> 00:07:12,990
+one, two, three, four, five, six, seven, eight,
+
+101
+00:07:12,990 --> 00:07:14,390
+nine, 10, 11, 12, 13, 14.
+
+102
+00:07:14,390 --> 00:07:20,550
+I think this is 14 nodes, unless I miscounted.
+
+103
+00:07:20,550 --> 00:07:23,990
+So we've got the word nodes.
+
+104
+00:07:23,990 --> 00:07:30,460
+Sometimes nodes are instead called vertices.
+
+105
+00:07:34,270 --> 00:07:36,530
+If you care about the name of the connection,
+
+106
+00:07:36,530 --> 00:07:37,530
+you don't have to go into the code.
+
+107
+00:07:37,530 --> 00:07:39,530
+So if we wanted to do some simulations
+
+108
+00:07:39,530 --> 00:07:41,810
+between the nodes, which you generally don't,
+
+109
+00:07:41,810 --> 00:07:44,510
+but sometimes you do, right?
+
+110
+00:07:44,510 --> 00:07:48,450
+These things here, those are called edges
+
+111
+00:07:48,450 --> 00:07:53,720
+or sometimes other things, but I like edges.
+
+112
+00:07:53,720 --> 00:07:54,580
+Let's see.
+
+113
+00:07:56,360 --> 00:08:00,000
+Okay, and the node that is at the top is a special node.
+
+114
+00:08:00,000 --> 00:08:01,540
+And that is called,
+
+115
+00:08:04,060 --> 00:08:06,100
+that is called the root.
+
+116
+00:08:06,100 --> 00:08:07,560
+And again, if you'd ever looked at a real tree,
+
+117
+00:08:07,560 --> 00:08:08,200
+you would know, the root goes at the bottom, but,
+
+118
+00:08:08,200 --> 00:08:13,160
+but we put the root at the top.
+
+119
+00:08:13,160 --> 00:08:16,780
+So linked lists also have, you know, like sequences,
+
+120
+00:08:16,780 --> 00:08:19,200
+linked lists have this concept of order
+
+121
+00:08:19,200 --> 00:08:20,380
+of earlier and later.
+
+122
+00:08:20,380 --> 00:08:23,540
+And in fact, linked list nodes have the idea of a next,
+
+123
+00:08:23,540 --> 00:08:25,780
+and we store that with a reference.
+
+124
+00:08:25,780 --> 00:08:27,880
+And sometimes linked lists also have a previous,
+
+125
+00:08:27,880 --> 00:08:29,780
+and we store that with a reference too.
+
+126
+00:08:29,780 --> 00:08:31,780
+Trees, well, they're kind of similar
+
+127
+00:08:31,780 --> 00:08:32,960
+and they're kind of different.
+
+128
+00:08:32,960 --> 00:08:35,540
+And so we've got these connections between them.
+
+129
+00:08:36,700 --> 00:08:39,740
+They can go one directional or they can go both directions.
+
+130
+00:08:39,740 --> 00:08:42,220
+For a minute, we'll pretend they go both directions,
+
+131
+00:08:42,220 --> 00:08:43,900
+even though we often won't care.
+
+132
+00:08:43,900 --> 00:08:45,840
+So if they go both directions,
+
+133
+00:08:45,840 --> 00:08:53,530
+then this direction is called parent,
+
+134
+00:08:53,730 --> 00:08:58,730
+and this direction is called child.
+
+135
+00:09:02,700 --> 00:09:05,060
+And these are not absolute, you know,
+
+136
+00:09:05,060 --> 00:09:06,560
+names for particular parts of the tree.
+
+137
+00:09:06,560 --> 00:09:09,700
+These are relative names for the relationship, right?
+
+138
+00:09:09,700 --> 00:09:14,700
+So in this relationship here, S is closer to the root.
+
+139
+00:09:14,700 --> 00:09:17,380
+So S is the parent.
+
+140
+00:09:17,380 --> 00:09:18,760
+A is further from the root.
+
+141
+00:09:18,760 --> 00:09:20,780
+So A is the child, right?
+
+142
+00:09:20,780 --> 00:09:23,120
+I'm just going to write a little, where'd my cursor go?
+
+143
+00:09:23,120 --> 00:09:25,960
+Little P here for parent,
+
+144
+00:09:25,960 --> 00:09:28,200
+little C here for child in this relationship.
+
+145
+00:09:29,120 --> 00:09:33,560
+Or in this relationship, oh, it says up.
+
+146
+00:09:33,560 --> 00:09:36,640
+That's a funny little, anyway, in this relationship,
+
+147
+00:09:36,640 --> 00:09:39,860
+U is the parent and P is the child.
+
+148
+00:09:41,080 --> 00:09:44,680
+And of course, most nodes are a parent and a child,
+
+149
+00:09:44,700 --> 00:09:49,620
+so in this relationship, G is the parent
+
+150
+00:09:49,620 --> 00:09:51,120
+and U is the child, right?
+
+151
+00:09:51,120 --> 00:09:55,120
+U is a child, but it's also a parent.
+
+152
+00:09:55,120 --> 00:09:58,020
+You need to get very comfortable with that terminology.
+
+153
+00:09:59,200 --> 00:10:03,870
+Be very clear about that, right?
+
+154
+00:10:03,870 --> 00:10:07,370
+And every single node has a parent, one parent,
+
+155
+00:10:07,370 --> 00:10:10,930
+not two, not like real biology, one parent.
+
+156
+00:10:10,930 --> 00:10:13,210
+Actually, I lied, did you notice?
+
+157
+00:10:13,210 --> 00:10:15,330
+There is one node here that does not have a parent.
+
+158
+00:10:15,330 --> 00:10:16,270
+That node is special.
+
+159
+00:10:16,270 --> 00:10:17,590
+That node is the root, right?
+
+160
+00:10:17,590 --> 00:10:18,950
+So that's part of what makes the root, right?
+
+161
+00:10:18,950 --> 00:10:23,750
+The root is that it doesn't have a parent.
+
+162
+00:10:23,750 --> 00:10:25,810
+Every other node must have a parent.
+
+163
+00:10:25,810 --> 00:10:27,310
+But going the other direction,
+
+164
+00:10:28,250 --> 00:10:30,470
+some nodes have children, some nodes don't, right?
+
+165
+00:10:30,470 --> 00:10:34,630
+So M has no children, D has no children, W, right?
+
+166
+00:10:34,630 --> 00:10:39,080
+We've got a whole bunch of these nodes with no children.
+
+167
+00:10:39,080 --> 00:10:40,020
+Did I get them all?
+
+168
+00:10:40,020 --> 00:10:43,280
+I think I got them all.
+
+169
+00:10:43,280 --> 00:10:49,980
+Nodes that have no children are called leaves.
+
+170
+00:10:49,980 --> 00:10:54,920
+Singular leaf, of course, right?
+
+171
+00:10:54,920 --> 00:10:56,840
+And you know, that makes sense in the tree analogy
+
+172
+00:10:56,840 --> 00:10:59,040
+because leaf and root are kind of,
+
+173
+00:10:59,220 --> 00:11:00,460
+you know, opposite-ish.
+
+174
+00:11:04,100 --> 00:11:06,660
+In any given little family, oh, sorry.
+
+175
+00:11:07,540 --> 00:11:12,540
+If two nodes have the same parent, they are siblings, right?
+
+176
+00:11:20,450 --> 00:11:23,710
+That's pretty straightforward.
+
+177
+00:11:23,710 --> 00:11:25,070
+Okay.
+
+178
+00:11:25,070 --> 00:11:28,550
+Usually we understand children of a node to have some order.
+
+179
+00:11:30,530 --> 00:11:32,770
+This isn't always true,
+
+180
+00:11:32,770 --> 00:11:34,970
+but I think it's practical to assume
+
+181
+00:11:34,970 --> 00:11:36,330
+that it's usually true, right?
+
+182
+00:11:36,330 --> 00:11:39,330
+So we usually assume that nodes have, you know, two children.
+
+183
+00:11:39,430 --> 00:11:42,290
+They have some, maybe we should change pen colors for that.
+
+184
+00:11:43,250 --> 00:11:47,190
+That nodes at some level, sorry, not at some level,
+
+185
+00:11:47,190 --> 00:11:52,370
+nodes that are siblings have an order, right?
+
+186
+00:11:52,370 --> 00:11:55,970
+And so we can talk about the first child, the last child,
+
+187
+00:11:55,970 --> 00:12:00,600
+the next child, ideas like that.
+
+188
+00:12:00,600 --> 00:12:02,120
+Something to notice about this structure,
+
+189
+00:12:02,120 --> 00:12:03,680
+and this is kind of important,
+
+190
+00:12:03,680 --> 00:12:08,680
+is that if I have any two nodes, say this one and this one,
+
+191
+00:12:10,020 --> 00:12:15,360
+there's only one way to get between them.
+
+192
+00:12:15,360 --> 00:12:16,400
+Or if I have...
+
+193
+00:12:16,400 --> 00:12:24,960
+of this one and this one. There's only one way to get between them. Any pair of nodes in the same
+
+194
+00:12:24,960 --> 00:12:29,280
+tree, there's one way to get between them. If there's no way to get between them, that would
+
+195
+00:12:29,280 --> 00:12:40,700
+mean that it wasn't a tree because, you know, like I can't get from here to here. That means this
+
+196
+00:12:40,700 --> 00:12:44,400
+whole thing I've drawn here isn't one tree. I mean, I guess you could say it's two trees, but it's not
+
+197
+00:12:44,400 --> 00:12:49,640
+one tree. And that's kind of a consequence of the thing that I said where every node must have a
+
+198
+00:12:49,640 --> 00:12:55,040
+parent except for a single unique root, right? This thing I've drawn with two trees, there's
+
+199
+00:12:55,040 --> 00:13:02,120
+basically two roots. So that's why it's not a tree. Okay. So any two nodes must have a single
+
+200
+00:13:02,120 --> 00:13:10,170
+path, not zero paths, but also not two paths. If there were two ways to get there, right? If you
+
+201
+00:13:10,170 --> 00:13:19,570
+could get there this way, but you also could get there by going, I don't know, like up here, down
+
+202
+00:13:19,570 --> 00:13:21,270
+here, and there was a little bloop over here.
+
+203
+00:13:21,430 --> 00:13:26,410
+That would mean there was a little bloop over there. And that would require one of these nodes
+
+204
+00:13:26,410 --> 00:13:33,270
+to have two parents. And we know that that can't happen. Every node must have one parent.
+
+205
+00:13:34,450 --> 00:13:41,390
+And so this situation where there's like more than one way to, well, I guess, I guess if there
+
+206
+00:13:41,390 --> 00:13:46,130
+was two ways to go this way, I could follow one of them there and one of them back and then make
+
+207
+00:13:46,130 --> 00:13:50,310
+a cycle. This is called a cycle when you can go around and around and around and around and around.
+
+208
+00:13:51,430 --> 00:13:57,370
+Okay. Delete all that crap. That's not part of the tree. Okay. So what do we have there? We have
+
+209
+00:13:57,370 --> 00:14:18,360
+every node to node combination. There's one way to get there. You're not allowed to be disconnected
+
+210
+00:14:18,360 --> 00:14:27,090
+and you're not allowed to have a cycle. Let's write that somewhere else because I'm running
+
+211
+00:14:27,090 --> 00:14:41,490
+out of space. Okay. So our terminology list so far, we got nodes, we got edges. Maybe I try to
+
+212
+00:14:41,490 --> 00:14:42,590
+avoid saying vertices, but I'm not going to say vertices. I'm going to say vertices. I'm going to
+
+213
+00:14:42,610 --> 00:14:46,530
+if I start talking about edges, then I end up saying vertices. So I try to avoid this,
+
+214
+00:14:46,590 --> 00:14:53,470
+but it does happen. Nodes, vertices, edges, parent, child. We've got siblings. We've got
+
+215
+00:14:53,470 --> 00:15:00,210
+root. Really important. We got leaves. Really important. And we've got this idea that every
+
+216
+00:15:00,210 --> 00:15:06,710
+pair of nodes has one path between them. No disconnections and no cycles. Excuse me.
+
+217
+00:15:06,710 --> 00:15:12,570
+It's good to know the word cycle. And we know that usually we consider that children,
+
+218
+00:15:12,610 --> 00:15:16,290
+to have an order. And so you might just kind of assume that, that children have an order,
+
+219
+00:15:16,370 --> 00:15:22,150
+a left child, a right child, a first child, a last child, stuff like that. Okay. Let's see. What else?
+
+220
+00:15:24,710 --> 00:15:28,350
+This, I don't know if I said this already. This video has got a whole bunch of terminology and
+
+221
+00:15:28,350 --> 00:15:31,710
+you need to memorize all this terminology so that you can talk about trees. So you can understand
+
+222
+00:15:31,710 --> 00:15:37,230
+me when I talk about trees so that I can use the special terminology on exam questions. And you
+
+223
+00:15:37,230 --> 00:15:39,830
+know what I'm asking about all that stuff. So we've got a big list of stuff you got to learn.
+
+224
+00:15:41,290 --> 00:15:42,570
+Just 20 or so words.
+
+225
+00:15:42,610 --> 00:15:50,920
+You got to memorize. We've got ancestor and descendant. So let's pause for a second and
+
+226
+00:15:50,920 --> 00:15:55,380
+think about what the word ancestor means in real life. An ancestor in real life is your parent
+
+227
+00:15:55,380 --> 00:16:01,920
+or your parent's parent or your parent's parent's parent or your parent's parent's parent's parent's
+
+228
+00:16:01,920 --> 00:16:07,880
+parent's parent's parent's parent's parent or whatever, right? An ancestor is anybody before you
+
+229
+00:16:07,880 --> 00:16:13,120
+in your family history. And in trees, it's basically the same.
+
+230
+00:16:13,820 --> 00:16:14,260
+Um,
+
+231
+00:16:14,260 --> 00:16:18,800
+so let's see, let's take an example. I need a new pen color. How about this orange?
+
+232
+00:16:20,140 --> 00:16:28,900
+Um, what are B's ancestors? Well, B's ancestors are U and G and S and K. Actually though,
+
+233
+00:16:29,100 --> 00:16:33,880
+it's a little more complicated because sometimes the definition will include the note itself,
+
+234
+00:16:33,880 --> 00:16:39,740
+right? So, you know, if I ask you on an exam, you could answer either unless I specify,
+
+235
+00:16:39,740 --> 00:16:43,480
+right? If, um, if you're reading,
+
+236
+00:16:44,260 --> 00:16:49,320
+uh, algorithms like descriptions of algorithms, like, like, you know, in the future, you want to
+
+237
+00:16:49,320 --> 00:16:53,760
+learn how to do an algorithm to do something and talks about ancestors, you got to pay attention
+
+238
+00:16:53,760 --> 00:16:58,020
+to whether they mean including or not including the note itself. And that's a little confusing.
+
+239
+00:16:58,100 --> 00:17:02,200
+That sucks, but it's just that some algorithms work better one way and some algorithms work
+
+240
+00:17:02,200 --> 00:17:08,820
+better the other way. So there's some variation there. Um, okay. Right. So either we would say
+
+241
+00:17:08,820 --> 00:17:13,580
+B's ancestors are U G S K, or we would say B's ancestors are B U G S K.
+
+242
+00:17:14,260 --> 00:17:17,920
+Either of those could be fair, depending on the context. And again, if I don't tell you which one
+
+243
+00:17:17,920 --> 00:17:23,470
+on a question you can answer either, it doesn't matter. And descendant, descendant is just the
+
+244
+00:17:23,470 --> 00:17:31,030
+opposite of ancestor, right? So K's descendants are either including K itself or not including K,
+
+245
+00:17:31,110 --> 00:17:35,830
+but then definitely including S definitely including G definitely including U. Oh,
+
+246
+00:17:35,910 --> 00:17:40,450
+sorry. That that's, I said that badly. Uh, sorry. I mean, the thing I said is true,
+
+247
+00:17:40,450 --> 00:17:45,250
+but actually K's descendants are all of the nodes, right?
+
+248
+00:17:45,570 --> 00:17:51,890
+Because M's ancestor includes K, therefore K's descendants includes M and J's ancestor includes
+
+249
+00:17:51,890 --> 00:17:58,070
+K and K's descendant includes J and so on. So in the case of K, it's like everything,
+
+250
+00:17:58,750 --> 00:18:03,850
+either everything, including K or everything except K, but maybe a simpler case would be,
+
+251
+00:18:03,970 --> 00:18:09,650
+what about Zed's descendants? So Zed's descendants are either D and W or Zed and D and W,
+
+252
+00:18:09,650 --> 00:18:14,310
+depending on context. Okay. We've got ancestor and descendant added now.
+
+253
+00:18:17,240 --> 00:18:25,100
+Okay. Another word we would use is what about part of a tree? And the main part of a tree we
+
+254
+00:18:25,100 --> 00:18:32,900
+would care about is a thing called a subtree. So we pick some node and that node and all of
+
+255
+00:18:32,900 --> 00:18:38,240
+its descendants together, doesn't matter which definition of descendant I used because of the
+
+256
+00:18:38,240 --> 00:18:52,210
+way I said that, that's a subtree sub. And we might say this is the subtree at J or the subtree
+
+257
+00:18:52,210 --> 00:18:53,970
+of J. Like we would, we would, we would, we would, we would, we would, we would, we would, we would,
+
+258
+00:18:53,970 --> 00:18:58,110
+we would use the sort of root of the subtree as the label for the whole subtree.
+
+259
+00:18:59,750 --> 00:19:02,250
+I don't know how much that's going to come up in class, but it might.
+
+260
+00:19:04,030 --> 00:19:10,630
+Okay. So there's a bunch of words that are for parts. And now we've got some words for
+
+261
+00:19:10,630 --> 00:19:17,880
+measurements you can take. Okay. So a list has a length. The dictionary has a size.
+
+262
+00:19:18,560 --> 00:19:27,940
+A tree also has, I want black. I said, the fuck's going black.
+
+263
+00:19:32,000 --> 00:19:34,120
+There's a size. The size is the number of nodes.
+
+264
+00:19:36,860 --> 00:19:41,360
+We're going to ignore the possibility of trees of size zero. That's pretty common,
+
+265
+00:19:41,360 --> 00:19:48,060
+but sometimes you do have trees of size zero, but it makes things complicated in a way that I think
+
+266
+00:19:48,060 --> 00:19:52,300
+isn't really very helpful to what we're trying to do here. So for this class, we're not going to
+
+267
+00:19:52,300 --> 00:19:59,800
+worry about dealing with that. We're not going to worry about trees with zero nodes. Therefore,
+
+268
+00:20:00,220 --> 00:20:01,980
+we're only going to do trees that have at least one node. We're not going to worry about trees with
+
+269
+00:20:01,980 --> 00:20:13,860
+and therefore those trees will always have a root. We have size. Okay. If I have a connection
+
+270
+00:20:13,860 --> 00:20:17,920
+between two, I don't know where that word went, but I'll put it back in a second. If I have a
+
+271
+00:20:17,920 --> 00:20:27,220
+connection between two nodes, like I was drawing here before, that's called a path. And a path can
+
+272
+00:20:27,220 --> 00:20:34,540
+have a length. That's the number of edges you have to travel, right? So if you go zero steps,
+
+273
+00:20:34,860 --> 00:20:40,520
+your path has length zero. If you go like this, your path has length one. This path has length two
+
+274
+00:20:40,520 --> 00:20:46,060
+and so on. So that might come up. Oh, I thought the word, am I hallucinating? I thought the word
+
+275
+00:20:46,060 --> 00:20:49,680
+size disappeared, but it didn't disappear. I'm sorry for, I guess it's just very early in the
+
+276
+00:20:49,680 --> 00:21:01,190
+morning for me. I'm sorry. Okay. And wrapping up our list of words, we've got height and depth,
+
+277
+00:21:01,190 --> 00:21:07,050
+and these are a bit complicated because, well, you'll see. Okay. So height and depth. So let's
+
+278
+00:21:07,770 --> 00:21:22,360
+look at this node J. The depth of a node is the number of steps to the root. Okay. So we have
+
+279
+00:21:22,360 --> 00:21:32,030
+depth. I better just use the text tool. We've got the depth of a node. We've got the,
+
+280
+00:21:33,650 --> 00:21:39,770
+where am I going to put this? This is a mess. I guess I'm just going to put it over top of size.
+
+281
+00:21:40,510 --> 00:21:46,580
+I don't like this. Okay. Hang on. Okay. We've got the depth of a node,
+
+282
+00:21:46,700 --> 00:21:49,560
+the height of a node, the depth of the tree and the height of the whole tree.
+
+283
+00:21:50,280 --> 00:22:05,720
+Right. So the depth is the length of the path to the root. Okay. So that means the root has
+
+284
+00:22:05,720 --> 00:22:09,860
+depth zero, right? So if you think about depth as like, how far do you go? How far have you gone
+
+285
+00:22:09,860 --> 00:22:21,940
+down? Right. And the height is counting the other way. The height is the maximum of,
+
+286
+00:22:22,840 --> 00:22:28,800
+all of like the longest path to any descendant. Right. So in the case of J, it's simple because
+
+287
+00:22:28,800 --> 00:22:39,840
+it's, it doesn't matter which way you go. It's two. Okay. So the depth of a node is the path
+
+288
+00:22:39,840 --> 00:22:46,460
+length up to the root. The height is the path length down to the furthest descendant. So S here
+
+289
+00:22:46,460 --> 00:22:53,740
+also has a depth of one, but its height is, well, the furthest away thing is one of these things.
+
+290
+00:22:53,740 --> 00:22:55,500
+So that's one, two, three.
+
+291
+00:22:56,080 --> 00:23:04,840
+Right. So that's D one H three. Okay. And then what about the tree? Well, the depth of the tree
+
+292
+00:23:04,840 --> 00:23:09,620
+is the maximum depth of any node. The height of the tree is the maximum height of every, of any
+
+293
+00:23:09,620 --> 00:23:14,680
+node. And so those definitions are actually the same. Like it doesn't matter which one you do,
+
+294
+00:23:14,720 --> 00:23:20,220
+they work out the same. You can think about that if you want to. And so this tree has height one,
+
+295
+00:23:20,220 --> 00:23:26,020
+two, three, four, the whole tree has height four. And that's because the root,
+
+296
+00:23:26,080 --> 00:23:30,740
+has height four or the whole tree has depth four. And that's because some of the nodes have
+
+297
+00:23:30,740 --> 00:23:37,540
+depth four. Okay. Big, long list of stuff to learn. Nodes, edges, parent, child, ancestor,
+
+298
+00:23:37,760 --> 00:23:48,200
+descendant, siblings, subtree, root, leaves, cycles, depth of node, height of node, depth
+
+299
+00:23:48,200 --> 00:23:58,960
+of tree, height of tree, size of tree. Sorry about that, but you can do it. And that's the
+
+300
+00:23:59,400 --> 00:24:08,240
+definitions. Let's just real quick, go to an implementation. I found it for OBS. Where is,
+
+301
+00:24:08,300 --> 00:24:14,620
+okay, there it is. Okay. So maybe you saw this in class, maybe you didn't.
+
+302
+00:24:22,050 --> 00:24:28,610
+Each tree node needs, well, it needs to hold some actual data, right? So a list
+
+303
+00:24:28,610 --> 00:24:34,510
+exists so it can hold data. A dictionary exists so it can hold some values and some keys.
+
+304
+00:24:34,850 --> 00:24:35,910
+Our trees have to hold data. So a list exists so it can hold data. A dictionary exists so it can hold
+
+305
+00:24:35,910 --> 00:24:41,790
+hold some data. And so you don't have to do it this way, but we're going to, we're going to pass
+
+306
+00:24:41,790 --> 00:24:46,550
+in the vowel, uh, constructor time. And so in the initializer, I'm going to set the value here. So
+
+307
+00:24:46,550 --> 00:24:53,050
+that's what, that's what it's actually here for. And in my examples, I will mostly use simple
+
+308
+00:24:53,050 --> 00:24:55,990
+things like letters or numbers, but you could put anything in there, just like you could put
+
+309
+00:24:55,990 --> 00:25:05,590
+anything into a list. And then, um, our tree nodes can have children. They can have any number of
+
+310
+00:25:05,590 --> 00:25:08,230
+children. They can have zero children. They can have one child. They can have two children. They
+
+311
+00:25:08,230 --> 00:25:14,730
+can have 17 children. And a good way of storing variable numbers of children is a list. I'm just
+
+312
+00:25:14,730 --> 00:25:18,370
+going to again, remind you that if you think in terms of binary trees, you need to relearn because
+
+313
+00:25:18,370 --> 00:25:22,690
+that's not what we're doing. Um, you would do this part differently with binary trees.
+
+314
+00:25:24,130 --> 00:25:32,250
+And then, uh, sometimes we bother to keep a parent reference. Sometimes we don't, um, this is not
+
+315
+00:25:32,250 --> 00:25:35,250
+going to be incredibly useful in this class, but we're going to use it just a little bit.
+
+316
+00:25:35,590 --> 00:25:41,450
+And I'm going to put it here anyway. So, um, we're going to start with that being none.
+
+317
+00:25:41,610 --> 00:25:47,950
+Of course, only the parent, sorry. Wow. That was goofy. Only the root has no parent. So only the
+
+318
+00:25:47,950 --> 00:25:57,990
+root will stay with none here. Um, but, uh, it's hard to pre-initialize it correctly. Um, and then
+
+319
+00:25:57,990 --> 00:26:06,250
+actually, so this is kind of sufficient, but actually just to make it, um, a little easier
+
+320
+00:26:09,910 --> 00:26:30,170
+than, I'm just gonna do that that way. I think that works. I actually haven't tried this.
+
+321
+00:26:31,910 --> 00:26:36,690
+I mean, I haven't tried this this year. And so then I'm going to be able to do stuff like this.
+
+322
+00:26:37,010 --> 00:27:08,500
+Um, no, I don't want to do it that way. Sorry. Sorry for being confusing. Okay. There. So that'll
+
+323
+00:27:08,500 --> 00:27:21,240
+wire them up correctly. Okay. And then we could do something like this. Let's make the one from
+
+324
+00:27:21,240 --> 00:27:30,220
+the, um, let's just put that in there. Okay. So my root is like, um, you know,
+
+325
+00:27:30,220 --> 00:27:34,760
+there it's got the value of K, right? But actually I want to be able to
+
+326
+00:27:35,400 --> 00:27:57,260
+build the whole tree. So then I can go, whoops, that's a string and I'm not going to bother
+
+327
+00:27:57,260 --> 00:28:12,560
+finishing this. Right. I'm going to do a little bit more though. Okay. And I don't know how well
+
+328
+00:28:12,560 --> 00:28:19,080
+you can see it, but actually, um, the visual layout here is actually kind of like a rotated
+
+329
+00:28:19,080 --> 00:28:24,540
+version of the picture we normally draw. So anyway, this, um,
+
+330
+00:28:24,660 --> 00:28:28,680
+being able to do this nonsense here is why I've done this stuff up here.
+
+331
+00:28:30,020 --> 00:28:34,740
+Um, and maybe that'll make it easier to do labs and stuff. Anyway. Okay. So that's our
+
+332
+00:28:34,740 --> 00:28:41,360
+little tree implementation. I mean, this is just the beginning, right? So, um, as we go along,
+
+333
+00:28:41,360 --> 00:28:48,180
+we will add more methods to our tree node. We'll have some simple methods for warmup and we will
+
+334
+00:28:48,180 --> 00:28:53,560
+have more interesting algorithmic methods, uh, after that.
+
+335
+00:28:54,660 --> 00:28:57,120
+Okay. And that's our introduction to trees.

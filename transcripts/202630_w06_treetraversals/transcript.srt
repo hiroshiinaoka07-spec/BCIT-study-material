@@ -1,0 +1,1307 @@
+1
+00:00:00,400 --> 00:00:04,700
+In this video, I'll be talking about tree traversals, or actually more specifically
+
+2
+00:00:04,700 --> 00:00:11,120
+about traversal orders. The thing about data structures is that we want to get the data in
+
+3
+00:00:11,120 --> 00:00:16,960
+them. And sometimes we want to get all the data in them, maybe to print everything out, or maybe
+
+4
+00:00:16,960 --> 00:00:23,240
+to linear search for one value or multiple values, maybe add up all the numbers, like do some kind
+
+5
+00:00:23,240 --> 00:00:28,160
+of sum or average or something like that. Or maybe to just kind of go through it and give
+
+6
+00:00:28,160 --> 00:00:33,680
+every employee with a high performance rating and salary increase, or I don't know, all sorts
+
+7
+00:00:33,680 --> 00:00:44,020
+of reasons, right? And with a list or a tuple, we can use a for loop. I should write for loop here
+
+8
+00:00:44,020 --> 00:00:48,260
+to give you something to look at. With a list or a tuple, we can use a for loop. Technically, this
+
+9
+00:00:48,260 --> 00:00:52,180
+also works for a dictionary, although that's a whole can of worms we're not going to think about
+
+10
+00:00:52,180 --> 00:00:58,720
+right now. With a linked list, we need to build a little bit more machinery, but we can still make
+
+11
+00:00:58,720 --> 00:00:59,740
+a thing like a loop.
+
+12
+00:00:59,760 --> 00:01:05,980
+That just loops through the whole thing one step at a time in a line, right? In each of these cases,
+
+13
+00:01:05,980 --> 00:01:11,100
+we basically go through the data in a line. Again, the dictionary is a bit of a complicated
+
+14
+00:01:11,100 --> 00:01:23,550
+variation, but a tree is very much not a line. And so we are going to want to be able to go
+
+15
+00:01:23,550 --> 00:01:29,090
+through everything in a tree, maybe to print everything out, or maybe to modify the salary
+
+16
+00:01:29,090 --> 00:01:31,090
+of every high-performing employer, who knows why.
+
+17
+00:01:31,330 --> 00:01:37,550
+But it's going to be a little bit trickier. A for loop is definitely not, or a while loop is definitely
+
+18
+00:01:37,550 --> 00:01:45,110
+not enough. So, partly the algorithm itself is trickier, and we will deal with that in the future,
+
+19
+00:01:45,110 --> 00:01:50,750
+not in this video. But before we get to the algorithm, it's also tricky because it's not
+
+20
+00:01:50,750 --> 00:01:58,590
+super obvious what order is the right order to visit things. So that's what this video is about,
+
+21
+00:01:58,590 --> 00:02:00,690
+is several common traversal patterns, and then we're going to go through them one step at a time.
+
+22
+00:02:00,690 --> 00:02:01,250
+So, let's get started.
+
+23
+00:02:01,250 --> 00:02:18,920
+So, we're going to look at a few. So, I'm just going to have this tree here as my example.
+
+24
+00:02:19,440 --> 00:02:29,170
+I'm going to draw all over it. So, first, I will just make a copy. Okay. So, as we traverse
+
+25
+00:02:29,170 --> 00:02:34,090
+through a tree, oh, sorry, by the way, traverse, you know, you can see that that word is related
+
+26
+00:02:34,090 --> 00:02:34,910
+to travel. So, as we traverse through a tree, we're going to look at a few. So, I'm going to
+
+27
+00:02:34,930 --> 00:02:39,950
+It just means to go across, right? Like, that's what that word means in English. So, this is a
+
+28
+00:02:39,950 --> 00:02:46,810
+plan for going across a tree, kind of. Okay. So, as we traverse, and we're going to assume we start
+
+29
+00:02:46,810 --> 00:02:51,070
+at the root, although we could start, we could do, we could start somewhere else and just do the
+
+30
+00:02:51,070 --> 00:02:56,770
+subtree, but like, okay, I don't care. We're going to assume we start at the root. Okay. So,
+
+31
+00:02:56,770 --> 00:03:04,210
+as we traverse, when we're at some node, we're going to have a choice, right? Do we do the
+
+32
+00:03:04,210 --> 00:03:04,830
+children?
+
+33
+00:03:04,830 --> 00:03:13,710
+Do we do the children first, and then the siblings later? Or do we do the siblings first, and the
+
+34
+00:03:13,710 --> 00:03:19,490
+children later? Does that make sense? I mean, there's more to it than that. But also, obviously,
+
+35
+00:03:20,210 --> 00:03:28,150
+some nodes don't have any siblings. So, in this case, it's a no-brainer. And some nodes don't
+
+36
+00:03:28,150 --> 00:03:32,610
+have any children. So, in this case, it's a no-brainer. But nonetheless, we are often going
+
+37
+00:03:32,610 --> 00:03:33,950
+to have to make those
+
+38
+00:03:33,950 --> 00:03:41,410
+choices. And we're going to sort of make some kind of consistent choice.
+
+39
+00:03:42,790 --> 00:03:48,770
+And so, this results in our first kind of split in, we've got traversals here.
+
+40
+00:03:51,220 --> 00:03:57,340
+This is our first kind of split in our plan. We can either go, mostly go down.
+
+41
+00:03:58,680 --> 00:04:09,940
+So, we can first explore the depths of the tree. Or we can first explore,
+
+42
+00:04:10,640 --> 00:04:19,340
+like, the tree's breadth before later going down. You get the glory of my writing at its
+
+43
+00:04:19,340 --> 00:04:23,520
+finest. Every time I record one of these videos, I think I should try to understand how to use my
+
+44
+00:04:23,520 --> 00:04:30,660
+tablet. But I always don't know how to use it. Okay. So, first, we're going to do depth first.
+
+45
+00:04:32,180 --> 00:04:37,220
+I guess I should say, we're going to do depth first first, in depth. Sorry, I'll stop trying
+
+46
+00:04:37,220 --> 00:04:42,940
+to be funny. So, let's look at this tree, right? Every time I hit the button, I'm going to be able to
+
+47
+00:04:42,940 --> 00:04:43,080
+hit the button. I'm going to hit the button. I'm going to hit the button. I'm going to hit the button.
+
+48
+00:04:43,100 --> 00:04:52,010
+If I can go deeper, I will. So, I can go deeper. So, I can go deeper. So, I can go deeper.
+
+49
+00:04:53,610 --> 00:04:58,350
+Right? And now, I'm at a leaf. I can't go any deeper. So, I've got to go back up.
+
+50
+00:04:59,630 --> 00:05:05,170
+But now, I can go deeper again. So, I will. And now, I'm at a leaf. I can't go deeper. So,
+
+51
+00:05:05,190 --> 00:05:11,130
+I got to go back up. But I can go deeper now. So, I will. Now, I got to go up. Got to go up.
+
+52
+00:05:11,690 --> 00:05:13,690
+Got to go up. Oh, now, I can go deeper. So, I will.
+
+53
+00:05:14,410 --> 00:05:21,430
+Every time I have the option to go deeper, I take that option, right?
+
+54
+00:05:21,430 --> 00:05:27,750
+So even right here, uh, I go deeper, but then I got to go up, then I go deeper and actually,
+
+55
+00:05:27,750 --> 00:05:35,270
+sorry, I, I, uh, I got to start at the beginning cause I, cause I would do like that.
+
+56
+00:05:45,260 --> 00:05:45,700
+Okay.
+
+57
+00:05:47,440 --> 00:05:52,100
+I'm going to draw that a little bit tidier this time for a reason.
+
+58
+00:05:52,100 --> 00:05:58,440
+I'm just going to go down and down and down and down, and now I can go up.
+
+59
+00:05:58,440 --> 00:05:59,820
+So I'm going to go up and now I got to go down.
+
+60
+00:05:59,900 --> 00:06:00,500
+Now I can go up.
+
+61
+00:06:06,390 --> 00:06:07,490
+Oh God, what happened?
+
+62
+00:06:07,950 --> 00:06:08,350
+Sorry.
+
+63
+00:06:26,720 --> 00:06:27,120
+Okay.
+
+64
+00:06:27,200 --> 00:06:31,780
+And this sort of squid looking thing I've drawn in green, this is the central spirit
+
+65
+00:06:31,780 --> 00:06:34,620
+of depth first search or DFS for short.
+
+66
+00:06:40,750 --> 00:06:45,550
+Um, but on its own, it's not exactly a traversal order because there's something it's missing.
+
+67
+00:06:45,670 --> 00:06:46,070
+Right.
+
+68
+00:06:46,250 --> 00:06:50,290
+And part of what's missing is that we are visiting nodes several times, right?
+
+69
+00:06:50,290 --> 00:07:00,390
+Like let's count how many times I visit S once, twice, three times, four times, right?
+
+70
+00:07:01,150 --> 00:07:04,850
+And you don't want to be visiting the same node multiple times, right?
+
+71
+00:07:04,890 --> 00:07:09,470
+Like if, if you, if I wrote a for loop for you to loop across your list and just some
+
+72
+00:07:09,470 --> 00:07:13,390
+of the nodes, some of the values in the list got output multiple times, you'd be like,
+
+73
+00:07:13,430 --> 00:07:14,350
+what the heck?
+
+74
+00:07:14,670 --> 00:07:14,810
+Right.
+
+75
+00:07:15,290 --> 00:07:17,650
+So we actually only want to visit each node.
+
+76
+00:07:18,250 --> 00:07:21,710
+Well, it depends what you mean by visit, but we're going to,
+
+77
+00:07:21,710 --> 00:07:27,790
+the green line is going to go to each, to many nodes multiple times, but we only kind
+
+78
+00:07:27,790 --> 00:07:32,650
+of want to like really pay attention to the fact that we're visiting the node once per
+
+79
+00:07:32,650 --> 00:07:32,890
+node.
+
+80
+00:07:33,790 --> 00:07:34,230
+Right.
+
+81
+00:07:34,390 --> 00:07:42,590
+And so our first version of depth first search is the first time we hit each node.
+
+82
+00:07:42,730 --> 00:07:44,810
+That's when we kind of do the thing at the node.
+
+83
+00:07:45,450 --> 00:07:46,630
+So I'll go to blue now.
+
+84
+00:07:46,630 --> 00:07:46,830
+Right.
+
+85
+00:07:46,830 --> 00:07:49,370
+So the first thing we have is the root.
+
+86
+00:07:50,230 --> 00:07:51,630
+And then the first time we hit.
+
+87
+00:07:51,710 --> 00:07:54,170
+S we do S whatever do means, right?
+
+88
+00:07:54,190 --> 00:07:56,210
+And again, remember our traversal could do all sorts of things.
+
+89
+00:07:56,230 --> 00:07:57,270
+It could just print things out.
+
+90
+00:07:57,590 --> 00:07:59,050
+It could be looking for something.
+
+91
+00:07:59,190 --> 00:08:01,550
+It could be modifying things, whatever it is we're doing.
+
+92
+00:08:02,950 --> 00:08:07,270
+We do it when we first arrive at the node in this version, I'm showing you right now.
+
+93
+00:08:07,270 --> 00:08:13,610
+So, so now here and now here and now here, and you can see that we just went depth first
+
+94
+00:08:13,610 --> 00:08:17,130
+and then we kind of go back up to you, but we've already done you.
+
+95
+00:08:17,230 --> 00:08:17,870
+So we don't do it again.
+
+96
+00:08:17,970 --> 00:08:19,630
+Then we come down to P.
+
+97
+00:08:19,790 --> 00:08:20,950
+This is number six.
+
+98
+00:08:21,150 --> 00:08:21,630
+Go back.
+
+99
+00:08:21,630 --> 00:08:22,530
+Up to you down to B.
+
+100
+00:08:22,530 --> 00:08:23,610
+This is number seven.
+
+101
+00:08:23,790 --> 00:08:24,990
+Go back to you.
+
+102
+00:08:24,990 --> 00:08:25,510
+We already did it.
+
+103
+00:08:25,510 --> 00:08:26,250
+Go back to G.
+
+104
+00:08:26,250 --> 00:08:27,270
+We already did go back to S.
+
+105
+00:08:27,270 --> 00:08:27,850
+We already did it.
+
+106
+00:08:27,890 --> 00:08:29,610
+And so then eight is going to be here.
+
+107
+00:08:29,790 --> 00:08:30,750
+Go back up and down.
+
+108
+00:08:30,810 --> 00:08:31,650
+Nine is here.
+
+109
+00:08:31,650 --> 00:08:42,570
+Go up, up, down 10, 10, 11, 12, 13, 14.
+
+110
+00:08:42,890 --> 00:08:47,330
+And in some sense, we might say we go back up to the root here, but we already did the root at the beginning.
+
+111
+00:08:47,330 --> 00:08:50,570
+So just like everything else, we're not somehow tagging the root on at the end.
+
+112
+00:08:51,630 --> 00:08:52,630
+Right?
+
+113
+00:08:52,630 --> 00:08:54,630
+And so this is one way we could do it.
+
+114
+00:08:54,630 --> 00:09:08,490
+And this is maybe the simplest or the most obvious, but there's a option that's almost as simple, which is what if instead of doing it when we first arrive, what if we do it the last time we're there, right?
+
+115
+00:09:08,490 --> 00:09:13,630
+So our line still starts at the root, but we don't kind of do it first.
+
+116
+00:09:13,630 --> 00:09:14,630
+We go to S.
+
+117
+00:09:14,630 --> 00:09:15,630
+Are we going to come back here later?
+
+118
+00:09:15,630 --> 00:09:16,630
+Yes.
+
+119
+00:09:16,630 --> 00:09:17,630
+Are we going to come back here later?
+
+120
+00:09:17,630 --> 00:09:18,630
+Yes.
+
+121
+00:09:18,630 --> 00:09:19,630
+Are we going to come back here later?
+
+122
+00:09:19,630 --> 00:09:20,630
+Yes.
+
+123
+00:09:20,630 --> 00:09:21,630
+As we leave N.
+
+124
+00:09:21,630 --> 00:09:25,630
+We do this one for the first, like it's the last time we're going to be at N.
+
+125
+00:09:25,630 --> 00:09:27,630
+So that's the first one we do.
+
+126
+00:09:27,630 --> 00:09:30,630
+Then we go to P, you know, first U and then P.
+
+127
+00:09:30,630 --> 00:09:32,630
+And this is the last time we're going to be at P.
+
+128
+00:09:32,630 --> 00:09:33,630
+So we do the second.
+
+129
+00:09:33,630 --> 00:09:34,630
+Go back to U and then B.
+
+130
+00:09:34,630 --> 00:09:35,630
+This is the last time we're going to be at B.
+
+131
+00:09:35,630 --> 00:09:36,630
+So we do this one.
+
+132
+00:09:36,630 --> 00:09:37,630
+We're now at U.
+
+133
+00:09:37,630 --> 00:09:39,630
+We're never going to be here again.
+
+134
+00:09:39,630 --> 00:09:40,630
+So we do U fourth.
+
+135
+00:09:40,630 --> 00:09:42,630
+Oh, look, there's a kind of a coincidence there.
+
+136
+00:09:42,630 --> 00:09:45,630
+U is number four in both of these setups.
+
+137
+00:09:45,630 --> 00:09:46,630
+Now we're at G.
+
+138
+00:09:46,630 --> 00:09:47,630
+We're never going to come back to G.
+
+139
+00:09:47,630 --> 00:09:48,630
+So we do it.
+
+140
+00:09:48,630 --> 00:09:49,630
+Now we're at S.
+
+141
+00:09:49,630 --> 00:09:50,630
+Back down to A.
+
+142
+00:09:50,630 --> 00:09:51,630
+Last chance.
+
+143
+00:09:51,630 --> 00:09:52,630
+Up to S.
+
+144
+00:09:52,630 --> 00:09:53,630
+Down to F.
+
+145
+00:09:53,630 --> 00:09:54,630
+Last chance.
+
+146
+00:09:54,630 --> 00:09:55,630
+Up to S.
+
+147
+00:09:55,630 --> 00:09:56,630
+So this is our fourth time at S.
+
+148
+00:09:56,630 --> 00:09:58,630
+It's our last time at S.
+
+149
+00:09:58,630 --> 00:10:00,630
+So now we do S.
+
+150
+00:10:00,630 --> 00:10:01,630
+Back up to K.
+
+151
+00:10:01,630 --> 00:10:02,630
+Back down to M.
+
+152
+00:10:02,630 --> 00:10:03,630
+Back up to K.
+
+153
+00:10:03,630 --> 00:10:04,630
+J.
+
+154
+00:10:04,630 --> 00:10:05,630
+Z.
+
+155
+00:10:05,630 --> 00:10:06,630
+D.
+
+156
+00:10:06,630 --> 00:10:07,630
+I'm at 10.
+
+157
+00:10:07,630 --> 00:10:08,630
+Back up to Z.
+
+158
+00:10:08,630 --> 00:10:09,630
+Down to W.
+
+159
+00:10:09,630 --> 00:10:10,630
+I'm at 11.
+
+160
+00:10:10,630 --> 00:10:11,630
+Back up to Z.
+
+161
+00:10:11,630 --> 00:10:13,630
+This is the last time I'm ever going to be at Z.
+
+162
+00:10:13,630 --> 00:10:16,630
+Last time I'm ever going to be at J.
+
+163
+00:10:16,630 --> 00:10:19,630
+And last time I'm ever going to be at K.
+
+164
+00:10:19,630 --> 00:10:20,630
+And that's it.
+
+165
+00:10:20,630 --> 00:10:23,630
+And whether I'm drawing inside or outside is just like to make the diagram not suck.
+
+166
+00:10:23,630 --> 00:10:26,630
+It doesn't mean anything whether it's inside or outside.
+
+167
+00:10:26,630 --> 00:10:27,630
+Okay.
+
+168
+00:10:27,630 --> 00:10:32,170
+And so this is two kinds of depth first search.
+
+169
+00:10:32,170 --> 00:10:34,170
+And we need names for these.
+
+170
+00:10:34,170 --> 00:10:45,550
+The blue one is where we do the node pre its children, before its children.
+
+171
+00:10:45,550 --> 00:10:49,550
+The red one, we do the node after its children and all its descendants.
+
+172
+00:10:49,550 --> 00:10:51,550
+But it's enough to say after its children.
+
+173
+00:10:51,550 --> 00:10:52,550
+The rest of it just kind of works out.
+
+174
+00:10:52,550 --> 00:10:55,550
+So this is because the node is after its children.
+
+175
+00:10:55,550 --> 00:10:57,550
+And the red one is post order.
+
+176
+00:10:57,550 --> 00:11:02,200
+Okay.
+
+177
+00:11:02,200 --> 00:11:07,310
+And this is a big difference you should know about.
+
+178
+00:11:07,310 --> 00:11:11,310
+And then there is actually another little variation.
+
+179
+00:11:11,310 --> 00:11:13,310
+Which is the way I was doing this.
+
+180
+00:11:13,310 --> 00:11:15,310
+I always went.
+
+181
+00:11:15,310 --> 00:11:16,310
+I need another color.
+
+182
+00:11:16,310 --> 00:11:17,310
+What am I going to use next?
+
+183
+00:11:17,310 --> 00:11:18,310
+Pink.
+
+184
+00:11:18,310 --> 00:11:20,310
+I always went left to right.
+
+185
+00:11:20,310 --> 00:11:26,310
+So S is before M is before J in both the blue and the red.
+
+186
+00:11:26,310 --> 00:11:28,310
+But I mean, I could go the other order.
+
+187
+00:11:28,310 --> 00:11:29,310
+Right.
+
+188
+00:11:29,310 --> 00:11:32,310
+So I could still do pre-order.
+
+189
+00:11:32,310 --> 00:11:35,310
+Let's make this a different blue.
+
+190
+00:11:35,310 --> 00:11:37,310
+So I'm still going to do pre-order.
+
+191
+00:11:37,310 --> 00:11:38,310
+But I'm going to go right to left.
+
+192
+00:11:38,310 --> 00:11:40,310
+So first time here.
+
+193
+00:11:40,310 --> 00:11:43,310
+And then I go down here.
+
+194
+00:11:43,310 --> 00:11:44,310
+This is two.
+
+195
+00:11:44,310 --> 00:11:45,310
+Down here.
+
+196
+00:11:45,310 --> 00:11:46,310
+This is three.
+
+197
+00:11:46,310 --> 00:11:47,310
+Down here.
+
+198
+00:11:47,310 --> 00:11:48,310
+This is four.
+
+199
+00:11:48,310 --> 00:11:49,310
+Up and down here.
+
+200
+00:11:49,310 --> 00:11:50,310
+Five.
+
+201
+00:11:50,310 --> 00:11:51,310
+Do, do, do, do, do.
+
+202
+00:11:51,310 --> 00:11:52,310
+Six.
+
+203
+00:11:52,310 --> 00:11:53,310
+Do, do, do, do, do.
+
+204
+00:11:53,310 --> 00:11:54,310
+Seven.
+
+205
+00:11:54,310 --> 00:11:55,310
+Eight.
+
+206
+00:11:55,310 --> 00:11:56,310
+Nine.
+
+207
+00:11:56,310 --> 00:11:57,310
+Do, do, do, do.
+
+208
+00:11:57,310 --> 00:11:58,310
+Ten.
+
+209
+00:11:58,310 --> 00:11:59,310
+Eleven.
+
+210
+00:11:59,310 --> 00:12:00,310
+Twelve.
+
+211
+00:12:00,310 --> 00:12:01,310
+Thirteen.
+
+212
+00:12:01,310 --> 00:12:02,310
+Fourteen.
+
+213
+00:12:02,310 --> 00:12:03,310
+This is not very common.
+
+214
+00:12:03,310 --> 00:12:04,310
+But it, you might see it.
+
+215
+00:12:04,310 --> 00:12:05,310
+This is, maybe we call this reverse pre-order.
+
+216
+00:12:05,310 --> 00:12:06,310
+And so that means that under pre-order, there's kind of two kinds of pre-order.
+
+217
+00:12:06,310 --> 00:12:07,310
+Right.
+
+218
+00:12:07,310 --> 00:12:08,310
+Forward pre-order.
+
+219
+00:12:08,310 --> 00:12:09,310
+And same thing again over here.
+
+220
+00:12:09,310 --> 00:12:10,310
+Our post-order could have, you know, two different pre-orders.
+
+221
+00:12:10,310 --> 00:12:11,310
+Right.
+
+222
+00:12:11,310 --> 00:12:12,310
+Forward.
+
+223
+00:12:12,310 --> 00:12:16,030
+Pre-order.
+
+224
+00:12:16,030 --> 00:12:17,030
+Right.
+
+225
+00:12:17,030 --> 00:12:18,030
+Forward.
+
+226
+00:12:18,030 --> 00:12:19,030
+Pre-order.
+
+227
+00:12:19,030 --> 00:12:20,030
+Right.
+
+228
+00:12:20,030 --> 00:12:21,030
+Forward.
+
+229
+00:12:21,030 --> 00:12:23,570
+Pre-order.
+
+230
+00:12:23,570 --> 00:12:24,570
+Right.
+
+231
+00:12:24,570 --> 00:12:29,980
+Forward.
+
+232
+00:12:29,980 --> 00:12:30,980
+Pre-order.
+
+233
+00:12:30,980 --> 00:12:31,980
+Right.
+
+234
+00:12:31,980 --> 00:12:32,980
+Forward.
+
+235
+00:12:32,980 --> 00:12:33,980
+Pre-order.
+
+236
+00:12:33,980 --> 00:12:34,980
+Right.
+
+237
+00:12:34,980 --> 00:12:35,980
+Forward.
+
+238
+00:12:35,980 --> 00:12:36,980
+Forward.
+
+239
+00:12:36,980 --> 00:12:37,980
+Right.
+
+240
+00:12:37,980 --> 00:12:40,220
+Reverse post-order or forward post-order.
+
+241
+00:12:40,220 --> 00:12:41,720
+And you should usually assume it's forward.
+
+242
+00:12:41,720 --> 00:12:43,560
+You should usually assume it's left to right.
+
+243
+00:12:43,560 --> 00:12:48,640
+You should usually assume that in the list of children, the zero child goes before the
+
+244
+00:12:48,640 --> 00:12:51,360
+one child goes before the two child.
+
+245
+00:12:51,360 --> 00:12:52,660
+But occasionally you'll see it the other way.
+
+246
+00:12:52,660 --> 00:12:54,100
+And there's a particular reason this comes up later.
+
+247
+00:12:54,100 --> 00:12:58,220
+Like this is, this is mostly hypothetical, but there is one place you want to be able
+
+248
+00:12:58,220 --> 00:12:59,220
+to talk about this.
+
+249
+00:12:59,220 --> 00:13:01,620
+So that's kind of why I'm bothering to introduce it here.
+
+250
+00:13:01,620 --> 00:13:06,980
+So technically we've got four types of DFS, but really, really, you definitely need to
+
+251
+00:13:06,980 --> 00:13:09,220
+know the difference between pre-order and post-order.
+
+252
+00:13:09,220 --> 00:13:10,220
+We've got forward.
+
+253
+00:13:10,220 --> 00:13:24,330
+I guess I'll do that in red because it is the red one.
+
+254
+00:13:24,330 --> 00:13:26,810
+And it's a funny little side effect, by the way, that my drawing here of the different
+
+255
+00:13:26,810 --> 00:13:28,810
+kinds of traversal is itself a tree.
+
+256
+00:13:28,810 --> 00:13:33,150
+And that's because I'm a computing science dude and I like trees.
+
+257
+00:13:33,150 --> 00:13:36,060
+Okay.
+
+258
+00:13:36,060 --> 00:13:41,900
+So that is your four versions of DFS.
+
+259
+00:13:41,900 --> 00:13:45,100
+I guess I should write BFS in a different color because I'm going to do it in a different
+
+260
+00:13:45,100 --> 00:13:50,480
+color.
+
+261
+00:13:50,480 --> 00:13:51,480
+Okay.
+
+262
+00:13:51,480 --> 00:13:52,480
+We've got our four versions of DFS.
+
+263
+00:13:52,480 --> 00:13:53,480
+Okay.
+
+264
+00:13:53,480 --> 00:13:56,080
+But there is one other option.
+
+265
+00:13:56,080 --> 00:14:01,080
+And for what we're doing in this video, which is just, you know, putting out the ordering,
+
+266
+00:14:01,080 --> 00:14:05,080
+the numbers, this is the easy one.
+
+267
+00:14:05,080 --> 00:14:09,260
+I'm just gonna paste out the tree again.
+
+268
+00:14:09,260 --> 00:14:13,780
+I'm going to mark that we're doing BFS here.
+
+269
+00:14:13,780 --> 00:14:16,740
+BFS is the easy one until we get to algorithms.
+
+270
+00:14:16,740 --> 00:14:19,620
+BFS is just, we always go across if we can.
+
+271
+00:14:19,620 --> 00:14:25,340
+So we start here and then we're going to go here because we can't go across, we have to
+
+272
+00:14:25,340 --> 00:14:30,180
+go here and then we're going to go across and then we can't go across anymore.
+
+273
+00:14:30,180 --> 00:14:31,920
+So we go down.
+
+274
+00:14:31,920 --> 00:14:38,480
+And again, there's kind of arguably like forward BFS and reverse BFS, but I've never heard
+
+275
+00:14:38,480 --> 00:14:40,460
+anybody talk about reverse BFS.
+
+276
+00:14:40,460 --> 00:14:41,580
+So I'm not going to talk about it.
+
+277
+00:14:41,580 --> 00:14:42,580
+I don't care.
+
+278
+00:14:42,580 --> 00:14:43,860
+We don't have to worry.
+
+279
+00:14:43,860 --> 00:14:48,540
+But like technically, I guess, I guess it would make sense, but like whatever.
+
+280
+00:14:48,540 --> 00:14:50,980
+And so, uh, let's see what's next.
+
+281
+00:14:50,980 --> 00:14:54,340
+So I go all the way to the left, five, six, seven, eight.
+
+282
+00:14:54,340 --> 00:14:55,340
+Right.
+
+283
+00:14:55,340 --> 00:15:09,270
+Nine, 10, 11, come on, I can keep my rating a little bit in that 12, 13, 14.
+
+284
+00:15:09,270 --> 00:15:10,410
+And it's really that easy.
+
+285
+00:15:10,410 --> 00:15:16,210
+You just do all the nodes at a single depth from left to right.
+
+286
+00:15:16,210 --> 00:15:22,070
+And I want you to notice by the way, that, um, if I'm a little goofy and I draw this
+
+287
+00:15:22,070 --> 00:15:29,130
+like this, excuse me, I need my pen.
+
+288
+00:15:29,410 --> 00:15:30,410
+It's still note 11.
+
+289
+00:15:30,410 --> 00:15:33,770
+The drawing is not what determines what number it is, right?
+
+290
+00:15:33,770 --> 00:15:37,510
+What determines what number is, is how many steps it is from the root.
+
+291
+00:15:37,510 --> 00:15:39,450
+And I didn't increase the number of steps here.
+
+292
+00:15:39,450 --> 00:15:40,910
+It's still three.
+
+293
+00:15:40,910 --> 00:15:41,910
+It's three.
+
+294
+00:15:41,910 --> 00:15:44,510
+Now it's three now.
+
+295
+00:15:44,510 --> 00:15:47,170
+So it keeps the same ordering.
+
+296
+00:15:47,170 --> 00:15:49,570
+And that like all that is true of every traversal.
+
+297
+00:15:49,570 --> 00:15:52,770
+We don't care about whether we drew some of them in a funny way.
+
+298
+00:15:52,770 --> 00:15:56,190
+We care about what their connections are.
+
+299
+00:15:56,190 --> 00:15:57,370
+And so that's it for BFS.
+
+300
+00:15:57,370 --> 00:15:58,470
+You just go across every level.
+
+301
+00:15:58,470 --> 00:15:59,470
+You do all the siblings before.
+
+302
+00:15:59,470 --> 00:16:00,470
+Actually, not just the siblings, right?
+
+303
+00:16:00,470 --> 00:16:04,030
+You do the cousins and the like great cut.
+
+304
+00:16:04,030 --> 00:16:07,410
+Like you just all the way across at every level.
+
+305
+00:16:07,410 --> 00:16:09,030
+And that's basically it for tourist orders.
+
+306
+00:16:09,030 --> 00:16:11,530
+We've got two kinds of traversals.
+
+307
+00:16:11,530 --> 00:16:20,040
+We've got DFS traversal orders often just called traversals, right?
+
+308
+00:16:20,040 --> 00:16:21,040
+We've got two kinds of traversal orders.
+
+309
+00:16:21,040 --> 00:16:25,360
+We've got DFS, depth first search and BFS breadth first search.
+
+310
+00:16:25,360 --> 00:16:26,360
+We still call them search.
+
+311
+00:16:26,360 --> 00:16:28,140
+Even when we're not doing search, right?
+
+312
+00:16:28,140 --> 00:16:30,960
+Like I don't know why it's just history.
+
+313
+00:16:30,960 --> 00:16:32,900
+And in DFS, we've got this split.
+
+314
+00:16:32,900 --> 00:16:36,980
+And technically under each one, we've got this split.
+
+315
+00:16:36,980 --> 00:16:39,680
+And we could do that under BFS forward and back, but we don't bother.
+
+316
+00:16:39,680 --> 00:16:41,080
+We just are going to talk about forward.
+
+317
+00:16:41,080 --> 00:16:42,640
+Oh, and one more side quest.
+
+318
+00:16:42,640 --> 00:16:46,840
+If you've covered this stuff before and you see that I'm doing pre and post-order, you
+
+319
+00:16:46,840 --> 00:16:49,080
+might think there's another option, right?
+
+320
+00:16:49,080 --> 00:16:51,860
+Jeremy, why is there no in-order?
+
+321
+00:16:51,860 --> 00:16:56,080
+And I am not talking about in-order in this class and that's not an accident.
+
+322
+00:16:56,080 --> 00:17:00,260
+And if you already know about that word, then I give you a challenge to figure out why I'm
+
+323
+00:17:00,260 --> 00:17:02,060
+ignoring in-order in this class.
+
+324
+00:17:02,060 --> 00:17:07,420
+There's a huge hint on that in another video.
+
+325
+00:17:07,420 --> 00:17:09,420
+But if you don't know what I'm talking about right now, don't worry about that.
+
+326
+00:17:09,420 --> 00:17:13,560
+That's not, that's only for the people who already know that.
+
+327
+00:17:13,560 --> 00:17:15,540
+And that's it on Curse Loaders.
