@@ -28,56 +28,20 @@ class LLNode:
         if self.next is not None:
             self.next = self.next.next
 
-    def to_list(self):
-        values = []
-        current = self
-        while current is not None:
-            values.append(current.val)
-            current = current.next
-        return values
-
-    def last(self):
-        current = self
-        while current.next is not None:
-            current = current.next
-        return current
-
-    def append(self, val):
-        self.last().next = LLNode(val)
-
-    def find(self, val):
-        current = self
-        while current is not None:
-            if current.val == val:
-                return current
-            current = current.next
-        return None
-
-    def count(self, val):
-        total = 0
-        current = self
-        while current is not None:
-            if current.val == val:
-                total += 1
-            current = current.next
-        return total
-
-    def insert_after_value(self, target, val):
-        node = self.find(target)
-        if node is not None:
-            node.insert_after(val)
-
-    def remove_next_after_value(self, target):
-        node = self.find(target)
-        if node is not None:
-            node.remove_next()
-
 
 def build_chain(*values):
     nodes = [LLNode(v) for v in values]
     for i in range(len(nodes) - 1):
         nodes[i].next = nodes[i + 1]
     return nodes
+
+
+def chain_values(node):
+    values = []
+    while node is not None:
+        values.append(node.val)
+        node = node.next
+    return values
 
 
 def check(label, actual, expected):
@@ -103,56 +67,13 @@ if __name__ == "__main__":
     print("\n--- insert_after ---")
     a, b, c = build_chain("A", "B", "C")
     b.insert_after("X")
-    check('b.insert_after("X")', a.to_list(), ["A", "B", "X", "C"])
+    check('b.insert_after("X")', chain_values(a), ["A", "B", "X", "C"])
     c.insert_after("Z")
-    check('insert_after on last node', a.to_list(), ["A", "B", "X", "C", "Z"])
+    check('insert_after on last node', chain_values(a), ["A", "B", "X", "C", "Z"])
 
     print("\n--- remove_next ---")
     a, b, c = build_chain("A", "B", "C")
     a.remove_next()
-    check("a.remove_next()", a.to_list(), ["A", "C"])
+    check("a.remove_next()", chain_values(a), ["A", "C"])
     c.remove_next()
-    check("c.remove_next() (no next node)", a.to_list(), ["A", "C"])
-
-    print("\n--- to_list ---")
-    a, b, c = build_chain("A", "B", "C")
-    check("a.to_list()", a.to_list(), ["A", "B", "C"])
-    check("b.to_list()", b.to_list(), ["B", "C"])
-    check("c.to_list()", c.to_list(), ["C"])
-
-    print("\n--- last ---")
-    a, b, c = build_chain("A", "B", "C")
-    check("a.last().val", a.last().val, "C")
-    check("c.last() is c", c.last() is c, True)
-
-    print("\n--- append ---")
-    a, b = build_chain("A", "B")
-    a.append("C")
-    check('a.append("C")', a.to_list(), ["A", "B", "C"])
-
-    print("\n--- find ---")
-    a, b, c = build_chain("A", "B", "C")
-    check('a.find("B") is b', a.find("B") is b, True)
-    check('a.find("X")', a.find("X"), None)
-
-    print("\n--- count ---")
-    a, b, c = build_chain("A", "B", "A")
-    check('a.count("A")', a.count("A"), 2)
-    check('a.count("B")', a.count("B"), 1)
-    check('a.count("X")', a.count("X"), 0)
-
-    print("\n--- insert_after_value ---")
-    a, b, c = build_chain("A", "B", "C")
-    a.insert_after_value("B", "X")
-    check('a.insert_after_value("B", "X")', a.to_list(), ["A", "B", "X", "C"])
-    a.insert_after_value("Q", "Y")
-    check("target not found", a.to_list(), ["A", "B", "X", "C"])
-
-    print("\n--- remove_next_after_value ---")
-    a, b, c, d = build_chain("A", "B", "C", "D")
-    a.remove_next_after_value("B")
-    check('a.remove_next_after_value("B")', a.to_list(), ["A", "B", "D"])
-    a.remove_next_after_value("D")
-    check("target is last node", a.to_list(), ["A", "B", "D"])
-    a.remove_next_after_value("Q")
-    check("target not found", a.to_list(), ["A", "B", "D"])
+    check("c.remove_next() (no next node)", chain_values(a), ["A", "C"])
