@@ -1,0 +1,591 @@
+1
+00:00:00,300 --> 00:00:04,920
+In this video we will discuss logarithms. We will try to get a light grounding in what they are
+
+2
+00:00:04,920 --> 00:00:09,160
+formally and intuitively and then we will try to really notice the thing about them that is
+
+3
+00:00:09,160 --> 00:00:15,280
+relevant to algorithm analysis. Because in our context in this algorithms context it is very
+
+4
+00:00:15,280 --> 00:00:21,460
+valuable to know a few aspects of logarithms but relatively simple aspects. So that's the trade-off
+
+5
+00:00:21,460 --> 00:00:27,940
+simple aspects serious understanding. Okay let's start with a quick review of what they even are
+
+6
+00:00:27,940 --> 00:00:33,820
+how we even get the idea of logarithms. So back in elementary school maybe we learned addition
+
+7
+00:00:33,820 --> 00:00:41,320
+I hope so and after that maybe we learned subtraction right. So if what I want to know
+
+8
+00:00:41,320 --> 00:00:50,080
+is b I already have a I want to know b well b is a minus c and also I'm allowed to swap these around
+
+9
+00:00:50,080 --> 00:01:00,350
+and therefore it's also true that c equals a minus b right. And then a little bit later
+
+10
+00:01:00,350 --> 00:01:01,090
+still a little bit later we'll get to the idea of logarithms. So back in elementary school
+
+11
+00:01:01,090 --> 00:01:07,370
+still in elementary school maybe we learn multiplication right. So we learn that for
+
+12
+00:01:07,370 --> 00:01:17,820
+example q equals r times s and then just after that maybe we learn division right. So in this
+
+13
+00:01:17,820 --> 00:01:23,900
+first example we had r and s we wanted q but now what I want is r. Well good news I can get that
+
+14
+00:01:23,900 --> 00:01:33,740
+with q divided by s except I'm lazy and I'm going to write it with a slot that was ugly. Okay and
+
+15
+00:01:33,740 --> 00:01:34,820
+then maybe I want s.
+
+16
+00:01:35,220 --> 00:01:38,480
+Like I've already got q and r but I want s. How do I do that? Well I divide.
+
+17
+00:01:40,180 --> 00:01:44,500
+Okay and so that's all in elementary school but eventually you get to high school
+
+18
+00:01:44,500 --> 00:01:54,580
+and you learn exponentiation right. And so you learn that you can go let's say let's call it
+
+19
+00:01:54,580 --> 00:02:05,640
+j equals k to the power of m right. And just as we went from addition to multiplication
+
+20
+00:02:06,700 --> 00:02:08,360
+and then like later like.
+
+21
+00:02:08,640 --> 00:02:12,880
+first multiplication is just add add add add but eventually we just treat it like it's its own
+
+22
+00:02:12,880 --> 00:02:19,040
+thing and at first this is multiply multiply multiply multiply but it's better to eventually
+
+23
+00:02:19,040 --> 00:02:26,320
+just treat it as its own thing so if we want to do this thing in reverse well things get a little
+
+24
+00:02:26,320 --> 00:02:32,940
+bit more complicated actually let me back up and say that we can swap the b and the c we can swap
+
+25
+00:02:32,940 --> 00:02:38,580
+the r and the s but we can't just reverse the k and the m it would change the value let me give
+
+26
+00:02:38,580 --> 00:02:46,110
+you an example two the power of three is eight but three squared is nine those are different values
+
+27
+00:02:46,110 --> 00:02:52,320
+even though i just all i do is swap the numbers well it ruined everything okay so it matters which
+
+28
+00:02:52,320 --> 00:03:00,770
+is where okay and so if what i want is k then what i'm going to do is i'm going to take j
+
+29
+00:03:00,770 --> 00:03:05,870
+and take a root in particular the mth root so if you imagine i did k squared
+
+30
+00:03:06,170 --> 00:03:07,390
+and i want to reverse
+
+31
+00:03:07,390 --> 00:03:15,050
+that, that's the square root. Okay, that is a reverse of exponentiation. But we don't use this
+
+32
+00:03:15,050 --> 00:03:18,890
+very much in algorithms, like occasionally, but not enough that I would bother teaching it to you
+
+33
+00:03:18,890 --> 00:03:27,970
+in a separate lesson. What we use all the time is the other one, right? The one where what I want
+
+34
+00:03:27,970 --> 00:03:38,730
+is m. I've already got j and k. And so that is the logarithm. Now in the previous version,
+
+35
+00:03:38,730 --> 00:03:43,150
+k, the position that k is in, that's the base of the exponent. And so we're going to keep
+
+36
+00:03:43,150 --> 00:03:46,850
+that, we're going to call it the base. And because the base, we write it in the basement.
+
+37
+00:03:48,310 --> 00:03:51,430
+That's the subscript there. And I say basement to remind me where it goes.
+
+38
+00:03:52,350 --> 00:03:57,870
+And I'm going to put the j here. Except that because I do a lot of programming, and I write
+
+39
+00:03:57,870 --> 00:04:01,530
+into text files instead of onto, you know, places where I can just do anything I like.
+
+40
+00:04:02,430 --> 00:04:06,410
+I find it's easier if I put parentheses around it. So that's what I tend to do. And I suggest
+
+41
+00:04:06,410 --> 00:04:12,300
+you consider doing that as well. So that's it.
+
+42
+00:04:12,320 --> 00:04:16,140
+But that's the definition of the logarithm, is it's the reverse of exponentiation,
+
+43
+00:04:16,660 --> 00:04:32,000
+where the thing you want is the exponent. Okay. So let me just do a little example of that. Just
+
+44
+00:04:32,000 --> 00:04:37,300
+basically say the same thing again, except with an example. So I asked my calculator and it said
+
+45
+00:04:37,300 --> 00:04:55,220
+that seven to the power of five. It says that's 16807, right? And so with that in mind, if I want
+
+46
+00:04:56,560 --> 00:05:08,320
+to know what is the log base seven of 16807, I'm asking, what do I, you know, if I go seven to the
+
+47
+00:05:08,320 --> 00:05:16,380
+power of what will give me this? And of course we can see up here, the answer is five. Okay.
+
+48
+00:05:19,210 --> 00:05:24,250
+So that was a very math class example. We use seven as our base, but seven is not a very common
+
+49
+00:05:24,250 --> 00:05:31,930
+base. Like it's perfectly good algebra, but it's not very useful to us. You should know that there
+
+50
+00:05:31,930 --> 00:05:36,730
+are three popular bases. You should be aware of all three of them and you should know which one
+
+51
+00:05:36,730 --> 00:05:48,140
+we are going to use. Just shrink this way down. Okay. So some people like base 10.
+
+52
+00:05:49,820 --> 00:05:57,640
+I use that sometimes for sure, but not in this class much. Some people in math and physics and
+
+53
+00:05:57,640 --> 00:06:02,600
+biology and areas like that, like base E, I can't stand that. I'm sorry. I'm just not educated
+
+54
+00:06:02,600 --> 00:06:08,520
+enough or something. In computing science, we almost always think in base two.
+
+55
+00:06:08,680 --> 00:06:14,600
+We do our binary representation base two. We also do our logs in base two,
+
+56
+00:06:14,600 --> 00:06:19,480
+mostly. I mean, I don't mean like every single time in computing science, it's always two,
+
+57
+00:06:20,280 --> 00:06:24,200
+but if nobody tells you what it is and it's computing science, you should probably assume
+
+58
+00:06:24,200 --> 00:06:31,560
+it's two. I mean, sometimes actually what it is, is the base doesn't matter, but if the base does,
+
+59
+00:06:31,560 --> 00:06:43,470
+if the base does matter, it's probably two. Okay. Let's do some examples. What is the log base two?
+
+60
+00:06:46,090 --> 00:06:58,960
+Of 32, right? So I'm saying two to the power of what is 32. Okay. So you could
+
+61
+00:07:00,400 --> 00:07:04,960
+just guess and test, right? You could just try some numbers. Just real quick pause here.
+
+62
+00:07:04,960 --> 00:07:11,120
+Just try numbers until you get it. Pausing. And now I'm going to resume. So you'll find
+
+63
+00:07:11,120 --> 00:07:18,800
+that two to the, I don't need to be right over there. Two to the fifth is 32, right? Two times,
+
+64
+00:07:18,960 --> 00:07:32,040
+two times two times two times two. That's 32. Okay. And then this next one, you should definitely
+
+65
+00:07:32,040 --> 00:07:38,600
+do it yourself as an example. First, you turn it into a regular exponential equation in sort
+
+66
+00:07:38,600 --> 00:07:44,200
+of this form, and then you try guessing some numbers and trying them out until you get the
+
+67
+00:07:44,200 --> 00:07:54,440
+right answer. So what is the log base five of 625? So I want you to pause. And when you pause, I want
+
+68
+00:07:54,440 --> 00:08:00,700
+you to make an equation like this, and then I want you to figure out what is the answer. Okay. So you
+
+69
+00:08:00,700 --> 00:08:09,580
+should have already paused by now. So we have, that's the same as saying five to the x is 625.
+
+70
+00:08:11,260 --> 00:08:30,140
+It turns out that x is four. Okay. Now you might wonder why we care.
+
+71
+00:08:31,180 --> 00:08:36,380
+I'm not going to ask you to do a lot of algebra with logs, maybe zero, maybe just a very small
+
+72
+00:08:36,380 --> 00:08:37,020
+amount. Not sure. I'm not going to ask you to do a lot of algebra with logs, maybe zero, maybe just a very small amount. Not sure.
+
+73
+00:08:42,000 --> 00:08:45,920
+But I will ask you word problems. And sometimes the answer to the word problem
+
+74
+00:08:45,920 --> 00:08:52,000
+will be something to do with logs. Maybe it'll be some log of n or some log of x or
+
+75
+00:08:53,120 --> 00:08:57,840
+log of 10 million or something. You will need the skill to spot
+
+76
+00:08:58,960 --> 00:09:05,200
+which situations involve a log and which do not. So I will now explain why I would do that to you.
+
+77
+00:09:05,200 --> 00:09:13,160
+Like, what does this have to do with our subject? As we already know,
+
+78
+00:09:15,160 --> 00:09:15,480
+log
+
+79
+00:09:18,600 --> 00:09:34,380
+base, that's really ugly. Log base b of n means b to the what is n. And when I say b to the what,
+
+80
+00:09:35,580 --> 00:09:43,180
+I'm saying b times b, oh, I shouldn't use x there. I don't know. I needed a letter. So I'm just going
+
+81
+00:09:43,180 --> 00:09:53,900
+to use q. b times b times b times b dot dot dot dot dot. How many of these will I need to equal n?
+
+82
+00:09:53,900 --> 00:10:01,930
+All right. That's q. So the thing is this also works in reverse.
+
+83
+00:10:03,850 --> 00:10:18,010
+Right? So I can say n divided by b, divided by b, divided by b, divided by b, dot dot dot dot equals 1.
+
+84
+00:10:20,380 --> 00:10:27,180
+And there were q multiplications to go this way. And there are q divisions to go from n down to 1.
+
+85
+00:10:28,380 --> 00:10:34,260
+you know, it's like times, times, times up and divide, divide, divide, divide down.
+
+86
+00:10:35,340 --> 00:10:40,400
+Okay. I'm going to give you an example that's not base two, which is a little weird. And then
+
+87
+00:10:40,400 --> 00:10:47,500
+we'll do base two stuff. So imagine I have a million people playing in a tournament of some
+
+88
+00:10:47,500 --> 00:10:53,710
+game. I'm going to regret writing this out. You know what? It's time for the text tool.
+
+89
+00:10:59,680 --> 00:11:05,740
+I have a million people playing this tournament, right? And in this game, people play three at a
+
+90
+00:11:05,740 --> 00:11:09,860
+time and only one person wins and we're doing a single elimination tournament, right? So in the
+
+91
+00:11:09,860 --> 00:11:14,520
+first round of this tournament, two thirds of the people are eliminated. And now we've got
+
+92
+00:11:14,520 --> 00:11:21,920
+this many people, one more round, third round. Sorry. No, no, no. Sorry. After two rounds,
+
+93
+00:11:22,760 --> 00:11:28,620
+we've got that many people, right? After a third round, we're down to approximately
+
+94
+00:11:28,620 --> 00:11:35,620
+this apparently. After another round, somehow the number is,
+
+95
+00:11:35,740 --> 00:11:42,640
+which is like ridiculous to me. Like, how can this be true? But anyway, I'm just going to call
+
+96
+00:11:42,640 --> 00:11:50,820
+it that round number. It doesn't matter. Go again. We're at four, one, one, five, go again. We're at
+
+97
+00:11:50,820 --> 00:12:14,110
+1372 for, these are a little bit approximate. Okay. So you can confirm for yourself that these
+
+98
+00:12:14,110 --> 00:12:20,670
+are mostly at least roughly correct. And so let's count them up. That's one,
+
+99
+00:12:21,290 --> 00:12:33,950
+two, three, four, five, six, seven, eight, nine, 10, 11, 12, 13, right? So it's roughly 13 steps.
+
+100
+00:12:34,130 --> 00:12:37,510
+It would depend a little bit on exactly how things worked out, but roughly 13 steps.
+
+101
+00:12:40,440 --> 00:12:45,540
+And so therefore what we know is that we just worked out by hand that log base three
+
+102
+00:12:45,540 --> 00:12:53,700
+of a million is, whoops, is approximately
+
+103
+00:12:55,100 --> 00:13:01,780
+13, right? But if I came back to you, if you did this work and I came back to you and said,
+
+104
+00:13:01,900 --> 00:13:04,120
+actually, wait, wait, wait, sorry. I know I said a million, but that was just like,
+
+105
+00:13:04,200 --> 00:13:10,220
+that was just like, I was being silly. It's some number N and later we'll know what N is.
+
+106
+00:13:10,860 --> 00:13:20,500
+How many rounds will we need? And so the answer is clearly log base three of N, right? And so
+
+107
+00:13:20,500 --> 00:13:24,880
+this kind of reasoning is what you need to be able to do is turn a word problem,
+
+108
+00:13:24,880 --> 00:13:31,080
+where I say, if I have a million people and I eliminate a third of them in every round of the
+
+109
+00:13:31,080 --> 00:13:36,180
+tournament, how many rounds of the tournament will I need? I will need log base. Sorry. I guess
+
+110
+00:13:36,180 --> 00:13:40,040
+if I say it's a million people, then the answer is log base three billion. And if I say it's N
+
+111
+00:13:40,040 --> 00:13:44,680
+people, then the answer is log base three of N. This is this thing right here. This is the center
+
+112
+00:13:44,680 --> 00:13:52,700
+of this whole video. I'm not quite done, but I'm getting close to done. Okay. Let's take an example
+
+113
+00:13:52,700 --> 00:13:58,180
+that is base two. Suppose I start with 1600 numbers, just a number that you've probably
+
+114
+00:13:58,180 --> 00:14:05,040
+never seen before. And I'm going to binary search it until I'm done. And I didn't get lucky halfway
+
+115
+00:14:05,040 --> 00:14:12,420
+along. Like it has to go all the way to the end and finish. Okay. So it's going to go 800 is one
+
+116
+00:14:12,420 --> 00:14:16,840
+step. And then 400 is a step. Then 200 is a step. And then 100 is a step. So that was four steps,
+
+117
+00:14:17,080 --> 00:14:22,600
+right? And then we're going to go 50, 25, 12, six. That was,
+
+118
+00:14:22,700 --> 00:14:27,140
+four more steps. We're at eight steps. We're gonna go three. And then we're going to maybe
+
+119
+00:14:27,140 --> 00:14:31,640
+be done, but like, maybe it takes, I don't know, it might take two, one, or might go down to one.
+
+120
+00:14:31,640 --> 00:14:37,160
+Like we're not sure exactly how many steps that, right? So one, two, three, four, one, two, three,
+
+121
+00:14:37,340 --> 00:14:48,480
+four, one, two, three, four, or three, right? So that was either 11 or 12, right? And so that's
+
+122
+00:14:48,480 --> 00:14:59,360
+telling us that log base two of 1600 is,
+
+123
+00:14:59,480 --> 00:15:07,440
+uh, at least as big as 12. Whoops, wrong. Sorry. At least as big as 11
+
+124
+00:15:07,440 --> 00:15:15,180
+and no bigger than 12, right? And I mean, actually it's actually, well, this is still
+
+125
+00:15:15,180 --> 00:15:22,220
+approximate. Sorry. It's still approximate 10.64. I think unless I copied it down wrong,
+
+126
+00:15:22,400 --> 00:15:29,620
+wait, that's clearly wrong. What am I doing? Sorry. Checking notes. What did I do wrong?
+
+127
+00:15:31,620 --> 00:15:33,140
+Oh, I just counted wrong over here.
+
+128
+00:15:33,160 --> 00:15:39,500
+Right. This doesn't count as a step. Ha ha ha. Yeah. Okay. Sorry. I counted wrong on the left.
+
+129
+00:15:40,600 --> 00:15:44,600
+Good lesson. I'm glad I already calculated on the calculator and checked my notes.
+
+130
+00:15:45,360 --> 00:15:56,620
+Do, do, do. Okay. This is zero steps. One, two, three, four, five, six, seven, eight, nine.
+
+131
+00:15:56,860 --> 00:16:02,440
+And on this side, it's 10. This side, it's 10, 11. Much better. Okay. So I have to fix these
+
+132
+00:16:02,440 --> 00:16:03,160
+numbers here.
+
+133
+00:16:04,540 --> 00:16:15,620
+10 or 11, 10 or 11, 10.64. Okay. And so, um, I want you to notice that I was not very picky about
+
+134
+00:16:15,620 --> 00:16:20,760
+how exactly we got there, right? I'm not really worried about this 10.6. I mean, I'm not at all
+
+135
+00:16:20,760 --> 00:16:26,300
+worried about this 10.64. It would be plenty good enough for you to say between 10 and 11,
+
+136
+00:16:26,780 --> 00:16:34,100
+or to say around 10 and a half, or if it was like actually like 10.04 or even 10.14.
+
+137
+00:16:34,540 --> 00:16:44,080
+To be like around 10. Okay. So don't, this is not a class about many digits of precision.
+
+138
+00:16:44,080 --> 00:16:49,500
+This is a class about understanding the big picture. I mean, still the numbers of the big
+
+139
+00:16:49,500 --> 00:17:01,830
+picture, but the big picture. And so while I might ask you a question like this on an exam,
+
+140
+00:17:02,150 --> 00:17:07,390
+I want you to remember that the really important thing is being able to turn a word problem
+
+141
+00:17:08,510 --> 00:17:13,150
+into a log when it's appropriate. Let me give you a counterexample here.
+
+142
+00:17:14,210 --> 00:17:20,650
+Here, I was binary searching 1600 things, but I can start with 1600 things and check them one at a
+
+143
+00:17:20,650 --> 00:17:30,690
+time, like in a linear search, right? And so after one step, I'm at 1599, then I'm at 1598,
+
+144
+00:17:30,950 --> 00:17:38,490
+then I'm at 1597, dot, dot, dot, dot. This is not a log. This is a linear process. We're going one at a time.
+
+145
+00:17:38,510 --> 00:17:48,460
+Okay. So this is the big thing is trying to figure out which processes involve logs.
+
+146
+00:17:50,520 --> 00:17:54,060
+If the thing you're doing is counting, how many times will we need to multiply to get to n,
+
+147
+00:17:54,520 --> 00:17:59,940
+or how many times will we need to divide starting at n and going down to one, then you should
+
+148
+00:17:59,940 --> 00:18:04,140
+consider whether or not it's a log because it might be a log. Okay. Thank you.

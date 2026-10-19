@@ -1,0 +1,27 @@
+1
+00:00:06,670 --> 00:00:14,850
+There are different ways of interacting with AWS, and if you just created your AWS account, you might still be logging in using the root account credentials.
+
+2
+00:00:15,590 --> 00:00:27,570
+And so we're going to see if we can do something about that, because even if you have administrative permissions using IAM, there are certain things you can't do, like close the account.
+
+3
+00:00:28,270 --> 00:00:33,770
+And so what we're going to do is we're going to go to the IAM service, and we're going to create an administrative user.
+
+4
+00:00:33,770 --> 00:00:43,570
+But while we're doing that, we're going to take a look at some other permission types, because not everybody needs administrator permissions for everything that they do.
+
+5
+00:00:44,470 --> 00:00:48,470
+And so the first thing we're going to do, down the left-hand side, is we're going to go to policies.
+
+6
+00:00:49,790 --> 00:00:56,350
+And in here, you can see that there's a large number, combination of AWS managed and customer managed.
+
+7
+00:00:56,790 --> 00:01:00,350
+And so let's reduce that list to something that's a little bit smaller.

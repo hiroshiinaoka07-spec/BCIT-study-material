@@ -1,0 +1,471 @@
+1
+00:00:00,980 --> 00:00:06,020
+It's time for more math words! In this video I'm going to mention some math words you should
+
+2
+00:00:06,020 --> 00:00:10,260
+already mostly know and I'm going to explain how we use them some of them just a little
+
+3
+00:00:10,260 --> 00:00:16,420
+bit differently in the context of algorithms especially in the context of Big O. We haven't
+
+4
+00:00:16,420 --> 00:00:20,820
+even explained Big O yet although hopefully you got a bit of background in a prior class
+
+5
+00:00:21,620 --> 00:00:28,180
+but actually we're not explaining Big O right now we'll explain it later. This video is just
+
+6
+00:00:28,180 --> 00:00:33,460
+the math vocabulary side so that when we talk about these things later we can you know be on
+
+7
+00:00:33,460 --> 00:00:39,060
+the same page about what these words mean. When we talk about this later I don't want you to be lost.
+
+8
+00:00:39,940 --> 00:00:44,180
+So I'll say that again. This is not supposed to be really a proper explanation of Big O.
+
+9
+00:00:44,740 --> 00:00:49,220
+I'm just explaining some math words that we will use with that and you should memorize
+
+10
+00:00:49,220 --> 00:00:55,060
+these math words. Okay so first of all hopefully you already know that
+
+11
+00:00:58,180 --> 00:01:10,370
+that y equals x that this equation qualifies as linear yeah my writing okay so this is the first
+
+12
+00:01:10,370 --> 00:01:19,650
+word this is linear and in fact more generally students seem to usually know this the classic
+
+13
+00:01:21,810 --> 00:01:28,050
+linear equation is mx plus b right every linear equation can be expressed this way but I mean b
+
+14
+00:01:28,050 --> 00:01:29,970
+might be zero so
+
+15
+00:01:30,290 --> 00:01:35,490
+it might look like this and m might be one and if it's one we don't write it
+
+16
+00:01:35,490 --> 00:01:41,570
+so it might look like this or maybe m is one and b is not zero so you know it can look different ways
+
+17
+00:01:42,130 --> 00:01:53,070
+but yeah linear is this right and hopefully you also know that to write that maybe you
+
+18
+00:01:53,070 --> 00:01:59,900
+don't I'm not sure if you're supposed to know this that to write that is Big O we write
+
+19
+00:02:03,810 --> 00:02:07,490
+just Big O of x actually we usually use n for this so I'm going to write n
+
+20
+00:02:08,930 --> 00:02:15,090
+but I mean over here it was x so it should have been Big O of x in that case either way right okay
+
+21
+00:02:17,310 --> 00:02:25,630
+let's move on next thing what if we have like y equals x squared or like y equals
+
+22
+00:02:26,590 --> 00:02:44,480
+x the third x cubed you know or y equals x cubed plus three x plus four we use a word you already use
+
+23
+00:02:44,720 --> 00:02:48,880
+but we use it in a little bit of an unusual way maybe these are all called polynomial
+
+24
+00:02:58,240 --> 00:03:03,360
+now this is very very similar to math class usage but there are a few slight differences
+
+25
+00:03:05,040 --> 00:03:09,440
+the really big one is that in math class a polynomial requires integer exponents
+
+26
+00:03:10,000 --> 00:03:18,080
+but if I make one of these a real value like formally I guess it's not a polynomial
+
+27
+00:03:18,080 --> 00:03:23,280
+but algorithms people are still going to call this polynomial like formally you say things like
+
+28
+00:03:23,360 --> 00:03:28,800
+this is in polynomial time or something but it might get abbreviated just polynomial
+
+29
+00:03:28,960 --> 00:03:34,960
+this doesn't come up a lot but you know it's still true also depending on your math text book
+
+30
+00:03:34,960 --> 00:03:42,560
+in some math text books this counts as a polynomial because it in in some math text books this
+
+31
+00:03:42,560 --> 00:03:48,240
+counts as a polynomial but in some math text books it doesn't count as a polynomial until
+
+32
+00:03:48,240 --> 00:03:53,040
+you're adding up two of them right so that depends on what book you know what department that's in
+
+33
+00:03:53,040 --> 00:03:59,300
+you know, what your teacher taught, etc. But either way, in this class, even one monomial
+
+34
+00:03:59,300 --> 00:04:06,260
+alone, that counts as a polynomial. Okay. I know it's a little confusing. Sorry. Not my,
+
+35
+00:04:06,260 --> 00:04:13,340
+I didn't make this stuff up. Don't blame me. Again, I'm not really explaining this, but
+
+36
+00:04:13,340 --> 00:04:21,500
+saying it's polynomial is actually kind of more like saying there's a close,
+
+37
+00:04:22,320 --> 00:04:25,160
+there's an actual polynomial that's close to this, but like, okay, whatever.
+
+38
+00:04:26,240 --> 00:04:32,260
+Okay. And so hopefully know that the big O of that is big of N squared here. I'm just going to
+
+39
+00:04:32,260 --> 00:04:37,840
+put a two here to show that we could, but it doesn't matter. The big O of that is, oh, sorry.
+
+40
+00:04:37,840 --> 00:04:41,680
+Those are Xs. I don't know if I should be consistent. I should be consistent, right?
+
+41
+00:04:45,410 --> 00:04:51,910
+I guess there's different ways to be consistent. Okay. So the, um, Y equals X squared becomes big
+
+42
+00:04:51,910 --> 00:04:57,850
+O of X squared. Y of two X to 3.5 becomes X to 3.5. So we drop,
+
+43
+00:04:58,450 --> 00:05:05,790
+this constant coefficient here. We just drop that. And this one becomes, okay. So
+
+44
+00:05:05,790 --> 00:05:11,150
+we're going to remove a bunch of this. We're going to remove all of these terms,
+
+45
+00:05:11,930 --> 00:05:16,210
+right? We call these dominated terms, or we say that this term is dominant,
+
+46
+00:05:16,510 --> 00:05:22,830
+right? And what does that mean? It means that if X got really big, this would be the only term
+
+47
+00:05:22,830 --> 00:05:29,460
+that mattered. Again, I believe you got a little practice doing this in math class a year ago,
+
+48
+00:05:29,460 --> 00:05:39,430
+or something. Not sure. Okay. So you have to know this word polynomial. Also, um, some of these
+
+49
+00:05:39,430 --> 00:05:52,520
+have special names. And in particular, if somebody says quadratic, you need to know which one of
+
+50
+00:05:52,520 --> 00:05:58,120
+these is quadratic. That's like maybe the least important word in the video, but like still you
+
+51
+00:05:58,120 --> 00:06:06,860
+should just know that, right? Okay. Quadratic. Also, um, it is technically true. Okay. Like we
+
+52
+00:06:06,860 --> 00:06:08,200
+got a little bit of pedantry here, right? Um, so we're going to do a little bit of pedantry here,
+
+53
+00:06:08,200 --> 00:06:08,820
+right? Um, so we're going to do a little bit of pedantry here, right? Um, so we're going to do a
+
+54
+00:06:08,840 --> 00:06:17,860
+it is technically true that linear is a type of polynomial, right? It's just X to the one,
+
+55
+00:06:18,060 --> 00:06:26,040
+but it's also technically true that a square, and this is not a square, but you need to pretend
+
+56
+00:06:26,040 --> 00:06:30,660
+that it's a square. Please pretend for me. It's technically true that a square is a rectangle,
+
+57
+00:06:30,660 --> 00:06:36,220
+but if somebody who maybe doesn't know the word in English or something points that and says,
+
+58
+00:06:36,220 --> 00:06:39,680
+what's the word for that in English? And somebody says rectangle,
+
+59
+00:06:40,080 --> 00:06:46,060
+I'm going to be like, WTF, that's a square. I mean, it's technically true that it's a rectangle,
+
+60
+00:06:46,200 --> 00:06:52,360
+but it's like, it's a weird thing to say, right? And so similarly, if you call this up here,
+
+61
+00:06:52,960 --> 00:06:59,840
+polynomial, you are technically correct. But if you do that in a job interview,
+
+62
+00:06:59,840 --> 00:07:04,060
+you might not get the job. Uh, if you do that on an exam, you might not get the points,
+
+63
+00:07:04,060 --> 00:07:08,700
+right? So I acknowledge it's technically correct, but don't say that. Don't
+
+64
+00:07:08,700 --> 00:07:15,000
+call this polynomial unless you're explaining that you're being kind of, you know, you're being
+
+65
+00:07:15,000 --> 00:07:28,420
+pedantic, right? Okay. Next thing is exponential. Exponential is not going to come up very much in
+
+66
+00:07:28,420 --> 00:07:37,450
+this class, but I do want to mention it briefly. Um, exponential means that the variable is in the
+
+67
+00:07:37,450 --> 00:07:43,570
+exponent. Now these all have exponents, right? But that does not make them exponential. And a lot of
+
+68
+00:07:43,570 --> 00:07:47,650
+people who are trying to sound smart, but actually aren't as educated as they're trying to pretend to
+
+69
+00:07:48,270 --> 00:07:52,590
+we'll use the word exponential to mean just like anything big. And they'll also use exponential for
+
+70
+00:07:52,590 --> 00:07:59,170
+like any polynomial, any power function, just all sorts of stuff. Um, and that's all wrong.
+
+71
+00:07:59,690 --> 00:08:04,550
+It's just wrong. And you're not going to get away with that in this class. Like I got to have some
+
+72
+00:08:04,550 --> 00:08:13,170
+standards, right? And so the variable is in the exponent that's exponential. Please learn this
+
+73
+00:08:13,170 --> 00:08:19,890
+please for me, please. Whoa, come on writing. I'm not actually sure this will ever come up on an
+
+74
+00:08:19,890 --> 00:08:21,330
+exam because I want to focus on stuff.
+
+75
+00:08:21,410 --> 00:08:32,900
+It's easier to understand, but you know, there we are. Okay. And of course, you know that this is
+
+76
+00:08:32,900 --> 00:08:43,830
+logarithmic logarithmic. Now you also probably should know that there's a base here, but actually
+
+77
+00:08:43,830 --> 00:08:50,190
+we don't care what the base is. So like, okay, fine base, but we usually don't bother writing
+
+78
+00:08:50,190 --> 00:08:57,290
+the base in big O because it doesn't actually change the answer in big O. Um, maybe there's a
+
+79
+00:09:00,130 --> 00:09:08,120
+doesn't matter. Um, yeah, you can put it in over here if you need to, like, it's probably not going
+
+80
+00:09:08,120 --> 00:09:14,660
+to hurt anybody's feelings, but it's actually not making your answer more accurate. Okay.
+
+81
+00:09:17,110 --> 00:09:22,350
+And the next thing you need to know is that when you add together different kinds of these things,
+
+82
+00:09:22,670 --> 00:09:27,330
+one of them is going to win and one of them is not going to win. Right. And so the one that
+
+83
+00:09:27,330 --> 00:09:32,990
+eventually gets to win when N gets really big, that's the one that matters. We call that the
+
+84
+00:09:33,410 --> 00:09:38,010
+term and actually already sort of a little bit mentioned it up here in the polynomial section.
+
+85
+00:09:39,010 --> 00:09:53,830
+Okay. So for example, in Y, come on, Y equals N plus log N. These are like different categories.
+
+86
+00:09:53,990 --> 00:09:58,950
+So how are we going to decide what this whole thing is? Well, when N gets large, this term is
+
+87
+00:09:58,950 --> 00:10:03,950
+going to win. In fact, even if I go like a hundred log N, that's hard to read. Let's go 70.
+
+88
+00:10:05,010 --> 00:10:10,370
+Seven log N. I should just write six, seven. So people can scream.
+
+89
+00:10:11,110 --> 00:10:19,630
+Oh, I already made that joke before, didn't I? Uh, um, if I write N plus 77 log N,
+
+90
+00:10:20,090 --> 00:10:24,670
+like at first, maybe this is the big one because it's got that 77, but as N gets large,
+
+91
+00:10:24,770 --> 00:10:31,310
+this one becomes much, much larger. And so that makes this the dominant term. And so this is
+
+92
+00:10:32,450 --> 00:10:34,310
+big O of N. Right.
+
+93
+00:10:35,010 --> 00:10:54,600
+So for example, um, maybe there's a big number here, or maybe there's a 13 over here, big number
+
+94
+00:10:54,600 --> 00:11:00,240
+here. Come on. It doesn't matter because what matters is that when N gets large, this N squared
+
+95
+00:11:00,240 --> 00:11:04,640
+will become the dominant term. Well, I mean, it's always the dominant term. It will overwhelm
+
+96
+00:11:04,640 --> 00:11:21,150
+this term. And so this is big O of N squared. And suppose I just duplicate this and change it a bit.
+
+97
+00:11:25,730 --> 00:11:29,530
+This is now an exponential on this, like the second term here is an
+
+98
+00:11:29,530 --> 00:11:29,690
+exponential. So this is now an exponential on this, like the second term here is an exponential.
+
+99
+00:11:29,710 --> 00:11:39,570
+Right. And so this whole thing is exponential because this is the dominant term.
+
+100
+00:11:40,710 --> 00:11:49,940
+Okay. So let's summarize. Oh, wait, wait, wait. Sorry. Sorry. One more thing. If Y is just some
+
+101
+00:11:49,940 --> 00:12:05,000
+number, any number like four or 44 or 544 or 444.44, any number, we call this constant and
+
+102
+00:12:05,000 --> 00:12:10,580
+we rate it as big O of one. Doesn't mean there's one thing. It just means it's not getting bigger
+
+103
+00:12:10,580 --> 00:12:11,440
+when N gets large. And so this whole thing is exponential because this is the dominant term.
+
+104
+00:12:11,440 --> 00:12:16,480
+Okay. It's bigger, right? There's no N over here. There's no X over here. It's just a number.
+
+105
+00:12:17,620 --> 00:12:23,200
+Okay. So let's summarize. You should be able to match the following words to
+
+106
+00:12:23,200 --> 00:12:31,060
+like these different kinds of equations. Let's write them out in proper font here. So that if
+
+107
+00:12:31,060 --> 00:12:37,600
+my handwriting is the problem that we've got constant, we've got linear, we've got polynomial.
+
+108
+00:12:37,600 --> 00:12:58,240
+I already did that. Wait, what am I saying? Oh yeah. Constant,
+
+109
+00:12:58,360 --> 00:13:03,640
+linear, polynomial, quadratic, exponential and logarithmic. You should know that although
+
+110
+00:13:03,640 --> 00:13:09,200
+technically linear is polynomial, don't say that. At least not unless you're making it really clear
+
+111
+00:13:09,200 --> 00:13:13,840
+that you know that the thing you said is technically correct, but not what people would
+
+112
+00:13:13,840 --> 00:13:19,560
+normally say. You should be clear that exponential and polynomial are not the same and you should be
+
+113
+00:13:19,560 --> 00:13:24,080
+able to tell them apart. You should know which one is which. And when you add things together,
+
+114
+00:13:24,080 --> 00:13:28,340
+you should at least for easy cases, be able to tell that the
+
+115
+00:13:28,360 --> 00:13:33,820
+dominant term is going to overwhelm the other term. Right. And by the way, when we multiply
+
+116
+00:13:33,820 --> 00:13:36,820
+things together, that's trickier. So we're just not, we're not worrying about multiplying things
+
+117
+00:13:36,820 --> 00:13:41,840
+together for now. Just when you add two things, you know how to do. Okay. And that's what I need
+
+118
+00:13:41,840 --> 00:13:43,440
+you to know about the math words.

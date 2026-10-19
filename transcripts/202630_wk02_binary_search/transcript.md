@@ -1,0 +1,222 @@
+# Transcript: 202630_wk02_binary_search.mp4
+
+- Source: `C:\Users\hiros\BCIT-study-material\Algorithms\202630_wk02_binary_search.mp4`
+- Duration: 00:26:04
+- Segments: 304, screenshots: 36
+- Whisper model: `large-v3` (auto-generated; may contain recognition errors)
+
+## [00:00:00]
+
+![screenshot at 00:00:00](frames/frame_0001.jpg)
+
+`[00:00:01]` So we need a video in which I review binary search and take it further than it went in class. `[00:00:06]` So this is that. `[00:00:09]` I've got some numbers here. `[00:00:13]` Just wrote some code to generate those. `[00:00:15]` Let's just grab those. `[00:00:16]` Okay. `[00:00:18]` So let's say I'm looking for one of these numbers like 70. `[00:00:22]` My target is going to be 70. `[00:00:25]` Okay. `[00:00:30]` Now at the beginning, the lowest number it could be. `[00:00:34]` Uh, sorry, the index, the lowest index that it could be at is zero. `[00:00:43]` And I'm going to record a high point.
+
+## [00:00:45]
+
+![screenshot at 00:00:45](frames/frame_0002.jpg)
+
+`[00:00:45]` I'm actually not going to record 19. `[00:00:49]` I'm going to record one more than that. `[00:00:54]` This format is called a half open interval. `[00:00:57]` You are used to this from slice, or at least you should be. `[00:01:01]` And I'm going to do things that way. `[00:01:02]` It's not the only way to make this work, but I think it's tidier. `[00:01:06]` One of the nice things about a half open interval is how many `[00:01:09]` numbers are still being considered. `[00:01:12]` 20 minus zero, 20 numbers are still being considered, which if you `[00:01:15]` count, you'll see is correct. `[00:01:19]` Okay. `[00:01:19]` So my current low is zero. `[00:01:23]` My current high is 20, which means one more than the last index, which is easy to `[00:01:29]` initialize to being the length of the list I'm looking for.
+
+## [00:01:30]
+
+![screenshot at 00:01:30](frames/frame_0003.jpg)
+
+`[00:01:34]` And the first I'm going to look at is the midpoint. `[00:01:38]` So I'm going to look at mid and I'm just going to take the halfway point. `[00:01:44]` So that's high minus low over two plus low. `[00:01:56]` So this part is 10. `[00:01:57]` This part is zero. `[00:01:59]` That means mid is 10. `[00:02:02]` And then I'm going to look at 10 and I'm going to look at the value there. `[00:02:14]` And that value is 36.
+
+## [00:02:15]
+
+![screenshot at 00:02:15](frames/frame_0004.jpg)
+
+`[00:02:18]` Maybe I'll just put a little loop around that there. `[00:02:19]` And I can see that my target is greater than that. `[00:02:24]` And because my target is greater than 36, I know that I need to look to the right. `[00:02:29]` I know that all of this stuff here can be ignored, but actually it's more than that. `[00:02:39]` All of this stuff here can be ignored. `[00:02:43]` And so I am going to, sorry, I'm going to be a little more tidy there. `[00:02:50]` There we go. `[00:02:51]` So I'm going to set my low to one more than mid, and I'm not going to, `[00:02:58]` I'm going to go to update high.
+
+## [00:03:00]
+
+![screenshot at 00:03:00](frames/frame_0005.jpg)
+
+`[00:03:02]` So now the lowest place it could be is at index 11, one more than the highest is 20. `[00:03:10]` And that by the way is nine numbers, nine places that it could be, which if you count, `[00:03:15]` you'll see is correct. `[00:03:18]` So I am going to do this again. `[00:03:20]` I'm going to go 20 minus 11 is nine divided by two is four and 11 plus four is 15. `[00:03:36]` And so now I'm going to look there. `[00:03:40]` find out that the value there is 73 and that is too much for what i'm looking for the target i'm
+
+## [00:03:45]
+
+![screenshot at 00:03:45](frames/frame_0006.jpg)
+
+`[00:03:50]` looking for is less than that and so now i know that i can eliminate quite a bit of the list `[00:03:56]` i can eliminate everything up here because that's greater than 73 and what i want is less than 73 `[00:04:04]` but actually it's more than that i can also eliminate `[00:04:08]` the 73 itself right and so previously my high was here now my high will be here `[00:04:19]` remember that my high is not included so my high is going to be updated to be the old mid `[00:04:27]` but i am not updating the low okay i get to go around again
+
+## [00:04:30]
+
+![screenshot at 00:04:30](frames/frame_0007.jpg)
+
+`[00:04:33]` let's see 15 minus 11 is 4 divided by 2 is 2 plus 11 is 13. so i'm going to go look at 13. `[00:04:46]` let's see 15 minus 11 is 2 plus 11 is 13 so i'm going to go look at 13. `[00:04:46]` let's see 15 minus 11 is 4 divided by 2 is 2 plus 11 is 13 so i'm going to go look at 13. `[00:04:46]` value i see at 13 is 66 that's too small so i scratch out everything to the left and the place `[00:04:55]` i just looked which is to say i set my low to be one more than mid and i don't update my high now `[00:05:06]` you can see in my diagram there's only one place left to look and you also can see in my low and `[00:05:12]` high indices that 15 minus 14 is 1 so there's one place left to look i hope my algorithm successfully
+
+## [00:05:15]
+
+![screenshot at 00:05:15](frames/frame_0008.jpg)
+
+`[00:05:20]` fully finds that let's find out so i'm going to take high minus low which is one divided by two `[00:05:25]` i'm going to round down i don't remember if i had an odd number before but in every case we're going `[00:05:29]` to round down so one divided by two rounded down to zero i'm going to add that to low which is `[00:05:36]` going to give me 14. i'm going to go check at the spot where it's 14 where the i'm going to go check `[00:05:44]` at index 14 and that's going to find me a 70 and then i go ding ding ding winner winner chicken `[00:05:49]` dinner we have the value we're looking for okay so that's binary search once and then if i just do
+
+## [00:06:00]
+
+![screenshot at 00:06:00](frames/frame_0009.jpg)
+
+`[00:06:00]` that whole thing again i want that little green mark with some new values where i'm going to look `[00:06:13]` for negative 4 here again at the beginning why did i put high and low backwards what's wrong with me `[00:06:27]` that's very silly i mean the computer wouldn't care but i get confused and probably you do too `[00:06:33]` so at the beginning `[00:06:34]` zero and twenty my mid is half of this difference plus the low the difference uh sorry half the `[00:06:41]` difference is ten the low is zero okay great i look at the middle i find it's 36 that's the
+
+## [00:06:45]
+
+![screenshot at 00:06:45](frames/frame_0010.jpg)
+
+`[00:06:45]` same as before this time my target is less than what i find and so i need that i know that i need `[00:06:51]` to i looked here i'm going to scratch out all this stuff and then i'm going to set my high `[00:07:00]` to the existing mid because again remember that's one more than the last time i'm looking at `[00:07:06]` and now when i go around the loop again let's see the difference is nine nine over two is four and `[00:07:12]` a half round down that's four add four to zero that's four i look at slot number four `[00:07:21]` my attention drifted and i okay and i find out that the value there is negative 19 `[00:07:29]` and then we know that negative 19 is too small so we scratch out all this stuff too enthusiastic
+
+## [00:07:30]
+
+![screenshot at 00:07:30](frames/frame_0011.jpg)
+
+`[00:07:39]` we scratch all this stuff and `[00:07:42]` we're going to set our low to one more than mid `[00:07:46]` and our high stays the same what's the difference between those two so we go around the loop again `[00:07:51]` right what's between those two the difference is nine minus five is four over two is two `[00:07:55]` out of the five get a seven we go look at seven there's our negative four and that matches and `[00:08:03]` so in this case we can return already we don't have to do any more work okay so in this version `[00:08:12]` we found our target it took us one two three four steps in this version we found our target it took
+
+## [00:08:15]
+
+![screenshot at 00:08:15](frames/frame_0012.jpg)
+
+`[00:08:18]` us only three steps and as you might have seen in class as you might remember from class uh maybe a `[00:08:25]` thing you can tell from this example is that if we don't find the target at this point we will shrink `[00:08:33]` a little further actually let me just um let me just make an example where we look for let's say `[00:08:40]` 71. i could have gone with 69. `[00:08:42]` but i'm going to go 61 this time 71 this time so i'm just going to copy `[00:08:47]` most of this logic here because we don't need to redo it copy i think that's called paste `[00:08:58]` uh i just want to erase that bit there
+
+## [00:09:00]
+
+![screenshot at 00:09:00](frames/frame_0013.jpg)
+
+`[00:09:05]` move all this bit back up okay we're almost in business here suppose that we got this far like `[00:09:12]` the reason i was able to copy paste it is because all of the logic so far would have been the same `[00:09:17]` right `[00:09:17]` So suppose that we got this far, and we were actually looking for 71. What would happen next? `[00:09:25]` Squeeze. What would happen next? What happened next is that we see that 70 is too small. So we `[00:09:33]` need to move left. And so what we do every time we move left is we set our low to equal our mid `[00:09:40]` plus one. And so our low becomes 15. Sorry, I think I said that backwards. Sorry, I think I
+
+## [00:09:45]
+
+![screenshot at 00:09:45](frames/frame_0014.jpg)
+
+`[00:09:49]` said that backwards. The thing we found is too small. So we know we need to go to the right. `[00:09:57]` We need to move our left edge upwards. So we already had this. We need to kind of move that `[00:10:05]` boundary that way. And so we do that by setting low equal to mid plus one. High stays the same. `[00:10:12]` And you can see the difference. `[00:10:13]` If we don't have a special situation to notice and stop here, we're going to get stuck. Like `[00:10:18]` bad stuck. Like infinite loop stuck. So if we go 15 minus 15, that's zero. We divide that by two. `[00:10:25]` We round down. That's zero. That's 15. It's 15. We look at the 15 and we say, okay,
+
+## [00:10:30]
+
+![screenshot at 00:10:30](frames/frame_0015.jpg)
+
+`[00:10:32]` that's not helpful. 15 is 73. And we're going to end up just stuck there because high is going to `[00:10:42]` be 15 again. `[00:10:43]` Low doesn't update. We're going to get 15. We're going to get 73. You can see I'm in an infinite `[00:10:48]` loop here, right? So we have to make sure that we detect the situation where it's time to stop. `[00:10:57]` And so now let's figure out how the code could work. So one thing that we know is that I'm able
+
+## [00:11:00]
+
+![screenshot at 00:11:00](frames/frame_0016.jpg)
+
+`[00:11:05]` to do something like this. Like I had this working. I mean, I don't mean in code. I had `[00:11:23]` that working in my brain, right? And so I need to have those values. And we know that we started low `[00:11:30]` at zero. `[00:11:30]` And we started high at line of haystack. That's pretty simple, right? And so then the question is `[00:11:39]` kind of how do we figure out mid and what else do we do? The next thing I want to point out that's
+
+## [00:11:45]
+
+![screenshot at 00:11:45](frames/frame_0017.jpg)
+
+`[00:11:46]` pretty simple is that we were clearly doing this part over and over again. So clearly this is going `[00:11:50]` to go in some kind of a loop. Now I can't just write loop in Python. I'm going to have to figure `[00:11:54]` that out. And then I want mid here, right? And I said earlier that mid equals high. `[00:12:08]` Minus low. Come on, Jeremy. It's divided by two plus low. I missed a parenthesis there. `[00:12:19]` And also I want to round down. And Python, when you already have integers, which I do, `[00:12:25]` and you want an integer, which I do, and you want to round it down, which I do,
+
+## [00:12:30]
+
+![screenshot at 00:12:30](frames/frame_0018.jpg)
+
+`[00:12:31]` you can just do this in Python. You could instead do it like this and do a floor or something. I'm `[00:12:37]` way too lazy for that. Okay. So we need this. `[00:12:41]` And I think we're basically there. Well, no, we're not there for one thing. This loop thing `[00:12:48]` is throwing red squigglies. That's because there isn't such a thing as loop. So when do I want to `[00:12:54]` stop? Well, if we go back to our paint here, you notice that in this case, this line was a mistake.
+
+## [00:12:56]
+
+![screenshot at 00:12:56](frames/frame_0019.jpg)
+
+`[00:13:04]` This line is the last one we should have done. And really even this stuff didn't need doing. `[00:13:09]` We should have sort of stopped here. So what we want to do is, `[00:13:13]` we want to stop. We want to go until high equals low. But that's, you know, there is no until loop `[00:13:23]` in Python. But what, oh, oh, oh, I'm sorry. I've made this mistake before. I'll make this
+
+## [00:13:30]
+
+![screenshot at 00:13:30](frames/frame_0020.jpg)
+
+`[00:13:31]` mistake again. All I did was write this one line here, this until loop line, until high equals low. `[00:13:38]` Okay. Until is not a thing. What we have is this thing. You notice that conceptually, `[00:13:49]` until is the same as while. `[00:13:50]` Until is not. Right? Keep taking classes until you graduate. Keep taking classes while you're `[00:13:57]` not graduated. Okay. So we could, you know, fix this up. We could fix this up like this. `[00:14:04]` For reasons, what people write is this. The other one would work. This is just what people do.
+
+## [00:14:15]
+
+![screenshot at 00:14:15](frames/frame_0021.jpg)
+
+`[00:14:17]` Okay. So we're going to keep going while low and high have got some space between them. `[00:14:22]` Another way of looking at that is, remember, `[00:14:23]` that I said that high minus low is how many numbers we still have to check. `[00:14:38]` And so if high equals low, then that's zero. And in fact, `[00:14:43]` if this goes the other way, like if it goes to where low is larger, then we'll have a negative `[00:14:50]` number, negative number of numbers to check. That can't happen. So that's why I say the not `[00:14:54]` equals would work, but people just do this. And I don't really want to explain why, `[00:14:57]` because it's really not relevant to what we're doing. Okay. So if I run this,
+
+## [00:15:00]
+
+![screenshot at 00:15:00](frames/frame_0022.jpg)
+
+`[00:15:04]` it's going to infinite loop, of course. `[00:15:05]` Right. Because, well, if I have a list of size zero, it won't run at all. If I have a list of `[00:15:14]` any other size, it will infinite loop because nothing is changing low and high. And so we need `[00:15:22]` to maybe, well, sometimes we set low equals mid and sometimes we set, no, that's yeah. No, `[00:15:32]` that is right. Okay. Oh, I thought I, I thought I goofed up. Sometimes we set, oh, I did goof up. `[00:15:37]` Sometimes we set low to mid plus one. Sometimes we set high to mid. But we don't do both of those `[00:15:45]` at once. So what is the plan here? Well, the plan here is we're going to do some kind of an if,
+
+## [00:15:45]
+
+![screenshot at 00:15:45](frames/frame_0023.jpg)
+
+`[00:16:00]` right? And so the, the easiest and most fun thing here is we are going to say if `[00:16:12]` haystack mid is the needle, right? And that means that we found it. `[00:16:21]` And if we found it, we're going to say, well, I'm going to do some kind of an if, And if we found it, `[00:16:24]` bleh we can just return the thing we found we're done we can go home now if we didn't find it we
+
+## [00:16:30]
+
+![screenshot at 00:16:30](frames/frame_0024.jpg)
+
+`[00:16:31]` need to figure out if we should go left or right right those are our only options find it or go `[00:16:35]` left or go right so we're going to say look if the needle is smaller than haystack mid i don't `[00:16:50]` know why i wrote them in opposite ways like up here needle is to the right down here is like `[00:16:54]` just in the in the in the code this is ugly i'm changing it i'm just going to move the needle `[00:17:01]` variable okay so now they look the same and that makes me a little less freaked `[00:17:05]` okay so we're going to go left and the way we go left is this line of code here and if you
+
+## [00:17:15]
+
+![screenshot at 00:17:15](frames/frame_0025.jpg)
+
+`[00:17:19]` are not yet figuring out that if the way we go right is this well sorry for the spoilers `[00:17:27]` sorry for ruining the movie okay and so this is just going to go around some number of times `[00:17:35]` and either it hits this or it shrinks and shrinks and shrinks and shrinks `[00:17:40]` until this `[00:17:41]` triggers or rather this fails to trigger really is what i should say and when it fails to trigger `[00:17:47]` we're down here now and as i discussed in class with linear search we don't actually need to `[00:17:59]` write anything here for the computer's benefit but i think you should write something here for
+
+## [00:18:00]
+
+![screenshot at 00:18:00](frames/frame_0026.jpg)
+
+`[00:18:02]` the reader's benefit whether that's your instructor grading your quizzes and exams or that's your `[00:18:09]` co-workers or most important of all whether it's yourself in a week because you in a week deserves `[00:18:16]` your present day kindness so i'm going to write that there i'm just going to add a little bit of a `[00:18:31]` that's slightly more a style that i like i don't know up to you
+
+## [00:18:45]
+
+![screenshot at 00:18:45](frames/frame_0027.jpg)
+
+`[00:18:48]` and we're going to leave the print in here for now to prove that something's working `[00:18:53]` now i haven't run this code and i didn't write it off screen before starting the video `[00:18:57]` so i am pretty confident it's going to work but there is definitely a chance that it does not work `[00:19:03]` so um `[00:19:04]` yeah let's start it on an empty list i should probably save it first it's not doing what i want `[00:19:13]` i guess i should probably print this out here i'll show you why i should print it out `[00:19:17]` if i don't print it out then i don't see anything there and that's that's boring `[00:19:30]` so let's just and this is because if you don't print it why would it do anything this isn't a
+
+## [00:19:30]
+
+![screenshot at 00:19:30](frames/frame_0028.jpg)
+
+`[00:19:40]` REPL okay so let's go back and do that let's just do that again `[00:19:47]` Okay, so that returns nine, which is good. `[00:19:49]` And if I add some nonsense in there, `[00:19:51]` two, I know that two is in 234, but only in a string way, `[00:19:55]` not in a number comparison way. `[00:19:57]` And so what am I getting? `[00:19:59]` Well, what I'm getting is I'm getting my low, high, mid, `[00:20:03]` the value I looked at, and then I'm getting my final answer. `[00:20:07]` Here, let me add it like this, right?
+
+## [00:20:15]
+
+![screenshot at 00:20:15](frames/frame_0029.jpg)
+
+`[00:20:17]` Okay, so let's make a bigger example `[00:20:20]` to see if it's still working. `[00:20:22]` I'm going to grab some random numbers that I generated. `[00:20:26]` What was I using before? `[00:20:27]` I was using the one that started with negative 48. `[00:20:28]` So let's just grab these ones. `[00:20:33]` And then I have to add a bunch of commas `[00:20:36]` because that's how this programming language works. `[00:20:42]` That didn't work the way I wanted it to. `[00:20:43]` What just happened? `[00:20:45]` Oh, I see, unpleasant. `[00:20:48]` Sorry, I'm just gonna pause and fix this. `[00:20:51]` Okay, I was trying to be clever on camera, `[00:20:53]` but actually I was dumb on camera, `[00:20:54]` and then you had to watch me be dumb. `[00:20:56]` Sorry about that. `[00:20:57]` Okay, so I've got a bunch of values here.
+
+## [00:21:00]
+
+![screenshot at 00:21:00](frames/frame_0030.jpg)
+
+`[00:21:05]` My internet can't find that. `[00:21:07]` And let's see, it started looking from zero to 20, `[00:21:11]` then it looked from 11 to 20, `[00:21:12]` then it looked from 16 to 20, 16 to 18, 16 to 17. `[00:21:15]` And it doesn't show us the 16 to 16, `[00:21:17]` but it does like set it up that way, right? `[00:21:21]` Here, let's add this. `[00:21:41]` Actually, maybe we should print them both. `[00:21:44]` Yeah, maybe we should print them both. Sorry.
+
+## [00:21:45]
+
+![screenshot at 00:21:45](frames/frame_0031.jpg)
+
+`[00:21:47]` No, too much work, too much work. `[00:21:49]` Can't be bothered right now. `[00:21:50]` Don't wanna waste your time. `[00:21:52]` So you can see that low was 16, but it got adjusted to 17, `[00:21:56]` and now they're equal. `[00:21:58]` And so now this while loop stops running `[00:22:00]` and it stops going around. `[00:22:02]` Okay, and let's demonstrate `[00:22:03]` that it can find something that's in there. `[00:22:05]` Let's try searching for negative 96. `[00:22:11]` It finds it at zero. `[00:22:13]` Let's look for negative 90. `[00:22:23]` Yeah, looks good, right? `[00:22:25]` So what we're gonna do next is `[00:22:27]` I'm gonna show you some numbers `[00:22:29]` and you should pause the video,
+
+## [00:22:30]
+
+![screenshot at 00:22:30](frames/frame_0032.jpg)
+
+`[00:22:33]` write out what it will say. `[00:22:34]` Here, I'll take out these high equals high, `[00:22:36]` low equals low things. `[00:22:37]` So you have to write that out `[00:22:38]` just to make it easier for you, right? `[00:22:42]` So in this example where it's negative 90, `[00:22:46]` right now it is spitting out. `[00:22:48]` First, I looked zero to 20. `[00:22:50]` That meant looking at 10 and I found a negative 24. `[00:22:52]` Then I looked zero to 10, five, right? `[00:22:54]` So you could test this. `[00:22:55]` So here's one. `[00:22:56]` Here, I'll just make sure that whole list is... `[00:23:07]` What did it just do? `[00:23:08]` I don't know what it did. `[00:23:13]` Screwed up here. `[00:23:14]` What is it doing?
+
+## [00:23:15]
+
+![screenshot at 00:23:15](frames/frame_0033.jpg)
+
+`[00:23:17]` Sorry about that. `[00:23:18]` Maybe I've got it back. `[00:23:22]` I am trying to put all these on the screen `[00:23:25]` so you can see them all. `[00:23:28]` Okay, so here is what it is running on. `[00:23:34]` Kaboom. `[00:23:36]` Oh, why did I think node was gonna do it? `[00:23:38]` Ha ha ha. `[00:23:39]` Kaboom. `[00:23:40]` Okay, okay, sorry. `[00:23:41]` I'm getting very frazzled. `[00:23:42]` And you're getting fed up, I bet. `[00:23:44]` So here it is running correctly. `[00:23:48]` And then I'm gonna sub in some other numbers `[00:23:50]` and you're gonna pause the video and try to do it by hand. `[00:23:53]` Try to generate all this output. `[00:23:55]` And then you can run the video and see if it works.
+
+## [00:24:00]
+
+![screenshot at 00:24:00](frames/frame_0034.jpg)
+
+`[00:24:02]` Okay, I got you some numbers and let's try this twice. `[00:24:11]` Some hotkey in my OBS setup and my VS code setup `[00:24:14]` are fighting with each other `[00:24:15]` and I'm gonna figure out what it is later `[00:24:17]` and then I'm gonna fix it. `[00:24:19]` We're gonna do this twice. `[00:24:20]` Once looking for 20 and once looking `[00:24:22]` for a let's give everybody a chance to go scream `[00:24:25]` and write at six, seven. `[00:24:28]` Okay, sorry, if you have younger siblings or cousins `[00:24:31]` in the background who are now losing their minds. `[00:24:33]` Okay, so I want. `[00:24:35]` I'm gonna pause in about 10 more seconds, `[00:24:37]` or sorry, you're gonna pause in about 10 more seconds `[00:24:38]` then you're gonna go do it. `[00:24:40]` And then you're gonna hit play. `[00:24:42]` Okay? `[00:24:43]` You should pause now. `[00:24:45]` I hope you already paused.
+
+## [00:24:45]
+
+![screenshot at 00:24:45](frames/frame_0035.jpg)
+
+`[00:24:45]` I hope you're back now. `[00:24:47]` Now we're almost done. `[00:24:49]` I hope I did that well. `[00:24:50]` Okay. `[00:24:50]` now you've already got the answers right if not you're running out of time to do it to learn i'm `[00:24:56]` about to steal your learning opportunity okay so that's what it does in these cases okay so you `[00:25:06]` should be able to do all that for the quiz you should be able to write these things out if i `[00:25:09]` give you the code um i will not require you to write this whole code from scratch but i might `[00:25:21]` give you most of this code and break a little bit of it and require you to fix it i mean i almost `[00:25:27]` certainly meant to do that actually that's extremely likely so you either need to memorize
+
+## [00:25:30]
+
+![screenshot at 00:25:30](frames/frame_0036.jpg)
+
+`[00:25:31]` it which is not what i would do or you need to um learn how it works well enough that you can `[00:25:39]` reason about what gets broken which is what i would do 100 and uh there's probably also going `[00:25:46]` to be a question where i ask you to do the thing i just asked you to do well paused which is `[00:25:51]` um you know show me what it ought to do not what the broken code does but what it would do `[00:25:58]` and that will be part of your quiz this week okay

@@ -1,0 +1,819 @@
+1
+00:00:01,200 --> 00:00:06,800
+Previously, we spent some time learning how to actually time Python code, which allows us to
+
+2
+00:00:06,800 --> 00:00:11,840
+answer the question, how long does this particular piece of code take to run? Actually, what it
+
+3
+00:00:11,840 --> 00:00:18,400
+really asks is how long did this particular piece of code take to run on this data, this time,
+
+4
+00:00:18,400 --> 00:00:23,680
+on this computer, in this context, et cetera, et cetera. So in this video, we're going to ask a
+
+5
+00:00:23,680 --> 00:00:30,160
+different question, which is as the input sizes changes, how does that affect the amount of work
+
+6
+00:00:30,160 --> 00:00:34,640
+that needs to be done? How does that affect the running time? So we're going to be talking about
+
+7
+00:00:34,640 --> 00:00:38,400
+rate of growth. So I've got a little bit of code here
+
+8
+00:00:47,940 --> 00:00:51,460
+and let's suppose that we assume for some reason, maybe a good reason,
+
+9
+00:00:52,500 --> 00:00:58,660
+that the main cost of this code is this line right here. And so basically, however much
+
+10
+00:00:58,660 --> 00:01:04,460
+we spend on this line, that's going to be basically how much we spend total. And so
+
+11
+00:01:04,460 --> 00:01:09,180
+the number of times we run that line is dependent on how many times we go around this loop.
+
+12
+00:01:10,060 --> 00:01:10,280
+And there are a lot of programs that do this differently. So we're going to do that in a
+
+13
+00:01:10,280 --> 00:01:17,550
+And that depends on how many elements are in this list data.
+
+14
+00:01:17,550 --> 00:01:19,810
+And that depends on how many elements
+
+15
+00:01:19,810 --> 00:01:22,430
+are in the input data, right?
+
+16
+00:01:22,430 --> 00:01:25,290
+And so if the size of data,
+
+17
+00:01:25,290 --> 00:01:28,630
+which we're gonna call N is 10,
+
+18
+00:01:28,630 --> 00:01:33,630
+then clearly we run this line here 10 times
+
+19
+00:01:34,050 --> 00:01:35,550
+and the total cost is 10.
+
+20
+00:01:36,670 --> 00:01:39,250
+And if N is a thousand,
+
+21
+00:01:39,250 --> 00:01:42,110
+then the total number of times we run that line
+
+22
+00:01:42,110 --> 00:01:45,010
+is a thousand or did I say 10,000, whatever.
+
+23
+00:01:45,010 --> 00:01:47,810
+And that's gonna be the total cost.
+
+24
+00:01:47,810 --> 00:01:51,270
+Okay, that was easy enough.
+
+25
+00:01:51,270 --> 00:01:55,490
+But there's obviously sort of already a possible objection,
+
+26
+00:01:55,490 --> 00:01:59,850
+which is it probably doesn't cost exactly one.
+
+27
+00:01:59,850 --> 00:02:05,510
+You know what, let's actually just make it harder overall
+
+28
+00:02:05,510 --> 00:02:13,120
+and make it really certain
+
+29
+00:02:14,260 --> 00:02:18,590
+that it's doing more than one step there on that line.
+
+30
+00:02:18,590 --> 00:02:22,800
+Right, so the line has gotten uglier
+
+31
+00:02:22,800 --> 00:02:23,740
+and now it has to do several steps
+
+32
+00:02:23,740 --> 00:02:27,180
+and how much those steps cost, I don't know.
+
+33
+00:02:27,180 --> 00:02:28,820
+Like I really actually don't know.
+
+34
+00:02:28,820 --> 00:02:31,480
+We could sort of imagine that somebody told us
+
+35
+00:02:31,480 --> 00:02:34,500
+the multiplication costs two microseconds
+
+36
+00:02:34,500 --> 00:02:36,840
+and the addition costs one microsecond
+
+37
+00:02:36,840 --> 00:02:41,060
+and the assignment costs, I don't know, six microseconds.
+
+38
+00:02:41,060 --> 00:02:42,960
+That all adds up to nine microseconds.
+
+39
+00:02:43,900 --> 00:02:48,120
+And so if again, that's the dominant cost,
+
+40
+00:02:48,120 --> 00:02:53,120
+then that's gonna be here, I've got this is for this,
+
+41
+00:02:53,120 --> 00:02:54,600
+I'll clean this all this up in a second.
+
+42
+00:02:54,600 --> 00:02:57,960
+But if n is 10,
+
+43
+00:02:57,960 --> 00:02:59,780
+then we're gonna have to run that line 10 times
+
+44
+00:02:59,780 --> 00:03:01,940
+at nine microseconds each or whatever.
+
+45
+00:03:01,940 --> 00:03:03,340
+I'm just making these numbers up
+
+46
+00:03:03,340 --> 00:03:10,140
+and it's gonna take 90, blah, blah, blah, right?
+
+47
+00:03:10,140 --> 00:03:17,450
+And the thing that you, wait, I'll save that for a second.
+
+48
+00:03:18,670 --> 00:03:19,510
+Okay, let's see.
+
+49
+00:03:20,970 --> 00:03:22,810
+I'll just rearrange this a bit.
+
+50
+00:03:22,810 --> 00:03:32,070
+That's like that.
+
+51
+00:03:32,070 --> 00:03:34,390
+Okay, and we might have something else like this.
+
+52
+00:03:34,510 --> 00:03:42,220
+Where we're actually gonna run the loop twice.
+
+53
+00:03:42,220 --> 00:03:44,980
+And you can see that each time we go around the loop,
+
+54
+00:03:44,980 --> 00:03:49,980
+it's gonna be n, sorry, to go around the loop n times,
+
+55
+00:03:50,820 --> 00:03:54,020
+it's gonna cost us n.
+
+56
+00:03:54,020 --> 00:03:54,900
+And then to go around this one,
+
+57
+00:03:54,900 --> 00:03:56,940
+it's gonna cost us another n.
+
+58
+00:03:56,940 --> 00:03:58,840
+And that's gonna add up to two n.
+
+59
+00:03:58,840 --> 00:04:03,040
+And so if n is 10, then we're gonna spend 20.
+
+60
+00:04:03,040 --> 00:04:06,960
+And if n is 100, we're gonna spend 200.
+
+61
+00:04:06,960 --> 00:04:09,520
+And if n is 1000, I mean, right, like obviously.
+
+62
+00:04:09,540 --> 00:04:18,700
+Oh, this went missing.
+
+63
+00:04:18,700 --> 00:04:21,100
+And so at the risk of spelling out the obvious,
+
+64
+00:04:21,100 --> 00:04:28,930
+I'm just gonna throw all that in a table here.
+
+65
+00:04:28,930 --> 00:04:30,930
+And again, the sort of super obvious thing
+
+66
+00:04:30,930 --> 00:04:34,130
+you wanna notice here is that, okay, right?
+
+67
+00:04:34,130 --> 00:04:37,630
+These times are bigger than these ones.
+
+68
+00:04:37,630 --> 00:04:39,190
+And these times are in between.
+
+69
+00:04:39,190 --> 00:04:40,330
+And so they're all different, right?
+
+70
+00:04:40,330 --> 00:04:45,330
+But something that I'll share is that when I double n,
+
+71
+00:04:45,810 --> 00:04:50,810
+this doubles and this doubles and this doubles, right?
+
+72
+00:04:51,570 --> 00:04:54,570
+When I quadruple n, this quadruples.
+
+73
+00:04:54,570 --> 00:04:57,570
+And you know, you can do the math if you want to.
+
+74
+00:04:57,570 --> 00:04:59,810
+These also quadruple, right?
+
+75
+00:04:59,810 --> 00:05:01,810
+Oh, and actually one more example.
+
+76
+00:05:02,810 --> 00:05:09,460
+Suppose that I am not, you know, earlier I said,
+
+77
+00:05:09,460 --> 00:05:12,220
+oh, like the only cost is here, right?
+
+78
+00:05:12,220 --> 00:05:15,460
+But what if I also wanna pay for this and this?
+
+79
+00:05:15,460 --> 00:05:17,460
+And those clearly happen once each, right?
+
+80
+00:05:17,460 --> 00:05:20,540
+So what if I also want to pay for this and this?
+
+81
+00:05:20,540 --> 00:05:22,500
+And those clearly happen once each, right?
+
+82
+00:05:22,500 --> 00:05:23,500
+So what if I also want to pay for this and this?
+
+83
+00:05:23,500 --> 00:05:25,060
+And those clearly happen once each, right?
+
+84
+00:05:25,060 --> 00:05:31,990
+And so actually this one should be n plus two.
+
+85
+00:05:31,990 --> 00:05:33,190
+Yeah.
+
+86
+00:05:33,190 --> 00:05:39,280
+So let me just put those in my table.
+
+87
+00:05:39,280 --> 00:05:41,300
+Just kind of glue these in here.
+
+88
+00:05:42,260 --> 00:05:45,320
+And you might object that when I double here,
+
+89
+00:05:45,320 --> 00:05:46,500
+this doesn't double.
+
+90
+00:05:46,500 --> 00:05:49,600
+And okay, that's kind of true,
+
+91
+00:05:49,600 --> 00:05:51,740
+but it kind of does double, right?
+
+92
+00:05:51,740 --> 00:05:55,540
+It kind of does double and it kind of,
+
+93
+00:05:55,540 --> 00:05:58,540
+and the further down you go, the more it's basically doubled.
+
+94
+00:05:58,540 --> 00:05:59,460
+And the further down you go, the more it's basically doubled.
+
+95
+00:05:59,460 --> 00:06:00,860
+So you double n when you double n.
+
+96
+00:06:00,860 --> 00:06:05,780
+And when you quadruple n, it basically quadruples.
+
+97
+00:06:05,780 --> 00:06:07,320
+And you can imagine that if we went even further
+
+98
+00:06:07,320 --> 00:06:10,300
+down this table, it would get even closer to being,
+
+99
+00:06:10,300 --> 00:06:11,840
+you know, it would never quite get there,
+
+100
+00:06:11,840 --> 00:06:13,980
+but it would just get closer and closer to being
+
+101
+00:06:13,980 --> 00:06:18,660
+when you double n, n plus two doubles.
+
+102
+00:06:18,660 --> 00:06:22,260
+And in fact, if you plotted all these onto a plot,
+
+103
+00:06:22,260 --> 00:06:29,670
+you know, you would get either a line like that,
+
+104
+00:06:29,670 --> 00:06:31,290
+or you'd get a line like that,
+
+105
+00:06:31,290 --> 00:06:33,230
+or maybe you'd get a line like this.
+
+106
+00:06:33,230 --> 00:06:38,590
+like this that's a very approximate version of the fourth of the fourth set here but they would
+
+107
+00:06:38,590 --> 00:06:46,170
+all be lines and that's why we're going to group these into a group and i know i know how shocked
+
+108
+00:06:46,170 --> 00:06:52,640
+you are we're going to call these linear because they are linear equations so let's look at a
+
+109
+00:06:52,640 --> 00:07:03,180
+different example i gotta shrink all this out of the way let me just clean this up okay so let's
+
+110
+00:07:03,180 --> 00:07:13,980
+do something a little different this is our new code here and we have the same kind of question
+
+111
+00:07:13,980 --> 00:07:27,500
+again which is if the size of data is n then how many times do i do something right and so if data
+
+112
+00:07:27,500 --> 00:07:34,300
+has three elements in it then this one goes around three times but each time it does this one goes
+
+113
+00:07:34,300 --> 00:07:41,580
+around three times right so we get you know zero zero zero one zero two we get uh one zero one one
+
+114
+00:07:41,580 --> 00:07:45,420
+one two and we get two zero two one and two
+
+115
+00:07:45,900 --> 00:07:57,500
+two right and so if n is three then our you know our our total amount of work done is nine but of
+
+116
+00:07:57,500 --> 00:08:03,980
+course if n was a larger number like 10 we would do the inner loop 10 times every time we did one
+
+117
+00:08:03,980 --> 00:08:14,990
+of these and we repeat that 10 times which will give us 100 and so on and hopefully you can see
+
+118
+00:08:14,990 --> 00:08:20,590
+that the consequence here is that this is basically not basically the number of times we're
+
+119
+00:08:21,310 --> 00:08:25,550
+doing the inner loop twice okay so one of the things that we need to get there right is we want
+
+120
+00:08:25,550 --> 00:08:37,180
+to make sure we're doing something and i mean you know do something is n squared and what if we do
+
+121
+00:08:37,180 --> 00:08:47,260
+the loop twice the inner loop twice well now it's gonna be you know a hundred go rounds of the
+
+122
+00:08:47,260 --> 00:08:52,860
+outside sorry i don't know why i said 100 let's do the three row first right so it's three of this
+
+123
+00:08:52,860 --> 00:09:01,780
+plus three, right? So that is pretty clearly N times two N. Oh, sorry. Let's do that in the
+
+124
+00:09:01,780 --> 00:09:09,510
+reason. Sorry. Let's just back up. N times two N, which is pretty clearly two N squared, right?
+
+125
+00:09:09,510 --> 00:09:21,680
+And so it's just twice the previous numbers, blah, blah, two million. And, you know, obviously I
+
+126
+00:09:21,680 --> 00:09:31,510
+could also, I don't know, let's just say that we do this again at the end or something. So how many
+
+127
+00:09:31,510 --> 00:09:41,280
+more did I add? Well, I added, you know, if data has size three, then this happens three times,
+
+128
+00:09:41,280 --> 00:09:46,040
+and then this happens three times, and then this happens once. So that's two N plus one.
+
+129
+00:09:46,220 --> 00:09:54,400
+Then all of that gets multiplied by this. So that's six N plus three or whatever. And so more
+
+130
+00:09:54,400 --> 00:09:58,760
+generally, what is that? That is, let's see, I need to scooch all this over a little bit.
+
+131
+00:10:00,280 --> 00:10:03,440
+Two N squared plus N.
+
+132
+00:10:03,560 --> 00:10:11,140
+Right? And so in this case, that's the same as that plus N. It's the same as this plus N.
+
+133
+00:10:13,360 --> 00:10:28,990
+Let's see. It is, blah, right? And so I think I should add some more columns to my table.
+
+134
+00:10:31,500 --> 00:10:39,600
+Let's see. Bloop. Got to size that to fit. So it looks good. Really good. Looks really good.
+
+135
+00:10:40,360 --> 00:10:41,620
+I am artiste. Okay.
+
+136
+00:10:41,940 --> 00:10:50,660
+So what do we see now? Right? So when N doubles, this isn't doubling. This isn't doubling. But
+
+137
+00:10:50,660 --> 00:10:54,800
+they are, well, this one is times four. This one is times four. And this one is kind of roughly
+
+138
+00:10:54,800 --> 00:11:00,020
+times four. Right? And this one is times four. And this one is times four. And this one is,
+
+139
+00:11:00,020 --> 00:11:09,040
+you know, kind of roughly times four. And times four, and times four, times four, times four.
+
+140
+00:11:09,160 --> 00:11:11,740
+I mean, roughly. But well, some of them are exact.
+
+141
+00:11:11,940 --> 00:11:17,660
+I'm approximate, right? And this one here is times 16. And this one here is times 16.
+
+142
+00:11:18,860 --> 00:11:23,720
+And this one here is times 16. And so again, the point is that they all have the same behavior.
+
+143
+00:11:24,320 --> 00:11:29,640
+And so just as over on the left, I chose the simplest one to represent the whole family.
+
+144
+00:11:29,960 --> 00:11:35,740
+I'm going to choose the simplest one to represent the whole family. And you know what I'm going to
+
+145
+00:11:35,740 --> 00:11:39,800
+write here, right? Quadratic. I'm going to, you know so well that I'm just going to write it badly.
+
+146
+00:11:39,800 --> 00:11:55,360
+Ha ha ha. I'm just going to move this over to the left here for no reason. Okay, so one more thing
+
+147
+00:11:55,360 --> 00:12:10,460
+to do here. What if I add another loop? Just pretend that's properly indented. Okay, thanks.
+
+148
+00:12:11,740 --> 00:12:15,280
+So if I add another loop, I hope it's pretty obvious that what's going to happen is I'm going
+
+149
+00:12:15,280 --> 00:12:25,360
+to have the same answer as here, except times n, right? So that one was 2n squared plus n.
+
+150
+00:12:26,120 --> 00:12:27,280
+This time I'm going to have,
+
+151
+00:12:27,920 --> 00:12:37,180
+2n cubed plus n squared, right? You know what? I'm not going to do n squared. Ha. I'm just going to
+
+152
+00:12:37,180 --> 00:12:41,620
+move this out here. I don't know. It doesn't matter, right? And so, okay,
+
+153
+00:12:41,620 --> 00:12:55,850
+I can update my table again. Just making a few little fumbles here. Okay, what do we see this
+
+154
+00:12:55,850 --> 00:13:07,270
+time? We see that, um, what's that factor? Well, that's around four, I guess. Hmm.
+
+155
+00:13:08,410 --> 00:13:09,090
+But as I said, I'm going to add another loop. So if I add another loop, I'm going to add another loop.
+
+156
+00:13:09,090 --> 00:13:16,330
+It turns out, wait, that actually is four. I did this wrong. One sec. Sorry, that's better.
+
+157
+00:13:17,770 --> 00:13:23,710
+So here, this is approximately times eight. And let's see what else we're supposed to check. This
+
+158
+00:13:23,710 --> 00:13:28,270
+one is approximately times eight. And, you know, approximately times eight. And, well,
+
+159
+00:13:28,270 --> 00:13:40,630
+you can't tell, but, right? And so where this was two became two became four became eight. Let's see.
+
+160
+00:13:40,850 --> 00:13:48,950
+Wow. My missing, my writing is even messier than usual. Two, two, four, eight. And then the big
+
+161
+00:13:48,950 --> 00:13:57,510
+jump down here is four. This is four. This is four squared, which is 16. This is four cubed. Even
+
+162
+00:13:57,510 --> 00:14:07,550
+though you can't tell, you could like figure it out. Um, over here, this one is times 64, because
+
+163
+00:14:07,550 --> 00:14:10,370
+that is four times.
+
+164
+00:14:10,850 --> 00:14:19,470
+Four times four. And maybe you can guess that what's going on here is that this is approximately
+
+165
+00:14:19,470 --> 00:14:25,950
+equal to N cubed. I mean, it's, it's doubled and there's like a little bit of extra stuff thrown
+
+166
+00:14:25,950 --> 00:14:31,110
+in, but just as the patterns, sorry, I mean, I said that wrong. It's not that it's approximately
+
+167
+00:14:31,110 --> 00:14:35,770
+equal to N cubed. Sure. Yeah. No, whatever. What I mean is that the pattern of growth,
+
+168
+00:14:35,770 --> 00:14:39,810
+remember that we're talking about rate of growth, right? The,
+
+169
+00:14:39,810 --> 00:14:40,830
+the pattern of growth, the rate of growth, the rate of growth, the rate of growth, the rate of growth,
+
+170
+00:14:40,850 --> 00:14:48,790
+is the same pattern of growth that you would see if I just put in N cubed. Okay. And so I probably
+
+171
+00:14:48,790 --> 00:14:52,350
+should have done that, but I think I'm boring you. So I want to stop just repeating myself.
+
+172
+00:14:52,910 --> 00:14:56,890
+So this, do you know the word for this here? I'll give you a new word. This is not officially
+
+173
+00:14:56,890 --> 00:15:02,670
+testable yet, but it probably will be eventually, but not, not, not right now. Anyways, this is
+
+174
+00:15:02,670 --> 00:15:12,310
+cubic, right? And so then, as you know, all of these are polynomial, except that we kind of
+
+175
+00:15:12,310 --> 00:15:13,510
+pretend that linear isn't.
+
+176
+00:15:13,730 --> 00:15:23,370
+Because we're liars, right? Uh, ha ha ha lies, but you know, it's what people say. Okay. Oh,
+
+177
+00:15:23,410 --> 00:15:27,250
+and I guess there's some, there's one other thing we could do. I should have done this at the
+
+178
+00:15:27,250 --> 00:15:36,810
+beginning. Ha ha ha. Let's do this now. There's okay. Yeah, we got that now. Here, let's get rid
+
+179
+00:15:36,810 --> 00:15:46,180
+of this. Make this larger. No, sorry. I'm sick and my brain is a mess. So I'm, whoa, what just
+
+180
+00:15:46,180 --> 00:15:49,020
+happened? Oh, I triggered,
+
+181
+00:15:49,300 --> 00:15:52,900
+some AI feature. Like I said, I'm sick. My brain is a mess. I did not need that right now. Okay.
+
+182
+00:15:52,900 --> 00:16:00,250
+Sorry. So, uh, we have code like this. It doesn't matter what size data is. It's just going to do
+
+183
+00:16:00,250 --> 00:16:08,070
+this and then this, right? And so in that, if N is 10, the cost is one or two or something. I don't
+
+184
+00:16:08,070 --> 00:16:14,270
+know. And if N is a thousand, then the cost is still one. I don't know. Maybe it's two. Let's
+
+185
+00:16:14,270 --> 00:16:20,590
+say two. And if N is 300, the cost is two. Like it doesn't matter.
+
+186
+00:16:20,870 --> 00:16:31,550
+Right. And so this of course is, we're just going to summarize this as being constant. Um, yes.
+
+187
+00:16:31,790 --> 00:16:39,500
+Okay. So what do we have here? What we have is that we've got several different growth patterns,
+
+188
+00:16:39,680 --> 00:16:52,200
+right? We've got a constant growth pattern and we've got linear and we've got quadratic and
+
+189
+00:16:52,200 --> 00:16:58,860
+we've got, uh, cubic and we've got those and there's other polymers.
+
+190
+00:16:59,220 --> 00:17:05,710
+And so we've got a constant growth pattern and we've got linear and we've got quadratic and we've
+
+191
+00:17:05,710 --> 00:17:06,710
+got other polymers. And so we've got linear and we've got quadratic and we've got other polymers.
+
+192
+00:17:06,710 --> 00:17:12,310
+And so the only step remaining is to tell you the kind of, you know, does this qualify as a jump
+
+193
+00:17:12,310 --> 00:17:20,350
+scare? We're going to write these with this big O notation. Big O is not how we came up with the
+
+194
+00:17:20,350 --> 00:17:26,250
+answer. Big O is just how we write down these answers. These answers where we kind of lumped
+
+195
+00:17:26,250 --> 00:17:31,010
+a bunch of stuff together through a bunch of details, because all we wanted to do was describe
+
+196
+00:17:31,010 --> 00:17:52,180
+the pattern of growth, right? So you've seen this before. And so we've got a constant growth pattern
+
+197
+00:17:52,180 --> 00:17:56,680
+before. You've seen this in a prior semester, I hope. Maybe I mentioned it earlier in class. I
+
+198
+00:17:56,680 --> 00:18:02,920
+can't remember. But this is this thing that we use to describe how expensive algorithms are,
+
+199
+00:18:03,340 --> 00:18:07,840
+not the actual time they take, because that depends on all sorts of things we can't control,
+
+200
+00:18:08,200 --> 00:18:15,940
+like what computer or whatever. We want to instead talk about how the algorithm gets slower
+
+201
+00:18:15,940 --> 00:18:21,100
+when the data gets larger or the rate of growth of the cost.
+
+202
+00:18:22,180 --> 00:18:26,620
+I don't know if any of that was useful. I look forward to your feedback about which parts
+
+203
+00:18:26,620 --> 00:18:32,640
+helped. Maybe none of it. But that was your introduction video to the connection between
+
+204
+00:18:32,640 --> 00:18:40,180
+what we've been doing with different kinds of equations and why we don't actually do a lot
+
+205
+00:18:40,180 --> 00:18:45,220
+of timing of algorithms and how this connects up to big O and all that stuff. There you go.
