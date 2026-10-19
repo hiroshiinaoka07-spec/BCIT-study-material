@@ -68,6 +68,36 @@ This course does **not** use binary trees. A node can have **any number of child
 - **Height** = edges **down to the furthest leaf**. A leaf has height 0.
 - Height of the tree = height of the root = biggest depth. Here it's **4**, along K S G U N.
 - What makes it a tree: **every node has exactly one parent except the root**, and there's **exactly one path** between any two nodes, so **no cycles**.
+- Zero paths between two nodes means they're disconnected, like two separate trees. Two paths means some node has two parents, which makes a cycle.
+- Children are usually treated as **ordered**: first child, next child, last child.
+- **Ancestors and descendants may or may not include the node itself.** If a question doesn't say, both answers are accepted.
+- The course **ignores empty trees**, so every tree has a root.
+- How a tree is **drawn** doesn't matter. Only the connections do. A node drawn lower on the page is still at depth 3 if it's 3 edges from the root.
+
+**Why trees matter**, the video's 4 reasons:
+
+1. They fit **hierarchical data** naturally: org charts, the tree of life, tournament brackets.
+2. They're ingredients in fancier data structures.
+3. **Technology is full of trees**: file systems, the HTML DOM, JSON. The instructor calls this the most practical reason.
+4. They're a stepping stone to **graphs**.
+
+**The `TreeNode` from the video** also keeps a `parent`:
+
+```python
+class TreeNode:
+    def __init__(self, val, children=None):
+        self.val = val
+        self.parent = None
+        self.children = []
+        if children is not None:
+            for child in children:
+                self.children.append(child)
+                child.parent = self
+```
+
+- `children` is a **list**, because a node can have any number of children. A binary tree would use `left` and `right` instead.
+- Building the tree through the constructor sets each child's `parent` automatically. Only the root keeps `parent = None`.
+- The lab's simpler version doesn't have `parent`. You don't need it for any of the traversals.
 
 ### 3. Traversal orders
 
@@ -172,5 +202,188 @@ Size = ______, height of A = ______, depth of F = ______, pre-order = ______, BF
 3. The **last** child gets popped first, so you get **reverse** pre-order, right to left. On the lab tree that's `A D G K J C B F I H E`.
 4. Size **10**, height of A **2** (A E I), depth of F **2** (R C F). Pre-order **R A D E I B C F G H**. BFS **R A B C D E F I G H**.
 5. Copy **`valuesBFS`**, since BFS visits nodes by depth, so the first match is the shallowest. Instead of appending to `result`, `return node` as soon as `node.val == val`, and `return None` after the loop.
+
+</details>
+
+---
+
+## Worked Answers: Tree Lab (`wk06_lab_trees.md`)
+
+The lab says **no recursion**, so every solution uses a stack or a queue as the worklist. The lab tree:
+
+```text
+                A
+            /   |   \
+        B       C       D
+      /   \             |
+     E     F            G
+         /   \        /   \
+       H       I    J       K
+```
+
+<details>
+<summary><strong>Question 1: DFS trace</strong></summary>
+
+The right end of the stack is the top.
+
+| Step | Popped | Stack after pushing children | Result |
+| - | - | - | - |
+| 1 | A | D C B | A |
+| 2 | B | D C F E | A B |
+| 3 | E | D C F | A B E |
+| 4 | F | D C I H | A B E F |
+| 5 | H | D C I | A B E F H |
+| 6 | I | D C | A B E F H I |
+| 7 | C | D | A B E F H I C |
+| 8 | D | G | A B E F H I C D |
+| 9 | G | K J | A B E F H I C D G |
+| 10 | J | K | A B E F H I C D G J |
+| 11 | K | empty | A B E F H I C D G J K |
+
+The children go on in reverse, so the first child ends up on top.
+
+</details>
+
+<details>
+<summary><strong>Question 2: BFS trace</strong></summary>
+
+The left end of the queue is the front.
+
+| Step | Removed | Queue after adding children | Result |
+| - | - | - | - |
+| 1 | A | B C D | A |
+| 2 | B | C D E F | A B |
+| 3 | C | D E F | A B C |
+| 4 | D | E F G | A B C D |
+| 5 | E | F G | A B C D E |
+| 6 | F | G H I | A B C D E F |
+| 7 | G | H I J K | A B C D E F G |
+| 8 | H | I J K | A B C D E F G H |
+| 9 | I | J K | A B C D E F G H I |
+| 10 | J | K | A B C D E F G H I J |
+| 11 | K | empty | A B C D E F G H I J K |
+
+</details>
+
+<details>
+<summary><strong>Questions 3 to 5: countLeaves, find, findShallowest</strong></summary>
+
+```python
+def countLeaves(self):
+    count = 0
+    stack = [self]
+    while stack:
+        node = stack.pop()
+        if not node.children:
+            count += 1
+        for child in node.children:
+            stack.append(child)
+    return count
+```
+
+`tree.countLeaves()` is **6** (E H I C J K), `b.countLeaves()` is **3**, and `e.countLeaves()` is **1**, since a leaf counts itself. Order doesn't matter when counting, so you don't need `reversed`.
+
+```python
+def find(self, val):
+    stack = [self]
+    while stack:
+        node = stack.pop()
+        if node.val == val:
+            return node
+        for child in reversed(node.children):
+            stack.append(child)
+    return None
+```
+
+It returns the **node**, not the value, the same as `find` in the Week 5 linked list lab.
+
+```python
+from collections import deque
+
+def findShallowest(self, val):
+    queue = deque([self])
+    while queue:
+        node = queue.popleft()
+        if node.val == val:
+            return node
+        for child in node.children:
+            queue.append(child)
+    return None
+```
+
+The only difference from `find` is **a queue instead of a stack**. BFS checks depth 0, then depth 1, and so on, so the first match it finds is the shallowest. DFS `find` might go deep down the first branch and return a deeper match.
+
+</details>
+
+<details>
+<summary><strong>Questions 6 and 7: valuesAtDepth, height</strong></summary>
+
+Both carry `(node, depth)` pairs, like the lab hints.
+
+```python
+def valuesAtDepth(self, target_depth):
+    result = []
+    queue = deque([(self, 0)])
+    while queue:
+        node, depth = queue.popleft()
+        if depth == target_depth:
+            result.append(node.val)
+        elif depth < target_depth:
+            for child in node.children:
+                queue.append((child, depth + 1))
+    return result
+```
+
+On the lab tree, depths 0 to 4 give `["A"]`, `["B", "C", "D"]`, `["E", "F", "G"]`, `["H", "I", "J", "K"]`, and `[]`. A queue keeps them in forward order. It also stops going deeper once it passes the target depth.
+
+```python
+def height(self):
+    best = 0
+    stack = [(self, 0)]
+    while stack:
+        node, depth = stack.pop()
+        if depth > best:
+            best = depth
+        for child in node.children:
+            stack.append((child, depth + 1))
+    return best
+```
+
+Height is the deepest depth **below this node**, so track the biggest depth you see. `tree.height()` is **3**, `b.height()` is **2**, and `e.height()` is **0**, since it's a leaf.
+
+</details>
+
+<details>
+<summary><strong>Questions 8 and 9: the stretch problems</strong></summary>
+
+```python
+def countAtEachDepth(self):
+    counts = []
+    queue = deque([(self, 0)])
+    while queue:
+        node, depth = queue.popleft()
+        if depth == len(counts):
+            counts.append(0)
+        counts[depth] += 1
+        for child in node.children:
+            queue.append((child, depth + 1))
+    return counts
+```
+
+`tree.countAtEachDepth()` gives `[1, 3, 3, 4]`. BFS reaches depths in order, so a new depth always equals `len(counts)`.
+
+```python
+def pathTo(self, val):
+    stack = [(self, [self.val])]
+    while stack:
+        node, path = stack.pop()
+        if node.val == val:
+            return path
+        for child in reversed(node.children):
+            stack.append((child, path + [child.val]))
+    return None
+```
+
+`tree.pathTo("K")` gives `["A", "D", "G", "K"]`. Each worklist item carries the path to get there. `path + [child.val]` makes a **new list**, from Week 3, so the branches don't share and mess up each other's paths.
 
 </details>

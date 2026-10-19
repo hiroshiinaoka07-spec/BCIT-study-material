@@ -132,3 +132,46 @@ print(y)
 5. Each round **halves** the group, so you count how many times you can divide n by 2 to reach 1. That's \(\log_2(n)\), not n. Removing one person per round would be n, which is linear.
 
 </details>
+
+---
+
+## Worked Answers: Memory Diagram Lab (`wk03_lab_diagrams.md`)
+
+Do each question on paper first. To count lists, **count every list literal that runs**: each `[]`, `[1]`, `[a, b]`, and so on. Assignments like `b = a` and `x[0] = x[1]` never make a new list.
+
+<details>
+<summary><strong>Questions 1 to 5, the checkpoint</strong></summary>
+
+| # | Lists | Output | Why |
+| - | - | - | - |
+| 1 | 1 | `[10, 20]` `[10, 20]` | `b = a` shares the one list, so the append shows in both. |
+| 2 | 3 | `[[10], [20]]` | `x` holds `a` itself plus a new `[]`. Both appends change lists inside `x`. |
+| 3 | 3 | `[[5]]` `[5]` `[[[5]], [5]]` | `a` contains `b`, and `x` contains both. Appending 5 to `b` shows up everywhere `b` appears. |
+| 4 | 3 | `[99]` `[[10]]` `[10]` | `a = [99]` only moves `a`'s arrow. `b[0]` and `c` still share the first list, which gets the 10. |
+| 5 | 3 | `[1, 2]` `[[], [1, 2]]` `[1, 2]` | `b[0] = []` swaps out one slot in `b`. It doesn't touch the list `a` and `c` point to. |
+
+</details>
+
+<details>
+<summary><strong>Questions 6 to 12</strong></summary>
+
+| # | Lists | Output | Why |
+| - | - | - | - |
+| 6 | 3 | `[7]` `[[7], 8]` `[[7], [[7], 8]]` | `c` holds `a` and `b`, and `b` also holds `a`, so the 7 shows up three times. |
+| 7 | 3 | `[[8], [8]]` `[9]` | `y` keeps the first inner list. `x[0] = x[1]` makes both slots point at the **second** inner list, which gets the 8. |
+| 8 | 3 | `[1]` `[[2], [2]]` | `b` holds the old `a` twice. `a = [1]` moves `a` away, then `b[1].append(2)` changes the old list, which both slots share. |
+| 9 | 3 | `[[1], [2]]` `[[1], [2]]` | `c = b` is the same list, so every change shows in both. |
+| 10 | 4 | `[1]` `[2]` `[[[1], 3], [1]]` | `b = [2]` moves `b`, but `c[0]` is still the **old** `b`, which gets the 3. |
+| 11 | 4 | `[1]` `[[1]]` `[[1], [[1]]]` `[2]` | `b.append(d)` stores `a`, because `d` pointed at `a` then. Then `d = []` moves `d` to a new list, which gets the 2. |
+| 12 | 3 | `[[]]` `[999]` | `y` keeps the original inner list. `x[0] = []` puts a new empty list in `x`. |
+
+</details>
+
+<details>
+<summary><strong>Questions 13 and 14, the cycles stretch</strong></summary>
+
+**13.** 1 list. It prints `[[...]]`. The list contains **itself**. Python notices it's already printing that list, so it shows `...` instead of printing forever.
+
+**14.** 2 lists. It prints `[[[...]]]`. `a` holds `b`, and `b` holds `a`, so following the arrows goes round in a loop. Python prints the outer list, then `b`, and then shows `...` when it gets back to `a`.
+
+</details>
