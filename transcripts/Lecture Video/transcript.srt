@@ -1,0 +1,3327 @@
+1
+00:00:01,630 --> 00:00:04,910
+Hello everyone, this week you are going to learn Hyper-V.
+
+2
+00:00:06,110 --> 00:00:11,870
+So I want you to familiarize the following tasks. The first one you need to know what is a Hyper-V
+
+3
+00:00:11,870 --> 00:00:18,910
+and also you need to know another definition which is virtualization. You need to know
+
+4
+00:00:18,910 --> 00:00:24,030
+what's the difference between the type 1 and the type 2. I believe you already completed
+
+5
+00:00:24,030 --> 00:00:29,790
+the online discussions about that questions so make sure go back to look at the major difference.
+
+6
+00:00:29,790 --> 00:00:33,230
+The second one you need to know the new features.
+
+7
+00:00:35,070 --> 00:00:40,190
+So if you learn Windows Server, you're going to learn different modules, different roles,
+
+8
+00:00:40,190 --> 00:00:47,150
+different features. So you need to know the difference compared with the current edition
+
+9
+00:00:47,150 --> 00:00:53,790
+and with the previous edition. So until you're familiar and then you can make a decision
+
+10
+00:00:53,790 --> 00:00:58,910
+you want to upgrade or you want to continue using your existing one.
+
+11
+00:01:01,140 --> 00:01:08,020
+So next task definitely you need to know how to install. So after you install the Hyper-V role
+
+12
+00:01:08,580 --> 00:01:15,060
+and you need to know how to maintain and manage your Hyper-V, you also need to know
+
+13
+00:01:15,060 --> 00:01:23,650
+how to create the Hyper-V. So for this week I believe most students cannot complete the lab.
+
+14
+00:01:24,850 --> 00:01:32,370
+The reason why because your CPU 100% support virtualization.
+
+15
+00:01:33,090 --> 00:01:42,130
+But the conflict the conflicts and regions okay you cannot run Hyper-V on your Windows Server 2022.
+
+16
+00:01:43,010 --> 00:01:52,210
+For example if you turn on subsystem for Linux and you cannot use uh you cannot run Hyper-V
+
+17
+00:01:52,210 --> 00:02:00,450
+on your VMware Workstation. If you run VirtualBox you also cannot run VMware Workstation Hyper-V.
+
+18
+00:02:01,890 --> 00:02:02,390
+Okay.
+
+19
+00:02:03,090 --> 00:02:11,010
+But for this term I want you to familiar okay what is Hyper-V, how to maintain and manage Hyper-V,
+
+20
+00:02:11,570 --> 00:02:19,090
+how to create the instance. So I want you to log in the lab and you can find week five.
+
+21
+00:02:20,690 --> 00:02:26,450
+You can find the lab Hyper-V. So I want you to watch this video
+
+22
+00:02:27,490 --> 00:02:31,890
+and make sure you know how to build the Hyper-V by yourself.
+
+23
+00:02:32,450 --> 00:02:37,840
+All right.
+
+24
+00:02:37,840 --> 00:02:41,280
+So if you have a questions related to the video make sure to talk to me.
+
+25
+00:02:43,440 --> 00:02:44,720
+So back to today's topic.
+
+26
+00:02:46,560 --> 00:02:46,880
+All right.
+
+27
+00:02:46,880 --> 00:02:51,920
+So next one I want to give you the brief review and the virtual machine.
+
+28
+00:02:53,120 --> 00:02:57,360
+So first I want you to think about why do we need a virtual machine.
+
+29
+00:02:59,650 --> 00:03:06,610
+Why do we need the Hyper-V. Why do we need virtualization.
+
+30
+00:03:06,610 --> 00:03:08,370
+So actually that is the same questions.
+
+31
+00:03:09,490 --> 00:03:09,990
+Okay.
+
+32
+00:03:10,690 --> 00:03:17,970
+So the first one is why we need to use the virtual machine technology because our hardware
+
+33
+00:03:17,970 --> 00:03:22,930
+is extremely powerful compared with a few years ago.
+
+34
+00:03:24,450 --> 00:03:30,290
+Like multi-core a lot of CPU can support more than 100 cores.
+
+35
+00:03:31,890 --> 00:03:33,810
+You have a large amount of memories.
+
+36
+00:03:34,370 --> 00:03:41,760
+Windows Server 2022 can support up to 64 TB.
+
+37
+00:03:41,760 --> 00:03:45,680
+If you only run the single servers, the standalone servers,
+
+38
+00:03:48,210 --> 00:03:51,250
+so definitely that can waste a lot of resources.
+
+39
+00:03:52,450 --> 00:03:54,930
+So we want to save the money.
+
+40
+00:03:55,730 --> 00:03:57,650
+We want to improve the efficiency.
+
+41
+00:03:58,850 --> 00:04:06,720
+So therefore we can run multiple VMs on a single server.
+
+42
+00:04:07,600 --> 00:04:08,880
+So that's the major reason.
+
+43
+00:04:10,480 --> 00:04:11,200
+Okay.
+
+44
+00:04:11,200 --> 00:04:12,240
+So I'm going to move on.
+
+45
+00:04:18,690 --> 00:04:19,010
+All right.
+
+46
+00:04:19,010 --> 00:04:19,890
+So next one.
+
+47
+00:04:19,890 --> 00:04:21,650
+It's what is the Hyper-V.
+
+48
+00:04:23,090 --> 00:04:32,130
+So Hyper-V is the hardware virtualization role in Windows Server 2022 and 2019.
+
+49
+00:04:33,330 --> 00:04:39,170
+So this is my experience after Windows Server 2016.
+
+50
+00:04:40,370 --> 00:04:49,330
+The Hyper-V features, the Hyper-V technology or Hyper-V role improved a lot compared with
+
+51
+00:04:49,890 --> 00:04:58,470
+the older edition, like Windows Server 2008 Hyper-V, which is horrible.
+
+52
+00:04:59,750 --> 00:05:00,310
+Okay.
+
+53
+00:05:00,310 --> 00:05:05,430
+So it has some security problems, performance issues, but Windows Server
+
+54
+00:05:05,430 --> 00:05:11,430
+2020, 2016, 2019, 2022 improved a lot.
+
+55
+00:05:12,150 --> 00:05:20,070
+So if you wanted to run the virtualization, so definitely you can try to run Windows Server
+
+56
+00:05:20,070 --> 00:05:20,630
+2022.
+
+57
+00:05:20,630 --> 00:05:32,820
+And as I explained to you before, okay, VMware is still the number one virtualization in the world.
+
+58
+00:05:34,500 --> 00:05:42,740
+So when you get to the real job, you need to think about how to convert or transfer the service
+
+59
+00:05:43,380 --> 00:05:53,140
+from the Windows platform to VMware or from the VMware to the Windows platform or from the
+
+60
+00:05:53,380 --> 00:05:56,420
+cloud to on-premises data center.
+
+61
+00:05:57,700 --> 00:06:05,300
+So I provided you some technologies or applications you can use to convert all the services.
+
+62
+00:06:06,340 --> 00:06:10,340
+So I want you to look at the course website.
+
+63
+00:06:12,100 --> 00:06:14,820
+You can find the following tools.
+
+64
+00:06:14,820 --> 00:06:19,780
+So that is the VMware to Hyper-V, which is a V2V tools.
+
+65
+00:06:21,700 --> 00:06:22,740
+Also, you can convert
+
+66
+00:06:23,380 --> 00:06:29,460
+Hyper-V to VMware, which is you can transfer the instance from the
+
+67
+00:06:30,100 --> 00:06:35,780
+VMware and directly to Hyper-V or from Hyper-V to VMware.
+
+68
+00:06:35,780 --> 00:06:40,900
+So I want you to spend time to take a look at at least your familiar name.
+
+69
+00:06:41,460 --> 00:06:48,580
+Or if you have time, you can download and try to convert from one platform to another platform.
+
+70
+00:06:56,210 --> 00:06:57,890
+So next one, I want you familiar.
+
+71
+00:06:57,890 --> 00:07:02,290
+Hypervisor control access to the hardware.
+
+72
+00:07:03,970 --> 00:07:10,770
+So virtual machines, virtual instance, the operating system, so they cannot realize
+
+73
+00:07:11,970 --> 00:07:16,770
+they cannot realize run on the virtualized hardware.
+
+74
+00:07:19,090 --> 00:07:25,890
+The OS believe they still run on the hardware, but Hyper-V can provide the virtualized hardware
+
+75
+00:07:25,890 --> 00:07:29,090
+to support your instance.
+
+76
+00:07:29,490 --> 00:07:30,530
+Your operating system.
+
+77
+00:07:31,490 --> 00:07:40,530
+So therefore, if you choose the wrong profile, if you choose the wrong virtualized hardware,
+
+78
+00:07:40,530 --> 00:07:43,410
+so definitely can cause your OS issues.
+
+79
+00:07:45,650 --> 00:07:48,450
+So therefore, you need to know the minimum requirement.
+
+80
+00:07:50,530 --> 00:07:53,490
+You need to know the compatible hardware.
+
+81
+00:07:55,680 --> 00:08:01,600
+But if you use virtualizations, you don't have a lot of issues related to the
+
+82
+00:08:01,600 --> 00:08:02,240
+virtualization.
+
+83
+00:08:02,240 --> 00:08:05,280
+So you need to know the minimum requirement to support the virtualized hardware.
+
+84
+00:08:05,280 --> 00:08:11,840
+But you do have a, sometimes you do have the problems, cannot support the virtualized hardware.
+
+85
+00:08:13,280 --> 00:08:20,960
+Okay, so that means you need to update your Hyper-V, you need to update your Hypervisor,
+
+86
+00:08:20,960 --> 00:08:23,680
+or you need to choose a different OS.
+
+87
+00:08:27,940 --> 00:08:30,100
+All right, so next one, I want you to familiar.
+
+88
+00:08:33,090 --> 00:08:34,770
+Hyper-V can support a different operating system.
+
+89
+00:08:34,770 --> 00:08:36,610
+Hyper-V can support a different operating system.
+
+90
+00:08:36,690 --> 00:08:41,970
+You can support Windows Server 2008, SP2, ABAP.
+
+91
+00:08:42,690 --> 00:08:51,250
+It can support Vista, it can support Windows 10, XP, and the next year may support Windows 11.
+
+92
+00:08:51,250 --> 00:08:54,450
+And also support Linux.
+
+93
+00:08:55,890 --> 00:08:58,450
+Okay, you can run Ubuntu.
+
+94
+00:08:59,250 --> 00:09:04,960
+All right, so next one, let's take a look at it here.
+
+95
+00:09:06,080 --> 00:09:08,240
+Which is the new Hyper-V, the whole thing.
+
+96
+00:09:09,120 --> 00:09:14,000
+So you can find the host features in Windows Server 2019.
+
+97
+00:09:14,000 --> 00:09:18,080
+So which is 2019 compared with 2016.
+
+98
+00:09:18,080 --> 00:09:22,720
+So you can find the following new features from your Windows Server 2019.
+
+99
+00:09:23,840 --> 00:09:26,720
+So the first one is a host resource protections.
+
+100
+00:09:27,920 --> 00:09:36,000
+So that can protect some instance or one of the instance, and use a lot of CPU resource,
+
+101
+00:09:36,000 --> 00:09:39,040
+and cause the other instance performance issues.
+
+102
+00:09:40,080 --> 00:09:46,800
+So you need to use the set VM processors, enable the host resource protections,
+
+103
+00:09:46,800 --> 00:09:50,880
+make sure you, and change the parameter from the false to true.
+
+104
+00:09:51,440 --> 00:09:57,360
+Next one is the Hyper-V manager improvement.
+
+105
+00:09:58,000 --> 00:10:01,200
+So the manager can support the early version.
+
+106
+00:10:01,920 --> 00:10:08,420
+And also Windows Server 2019 can support the nested virtualization.
+
+107
+00:10:09,380 --> 00:10:11,460
+Okay, so what is a nested virtualization?
+
+108
+00:10:12,100 --> 00:10:13,620
+So last week we practiced it.
+
+109
+00:10:13,860 --> 00:10:16,900
+It's the nested security group.
+
+110
+00:10:17,620 --> 00:10:22,020
+So nested virtualization, which is a virtualization inside the virtualization.
+
+111
+00:10:23,860 --> 00:10:30,820
+It's kind of like if your CPU can support, and you can install Hyper-V
+
+112
+00:10:32,420 --> 00:10:34,660
+and on your VMware workstation.
+
+113
+00:10:36,180 --> 00:10:41,140
+Okay, so right now I wanted to remind you, Hyper-V
+
+114
+00:10:41,140 --> 00:10:53,220
+is the Role, and also you can directly download the Hyper-V ISO, and install above the hardware.
+
+115
+00:10:53,780 --> 00:11:00,660
+So Hyper-V is type 2, and also Hyper-V is type 1.
+
+116
+00:11:02,020 --> 00:11:05,620
+Okay, I think you already know type 1, type 2, the major difference.
+
+117
+00:11:06,260 --> 00:11:12,150
+So next one is the Shield virtual machine.
+
+118
+00:11:12,150 --> 00:11:14,870
+So the Shield virtual machine, which is,
+
+119
+00:11:15,430 --> 00:11:18,310
+I want to protect my instance.
+
+120
+00:11:20,150 --> 00:11:24,630
+I don't want someone else to access my instance.
+
+121
+00:11:24,630 --> 00:11:26,150
+So what do you mean someone else?
+
+122
+00:11:26,790 --> 00:11:33,030
+So include the operation administrator, the backup administrator.
+
+123
+00:11:34,070 --> 00:11:40,740
+So definitely can access my instance, or they can copy my instance.
+
+124
+00:11:42,020 --> 00:11:45,380
+So therefore I need to protect my instance.
+
+125
+00:11:45,380 --> 00:11:46,180
+I don't want them to.
+
+126
+00:11:46,420 --> 00:11:58,630
+access without my permission and if you look at my lab demo okay so you understand i can easily
+
+127
+00:11:58,630 --> 00:12:09,270
+to mount with dx so i can access there's instance data so therefore i needed to use the bitlocker
+
+128
+00:12:09,830 --> 00:12:17,110
+i can encrypt the whole volumes on my instance same idea on your local computers if you don't
+
+129
+00:12:17,110 --> 00:12:26,710
+want someone to access your data or maybe maybe you lost your laptop just prepare maybe in the
+
+130
+00:12:26,710 --> 00:12:32,150
+future you're going to lose your laptop so you're therefore you need to turn on the bitlocker
+
+131
+00:12:32,870 --> 00:12:40,070
+if you turn on the bitlocker and even they got your disk but they cannot read your data
+
+132
+00:12:42,770 --> 00:12:48,530
+okay so that is the shield vm next one is the start order priority
+
+133
+00:12:49,250 --> 00:12:57,810
+so start all the priority which is you can set up which server is higher priority so you're going
+
+134
+00:12:57,810 --> 00:13:05,890
+to put that server first for example if you run some web applications and you're going to need a
+
+135
+00:13:05,890 --> 00:13:17,960
+database and if you want to boot the computer so you have to boot the database first before you
+
+136
+00:13:19,400 --> 00:13:20,200
+you put the
+
+137
+00:13:20,760 --> 00:13:26,440
+the front end so which is the back end going to run before the front end so if you want to
+
+138
+00:13:26,440 --> 00:13:32,840
+start on the service so you're going to start down the front end first and then back end you
+
+139
+00:13:32,840 --> 00:13:42,120
+can set up the boot order priorities so which can which instance can start earlier okay next one is
+
+140
+00:13:42,120 --> 00:13:50,360
+the windows powershell direct i will explain that one later so which is you can access your instance
+
+141
+00:13:51,320 --> 00:13:56,840
+and from the local host you don't need to set up any connections
+
+142
+00:13:58,040 --> 00:14:04,280
+and you still can access your instance and normally you have to set up a network connections
+
+143
+00:14:04,280 --> 00:14:11,560
+between your local host and your instance otherwise so how to access but powershell direct
+
+144
+00:14:12,760 --> 00:14:19,640
+can support you don't need to set configure your hyper-v instance network
+
+145
+00:14:20,520 --> 00:14:26,280
+you don't need a sign ip you don't need to set up a virtual switch you can modify but you're going
+
+146
+00:14:26,280 --> 00:14:34,040
+to use the powershell command prompt all right i'm going to move on next one and i'm going to
+
+147
+00:14:34,040 --> 00:14:42,610
+compare the new features compared with windows server 2022 with windows server 2019 so the first
+
+148
+00:14:42,610 --> 00:14:50,850
+one is dda okay so i don't want to spend time to explain what is dda and you can google research to
+
+149
+00:14:50,850 --> 00:14:51,490
+find that one
+
+150
+00:14:52,210 --> 00:15:00,150
+or i can discuss this one with you in the middle term and the next one is the most important one
+
+151
+00:15:00,150 --> 00:15:08,070
+i want you to familiar so windows server 2022 can support the hot swap so which is you can add
+
+152
+00:15:08,950 --> 00:15:11,750
+or remove your network card and memories
+
+153
+00:15:13,110 --> 00:15:21,750
+and the windows server 2022 data center cloud-based edition which is either also can support a hot swap
+
+154
+00:15:23,670 --> 00:15:28,950
+so you can directly modify your hardware without starting on your computer
+
+155
+00:15:33,080 --> 00:15:38,520
+okay so next one is integrations service delivered through the windows updates
+
+156
+00:15:40,280 --> 00:15:50,000
+okay next one can support the tpm can support the new version tpm if you want to install windows
+
+157
+00:15:50,000 --> 00:15:56,720
+11 so you need to use the tpm 2.0 and if you want to install the windows 10
+
+158
+00:15:57,680 --> 00:16:04,720
+so you can use tpm 1.2 so if you want to turn on the bit locker make sure your tpm
+
+159
+00:16:05,520 --> 00:16:12,400
+should be 1.2 above and next one can support a linux security boot
+
+160
+00:16:13,760 --> 00:16:17,840
+so what is the linux secure boot before cannot support the linux secure boot
+
+161
+00:16:19,200 --> 00:16:27,640
+so linux secure boot which is doing the boot can verify the digital signatures and if
+
+162
+00:16:28,680 --> 00:16:37,240
+if the driver or drivers do not include the digital signatures
+
+163
+00:16:37,960 --> 00:16:44,520
+so we can refuse to load the drivers inside the kernel or to the memories
+
+164
+00:16:45,160 --> 00:16:53,860
+so that can prevent some morewares next one is the memory and processor
+
+165
+00:16:53,860 --> 00:17:00,020
+capacities improvement so can support a 12 tv and 240 virtual processors
+
+166
+00:17:00,020 --> 00:17:05,130
+okay
+
+167
+00:17:05,130 --> 00:17:05,730
+okay
+
+168
+00:17:05,730 --> 00:17:12,210
+one is the standard checkpoint and the production checkpoint standard checkpoint which is
+
+169
+00:17:13,170 --> 00:17:21,660
+application consistent and the production checkpoint that is data consistent
+
+170
+00:17:23,260 --> 00:17:31,580
+so application consistent which is any applications are running in your memories
+
+171
+00:17:31,580 --> 00:17:46,940
+so we can store the state for example if i run uh firefox okay and if i set up a standard checkpoint
+
+172
+00:17:47,500 --> 00:17:56,860
+and then i close my firefox if i roll back you know the the save the checkpoint so you can see
+
+173
+00:17:56,860 --> 00:18:04,620
+here firefox already open i'm going to load exactly the same data as before so that's the
+
+174
+00:18:04,620 --> 00:18:05,020
+way it works
+
+175
+00:18:05,100 --> 00:18:15,260
+is application consistent only save the data which is located in the rem so production checkpoint
+
+176
+00:18:15,260 --> 00:18:25,170
+which is data consistent anything you saved on your disk and then so we can save the state for
+
+177
+00:18:25,170 --> 00:18:36,130
+example i open the notepad and i type my data without saving to my disk if i use a standard
+
+178
+00:18:36,130 --> 00:18:36,610
+checkpoint
+
+179
+00:18:37,170 --> 00:18:41,090
+if i roll back to the checkpoint you can see here you can see the notepad is still open
+
+180
+00:18:41,650 --> 00:18:51,090
+and the data is still in the notepad but if i use a production checkpoint so you have to save
+
+181
+00:18:51,090 --> 00:18:58,690
+your data to the disk first otherwise you cannot see the data so when you're logging a computer
+
+182
+00:18:59,650 --> 00:19:06,450
+nothing in there but you need to go to your disk to find the notepad open that one next one i want to
+
+183
+00:19:06,450 --> 00:19:12,770
+remind you that you know the checkpoint is similar like a snapshot i strongly suggest you
+
+184
+00:19:12,770 --> 00:19:22,340
+you need to create a snapshot okay you need to create a snapshot and i want you to create a
+
+185
+00:19:22,340 --> 00:19:29,220
+snapshot when you update your computer i want to create a snapshot when you
+
+186
+00:19:31,940 --> 00:19:39,410
+install any new applications okay and also i want you to create a snapshot if you
+
+187
+00:19:39,490 --> 00:19:46,930
+remove any service so if you modify you need to create a snapshot the checkpoint is similar like
+
+188
+00:19:46,930 --> 00:19:54,450
+a snapshot i also explained to you the backup is different as a snapshot and checkpoint okay
+
+189
+00:19:54,450 --> 00:20:00,770
+make sure remember and the virtual machine configuration file so all the configuration
+
+190
+00:20:00,770 --> 00:20:11,010
+informations you can find it from xml vm cs and vm rs okay you don't need to
+
+191
+00:20:11,090 --> 00:20:18,450
+know uh what is xml what is a vmcs so you don't need to do you don't need to do that you don't
+
+192
+00:20:18,450 --> 00:20:25,810
+need to learn you just need to know the configuration file stored in xml and we don't
+
+193
+00:20:25,810 --> 00:20:36,500
+have a lot of chance to modify the configuration file xy is virtual machine configuration version
+
+194
+00:20:36,500 --> 00:20:43,700
+so you can if you need to modify the file so you can use a different version okay it's similar like
+
+195
+00:20:44,340 --> 00:20:50,800
+the docker image you're going to have a different version all right so
+
+196
+00:20:51,440 --> 00:20:57,840
+next one i'm going to explain to you the pre which is the requirement okay requirements for
+
+197
+00:20:57,840 --> 00:21:06,800
+installing the hyper v so if you wanted to install hyper v okay and if your computers
+
+198
+00:21:07,520 --> 00:21:13,840
+are you don't have to enable the subsystem for linux or you don't you haven't turned on the
+
+199
+00:21:15,280 --> 00:21:16,560
+virtual machine platform
+
+200
+00:21:17,200 --> 00:21:24,560
+okay you can try to install hyper v but make sure before you install you can use the system
+
+201
+00:21:24,560 --> 00:21:31,360
+info you can run system info.exe to verify your hardware and meets the requirements
+
+202
+00:21:32,080 --> 00:21:38,720
+okay so that is the requirement first one so you need to enable the vm monitor mode
+
+203
+00:21:39,360 --> 00:21:47,200
+extension okay second one and the virtualization is enabled in the
+
+204
+00:21:47,200 --> 00:21:51,600
+viruses in that conditions but i have once again tryin to tell you that the vm server Somehow
+
+205
+00:21:51,600 --> 00:22:03,120
+not easy to that we are run the vm server
+
+206
+00:22:06,080 --> 00:22:08,800
+incredibly enthusiastic
+
+207
+00:22:10,240 --> 00:22:10,860
+uh
+
+208
+00:22:10,860 --> 00:22:11,160
+okay
+
+209
+00:22:11,160 --> 00:22:12,480
+okay
+
+210
+00:22:12,480 --> 00:22:13,440
+very nice
+
+211
+00:22:13,440 --> 00:22:15,440
+thanks
+
+212
+00:22:15,440 --> 00:22:16,180
+thank you
+
+213
+00:22:16,180 --> 00:22:16,400
+fish
+
+214
+00:22:16,400 --> 00:22:16,880
+be
+
+215
+00:22:16,880 --> 00:22:22,800
+can support the data execution prevention availabilities. You need to know that and
+
+216
+00:22:22,800 --> 00:22:30,770
+all the required you need to satisfy. Next one, because we're going to use virtualizations.
+
+217
+00:22:32,450 --> 00:22:40,130
+Virtualizations, which is the Hyper-V, manage all the instances by providing the
+
+218
+00:22:40,130 --> 00:22:47,650
+virtualized hardware. So the virtualized hardware are still from your physical hardware, so therefore
+
+219
+00:22:47,650 --> 00:22:54,130
+and your physical hardware need to meet the following minimum requirement, the memory and at
+
+220
+00:22:54,130 --> 00:23:02,050
+least the 8 gigabyte above. The storage, so you better to use the SAN or enterprise storage
+
+221
+00:23:02,050 --> 00:23:09,890
+solutions and S2D, which is a software-defined storage solutions and that is for the test
+
+222
+00:23:09,890 --> 00:23:15,730
+environment. But in the production environment, we like to use the enterprise level storage solution,
+
+223
+00:23:15,730 --> 00:23:17,490
+which is NAS, SAN and Power BI.
+
+224
+00:23:17,650 --> 00:23:25,010
+Network, I'm going to explain to you, when we learn the storage solution, I'm going to explain
+
+225
+00:23:25,010 --> 00:23:31,250
+to you what is the SAN, what is the DOS, DS, what is NS. So if you don't know the term, that's fine.
+
+226
+00:23:32,450 --> 00:23:43,900
+So network, so 100% you're going to use 10 gigabyte above, so that is for the network
+
+227
+00:23:45,180 --> 00:23:48,940
+requirements. All right, so next one,
+
+228
+00:23:50,300 --> 00:23:53,740
+and I'm going to give you basic idea what is the nested virtualizations,
+
+229
+00:23:54,460 --> 00:23:58,620
+so which is you're going to run Hyper-V inside the Hyper-V, and I'm not suggesting you to do that.
+
+230
+00:23:59,180 --> 00:24:03,420
+Okay, but if you want to run a nested virtualization, so you need to make sure
+
+231
+00:24:04,140 --> 00:24:11,500
+memory at least four gigabyte, at least four gigabyte. Okay, so that means your instance,
+
+232
+00:24:11,500 --> 00:24:18,780
+you need to give a four gigabyte above, and then you can turn out the Hyper-V on your instance.
+
+233
+00:24:18,780 --> 00:24:27,980
+So therefore, if you look at my lab demo, my Hyper-V server, I signed eight gigabyte above.
+
+234
+00:24:29,340 --> 00:24:38,130
+Okay, all right, next one is the storage options. So you can find the different type of storage
+
+235
+00:24:38,130 --> 00:24:45,490
+format, so I'm talking about, not a storage solution, I'm talking about the virtual hard disk
+
+236
+00:24:45,490 --> 00:24:51,650
+formats. And for this slide, I want you to familiarize with the major disks.
+
+237
+00:24:52,370 --> 00:25:01,130
+between VHD and VHDX. So that is two types of a virtual disk format.
+
+238
+00:25:01,130 --> 00:25:07,310
+So VHD can support 2TB and VHDX can support 2TB above. So VHD can
+
+239
+00:25:07,310 --> 00:25:14,450
+support 2.2TB. VHDX can support more than that. So it's
+
+240
+00:25:14,450 --> 00:25:21,370
+dependent on requirement if you want to create a file server. So I wanted to use
+
+241
+00:25:21,370 --> 00:25:27,130
+Hyper-V to run the file server. So definitely you can give a VHDX, do not
+
+242
+00:25:27,130 --> 00:25:38,890
+give a VHD. So 2TB storage is not enough. Alright so next one I want
+
+243
+00:25:38,890 --> 00:25:46,030
+to explain to you which is the virtual hard disk types. So you can use a fixed
+
+244
+00:25:46,030 --> 00:25:50,290
+size. The fixed size which is the production environment we're going to
+
+245
+00:25:50,290 --> 00:25:54,970
+use that one. So what do you mean fixed size? So which is
+
+246
+00:25:54,970 --> 00:26:01,830
+the fixed size, you're going to give the fixed amount of disk. So what do you
+
+247
+00:26:01,830 --> 00:26:08,350
+mean fixed amount of disk? So that means if I wanted to you know create an
+
+248
+00:26:08,350 --> 00:26:16,150
+instance and my instance I want to give a 200 Gigabyte okay if you want to
+
+249
+00:26:16,150 --> 00:26:24,970
+choose the fixed size so 200 Gigabyte can deduct immediately from your
+
+250
+00:26:24,970 --> 00:26:38,620
+storage. What is a dynamic disk? Dynamic disk, which is if you need a storage and the storage
+
+251
+00:26:38,620 --> 00:26:50,460
+is going to expand dynamically. So for example, I declared I need a 200 gigabyte disk to my
+
+252
+00:26:50,460 --> 00:27:00,100
+instance. But right now, including my operating system, I only use 15 gigabyte. So actually
+
+253
+00:27:00,100 --> 00:27:09,560
+you only deduct 15 gigabyte from the available space. But to fix the size, maybe you only
+
+254
+00:27:09,560 --> 00:27:16,240
+have one byte and lock it on your disk, but still deduct 200 gigabyte. So therefore in
+
+255
+00:27:16,240 --> 00:27:20,440
+the production environment, we prefer to use the fixed size.
+
+256
+00:27:20,440 --> 00:27:30,580
+We don't want to use dynamic because if I use dynamic, I may mess up my storage. I have
+
+257
+00:27:30,580 --> 00:27:36,880
+three instances and each instance assigned 200 gigabyte, but available space is less
+
+258
+00:27:36,880 --> 00:27:44,500
+than 400 gigabyte. So the instance is going to continue to expand. I may forgot to add
+
+259
+00:27:44,500 --> 00:27:50,420
+available space that can cause my instance issues. So therefore in the production environment,
+
+260
+00:27:50,420 --> 00:28:01,070
+do not use the dynamic expanding. Next one, I want to give you basic idea. What is a pass-through?
+
+261
+00:28:01,070 --> 00:28:09,390
+Pass-through disks are a feature of Hyper-V. So that allowed the virtual machines to access
+
+262
+00:28:09,390 --> 00:28:19,810
+the storage and is directly mapped to the Hyper-V host without requiring the volumes
+
+263
+00:28:19,810 --> 00:28:21,190
+be configured.
+
+264
+00:28:21,830 --> 00:28:30,710
+you directly map your disk to the physical disk on your localhost and I
+
+265
+00:28:30,710 --> 00:28:36,950
+told you do not use that one why you cannot use that one because it's really
+
+266
+00:28:36,950 --> 00:28:42,210
+hard to move the storage it's really hard to move the storage doesn't mean
+
+267
+00:28:42,210 --> 00:28:48,050
+you can copy the folders no if you copy the folders and the map also gonna
+
+268
+00:28:48,050 --> 00:28:52,610
+destroy it okay next one is the different things so what is the
+
+269
+00:28:52,610 --> 00:29:00,110
+difference in disk and the difference in disk only store the difference it is
+
+270
+00:29:00,110 --> 00:29:07,130
+similar like you know the link the clone so the full clone around 16 gigabyte but
+
+271
+00:29:07,130 --> 00:29:11,690
+the link the clone only 2 gigabyte why because the link the clone only store
+
+272
+00:29:11,690 --> 00:29:16,730
+the difference okay so that is the difference in disk so link the clone
+
+273
+00:29:16,730 --> 00:29:18,030
+relies on the
+
+274
+00:29:18,030 --> 00:29:25,410
+the base image and the difference in disk are relies on the parent disk which is
+
+275
+00:29:25,410 --> 00:29:32,150
+the base image so if you remove the the base image parent disk so your
+
+276
+00:29:32,150 --> 00:29:38,010
+different disk also failed so make sure do not use different disk but in the
+
+277
+00:29:38,010 --> 00:29:43,950
+lab environment if you want to facilitate to clone to create the you
+
+278
+00:29:43,950 --> 00:29:47,910
+know instance so you can try to use the difference in but you also need to
+
+279
+00:29:47,910 --> 00:29:56,250
+run the 6 prep before you can you can clone next one is considerations for
+
+280
+00:29:56,250 --> 00:30:07,710
+virtual hard disk formats so this is some suggestions okay and I wanted to
+
+281
+00:30:07,710 --> 00:30:15,290
+read and make sure you understand okay and once you want to point out and V is D
+
+282
+00:30:15,290 --> 00:30:17,770
+and V is DX okay
+
+283
+00:30:17,910 --> 00:30:21,910
+you need to base on the operating system
+
+284
+00:30:21,910 --> 00:30:25,910
+if the operating system does not support VSDX
+
+285
+00:30:25,910 --> 00:30:27,910
+so you're going to use VSD
+
+286
+00:30:27,910 --> 00:30:30,910
+and next one
+
+287
+00:30:30,910 --> 00:30:33,910
+I'm not suggesting you to use the different disk
+
+288
+00:30:33,910 --> 00:30:35,910
+so this is the reason why
+
+289
+00:30:35,910 --> 00:30:37,910
+so multiple layers of a different disk
+
+290
+00:30:37,910 --> 00:30:39,910
+decrease the performance
+
+291
+00:30:39,910 --> 00:30:42,910
+as I told you before
+
+292
+00:30:42,910 --> 00:30:46,910
+so different disks are relied on the parent disk
+
+293
+00:30:46,910 --> 00:30:52,910
+and also you can create a different disk
+
+294
+00:30:52,910 --> 00:30:55,910
+from a different disk
+
+295
+00:30:55,910 --> 00:31:00,910
+it's kind of like you can create a clone from a linked clone
+
+296
+00:31:00,910 --> 00:31:03,910
+so you're going to have multiple layers
+
+297
+00:31:03,910 --> 00:31:05,910
+do not do that
+
+298
+00:31:05,910 --> 00:31:07,910
+it's not a good practice
+
+299
+00:31:07,910 --> 00:31:10,910
+if you modify a parent disk
+
+300
+00:31:10,910 --> 00:31:13,910
+so the different disk is no longer valid
+
+301
+00:31:13,910 --> 00:31:15,910
+really important
+
+302
+00:31:15,910 --> 00:31:16,910
+okay
+
+303
+00:31:16,910 --> 00:31:20,910
+so you can relink the different disk to a parent disk
+
+304
+00:31:20,910 --> 00:31:23,910
+but you have a chance to fail
+
+305
+00:31:23,910 --> 00:31:26,910
+therefore I do not suggest you to use different disks
+
+306
+00:31:26,910 --> 00:31:27,910
+all right
+
+307
+00:31:27,910 --> 00:31:30,910
+so next one is the type of Hyper-V
+
+308
+00:31:30,910 --> 00:31:32,910
+and network
+
+309
+00:31:32,910 --> 00:31:35,910
+so you can find the different
+
+310
+00:31:35,910 --> 00:31:37,910
+you know virtual switches
+
+311
+00:31:37,910 --> 00:31:40,910
+and from your Hyper-V
+
+312
+00:31:40,910 --> 00:31:42,910
+so you can find the external
+
+313
+00:31:42,910 --> 00:31:44,910
+internal and private
+
+314
+00:31:44,910 --> 00:31:48,740
+so right now I'll give you a demo
+
+315
+00:31:48,740 --> 00:31:52,110
+so if you log in the Hyper-V
+
+316
+00:31:52,110 --> 00:31:57,110
+and definitely cannot install
+
+317
+00:31:57,110 --> 00:31:59,110
+but if you have a chance to install
+
+318
+00:31:59,110 --> 00:32:01,110
+so you can take a look at it
+
+319
+00:32:01,110 --> 00:32:05,110
+so if you log in your Hyper-V manager
+
+320
+00:32:05,110 --> 00:32:06,110
+okay
+
+321
+00:32:06,110 --> 00:32:08,110
+so this is the Hyper-V manager
+
+322
+00:32:08,110 --> 00:32:11,110
+and if you click the virtual machine
+
+323
+00:32:11,110 --> 00:32:13,110
+virtual switch manager
+
+324
+00:32:13,110 --> 00:32:15,110
+so if you click a virtual switch manager
+
+325
+00:32:15,110 --> 00:32:16,110
+you can see here
+
+326
+00:32:16,110 --> 00:32:18,110
+you have three options
+
+327
+00:32:18,110 --> 00:32:19,110
+one is external
+
+328
+00:32:19,110 --> 00:32:21,110
+one is internal
+
+329
+00:32:21,110 --> 00:32:22,110
+one is private
+
+330
+00:32:22,110 --> 00:32:25,110
+so external
+
+331
+00:32:25,110 --> 00:32:26,110
+external
+
+332
+00:32:26,110 --> 00:32:29,110
+allow the instance
+
+333
+00:32:29,110 --> 00:32:32,110
+which is instance talk to instance
+
+334
+00:32:32,110 --> 00:32:35,110
+and also allow the instance talk to the host
+
+335
+00:32:35,110 --> 00:32:39,110
+and the instance talk to
+
+336
+00:32:39,110 --> 00:32:41,110
+other instance
+
+337
+00:32:41,110 --> 00:32:44,110
+but the instance is not located on the same host
+
+338
+00:32:44,110 --> 00:32:45,110
+okay
+
+339
+00:32:45,110 --> 00:32:47,110
+so which is external
+
+340
+00:32:47,110 --> 00:32:49,110
+you can access anywhere
+
+341
+00:32:49,110 --> 00:32:52,110
+internal
+
+342
+00:32:52,110 --> 00:32:58,110
+so internal only allowed your local host
+
+343
+00:32:58,110 --> 00:33:01,110
+and talk to the instance
+
+344
+00:33:01,110 --> 00:33:02,110
+okay
+
+345
+00:33:02,110 --> 00:33:05,110
+the instance have to on the same local host
+
+346
+00:33:05,110 --> 00:33:07,110
+and instance talk to instance
+
+347
+00:33:07,110 --> 00:33:09,110
+on the same host
+
+348
+00:33:09,110 --> 00:33:10,110
+private
+
+349
+00:33:10,110 --> 00:33:13,110
+private only allowed instance talk to instance
+
+350
+00:33:13,110 --> 00:33:15,110
+located on the same host
+
+351
+00:33:15,110 --> 00:33:18,110
+and also instance cannot talk to the local host
+
+352
+00:33:18,110 --> 00:33:21,110
+you need to remember
+
+353
+00:33:21,110 --> 00:33:23,110
+all right next one
+
+354
+00:33:23,110 --> 00:33:26,110
+if you want to create a virtual switch
+
+355
+00:33:26,110 --> 00:33:30,110
+so you can create the external internal and private
+
+356
+00:33:30,110 --> 00:33:32,110
+so if I want to create the external
+
+357
+00:33:32,110 --> 00:33:34,110
+I can click create external
+
+358
+00:33:34,110 --> 00:33:39,110
+and then I need to bind with my physical network card
+
+359
+00:33:39,110 --> 00:33:43,110
+so if you have a one network card
+
+360
+00:33:43,110 --> 00:33:47,110
+you only can create one external network switch
+
+361
+00:33:47,110 --> 00:33:50,110
+make sure give the meaningful name
+
+362
+00:33:50,110 --> 00:33:51,110
+okay for example
+
+363
+00:33:51,110 --> 00:33:53,110
+I'm going to create one external switch
+
+364
+00:33:53,110 --> 00:33:55,110
+and allow the internal access
+
+365
+00:33:55,110 --> 00:33:58,110
+so you can create this one as internal internet switch
+
+366
+00:33:58,110 --> 00:34:00,390
+okay
+
+367
+00:34:00,390 --> 00:34:03,390
+and also you can create the private switch
+
+368
+00:34:03,390 --> 00:34:05,390
+okay private switch
+
+369
+00:34:05,390 --> 00:34:06,390
+so private switch
+
+370
+00:34:06,390 --> 00:34:09,390
+you don't need to have a physical adapter card
+
+371
+00:34:09,390 --> 00:34:11,390
+so what do we mean physical adapter card
+
+372
+00:34:11,390 --> 00:34:13,390
+if you look at my hyper-v
+
+373
+00:34:13,390 --> 00:34:15,390
+so I have a one physical adapter card
+
+374
+00:34:15,390 --> 00:34:17,390
+which is vmnet or not
+
+375
+00:34:17,390 --> 00:34:20,390
+so that means I only can create one external
+
+376
+00:34:20,390 --> 00:34:22,390
+but how about I want to create internal
+
+377
+00:34:22,390 --> 00:34:24,390
+so you need to add another one
+
+378
+00:34:24,390 --> 00:34:28,390
+internal also bind with your physical network card
+
+379
+00:34:28,390 --> 00:34:33,700
+okay next one I want to remind you
+
+380
+00:34:33,700 --> 00:34:37,700
+is after you create the external switch
+
+381
+00:34:37,700 --> 00:34:40,700
+and if you look at your network card
+
+382
+00:34:40,700 --> 00:34:47,700
+and you can find the following component
+
+383
+00:34:47,700 --> 00:34:50,700
+so you can find a two network card
+
+384
+00:34:50,700 --> 00:34:52,700
+one is vm99
+
+385
+00:34:52,700 --> 00:34:54,700
+one is vinternet
+
+386
+00:34:54,700 --> 00:34:56,700
+I put it internet
+
+387
+00:34:56,700 --> 00:34:58,700
+so if you look at the property
+
+388
+00:34:58,700 --> 00:35:02,020
+and ipv4
+
+389
+00:35:02,020 --> 00:35:04,020
+so you can see here
+
+390
+00:35:04,020 --> 00:35:11,020
+ip has been copied from your physical one
+
+391
+00:35:11,020 --> 00:35:12,020
+to the virtual one
+
+392
+00:35:12,020 --> 00:35:15,020
+if you look at your physical one
+
+393
+00:35:15,020 --> 00:35:17,020
+and you can see here
+
+394
+00:35:17,020 --> 00:35:19,020
+ipv4 protocols
+
+395
+00:35:19,020 --> 00:35:20,020
+unchecked
+
+396
+00:35:20,020 --> 00:35:22,020
+do not check that one
+
+397
+00:35:22,020 --> 00:35:23,020
+so that's normal
+
+398
+00:35:23,020 --> 00:35:24,020
+okay you can see here
+
+399
+00:35:24,020 --> 00:35:27,020
+hyper-v extensible virtual switch
+
+400
+00:35:27,020 --> 00:35:30,020
+this profile gonna installed on your physical one
+
+401
+00:35:30,020 --> 00:35:32,020
+so which is this one
+
+402
+00:35:32,020 --> 00:35:33,020
+bind this one
+
+403
+00:35:33,020 --> 00:35:34,020
+and access the internet
+
+404
+00:35:34,020 --> 00:35:38,020
+so do not assign ip on your vm99
+
+405
+00:35:38,020 --> 00:35:42,020
+so the ip gonna copied to your virtual switch
+
+406
+00:35:42,020 --> 00:35:45,870
+okay really important
+
+407
+00:35:45,870 --> 00:35:48,870
+all right so I'm gonna continue
+
+408
+00:35:48,870 --> 00:35:49,870
+and
+
+409
+00:35:49,870 --> 00:35:51,870
+so if you don't know how to do the
+
+410
+00:35:51,870 --> 00:35:54,870
+configure the virtual switch
+
+411
+00:35:54,870 --> 00:35:57,870
+so look at my lab demo
+
+412
+00:35:57,870 --> 00:36:00,870
+and also you need to know how to configure vline
+
+413
+00:36:00,870 --> 00:36:02,870
+okay next one
+
+414
+00:36:02,870 --> 00:36:04,870
+and for this course
+
+415
+00:36:04,870 --> 00:36:06,870
+I'm not require you to familiar
+
+416
+00:36:06,870 --> 00:36:08,870
+how to configure the vline
+
+417
+00:36:08,870 --> 00:36:11,870
+but I believe you learn from term two
+
+418
+00:36:11,870 --> 00:36:14,870
+okay next one is
+
+419
+00:36:14,870 --> 00:36:18,870
+so what are virtual machines configuration version
+
+420
+00:36:18,870 --> 00:36:21,870
+okay
+
+421
+00:36:21,870 --> 00:36:25,380
+so that is the
+
+422
+00:36:25,380 --> 00:36:30,820
+virtual machine version number
+
+423
+00:36:30,820 --> 00:36:32,820
+okay
+
+424
+00:36:32,820 --> 00:36:34,820
+so windows server 2022
+
+425
+00:36:34,820 --> 00:36:38,380
+and windows server 2019
+
+426
+00:36:38,380 --> 00:36:40,380
+can support the
+
+427
+00:36:40,380 --> 00:36:44,380
+the virtual machine instance
+
+428
+00:36:44,380 --> 00:36:46,380
+version eight above
+
+429
+00:36:46,380 --> 00:36:48,380
+eight above
+
+430
+00:36:48,380 --> 00:36:49,380
+okay
+
+431
+00:36:49,380 --> 00:36:51,380
+so after you create the
+
+432
+00:36:51,380 --> 00:36:52,380
+instance
+
+433
+00:36:52,380 --> 00:36:55,380
+on your hyper-v managers
+
+434
+00:36:55,380 --> 00:36:58,380
+and so you can see the
+
+435
+00:36:58,380 --> 00:37:00,380
+virtual instance in here
+
+436
+00:37:00,380 --> 00:37:01,380
+and also
+
+437
+00:37:01,380 --> 00:37:02,380
+so they can
+
+438
+00:37:02,380 --> 00:37:04,380
+tell you
+
+439
+00:37:04,380 --> 00:37:05,380
+the
+
+440
+00:37:05,380 --> 00:37:06,380
+the version
+
+441
+00:37:06,380 --> 00:37:09,380
+the configuration version
+
+442
+00:37:09,380 --> 00:37:10,380
+okay
+
+443
+00:37:10,380 --> 00:37:13,380
+so you can upgrade the configuration version
+
+444
+00:37:13,380 --> 00:37:14,380
+okay
+
+445
+00:37:14,380 --> 00:37:16,380
+so what's the difference
+
+446
+00:37:16,380 --> 00:37:19,380
+it's just a feature difference
+
+447
+00:37:19,380 --> 00:37:20,380
+hardware's difference
+
+448
+00:37:20,380 --> 00:37:21,380
+so that's the
+
+449
+00:37:21,380 --> 00:37:22,380
+so that's the
+
+450
+00:37:22,380 --> 00:37:24,380
+the key point
+
+451
+00:37:24,380 --> 00:37:25,380
+all right
+
+452
+00:37:25,380 --> 00:37:28,380
+so next one is
+
+453
+00:37:28,380 --> 00:37:31,380
+virtual machine generations
+
+454
+00:37:31,380 --> 00:37:33,380
+virtual machine generations
+
+455
+00:37:33,380 --> 00:37:34,380
+so what does that mean
+
+456
+00:37:34,380 --> 00:37:36,380
+so I'm going to give you a quick demo
+
+457
+00:37:36,380 --> 00:37:38,380
+and if you log in your virtual machines
+
+458
+00:37:38,380 --> 00:37:41,380
+I want to create a new virtual machines
+
+459
+00:37:41,380 --> 00:37:43,380
+virtual machine
+
+460
+00:37:43,380 --> 00:37:46,380
+and if I click next one
+
+461
+00:37:46,380 --> 00:37:48,380
+and you can give the name
+
+462
+00:37:48,380 --> 00:37:49,380
+and you need to know
+
+463
+00:37:49,380 --> 00:37:50,380
+where you want to store
+
+464
+00:37:50,380 --> 00:37:51,380
+your virtual machine
+
+465
+00:37:51,380 --> 00:37:53,380
+so do not store your virtual machine
+
+466
+00:37:53,380 --> 00:37:55,380
+to the default locations
+
+467
+00:37:55,380 --> 00:37:56,380
+do not
+
+468
+00:37:56,380 --> 00:37:58,380
+okay
+
+469
+00:37:58,380 --> 00:38:00,380
+I call this one is
+
+470
+00:38:00,380 --> 00:38:01,380
+a domain controller
+
+471
+00:38:01,380 --> 00:38:02,380
+for example
+
+472
+00:38:02,380 --> 00:38:03,380
+I wanted to create a domain controller
+
+473
+00:38:03,380 --> 00:38:05,380
+and also
+
+474
+00:38:05,380 --> 00:38:08,380
+and you need to put to the
+
+475
+00:38:08,380 --> 00:38:10,380
+C drive or D drive
+
+476
+00:38:10,380 --> 00:38:11,380
+okay
+
+477
+00:38:11,380 --> 00:38:12,380
+do not
+
+478
+00:38:12,380 --> 00:38:13,380
+you can see here
+
+479
+00:38:13,380 --> 00:38:14,380
+create a hyper-v
+
+480
+00:38:14,380 --> 00:38:15,380
+inside hyper-v
+
+481
+00:38:15,380 --> 00:38:16,380
+I'm going to create a
+
+482
+00:38:16,380 --> 00:38:17,380
+DC one
+
+483
+00:38:17,380 --> 00:38:19,380
+do not use the default locations
+
+484
+00:38:19,380 --> 00:38:21,380
+okay
+
+485
+00:38:21,380 --> 00:38:22,380
+select
+
+486
+00:38:22,380 --> 00:38:23,380
+next
+
+487
+00:38:23,380 --> 00:38:24,380
+so from here
+
+488
+00:38:24,380 --> 00:38:25,380
+you can see
+
+489
+00:38:25,380 --> 00:38:26,380
+you're going to have a
+
+490
+00:38:26,380 --> 00:38:27,380
+specify the generations
+
+491
+00:38:27,380 --> 00:38:28,380
+you're going to use
+
+492
+00:38:28,380 --> 00:38:29,380
+version one
+
+493
+00:38:29,380 --> 00:38:30,380
+or
+
+494
+00:38:30,380 --> 00:38:31,380
+version two
+
+495
+00:38:31,380 --> 00:38:32,380
+generation one
+
+496
+00:38:32,380 --> 00:38:33,380
+and the generation two
+
+497
+00:38:33,380 --> 00:38:34,380
+I can tell you
+
+498
+00:38:34,380 --> 00:38:37,380
+so the following major difference
+
+499
+00:38:37,380 --> 00:38:38,380
+generation two
+
+500
+00:38:38,380 --> 00:38:41,380
+only supports 64-bit operating system
+
+501
+00:38:41,380 --> 00:38:43,380
+generation one can support old
+
+502
+00:38:43,380 --> 00:38:44,380
+and up
+
+503
+00:38:44,380 --> 00:38:45,380
+if you use
+
+504
+00:38:45,380 --> 00:38:46,380
+Windows XP
+
+505
+00:38:46,380 --> 00:38:47,380
+32-bit
+
+506
+00:38:47,380 --> 00:38:48,380
+so you have to use
+
+507
+00:38:48,380 --> 00:38:49,380
+the generation one
+
+508
+00:38:49,380 --> 00:38:50,380
+so next
+
+509
+00:38:50,380 --> 00:38:51,380
+why
+
+510
+00:38:51,380 --> 00:38:52,380
+is the generation two
+
+511
+00:38:52,380 --> 00:38:53,380
+support
+
+512
+00:38:53,380 --> 00:38:55,380
+the UEFI
+
+513
+00:38:55,380 --> 00:38:56,380
+UEFI
+
+514
+00:38:56,380 --> 00:38:57,380
+and generation one
+
+515
+00:38:57,380 --> 00:38:59,380
+support the BIOS
+
+516
+00:38:59,380 --> 00:39:00,380
+okay
+
+517
+00:39:00,380 --> 00:39:01,380
+and also
+
+518
+00:39:01,380 --> 00:39:02,380
+generation one can support
+
+519
+00:39:02,380 --> 00:39:03,380
+some fancy
+
+520
+00:39:05,380 --> 00:39:06,380
+hardware
+
+521
+00:39:06,380 --> 00:39:07,380
+okay
+
+522
+00:39:07,380 --> 00:39:08,380
+like
+
+523
+00:39:08,380 --> 00:39:09,380
+SCSI
+
+524
+00:39:09,380 --> 00:39:10,380
+SATA
+
+525
+00:39:10,380 --> 00:39:11,380
+and
+
+526
+00:39:11,380 --> 00:39:12,380
+generation one
+
+527
+00:39:12,380 --> 00:39:13,380
+can support IDE
+
+528
+00:39:13,380 --> 00:39:14,380
+so therefore
+
+529
+00:39:14,380 --> 00:39:15,380
+the performance
+
+530
+00:39:15,380 --> 00:39:16,380
+two
+
+531
+00:39:16,380 --> 00:39:17,380
+better than one
+
+532
+00:39:17,380 --> 00:39:18,380
+and also
+
+533
+00:39:18,380 --> 00:39:19,380
+generation two
+
+534
+00:39:19,380 --> 00:39:20,380
+can support
+
+535
+00:39:20,380 --> 00:39:21,380
+the security boot
+
+536
+00:39:21,380 --> 00:39:22,380
+okay
+
+537
+00:39:22,380 --> 00:39:23,380
+so that's the major difference
+
+538
+00:39:23,380 --> 00:39:24,380
+make sure to remember
+
+539
+00:39:24,380 --> 00:39:27,180
+all right
+
+540
+00:39:27,180 --> 00:39:28,180
+next one
+
+541
+00:39:28,180 --> 00:39:30,180
+I want to continue
+
+542
+00:39:30,180 --> 00:39:33,900
+next one
+
+543
+00:39:33,900 --> 00:39:34,900
+I think I already explained to you
+
+544
+00:39:34,900 --> 00:39:35,900
+and
+
+545
+00:39:35,900 --> 00:39:36,900
+generation two
+
+546
+00:39:36,900 --> 00:39:37,900
+can support
+
+547
+00:39:37,900 --> 00:39:38,900
+the hot swap
+
+548
+00:39:38,900 --> 00:39:39,900
+okay
+
+549
+00:39:39,900 --> 00:39:40,900
+which you can
+
+550
+00:39:40,900 --> 00:39:41,900
+add
+
+551
+00:39:41,900 --> 00:39:42,900
+and remove
+
+552
+00:39:42,900 --> 00:39:43,900
+the hardware
+
+553
+00:39:43,900 --> 00:39:44,900
+without SATA on the computers
+
+554
+00:39:44,900 --> 00:39:45,900
+but if you want
+
+555
+00:39:45,900 --> 00:39:46,900
+to
+
+556
+00:39:46,900 --> 00:39:47,900
+increase
+
+557
+00:39:47,900 --> 00:39:48,900
+the CPU
+
+558
+00:39:48,900 --> 00:39:49,900
+I want to increase
+
+559
+00:39:49,900 --> 00:39:50,900
+the multiple cores
+
+560
+00:39:50,900 --> 00:39:51,900
+so you need to
+
+561
+00:39:51,900 --> 00:39:52,900
+SATA
+
+562
+00:39:52,900 --> 00:39:54,900
+the instance first
+
+563
+00:39:54,900 --> 00:39:55,900
+okay
+
+564
+00:39:56,900 --> 00:39:57,900
+so sealed
+
+565
+00:39:57,900 --> 00:39:58,900
+virtual machines
+
+566
+00:39:58,900 --> 00:40:00,900
+I think I already explained to you
+
+567
+00:40:00,900 --> 00:40:01,900
+and the generation two
+
+568
+00:40:01,900 --> 00:40:02,900
+work with
+
+569
+00:40:02,900 --> 00:40:03,900
+the TPM
+
+570
+00:40:03,900 --> 00:40:04,900
+virtual TPM
+
+571
+00:40:05,900 --> 00:40:07,900
+so host guardians
+
+572
+00:40:07,900 --> 00:40:08,900
+host guardians
+
+573
+00:40:08,900 --> 00:40:09,900
+service
+
+574
+00:40:09,900 --> 00:40:11,900
+so can identify
+
+575
+00:40:11,900 --> 00:40:12,900
+so this is original
+
+576
+00:40:12,900 --> 00:40:13,900
+host
+
+577
+00:40:13,900 --> 00:40:14,900
+or not
+
+578
+00:40:14,900 --> 00:40:15,900
+for example
+
+579
+00:40:15,900 --> 00:40:16,900
+if I copy your
+
+580
+00:40:16,900 --> 00:40:17,900
+VSDX
+
+581
+00:40:17,900 --> 00:40:18,900
+and
+
+582
+00:40:18,900 --> 00:40:19,900
+and
+
+583
+00:40:19,900 --> 00:40:20,900
+you know plug into my
+
+584
+00:40:20,900 --> 00:40:21,900
+virtual
+
+585
+00:40:21,900 --> 00:40:23,900
+virtual hyper V
+
+586
+00:40:23,900 --> 00:40:24,900
+so I can run
+
+587
+00:40:24,900 --> 00:40:25,900
+your instance
+
+588
+00:40:25,900 --> 00:40:26,900
+so
+
+589
+00:40:26,900 --> 00:40:27,900
+if you used
+
+590
+00:40:27,900 --> 00:40:28,900
+turn on the
+
+591
+00:40:28,900 --> 00:40:29,900
+host guardian service
+
+592
+00:40:29,900 --> 00:40:30,900
+so I can prevent
+
+593
+00:40:30,900 --> 00:40:31,900
+so you cannot
+
+594
+00:40:31,900 --> 00:40:32,900
+run
+
+595
+00:40:32,900 --> 00:40:33,900
+on other host
+
+596
+00:40:33,900 --> 00:40:34,900
+okay
+
+597
+00:40:34,900 --> 00:40:37,370
+next one
+
+598
+00:40:37,370 --> 00:40:38,370
+is a
+
+599
+00:40:38,370 --> 00:40:39,370
+virtual machine settings
+
+600
+00:40:39,370 --> 00:40:40,370
+so make sure
+
+601
+00:40:40,370 --> 00:40:41,370
+you can try
+
+602
+00:40:41,370 --> 00:40:42,370
+to enable
+
+603
+00:40:42,370 --> 00:40:43,370
+the smart
+
+604
+00:40:43,370 --> 00:40:44,370
+page
+
+605
+00:40:44,370 --> 00:40:45,370
+and allow
+
+606
+00:40:45,370 --> 00:40:46,370
+the disk
+
+607
+00:40:46,370 --> 00:40:47,370
+to be used
+
+608
+00:40:47,370 --> 00:40:48,370
+the temporary
+
+609
+00:40:48,370 --> 00:40:49,370
+during the virtual machine
+
+610
+00:40:49,370 --> 00:40:50,370
+startup
+
+611
+00:40:50,370 --> 00:40:51,370
+so which is
+
+612
+00:40:51,370 --> 00:40:52,370
+highly needed
+
+613
+00:40:52,370 --> 00:40:53,370
+so smart
+
+614
+00:40:53,370 --> 00:40:54,370
+smart pagings
+
+615
+00:40:56,370 --> 00:40:57,370
+so you can enable
+
+616
+00:40:57,370 --> 00:40:58,370
+that one
+
+617
+00:40:58,370 --> 00:41:01,380
+okay
+
+618
+00:41:01,380 --> 00:41:02,380
+next one
+
+619
+00:41:02,380 --> 00:41:03,380
+I think I already
+
+620
+00:41:03,380 --> 00:41:04,380
+told you
+
+621
+00:41:04,380 --> 00:41:05,380
+generation two
+
+622
+00:41:05,380 --> 00:41:06,380
+support the
+
+623
+00:41:06,380 --> 00:41:07,380
+Linux secure boot
+
+624
+00:41:07,380 --> 00:41:11,170
+all right
+
+625
+00:41:11,170 --> 00:41:12,170
+so this slide
+
+626
+00:41:12,170 --> 00:41:13,170
+is most important
+
+627
+00:41:13,170 --> 00:41:14,170
+for you
+
+628
+00:41:14,170 --> 00:41:15,170
+which is
+
+629
+00:41:15,170 --> 00:41:16,170
+the best practice
+
+630
+00:41:16,170 --> 00:41:17,170
+for configuring
+
+631
+00:41:17,170 --> 00:41:18,170
+the virtual machine
+
+632
+00:41:18,170 --> 00:41:19,170
+so first one
+
+633
+00:41:19,170 --> 00:41:20,170
+you need to use
+
+634
+00:41:20,170 --> 00:41:21,170
+you can use
+
+635
+00:41:21,170 --> 00:41:22,170
+dynamic memory
+
+636
+00:41:22,170 --> 00:41:23,170
+okay
+
+637
+00:41:23,170 --> 00:41:24,170
+what do you mean
+
+638
+00:41:24,170 --> 00:41:25,170
+dynamic memory
+
+639
+00:41:25,170 --> 00:41:26,170
+so
+
+640
+00:41:26,170 --> 00:41:27,170
+dynamic memories
+
+641
+00:41:27,170 --> 00:41:28,170
+if you are
+
+642
+00:41:28,170 --> 00:41:29,170
+instance
+
+643
+00:41:29,170 --> 00:41:30,170
+gonna
+
+644
+00:41:30,170 --> 00:41:31,170
+they're gonna
+
+645
+00:41:31,170 --> 00:41:32,170
+automatically expand
+
+646
+00:41:32,170 --> 00:41:33,170
+okay
+
+647
+00:41:33,170 --> 00:41:34,170
+I'm not suggesting
+
+648
+00:41:34,170 --> 00:41:35,170
+you to use
+
+649
+00:41:35,170 --> 00:41:36,170
+dynamic disk
+
+650
+00:41:36,170 --> 00:41:37,170
+so this is
+
+651
+00:41:37,170 --> 00:41:38,170
+dynamic memory
+
+652
+00:41:38,170 --> 00:41:39,170
+it's different
+
+653
+00:41:39,170 --> 00:41:40,170
+next one
+
+654
+00:41:40,170 --> 00:41:41,170
+is
+
+655
+00:41:41,170 --> 00:41:42,170
+do not use
+
+656
+00:41:42,170 --> 00:41:44,670
+the difference
+
+657
+00:41:44,670 --> 00:41:45,670
+in disk
+
+658
+00:41:45,670 --> 00:41:46,670
+okay
+
+659
+00:41:46,670 --> 00:41:47,670
+and next one
+
+660
+00:41:47,670 --> 00:41:50,850
+you need to configure
+
+661
+00:41:50,850 --> 00:41:51,850
+a multiple
+
+662
+00:41:51,850 --> 00:41:52,850
+adapter card
+
+663
+00:41:52,850 --> 00:41:53,850
+and if you want
+
+664
+00:41:53,850 --> 00:41:54,850
+and
+
+665
+00:41:54,850 --> 00:41:55,850
+last one
+
+666
+00:41:55,850 --> 00:41:56,850
+so you need
+
+667
+00:41:56,850 --> 00:41:57,850
+to save
+
+668
+00:41:57,850 --> 00:41:58,850
+your
+
+669
+00:41:58,850 --> 00:41:59,850
+virtual machine
+
+670
+00:41:59,850 --> 00:42:00,850
+okay
+
+671
+00:42:00,850 --> 00:42:05,020
+all right
+
+672
+00:42:05,020 --> 00:42:06,020
+so next one
+
+673
+00:42:06,020 --> 00:42:07,020
+is
+
+674
+00:42:07,020 --> 00:42:08,020
+virtual machine
+
+675
+00:42:08,020 --> 00:42:09,020
+state
+
+676
+00:42:09,020 --> 00:42:10,020
+so you can find
+
+677
+00:42:10,020 --> 00:42:11,020
+the off state
+
+678
+00:42:11,020 --> 00:42:12,020
+starting state
+
+679
+00:42:12,020 --> 00:42:13,020
+running state
+
+680
+00:42:13,020 --> 00:42:14,020
+pause state
+
+681
+00:42:14,020 --> 00:42:15,020
+and save state
+
+682
+00:42:15,020 --> 00:42:16,020
+okay
+
+683
+00:42:16,020 --> 00:42:17,020
+I think
+
+684
+00:42:17,020 --> 00:42:18,020
+based on the
+
+685
+00:42:18,020 --> 00:42:19,020
+keywords
+
+686
+00:42:19,020 --> 00:42:20,020
+you should
+
+687
+00:42:20,020 --> 00:42:21,020
+understand
+
+688
+00:42:21,020 --> 00:42:22,020
+okay
+
+689
+00:42:22,020 --> 00:42:23,020
+and
+
+690
+00:42:23,020 --> 00:42:24,020
+what is
+
+691
+00:42:24,020 --> 00:42:25,020
+the running state
+
+692
+00:42:25,020 --> 00:42:26,020
+what is
+
+693
+00:42:26,020 --> 00:42:27,020
+the starting state
+
+694
+00:42:27,020 --> 00:42:28,020
+so make sure
+
+695
+00:42:28,020 --> 00:42:29,020
+test on
+
+696
+00:42:29,020 --> 00:42:31,680
+your
+
+697
+00:42:31,680 --> 00:42:32,680
+virtual machines
+
+698
+00:42:32,680 --> 00:42:33,680
+so
+
+699
+00:42:33,680 --> 00:42:34,680
+I'll show you
+
+700
+00:42:34,680 --> 00:42:35,680
+the
+
+701
+00:42:35,680 --> 00:42:36,680
+example
+
+702
+00:42:36,680 --> 00:42:37,680
+of
+
+703
+00:42:37,680 --> 00:42:38,680
+the
+
+704
+00:42:38,680 --> 00:42:39,680
+standard
+
+705
+00:42:39,680 --> 00:42:40,680
+checkpoint
+
+706
+00:42:40,680 --> 00:42:41,680
+okay
+
+707
+00:42:41,680 --> 00:42:42,680
+by default
+
+708
+00:42:42,680 --> 00:42:46,880
+you're going to use
+
+709
+00:42:46,880 --> 00:42:47,880
+the standard
+
+710
+00:42:47,880 --> 00:42:48,880
+checkpoint
+
+711
+00:42:48,880 --> 00:42:49,880
+and next one
+
+712
+00:42:49,880 --> 00:42:50,880
+you can
+
+713
+00:42:50,880 --> 00:42:51,880
+import and
+
+714
+00:42:51,880 --> 00:42:52,880
+exporting
+
+715
+00:42:52,880 --> 00:42:53,880
+your
+
+716
+00:42:53,880 --> 00:42:54,880
+virtual machine
+
+717
+00:42:54,880 --> 00:42:55,880
+so when you log
+
+718
+00:42:55,880 --> 00:42:56,880
+in your
+
+719
+00:42:56,880 --> 00:42:57,880
+hyper-v
+
+720
+00:42:57,880 --> 00:42:58,880
+find your instance
+
+721
+00:42:58,880 --> 00:42:59,880
+you can right click
+
+722
+00:42:59,880 --> 00:43:00,880
+okay
+
+723
+00:43:00,880 --> 00:43:01,880
+you can
+
+724
+00:43:01,880 --> 00:43:09,250
+you can
+
+725
+00:43:09,250 --> 00:43:10,250
+import
+
+726
+00:43:10,250 --> 00:43:11,250
+and export
+
+727
+00:43:11,250 --> 00:43:12,250
+your
+
+728
+00:43:12,250 --> 00:43:13,250
+instance
+
+729
+00:43:13,250 --> 00:43:14,250
+okay
+
+730
+00:43:14,250 --> 00:43:15,250
+so
+
+731
+00:43:15,250 --> 00:43:16,250
+if you want to
+
+732
+00:43:16,250 --> 00:43:17,250
+access
+
+733
+00:43:17,250 --> 00:43:18,250
+your
+
+734
+00:43:18,250 --> 00:43:20,660
+instance
+
+735
+00:43:20,660 --> 00:43:21,660
+from your
+
+736
+00:43:21,660 --> 00:43:22,660
+local host
+
+737
+00:43:22,660 --> 00:43:23,660
+so you can use
+
+738
+00:43:23,660 --> 00:43:24,660
+the
+
+739
+00:43:24,660 --> 00:43:25,660
+partial
+
+740
+00:43:25,660 --> 00:43:26,660
+direct
+
+741
+00:43:26,660 --> 00:43:27,660
+okay
+
+742
+00:43:27,660 --> 00:43:28,660
+and also
+
+743
+00:43:28,660 --> 00:43:29,660
+I want you to
+
+744
+00:43:29,660 --> 00:43:30,660
+familiar
+
+745
+00:43:30,660 --> 00:43:31,660
+the following partial
+
+746
+00:43:31,660 --> 00:43:32,660
+command line
+
+747
+00:43:32,660 --> 00:43:33,660
+which is
+
+748
+00:43:33,660 --> 00:43:34,660
+enter
+
+749
+00:43:34,660 --> 00:43:35,660
+ps session
+
+750
+00:43:35,660 --> 00:43:36,660
+enter
+
+751
+00:43:36,660 --> 00:43:37,660
+ps session
+
+752
+00:43:37,660 --> 00:43:38,660
+okay
+
+753
+00:43:38,660 --> 00:43:39,660
+so you can
+
+754
+00:43:39,660 --> 00:43:40,660
+remote
+
+755
+00:43:40,660 --> 00:43:41,660
+login
+
+756
+00:43:41,660 --> 00:43:42,660
+your
+
+757
+00:43:42,660 --> 00:43:43,660
+system
+
+758
+00:43:43,660 --> 00:43:44,660
+so in here
+
+759
+00:43:44,660 --> 00:43:45,660
+I'm not talking about
+
+760
+00:43:45,660 --> 00:43:46,660
+the partial
+
+761
+00:43:46,660 --> 00:43:47,660
+direct only
+
+762
+00:43:47,660 --> 00:43:48,660
+so for example
+
+763
+00:43:48,660 --> 00:43:49,660
+I have a
+
+764
+00:43:49,660 --> 00:43:50,660
+dc1
+
+765
+00:43:50,660 --> 00:43:51,660
+dc2
+
+766
+00:43:51,660 --> 00:43:52,660
+so I want to
+
+767
+00:43:52,660 --> 00:43:53,660
+use the partial
+
+768
+00:43:53,660 --> 00:43:54,660
+manage my
+
+769
+00:43:54,660 --> 00:43:55,660
+dc2
+
+770
+00:43:55,660 --> 00:43:56,660
+so I can use
+
+771
+00:43:56,660 --> 00:43:57,660
+I can run partial
+
+772
+00:43:57,660 --> 00:43:58,660
+on my dc1
+
+773
+00:43:58,660 --> 00:43:59,660
+and I can use
+
+774
+00:43:59,660 --> 00:44:00,660
+enter pss
+
+775
+00:44:00,660 --> 00:44:01,660
+into login
+
+776
+00:44:01,660 --> 00:44:02,660
+dc2
+
+777
+00:44:02,660 --> 00:44:03,660
+okay
+
+778
+00:44:03,660 --> 00:44:04,660
+definitely
+
+779
+00:44:04,660 --> 00:44:05,660
+you're going to
+
+780
+00:44:05,660 --> 00:44:06,660
+create a
+
+781
+00:44:06,660 --> 00:44:07,660
+network connections
+
+782
+00:44:07,660 --> 00:44:08,660
+powershell
+
+783
+00:44:08,660 --> 00:44:09,660
+direct
+
+784
+00:44:09,660 --> 00:44:10,660
+you don't need it
+
+785
+00:44:10,660 --> 00:44:11,660
+you don't need it
+
+786
+00:44:11,660 --> 00:44:12,660
+to
+
+787
+00:44:12,660 --> 00:44:13,660
+to
+
+788
+00:44:13,660 --> 00:44:14,660
+your instance
+
+789
+00:44:14,660 --> 00:44:15,660
+okay
+
+790
+00:44:15,660 --> 00:44:16,660
+all right
+
+791
+00:44:16,660 --> 00:44:17,660
+so that is the content
+
+792
+00:44:17,660 --> 00:44:18,660
+for this week
+
+793
+00:44:18,660 --> 00:44:19,660
+and
+
+794
+00:44:19,660 --> 00:44:20,660
+I want you to
+
+795
+00:44:20,660 --> 00:44:22,660
+work on the
+
+796
+00:44:22,660 --> 00:44:23,660
+lab
+
+797
+00:44:23,660 --> 00:44:24,660
+and
+
+798
+00:44:24,660 --> 00:44:25,660
+so you cannot complete
+
+799
+00:44:25,660 --> 00:44:26,660
+the lab
+
+800
+00:44:26,660 --> 00:44:27,660
+definitely
+
+801
+00:44:27,660 --> 00:44:28,660
+you cannot
+
+802
+00:44:28,660 --> 00:44:29,660
+but that's fine
+
+803
+00:44:29,660 --> 00:44:30,660
+I want you to
+
+804
+00:44:30,660 --> 00:44:31,660
+watch this video
+
+805
+00:44:31,660 --> 00:44:32,660
+and
+
+806
+00:44:32,660 --> 00:44:33,660
+read this
+
+807
+00:44:33,660 --> 00:44:34,660
+document
+
+808
+00:44:34,660 --> 00:44:35,660
+so when you finish
+
+809
+00:44:35,660 --> 00:44:37,660
+I want you to
+
+810
+00:44:37,660 --> 00:44:38,660
+submit
+
+811
+00:44:38,660 --> 00:44:39,660
+your
+
+812
+00:44:39,660 --> 00:44:40,660
+lab
+
+813
+00:44:40,660 --> 00:44:41,660
+so how to submit
+
+814
+00:44:41,660 --> 00:44:42,660
+you know
+
+815
+00:44:42,660 --> 00:44:43,660
+open the
+
+816
+00:44:43,660 --> 00:44:44,660
+word document
+
+817
+00:44:44,660 --> 00:44:45,660
+and you just
+
+818
+00:44:45,660 --> 00:44:46,660
+explain to me
+
+819
+00:44:46,660 --> 00:44:47,660
+I have already
+
+820
+00:44:47,660 --> 00:44:48,660
+you know
+
+821
+00:44:48,660 --> 00:44:49,660
+watched your videos
+
+822
+00:44:49,660 --> 00:44:50,660
+I don't have any questions
+
+823
+00:44:50,660 --> 00:44:52,660
+so if you have questions
+
+824
+00:44:52,660 --> 00:44:53,660
+so post your questions
+
+825
+00:44:53,660 --> 00:44:54,660
+in the word document
+
+826
+00:44:54,660 --> 00:44:56,660
+I want to take a look at it
+
+827
+00:44:56,660 --> 00:44:57,660
+okay
+
+828
+00:44:57,660 --> 00:44:58,660
+and good luck
+
+829
+00:44:58,660 --> 00:44:59,660
+your
+
+830
+00:44:59,660 --> 00:45:00,660
+lab
+
+831
+00:45:00,660 --> 00:45:01,660
+if you have questions
+
+832
+00:45:01,660 --> 00:45:02,660
+talk to me

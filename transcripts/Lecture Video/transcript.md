@@ -1,0 +1,400 @@
+# Transcript: Lecture Video.mp4
+
+- Source: `C:\Users\hiros\BCIT-study-material\Window-server-admin\Lecture Video.mp4`
+- Duration: 00:45:10
+- Segments: 832, screenshots: 66
+- Whisper model: `large-v3` (auto-generated; may contain recognition errors)
+
+## [00:00:00]
+
+![screenshot at 00:00:00](frames/frame_0001.jpg)
+
+`[00:00:01]` Hello everyone, this week you are going to learn Hyper-V. `[00:00:06]` So I want you to familiarize the following tasks. The first one you need to know what is a Hyper-V `[00:00:11]` and also you need to know another definition which is virtualization. You need to know `[00:00:18]` what's the difference between the type 1 and the type 2. I believe you already completed `[00:00:24]` the online discussions about that questions so make sure go back to look at the major difference. `[00:00:29]` The second one you need to know the new features. `[00:00:35]` So if you learn Windows Server, you're going to learn different modules, different roles, `[00:00:40]` different features. So you need to know the difference compared with the current edition
+
+## [00:00:45]
+
+![screenshot at 00:00:45](frames/frame_0002.jpg)
+
+`[00:00:47]` and with the previous edition. So until you're familiar and then you can make a decision `[00:00:53]` you want to upgrade or you want to continue using your existing one. `[00:01:01]` So next task definitely you need to know how to install. So after you install the Hyper-V role `[00:01:08]` and you need to know how to maintain and manage your Hyper-V, you also need to know `[00:01:15]` how to create the Hyper-V. So for this week I believe most students cannot complete the lab. `[00:01:24]` The reason why because your CPU 100% support virtualization.
+
+## [00:01:30]
+
+![screenshot at 00:01:30](frames/frame_0003.jpg)
+
+`[00:01:33]` But the conflict the conflicts and regions okay you cannot run Hyper-V on your Windows Server 2022. `[00:01:43]` For example if you turn on subsystem for Linux and you cannot use uh you cannot run Hyper-V `[00:01:52]` on your VMware Workstation. If you run VirtualBox you also cannot run VMware Workstation Hyper-V. `[00:02:01]` Okay. `[00:02:03]` But for this term I want you to familiar okay what is Hyper-V, how to maintain and manage Hyper-V,
+
+## [00:02:04]
+
+![screenshot at 00:02:04](frames/frame_0004.jpg)
+
+`[00:02:11]` how to create the instance. So I want you to log in the lab and you can find week five. `[00:02:20]` You can find the lab Hyper-V. So I want you to watch this video `[00:02:27]` and make sure you know how to build the Hyper-V by yourself. `[00:02:32]` All right. `[00:02:37]` So if you have a questions related to the video make sure to talk to me. `[00:02:43]` So back to today's topic. `[00:02:46]` All right. `[00:02:46]` So next one I want to give you the brief review and the virtual machine.
+
+## [00:02:49]
+
+![screenshot at 00:02:49](frames/frame_0005.jpg)
+
+`[00:02:53]` So first I want you to think about why do we need a virtual machine. `[00:02:59]` Why do we need the Hyper-V. Why do we need virtualization. `[00:03:06]` So actually that is the same questions. `[00:03:09]` Okay. `[00:03:10]` So the first one is why we need to use the virtual machine technology because our hardware `[00:03:17]` is extremely powerful compared with a few years ago. `[00:03:24]` Like multi-core a lot of CPU can support more than 100 cores. `[00:03:31]` You have a large amount of memories. `[00:03:34]` Windows Server 2022 can support up to 64 TB.
+
+## [00:03:34]
+
+![screenshot at 00:03:34](frames/frame_0006.jpg)
+
+`[00:03:41]` If you only run the single servers, the standalone servers, `[00:03:48]` so definitely that can waste a lot of resources. `[00:03:52]` So we want to save the money. `[00:03:55]` We want to improve the efficiency. `[00:03:58]` So therefore we can run multiple VMs on a single server. `[00:04:07]` So that's the major reason. `[00:04:10]` Okay. `[00:04:11]` So I'm going to move on. `[00:04:18]` All right. `[00:04:19]` So next one.
+
+## [00:04:19]
+
+![screenshot at 00:04:19](frames/frame_0007.jpg)
+
+`[00:04:19]` It's what is the Hyper-V. `[00:04:23]` So Hyper-V is the hardware virtualization role in Windows Server 2022 and 2019. `[00:04:33]` So this is my experience after Windows Server 2016. `[00:04:40]` The Hyper-V features, the Hyper-V technology or Hyper-V role improved a lot compared with `[00:04:49]` the older edition, like Windows Server 2008 Hyper-V, which is horrible. `[00:04:59]` Okay. `[00:05:00]` So it has some security problems, performance issues, but Windows Server
+
+## [00:05:04]
+
+![screenshot at 00:05:04](frames/frame_0008.jpg)
+
+`[00:05:05]` 2020, 2016, 2019, 2022 improved a lot. `[00:05:12]` So if you wanted to run the virtualization, so definitely you can try to run Windows Server `[00:05:20]` 2022. `[00:05:20]` And as I explained to you before, okay, VMware is still the number one virtualization in the world. `[00:05:34]` So when you get to the real job, you need to think about how to convert or transfer the service `[00:05:43]` from the Windows platform to VMware or from the VMware to the Windows platform or from the
+
+## [00:05:49]
+
+![screenshot at 00:05:49](frames/frame_0009.jpg)
+
+`[00:05:53]` cloud to on-premises data center. `[00:05:57]` So I provided you some technologies or applications you can use to convert all the services. `[00:06:06]` So I want you to look at the course website. `[00:06:12]` You can find the following tools. `[00:06:14]` So that is the VMware to Hyper-V, which is a V2V tools. `[00:06:21]` Also, you can convert `[00:06:23]` Hyper-V to VMware, which is you can transfer the instance from the `[00:06:30]` VMware and directly to Hyper-V or from Hyper-V to VMware.
+
+## [00:06:34]
+
+![screenshot at 00:06:34](frames/frame_0010.jpg)
+
+`[00:06:35]` So I want you to spend time to take a look at at least your familiar name. `[00:06:41]` Or if you have time, you can download and try to convert from one platform to another platform.
+
+## [00:06:49]
+
+![screenshot at 00:06:49](frames/frame_0011.jpg)
+
+`[00:06:56]` So next one, I want you familiar. `[00:06:57]` Hypervisor control access to the hardware. `[00:07:03]` So virtual machines, virtual instance, the operating system, so they cannot realize `[00:07:11]` they cannot realize run on the virtualized hardware. `[00:07:19]` The OS believe they still run on the hardware, but Hyper-V can provide the virtualized hardware `[00:07:25]` to support your instance. `[00:07:29]` Your operating system. `[00:07:31]` So therefore, if you choose the wrong profile, if you choose the wrong virtualized hardware,
+
+## [00:07:34]
+
+![screenshot at 00:07:34](frames/frame_0012.jpg)
+
+`[00:07:40]` so definitely can cause your OS issues. `[00:07:45]` So therefore, you need to know the minimum requirement. `[00:07:50]` You need to know the compatible hardware. `[00:07:55]` But if you use virtualizations, you don't have a lot of issues related to the `[00:08:01]` virtualization. `[00:08:02]` So you need to know the minimum requirement to support the virtualized hardware. `[00:08:05]` But you do have a, sometimes you do have the problems, cannot support the virtualized hardware. `[00:08:13]` Okay, so that means you need to update your Hyper-V, you need to update your Hypervisor,
+
+## [00:08:19]
+
+![screenshot at 00:08:19](frames/frame_0013.jpg)
+
+`[00:08:20]` or you need to choose a different OS. `[00:08:27]` All right, so next one, I want you to familiar. `[00:08:33]` Hyper-V can support a different operating system. `[00:08:34]` Hyper-V can support a different operating system. `[00:08:36]` You can support Windows Server 2008, SP2, ABAP. `[00:08:42]` It can support Vista, it can support Windows 10, XP, and the next year may support Windows 11. `[00:08:51]` And also support Linux. `[00:08:55]` Okay, you can run Ubuntu. `[00:08:59]` All right, so next one, let's take a look at it here.
+
+## [00:09:04]
+
+![screenshot at 00:09:04](frames/frame_0014.jpg)
+
+`[00:09:06]` Which is the new Hyper-V, the whole thing. `[00:09:09]` So you can find the host features in Windows Server 2019. `[00:09:14]` So which is 2019 compared with 2016. `[00:09:18]` So you can find the following new features from your Windows Server 2019. `[00:09:23]` So the first one is a host resource protections. `[00:09:27]` So that can protect some instance or one of the instance, and use a lot of CPU resource, `[00:09:36]` and cause the other instance performance issues. `[00:09:40]` So you need to use the set VM processors, enable the host resource protections, `[00:09:46]` make sure you, and change the parameter from the false to true.
+
+## [00:09:49]
+
+![screenshot at 00:09:49](frames/frame_0015.jpg)
+
+`[00:09:51]` Next one is the Hyper-V manager improvement. `[00:09:58]` So the manager can support the early version. `[00:10:01]` And also Windows Server 2019 can support the nested virtualization. `[00:10:09]` Okay, so what is a nested virtualization? `[00:10:12]` So last week we practiced it. `[00:10:13]` It's the nested security group. `[00:10:17]` So nested virtualization, which is a virtualization inside the virtualization. `[00:10:23]` It's kind of like if your CPU can support, and you can install Hyper-V `[00:10:32]` and on your VMware workstation.
+
+## [00:10:34]
+
+![screenshot at 00:10:34](frames/frame_0016.jpg)
+
+`[00:10:36]` Okay, so right now I wanted to remind you, Hyper-V `[00:10:41]` is the Role, and also you can directly download the Hyper-V ISO, and install above the hardware. `[00:10:53]` So Hyper-V is type 2, and also Hyper-V is type 1. `[00:11:02]` Okay, I think you already know type 1, type 2, the major difference. `[00:11:06]` So next one is the Shield virtual machine. `[00:11:12]` So the Shield virtual machine, which is, `[00:11:15]` I want to protect my instance.
+
+## [00:11:19]
+
+![screenshot at 00:11:19](frames/frame_0017.jpg)
+
+`[00:11:20]` I don't want someone else to access my instance. `[00:11:24]` So what do you mean someone else? `[00:11:26]` So include the operation administrator, the backup administrator. `[00:11:34]` So definitely can access my instance, or they can copy my instance. `[00:11:42]` So therefore I need to protect my instance. `[00:11:45]` I don't want them to. `[00:11:46]` access without my permission and if you look at my lab demo okay so you understand i can easily `[00:11:58]` to mount with dx so i can access there's instance data so therefore i needed to use the bitlocker
+
+## [00:12:04]
+
+![screenshot at 00:12:04](frames/frame_0018.jpg)
+
+`[00:12:09]` i can encrypt the whole volumes on my instance same idea on your local computers if you don't `[00:12:17]` want someone to access your data or maybe maybe you lost your laptop just prepare maybe in the `[00:12:26]` future you're going to lose your laptop so you're therefore you need to turn on the bitlocker `[00:12:32]` if you turn on the bitlocker and even they got your disk but they cannot read your data `[00:12:42]` okay so that is the shield vm next one is the start order priority `[00:12:49]` so start all the priority which is you can set up which server is higher priority so you're going
+
+## [00:12:50]
+
+![screenshot at 00:12:50](frames/frame_0019.jpg)
+
+`[00:12:57]` to put that server first for example if you run some web applications and you're going to need a `[00:13:05]` database and if you want to boot the computer so you have to boot the database first before you `[00:13:19]` you put the `[00:13:20]` the front end so which is the back end going to run before the front end so if you want to `[00:13:26]` start on the service so you're going to start down the front end first and then back end you `[00:13:32]` can set up the boot order priorities so which can which instance can start earlier okay next one is
+
+## [00:13:35]
+
+![screenshot at 00:13:35](frames/frame_0020.jpg)
+
+`[00:13:42]` the windows powershell direct i will explain that one later so which is you can access your instance `[00:13:51]` and from the local host you don't need to set up any connections `[00:13:58]` and you still can access your instance and normally you have to set up a network connections `[00:14:04]` between your local host and your instance otherwise so how to access but powershell direct `[00:14:12]` can support you don't need to set configure your hyper-v instance network
+
+## [00:14:20]
+
+![screenshot at 00:14:20](frames/frame_0021.jpg)
+
+`[00:14:20]` you don't need a sign ip you don't need to set up a virtual switch you can modify but you're going `[00:14:26]` to use the powershell command prompt all right i'm going to move on next one and i'm going to `[00:14:34]` compare the new features compared with windows server 2022 with windows server 2019 so the first `[00:14:42]` one is dda okay so i don't want to spend time to explain what is dda and you can google research to `[00:14:50]` find that one `[00:14:52]` or i can discuss this one with you in the middle term and the next one is the most important one `[00:15:00]` i want you to familiar so windows server 2022 can support the hot swap so which is you can add
+
+## [00:15:05]
+
+![screenshot at 00:15:05](frames/frame_0022.jpg)
+
+`[00:15:08]` or remove your network card and memories `[00:15:13]` and the windows server 2022 data center cloud-based edition which is either also can support a hot swap `[00:15:23]` so you can directly modify your hardware without starting on your computer `[00:15:33]` okay so next one is integrations service delivered through the windows updates `[00:15:40]` okay next one can support the tpm can support the new version tpm if you want to install windows `[00:15:50]` 11 so you need to use the tpm 2.0 and if you want to install the windows 10
+
+## [00:15:50]
+
+![screenshot at 00:15:50](frames/frame_0023.jpg)
+
+`[00:15:57]` so you can use tpm 1.2 so if you want to turn on the bit locker make sure your tpm `[00:16:05]` should be 1.2 above and next one can support a linux security boot `[00:16:13]` so what is the linux secure boot before cannot support the linux secure boot `[00:16:19]` so linux secure boot which is doing the boot can verify the digital signatures and if `[00:16:28]` if the driver or drivers do not include the digital signatures
+
+## [00:16:35]
+
+![screenshot at 00:16:35](frames/frame_0024.jpg)
+
+`[00:16:37]` so we can refuse to load the drivers inside the kernel or to the memories `[00:16:45]` so that can prevent some morewares next one is the memory and processor `[00:16:53]` capacities improvement so can support a 12 tv and 240 virtual processors `[00:17:00]` okay `[00:17:05]` okay `[00:17:05]` one is the standard checkpoint and the production checkpoint standard checkpoint which is `[00:17:13]` application consistent and the production checkpoint that is data consistent
+
+## [00:17:20]
+
+![screenshot at 00:17:20](frames/frame_0025.jpg)
+
+`[00:17:23]` so application consistent which is any applications are running in your memories `[00:17:31]` so we can store the state for example if i run uh firefox okay and if i set up a standard checkpoint `[00:17:47]` and then i close my firefox if i roll back you know the the save the checkpoint so you can see `[00:17:56]` here firefox already open i'm going to load exactly the same data as before so that's the `[00:18:04]` way it works `[00:18:05]` is application consistent only save the data which is located in the rem so production checkpoint
+
+## [00:18:05]
+
+![screenshot at 00:18:05](frames/frame_0026.jpg)
+
+`[00:18:15]` which is data consistent anything you saved on your disk and then so we can save the state for `[00:18:25]` example i open the notepad and i type my data without saving to my disk if i use a standard `[00:18:36]` checkpoint `[00:18:37]` if i roll back to the checkpoint you can see here you can see the notepad is still open `[00:18:41]` and the data is still in the notepad but if i use a production checkpoint so you have to save
+
+## [00:18:50]
+
+![screenshot at 00:18:50](frames/frame_0027.jpg)
+
+`[00:18:51]` your data to the disk first otherwise you cannot see the data so when you're logging a computer `[00:18:59]` nothing in there but you need to go to your disk to find the notepad open that one next one i want to `[00:19:06]` remind you that you know the checkpoint is similar like a snapshot i strongly suggest you `[00:19:12]` you need to create a snapshot okay you need to create a snapshot and i want you to create a `[00:19:22]` snapshot when you update your computer i want to create a snapshot when you `[00:19:31]` install any new applications okay and also i want you to create a snapshot if you
+
+## [00:19:35]
+
+![screenshot at 00:19:35](frames/frame_0028.jpg)
+
+`[00:19:39]` remove any service so if you modify you need to create a snapshot the checkpoint is similar like `[00:19:46]` a snapshot i also explained to you the backup is different as a snapshot and checkpoint okay `[00:19:54]` make sure remember and the virtual machine configuration file so all the configuration `[00:20:00]` informations you can find it from xml vm cs and vm rs okay you don't need to `[00:20:11]` know uh what is xml what is a vmcs so you don't need to do you don't need to do that you don't `[00:20:18]` need to learn you just need to know the configuration file stored in xml and we don't
+
+## [00:20:20]
+
+![screenshot at 00:20:20](frames/frame_0029.jpg)
+
+`[00:20:25]` have a lot of chance to modify the configuration file xy is virtual machine configuration version `[00:20:36]` so you can if you need to modify the file so you can use a different version okay it's similar like `[00:20:44]` the docker image you're going to have a different version all right so `[00:20:51]` next one i'm going to explain to you the pre which is the requirement okay requirements for `[00:20:57]` installing the hyper v so if you wanted to install hyper v okay and if your computers
+
+## [00:21:05]
+
+![screenshot at 00:21:05](frames/frame_0030.jpg)
+
+`[00:21:07]` are you don't have to enable the subsystem for linux or you don't you haven't turned on the `[00:21:15]` virtual machine platform `[00:21:17]` okay you can try to install hyper v but make sure before you install you can use the system `[00:21:24]` info you can run system info.exe to verify your hardware and meets the requirements `[00:21:32]` okay so that is the requirement first one so you need to enable the vm monitor mode `[00:21:39]` extension okay second one and the virtualization is enabled in the `[00:21:47]` viruses in that conditions but i have once again tryin to tell you that the vm server Somehow
+
+## [00:21:50]
+
+![screenshot at 00:21:50](frames/frame_0031.jpg)
+
+`[00:21:51]` not easy to that we are run the vm server `[00:22:06]` incredibly enthusiastic `[00:22:10]` uh `[00:22:10]` okay `[00:22:11]` okay `[00:22:12]` very nice `[00:22:13]` thanks `[00:22:15]` thank you `[00:22:16]` fish `[00:22:16]` be `[00:22:16]` can support the data execution prevention availabilities. You need to know that and `[00:22:22]` all the required you need to satisfy. Next one, because we're going to use virtualizations. `[00:22:32]` Virtualizations, which is the Hyper-V, manage all the instances by providing the
+
+## [00:22:35]
+
+![screenshot at 00:22:35](frames/frame_0032.jpg)
+
+`[00:22:40]` virtualized hardware. So the virtualized hardware are still from your physical hardware, so therefore `[00:22:47]` and your physical hardware need to meet the following minimum requirement, the memory and at `[00:22:54]` least the 8 gigabyte above. The storage, so you better to use the SAN or enterprise storage `[00:23:02]` solutions and S2D, which is a software-defined storage solutions and that is for the test `[00:23:09]` environment. But in the production environment, we like to use the enterprise level storage solution, `[00:23:15]` which is NAS, SAN and Power BI. `[00:23:17]` Network, I'm going to explain to you, when we learn the storage solution, I'm going to explain
+
+## [00:23:21]
+
+![screenshot at 00:23:21](frames/frame_0033.jpg)
+
+`[00:23:25]` to you what is the SAN, what is the DOS, DS, what is NS. So if you don't know the term, that's fine. `[00:23:32]` So network, so 100% you're going to use 10 gigabyte above, so that is for the network `[00:23:45]` requirements. All right, so next one, `[00:23:50]` and I'm going to give you basic idea what is the nested virtualizations, `[00:23:54]` so which is you're going to run Hyper-V inside the Hyper-V, and I'm not suggesting you to do that. `[00:23:59]` Okay, but if you want to run a nested virtualization, so you need to make sure `[00:24:04]` memory at least four gigabyte, at least four gigabyte. Okay, so that means your instance,
+
+## [00:24:06]
+
+![screenshot at 00:24:06](frames/frame_0034.jpg)
+
+`[00:24:11]` you need to give a four gigabyte above, and then you can turn out the Hyper-V on your instance. `[00:24:18]` So therefore, if you look at my lab demo, my Hyper-V server, I signed eight gigabyte above. `[00:24:29]` Okay, all right, next one is the storage options. So you can find the different type of storage `[00:24:38]` format, so I'm talking about, not a storage solution, I'm talking about the virtual hard disk `[00:24:45]` formats. And for this slide, I want you to familiarize with the major disks.
+
+## [00:24:51]
+
+![screenshot at 00:24:51](frames/frame_0035.jpg)
+
+`[00:24:52]` between VHD and VHDX. So that is two types of a virtual disk format. `[00:25:01]` So VHD can support 2TB and VHDX can support 2TB above. So VHD can `[00:25:07]` support 2.2TB. VHDX can support more than that. So it's `[00:25:14]` dependent on requirement if you want to create a file server. So I wanted to use `[00:25:21]` Hyper-V to run the file server. So definitely you can give a VHDX, do not `[00:25:27]` give a VHD. So 2TB storage is not enough. Alright so next one I want
+
+## [00:25:36]
+
+![screenshot at 00:25:36](frames/frame_0036.jpg)
+
+`[00:25:38]` to explain to you which is the virtual hard disk types. So you can use a fixed `[00:25:46]` size. The fixed size which is the production environment we're going to `[00:25:50]` use that one. So what do you mean fixed size? So which is `[00:25:54]` the fixed size, you're going to give the fixed amount of disk. So what do you `[00:26:01]` mean fixed amount of disk? So that means if I wanted to you know create an `[00:26:08]` instance and my instance I want to give a 200 Gigabyte okay if you want to `[00:26:16]` choose the fixed size so 200 Gigabyte can deduct immediately from your
+
+## [00:26:21]
+
+![screenshot at 00:26:21](frames/frame_0037.jpg)
+
+`[00:26:24]` storage. What is a dynamic disk? Dynamic disk, which is if you need a storage and the storage `[00:26:38]` is going to expand dynamically. So for example, I declared I need a 200 gigabyte disk to my `[00:26:50]` instance. But right now, including my operating system, I only use 15 gigabyte. So actually `[00:27:00]` you only deduct 15 gigabyte from the available space. But to fix the size, maybe you only
+
+## [00:27:06]
+
+![screenshot at 00:27:06](frames/frame_0038.jpg)
+
+`[00:27:09]` have one byte and lock it on your disk, but still deduct 200 gigabyte. So therefore in `[00:27:16]` the production environment, we prefer to use the fixed size. `[00:27:20]` We don't want to use dynamic because if I use dynamic, I may mess up my storage. I have `[00:27:30]` three instances and each instance assigned 200 gigabyte, but available space is less `[00:27:36]` than 400 gigabyte. So the instance is going to continue to expand. I may forgot to add `[00:27:44]` available space that can cause my instance issues. So therefore in the production environment, `[00:27:50]` do not use the dynamic expanding. Next one, I want to give you basic idea. What is a pass-through?
+
+## [00:27:51]
+
+![screenshot at 00:27:51](frames/frame_0039.jpg)
+
+`[00:28:01]` Pass-through disks are a feature of Hyper-V. So that allowed the virtual machines to access `[00:28:09]` the storage and is directly mapped to the Hyper-V host without requiring the volumes `[00:28:19]` be configured. `[00:28:21]` you directly map your disk to the physical disk on your localhost and I `[00:28:30]` told you do not use that one why you cannot use that one because it's really
+
+## [00:28:36]
+
+![screenshot at 00:28:36](frames/frame_0040.jpg)
+
+`[00:28:36]` hard to move the storage it's really hard to move the storage doesn't mean `[00:28:42]` you can copy the folders no if you copy the folders and the map also gonna `[00:28:48]` destroy it okay next one is the different things so what is the `[00:28:52]` difference in disk and the difference in disk only store the difference it is `[00:29:00]` similar like you know the link the clone so the full clone around 16 gigabyte but `[00:29:07]` the link the clone only 2 gigabyte why because the link the clone only store `[00:29:11]` the difference okay so that is the difference in disk so link the clone `[00:29:16]` relies on the `[00:29:18]` the base image and the difference in disk are relies on the parent disk which is
+
+## [00:29:21]
+
+![screenshot at 00:29:21](frames/frame_0041.jpg)
+
+`[00:29:25]` the base image so if you remove the the base image parent disk so your `[00:29:32]` different disk also failed so make sure do not use different disk but in the `[00:29:38]` lab environment if you want to facilitate to clone to create the you `[00:29:43]` know instance so you can try to use the difference in but you also need to `[00:29:47]` run the 6 prep before you can you can clone next one is considerations for `[00:29:56]` virtual hard disk formats so this is some suggestions okay and I wanted to
+
+## [00:30:06]
+
+![screenshot at 00:30:06](frames/frame_0042.jpg)
+
+`[00:30:07]` read and make sure you understand okay and once you want to point out and V is D `[00:30:15]` and V is DX okay `[00:30:17]` you need to base on the operating system `[00:30:21]` if the operating system does not support VSDX `[00:30:25]` so you're going to use VSD `[00:30:27]` and next one `[00:30:30]` I'm not suggesting you to use the different disk `[00:30:33]` so this is the reason why `[00:30:35]` so multiple layers of a different disk `[00:30:37]` decrease the performance `[00:30:39]` as I told you before `[00:30:42]` so different disks are relied on the parent disk `[00:30:46]` and also you can create a different disk
+
+## [00:30:51]
+
+![screenshot at 00:30:51](frames/frame_0043.jpg)
+
+`[00:30:52]` from a different disk `[00:30:55]` it's kind of like you can create a clone from a linked clone `[00:31:00]` so you're going to have multiple layers `[00:31:03]` do not do that `[00:31:05]` it's not a good practice `[00:31:07]` if you modify a parent disk `[00:31:10]` so the different disk is no longer valid `[00:31:13]` really important `[00:31:15]` okay `[00:31:16]` so you can relink the different disk to a parent disk `[00:31:20]` but you have a chance to fail `[00:31:23]` therefore I do not suggest you to use different disks `[00:31:26]` all right `[00:31:27]` so next one is the type of Hyper-V `[00:31:30]` and network `[00:31:32]` so you can find the different `[00:31:35]` you know virtual switches
+
+## [00:31:36]
+
+![screenshot at 00:31:36](frames/frame_0044.jpg)
+
+`[00:31:37]` and from your Hyper-V `[00:31:40]` so you can find the external `[00:31:42]` internal and private `[00:31:44]` so right now I'll give you a demo `[00:31:48]` so if you log in the Hyper-V
+
+## [00:31:51]
+
+![screenshot at 00:31:51](frames/frame_0045.jpg)
+
+`[00:31:52]` and definitely cannot install `[00:31:57]` but if you have a chance to install `[00:31:59]` so you can take a look at it `[00:32:01]` so if you log in your Hyper-V manager
+
+## [00:32:01]
+
+![screenshot at 00:32:01](frames/frame_0046.jpg)
+
+`[00:32:05]` okay `[00:32:06]` so this is the Hyper-V manager `[00:32:08]` and if you click the virtual machine `[00:32:11]` virtual switch manager `[00:32:13]` so if you click a virtual switch manager `[00:32:15]` you can see here `[00:32:16]` you have three options `[00:32:18]` one is external `[00:32:19]` one is internal `[00:32:21]` one is private `[00:32:22]` so external `[00:32:25]` external `[00:32:26]` allow the instance `[00:32:29]` which is instance talk to instance `[00:32:32]` and also allow the instance talk to the host `[00:32:35]` and the instance talk to `[00:32:39]` other instance `[00:32:41]` but the instance is not located on the same host `[00:32:44]` okay `[00:32:45]` so which is external
+
+## [00:32:46]
+
+![screenshot at 00:32:46](frames/frame_0047.jpg)
+
+`[00:32:47]` you can access anywhere `[00:32:49]` internal `[00:32:52]` so internal only allowed your local host `[00:32:58]` and talk to the instance `[00:33:01]` okay `[00:33:02]` the instance have to on the same local host `[00:33:05]` and instance talk to instance `[00:33:07]` on the same host `[00:33:09]` private `[00:33:10]` private only allowed instance talk to instance `[00:33:13]` located on the same host `[00:33:15]` and also instance cannot talk to the local host `[00:33:18]` you need to remember `[00:33:21]` all right next one `[00:33:23]` if you want to create a virtual switch `[00:33:26]` so you can create the external internal and private `[00:33:30]` so if I want to create the external
+
+## [00:33:31]
+
+![screenshot at 00:33:31](frames/frame_0048.jpg)
+
+`[00:33:32]` I can click create external `[00:33:34]` and then I need to bind with my physical network card `[00:33:39]` so if you have a one network card `[00:33:43]` you only can create one external network switch `[00:33:47]` make sure give the meaningful name `[00:33:50]` okay for example `[00:33:51]` I'm going to create one external switch `[00:33:53]` and allow the internal access `[00:33:55]` so you can create this one as internal internet switch `[00:33:58]` okay `[00:34:00]` and also you can create the private switch `[00:34:03]` okay private switch `[00:34:05]` so private switch `[00:34:06]` you don't need to have a physical adapter card `[00:34:09]` so what do we mean physical adapter card `[00:34:11]` if you look at my hyper-v `[00:34:13]` so I have a one physical adapter card `[00:34:15]` which is vmnet or not
+
+## [00:34:16]
+
+![screenshot at 00:34:16](frames/frame_0049.jpg)
+
+`[00:34:17]` so that means I only can create one external `[00:34:20]` but how about I want to create internal `[00:34:22]` so you need to add another one `[00:34:24]` internal also bind with your physical network card `[00:34:28]` okay next one I want to remind you `[00:34:33]` is after you create the external switch `[00:34:37]` and if you look at your network card `[00:34:40]` and you can find the following component `[00:34:47]` so you can find a two network card `[00:34:50]` one is vm99 `[00:34:52]` one is vinternet `[00:34:54]` I put it internet `[00:34:56]` so if you look at the property `[00:34:58]` and ipv4
+
+## [00:35:01]
+
+![screenshot at 00:35:01](frames/frame_0050.jpg)
+
+`[00:35:02]` so you can see here `[00:35:04]` ip has been copied from your physical one `[00:35:11]` to the virtual one `[00:35:12]` if you look at your physical one `[00:35:15]` and you can see here `[00:35:17]` ipv4 protocols `[00:35:19]` unchecked `[00:35:20]` do not check that one `[00:35:22]` so that's normal `[00:35:23]` okay you can see here `[00:35:24]` hyper-v extensible virtual switch `[00:35:27]` this profile gonna installed on your physical one `[00:35:30]` so which is this one `[00:35:32]` bind this one `[00:35:33]` and access the internet `[00:35:34]` so do not assign ip on your vm99 `[00:35:38]` so the ip gonna copied to your virtual switch `[00:35:42]` okay really important `[00:35:45]` all right so I'm gonna continue
+
+## [00:35:46]
+
+![screenshot at 00:35:46](frames/frame_0051.jpg)
+
+`[00:35:48]` and `[00:35:49]` so if you don't know how to do the `[00:35:51]` configure the virtual switch `[00:35:54]` so look at my lab demo `[00:35:57]` and also you need to know how to configure vline `[00:36:00]` okay next one `[00:36:02]` and for this course `[00:36:04]` I'm not require you to familiar `[00:36:06]` how to configure the vline `[00:36:08]` but I believe you learn from term two `[00:36:11]` okay next one is `[00:36:14]` so what are virtual machines configuration version `[00:36:18]` okay `[00:36:21]` so that is the `[00:36:25]` virtual machine version number `[00:36:30]` okay
+
+## [00:36:31]
+
+![screenshot at 00:36:31](frames/frame_0052.jpg)
+
+`[00:36:32]` so windows server 2022 `[00:36:34]` and windows server 2019 `[00:36:38]` can support the `[00:36:40]` the virtual machine instance `[00:36:44]` version eight above `[00:36:46]` eight above `[00:36:48]` okay `[00:36:49]` so after you create the `[00:36:51]` instance `[00:36:52]` on your hyper-v managers
+
+## [00:36:54]
+
+![screenshot at 00:36:54](frames/frame_0053.jpg)
+
+`[00:36:55]` and so you can see the `[00:36:58]` virtual instance in here `[00:37:00]` and also `[00:37:01]` so they can `[00:37:02]` tell you `[00:37:04]` the `[00:37:05]` the version `[00:37:06]` the configuration version `[00:37:09]` okay `[00:37:10]` so you can upgrade the configuration version `[00:37:13]` okay `[00:37:14]` so what's the difference `[00:37:16]` it's just a feature difference
+
+## [00:37:18]
+
+![screenshot at 00:37:18](frames/frame_0054.jpg)
+
+`[00:37:19]` hardware's difference `[00:37:20]` so that's the `[00:37:21]` so that's the `[00:37:22]` the key point `[00:37:24]` all right `[00:37:25]` so next one is `[00:37:28]` virtual machine generations `[00:37:31]` virtual machine generations `[00:37:33]` so what does that mean `[00:37:34]` so I'm going to give you a quick demo
+
+## [00:37:34]
+
+![screenshot at 00:37:34](frames/frame_0055.jpg)
+
+`[00:37:36]` and if you log in your virtual machines `[00:37:38]` I want to create a new virtual machines `[00:37:41]` virtual machine `[00:37:43]` and if I click next one `[00:37:46]` and you can give the name `[00:37:48]` and you need to know `[00:37:49]` where you want to store `[00:37:50]` your virtual machine `[00:37:51]` so do not store your virtual machine `[00:37:53]` to the default locations `[00:37:55]` do not `[00:37:56]` okay `[00:37:58]` I call this one is `[00:38:00]` a domain controller `[00:38:01]` for example `[00:38:02]` I wanted to create a domain controller `[00:38:03]` and also `[00:38:05]` and you need to put to the `[00:38:08]` C drive or D drive `[00:38:10]` okay `[00:38:11]` do not `[00:38:12]` you can see here `[00:38:13]` create a hyper-v `[00:38:14]` inside hyper-v `[00:38:15]` I'm going to create a `[00:38:16]` DC one `[00:38:17]` do not use the default locations `[00:38:19]` okay
+
+## [00:38:19]
+
+![screenshot at 00:38:19](frames/frame_0056.jpg)
+
+`[00:38:21]` select `[00:38:22]` next `[00:38:23]` so from here `[00:38:24]` you can see `[00:38:25]` you're going to have a `[00:38:26]` specify the generations `[00:38:27]` you're going to use `[00:38:28]` version one `[00:38:29]` or `[00:38:30]` version two `[00:38:31]` generation one `[00:38:32]` and the generation two `[00:38:33]` I can tell you `[00:38:34]` so the following major difference `[00:38:37]` generation two `[00:38:38]` only supports 64-bit operating system `[00:38:41]` generation one can support old `[00:38:43]` and up `[00:38:44]` if you use `[00:38:45]` Windows XP `[00:38:46]` 32-bit `[00:38:47]` so you have to use `[00:38:48]` the generation one `[00:38:49]` so next `[00:38:50]` why `[00:38:51]` is the generation two `[00:38:52]` support `[00:38:53]` the UEFI `[00:38:55]` UEFI `[00:38:56]` and generation one `[00:38:57]` support the BIOS `[00:38:59]` okay `[00:39:00]` and also `[00:39:01]` generation one can support `[00:39:02]` some fancy
+
+## [00:39:05]
+
+![screenshot at 00:39:05](frames/frame_0057.jpg)
+
+`[00:39:05]` hardware `[00:39:06]` okay `[00:39:07]` like `[00:39:08]` SCSI `[00:39:09]` SATA `[00:39:10]` and `[00:39:11]` generation one `[00:39:12]` can support IDE `[00:39:13]` so therefore `[00:39:14]` the performance `[00:39:15]` two `[00:39:16]` better than one `[00:39:17]` and also `[00:39:18]` generation two `[00:39:19]` can support `[00:39:20]` the security boot `[00:39:21]` okay `[00:39:22]` so that's the major difference `[00:39:23]` make sure to remember `[00:39:24]` all right
+
+## [00:39:26]
+
+![screenshot at 00:39:26](frames/frame_0058.jpg)
+
+`[00:39:27]` next one `[00:39:28]` I want to continue `[00:39:30]` next one `[00:39:33]` I think I already explained to you `[00:39:34]` and `[00:39:35]` generation two `[00:39:36]` can support `[00:39:37]` the hot swap `[00:39:38]` okay `[00:39:39]` which you can `[00:39:40]` add `[00:39:41]` and remove `[00:39:42]` the hardware `[00:39:43]` without SATA on the computers `[00:39:44]` but if you want `[00:39:45]` to `[00:39:46]` increase `[00:39:47]` the CPU `[00:39:48]` I want to increase `[00:39:49]` the multiple cores `[00:39:50]` so you need to `[00:39:51]` SATA `[00:39:52]` the instance first `[00:39:54]` okay `[00:39:56]` so sealed `[00:39:57]` virtual machines `[00:39:58]` I think I already explained to you `[00:40:00]` and the generation two `[00:40:01]` work with `[00:40:02]` the TPM `[00:40:03]` virtual TPM `[00:40:05]` so host guardians `[00:40:07]` host guardians `[00:40:08]` service `[00:40:09]` so can identify
+
+## [00:40:11]
+
+![screenshot at 00:40:11](frames/frame_0059.jpg)
+
+`[00:40:11]` so this is original `[00:40:12]` host `[00:40:13]` or not `[00:40:14]` for example `[00:40:15]` if I copy your `[00:40:16]` VSDX `[00:40:17]` and `[00:40:18]` and `[00:40:19]` you know plug into my `[00:40:20]` virtual `[00:40:21]` virtual hyper V `[00:40:23]` so I can run `[00:40:24]` your instance `[00:40:25]` so `[00:40:26]` if you used `[00:40:27]` turn on the `[00:40:28]` host guardian service `[00:40:29]` so I can prevent `[00:40:30]` so you cannot `[00:40:31]` run `[00:40:32]` on other host `[00:40:33]` okay `[00:40:34]` next one `[00:40:37]` is a `[00:40:38]` virtual machine settings `[00:40:39]` so make sure `[00:40:40]` you can try `[00:40:41]` to enable `[00:40:42]` the smart `[00:40:43]` page `[00:40:44]` and allow `[00:40:45]` the disk `[00:40:46]` to be used `[00:40:47]` the temporary `[00:40:48]` during the virtual machine `[00:40:49]` startup `[00:40:50]` so which is `[00:40:51]` highly needed `[00:40:52]` so smart `[00:40:53]` smart pagings `[00:40:56]` so you can enable
+
+## [00:40:56]
+
+![screenshot at 00:40:56](frames/frame_0060.jpg)
+
+`[00:40:57]` that one `[00:40:58]` okay `[00:41:01]` next one `[00:41:02]` I think I already `[00:41:03]` told you `[00:41:04]` generation two `[00:41:05]` support the `[00:41:06]` Linux secure boot `[00:41:07]` all right `[00:41:11]` so this slide `[00:41:12]` is most important `[00:41:13]` for you `[00:41:14]` which is `[00:41:15]` the best practice `[00:41:16]` for configuring `[00:41:17]` the virtual machine `[00:41:18]` so first one `[00:41:19]` you need to use `[00:41:20]` you can use `[00:41:21]` dynamic memory `[00:41:22]` okay `[00:41:23]` what do you mean `[00:41:24]` dynamic memory `[00:41:25]` so `[00:41:26]` dynamic memories `[00:41:27]` if you are `[00:41:28]` instance `[00:41:29]` gonna `[00:41:30]` they're gonna `[00:41:31]` automatically expand `[00:41:32]` okay `[00:41:33]` I'm not suggesting `[00:41:34]` you to use `[00:41:35]` dynamic disk `[00:41:36]` so this is `[00:41:37]` dynamic memory `[00:41:38]` it's different `[00:41:39]` next one `[00:41:40]` is `[00:41:41]` do not use
+
+## [00:41:41]
+
+![screenshot at 00:41:41](frames/frame_0061.jpg)
+
+`[00:41:42]` the difference `[00:41:44]` in disk `[00:41:45]` okay `[00:41:46]` and next one `[00:41:47]` you need to configure `[00:41:50]` a multiple `[00:41:51]` adapter card `[00:41:52]` and if you want `[00:41:53]` and `[00:41:54]` last one `[00:41:55]` so you need `[00:41:56]` to save `[00:41:57]` your `[00:41:58]` virtual machine `[00:41:59]` okay `[00:42:00]` all right `[00:42:05]` so next one `[00:42:06]` is `[00:42:07]` virtual machine `[00:42:08]` state `[00:42:09]` so you can find `[00:42:10]` the off state `[00:42:11]` starting state `[00:42:12]` running state `[00:42:13]` pause state `[00:42:14]` and save state `[00:42:15]` okay `[00:42:16]` I think `[00:42:17]` based on the `[00:42:18]` keywords `[00:42:19]` you should `[00:42:20]` understand `[00:42:21]` okay `[00:42:22]` and `[00:42:23]` what is `[00:42:24]` the running state `[00:42:25]` what is `[00:42:26]` the starting state
+
+## [00:42:26]
+
+![screenshot at 00:42:26](frames/frame_0062.jpg)
+
+`[00:42:27]` so make sure `[00:42:28]` test on `[00:42:29]` your `[00:42:31]` virtual machines `[00:42:32]` so `[00:42:33]` I'll show you `[00:42:34]` the `[00:42:35]` example `[00:42:36]` of `[00:42:37]` the `[00:42:38]` standard `[00:42:39]` checkpoint `[00:42:40]` okay `[00:42:41]` by default `[00:42:42]` you're going to use `[00:42:46]` the standard `[00:42:47]` checkpoint `[00:42:48]` and next one `[00:42:49]` you can `[00:42:50]` import and `[00:42:51]` exporting
+
+## [00:42:52]
+
+![screenshot at 00:42:52](frames/frame_0063.jpg)
+
+`[00:42:52]` your `[00:42:53]` virtual machine `[00:42:54]` so when you log `[00:42:55]` in your `[00:42:56]` hyper-v `[00:42:57]` find your instance `[00:42:58]` you can right click `[00:42:59]` okay `[00:43:00]` you can `[00:43:01]` you can `[00:43:09]` import `[00:43:10]` and export `[00:43:11]` your `[00:43:12]` instance `[00:43:13]` okay `[00:43:14]` so `[00:43:15]` if you want to `[00:43:16]` access `[00:43:17]` your `[00:43:18]` instance `[00:43:20]` from your `[00:43:21]` local host `[00:43:22]` so you can use `[00:43:23]` the `[00:43:24]` partial `[00:43:25]` direct `[00:43:26]` okay `[00:43:27]` and also `[00:43:28]` I want you to `[00:43:29]` familiar `[00:43:30]` the following partial `[00:43:31]` command line `[00:43:32]` which is `[00:43:33]` enter `[00:43:34]` ps session `[00:43:35]` enter `[00:43:36]` ps session `[00:43:37]` okay
+
+## [00:43:37]
+
+![screenshot at 00:43:37](frames/frame_0064.jpg)
+
+`[00:43:38]` so you can `[00:43:39]` remote `[00:43:40]` login `[00:43:41]` your `[00:43:42]` system `[00:43:43]` so in here `[00:43:44]` I'm not talking about `[00:43:45]` the partial `[00:43:46]` direct only `[00:43:47]` so for example `[00:43:48]` I have a `[00:43:49]` dc1 `[00:43:50]` dc2 `[00:43:51]` so I want to `[00:43:52]` use the partial `[00:43:53]` manage my `[00:43:54]` dc2 `[00:43:55]` so I can use `[00:43:56]` I can run partial `[00:43:57]` on my dc1 `[00:43:58]` and I can use `[00:43:59]` enter pss `[00:44:00]` into login `[00:44:01]` dc2 `[00:44:02]` okay `[00:44:03]` definitely `[00:44:04]` you're going to `[00:44:05]` create a `[00:44:06]` network connections `[00:44:07]` powershell `[00:44:08]` direct `[00:44:09]` you don't need it `[00:44:10]` you don't need it `[00:44:11]` to `[00:44:12]` to `[00:44:13]` your instance `[00:44:14]` okay `[00:44:15]` all right `[00:44:16]` so that is the content `[00:44:17]` for this week `[00:44:18]` and `[00:44:19]` I want you to `[00:44:20]` work on the
+
+## [00:44:21]
+
+![screenshot at 00:44:21](frames/frame_0065.jpg)
+
+`[00:44:22]` lab `[00:44:23]` and `[00:44:24]` so you cannot complete `[00:44:25]` the lab `[00:44:26]` definitely `[00:44:27]` you cannot `[00:44:28]` but that's fine `[00:44:29]` I want you to `[00:44:30]` watch this video `[00:44:31]` and `[00:44:32]` read this `[00:44:33]` document `[00:44:34]` so when you finish `[00:44:35]` I want you to `[00:44:37]` submit `[00:44:38]` your `[00:44:39]` lab `[00:44:40]` so how to submit `[00:44:41]` you know `[00:44:42]` open the `[00:44:43]` word document `[00:44:44]` and you just `[00:44:45]` explain to me `[00:44:46]` I have already `[00:44:47]` you know `[00:44:48]` watched your videos `[00:44:49]` I don't have any questions `[00:44:50]` so if you have questions `[00:44:52]` so post your questions `[00:44:53]` in the word document `[00:44:54]` I want to take a look at it `[00:44:56]` okay `[00:44:57]` and good luck `[00:44:58]` your `[00:44:59]` lab `[00:45:00]` if you have questions `[00:45:01]` talk to me
+
+## [00:45:06]
+
+![screenshot at 00:45:06](frames/frame_0066.jpg)

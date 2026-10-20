@@ -1,0 +1,383 @@
+1
+00:00:08,020 --> 00:00:12,900
+In this video, we want to talk about storage area network, or SAN technologies.
+
+2
+00:00:13,500 --> 00:00:18,080
+And a SAN is a way to put a storage device on our network
+
+3
+00:00:18,080 --> 00:00:23,360
+and let devices on our network, like servers, see that storage as being locally attached.
+
+4
+00:00:23,720 --> 00:00:27,540
+And we want to talk about a few different options of having storage on our network.
+
+5
+00:00:27,940 --> 00:00:30,460
+Here in this example, we've got some independent servers.
+
+6
+00:00:30,580 --> 00:00:31,940
+We've got server 1, server 2.
+
+7
+00:00:32,240 --> 00:00:35,160
+They each have a connection to their own hard drives.
+
+8
+00:00:35,160 --> 00:00:39,280
+This direct connection to their hard drives, which might be internal hard drives,
+
+9
+00:00:39,640 --> 00:00:42,760
+this is called DAS, D-A-S, direct attached storage.
+
+10
+00:00:43,340 --> 00:00:45,880
+And typically, servers are going to be running SCSI.
+
+11
+00:00:46,260 --> 00:00:49,240
+SCSI stands for small computer system interface.
+
+12
+00:00:49,680 --> 00:00:54,120
+And that's the language that a server or computer can speak to its hard drive.
+
+13
+00:00:54,440 --> 00:00:58,460
+And when this server is accessing information from the hard drive over SCSI,
+
+14
+00:00:58,980 --> 00:01:01,540
+it's using what's referred to as block-level storage.
+
+15
+00:01:01,540 --> 00:01:03,840
+Block-level storage is very efficient,
+
+16
+00:01:03,840 --> 00:01:09,020
+because instead of trying to retrieve or send entire files at a time,
+
+17
+00:01:09,560 --> 00:01:11,280
+we're dealing down at a low level.
+
+18
+00:01:11,400 --> 00:01:12,420
+We're dealing with bytes and bits.
+
+19
+00:01:12,520 --> 00:01:13,700
+We're dealing with a block of data.
+
+20
+00:01:14,040 --> 00:01:18,460
+So block-level storage is more efficient than file-level storage.
+
+21
+00:01:18,640 --> 00:01:20,340
+When we think of file-level storage,
+
+22
+00:01:20,480 --> 00:01:23,720
+think of something like having a file server on a network.
+
+23
+00:01:23,960 --> 00:01:26,480
+Maybe on Microsoft Windows, you click on Start, Run,
+
+24
+00:01:26,620 --> 00:01:28,400
+and then type in backslash, backslash,
+
+25
+00:01:28,440 --> 00:01:29,980
+and you give the server name and a backslash,
+
+26
+00:01:30,440 --> 00:01:31,780
+and you give the shared resource.
+
+27
+00:01:31,780 --> 00:01:33,820
+And that's going to give you a window,
+
+28
+00:01:33,940 --> 00:01:36,160
+where you can start browsing files on this server.
+
+29
+00:01:36,580 --> 00:01:40,840
+Well, that computer is seeing that server as external to itself.
+
+30
+00:01:40,900 --> 00:01:42,620
+It's not seeing it as local storage.
+
+31
+00:01:42,800 --> 00:01:45,160
+And it's going to be using file-level access,
+
+32
+00:01:45,340 --> 00:01:47,020
+as opposed to block-level access.
+
+33
+00:01:47,220 --> 00:01:48,600
+And it's not quite as efficient.
+
+34
+00:01:49,100 --> 00:01:52,360
+And something that's not very optimal with this DAS solution is,
+
+35
+00:01:52,940 --> 00:01:56,200
+let's say that server 2 has extra space on their hard drive.
+
+36
+00:01:56,580 --> 00:01:58,660
+There's not a really easy way for server 1
+
+37
+00:01:58,660 --> 00:02:02,040
+to use some of that space that server 2 has available.
+
+38
+00:02:02,440 --> 00:02:03,620
+One fix for that issue,
+
+39
+00:02:03,620 --> 00:02:07,000
+is to put a storage device on the network.
+
+40
+00:02:07,320 --> 00:02:10,160
+It's called a NAS, a network-attached storage device.
+
+41
+00:02:10,660 --> 00:02:14,280
+And this network appliance acts a lot like a file server.
+
+42
+00:02:14,620 --> 00:02:16,120
+We access it like a file server.
+
+43
+00:02:16,400 --> 00:02:20,000
+It's using file-level storage, as opposed to block-level.
+
+44
+00:02:20,220 --> 00:02:22,460
+And everything is Ethernet at this point.
+
+45
+00:02:22,740 --> 00:02:24,540
+This makes it really convenient for servers,
+
+46
+00:02:24,660 --> 00:02:28,600
+and maybe even PCs, to share a common repository of data.
+
+47
+00:02:29,140 --> 00:02:31,700
+However, because we're using this file-level storage,
+
+48
+00:02:31,700 --> 00:02:33,600
+the performance is just not going to be as good as it is now.
+
+49
+00:02:33,600 --> 00:02:37,800
+It's not going to be there as compared to having a directly attached SCSI device.
+
+50
+00:02:38,200 --> 00:02:41,020
+However, we can get some dramatic performance improvements
+
+51
+00:02:41,020 --> 00:02:43,760
+by using something called Fiber Channel.
+
+52
+00:02:44,080 --> 00:02:48,020
+And you see this in lots of large enterprise storage area networks.
+
+53
+00:02:48,520 --> 00:02:51,800
+Fiber Channel does allow us to do block-level storage.
+
+54
+00:02:52,240 --> 00:02:54,140
+Much more efficient than file-level storage.
+
+55
+00:02:54,520 --> 00:02:57,000
+So in this case, we've got Ethernet up at the top of the screen,
+
+56
+00:02:57,380 --> 00:02:59,760
+and we've got Fiber Channel down at the bottom of the screen.
+
+57
+00:02:59,900 --> 00:03:03,420
+Now, notice the servers have a couple of connections going out.
+
+58
+00:03:03,740 --> 00:03:04,980
+For example, consider server 2.
+
+59
+00:03:05,100 --> 00:03:08,360
+It's connecting to the Ethernet switch using a NIC, a network interface card.
+
+60
+00:03:08,740 --> 00:03:11,280
+But how does it connect to the Fiber Channel switch?
+
+61
+00:03:11,860 --> 00:03:15,060
+Well, it uses something called an HBAA host bus adapter.
+
+62
+00:03:15,560 --> 00:03:17,420
+And this is going to create additional expense.
+
+63
+00:03:17,520 --> 00:03:19,600
+It's going to create additional wiring requirements.
+
+64
+00:03:20,060 --> 00:03:21,460
+We've got to have two connections out.
+
+65
+00:03:21,560 --> 00:03:23,480
+One for the LAN, and one for the SAN.
+
+66
+00:03:23,900 --> 00:03:28,580
+But Fiber Channel does give us very high-speed access to our data, which is great.
+
+67
+00:03:28,580 --> 00:03:32,640
+However, a technology that's really getting popular these days in larger enterprises
+
+68
+00:03:32,640 --> 00:03:33,580
+is something called...
+
+69
+00:03:33,600 --> 00:03:36,200
+Fiber Channel over Ethernet.
+
+70
+00:03:36,620 --> 00:03:38,660
+We still get the benefit of Fiber Channel.
+
+71
+00:03:38,920 --> 00:03:40,760
+We still get to do block-level storage.
+
+72
+00:03:41,120 --> 00:03:45,360
+However, notice here the servers don't have to have a NIC and an HBAA.
+
+73
+00:03:45,620 --> 00:03:47,380
+They just connect into this Ethernet switch.
+
+74
+00:03:47,720 --> 00:03:52,200
+And we're Ethernet until we get to this FCOE, this Fiber Channel over Ethernet switch.
+
+75
+00:03:52,640 --> 00:03:57,360
+And then we go Fiber Channel from that FCOE switch down to the Fiber Channel storage.
+
+76
+00:03:57,700 --> 00:04:00,260
+This is a nice compromise that helps us save on expense.
+
+77
+00:04:00,380 --> 00:04:02,020
+We don't have to buy an HBAA for the servers.
+
+78
+00:04:02,020 --> 00:04:03,580
+We don't have to have that additional...
+
+79
+00:04:03,600 --> 00:04:07,860
+cable going from the server to the Fiber Channel switch.
+
+80
+00:04:08,260 --> 00:04:09,340
+And we get high-speed throughput.
+
+81
+00:04:09,680 --> 00:04:13,140
+But still, this is more expensive than another alternative out there.
+
+82
+00:04:13,460 --> 00:04:17,800
+You typically see Fiber Channel over Ethernet in large enterprise deployments.
+
+83
+00:04:18,060 --> 00:04:23,700
+But for small to medium-sized deployments, you might instead see something called iSCSI,
+
+84
+00:04:24,220 --> 00:04:27,120
+which is Internet Small Computer System Interface.
+
+85
+00:04:27,300 --> 00:04:29,760
+With iSCSI, there is no Fiber Channel.
+
+86
+00:04:30,220 --> 00:04:31,360
+Here's Server 1, Server 2.
+
+87
+00:04:31,360 --> 00:04:32,780
+They're connected into an Ethernet switch.
+
+88
+00:04:32,780 --> 00:04:36,460
+And so is an iSCSI storage device.
+
+89
+00:04:36,980 --> 00:04:38,840
+Everything is running over IP.
+
+90
+00:04:39,440 --> 00:04:43,860
+We're encapsulating those SCSI messages and data inside of IP packets.
+
+91
+00:04:44,240 --> 00:04:49,480
+And because we are speaking SCSI, it's just over IP, we get to do block-level access.
+
+92
+00:04:49,880 --> 00:04:53,420
+And this is a huge cost savings as opposed to doing something with Fiber Channel.
+
+93
+00:04:53,660 --> 00:04:57,560
+But technically, the performance is not quite as good as Fiber Channel over Ethernet.
+
+94
+00:04:57,680 --> 00:05:00,740
+But the expense is much less than Fiber Channel over Ethernet.
+
+95
+00:05:00,740 --> 00:05:02,340
+And that's a few of the SAN.
+
+96
+00:05:02,340 --> 00:05:05,160
+And the storage area network options that we have available today.

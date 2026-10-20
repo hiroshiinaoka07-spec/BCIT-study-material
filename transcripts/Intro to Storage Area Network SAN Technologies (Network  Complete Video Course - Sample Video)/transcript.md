@@ -1,0 +1,52 @@
+# Transcript: Intro to Storage Area Network SAN Technologies (Network  Complete Video Course - Sample Video).mp4
+
+- Source: `C:\Users\hiros\BCIT-study-material\Window-server-admin\Intro to Storage Area Network SAN Technologies (Network  Complete Video Course - Sample Video).mp4`
+- Duration: 00:05:17
+- Segments: 96, screenshots: 8
+- Whisper model: `large-v3` (auto-generated; may contain recognition errors)
+
+## [00:00:00]
+
+![screenshot at 00:00:00](frames/frame_0001.jpg)
+
+`[00:00:08]` In this video, we want to talk about storage area network, or SAN technologies. `[00:00:13]` And a SAN is a way to put a storage device on our network `[00:00:18]` and let devices on our network, like servers, see that storage as being locally attached. `[00:00:23]` And we want to talk about a few different options of having storage on our network. `[00:00:27]` Here in this example, we've got some independent servers. `[00:00:30]` We've got server 1, server 2. `[00:00:32]` They each have a connection to their own hard drives. `[00:00:35]` This direct connection to their hard drives, which might be internal hard drives, `[00:00:39]` this is called DAS, D-A-S, direct attached storage. `[00:00:43]` And typically, servers are going to be running SCSI.
+
+## [00:00:45]
+
+![screenshot at 00:00:45](frames/frame_0002.jpg)
+
+`[00:00:46]` SCSI stands for small computer system interface. `[00:00:49]` And that's the language that a server or computer can speak to its hard drive. `[00:00:54]` And when this server is accessing information from the hard drive over SCSI, `[00:00:58]` it's using what's referred to as block-level storage. `[00:01:01]` Block-level storage is very efficient, `[00:01:03]` because instead of trying to retrieve or send entire files at a time, `[00:01:09]` we're dealing down at a low level. `[00:01:11]` We're dealing with bytes and bits. `[00:01:12]` We're dealing with a block of data. `[00:01:14]` So block-level storage is more efficient than file-level storage. `[00:01:18]` When we think of file-level storage, `[00:01:20]` think of something like having a file server on a network. `[00:01:23]` Maybe on Microsoft Windows, you click on Start, Run, `[00:01:26]` and then type in backslash, backslash, `[00:01:28]` and you give the server name and a backslash,
+
+## [00:01:30]
+
+![screenshot at 00:01:30](frames/frame_0003.jpg)
+
+`[00:01:30]` and you give the shared resource. `[00:01:31]` And that's going to give you a window, `[00:01:33]` where you can start browsing files on this server. `[00:01:36]` Well, that computer is seeing that server as external to itself. `[00:01:40]` It's not seeing it as local storage. `[00:01:42]` And it's going to be using file-level access, `[00:01:45]` as opposed to block-level access. `[00:01:47]` And it's not quite as efficient. `[00:01:49]` And something that's not very optimal with this DAS solution is, `[00:01:52]` let's say that server 2 has extra space on their hard drive. `[00:01:56]` There's not a really easy way for server 1 `[00:01:58]` to use some of that space that server 2 has available. `[00:02:02]` One fix for that issue, `[00:02:03]` is to put a storage device on the network. `[00:02:07]` It's called a NAS, a network-attached storage device. `[00:02:10]` And this network appliance acts a lot like a file server. `[00:02:14]` We access it like a file server.
+
+## [00:02:15]
+
+![screenshot at 00:02:15](frames/frame_0004.jpg)
+
+`[00:02:16]` It's using file-level storage, as opposed to block-level. `[00:02:20]` And everything is Ethernet at this point. `[00:02:22]` This makes it really convenient for servers, `[00:02:24]` and maybe even PCs, to share a common repository of data. `[00:02:29]` However, because we're using this file-level storage, `[00:02:31]` the performance is just not going to be as good as it is now. `[00:02:33]` It's not going to be there as compared to having a directly attached SCSI device. `[00:02:38]` However, we can get some dramatic performance improvements `[00:02:41]` by using something called Fiber Channel. `[00:02:44]` And you see this in lots of large enterprise storage area networks. `[00:02:48]` Fiber Channel does allow us to do block-level storage. `[00:02:52]` Much more efficient than file-level storage. `[00:02:54]` So in this case, we've got Ethernet up at the top of the screen, `[00:02:57]` and we've got Fiber Channel down at the bottom of the screen. `[00:02:59]` Now, notice the servers have a couple of connections going out.
+
+## [00:03:00]
+
+![screenshot at 00:03:00](frames/frame_0005.jpg)
+
+`[00:03:03]` For example, consider server 2. `[00:03:05]` It's connecting to the Ethernet switch using a NIC, a network interface card. `[00:03:08]` But how does it connect to the Fiber Channel switch? `[00:03:11]` Well, it uses something called an HBAA host bus adapter. `[00:03:15]` And this is going to create additional expense. `[00:03:17]` It's going to create additional wiring requirements. `[00:03:20]` We've got to have two connections out. `[00:03:21]` One for the LAN, and one for the SAN. `[00:03:23]` But Fiber Channel does give us very high-speed access to our data, which is great. `[00:03:28]` However, a technology that's really getting popular these days in larger enterprises `[00:03:32]` is something called... `[00:03:33]` Fiber Channel over Ethernet. `[00:03:36]` We still get the benefit of Fiber Channel. `[00:03:38]` We still get to do block-level storage. `[00:03:41]` However, notice here the servers don't have to have a NIC and an HBAA.
+
+## [00:03:45]
+
+![screenshot at 00:03:45](frames/frame_0006.jpg)
+
+`[00:03:45]` They just connect into this Ethernet switch. `[00:03:47]` And we're Ethernet until we get to this FCOE, this Fiber Channel over Ethernet switch. `[00:03:52]` And then we go Fiber Channel from that FCOE switch down to the Fiber Channel storage. `[00:03:57]` This is a nice compromise that helps us save on expense. `[00:04:00]` We don't have to buy an HBAA for the servers. `[00:04:02]` We don't have to have that additional... `[00:04:03]` cable going from the server to the Fiber Channel switch. `[00:04:08]` And we get high-speed throughput. `[00:04:09]` But still, this is more expensive than another alternative out there. `[00:04:13]` You typically see Fiber Channel over Ethernet in large enterprise deployments. `[00:04:18]` But for small to medium-sized deployments, you might instead see something called iSCSI, `[00:04:24]` which is Internet Small Computer System Interface. `[00:04:27]` With iSCSI, there is no Fiber Channel.
+
+## [00:04:30]
+
+![screenshot at 00:04:30](frames/frame_0007.jpg)
+
+`[00:04:30]` Here's Server 1, Server 2. `[00:04:31]` They're connected into an Ethernet switch. `[00:04:32]` And so is an iSCSI storage device. `[00:04:36]` Everything is running over IP. `[00:04:39]` We're encapsulating those SCSI messages and data inside of IP packets. `[00:04:44]` And because we are speaking SCSI, it's just over IP, we get to do block-level access. `[00:04:49]` And this is a huge cost savings as opposed to doing something with Fiber Channel. `[00:04:53]` But technically, the performance is not quite as good as Fiber Channel over Ethernet. `[00:04:57]` But the expense is much less than Fiber Channel over Ethernet. `[00:05:00]` And that's a few of the SAN. `[00:05:02]` And the storage area network options that we have available today.
+
+## [00:05:15]
+
+![screenshot at 00:05:15](frames/frame_0008.jpg)
