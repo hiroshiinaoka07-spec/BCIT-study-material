@@ -1,6 +1,6 @@
 # 3640 Cloud Computing — Study Guide
 
-A 5-week guide built from the notes, textbook chapters, and labs in this repo. Each week has learning objectives, a concept deep dive, a repository tour, practical takeaways, and a 5-question quiz with a hidden answer key.
+A weekly guide built from the notes, textbook chapters, and labs in this repo. Each week has learning objectives, a concept deep dive, a repository tour, practical takeaways, and a 5-question quiz with a hidden answer key.
 
 | Week | Topic | Source files |
 | ---- | ----- | ------------ |
@@ -9,6 +9,7 @@ A 5-week guide built from the notes, textbook chapters, and labs in this repo. E
 | [Week 3](week-03-ec2-cloud-init.md) | Compute with EC2 & bootstrapping with cloud-init | `chapter 7.md`, `aws-ec2.md` |
 | [Week 4](week-04-vpc-networking.md) | Networking with VPCs | `chpater10` (VPC section), `aws-vpc.md` |
 | [Week 5](week-05-aws-cli-bash.md) | Automating AWS with the CLI & Bash | `aws-cli.md`, `aws-cli-exercise.md` |
+| [Week 7](week-07-aws-storage.md) | AWS storage services: S3, EBS & EFS | `chapter10-week7` |
 
 ## How to use this guide
 
