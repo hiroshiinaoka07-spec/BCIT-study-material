@@ -346,3 +346,135 @@ AD **cannot work without DNS**. Clients find DCs using **SRV records** registere
 5. `Indy.com` is a **separate DNS namespace**. With a child domain, the wizard creates a delegation in the parent zone automatically. For a tree there's **no parent zone**, which is why the wizard warned that it couldn't create the delegation, so Adatum's DNS doesn't know where `indy.com` lives. Indy can resolve Adatum because its DNS client points at an Adatum DC. **Fix:** on DC2, open DNS Manager → **Conditional Forwarders → New** → DNS domain `Indy.com`, master IP `192.168.239.4`. Optionally store it in AD for all DNS servers in the forest.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** Which of the following is a **leaf object** (it cannot hold other objects)?
+
+- A) Domain
+- B) Organizational unit (OU)
+- C) Schema
+- D) User
+
+**2.** Which port does the `_kerberos._tcp` SRV record point clients to?
+
+- A) 389
+- B) 88
+- C) 3268
+- D) 464
+
+**3.** What is an AD **site**?
+
+- A) A group of IP subnets connected at high speed
+- B) The administrative boundary where password policy is set
+- C) A container inside a domain used to delegate admin rights and link GPOs
+- D) A set of domains sharing a contiguous DNS namespace
+
+**4.** What should the **functional level** be set to?
+
+- A) The newest Windows Server version available, to unlock every feature
+- B) Any level, because it can easily be lowered later
+- C) The oldest Windows Server version running on your DCs
+- D) The version of Windows running on the client computers
+
+**5.** Which statement about **child domains** is correct?
+
+- A) A child domain inherits GPOs and permissions from its parent, like an OU.
+- B) A child domain is a separate security entity and does not inherit permissions or policies from the parent.
+- C) A child domain shares the parent's domain partition.
+- D) A child domain is connected to its parent by a one-way, non-transitive trust.
+
+**6.** The **Active Directory Schema** snap-in isn't listed in MMC. What do you run first to make it available?
+
+- A) `dcdiag /test:dns`
+- B) `ntdsutil`
+- C) `ipconfig /registerdns`
+- D) `regsvr32 schmmgmt.dll`
+
+**7.** Which PowerShell command creates `Indy.com` as a **new tree** in the `Adatum.com` forest?
+
+- A) `Install-ADDSDomain -DomainType TreeDomain -ParentDomainName "Adatum.com" -NewDomainName "Indy.com" -InstallDns -Credential (Get-Credential)`
+- B) `Install-ADDSForest -DomainName "Indy.com" -InstallDns`
+- C) `Install-ADDSDomainController -DomainName "Indy.com" -InstallDns -Credential (Get-Credential)`
+- D) `Install-ADDSDomain -DomainType ChildDomain -ParentDomainName "Adatum.com" -NewDomainName "Indy" -InstallDns -Credential (Get-Credential)`
+
+**8.** You are deploying a DC at a remote site and don't want it to replicate the **whole AD database over the WAN**. Which option does the guide describe for this?
+
+- A) DC cloning
+- B) An RODC with a Password Replication Policy
+- C) Install from Media (IFM) using `ntdsutil`
+- D) Upgrading an existing 2012 R2 DC in place
+
+**9.** How do you stop ordinary domain users from **joining computers** to the domain?
+
+- A) Set `ms-DS-MachineAccountQuota` to **0** with ADSI Edit.
+- B) Raise the domain functional level.
+- C) Remove all users from the **Domain Users** group.
+- D) Delete the default **Computers** container.
+
+**10.** You want to deploy a new DC quickly by copying an existing **virtualised** DC. What do you do before exporting the VM?
+
+- A) Run `ntdsutil "activate instance ntds" ifm "create sysvol full C:\IFM" quit quit`.
+- B) Add the source DC to the **Cloneable Domain Controllers** group and run `New-ADDCCloneConfigFile`.
+- C) Run `Install-ADDSForest` on the source DC.
+- D) Take a Hyper-V checkpoint of the source DC.
+
+**11.** A freshly renamed server with a static IP fails promotion to an additional DC, and `ping adatum.com` returns *"could not find host"*. What is the most likely cause?
+
+- A) The **Global Catalog** checkbox was cleared.
+- B) The **DSRM** password is too short.
+- C) The domain functional level is too low.
+- D) The server's **Preferred DNS** isn't pointing at an existing DC.
+
+**12.** Clients can't join the domain or log on. In DNS Manager, the `_ldap` and `_kerberos` SRV records for DC2 are **missing** from `_tcp`. What is the fix?
+
+- A) Raise the forest functional level.
+- B) Make DC2 a Global Catalog server.
+- C) Point DC2's DNS at a correct server, restart **Netlogon** (or run `ipconfig /registerdns`), and verify with `dcdiag /test:dns`.
+- D) Create a conditional forwarder for `Adatum.com` on DC2.
+
+**13.** A branch office has **poor physical security** and a slow WAN link, but users there need a local DC. What should you deploy?
+
+- A) An **RODC**
+- B) An additional writable DC with the Global Catalog
+- C) A new child domain for the branch
+- D) A bridgehead server
+
+**14.** Your company acquires **Fabrikam**, which wants to keep its own name `fabrikam.com` but join your existing forest. Which wizard choice do you make?
+
+- A) Add a domain controller to an existing domain
+- B) Add a new forest
+- C) Add a new domain to an existing forest → **Child Domain**
+- D) Add a new domain to an existing forest → **Tree Domain**
+
+**15.** Your manager asks: *"Can we set all DCs as Global Catalogs?"* Which drawback should you mention?
+
+- A) Infrastructure Master placement becomes critical.
+- B) There is more replication traffic and more disk storage used on each DC.
+- C) Logons and forest-wide searches become slower.
+- D) Clients can no longer find their closest DC.
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **D.** **Users** (like computers and groups) are leaf objects. Domains and OUs are container objects, and the schema defines object classes rather than being a leaf object.
+2. **B.** `_kerberos._tcp` uses port **88**. 464 is the tempting distractor, but that is `_kpasswd` for Kerberos password changes; 389 is LDAP and 3268 is the GC.
+3. **A.** A site is a group of **IP subnets connected at high speed**, reflecting the physical network. B describes a domain, C an OU, and D a domain tree.
+4. **C.** Set it to the **oldest** Windows Server version on your DCs so they all interoperate. Raising it is generally one-way, so B is wrong.
+5. **B.** Each domain is a separate security entity, and **unlike OUs, child domains don't inherit** permissions or policies. Parent and child share two-way transitive trusts, and each domain has its own domain partition.
+6. **D.** `regsvr32 schmmgmt.dll` registers the Schema snap-in, after which you add it in MMC. The other commands are for DNS checks, AD database tasks and DNS registration.
+7. **A.** A tree uses `Install-ADDSDomain -DomainType TreeDomain` with the existing forest as `-ParentDomainName`. D would create a child domain, B a separate new forest, and C an additional DC in an existing domain.
+8. **C.** **IFM** creates install media with a copy of the AD database, so the remote DC doesn't pull it all over the WAN. An RODC is the tempting answer for remote sites, but it addresses physical security, not the initial replication.
+9. **A.** By default any authenticated user can join **10** computers (`ms-DS-MachineAccountQuota`); set it to **0**, or limit the "Add workstations to domain" right. The other options don't control joining and would break things.
+10. **B.** DC cloning (Server 2012+) needs the source DC in **Cloneable Domain Controllers** and a clone config file from `New-ADDCCloneConfigFile`. A is IFM, and a checkpoint is not the cloning procedure.
+11. **D.** The checklist says set **Preferred DNS = an existing DC** and test with `ping adatum.com`; if DNS can't find the domain, promotion fails. The other settings don't affect finding the domain.
+12. **C.** Missing SRV records mean clients can't find a DC. Correct the DC's DNS setting, then re-register with Netlogon or `ipconfig /registerdns` and check with `dcdiag /test:dns`. A conditional forwarder is for resolving a separate namespace like `Indy.com`.
+13. **A.** An **RODC** is a read-only copy for sites with poor physical security and slow WAN links, with passwords cached only per the PRP. A writable DC would expose a full writable copy of AD in an insecure location.
+14. **D.** A company keeping its own name needs a **separate namespace**, which is a **Tree Domain**. A child domain would become something like `fabrikam.adatum.com`, and a new forest would not join your existing forest.
+15. **B.** Each GC holds a partial copy of every domain, so you get **more replication traffic and more storage** per DC. Faster logons and searches are a benefit, and if all DCs are GCs, Infrastructure Master placement stops mattering.
+
+</details>

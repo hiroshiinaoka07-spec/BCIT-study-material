@@ -173,3 +173,135 @@ Why this works: the **main** route table applies to any subnet *without* an expl
 **Q5** — Traffic between the subnets works thanks to the VPC's **local route**, but `bcit-demo-pr`'s **security group only allows ICMP** (ping) inbound. SSH (TCP port 22) is dropped, so it times out. Fix it by adding an inbound rule to the private instance's security group for **SSH (port 22)** with the source limited to the **public subnet `10.0.1.0/24`** (or the public instance's security group) — not `0.0.0.0/0`. Then connect *through* the public instance as a jump host, e.g. `ssh -J admin@<public-ip> admin@10.0.2.x`, so your private key never has to be copied onto the server.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** What CIDR block does AWS use for the **default VPC** it creates in every region?
+
+- A) `10.0.0.0/16`
+- B) `172.31.0.0/16`
+- C) `192.168.0.0/16`
+- D) `172.16.0.0/12`
+
+**2.** At what level does a VPC exist?
+
+- A) Availability Zone
+- B) Global (across all regions)
+- C) Region
+- D) Edge location
+
+**3.** How many IP addresses does a `/20` block contain in total?
+
+- A) 1,024
+- B) 2,048
+- C) 8,192
+- D) 4,096
+
+**4.** You create a subnet with the CIDR `10.0.3.0/28`. How many IP addresses can you actually assign to instances in it?
+
+- A) 11
+- B) 14
+- C) 16
+- D) 12
+
+**5.** Which of these CIDR blocks can you **not** use for a VPC?
+
+- A) `10.0.0.0/16`
+- B) `192.168.0.0/20`
+- C) `172.31.0.0/16`
+- D) `169.254.0.0/16`
+
+**6.** Your VPC uses `10.0.0.0/16`. Which of these is a valid CIDR for a subnet inside it?
+
+- A) `10.1.0.0/24`
+- B) `10.0.5.0/24`
+- C) `192.168.1.0/24`
+- D) `10.0.0.0/8`
+
+**7.** You launch an instance with a brand-new security group and add no rules. What inbound traffic does that security group allow?
+
+- A) Nothing
+- B) All traffic
+- C) SSH only
+- D) Only traffic from the same subnet
+
+**8.** Which firewall is **stateful**, meaning return traffic for an allowed request is automatically allowed?
+
+- A) Network ACL
+- B) Route table
+- C) Security group
+- D) Internet gateway
+
+**9.** An instance sits in a subnet whose route table has `0.0.0.0/0 → igw`, and its security group allows SSH from `0.0.0.0/0`. However, the instance only has a **private IP**, and you can't reach it from home. What fixes this?
+
+- A) Add an inbound rule to the subnet's default NACL
+- B) Add a second route `10.0.0.0/16 → igw`
+- C) Associate an Elastic IP with the instance
+- D) Create a VPN connection to the VPC
+
+**10.** You launched `bcit-demo-pb` with an auto-assigned public IP and saved that IP. After you **stop and start** the instance, `ssh` to the saved IP times out. What is the most likely cause?
+
+- A) Auto-assigned public IPs are lost when an instance stops, so it now has a different one
+- B) Stopping an instance deletes its security group rules
+- C) The main route table loses its `0.0.0.0/0` route when instances stop
+- D) The instance was moved to a different Availability Zone
+
+**11.** A company wants a **dedicated private link** from its data centre to AWS that **bypasses the public internet** for predictable latency. Cost is not a concern. Which option fits?
+
+- A) VPC peering
+- B) VPN
+- C) Internet gateway
+- D) Direct Connect
+
+**12.** VPC A uses `10.0.0.0/16`. You're creating VPC B and plan to **peer** it with VPC A later. Which CIDR should VPC B use?
+
+- A) `10.0.0.0/16`
+- B) `10.0.128.0/20`
+- C) `172.16.0.0/16`
+- D) `10.0.0.0/8`
+
+**13.** In the course lab, a teammate adds the route `0.0.0.0/0 → bcit-demo-igw` to **`bcit-demo-rt`**. What is the effect?
+
+- A) Nothing, because private subnets can't have routes to an internet gateway
+- B) `bcit-demo-sub-pr` becomes a public subnet, though its instances still need a public IP to be reachable from the internet
+- C) `bcit-demo-sub-pb` loses its internet access
+- D) The VPC's local route `10.0.0.0/16` is replaced
+
+**14.** In an AWS VPN connection, what is the **AWS-side** endpoint called?
+
+- A) Virtual private gateway
+- B) Customer gateway
+- C) Internet gateway
+- D) Direct Connect location
+
+**15.** Two instances in the **same subnet** must not be able to talk to each other on port 3306. Where do you enforce this?
+
+- A) A deny rule in the subnet's network ACL
+- B) The instances' security groups
+- C) Removing the local route from the subnet's route table
+- D) Moving the internet gateway route to a different route table
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **B.** The default VPC in every region uses `172.31.0.0/16`. `172.16.0.0/12` is the RFC 1918 range that contains it, not the VPC's own CIDR.
+2. **C.** A VPC lives at the **Region** level (for example `us-west-2`). Its subnets are the parts that sit in individual Availability Zones.
+3. **D.** 2^(32 − 20) = 2^12 = **4,096**. 2,048 would be a `/21` and 8,192 a `/19`.
+4. **A.** A `/28` has 2^4 = 16 addresses, and AWS reserves **5 in every subnet** (the first four and the last), leaving **11**. 14 is the answer you'd get by reserving only the network and broadcast addresses, which isn't how AWS works.
+5. **D.** `169.254.0.0/16` is the **link-local** range, which the guide lists as forbidden. The other three are RFC 1918 private ranges used as examples in the guide.
+6. **B.** `10.0.5.0/24` is a **subset** of `10.0.0.0/16`. `10.1.0.0/24` and `192.168.1.0/24` fall outside the VPC's range, and `10.0.0.0/8` is larger than the VPC itself.
+7. **A.** A security group allows **nothing inbound** by default (outbound is allowed). "All traffic" is the default for a NACL, which is the usual mix-up.
+8. **C.** Security groups are stateful, so return traffic is allowed automatically. NACLs are stateless: return traffic must be allowed explicitly.
+9. **C.** All three conditions must be true: an IGW, a `0.0.0.0/0 → IGW` route, and a **public IP**. The first two are already in place, so the instance needs a public IP such as an Elastic IP. The default NACL already allows all traffic, so option A changes nothing.
+10. **A.** Auto-assigned public IPs are released when the instance stops, and a new one is assigned when it starts. An **Elastic IP** persists until you release it, so use one when the address must stay the same.
+11. **D.** **Direct Connect** is a dedicated private link that bypasses the internet for predictable latency, and it's the more expensive option. A VPN is encrypted but still runs **over the public internet**.
+12. **C.** Overlapping CIDRs block VPC peering. `172.16.0.0/16` doesn't overlap `10.0.0.0/16`, while `10.0.0.0/16`, `10.0.128.0/20` and `10.0.0.0/8` all overlap it. (`/8` is also too large for a VPC.)
+13. **B.** A subnet whose route table has `0.0.0.0/0 → IGW` is by definition a public subnet, so `sub-pr` would now be public. Its instances still need a public IP to be reachable, and `sub-pr` doesn't auto-assign one. `sub-pb` uses the main route table, which isn't affected.
+14. **A.** The **virtual private gateway** is the AWS side of the VPN tunnel. The **customer gateway** is your router on the other end.
+15. **B.** NACLs work at the subnet boundary, so they **can't** restrict traffic between instances in the same subnet. Security groups work at the instance level and can. Route tables decide where traffic goes, not which ports are allowed, so they aren't the tool for this.
+
+</details>

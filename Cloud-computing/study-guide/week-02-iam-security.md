@@ -202,3 +202,157 @@ It works on **Amazon Linux**, whose default user is `ec2-user`. On a **Debian** 
 **Q5** — Don't put access keys on the server. Create an **IAM role** with **EC2 as the trusted entity**, attach a **permissions policy** that allows only the needed actions (e.g. `s3:PutObject`) on **only that bucket**, and attach the role to the instance. The application then receives temporary credentials automatically, so there are no long-lived keys to leak. This is exactly the scenario from lesson 6.2.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** In IAM, which question does **authorization** answer?
+
+- A) Who are you?
+- B) Which region are you working in?
+- C) What are you allowed to do?
+- D) How long is your password?
+
+**2.** Even an IAM user with `AdministratorAccess` cannot do a few root-only tasks. Which example does the 6.1 lesson video give?
+
+- A) Closing the AWS account
+- B) Creating IAM groups
+- C) Attaching policies to users
+- D) Launching EC2 instances
+
+**3.** Which statement about the **SSH key pair** used to log in to EC2 Linux instances is correct?
+
+- A) AWS keeps both keys, so you can download the private key again at any time
+- B) It is used to sign in to the AWS Management Console
+- C) It is the same thing as an access key ID and secret access key
+- D) AWS keeps the public key, you keep the private key, and you can download it only once
+
+**4.** What is the AWS **root user**?
+
+- A) The first IAM user you create and give `AdministratorAccess`
+- B) The identity created with your AWS account (your email and password), which can do anything
+- C) A role that EC2 instances assume
+- D) The default Linux user on Amazon Linux instances
+
+**5.** **MFA** combines which two factors?
+
+- A) Two different passwords
+- B) Something you know (a password) and something you have (an authenticator app or YubiKey-style device)
+- C) An access key ID and a secret access key
+- D) A public key and a private key
+
+**6.** Read this role policy. What does it control?
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Principal": { "Service": "ec2.amazonaws.com" },
+    "Action": "sts:AssumeRole"
+  }]
+}
+```
+
+- A) It gives EC2 instances full access to S3
+- B) It lets any IAM user in the account assume the role
+- C) It lets the role launch new EC2 instances
+- D) It is a trust policy that allows the EC2 service to assume the role
+
+**7.** A role has this permissions policy attached. Which action does it allow?
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": ["s3:GetObject", "s3:PutObject"],
+    "Resource": "arn:aws:s3:::example-demo-bucket/*"
+  }]
+}
+```
+
+- A) Uploading a file to `example-demo-bucket`
+- B) Deleting objects in `example-demo-bucket`
+- C) Reading objects from any bucket in the account
+- D) Creating a new S3 bucket
+
+**8.** You are creating an IAM admin user to replace the root user for daily administration. Which managed policy should you attach?
+
+- A) `AmazonEC2FullAccess`
+- B) `AmazonS3FullAccess`
+- C) `AdministratorAccess`
+- D) `ReadOnlyAccess`
+
+**9.** You want S3 to encrypt objects on the server side using keys managed by AWS KMS. Which option is this?
+
+- A) SSE-S3
+- B) Client-side encryption
+- C) A credential report
+- D) SSE-KMS
+
+**10.** You want every IAM user's console password to require a minimum length plus uppercase, lowercase, a number, and a symbol. What should you configure?
+
+- A) An account-wide password policy
+- B) MFA on the root user
+- C) A credential report
+- D) A KMS customer master key
+
+**11.** An auditor asks you to encrypt an EBS volume that was created without encryption. Which statement matches the guide?
+
+- A) You can switch on an encryption setting for the existing volume with no other changes
+- B) You apply SSE-S3 to the volume
+- C) EBS volumes are encrypted when they are created, so you can't simply flip encryption on for an existing volume
+- D) EBS volumes cannot be encrypted at all
+
+**12.** A company wants employees to sign in to AWS with their existing Microsoft Active Directory accounts instead of creating new IAM users. What should it use?
+
+- A) One IAM group per department, with a new IAM user for every employee
+- B) Federation (for example SAML 2.0 / Active Directory) through AWS Single Sign-On (IAM Identity Center)
+- C) The root user's credentials, shared through a password manager
+- D) Separate access keys for each employee
+
+**13.** Your office uploads sensitive files to S3, and the data must be protected **while in transit from the office**. Which approach does the guide recommend?
+
+- A) Client-side encryption — encrypt the data before uploading, using a KMS CMK or a client-side master key
+- B) SSE-S3
+- C) SSE-KMS alone
+- D) Downloading a credential report after each upload
+
+**14.** During a security review you need to find which IAM users have no MFA and which have access keys that haven't been rotated in a long time. What is the quickest tool?
+
+- A) AWS Artifact
+- B) The IAM **Policies** page
+- C) An IAM role's trust policy
+- D) The IAM credential report
+
+**15.** Your company processes credit card payments, and an auditor wants AWS's **PCI DSS** compliance documentation. Where do you get it?
+
+- A) AWS KMS
+- B) The IAM credential report
+- C) AWS Artifact
+- D) AWS Single Sign-On
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **C.** Authorization is *what are you allowed to do* once inside. Option A, "Who are you?", is authentication.
+2. **A.** The 6.1 video points out that closing the account is a root-only task, which is why root still exists but should be locked away. Admin users can do the other three.
+3. **D.** AWS keeps the public key and you keep the private key, which can be downloaded only once. Option A is the tempting mistake — if you lose the private key, AWS can't give it back.
+4. **B.** The root user is created with the account and can do anything, including authorizing unlimited spending. Option A describes the IAM admin user you create to *replace* root for daily work.
+5. **B.** MFA is something you **know** plus something you **have**. Option C is the two parts of an access key, which has no MFA option.
+6. **D.** A `Principal` plus `sts:AssumeRole` makes this a **trust policy**: it defines *who* can assume the role (the EC2 service). It grants no S3 permissions itself, so option A is wrong — that's the job of the permissions policy.
+7. **A.** `s3:PutObject` on `example-demo-bucket/*` allows uploads to that bucket. Option C is wrong because the `Resource` limits access to one bucket only, and deleting (B) isn't in the action list.
+8. **C.** The guide names `AdministratorAccess` as the policy for replacing root in daily administration. `AmazonEC2FullAccess` (option A) is what the limited user "Steve" gets in Exercise 5.2.
+9. **D.** SSE-KMS uses KMS-managed keys. SSE-S3 (option A) is server-side encryption with S3-managed keys.
+10. **A.** Complexity rules are enforced with an account-wide **password policy**. MFA (option B) adds a second factor but doesn't control password complexity.
+11. **C.** The guide states that EBS volumes are encrypted **when created**. Option D is wrong — EBS does support encryption; it just has to be chosen at creation.
+12. **B.** Federation lets users sign in with an existing identity system; SAML 2.0 and Active Directory are the standards the guide names. Option A works but ignores the existing directory and creates many new identities to manage.
+13. **A.** For data in transit from the office, the guide recommends **client-side encryption** before upload. SSE-S3 and SSE-KMS (options B and C) encrypt on the server side, after the data arrives.
+14. **D.** The credential report is a CSV showing each user's last login, MFA status, active access keys, and key rotation dates. AWS Artifact (option A) is for compliance documents, not user activity.
+15. **C.** AWS Artifact provides downloadable compliance documents such as PCI DSS and SOC reports. KMS (option A) manages encryption keys.
+
+</details>

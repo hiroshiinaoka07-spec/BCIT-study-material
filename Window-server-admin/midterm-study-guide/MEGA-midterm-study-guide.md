@@ -757,3 +757,135 @@ A **unique identifier** given to every **security principal**: users, computers 
 20. The recreated account has a **new SID**. The personal folder's ACL stores the **old SID**, so it doesn't match. The Sales share works because access is granted to the `ACL_Sales_Read` group's SID and the new `jsmith` is a member again via `Sales`. **IGDLA** avoids this by **never putting user accounts directly on ACLs**.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** Which Hyper-V virtual disk format is the default choice and supports disks larger than 2 TB?
+
+- A) `.vhd`
+- B) `.avhdx`
+- C) `.vhdx`
+- D) `.vhds`
+
+**2.** Which feature is available on a **Generation 2** VM but not on a Generation 1 VM?
+
+- A) Secure Boot
+- B) Booting from a virtual IDE disk
+- C) Support for 32-bit guest operating systems
+- D) BIOS-based startup
+
+**3.** Which AD DS logical component is the **administrative, security and replication boundary** that shares one directory database?
+
+- A) Organizational Unit
+- B) Site
+- C) Forest
+- D) Domain
+
+**4.** A **NAS** device gives clients access to storage using which protocols, and at which level?
+
+- A) Fibre Channel and FCoE, at block level
+- B) SMB/CIFS and NFS, at file level
+- C) iSCSI, at block level
+- D) SAS and SATA, directly to the disk
+
+**5.** Which RAID level provides **no fault tolerance**, so losing one disk loses everything?
+
+- A) RAID 0
+- B) RAID 1
+- C) RAID 5
+- D) RAID 10
+
+**6.** Which FSMO role is the domain's **time sync** source and also handles **password changes** and **account lockout**?
+
+- A) Schema Master
+- B) RID Master
+- C) Infrastructure Master
+- D) PDC Emulator
+
+**7.** One VM on a Hyper-V host keeps consuming so much CPU that the other VMs slow down. Which command limits this?
+
+- A) `Update-VMVersion "VM1"`
+- B) `Enter-PSSession -VMName VM1`
+- C) `Set-VMProcessor -VMName VM1 -EnableHostResourceProtection $true`
+- D) `Invoke-Command -VMName VM1 -ScriptBlock { Get-Service }`
+
+**8.** You're setting up a new 6 TB data disk that will need more than four partitions. Which partition table do you choose?
+
+- A) MBR
+- B) GPT
+- C) Dynamic
+- D) ReFS
+
+**9.** What is the minimum number of physical disks for a **dual parity** Storage Spaces virtual disk?
+
+- A) 3
+- B) 4
+- C) 5
+- D) 7
+
+**10.** Which group scope can contain Global and Universal groups **from any domain**, but can only be granted access to resources in **its own domain**?
+
+- A) Domain Local
+- B) Global
+- C) Universal
+- D) Distribution
+
+**11.** After creating an **External** virtual switch named `Internet`, a colleague notices that **IPv4 is unchecked** on the physical NIC and wants to re-enable it and assign the old IP. What should you tell them?
+
+- A) Re-enable IPv4, because the External switch needs an IP on the physical NIC to reach the LAN
+- B) Delete the switch and create an Internal switch instead
+- C) Leave it: this is normal, because the IP has moved to the `vEthernet (Internet)` adapter and the physical NIC is now bound to the Hyper-V Extensible Virtual Switch
+- D) Leave it, but only until the VMs are converted to Generation 1
+
+**12.** You open Notepad in a VM, type text without saving, take a **Production** checkpoint, and later roll back to it. What do you see?
+
+- A) Notepad is open with the unsaved text, exactly as it was
+- B) Notepad is gone; the VM starts as if from an offline state and only what was saved to disk exists
+- C) The rollback fails because Production checkpoints can't capture a running VM
+- D) Notepad is open, but the text is replaced by the last saved version
+
+**13.** A test host has less than 400 GB free. An admin creates three VMs, each with a **200 GB dynamically expanding** disk. Everything works at first. What is the risk, and what disk type does the guide recommend for production?
+
+- A) No risk, because dynamically expanding disks can never exceed free space; use pass-through disks in production
+- B) The VMs will fail to boot immediately; use differencing disks in production
+- C) The disks will be converted to `.vhd` and capped at 2 TB; use `.vhds` in production
+- D) As the VMs use their space, the host disk will eventually fill up; use fixed-size disks in production
+
+**14.** On an iSCSI Target Server, you need to make sure that only the SQL server can see the database LUN. What do you use to identify which client may connect?
+
+- A) The initiator's IQN
+- B) The SQL server's IP address only, because IQNs change with the IP
+- C) The target's TCP port number
+- D) A Distribution group containing the SQL server's computer account
+
+**15.** An admin creates a group called `Finance Staff` and tries to add it to the NTFS permissions on a Finance folder, but the group can't be used there. The group was created as a **Distribution** group. What's the cause and fix?
+
+- A) Distribution groups must be Universal; change the scope to Universal
+- B) The folder is on a different domain; move the folder
+- C) Distribution groups have no SID, so they can't be granted permissions; convert it to a Security group
+- D) The RID Master is offline; seize it with `ntdsutil`
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **C.** **`.vhdx`** is the default and supports disks larger than 2 TB. `.vhd` is the old format, capped at about 2 TB and kept only for Server 2008/2008 R2 compatibility.
+2. **A.** **Secure Boot** is a Generation 2 feature, along with UEFI, SCSI boot and vTPM. IDE boot, BIOS and 32-bit support are all Generation 1 traits.
+3. **D.** A **domain** is the admin, security and **replication boundary** sharing one directory database. An OU is a container *inside* a domain, and a site reflects the physical network.
+4. **B.** NAS is **file-level** storage reached over **SMB/CIFS and NFS**. Fibre Channel, FCoE and iSCSI are SAN transports, which give block-level access.
+5. **A.** **RAID 0** is striping with no parity or mirroring, so one failed disk loses everything. RAID 1, 5 and 10 each survive at least one disk failure.
+6. **D.** The **PDC Emulator** handles time sync, password changes and account lockout. The RID Master hands out RID pools so DCs can create SIDs.
+7. **C.** **`Set-VMProcessor ... -EnableHostResourceProtection $true`** stops one VM hogging host CPU. `Enter-PSSession -VMName` opens a PowerShell Direct session and doesn't limit resources.
+8. **B.** **GPT** supports up to **128** partitions and disks well beyond 2 TB. **MBR** is limited to 2 TB and 4 primary partitions; Dynamic is a disk type and ReFS is a file system, not partition tables.
+9. **D.** **Dual parity** needs at least **7** disks. 3 is the minimum for single parity and 5 is for a three-way mirror.
+10. **A.** A **Domain Local** group accepts Global and Universal groups from any domain but can only be granted access in its own domain. A Universal group can be granted access to any resource in the forest.
+11. **C.** Unchecked IPv4 on the physical NIC is **normal**. The IP is copied to the **`vEthernet (Internet)`** adapter, and the physical NIC is bound to the **Hyper-V Extensible Virtual Switch**. Re-enabling IPv4 or giving the physical adapter an IP is exactly what the guide says not to do.
+12. **B.** A **Production** checkpoint uses VSS and is **data-consistent**, so the VM comes back as if from an **offline state** and unsaved work is gone. Option A describes a **Standard** checkpoint, which also saves memory.
+13. **D.** Dynamically expanding disks grow as they're used, so 3 × 200 GB on under 400 GB free will **eventually fill the disk**. The guide recommends **fixed-size** disks for production and says not to use pass-through disks.
+14. **A.** An **IQN** is a logical name, **not tied to an IP address**, and you use it on the target to say **which initiator may see which LUN**. Port 3260 identifies the iSCSI service, not a particular client.
+15. **C.** **Distribution** groups have **no SID**, so they can't be put on ACLs; converting the group to a **Security** group gives it one. Group types can be converted either way, so this is a quick fix.
+
+</details>

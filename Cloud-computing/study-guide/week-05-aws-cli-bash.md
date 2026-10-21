@@ -277,3 +277,165 @@ EOF
 - `--owners 136693071363` stays: it's Debian's official account ID, which the notes say to verify by hand on the Debian wiki.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** Which list contains only valid values for the `--output` option?
+
+- A) `json`, `yaml`, `text`, `table`
+- B) `json`, `xml`, `csv`, `text`
+- C) `json`, `yaml`, `html`, `table`
+- D) `json`, `text`, `csv`, `table`
+
+**2.** What query language does the `--query` option use?
+
+- A) SQL
+- B) jq
+- C) XPath
+- D) JMESPath
+
+**3.** Which command prints the name of **every** key pair in your account as plain text?
+
+- A) `aws ec2 describe-key-pairs --query 'KeyPairs[0].KeyName' --output text`
+- B) `aws ec2 describe-key-pairs --query 'KeyPairs[*].KeyName' --output text`
+- C) `aws ec2 list-key-pairs --output text`
+- D) `aws ec2 describe-key-pairs --key-names '*' --output text`
+
+**4.** In the command below, what role does `ec2` play?
+
+```bash
+aws ec2 describe-key-pairs --output text
+```
+
+- A) Base command
+- B) Sub-command (the operation)
+- C) Top-level command (the service)
+- D) Option
+
+**5.** Why does `import-key-pair` use `fileb://` instead of `file://` for `--public-key-material`?
+
+- A) `fileb://` reads the file as raw binary with no encoding, which the key material requires
+- B) `fileb://` uploads the file to an S3 bucket first
+- C) `fileb://` encrypts the file before sending it to AWS
+- D) `file://` only works for files in the current directory
+
+**6.** The variable `region` is never set anywhere. What happens when you run this script?
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "start"
+echo "Region: $region"
+echo "done"
+```
+
+- A) It prints `start`, `Region: ` and `done`
+- B) It prints `start`, then stops with an error about the unset variable `region`; `done` is never printed
+- C) Bash refuses to run the script at all, so nothing is printed
+- D) It prints `start`, `Region: us-west-2` and `done`, using the region in `~/.aws/config`
+
+**7.** You run the key-import script from this guide with **no arguments**: `./script`. What happens?
+
+- A) It imports `~/.ssh/aws.pub` by default
+- B) It prints "Path to public key for import is incorrect; file does not exist."
+- C) It prints "Script requires the path to the public key file you would like to import." to stderr and exits with status 1
+- D) The AWS CLI prints an error about a missing `--public-key-material` value
+
+**8.** What does the file `settings` contain after this runs?
+
+```bash
+latest="bcit-demo"
+cat > settings <<EOF
+latest_key=${latest}
+EOF
+```
+
+- A) `latest_key=${latest}`
+- B) `latest_key=bcit-demo`
+- C) `latest_key=`
+- D) Nothing; the text is printed to the terminal instead
+
+**9.** What does this command print?
+
+```bash
+aws ec2 describe-key-pairs \
+  --query 'KeyPairs | sort_by(@, &CreateTime) | [0].KeyName' \
+  --output text
+```
+
+- A) The name of the newest key pair
+- B) Every key pair name, sorted from oldest to newest
+- C) The key pair name that comes first alphabetically
+- D) The name of the oldest key pair
+
+**10.** You're working inside a Linux VM and need to authenticate the AWS CLI. Which command does the guide recommend?
+
+- A) `aws login --remote`
+- B) `aws login --profile remote`
+- C) `aws --version`
+- D) `aws help login`
+
+**11.** You installed the CLI with the official install script, but typing `aws` gives `command not found`. What's the fix?
+
+- A) Reinstall it with your distro's package manager
+- B) Run `aws login` first
+- C) Run `complete -C aws_completer aws`
+- D) Add `$HOME/.local/bin` to your `PATH`
+
+**12.** You run the key-import script successfully, then run it a **second time** with the same public key. What happens on the second run?
+
+- A) AWS creates a second key pair named `bcitkey`
+- B) The existing `bcitkey` is overwritten with the new material
+- C) The script prints that key pair `bcitkey` already exists and exits before trying to import
+- D) `set -e` makes the script crash with a raw AWS error from `describe-key-pairs`
+
+**13.** A classmate runs the import script as `./script ~/.ssh/aws`. What is wrong?
+
+- A) Nothing; the script accepts either key file
+- B) `~/.ssh/aws` is the private key; the script imports a public key, so pass `~/.ssh/aws.pub`
+- C) The path must start with `fileb://` on the command line
+- D) The script needs two arguments: the key name and the path
+
+**14.** A classmate suggests running `aws login` as the **root user**, "because the CLI needs full permissions." What does the guide say?
+
+- A) Sign in as your IAM user from Week 2, never root; `aws login` gives you short-term credentials
+- B) Use root, because IAM users can't use the CLI
+- C) Use root, but only together with `aws login --remote`
+- D) Create long-lived access keys for root and paste them into `~/.aws/config`
+
+**15.** In the `err()` function, what does `>&2` do?
+
+```bash
+echo -e "\033[1;31m ERROR:\033[0m ${error_message}" >&2
+```
+
+- A) Writes the message to a file named `2`
+- B) Exits the script with status 2
+- C) Sends the message to stderr instead of stdout
+- D) Runs `echo` in the background
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **A.** The guide lists `json` (the default), `yaml`, `text` and `table`. XML, CSV and HTML aren't output formats.
+2. **D.** `--query` uses **JMESPath**. `jq` is a separate command-line JSON tool, not what the CLI uses for `--query`.
+3. **B.** `KeyPairs[*].KeyName` takes the `KeyName` of every item. `KeyPairs[0]` returns only the first item, and the CLI uses `describe-…` sub-commands, not `list-key-pairs`.
+4. **C.** `aws` is the base command, `ec2` is the top-level command (the service), `describe-key-pairs` is the sub-command, and `--output text` is an option.
+5. **A.** `fileb://` reads the file as **raw binary** without the CLI's normal parameter encoding, which the key material needs. `file://` reads the file too, but applies that encoding.
+6. **B.** `set -u` makes using an unset variable an error, and `-e` stops the script. `start` has already printed, but `done` never runs. Bash variables don't read from `~/.aws/config`.
+7. **C.** The `[[ $# -ne 1 ]]` check fails first, so `err` prints that message to stderr and calls `exit 1`. The "file does not exist" check is never reached.
+8. **B.** The heredoc **expands variables** because the `EOF` delimiter isn't quoted, so `${latest}` becomes `bcit-demo`.
+9. **D.** `sort_by(@, &CreateTime)` sorts oldest to newest, so `[0]` is the **oldest** key. The newest would be `[-1]`, as in the guide's example.
+10. **A.** `aws login` opens a browser; the guide says to use `aws login --remote` inside a VM. `--profile` selects a set of credentials and config; it doesn't change how the login works.
+11. **D.** The install script puts `aws` in `~/.local/bin`, so that directory has to be on your `PATH`. Reinstalling from the distro repo would likely give you v1 or an old v2.
+12. **C.** The idempotency guard runs `describe-key-pairs` first. If the key exists, the command succeeds and `err` stops the script before `import-key-pair` runs. Commands used as an `if` condition don't trigger `set -e`, so option D doesn't happen.
+13. **B.** The script imports a **public** key, so pass the `.pub` file and never upload your private key. `fileb://` is already added inside the script.
+14. **A.** The guide says to sign in as your **IAM user, never root**. `aws login` gives **short-term credentials**, so there are no long-lived access keys to leak.
+15. **C.** `>&2` redirects the output to **stderr**, which is where error messages belong. `exit 1` on the next line is what sets the exit status.
+
+</details>

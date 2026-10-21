@@ -387,3 +387,153 @@ def pathTo(self, val):
 `tree.pathTo("K")` gives `["A", "D", "G", "K"]`. Each worklist item carries the path to get there. `path + [child.val]` makes a **new list**, from Week 3, so the branches don't share and mess up each other's paths.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** Which structure follows **FIFO**, first in, first out?
+
+- A) A stack
+- B) A queue
+- C) A tree
+- D) A Python list used with `append` and `pop()`
+
+**2.** In this course, what is the **depth of the root**, and what is the **height of a leaf**?
+
+- A) 1 and 1
+- B) 0 and 1
+- C) 1 and 0
+- D) 0 and 0
+
+**3.** How does this course measure **path length** between two nodes?
+
+- A) The number of edges on the path
+- B) The number of nodes on the path, counting both ends
+- C) The number of leaves the path passes
+- D) The height of the lower node
+
+**4.** A queue starts empty. Insert 5, insert 6, insert 7, remove, insert 8, remove. What's left in the queue, front to back?
+
+- A) 5 8
+- B) 6 7
+- C) 7 8
+- D) 5 6
+
+**5.** Use this tree for questions 5, 7, 9, 10, and 12. What is its **pre-order** traversal?
+
+```text
+            M
+          /   \
+         N     O
+       / | \    \
+      P  Q  R    S
+         |      / \
+         T     U   V
+```
+
+- A) M N P Q T R O S U V
+- B) M N O P Q R S T U V
+- C) P T Q R N U V S O M
+- D) M O S V U N R Q T P
+
+**6.** Why doesn't this course use **in-order** traversal?
+
+- A) It always gives the same result as pre-order.
+- B) It only makes sense for binary trees, and in this course a node can have any number of children.
+- C) It can only be written with recursion.
+- D) It skips the leaves.
+
+**7.** Using the tree from question 5, what is the **post-order** traversal?
+
+- A) M N P Q T R O S U V
+- B) T U V P Q R S N O M
+- C) P Q T R N U V S O M
+- D) P T Q R N U V S O M
+
+**8.** Which everyday thing works like a **stack**?
+
+- A) Print jobs waiting for a printer
+- B) A line-up at a movie theatre
+- C) The undo button
+- D) A web server handling requests in the order they arrive
+
+**9.** Using the tree from question 5, what is the **BFS** order?
+
+- A) M N P Q T R O S U V
+- B) M N O P Q R S T U V
+- C) M O N S R Q P V U T
+- D) P Q R S T U V N O M
+
+**10.** You run the lab's `valuesDFS` on the tree from question 5. What does the stack hold right after N has been popped and its children pushed? The right end is the top.
+
+- A) `[O, P, Q, R]`
+- B) `[P, Q, R, O]`
+- C) `[R, Q, P]`
+- D) `[O, R, Q, P]`
+
+**11.** Why does the course build a queue with `collections.deque` and `popleft()` instead of a plain list with `pop(0)`?
+
+- A) `pop(0)` on a list is \(O(n)\), because every other item has to shift. A deque avoids that slow side.
+- B) A plain list can't hold `TreeNode` objects.
+- C) `pop(0)` removes from the end of the list.
+- D) A deque is LIFO, which is what a queue needs.
+
+**12.** Using the tree from question 5, what is the **height of N** and the **depth of T**?
+
+- A) 3 and 2
+- B) 1 and 3
+- C) 2 and 3
+- D) 2 and 2
+
+**13.** This tree has two nodes holding `X`. You call the lab's stack-based `find("X")` and queue-based `findShallowest("X")` on A. Which `X` does each one return?
+
+```text
+         A
+       /   \
+      B     X      <- X at depth 1
+      |
+      X            <- X at depth 2
+```
+
+- A) Both return the `X` at depth 1.
+- B) `find` returns the `X` at depth 2, and `findShallowest` returns the `X` at depth 1.
+- C) `find` returns the `X` at depth 1, and `findShallowest` returns the `X` at depth 2.
+- D) Both return the `X` at depth 2.
+
+**14.** Someone draws a diagram where A is the root, B and C are A's children, and D is a child of **both** B and C. Why isn't this a tree?
+
+- A) In a tree, each node can have at most two children.
+- B) Leaves aren't allowed at depth 2.
+- C) The root must have exactly one child.
+- D) Every node except the root must have exactly one parent. D has two, so there are two paths from A to D, which makes a cycle.
+
+**15.** In the lab's `pathTo`, each child is pushed with `path + [child.val]`. Why not call `path.append(child.val)` and push `path` instead?
+
+- A) `+` makes a **new list**, so each branch gets its own path. `append` would change one shared list, and sibling branches would mess up each other's paths.
+- B) `append` is \(O(n)\) and `+` is \(O(1)\).
+- C) `path + [child.val]` also sorts the path.
+- D) Tuples can't hold lists that were changed with `append`.
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **B.** A queue is first in, first out, like a line-up at a movie theatre. A list used with `append` and `pop()` is how you make a **stack**, which is LIFO.
+2. **D.** Depth counts edges up to the root, and height counts edges down to the furthest leaf, so both are 0. Answers with 1 come from counting nodes instead of edges.
+3. **A.** Path length counts **edges**, so K to G in the guide's tree is 2. Counting nodes would give 3.
+4. **C.** The first remove takes 5 and the second takes 6, so 7 and 8 are left. Answer D is what a stack would leave, since it pops the newest item each time.
+5. **A.** Pre-order writes each node before its children, going left to right. B is the BFS order, C is post-order, and D is what you get going right to left.
+6. **B.** In-order means "between the left and right child," which only works for binary trees. This course's nodes keep a list of any number of children.
+7. **D.** Post-order writes each node after all its children, so T comes before Q, and the root M is last. C writes Q before its child T, which breaks that rule.
+8. **C.** Undo takes back the most recent action first, which is LIFO. Print jobs, line-ups, and servers handling requests in order are all queues.
+9. **B.** BFS goes one level at a time, left to right: M, then N O, then P Q R S, then T U V. A is pre-order.
+10. **D.** Popping M pushes `O, N` (reversed), so the stack is `[O, N]`. Popping N pushes `R, Q, P`, giving `[O, R, Q, P]` with P on top, so P is popped next. A forgets the `reversed`.
+11. **A.** A plain list is slow on one side: `pop(0)` is \(O(n)\), from Week 4. A deque is still FIFO when used with `append` and `popleft()`; it isn't LIFO.
+12. **C.** N's furthest leaf is T, along N Q T, which is 2 edges. T is 3 edges from the root, along M N Q T. Mixing up height (down) and depth (up) gives the other answers.
+13. **B.** DFS goes all the way down the first branch, B, before reaching A's second child, so it finds the deeper `X` first. BFS checks depth 1 before depth 2, so it finds the shallow one. That's why `findShallowest` uses a queue.
+14. **D.** A tree has exactly one path between any two nodes, and only the root has no parent. A node with two parents means two paths, which makes a cycle. This course doesn't use binary trees, so A isn't a rule here.
+15. **A.** `path + [child.val]` makes a new list each time, from Week 3, so every worklist item carries its own path. With `append`, all the branches would share and change one list.
+
+</details>

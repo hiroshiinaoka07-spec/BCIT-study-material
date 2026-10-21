@@ -216,3 +216,135 @@ aws s3 ls s3://my-unique-bucket-name                      # list
 **Q5** — **S3 Glacier Instant Retrieval** for images older than 30 days: archive-level storage cost, but **millisecond** access, and the notes name **medical imaging** as an example use case. Use an S3 **lifecycle policy** to move objects from S3 Standard to Glacier Instant Retrieval after 30 days automatically. (Deep Archive would be cheaper, but its 12–48 h retrieval fails the "immediately" requirement.) For the database, use **Provisioned IOPS SSD (io1/io2/io2 Block Express)**: it's built for mission-critical databases, with up to 256,000 IOPS and sub-ms latency. gp3 tops out at 80,000 IOPS and isn't intended for that tier.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** Under the Shared Responsibility Model for storage, which task belongs to **you**, the customer?
+
+- A) Maintaining the hardware behind S3
+- B) Securing the data centers that host EBS volumes
+- C) Configuring bucket policies and encryption settings
+- D) Replicating EBS volumes within their Availability Zone
+
+**2.** A team stores files in S3 but has no idea how often each file will be read, and the pattern keeps changing. Which storage class moves data between access tiers automatically?
+
+- A) S3 Intelligent-Tiering
+- B) S3 Standard-IA
+- C) S3 Glacier Flexible Retrieval
+- D) S3 One Zone-IA
+
+**3.** What does an **EFS access point** provide?
+
+- A) A way to mount EFS from on-premises servers only
+- B) A separate copy of the file system in each Availability Zone
+- C) A lifecycle rule that moves rarely used files to Infrequent Access
+- D) An entry point into the file system with its own root directory and enforced POSIX user/group permissions
+
+**4.** How does the guide describe the durability of **EBS**?
+
+- A) 11 nines (99.999999999%)
+- B) An annual failure rate (AFR) of 0.1–0.2%
+- C) 99.99% availability, backed by an SLA
+- D) 99.5% availability
+
+**5.** Users on another continent upload large files to your S3 bucket, and the uploads are slow because of the distance. Which feature speeds them up?
+
+- A) S3 Express One Zone
+- B) S3 Object Lock
+- C) S3 on Outposts
+- D) S3 Transfer Acceleration
+
+**6.** Which command uploads `report.pdf` to an existing bucket?
+
+- A) `aws s3 mb s3://my-unique-bucket-name/report.pdf`
+- B) `aws s3 ls s3://my-unique-bucket-name report.pdf`
+- C) `aws s3 cp report.pdf s3://my-unique-bucket-name/`
+- D) `aws s3 upload report.pdf my-unique-bucket-name`
+
+**7.** A data warehouse reads large files sequentially. **Throughput (MB/s) matters more than IOPS**, and HDD pricing is preferred. Which EBS volume type fits?
+
+- A) st1
+- B) sc1
+- C) io2
+- D) gp3
+
+**8.** You create a **50 GiB gp3** volume and don't pay for any extra performance. What baseline do you get?
+
+- A) 80,000 IOPS and 2,000 MiB/s
+- B) 3,000 IOPS and 125 MiB/s
+- C) 256,000 IOPS and 4,000 MB/s
+- D) It depends on the volume size, so 50 GiB gets less than larger volumes
+
+**9.** You snapshot a 100 GiB EBS volume. Later, 2 GiB worth of blocks change and you take a second snapshot. What does the second snapshot store?
+
+- A) A full new copy of all 100 GiB
+- B) Only the roughly 2 GiB of blocks that changed
+- C) Nothing, because snapshots only record the first state of a volume
+- D) 102 GiB: the full volume plus the changes
+
+**10.** A law firm must keep closed case records for **seven years**. They are almost never opened, and waiting up to two days for one is acceptable. Which S3 class is the cheapest fit?
+
+- A) S3 Standard-IA
+- B) S3 Glacier Instant Retrieval
+- C) S3 Intelligent-Tiering
+- D) S3 Glacier Deep Archive
+
+**11.** A production EC2 instance's gp2 volume needs to become gp3 and grow larger, but the server **can't be stopped**. What should you use?
+
+- A) Take a snapshot, then restore it to a new gp3 volume
+- B) Stop the instance and replace the volume
+- C) Elastic Volumes
+- D) Multi-Attach
+
+**12.** Two EC2 instances in the **same Availability Zone** run a mission-critical, cluster-aware application that must share **one block-storage data set**. Which option fits?
+
+- A) gp3 with Multi-Attach
+- B) io2 Block Express with Multi-Attach, with the application coordinating writes
+- C) st1 with Multi-Attach
+- D) Any EBS type, since EBS is replicated within the AZ
+
+**13.** A hospital's policy says some data must **stay on-premises**, but developers want to use the normal S3 API. Which option fits?
+
+- A) S3 on Outposts
+- B) S3 One Zone-IA
+- C) S3 Transfer Acceleration
+- D) S3 Glacier Deep Archive
+
+**14.** Every time a user uploads a photo to a bucket, a thumbnail should be generated automatically without running a server. What does the guide say S3 can trigger for this?
+
+- A) An EFS mount
+- B) An EBS snapshot
+- C) A Glacier restore
+- D) A Lambda function
+
+**15.** An ML training job needs **sub-millisecond** access to hot data, with compute placed right next to it. Which S3 class fits?
+
+- A) S3 Standard
+- B) S3 Glacier Instant Retrieval
+- C) S3 Express One Zone
+- D) S3 Intelligent-Tiering
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **C.** You own security **in** the cloud: encryption settings, access controls such as bucket policies, and backup policies. Hardware, data centers and EBS replication are AWS's side, security **of** the cloud.
+2. **A.** **Intelligent-Tiering** is for unpredictable or changing access patterns and moves data between its tiers automatically. Standard-IA assumes you already know the data is infrequently accessed.
+3. **D.** Access points give apps sharing one EFS their own root directory and enforced POSIX permissions, which isolates them. Lifecycle tiering (option C) is a separate EFS feature.
+4. **B.** EBS durability is given as a **0.1–0.2% AFR**. 11 nines is the figure for **S3 and EFS**, which is the tempting mix-up.
+5. **D.** **Transfer Acceleration** routes uploads through CloudFront edge locations to speed up long-distance transfers. Express One Zone is about sub-millisecond access in a single AZ, not upload distance.
+6. **C.** `aws s3 cp` copies (uploads) a file to the bucket. `mb` makes a bucket and `ls` lists one; `aws s3 upload` isn't the command the guide shows.
+7. **A.** **st1** (Throughput Optimized HDD) is built for big data and data warehouses. **sc1** is also HDD, but it's for infrequently accessed data.
+8. **B.** gp3 gives a baseline of **3,000 IOPS and 125 MiB/s at any size**. 80,000 IOPS and 2,000 MiB/s is the maximum you can pay extra for.
+9. **B.** Snapshots are **incremental**, so after the first one only **changed blocks** are stored. That's what makes them cheap and quick.
+10. **D.** **Glacier Deep Archive** is the cheapest class, built for legal and regulatory records kept for years, and its 12–48 hour retrieval fits the two-day window. Glacier Instant Retrieval gives millisecond access the firm doesn't need, at a higher storage cost.
+11. **C.** **Elastic Volumes** change size, performance and type on the fly with no stop and no downtime. Snapshot-and-restore works, but it means swapping volumes instead of changing the live one.
+12. **B.** Multi-Attach is only for **io2 Block Express**, all instances must be **in the same AZ**, and the **application** must handle multiple servers writing safely. gp3 and st1 don't support it.
+13. **A.** **S3 on Outposts** keeps the data on the Outposts rack on-premises while using the same S3 API. One Zone-IA still stores data in an AWS Availability Zone.
+14. **D.** In event-driven designs, an S3 upload **triggers Lambda**. That's the serverless use case the guide lists, along with integrations with API Gateway, SNS and SQS.
+15. **C.** **S3 Express One Zone** offers sub-millisecond access for real-time analytics and ML training, with compute placed next to the data. S3 Standard returns data in milliseconds, not sub-milliseconds.
+
+</details>

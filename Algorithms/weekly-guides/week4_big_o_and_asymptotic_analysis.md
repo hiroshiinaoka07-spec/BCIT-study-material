@@ -531,3 +531,196 @@ Inner: \(n \times n = n^2\). Outer: \(3 \times n^2\). Total: **\(O(n^2)\)**
 - Total: \(n \log n + n^2 + 1 + n^3\) = **\(O(n^3)\)**
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** What does it mean when code is \(O(1)\)?
+
+- A) It runs exactly one step.
+- B) The amount of work doesn't grow as n grows.
+- C) It is written in one line of code.
+- D) It always finishes in under one second.
+
+**2.** A function was measured on growing inputs. Which growth class fits this table?
+
+| n | 100 | 200 | 400 | 800 |
+| - | - | - | - | - |
+| work | 500 | 2000 | 8000 | 32000 |
+
+- A) \(O(n)\)
+- B) \(O(\log n)\)
+- C) \(O(n^2)\)
+- D) \(O(n^3)\)
+
+**3.** What is the cost of `data.insert(0, x)` on a Python list with n items?
+
+- A) \(O(n)\)
+- B) \(O(1)\)
+- C) \(O(\log n)\)
+- D) \(O(n \log n)\)
+
+**4.** What is the Big O of this function?
+
+```python
+def scaled_totals(data):
+    results = []
+    for i in range(10):
+        results.append(sum(data) * i)
+    return results
+```
+
+- A) \(O(1)\)
+- B) \(O(n^2)\)
+- C) \(O(10)\)
+- D) \(O(n)\)
+
+**5.** In the worst case, how does the number of steps in **binary search** change when n doubles?
+
+- A) It doubles.
+- B) It goes up by about one step.
+- C) It goes up about 4 times.
+- D) It stays exactly the same.
+
+**6.** Why does the course measure **rate of growth** instead of just timing code?
+
+- A) Timing is always wrong in Python.
+- B) Big O gives the exact running time in microseconds.
+- C) Timing only works for \(O(1)\) code.
+- D) A time only describes one run, on that data, on that computer, while growth describes how the work changes as n grows.
+
+**7.** What is the Big O of this function?
+
+```python
+def positions(data):
+    result = []
+    for x in data:
+        result.append(data.index(x))
+    return result
+```
+
+- A) \(O(n^2)\)
+- B) \(O(n)\)
+- C) \(O(1)\)
+- D) \(O(n \log n)\)
+
+**8.** What is \(5n^2 + 2000n\log_2 n\) in Big O?
+
+- A) \(O(n \log n)\)
+- B) \(O(2000n \log n)\)
+- C) \(O(n^2)\)
+- D) \(O(n^3)\)
+
+**9.** A logarithmic algorithm takes about 10 steps when n = 1024. About how many steps does it take when n = 8192?
+
+- A) 80
+- B) 13
+- C) 11
+- D) 30
+
+**10.** Which of these operations is \(O(n)\)?
+
+- A) `d[key] = value` on a dict
+- B) `data.pop()` on a list
+- C) `sum(data)`
+- D) `len(data)`
+
+**11.** What is the Big O of this function?
+
+```python
+def summary(data):
+    total = 0
+    for x in data:
+        total += x
+    biggest = data[0]
+    for x in data:
+        if x > biggest:
+            biggest = x
+    return total, biggest
+```
+
+- A) \(O(n^2)\)
+- B) \(O(2n)\)
+- C) \(O(\log n)\)
+- D) \(O(n)\)
+
+**12.** A classmate says this function is \(O(n)\) "because it only has one loop." What's the best response?
+
+```python
+def count_dupes(data):
+    dupes = 0
+    for x in data:
+        if data.count(x) > 1:
+            dupes += 1
+    return dupes
+```
+
+- A) It's \(O(n^2)\), because `data.count(x)` is \(O(n)\) and it runs once per pass of a loop that runs n times.
+- B) They're right. One loop is always \(O(n)\).
+- C) It's \(O(n \log n)\), because `.count` sorts the list first.
+- D) It's \(O(1)\), because `.count` is a built-in method.
+
+**13.** What is the Big O of this function?
+
+```python
+def count_above_middle(data):
+    ordered = sorted(data)
+    middle = ordered[len(ordered) // 2]
+    count = 0
+    for x in ordered:
+        if x > middle:
+            count += 1
+    return count
+```
+
+- A) \(O(n)\)
+- B) \(O(n \log n)\)
+- C) \(O(n^2)\)
+- D) \(O(\log n)\)
+
+**14.** This function is too slow when both lists have n items. Which change helps most?
+
+```python
+def common(a_list, b_list):
+    count = 0
+    for x in a_list:
+        if x in b_list:
+            count += 1
+    return count
+```
+
+- A) Sort `b_list` first and keep the `x in b_list` check.
+- B) Replace `count += 1` with `count = count + 1`.
+- C) Turn `b_list` into a set (or dict) once before the loop, so each `in` check is \(O(1)\).
+- D) Loop over `range(len(a_list))` instead of over `a_list`.
+
+**15.** One function does about \(9n\) steps and another does \(n + 2\) steps. Which statement is correct?
+
+- A) Both are \(O(n)\), because doubling n about doubles the work for both. The 9 and the +2 change the values, not the pattern.
+- B) The first is \(O(9n)\) and the second is \(O(n)\).
+- C) \(9n\) is in a faster-growing class than \(n + 2\).
+- D) \(n + 2\) is \(O(1)\), because the +2 is a constant.
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **B.** \(O(1)\) means the work doesn't grow with n. It doesn't mean one step, which is the tempting misreading.
+2. **C.** Each time n doubles, the work goes ×4 (500, 2000, 8000, 32000), which is quadratic. Cubic would be ×8 per doubling.
+3. **A.** Inserting at the front means every other item has to shift over. It looks cheap like `append`, but only the end of the list is \(O(1)\).
+4. **D.** The loop runs 10 times, a constant, but its body calls `sum(data)`, which is \(O(n)\). That's \(10 \times n = O(n)\). \(O(10)\) is wrong because the body isn't constant, and you'd write a constant as \(O(1)\) anyway.
+5. **B.** Each step cuts the gap in half, so doubling n adds one step. Doubling the work is linear behaviour, not logarithmic.
+6. **D.** A timing only answers how long this run took on this data and this computer. Big O doesn't give exact times; it describes the growth pattern.
+7. **A.** `data.index(x)` searches the list, so it's \(O(n)\), and it runs inside a loop of n: \(n \times n\). The name "index" makes it look like the \(O(1)\) `data[i]`, but it isn't.
+8. **C.** Keep the biggest term. \(n \log n\) grows slower than \(n^2\), so \(n^2\) wins even with 2000 in front of the other term. Big constants don't matter.
+9. **B.** 8192 is 8 times 1024, which is 3 doublings, and each doubling adds about one step: \(10 + 3 = 13\). 80 is what linear growth would give.
+10. **C.** `sum` has to look at every item. Dict assignment, `pop()` from the end, and `len` are all \(O(1)\).
+11. **D.** Two separate loops **add**: \(n + n = 2n\), which is \(O(n)\). They'd only multiply to \(n^2\) if one were inside the other, and \(O(2n)\) isn't simplified.
+12. **A.** One line can hide \(O(n)\) work, so don't count lines or loops. `.count` is a linear search with no early exit, run n times, giving \(O(n^2)\).
+13. **B.** `sorted` is \(O(n \log n)\), the indexing is \(O(1)\), and the loop is \(O(n)\). \(n \log n + n\) simplifies to \(O(n \log n)\). Answer A forgets that sorting isn't free.
+14. **C.** `x in b_list` is \(O(n)\) on a list, inside a loop of n, so the function is \(O(n^2)\). A set or dict lookup is \(O(1)\), bringing it down to \(O(n)\). Sorting doesn't help, because `in` on a list still checks item by item.
+15. **A.** Both are straight-line growth, and the simplest member \(n\) names the family. Don't write \(O(9n)\) or \(O(n + 2)\), and a +2 doesn't make linear work constant.
+
+</details>

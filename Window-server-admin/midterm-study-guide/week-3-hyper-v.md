@@ -215,3 +215,135 @@ Enter-PSSession -VMName DC1
 5. Use a **Private** switch — the only type that blocks VM ↔ host traffic as well as the physical network. Take a **checkpoint** before the update so you can roll back instantly. It's not enough on its own because **checkpoints are not backups**: they live on the same storage, depend on the parent disk, and aging `.avhdx` files degrade performance and can fill the volume. Production needs real backups too.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** Which virtual disk format is limited to about **2 TB** and should only be used for Server 2008/2008 R2 compatibility?
+
+- A) `.vhdx`
+- B) `.avhdx`
+- C) `.vhd`
+- D) `.vhds`
+
+**2.** Which checkpoint type does Hyper-V use **by default**?
+
+- A) Standard
+- B) Production
+- C) Differencing
+- D) Fixed-size
+
+**3.** Which tool does the guide say to run to verify that the hardware supports Hyper-V (VM Monitor Mode Extensions, virtualization enabled in BIOS, Data Execution Prevention)?
+
+- A) Hyper-V Manager
+- B) Virtual Switch Manager
+- C) `ipconfig /all`
+- D) `systeminfo.exe`
+
+**4.** Which feature is available on a **Generation 2** VM but not on a Generation 1 VM?
+
+- A) Booting from a virtual IDE disk
+- B) Secure Boot
+- C) Support for 32-bit guest operating systems
+- D) BIOS firmware
+
+**5.** What happens to a checkpoint's `.avhdx` file when you **delete** the checkpoint?
+
+- A) It is merged back into the previous checkpoint or parent disk.
+- B) The VM is rolled back to the state saved in that file.
+- C) The VM's parent `.vhdx` is deleted along with it.
+- D) It is copied off to long-term backup storage.
+
+**6.** Which command stops one VM from **hogging the host's CPU**?
+
+- A) `Update-VMVersion "VM1"`
+- B) `Invoke-Command -VMName VM1 -ScriptBlock { Get-Service }`
+- C) `Set-VMProcessor -VMName VM1 -EnableHostResourceProtection $true`
+- D) `Enter-PSSession -VMName VM1`
+
+**7.** Which virtual disk type does the guide recommend for **production** VMs?
+
+- A) Dynamically expanding
+- B) Pass-through
+- C) Differencing
+- D) Fixed-size
+
+**8.** You want to run `Get-Service` inside `VM1` from the Hyper-V host, but the VM has **no network connectivity**. Which command works?
+
+- A) `Enter-PSSession -ComputerName VM1`
+- B) `Invoke-Command -VMName VM1 -ScriptBlock { Get-Service }`
+- C) `Update-VMVersion "VM1"`
+- D) `Set-VMProcessor -VMName VM1 -EnableHostResourceProtection $true`
+
+**9.** You are importing a VM so that it can run **alongside the original** on the same host. Which import option creates a **new unique ID**?
+
+- A) Register in-place
+- B) Restore
+- C) Copy
+- D) Export
+
+**10.** Where do you create External, Internal and Private virtual switches?
+
+- A) Hyper-V Manager → Virtual Switch Manager
+- B) Server Manager → Add Roles and Features
+- C) Network Connections → New network adapter
+- D) Device Manager → Network adapters
+
+**11.** After creating an External switch named `Internet`, you notice the **physical NIC** now has **IPv4 unchecked** and **Hyper-V Extensible Virtual Switch** bound. What should you do?
+
+- A) Re-enable IPv4 on the physical NIC and assign it the server's IP address.
+- B) Nothing. This is normal, and the IP now lives on the `vEthernet (Internet)` adapter.
+- C) Delete the switch and create an Internal switch instead.
+- D) Reinstall the physical NIC driver.
+
+**12.** A student enables the Hyper-V role inside a **VMware Workstation** VM, but Hyper-V won't run. Their laptop also has **WSL** and **VirtualBox** installed. What is the most likely cause?
+
+- A) The VM is Generation 1 instead of Generation 2.
+- B) The VM uses a dynamically expanding disk.
+- C) No External switch has been created yet.
+- D) Hyper-V conflicts with other hypervisors such as WSL / Virtual Machine Platform and VirtualBox.
+
+**13.** You open Notepad, type text **without saving**, take a checkpoint, and later roll back. The VM boots as if from an offline state and **Notepad and the unsaved text are gone**. Which checkpoint type was used?
+
+- A) Production
+- B) Standard
+- C) A checkpoint of a pass-through disk
+- D) A VSS backup restored from another volume
+
+**14.** A VM stops after months of running because its volume is full. You find several large `.avhdx` files from checkpoints taken before Windows updates long ago. What is the best fix going forward?
+
+- A) Convert the VM to Generation 2.
+- B) Take another checkpoint before making any further changes.
+- C) Delete the old checkpoints so they merge, and in future delete each checkpoint once the change is verified.
+- D) Move the VM to a Private switch.
+
+**15.** You are building a VM **file server** that users on the office LAN must connect to. Which virtual switch type should its network adapter use?
+
+- A) Internal
+- B) External
+- C) Private
+- D) None, because PowerShell Direct handles user connections
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **C.** `.vhd` is the old format with a ~2 TB limit, kept for Server 2008/2008 R2 compatibility. `.vhdx` is the default choice and goes beyond 2 TB.
+2. **A.** **Standard** checkpoints are the default (lecture 42:41). Production is the VSS-based alternative; differencing and fixed-size are disk types, not checkpoint types.
+3. **D.** `systeminfo.exe` reports the Hyper-V requirements. Hyper-V Manager and Virtual Switch Manager are used after Hyper-V is installed.
+4. **B.** **Secure Boot** is a Gen 2 feature, along with UEFI, SCSI boot, hot add and vTPM. IDE boot, BIOS and 32-bit guest support are Gen 1 traits.
+5. **A.** Deleting a checkpoint **merges** its `.avhdx` back into the previous checkpoint or parent (slide 20). Rolling back is a different action, and checkpoints are never copied off-host, which is why they aren't backups.
+6. **C.** `Set-VMProcessor ... -EnableHostResourceProtection $true` turns on host resource protection. `Update-VMVersion` only upgrades the VM configuration version.
+7. **D.** **Fixed-size** reserves the full size up front, so the host can't be overcommitted. Dynamically expanding is for test, and it is the tempting wrong answer because it saves space at first.
+8. **B.** `Invoke-Command -VMName` uses **PowerShell Direct**, which needs no network. `-ComputerName` is normal remoting and needs network connectivity.
+9. **C.** **Copy** creates a new unique ID. Register in-place and Restore keep the existing ID, which would clash with the original VM.
+10. **A.** Virtual switches are created in **Hyper-V Manager → Virtual Switch Manager** (slide 12, lecture 32:01).
+11. **B.** The IP is copied to the new `vEthernet (Internet)` adapter and the physical NIC is bound to the virtual switch. The guide says not to re-enable IPv4 or assign an IP to the physical adapter.
+12. **D.** Hyper-V conflicts with other hypervisors; with WSL / Virtual Machine Platform or VirtualBox on, Hyper-V can't run nested in VMware Workstation. The other options don't stop Hyper-V from running.
+13. **A.** A **Production** checkpoint uses VSS and captures disk data only, so the VM boots as if from offline and unsaved work is lost. A Standard checkpoint would bring Notepad back with the unsaved text.
+14. **C.** Aging checkpoints grow and can fill the volume and stop the VM. Delete them (which merges the `.avhdx` files) once changes are verified. Taking yet another checkpoint adds another differencing disk and makes the problem worse.
+15. **B.** Only an **External** switch reaches the physical network. Internal stops at the host, and Private is VMs only.
+
+</details>

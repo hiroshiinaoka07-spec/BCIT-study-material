@@ -1,6 +1,6 @@
 # 3640 Cloud Computing — Study Guide
 
-A weekly guide built from the notes, textbook chapters, and labs in this repo. Each week has learning objectives, a concept deep dive, a repository tour, practical takeaways, and a 5-question quiz with a hidden answer key.
+A weekly guide built from the notes, textbook chapters, and labs in this repo. Each week has learning objectives, a concept deep dive, a repository tour, practical takeaways, a 5-question quiz with a hidden answer key, and a 15-question multiple-choice quiz at the end.
 
 | Week | Topic | Source files |
 | ---- | ----- | ------------ |

@@ -175,3 +175,167 @@ Do each question on paper first. To count lists, **count every list literal that
 **14.** 2 lists. It prints `[[[...]]]`. `a` holds `b`, and `b` holds `a`, so following the arrows goes round in a loop. Python prints the outer list, then `b`, and then shows `...` when it gets back to `a`.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** What question does \(\log_b(n)\) ask?
+
+- A) "What is n to the power b?"
+- B) "What is n divided by b once?"
+- C) "b to the **what** gives n?"
+- D) "What is b times n?"
+
+**2.** What is \(\log_3(81)\)?
+
+- A) 27
+- B) 4
+- C) 3
+- D) 9
+
+**3.** In computing, if a log's base isn't given, what base should you assume?
+
+- A) 10
+- B) e
+- C) 3
+- D) 2
+
+**4.** A tournament has 1024 players. Each game has **4** players, and only the winner moves on. How many rounds until there's one champion?
+
+- A) 5
+- B) 10
+- C) 256
+- D) 1023
+
+**5.** Which of these is **not** a log?
+
+- A) Halving a sorted list of 1600 items until you find the one you want
+- B) Checking 500 items one at a time until you find the one you want
+- C) A tournament with 2 players per game where only the winner moves on
+- D) Dividing n by 10 again and again until you reach 1
+
+**6.** What's the right word for \(y = 4n^2 + 10n + 3\)?
+
+- A) Linear
+- B) Exponential
+- C) Quadratic
+- D) Logarithmic
+
+**7.** What's the Big O of \(n^3 + 50n^2 + 1000\)?
+
+- A) \(O(n^3)\)
+- B) \(O(n^2)\)
+- C) \(O(1000)\)
+- D) \(O(3^n)\)
+
+**8.** A teammate describes \(3n + 7\) as "polynomial" on a quiz. What's the best response?
+
+- A) That's wrong; it's exponential
+- B) That's the preferred word, so keep it
+- C) That's wrong; it's constant
+- D) It's technically true, but call it **linear**, or you might lose marks
+
+**9.** How do \(O(\log_2 n)\) and \(O(\log_{10} n)\) compare?
+
+- A) \(O(\log_2 n)\) grows much faster, so they're different
+- B) They're the same; you don't need the log base in Big O
+- C) \(O(\log_{10} n)\) is actually linear
+- D) You always have to write the base in Big O
+
+**10.** What does this print?
+
+```python
+a = [1, 2]
+b = a
+a = [3]
+b.append(4)
+print(a)
+print(b)
+```
+
+- A) `[3, 4]` then `[1, 2]`
+- B) `[1, 2, 4]` then `[1, 2, 4]`
+- C) `[3]` then `[1, 2, 4]`
+- D) `[3]` then `[1, 2]`
+
+**11.** How many lists does this code create?
+
+```python
+p = [1]
+q = [p, p]
+r = q
+s = [r]
+```
+
+- A) 3
+- B) 4
+- C) 5
+- D) 2
+
+**12.** What does this print?
+
+```python
+a = [5]
+b = [a, a]
+b[0].append(6)
+print(b)
+```
+
+- A) `[[5, 6], [5]]`
+- B) `[[5], [5], 6]`
+- C) `[[5, 6]]`
+- D) `[[5, 6], [5, 6]]`
+
+**13.** What does this print?
+
+```python
+a = [1]
+b = [a]
+b[0] = [2]
+b[0].append(3)
+print(a)
+print(b)
+```
+
+- A) `[1, 3]` then `[[2]]`
+- B) `[2, 3]` then `[[2, 3]]`
+- C) `[1]` then `[[2, 3]]`
+- D) `[1]` then `[[1], 3]`
+
+**14.** `a` and `b` point at the same list. Which line changes **the list itself**, so the change shows up through both variables?
+
+- A) `a = [0]`
+- B) `a[0] = 0`
+- C) `a = b`
+- D) `b = a`
+
+**15.** An algorithm starts a counter at 1 and **doubles** it until it reaches n. About how many steps does that take?
+
+- A) About \(\log_2(n)\), which is logarithmic
+- B) About \(n / 2\), which is linear
+- C) About \(2^n\), which is exponential
+- D) About \(n^2\), which is quadratic
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **C.** Logs are the reverse of exponents: \(\log_b(n)\) is the power you raise b to in order to get n. Option A is the exponent itself, going the wrong way.
+2. **B.** \(3^4 = 81\), so \(\log_3(81) = 4\). Option A is \(81 / 3\), which is only one division.
+3. **D.** In computing, assume **base 2** unless you're told otherwise.
+4. **A.** Each round keeps a quarter of the players, so it's \(\log_4(1024)\). Since \(4^5 = 1024\), that's 5 rounds. Option B is \(\log_2(1024)\), which would be right for 2 players per game.
+5. **B.** Checking one at a time goes 499, 498, 497, and so on, which is **linear**. The other three keep dividing down to 1, so they're all logs.
+6. **C.** The biggest term is \(n^2\), so it's quadratic. Calling \(n^2\) exponential (option B) is the common mistake, since n isn't in the exponent.
+7. **A.** Drop constants and smaller terms; \(n^3\) dominates as n grows. Option D puts n in the exponent, which the formula never does.
+8. **D.** Linear is technically a polynomial, but the guide warns that calling it "polynomial" might lose you marks. Use the most specific word.
+9. **B.** The base doesn't matter in Big O, so both are just \(O(\log n)\).
+10. **C.** `b = a` makes both point at `[1, 2]`. Then `a = [3]` only moves `a`'s arrow, so `b.append(4)` changes the original list, which only `b` still points at. Option B forgets that `a` was moved.
+11. **A.** Count the list literals that run: `[1]`, `[p, p]`, and `[r]`. `r = q` only moves an arrow, so counting it (option B) is the trap.
+12. **D.** Both slots of `b` point at the same list `a`, so appending through `b[0]` shows up in both. Option A treats the two slots as separate copies.
+13. **C.** `b[0] = [2]` replaces one slot in `b` with a new list and doesn't touch `a`. The append then changes that new list. Option A assumes `b[0]` still points at `a`.
+14. **B.** `a[0] = ...` changes the list itself, so every arrow pointing at it sees the change. The other three are all `x = something`, which only moves an arrow.
+15. **A.** Doubling from 1 up to n is "multiplying up to n," which the guide says is a log. You double about \(\log_2(n)\) times. Option B would be adding a fixed amount each step.
+
+</details>

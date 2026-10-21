@@ -273,3 +273,135 @@ remove selected server
 5. **Faculty users → `ACIT Faculty Global`** (Global, **Adatum.com**) → a **Domain Local** group in **Van.Adatum.com**, e.g. `ACL_VanShare_Read` → assign **Read** on the share and NTFS to that Domain Local group. **No**, you couldn't use a Van Global group: Global groups only accept members from their **own** domain, and Global groups can't be nested across domains. (A Universal group in between, AGUDLP, would also work.)
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** How does a **distribution group** differ from a **security group**?
+
+- A) It has no SID and can't be assigned permissions; it is only used as an email list.
+- B) It can be assigned permissions but can't be used as an email list.
+- C) It can never be converted into a security group.
+- D) It is stored in the local SAM instead of AD.
+
+**2.** Which FSMO role is the **time sync source** and handles **password changes and account lockout**?
+
+- A) RID Master
+- B) Infrastructure Master
+- C) PDC Emulator
+- D) Schema Master
+
+**3.** How many FSMO role holders are there in a forest with **three domains**?
+
+- A) 5
+- B) 11
+- C) 15
+- D) 9
+
+**4.** How often does the **KCC** automatically recalculate the replication topology?
+
+- A) Every 5 minutes
+- B) Every 60 minutes
+- C) Once every 24 hours
+- D) Every 15 minutes
+
+**5.** Where is **Universal group membership** held, which is why every membership change creates forest-wide replication?
+
+- A) In each computer's local SAM
+- B) Only on the PDC Emulator
+- C) In the Global Catalog
+- D) In SYSVOL
+
+**6.** Which command lists the DCs that currently hold the **FSMO roles**?
+
+- A) `netdom query fsmo`
+- B) `repadmin /replsum`
+- C) `repadmin /kcc`
+- D) `ntdsutil` → `metadata cleanup`
+
+**7.** Which console do you use to manage the **Domain Naming Master** role?
+
+- A) Active Directory Users and Computers
+- B) Active Directory Sites and Services
+- C) Active Directory Schema snap-in
+- D) Active Directory Domains and Trusts
+
+**8.** You suspect inbound replication on a DC is **stuck**. Which command shows its inbound replication queue?
+
+- A) `repadmin /showobjmeta`
+- B) `repadmin /queue`
+- C) `repadmin /prp`
+- D) `repadmin /syncall`
+
+**9.** You just changed a site link and don't want to wait for the next automatic topology check. Which command forces the KCC to recalculate this DC's inbound topology **now**?
+
+- A) `repadmin /replsum`
+- B) `repadmin /showattr`
+- C) `repadmin /queue`
+- D) `repadmin /kcc`
+
+**10.** Which command shows an object's attribute **change history**: version number, originating DC, timestamp and USNs?
+
+- A) `repadmin /showobjmeta`
+- B) `repadmin /showattr`
+- C) `repadmin /showrepl *`
+- D) `repadmin /replicate`
+
+**11.** A user is added to a **security group** that has Read on a share, and the share's ACL is correct. The user, still logged on, still can't open the share. Why?
+
+- A) The group must be converted to Universal first.
+- B) ACL changes take 15 minutes to replicate.
+- C) Group membership is evaluated at logon, so the user must log off and back on.
+- D) Security groups can't be granted share permissions.
+
+**12.** Can **ACIT Local** (Domain Local, `Adatum.com`) be nested inside **ACIT Universal** (Universal, `Adatum.com`)?
+
+- A) Yes, Universal groups accept any group from any domain in the forest.
+- B) No, Universal groups can't contain Domain Local groups.
+- C) Yes, because both groups are in the same domain.
+- D) No, but it would work if the groups were in different domains.
+
+**13.** The DC holding the **PDC Emulator** role has died permanently and there is no backup. Users report time sync and password change problems. What do you do with the role?
+
+- A) **Seize** it onto another DC using `ntdsutil`.
+- B) **Transfer** it from the dead DC in ADUC → Operations Masters.
+- C) Wait for the KCC to move it automatically.
+- D) Run `repadmin /syncall` so the role replicates to another DC.
+
+**14.** You force-removed a dead DC through ADUC, but clients keep trying to authenticate against it. What step was most likely missed?
+
+- A) Raising the domain functional level
+- B) Running `repadmin /prp` against a writable DC
+- C) Converting the dead DC's groups to distribution groups
+- D) Cleaning up its **DNS** A, NS and SRV records and checking Sites and Services for leftovers
+
+**15.** An admin adds **500 users directly** to a Universal group, and GC replication traffic spikes every time someone joins or leaves. What does the guide recommend?
+
+- A) Convert the Universal group to a Domain Local group.
+- B) Make only one DC in the forest a Global Catalog.
+- C) Put the users in Global groups and nest those Global groups in the Universal group, so its membership stays static.
+- D) Convert the Universal group to a distribution group.
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **A.** A distribution group is **not security enabled**: no SID, no permissions, email only. Either type can be converted into the other, and both are AD groups, not SAM groups.
+2. **C.** The **PDC Emulator** handles time sync, password changes and account lockout. The RID Master hands out RID pools, and the Infrastructure Master updates cross-domain references.
+3. **B.** 2 forest-wide roles + 3 per-domain roles × 3 domains = **11**. 5 is the count for a single-domain forest.
+4. **D.** The KCC recalculates every **15 minutes**. You can force it sooner with `repadmin /kcc`.
+5. **C.** Universal group membership is stored in the **Global Catalog**, so every change replicates to every GC. The local SAM holds only machine-local groups.
+6. **A.** `netdom query fsmo` lists the role holders. `repadmin /replsum` summarises replication health, not role ownership.
+7. **D.** The Domain Naming Master is managed in **AD Domains and Trusts**. ADUC manages the three domain roles, and the Schema snap-in manages the Schema Master.
+8. **B.** `repadmin /queue` shows the inbound queue; items waiting is normal, but items stuck indefinitely or a very long queue means a problem. `/syncall` forces a sync rather than showing the queue.
+9. **D.** `repadmin /kcc` forces the KCC to recalculate now instead of waiting up to 15 minutes. `/queue` only displays pending inbound items.
+10. **A.** `/showobjmeta` shows the change history (version, originating DC, timestamp, GUID, USNs). `/showattr` shows the attributes' current values, which is the tempting distractor.
+11. **C.** Membership is evaluated at **logon**, so the user must log off and on. Changes made directly on ACLs apply immediately, so B is wrong.
+12. **B.** Universal groups contain users, computers, Global and Universal groups, but **no Domain Local groups**. Domain Local groups can only go inside other Domain Local groups in the same domain.
+13. **A.** When the old holder is dead, you **seize** the role with `ntdsutil`. A transfer needs the old holder online, and roles don't move by replication or the KCC.
+14. **D.** Even when the GUI cleans up metadata, records are left in **DNS** and **Sites and Services**, so clients keep finding the dead DC through stale SRV records. Clean them up after every forced removal.
+15. **C.** Keep Universal membership **static** by nesting Global groups instead of adding users directly (AGUDLP). Converting to Domain Local or distribution would break the group's purpose, and fewer GCs would slow logons and searches.
+
+</details>

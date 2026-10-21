@@ -205,3 +205,135 @@ Format-Volume -DriveLetter E -FileSystem ReFS   # format a volume as ReFS (slide
 5. Put the five disks in a **storage pool**, create a **three-way mirror** virtual disk (needs exactly the 5 disks it has, survives 2 failures), and publish it to the hosts with the **iSCSI Target Server** role — iSCSI gives block-level SAN access over ordinary **Ethernet/TCP/IP** at much lower cost than Fibre Channel. Connect each host with the built-in **iSCSI Initiator**, and add **MPIO** with redundant network paths so one switch or NIC failure doesn't cut off the storage.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** What is the **minimum number of disks** for **RAID 10**?
+
+- A) 2
+- B) 4
+- C) 3
+- D) 5
+
+**2.** Which RAID level provides **no fault tolerance**, so losing one disk loses everything?
+
+- A) RAID 1
+- B) RAID 5
+- C) RAID 10
+- D) RAID 0
+
+**3.** Which protocols does a **NAS** use to provide shared folders?
+
+- A) SMB/CIFS and NFS over Ethernet
+- B) Fibre Channel and FCoE
+- C) iSCSI only
+- D) SAS and SATA cabled directly to the server
+
+**4.** What is the minimum number of physical disks for a **dual parity** Storage Spaces virtual disk?
+
+- A) 3
+- B) 5
+- C) 7
+- D) 4
+
+**5.** What is an **IQN**?
+
+- A) The IP address of the iSCSI target
+- B) The World Wide Name of a Fibre Channel node
+- C) The number of a LUN on a SAN
+- D) A globally unique logical name for an iSCSI initiator or target, not tied to an IP address
+
+**6.** Which command shows the **file system and supported features** (ACLs, EFS, quotas) of drive C:?
+
+- A) `fsutil fsinfo volumeinfo c:`
+- B) `fsutil fsinfo sectorinfo c:`
+- C) `Format-Volume -DriveLetter C -FileSystem ReFS`
+- D) `systeminfo.exe`
+
+**7.** You are initializing a new **4 TB** data disk and want a single partition that uses the whole disk. Which partition table do you choose?
+
+- A) MBR
+- B) GPT
+- C) Dynamic spanned
+- D) FAT32
+
+**8.** Where in Windows Server do you configure the **iSCSI initiator** and find its IQN?
+
+- A) Server Manager → Add Roles and Features → iSCSI Target Server
+- B) Disk Management → New Spanned Volume
+- C) Server Manager → Tools → iSCSI Initiator → Configuration
+- D) The iSNS server console
+
+**9.** Which Windows **dynamic volume** type is the equivalent of **RAID 1**?
+
+- A) Mirrored
+- B) Striped
+- C) Spanned
+- D) Simple
+
+**10.** Which file system offers **checksums/integrity streams**, **storage pooling** and **disk scrubbing**?
+
+- A) FAT32
+- B) exFAT
+- C) NTFS
+- D) ReFS
+
+**11.** A consultant proposes storing the company's **Exchange** databases on a NAS share. Why does the guide say this is a poor choice?
+
+- A) NAS is block-level storage and costs more than a SAN.
+- B) NAS is file-level and slower, and isn't suitable for Exchange or SQL, which need block-level storage.
+- C) A NAS can only be used by one server at a time.
+- D) A NAS requires Fibre Channel HBAs in every server.
+
+**12.** A **RAID 5** array has four disks. One disk fails, and a **second disk fails** while the array is rebuilding. What happens?
+
+- A) The array keeps running because parity covers two failures.
+- B) The array keeps running in degraded mode with no data loss.
+- C) Data is lost, because RAID 5 survives only one disk failure.
+- D) The array automatically converts itself to RAID 1.
+
+**13.** A small office has **one server** that needs more disk capacity. They want the **cheapest, easiest** option with no extra switches, managed in Disk Management. Which solution fits?
+
+- A) A Fibre Channel SAN
+- B) A NAS
+- C) An iSCSI SAN with MPIO
+- D) DAS
+
+**14.** Three servers connect to an iSCSI target through a **single switch**. The switch fails and **every server loses its disk**. What should have been deployed to prevent this?
+
+- A) **MPIO** with redundant network paths
+- B) An **iSNS** server
+- C) **CHAP** authentication on the target
+- D) **Thin** provisioning on the virtual disk
+
+**15.** When creating a new storage pool, one physical disk can't be added. It still holds an **NTFS volume** with old data on it. Why?
+
+- A) A pool needs at least three disks before any can be added.
+- B) Disks added to a pool must be blank and unformatted, with no existing volumes.
+- C) Storage pools don't support SATA disks.
+- D) All disks in a pool must be the same size.
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **B.** RAID 10 mirrors pairs and then stripes them, so it needs **4** disks. 2 is the minimum for RAID 0 and RAID 1, and 3 is RAID 5.
+2. **D.** **RAID 0** is striping without parity or mirroring, so one failed disk loses the whole set. RAID 1, 5 and 10 all survive at least one failure.
+3. **A.** NAS is file-level storage using **SMB/CIFS and NFS** over Ethernet. Fibre Channel, FCoE and iSCSI are SAN transports, and SAS/SATA is DAS.
+4. **C.** Dual parity needs **7** disks. 3 is parity, 5 is three-way mirror; memorise 1/2/3/5/7 for simple/two-way/parity/three-way/dual parity.
+5. **D.** An IQN (iSCSI Qualified Name) is a globally unique **logical** name for initiators and targets, used to decide which initiator sees which LUN. It is not an IP address, and WWN is the Fibre Channel equivalent term.
+6. **A.** `fsutil fsinfo volumeinfo` shows the file system and its features. `sectorinfo` shows sector size and alignment instead.
+7. **B.** **GPT** is for disks over 2 TB (up to 128 partitions, 18 EB). MBR is limited to 2 TB. Spanned is a volume type and FAT32 is a file system, not partition tables.
+8. **C.** The initiator is installed by default and configured at **Server Manager → Tools → iSCSI Initiator → Configuration**. The iSCSI Target Server role is the storage side, not the client.
+9. **A.** **Mirrored** = RAID 1. Striped = RAID 0, and spanned has no RAID equivalent or redundancy.
+10. **D.** **ReFS** adds checksums/integrity streams, storage pooling, disk scrubbing and corruption resiliency. NTFS is the tempting choice, but its listed features are ACLs, encryption, journaling and auditing.
+11. **B.** NAS is file-level with slower access and is not suitable for SQL or Exchange; Exchange supports only block storage. A NAS is shared and relatively inexpensive, so A, C and D are false.
+12. **C.** RAID 5 survives **one** failure; a second failure during the rebuild means data loss. Surviving two failures needs RAID 6 or dual parity.
+13. **D.** **DAS** is the easiest to deploy, inexpensive (no switches or routers) and managed in Disk Management. Its drawback, isolation to one server, doesn't matter here. NAS and SAN add network devices and cost.
+14. **A.** **MPIO** adds redundant paths so one NIC or switch failure doesn't cut off the storage. iSNS is the tempting distractor, but it handles discovery and management, not redundancy.
+15. **B.** Pool disks must be **blank and unformatted**. A pool can be created from a single disk, accepts SATA and other types, and mixes disk sizes.
+
+</details>

@@ -182,3 +182,135 @@ On the child DC (`BBY.Adatum.com`) → ADUC → `BBY` OU → **CIT Local** → P
 5. The recreated account has a **new SID**. The personal folder's ACL stores the **old SID**, so the new `jsmith` doesn't match it. The Sales share works because access is granted to the `ACL_Sales_Read` group's SID, and the new `jsmith` is a member again via `Sales`. **IGDLA** avoids this by **never putting user accounts directly on ACLs** — grant to Domain Local groups, so re-adding a user to the right Global group restores everything.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** AD DS is multi-master. Why does it still need **FSMO** roles?
+
+- A) Because only one DC per domain can authenticate users at a time
+- B) Because five specific operations would conflict if two DCs performed them at once, so each is assigned to exactly one DC
+- C) Because read-only DCs can't hold a copy of the database
+- D) Because the Global Catalog can only run on one DC per forest
+
+**2.** What does the **Infrastructure Master** do?
+
+- A) Hands out pools of Relative IDs to each DC
+- B) Adds and removes domains in the forest
+- C) Acts as the time sync source for the domain
+- D) Updates cross-domain object references, such as a group member from another domain
+
+**3.** Why can't a **Distribution** group be granted permissions on a file share?
+
+- A) It has no SID, so it can't appear on an ACL
+- B) It can only contain users from the same domain
+- C) Its membership is stored only in the Global Catalog
+- D) It can't be converted to any other group type
+
+**4.** What can a **Global** group contain?
+
+- A) Users, computers and Domain Local groups from any domain
+- B) Users, computers, and Global and Universal groups from any domain
+- C) Users, computers and Global groups from the same domain only
+- D) Only Universal groups from the same domain
+
+**5.** Where is **Universal** group membership stored?
+
+- A) In the Global Catalog
+- B) In the Schema partition
+- C) On the PDC Emulator only
+- D) In SYSVOL
+
+**6.** A forest has **4 domains**. How many FSMO role assignments does it have in total?
+
+- A) 5
+- B) 12
+- C) 14
+- D) 20
+
+**7.** The DC holding the **Domain Naming Master** is going offline for planned maintenance, so you want to move the role. Which console do you use?
+
+- A) Active Directory Users and Computers
+- B) Active Directory Domains and Trusts
+- C) Active Directory Sites and Services
+- D) The Active Directory Schema snap-in
+
+**8.** You need a group that can contain Global groups from both `Adatum.com` and `Bby.Adatum.com` and can be granted access to resources anywhere in the forest. Which scope do you choose?
+
+- A) Global
+- B) Domain Local
+- C) Distribution
+- D) Universal
+
+**9.** Using the SS64 reasoning, **40** employees need access to **3** resources. With IGDLA (users → one Global group → 3 resource Domain Local groups), how many memberships do you maintain?
+
+- A) 43
+- B) 40
+- C) 80
+- D) 120
+
+**10.** An admin wants to add a brand-new child domain to the forest. Which FSMO role holder must be reachable for this to work?
+
+- A) PDC Emulator
+- B) RID Master
+- C) Domain Naming Master
+- D) Infrastructure Master
+
+**11.** You add user `alee` to the `Sales` Global group, which is nested in `ACL_Sales_Read`. Membership looks correct in ADUC, but `alee`, who is still signed in, gets "Access denied" on the Sales share. What's the most likely fix?
+
+- A) Seize the RID Master with `ntdsutil`
+- B) Grant `alee` permission directly on the share
+- C) Convert `Sales` to a Distribution group
+- D) Have `alee` log off and log back on
+
+**12.** Users in one domain report clock drift, password changes that don't seem to take effect, and inconsistent account lockouts. Which role holder should you check first?
+
+- A) Schema Master
+- B) PDC Emulator
+- C) RID Master
+- D) Infrastructure Master
+
+**13.** A user is renamed from `jdoe` to `jdoe-smith`. Will they keep access to the folders they could open before?
+
+- A) No, because ACLs store the account name
+- B) No, because renaming creates a new SID
+- C) Yes, because ACLs store the SID, which doesn't change on rename
+- D) Only after the RID Master issues them a new RID
+
+**14.** An admin builds several Windows Server VMs as linked clones from one differencing disk and skips **Sysprep**. What problem has this created?
+
+- A) The clones share the same machine identity (SID), which causes identity confusion
+- B) The clones can't be joined to any virtual switch
+- C) The parent disk is automatically converted to a fixed-size disk
+- D) The clones lose their Domain Local group memberships
+
+**15.** Users in `Bby.Adatum.com` (members of the `CIT Global` group) need read access to a share on a file server in `Adatum.com`. Which design follows IGDLA?
+
+- A) Add `CIT Global` to `ACIT Global`, and grant the permission to `ACIT Global`
+- B) Add `CIT Global` to a Domain Local group in `Adatum.com`, and grant the permission to that Domain Local group
+- C) Add the `Adatum.com` Domain Local group to `CIT Global`, and grant the permission to `CIT Global`
+- D) Grant the permission directly to each Bby user account
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **B.** Any writable DC accepts changes, but **five operations** would conflict if two DCs did them at once, so each goes to exactly one DC. Authentication is not single-master; **any DC can authenticate** logons.
+2. **D.** The **Infrastructure Master** updates **cross-domain object references**. Handing out RID pools (option A) is the **RID Master**.
+3. **A.** **Distribution** groups have **no SID** and are email-only, so they can't be put on ACLs. Option D is wrong because either type can be converted to the other.
+4. **C.** A **Global** group takes users, computers and Global groups from the **same domain only**. Option B describes a **Universal** group.
+5. **A.** Universal membership is stored in the **GC**, which is why a DC checks the GC at logon. The PDC Emulator handles time, passwords and lockout, not group membership.
+6. **C.** **2 forest-wide + 3 per domain** = 2 + (4 × 3) = **14**. 12 forgets the two forest roles; 20 wrongly treats all five roles as per-domain.
+7. **B.** The **Domain Naming Master** is managed in **AD Domains and Trusts**. ADUC is where you manage the three domain-level roles (PDC, RID, Infrastructure).
+8. **D.** **Universal** groups accept Global groups **from any domain** and can be granted access to any resource in the forest. A Global group can't take members from another domain, and a Domain Local group can only be granted access in its own domain.
+9. **A.** 40 users in one Global group + 3 Global-to-DL nestings = **43**. 120 (40 × 3) is the flat approach the model avoids.
+10. **C.** The **Domain Naming Master** adds and removes domains in the forest. The RID Master only issues RID pools inside its own domain.
+11. **D.** Group membership is evaluated **at logon**, so the user must **log off and on** to pick up the new group SIDs. Granting `alee` directly would work but breaks IGDLA.
+12. **B.** The **PDC Emulator** is the domain's **time sync** source and handles **password changes** and **account lockout**. The RID Master only affects creation of new objects.
+13. **C.** **Renaming is safe** because ACLs store the **SID**, not the name. A new SID is only created when an account is **deleted and recreated** (option B's confusion).
+14. **A.** Without **Sysprep**, the copies aren't generalized and share the **same machine identity (SID)**. Sysprep exists to prevent this duplicate-identity problem.
+15. **B.** A **Domain Local** group accepts Global groups **from any domain**, and the permission goes on the DL group (Identity → Global → Domain Local → Access). Option A fails because a Global group **can't nest across domains**; option C fails because a **DL can't go inside a Global**.
+
+</details>

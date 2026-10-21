@@ -375,3 +375,149 @@ Use this tree for questions 1–6:
 12. **`pop(0)`** (or `insert(0, x)` for the other design). Removing or inserting at the **front** shifts every other element, so it gets slower as the queue grows (O(n)). Appending and popping at the end are fast.
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** What does the linked list method `last()` return?
+
+- A) The value stored in the last node
+- B) `None`, because the last node's `next` is `None`
+- C) The last node itself
+- D) The number of nodes in the chain
+
+**2.** Which phrase describes a **stack**?
+
+- A) Last In, First Out
+- B) First In, First Out
+- C) Items come out in sorted order
+- D) Any item can be taken out by its position
+
+**3.** The chain is `3 -> 7 -> 3 -> 3 -> 5`, and the variable `second` refers to the node holding `7`. What does `second.count(3)` return?
+
+- A) 3
+- B) 0
+- C) 1
+- D) 2
+
+**4.** The chain is `A -> B -> C`, and `a` refers to the node holding `"A"`. What does this print?
+
+```python
+a.remove_next()
+a.insert_after("X")
+print(a.to_list())
+```
+
+- A) `["A", "X", "B", "C"]`
+- B) `["A", "X", "C"]`
+- C) `["A", "C", "X"]`
+- D) `["X", "A", "C"]`
+
+**5.** Someone writes `remove_next` without the `if self.next is not None` guard and calls it on the **last** node. What happens?
+
+- A) It crashes with `AttributeError: 'NoneType' object has no attribute 'next'`
+- B) It crashes with `IndexError`
+- C) It quietly removes the last node itself
+- D) It goes into an infinite loop
+
+**6.** A stack starts empty. You do: push X, push Y, pop, push Z, push W, pop, pop. What comes out, in order, and what's left?
+
+- A) Out: Y, Z, W. Left: X
+- B) Out: X, Y, Z. Left: W
+- C) Out: Y, W, Z. Left: X
+- D) Out: Y, W, X. Left: Z
+
+**7.** A queue starts empty. You do: insert 1, insert 2, insert 3, remove, insert 4, insert 5, remove. What will the **next** remove return?
+
+- A) 5
+- B) 3
+- C) 4
+- D) 2
+
+**8.** In tree terminology, **path length** counts what?
+
+- A) The nodes on the path, including both ends
+- B) The children of the starting node
+- C) The leaves the path passes
+- D) The edges travelled
+
+**9.** In the example tree from Part 3 (root K), what is the **depth of D** and the **height of G**?
+
+- A) Depth 3, height 2
+- B) Depth 2, height 3
+- C) Depth 3, height 3
+- D) Depth 4, height 2
+
+**10.** In the example tree from Part 3, which pair of nodes are **siblings**?
+
+- A) G and Z
+- B) S and G
+- C) A and F
+- D) U and D
+
+**11.** What is the **post-order** (forward) traversal of this tree?
+
+```text
+        P
+      / | \
+     Q  R  S
+    / \    |
+   T   U   V
+```
+
+- A) P Q T U R S V
+- B) T U Q R V S P
+- C) P Q R S T U V
+- D) P S V R Q U T
+
+**12.** A tree's root holds `5`, and its two children (left to right) hold `3` and `5`. What is the correct **pre-order** answer?
+
+- A) 5 3
+- B) 3 5
+- C) 3 5 5
+- D) 5 3 5
+
+**13.** Why does the course skip **in-order** traversal?
+
+- A) In-order always gives the same result as BFS
+- B) In-order only works on trees with fewer than 10 nodes
+- C) In-order puts the node between its left and right child, which only makes sense in a binary tree, and this course's trees can have any number of children
+- D) In-order is just reverse post-order under a different name
+
+**14.** A tree's forward **pre-order** is `A B D C E`. What is its **reverse post-order** (right to left)?
+
+- A) E C D B A
+- B) D B E C A
+- C) A C E B D
+- D) B D E C A
+
+**15.** You want a **stack** built on a Python list where both operations stay fast as the stack grows. Which pair do you use?
+
+- A) `lst.insert(0, x)` to push and `lst.pop(0)` to pop
+- B) `lst.append(x)` to push and `lst.pop()` to pop
+- C) `lst.append(x)` to push and `lst.pop(0)` to pop
+- D) `lst.insert(0, x)` to push and `lst.pop()` to pop
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **C.** `last()` returns the last **node**, not its value. It walks until `current.next is None` and returns `current`, so returning the value (option A) is the common mix-up.
+2. **A.** A stack is LIFO: `pop` always returns the most recently pushed item. FIFO describes a queue.
+3. **D.** A method called on a node starts **from that node**, so it counts `7 -> 3 -> 3 -> 5`, which has two 3s. Answer A would be counting from the head of the chain.
+4. **B.** `remove_next()` unlinks B, giving `A -> C`. Then `insert_after("X")` puts X right after A, giving `A -> X -> C`. Option A forgets that B was removed.
+5. **A.** On the last node, `self.next` is `None`, so `self.next.next` asks `None` for `.next` and raises `AttributeError`. There's no indexing involved, so it isn't an `IndexError`.
+6. **C.** After push X, push Y the stack is `X Y`; pop gives Y. Push Z, push W makes `X Z W`; pop gives W, then pop gives Z, leaving X. Option A pops Z before W, which ignores that W was pushed last.
+7. **B.** After inserting 1, 2, 3 and removing 1, the queue is `2 3`. Inserting 4 and 5 gives `2 3 4 5`, and the next remove gives 2, leaving `3 4 5`. So the next remove returns 3. Answer A (5) is stack thinking.
+8. **D.** Path length is the number of **edges** travelled; K → S → G has length 2 even though it touches 3 nodes.
+9. **A.** D's path to the root is D → Z → J → K, which is 3 edges. G's furthest descendant is N, P, or B, two edges down (G → U → N). Option B swaps the two numbers.
+10. **C.** A and F share the same parent, S. G and Z are at the same depth but have different parents, so they're cousins, not siblings.
+11. **B.** Post-order processes a node after all its descendants: T, U, then Q; R; V, then S; and finally the root P. Option A is pre-order, and C is BFS.
+12. **D.** Pre-order processes the root first, then its children left to right: 5, 3, 5. A traversal **doesn't remove duplicates**, so dropping the second 5 (option A) is wrong.
+13. **C.** In-order means left child, then the node, then the right child, which needs exactly two children per node. With any number of children, there's no single "middle" to put the node in.
+14. **A.** The reverse post-order is exactly the forward pre-order written backwards. Option B is the forward post-order of the matching tree, which is a different order.
+15. **B.** `append` and `pop()` both work at the end of the list, so they stay fast. Any option that uses `insert(0, x)` or `pop(0)` shifts every other item, which gets slower as the list grows.
+
+</details>

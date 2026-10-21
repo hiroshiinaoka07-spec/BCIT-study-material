@@ -150,3 +150,147 @@ What does the `/mnt/c` tell you, why is it a problem for this course, and what s
 **Q5** — Run copies of the application in **multiple Availability Zones** (e.g. `us-west-2a` and `us-west-2b`) within the region. AZs are isolated locations with separate data centers, so a failure in one AZ doesn't take down the other. This is exactly why AWS guarantees at least three AZs per region. (You'll learn the networking side — subnets per AZ — in Week 4.)
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** According to the NIST definition used in this course, cloud computing provides on-demand network access to what?
+
+- A) Dedicated physical servers owned by each customer
+- B) A shared pool of configurable computing resources
+- C) A single data center located in each customer's country
+- D) Software installed on each user's local workstation
+
+**2.** Which statement best describes **multitenancy**?
+
+- A) Each customer gets their own physical server that no one else uses
+- B) An application is split across several AWS regions
+- C) Infrastructure is defined as code instead of through a console
+- D) Many customers share physical hardware but are logically isolated from each other
+
+**3.** What is an **Availability Zone**?
+
+- A) An isolated location inside a region with one or more data centers
+- B) A geographic area such as `us-west-2` that contains several regions
+- C) A separate AWS account created for each region
+- D) The physical server that hosts a single virtual machine
+
+**4.** On the service-model ladder from the guide, which model gives **you** the most control (and the most to manage)?
+
+- A) SaaS
+- B) PaaS
+- C) IaaS
+- D) All three give the same level of control
+
+**5.** You're in your WSL home directory and want to browse the current folder in Windows Explorer. Which command does the guide recommend?
+
+- A) `explorer.exe .`
+- B) `cd /mnt/c`
+- C) `cd`
+- D) `systemctl start explorer`
+
+**6.** You want to enable `systemd` in WSL 2. Which change matches the guide?
+
+- A) Add `systemd=true` to `~/.bashrc`
+- B) Add this to `/etc/systemd.conf`:
+
+  ```ini
+  [wsl]
+  systemd=enabled
+  ```
+
+- C) Add this to `/etc/wsl.conf`:
+
+  ```ini
+  [boot]
+  systemd=true
+  ```
+
+- D) Run `explorer.exe systemd` from the WSL prompt
+
+**7.** Which of these identifiers names a **region** rather than an Availability Zone?
+
+- A) `us-west-2a`
+- B) `ca-central-1`
+- C) `us-west-2b`
+- D) `us-west-2c`
+
+**8.** With a service like **Vercel**, you bring your code and the platform runs it for you. Which service model is this?
+
+- A) IaaS
+- B) SaaS
+- C) Community cloud
+- D) PaaS
+
+**9.** Load balancers and switches belong to which of the three cloud building blocks?
+
+- A) Servers
+- B) Storage
+- C) Networking
+- D) Multitenancy
+
+**10.** Several hospitals with the same regulatory requirements agree to pool their infrastructure and share it among themselves. Which deployment model is this?
+
+- A) Community cloud
+- B) Public cloud
+- C) Hybrid cloud
+- D) Private cloud
+
+**11.** A colleague says: "All our servers are in our own building, so by definition we have a private cloud." Which response matches the guide?
+
+- A) Correct — on-premises and private cloud mean the same thing
+- B) Correct — a private cloud must always be on-premises
+- C) Incorrect — anything in your own building is a hybrid cloud
+- D) Incorrect — on-premises just means running your own local infrastructure; it isn't automatically a private cloud
+
+**12.** A student keeps their SSH private key under `/mnt/c/Users/student/keys/` in WSL, and SSH refuses to use the key. What is the most likely reason, according to the guide?
+
+- A) SSH keys only work on native Linux, not in WSL
+- B) Files under `/mnt/c` commonly have loose permissions, and SSH refuses keys with loose permissions
+- C) The key must be stored in `/etc/wsl.conf`
+- D) `systemd` is not enabled, so SSH cannot read the key
+
+**13.** A startup wants to test an idea for one week and then shut everything down, without buying any hardware. Which part of the cloud definition makes this possible?
+
+- A) Multitenancy
+- B) The community cloud model
+- C) Resources can be rapidly provisioned and released, and you pay only for what you use
+- D) Every region has at least three Availability Zones
+
+**14.** Your team sets up servers by clicking through the AWS console, and every environment ends up slightly different. You want the infrastructure to be reviewable and version-controlled. What approach does the guide point to?
+
+- A) Infrastructure as Code, such as Terraform / OpenTofu, which defines the desired state in code
+- B) Moving everything to a SaaS product
+- C) Switching to a hybrid cloud
+- D) Running all servers in a single Availability Zone
+
+**15.** You're on a Windows laptop and need a Linux environment for this course. Which setup best follows the guide's advice?
+
+- A) WSL, keeping all course files under `/mnt/c` so Windows can see them
+- B) WSL with Debian, keeping course files in the WSL file system (your WSL home directory)
+- C) A VirtualBox VM, which must have a full desktop GUI installed
+- D) Native Linux only, because WSL and VMs are not supported
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **B.** NIST describes on-demand network access to a **shared pool of configurable computing resources**. Option A is the opposite of "shared pool"; resources are shared, not dedicated per customer.
+2. **D.** Multitenancy means many tenants share physical hardware while being **logically isolated** through access controls, virtualization, network isolation, and encryption. Option A describes the absence of multitenancy.
+3. **A.** An AZ is an isolated location **inside** a region with one or more data centers. Option B reverses the relationship: a region contains AZs, not the other way around.
+4. **C.** IaaS sits at the "more control" end: you manage the OS, runtime, and app. SaaS (option A) is the most managed — you just use the application.
+5. **A.** `explorer.exe .` opens Windows Explorer on the current folder. Option B would move you into the Windows file system, which is exactly what the guide tells you to avoid.
+6. **C.** The guide adds a `[boot]` section with `systemd=true` to `/etc/wsl.conf`. Options A and B use the wrong files and wrong settings.
+7. **B.** `ca-central-1` is a region (Canada). The others end in a letter, which marks an Availability Zone within `us-west-2`.
+8. **D.** You bring the code and the platform runs it — that is **PaaS**, with Vercel as the guide's example. IaaS (option A) would have you managing the OS yourself.
+9. **C.** The guide lists load balancers and switches under **Networking**, which connects storage, apps, and workloads. Servers (option A) are the machines that run VMs.
+10. **A.** Organizations with similar needs pooling infrastructure is a **community cloud**. It isn't private (option D) because more than one organization shares it.
+11. **D.** The guide explicitly warns that **on-prem ≠ private cloud**, and that a private cloud doesn't have to be on-premises. That rules out options A and B.
+12. **B.** The guide notes that SSH refuses keys with loose permissions, which is common under `/mnt/c`. Option A is wrong — SSH works fine from the WSL file system.
+13. **C.** "Rapidly provisioned and released" with consumption-based pricing lets you spin up, use, and turn off resources without a hardware purchase. Multitenancy (option A) is how providers share hardware, not why you can stop paying.
+14. **A.** IaC defines the **desired state** of infrastructure in code, so it can be reviewed and version-controlled. A hybrid cloud (option C) is about where infrastructure lives, not how it's defined.
+15. **B.** WSL is the most common choice, Debian is the recommended distro, and you must **work in the WSL file system**. Option A causes permission errors; option C is wrong because a headless VM is fine.
+
+</details>

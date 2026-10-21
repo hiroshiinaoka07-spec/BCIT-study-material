@@ -211,3 +211,135 @@ netdom query fsmo        :: (Week 2) who holds the FSMO roles
 5. At logon the DC must check **Universal group membership**, which only the **GC** holds. With the only GC across a congested WAN, every logon waits on that link. **Fix:** make a DC in the Indy site a **Global Catalog** (the "can we set all DCs as GC?" trade-off: faster logons in exchange for more replication and disk use).
 
 </details>
+
+---
+
+## Multiple-Choice Quiz (15 Questions)
+
+One correct answer per question. Try all 15 before opening the key.
+
+**1.** Which protocol does AD DS use to **authenticate** users, issued by the KDC running on every DC?
+
+- A) LDAP
+- B) DNS
+- C) Kerberos
+- D) SMB
+
+**2.** Which file in `C:\Windows\NTDS` is the actual AD database that holds all the partitions?
+
+- A) `ntds.dit`
+- B) `EDB.chk`
+- C) `EDB*.log`
+- D) `Edbres00001.jrs`
+
+**3.** What is the purpose of the two 10 MB **reserve log** files (`Edbres00001.jrs` and `Edbres00002.jrs`)?
+
+- A) They record which log entries have already been written to the database
+- B) They store Group Policy and logon scripts for replication
+- C) They hold a backup copy of the Schema partition
+- D) They let AD finish its transactions if the disk fills up
+
+**4.** Which statement correctly describes a **tree** in AD DS?
+
+- A) A container inside a domain used to link GPOs
+- B) One or more domains sharing a common root and a contiguous DNS namespace
+- C) A group of IP subnets connected at high speed
+- D) The single domain that holds the Schema Master
+
+**5.** A **site** in AD DS contains only two types of objects. Which two?
+
+- A) Servers and configuration objects
+- B) Users and computers
+- C) OUs and GPOs
+- D) Domains and trusts
+
+**6.** The helpdesk should be able to reset passwords for Sales staff only, and the Sales computers need their own Group Policy. Which logical component should you create?
+
+- A) A child domain
+- B) A new site
+- C) An Organizational Unit (OU)
+- D) An application partition
+
+**7.** You want to look at the Schema partition, but the Active Directory Schema snap-in isn't listed in `mmc`. What do you run first?
+
+- A) `repadmin /kcc`
+- B) `netdom query fsmo`
+- C) `repadmin /showrepl *`
+- D) `regsvr32 schmmgmt.dll`
+
+**8.** You want a quick **first look** at replication health: a per-DC summary of successes and failures. Which command do you run?
+
+- A) `repadmin /kcc`
+- B) `repadmin /replsum`
+- C) `netdom query fsmo`
+- D) `regsvr32 schmmgmt.dll`
+
+**9.** DNS zones such as `DomainDnsZones` and `ForestDnsZones` are stored in which partition?
+
+- A) Application
+- B) Configuration
+- C) Domain
+- D) Schema
+
+**10.** A domain-joined server hosts file shares but does **not** have the AD DS role installed. What is it called?
+
+- A) A bridgehead server
+- B) A domain controller
+- C) A Global Catalog server
+- D) A member server
+
+**11.** You add `Indy.com` to the `Adatum.com` forest as a **new tree**. From an Adatum DC, `ping indy.com` fails, although adding a child domain such as `Van.Adatum.com` earlier caused no such problem. What fixes it?
+
+- A) Making the Adatum DC a Global Catalog
+- B) Creating a conditional forwarder for `indy.com` in DNS
+- C) Moving the Indy DC into a new site
+- D) Running `repadmin /kcc` on the Indy DC
+
+**12.** An admin sets a password policy on `Adatum.com` and expects the child domain `Van.Adatum.com` to pick it up automatically. It doesn't. Why?
+
+- A) The trust between parent and child is one-way
+- B) Policies only replicate between sites on a schedule
+- C) Child domains do not inherit policies or permissions from the parent, because each domain is a separate security entity
+- D) The Domain partition only replicates to DCs you choose
+
+**13.** DC1 is in the Vancouver site and DC2 is in the Burnaby site. You've just made a change on DC1 and don't want to wait for the replication schedule. What do you do?
+
+- A) In AD Sites and Services, open the server's **NTDS Settings**, right-click the connection and choose **Replicate Now**
+- B) Run `repadmin /kcc` to force the change across
+- C) Run `repadmin /replsum` to push the change
+- D) Move DC2 into the Vancouver site's OU
+
+**14.** In the lab, four DCs from **three different domains** all sit in `Default-First-Site-Name`. A classmate says this is misconfigured because every domain needs its own site. What's the correct response?
+
+- A) They're right: a site can only contain DCs from one domain
+- B) They're right: each domain must have its own bridgehead server
+- C) It's fine: sites reflect the physical network, not the domain structure, so one site can hold several domains
+- D) It's fine, but only because all four DCs are Global Catalogs
+
+**15.** Your manager wants every DC in a multi-site, multi-domain forest made a Global Catalog. According to the guide, what is the main cost of doing this?
+
+- A) Logons become slower because every DC must query the others
+- B) The Infrastructure Master stops working
+- C) Universal groups can no longer be created
+- D) More replication traffic and more disk space used on every DC
+
+<details>
+<summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
+
+1. **C.** **Kerberos** handles authentication, issued by the KDC on every DC. **LDAP** (port 389) is how you query the directory, not how users prove who they are.
+2. **A.** **`ntds.dit`** is the single database file containing all partitions. `EDB.chk` is only the checkpoint file that tracks which log entries have been written.
+3. **D.** The **reserve logs** give AD room to finish transactions if the disk fills up. Tracking which log entries are committed is the job of `EDB.chk` (option A).
+4. **B.** A **tree** is domains with a common root and a **contiguous DNS namespace**, e.g. `adatum.com` → `van.adatum.com`. Option A describes an OU.
+5. **A.** A site contains only **servers and configuration objects**. Users and computers live in the Domain partition, organised by OUs, not in sites.
+6. **C.** **OUs** are used to **delegate admin rights** and **link GPOs** inside a domain. A child domain would be far heavier and would not inherit the parent's settings anyway.
+7. **D.** The Schema snap-in is hidden by default, so you register it with **`regsvr32 schmmgmt.dll`** and then add it in `mmc`. `repadmin /kcc` only recalculates the replication topology.
+8. **B.** **`repadmin /replsum`** is the first-look per-DC success/fail summary. `repadmin /kcc` forces the KCC to rebuild connections; it doesn't report health.
+9. **A.** DNS zones live in **Application** partitions, which replicate to the DCs you choose. Configuration holds forest topology (sites, services, DCs), not DNS zones.
+10. **D.** A **member server** is domain-joined but has no AD DS role. A domain controller, by definition, holds a writable copy of AD.
+11. **B.** A child domain gets an **automatic DNS delegation**, but a new tree doesn't, so you need a **conditional forwarder**. The GC deals with search and logon, not DNS name resolution.
+12. **C.** Unlike OUs, **child domains do not inherit** permissions or policies; each domain is its own security entity. Option A is wrong because parent ↔ child trusts are **two-way and transitive**.
+13. **A.** **Replicate Now** on the connection under **NTDS Settings** triggers replication manually. `repadmin /kcc` only recalculates the topology and doesn't push the change.
+14. **C.** Sites reflect the **physical network**, not domains: one site can hold several domains and one domain can span several sites. The lab setup proves exactly this.
+15. **D.** Making every DC a GC means **more replication traffic** and **more disk space** on every DC. Option A is backwards: a local GC makes logons **faster**, and it also makes Infrastructure Master placement stop mattering rather than breaking it.
+
+</details>
