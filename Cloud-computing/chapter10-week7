@@ -1,0 +1,179 @@
+Chapter 10. AWS Storage Services
+Storing today’s massive amounts of data takes more than just traditional solutions. Companies need storage that scales, maintains reliability, and doesn’t pressure the budget.
+
+That’s where AWS storage services prove their worth. There’s Amazon S3 for object storage, EBS for block storage, Elastic File System (EFS) and FSx for shared file storage, Storage Gateway for bridging on-premises and cloud data, and AWS Backup for data protection. Together, these services form a solid toolkit for almost any workload.
+
+And yes, these are all topics that frequently appear on the AWS Certified Cloud Practitioner exam. It’s important to understand what these services do, their use cases, and how they integrate with the rest of AWS.
+
+Overview
+By 2025, Edge Delta projects that the world will generate about 175 zettabytes (ZB) of data (this is one billion terabytes). This is a massive jump from the 33 ZB produced in 2018. Nearly half of this massive volume will live in the cloud.
+
+Here are some of the main drivers for the growth:
+
+Artificial intelligence
+Training cutting-edge models like those from OpenAI, Microsoft, and Amazon takes enormous amounts of data. Some models crunch through massive datasets that span much of the internet. And as training moves beyond text to images and video, the appetite for data only grows.
+
+Mobile devices
+Billions of people carry smartphones, and they’re streaming, uploading, and browsing constantly.
+
+Internet of Things
+These include sensors for smart homes and connected factories. Each one gathers a steady stream of data.
+
+Streaming services
+Platforms like Netflix, Peacock, and Disney+ attract millions of viewers who watch content online every day.
+
+All this data has to go somewhere. Storing it isn’t cheap, and the scale requires advanced systems like direct-attached storage, network-attached storage (NAS), or storage area networks (SANs). These setups can be powerful but also complex and expensive to manage.
+
+Under the AWS Shared Responsibility Model, AWS takes care of the infrastructure that powers its storage services. This is known as security of the cloud. Customers, however, are responsible for security in the cloud: configuring encryption, setting access controls, and managing backup policies. This division ensures that while AWS provides a secure, reliable foundation, customers must still take proactive steps to safeguard their own data.
+
+Let’s take a look at the Amazon storage services you’ll likely see on the exam.
+
+Amazon S3
+Simple Storage Service (S3) is AWS’s service for object storage. This is available through the AWS console, the CLI, SDKs, or REST APIs.
+
+Behind the scenes, S3 runs on a massively scalable infrastructure. There’s no cap on how much you can store overall, and each individual object can be as large as 5 terabytes.
+
+Durability is one of S3’s biggest advantages. It’s built to keep your data safe with 99.999999999% durability referred to as “11 nines” durability by automatically distributing copies of your files across multiple Availability Zones. You also get 99.99% availability, which is backed by a service-level agreement (SLA). This is a contract between a service provider and a customer, which sets the levels of service for a system.
+
+It’s important to note, however, that not all S3 storage classes replicate data across multiple AZs. For example, S3 One Zone-Infrequent Access (IA) and S3 Express One Zone store data in a single Availability Zone, which reduces redundancy and results in lower durability compared to multi-AZ storage classes. Customers should select a storage class based on their specific durability, availability, and cost requirements.
+
+In terms of security, S3 supports encrypted data in transit (using SSL/TLS) and at rest (server-side or client-side encryption). You can also control who has access with IAM roles, bucket policies, and features like Object Lock, which is useful for compliance needs like write-once-read-many (WORM) storage.
+
+Here are common use cases for S3:
+
+Primary storage for cloud apps
+S3 is useful for hosting website assets, mobile app backends, gaming content, and files for distribution.
+
+Data lakes and analytics
+S3 integrates with AWS tools like Athena, Redshift, and Elastic MapReduce (EMR) for large-scale data analysis.
+
+Backup and disaster recovery
+S3 has features such as lifecycle policies that can be used for off-site backups. Lifecycle policies consist of rules that shift older backups to cheaper storage tiers or delete them when they’re no longer needed.
+
+Serverless and event-driven workflows
+You can trigger Lambda functions on file uploads, integrate with the API Gateway, or route messages through SNS and Simple Queue Service (SQS) for automation.
+
+Amazon S3 allows you to balance cost and performance with its tiered storage system. Instead of treating all your data the same, you can pick a storage class that matches how often you need to access the data, how quickly you need to retrieve it, and how much availability you want.
+
+Let’s take a look at S3’s storage classes.
+
+General Purpose
+If you need fast, reliable access to your data, S3 Standard is your best starting point. It’s the default storage class in S3. Your data is spread across at least three Availability Zones, so even if one zone has issues, your files stay safe and available.
+
+This class is suitable for cloud native applications, dynamic websites, content delivery, and analytics workloads. You get low latency and high throughput.
+
+Unpredictable or Changing Access
+S3 Intelligent-Tiering is designed for when access to your data is unpredictable. The service automatically moves your data between five access tiers: Frequent Access, Infrequent Access, Archive Instant Access, Archive Access, and Deep Archive Access. The last two tiers—Archive Access and Deep Archive Access—require opt-in but provide additional cost savings for rarely accessed data.
+
+You still get the same multi-AZ durability and millisecond-level latency of S3 Standard.
+
+High-Performance, Single-AZ Access
+For workloads where speed is critical and cross-AZ resilience isn’t required, S3 Express One Zone is optimized for sub-millisecond latency and high throughput. This makes it ideal for applications that demand ultra-fast data access without the overhead of multi-AZ replication.
+
+S3 Express is for use cases like running real-time analytics, ML training, or tightly coupled workloads near compute resources (like AWS Local Zones or Outposts).
+
+Infrequent Access
+When data persists for long durations and does not get accessed much, Amazon S3 offers two storage classes that can save you money without sacrificing durability.
+
+S3 Standard-IA is designed for infrequently accessed data that still needs to be readily available when accessed. It provides the same 11 nines of durability as S3 Standard and stores data across multiple AZs, but with slightly lower availability at 99.9%. The trade-off is lower storage costs, balanced by retrieval fees. This makes it a good fit for backups, disaster recovery plans, and older datasets that don’t change often.
+
+S3 One Zone-IA is a lower-cost option that stores your data in one AZ. You still get the same high durability, but availability drops to 99.5%, and there’s no cross-AZ redundancy.
+
+Archive
+When you need to store data long-term but access it rarely, S3’s archive classes provide flexible retrieval options depending on how fast you need the data back. There are AWS services for this:
+
+S3 Glacier Instant Retrieval
+You get millisecond-level access, multi-AZ durability, and much lower storage costs compared to active storage classes. It’s a good choice for things like archived media, medical imaging, or compliance records that need to be available on demand.
+
+S3 Glacier Flexible Retrieval (formerly called “Glacier”)
+This gives you a range of retrieval speeds, from minutes for expedited requests to several hours for bulk jobs. It’s built for long-term data that you access occasionally. This class is good for backups or archives that need to stay safe but aren’t time-sensitive.
+
+S3 Glacier Deep Archive
+This option is built for data you rarely, if ever, need to access, such as legal records or regulatory data that you have to keep for years. You’ll wait 12 to 48 hours for retrieval, but you’ll pay significantly less to store it.
+
+Data Residency and Isolation
+When data needs to stay within a specific geographic boundary—whether for compliance, sovereignty, or performance—Amazon S3 offers options designed to meet those strict requirements.
+
+S3 on Outposts brings the familiar S3 interface to your on-premises environment using AWS Outposts hardware. Your data stays local, stored on redundant devices within the Outposts rack, but it’s managed using the same S3 API you’d use in the cloud.
+
+Directory buckets in Dedicated Local Zones anchor your data inside a tightly controlled perimeter. These buckets support classes like Express One Zone and One Zone-IA. They allow you to keep data physically within a jurisdiction while still using S3’s robust API, access controls, and security features.
+
+Global Data Transfers
+For scenarios where data must move quickly across regions, S3 Transfer Acceleration uses Amazon CloudFront’s globally distributed edge locations to speed up uploads to S3 buckets. This is especially valuable for transferring large files or datasets over long distances, helping reduce latency and improve performance for globally distributed teams.
+
+Using S3
+Let’s see how to create an S3 bucket:
+
+Log in to AWS.
+
+In the search box, enter S3. Select it.
+
+Click “Create bucket.”
+
+Enter a name for the bucket. Figure 10-1 shows the setup screen for this.
+
+AWS S3 bucket setup screen with options for region and bucket type, and an input field for naming the bucket.
+Figure 10-1. Setup for an S3 bucket
+Choose an AWS region. Select the one closest to you so as to reduce latency.
+
+Use the default bucket type of “General purpose,” which is the standard for multiple AZs.
+
+Enter a name for the S3 bucket.
+
+You will select the object ownership settings. The recommended option is to disable access control lists (ACLs) by choosing “Bucket owner enforced.” This makes your account the owner of all objects in the bucket and simplifies access management.
+
+You can set whether your files are publicly accessible. But the recommended option is to block all public access.
+
+Select Disable for “Public versioning.” This means there will not be any versions maintained for your objects.
+
+You can set the encryption settings. Select “Amazon S3 managed Keys.”
+
+Select “Create bucket.” Figure 10-2 shows your S3 bucket.
+
+Screenshot showing a summary of your S3 bucket named "tomtests3bucket" in the AWS Management Console, located in the US West (Oregon) region.
+Figure 10-2. Summary of your S3 buckets
+Click the name of your bucket. Select Upload, and you can choose one or more files or folders to upload.
+
+Amazon Elastic Block Store (EBS)
+Amazon EBS is the main boot storage for your EC2 instances. It’s a durable, high-performance block storage system that automatically replicates data within its Availability Zone. This means if the underlying hardware fails, your data remains protected. AWS reports annual failure rates (AFRs) of 0.1–0.2% for standard EBS volumes, which makes them reliable for everything from development workloads to production databases. Different volume types offer varying levels of performance and resilience, letting you balance cost, throughput, and availability based on your needs.
+
+Performance remains consistently low in latency. You can also adjust volume size, performance, and type dynamically using Elastic Volumes. You can do this without needing to stop your instance or experiencing downtime.
+
+EBS offers several volume types tuned for different needs:
+
+General Purpose SSD (solid-state drive) (gp2 and gp3)
+These work well for boot volumes, development environments, and most general-purpose applications. Gp3, in particular, provides a baseline performance of 3,000 IOPS and 125 MiB/s throughput at any volume size, with the ability to provision additional performance up to 80,000 IOPS and 2,000 MiB/s throughput for an additional cost. This delivers a strong balance of predictable performance, flexibility, and cost efficiency.
+
+Provisioned IOPS SSD (io1, io2, io2 Block Express)
+If you’re running mission-critical database workloads, these volumes are a good option. They scale up to 256,000 IOPS and 4,000 MB/s throughput, with sub-millisecond latency and sizes up to 64 terabytes. This combination supports heavy database transactions without bottlenecks.
+
+Throughput Optimized HDD (hard disk drive) (st1)
+This is suitable for big data workloads and data warehouses where high throughput (MB/s) is more important than IOPS.
+
+Cold HDD (sc1)
+This is built for infrequently accessed data with moderate throughput requirements.
+
+For security, EBS volumes support encryption both at rest and in transit. They use Advanced Encryption Standard (AES)-256 encryption with AWS KMS.
+
+Snapshots in EBS act as point-in-time backups. These are incremental, meaning only changed data blocks are stored. This reduces both backup time and storage costs.
+
+You can use snapshots to create new volumes, replicate data across AZs or regions, share data between AWS accounts, or enable fast restores. Other advanced snapshot features include locking for compliance, cross-region copies, archiving, and automated lifecycle management with Data Lifecycle Manager.
+
+When you attach an EBS volume to an EC2 instance, it functions like a native block device. You can format it with any file system your OS supports and treat it like a local disk. The data remains persistent across reboots and detachments.
+
+Multi-Attach for io2 Block Express lets you attach one EBS storage volume to multiple EC2 instances at the same time (as long as they are in the same Availability Zone). This is useful for high-availability applications that need multiple servers to access the same data. Instead of making several copies of the same storage, all the servers can read/write to the same volume. This feature is designed for very high-performance and mission-critical workloads, but the application must be written to handle multiple servers writing to the same storage safely.
+
+AWS Elastic File System (EFS)
+AWS Elastic File System (EFS) is a plug-and-play file storage system in the cloud. It can also connect to on-premises servers.
+
+One of its most helpful features is how it scales automatically. If your storage needs grow, EFS expands to keep up, scaling to petabytes without any interruptions. When your needs shrink, it scales down just as easily.
+
+Here are some of its other key features:
+
+EFS supports standard NFS (Network File System) protocols, versions 4.0 and 4.1. Multiple EC2 instances, or even your Linux servers running on-premises, can read from and write to the same file system at the same time. This makes it a good choice for workloads that need shared file access.
+
+Similar to S3’s tiering, EFS can move files you don’t use often into lower-cost storage classes like Infrequent Access or Archive. This happens automatically.
+
+You can set up multiple entry points into the same file system. Each access point can have its own root directory and enforce specific POSIX (Portable Operating System Interface) user and group permissions (POSIX is a set of standards to maintain compatibility between operating systems). This approach makes it easy to secure different applications that share the same EFS.
+
+When you create a regional file system, EFS stores your data redundantly across multiple AZs. It offers 11 nines’ (99.999999999%) durability and up to four nines’ (99.99%) availability. Throughput and IOPS scale automatically to meet your workload demands.
