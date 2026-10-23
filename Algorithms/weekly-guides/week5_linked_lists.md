@@ -1,145 +1,398 @@
-# Week 5: Singly Linked Lists
+# Week 5: OOP and Linked Lists
 
-## Learning Objectives
+Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf`.
 
-- Build a chain of `LLNode` objects and walk it with a `current` pointer.
-- Write `insert_after` and `remove_next` without losing part of the chain or crashing at the end.
-- Build bigger methods out of smaller helpers, like `find` + `insert_after`.
+A linked list is a linear structure whose items (**nodes**) are not in contiguous memory. Each node holds **data** and a **link** to the next node. The first node is the **head**; you walk the whole list from there. The last node’s `next` is `None`.
 
-## Where to Look
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+```
 
-- `Algorithms/wk05_lab_LL.md`: the lab handout, with 11 methods and a doubly linked list stretch.
-- `Algorithms/wk05_lab_LL.py`: your solution plus tests. Run it with `python Algorithms\wk05_lab_LL.py`.
+```python
+node1 = Node(15)
+node2 = Node(3)
+node3 = Node(17)
+node4 = Node(90)
+node1.next = node2
+node2.next = node3
+node3.next = node4
+head = node1
+
+current = head
+while current:
+    print(current.data, end=" -> ")
+    current = current.next
+print("None")
+# 15 -> 3 -> 17 -> 90 -> None
+```
+
+Or chain from the head: `head = Node(10); head.next = Node(20); head.next.next = Node(30); …`
+
+A method called on a node **starts from that node**. In `A -> B -> C -> D`, `B.length()` counts B, C, D.
 
 ---
 
-## Key Concepts
+## Traversal — O(n)
 
-### 1. The node and the chain
+```python
+def traverseList(head):
+    if head is None:
+        print()
+        return
+    print(head.data, end="")
+    if head.next is not None:
+        print(" -> ", end="")
+    traverseList(head.next)
+```
+
+Iterative walk (what you will actually write):
+
+```python
+curr = head
+while curr is not None:
+    # use curr.data
+    curr = curr.next
+```
+
+Use `while curr.next is not None` when you must **stop on the last node** (append, delete-at-end).
+
+---
+
+## Insert
+
+### Front — O(1)
+
+Create a node, point its `next` at the current head, return it as the new head.
+
+```python
+def insertAtFront(head, x):
+    newNode = Node(x)
+    newNode.next = head
+    return newNode
+```
+
+### End — O(n)
+
+Walk to the last node, then set `last.next = newNode`. If the list is empty, the new node **is** the head.
+
+```python
+def insertAtEnd(head, x):
+    newNode = Node(x)
+    if head is None:
+        return newNode
+    last = head
+    while last.next is not None:
+        last = last.next
+    last.next = newNode
+    return head
+```
+
+### Specific position — O(n)
+
+Positions are **1-based** in the notes. If `pos == 1`, this is insert-at-front. Otherwise walk to the node **just before** `pos`, then splice: `new.next = curr.next; curr.next = new`. **Order matters** — grab the rest of the chain **first**, then relink.
+
+```python
+def insertPos(head, pos, val):
+    if pos < 1:
+        return head
+    if pos == 1:
+        newNode = Node(val)
+        newNode.next = head
+        return newNode
+    curr = head
+    for _ in range(1, pos - 1):
+        if curr is None:
+            break
+        curr = curr.next
+    if curr is None:
+        return head
+    newNode = Node(val)
+    newNode.next = curr.next
+    curr.next = newNode
+    return head
+```
+
+---
+
+## Delete
+
+### Front — O(1) time, O(1) space
+
+```python
+def deleteHead(head):
+    if head is None:
+        return None
+    return head.next  # old head is dropped; GC cleans it up
+```
+
+### End — O(n)
+
+Empty → `None`. One node → `None`. Otherwise stop on the **second last** (`while secondLast.next.next is not None`) and set `secondLast.next = None`.
+
+```python
+def removeLastNode(head):
+    if head is None:
+        return None
+    if head.next is None:
+        return None
+    secondLast = head
+    while secondLast.next.next is not None:
+        secondLast = secondLast.next
+    secondLast.next = None
+    return head
+```
+
+### Specific position — O(n)
+
+1-based. If `x == 1`, delete the head. Otherwise walk with `prev` and `temp`; when `temp` is at position x, `prev.next = temp.next`.
+
+```python
+def deleteNode(head, x):
+    temp = head
+    if x == 1:
+        head = temp.next
+        return head
+    prev = None
+    for i in range(1, x):
+        prev = temp
+        temp = temp.next
+    prev.next = temp.next
+    return head
+```
+
+---
+
+## Search — O(n) time, O(1) space
+
+```python
+def search_key(head, key):
+    curr = head
+    while curr is not None:
+        if curr.data == key:
+            return True
+        curr = curr.next
+    return False
+```
+
+---
+
+## Reverse — O(n) time, O(1) space
+
+Three pointers: `prev`, `curr`, `next`. At each step point the current node at the previous one, then slide all three forward. `prev` is the new head.
+
+```python
+def reverseList(head):
+    curr = head
+    prev = None
+    while curr is not None:
+        nextNode = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nextNode
+    return prev
+```
+
+`1 -> 2 -> 3 -> 4 -> 5` becomes `5 -> 4 -> 3 -> 2 -> 1`.
+
+---
+
+## Modify by pairing first with last
+
+The notes’ extra linked-list problem: pair the first node with the last, the second with the second last, and so on. For each pair, first-node value becomes `(second − first)`, and the second node becomes the **original** first value. The middle node of an odd-length list stays put.
+
+Example: `10 -> 4 -> 5 -> 3 -> 6` → `-4 -> -1 -> 5 -> 4 -> 10`.
+
+Approach, O(n) time and O(1) space:
+
+1. Find the middle (slow/fast pointers).
+2. Reverse the second half.
+3. Walk both halves together and apply the two assignments (save `first.data` first).
+4. Reverse the second half again and reconnect.
+
+```python
+def reverse(head):
+    prev, curr = None, head
+    while curr is not None:
+        nxt = curr.next
+        curr.next = prev
+        prev, curr = curr, nxt
+    return prev
+
+def modifyTheList(head):
+    if head is None or head.next is None:
+        return head
+    slow, fast = head, head
+    while fast.next is not None and fast.next.next is not None:
+        slow = slow.next
+        fast = fast.next.next
+    secondHalf = reverse(slow.next)
+    slow.next = None
+    first, second = head, secondHalf
+    while second is not None:
+        value = first.data
+        first.data = second.data - value
+        second.data = value
+        first, second = first.next, second.next
+    slow.next = reverse(secondHalf)
+    return head
+```
+
+---
+
+## Lab class: `LLNode`
+
+The lab assumes a chain of **at least one node**.
 
 ```python
 class LLNode:
     def __init__(self, val):
         self.val = val
         self.next = None
+
+    def length(self):
+        count = 0
+        current = self
+        while current is not None:
+            count += 1
+            current = current.next
+        return count
+
+    def contains(self, val):
+        current = self
+        while current is not None:
+            if current.val == val:
+                return True
+            current = current.next
+        return False
+
+    def insert_after(self, val):
+        new_node = LLNode(val)
+        new_node.next = self.next   # grab the rest FIRST
+        self.next = new_node
+
+    def remove_next(self):
+        if self.next is not None:
+            self.next = self.next.next
+
+    def to_list(self):
+        result = []
+        current = self
+        while current is not None:
+            result.append(current.val)
+            current = current.next
+        return result
+
+    def last(self):
+        current = self
+        while current.next is not None:
+            current = current.next
+        return current
+
+    def append(self, val):
+        self.last().next = LLNode(val)
+
+    def find(self, val):
+        current = self
+        while current is not None:
+            if current.val == val:
+                return current
+            current = current.next
+        return None
+
+    def count(self, val):
+        total = 0
+        current = self
+        while current is not None:
+            if current.val == val:
+                total += 1
+            current = current.next
+        return total
+
+    def insert_after_value(self, target, val):
+        target_node = self.find(target)
+        if target_node is not None:
+            target_node.insert_after(val)
+
+    def remove_next_after_value(self, target):
+        target_node = self.find(target)
+        if target_node is not None:
+            target_node.remove_next()
 ```
 
-- A chain is just a reference to its **first node**: `A -> B -> C -> None`.
-- **A method starts from the node you call it on.** In `A -> B -> C -> D`, `b.length()` counts `B C D` and returns **3**.
-- The lab says every chain has at least one node, so you don't need to handle an empty chain.
-
-This is the Week 3 memory diagram idea again. Every `.next` is an arrow to another object.
-
-### 2. The walk pattern
-
-Most methods use this loop:
-
-```python
-current = self
-while current is not None:
-    # use current.val
-    current = current.next
-```
-
-Use `while current.next is not None` when you need to **stop on the last node**, like in `last()`.
-
-### 3. Changing the links
-
-```python
-def insert_after(self, val):
-    new_node = LLNode(val)
-    new_node.next = self.next   # first: the new node grabs the rest of the chain
-    self.next = new_node        # then: self points to the new node
-
-def remove_next(self):
-    if self.next is not None:   # the last node has nothing to remove
-        self.next = self.next.next
-```
-
-- **Order matters in `insert_after`.** If you do `self.next = new_node` first, the rest of the chain is lost and `new_node.next = self.next` makes the node point to itself.
-- **`remove_next` on the last node must not crash.** Without the `if`, `self.next.next` raises `AttributeError: 'NoneType' object has no attribute 'next'`.
-
-### 4. All 11 methods
-
-| # | Method | Returns or does | Built from |
-| - | - | - | - |
-| 1 | `length()` | number of nodes from here to the end | walk loop |
-| 2 | `contains(val)` | `True` or `False` | walk loop, stops early |
-| 3 | `insert_after(val)` | new node right after this one | |
-| 4 | `remove_next()` | unlinks the next node | |
-| 5 | `to_list()` | Python list of values | walk loop, great for testing |
-| 6 | `last()` | the last **node**, not its value | stops on the last node |
-| 7 | `append(val)` | adds to the end | `last()` |
-| 8 | `find(val)` | first matching **node**, or `None` | walk loop |
-| 9 | `count(val)` | how many times `val` appears | walk loop, doesn't stop early |
-| 10 | `insert_after_value(target, val)` | inserts after the first `target` | `find` + `insert_after` |
-| 11 | `remove_next_after_value(target)` | removes the node after the first `target` | `find` + `remove_next` |
-
-```python
-def append(self, val):
-    self.last().next = LLNode(val)
-
-def insert_after_value(self, target, val):
-    node = self.find(target)
-    if node is not None:
-        node.insert_after(val)
-```
-
-### 5. Cost compared with Python lists
-
-| Operation | Linked list, given the node | Python list |
-| - | - | - |
-| insert or remove right after a node | \(O(1)\) | \(O(n)\) if not at the end |
-| go to position i | \(O(n)\), you have to walk | \(O(1)\) |
-| `append` without a tail pointer | \(O(n)\), because of `last()` | \(O(1)\) |
+| Method | Key idea |
+| ------ | -------- |
+| `length` / `to_list` / `count` | Walk the whole chain from **this** node |
+| `contains` / `find` | Stop at the first match; `find` returns the **node** or `None` |
+| `insert_after` | New → old next, then self → new. Reverse that order and you lose the tail (or make a cycle) |
+| `remove_next` | Guard: last node has nothing to remove (`None.next` would crash) |
+| `last` | Stop when `current.next is None` |
+| `append` | `last().next = LLNode(val)` — O(n) because of the walk |
+| `insert_after_value` / `remove_next_after_value` | `find` then the helper; do nothing if not found |
 
 ---
 
-## Practical Takeaways
+## Stretch: doubly linked list
 
-- Linked nodes are how trees, graphs, and queues work inside. Week 6 trees are the same idea, except each node has many `next`s.
-- The "grab the rest first, then relink" order applies to any pointer update, including doubly linked lists, where you also have to fix `prev`.
-- Small helpers like `find`, `last`, and `to_list` make bigger methods short and easier to test.
+Each node also has `prev`. Insert/remove must fix **both** directions.
+
+```python
+class DLLNode:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+        self.prev = None
+
+    def insert_after(self, val):
+        new_node = DLLNode(val)
+        old_next = self.next
+        new_node.prev = self
+        new_node.next = old_next
+        self.next = new_node
+        if old_next is not None:
+            old_next.prev = new_node
+
+    def remove_next(self):
+        node_to_remove = self.next
+        if node_to_remove is not None:
+            node_after = node_to_remove.next
+            self.next = node_after
+            if node_after is not None:
+                node_after.prev = self
+
+    def to_list_backwards(self):
+        result = []
+        current = self
+        while current is not None:
+            result.append(current.val)
+            current = current.prev
+        return result
+```
 
 ---
 
 ## Knowledge Check
 
-**1. Multiple choice.** In `A -> B -> C -> D`, what does `c.to_list()` return?
+**1.** Insert at the **front** is O(___). Insert at the **end** (no tail pointer) is O(___).
 
-- A. `["A", "B", "C", "D"]`
-- B. `["C", "D"]`
-- C. `["C"]`
-- D. `["D"]`
+**2.** What is wrong with `self.next = new_node` then `new_node.next = self.next`?
 
-**2. Multiple choice.** What's the difference between `find(val)` and `contains(val)`?
+**3.** `removeLastNode` loops while `secondLast.______.______ is not None`. Why?
 
-- A. There's no difference
-- B. `find` returns the **node** or `None`, while `contains` returns `True` or `False`
-- C. `find` counts matches
-- D. `contains` changes the chain
+**4.** In `A -> B -> C -> D`, what does `c.to_list()` return?
 
-**3. Code reading.** What goes wrong here?
-
-```python
-def insert_after(self, val):
-    new_node = LLNode(val)
-    self.next = new_node
-    new_node.next = self.next
-```
-
-**4. Fill in the blank.** `last()` loops with `while current.______ is not None` so it stops **on** the last node instead of walking off the end to `None`.
-
-**5. Scenario.** You need to add `remove_value(target)`, which removes the first node holding `target`, but it can't be the first node. Which existing methods or ideas would you use, and why can't you just call `find(target)`?
+**5.** After `reverseList`, what becomes the new head?
 
 <details>
 <summary><strong>Answer Key</strong></summary>
 
-1. **B.** The method starts at `c`.
-2. **B.** Use `find` when you need the node to change something, like in methods 10 and 11.
-3. The two lines are in the wrong order. After `self.next = new_node`, the old next node is lost, and then `new_node.next = self.next` makes the new node point **to itself**, a cycle. The rest of the chain is gone.
-4. **`next`**.
-5. To unlink a node you have to change the node **before** it, but `find(target)` gives you the target itself. Walk the chain checking `current.next.val == target`, then call `current.remove_next()` on that earlier node. The guard in `remove_next` already handles reaching the end.
+1. **O(1)**; **O(n)**.
+2. After the first assignment the old next is lost, and the second line makes the new node point at **itself**.
+3. `next.next` — you need the **second last** node so you can set its `next` to `None`.
+4. `["C", "D"]` (or `[C, D]` if those are the values). Methods start at the node you call them on.
+5. `prev` after the loop — the old last node.
 
 </details>
 
@@ -149,168 +402,128 @@ def insert_after(self, val):
 
 One correct answer per question. Try all 15 before opening the key.
 
-**1.** As far as your code is concerned, what is a linked-list **chain**?
+**1.** A singly linked node stores:
 
-- A) A Python list that stores every node
-- B) A dict that maps each value to the next value
-- C) A reference to its first node, with the rest reached through `.next`
-- D) A reference to its last node
+- A) Data and a Python list of neighbours
+- B) Data and a `next` reference
+- C) Only an index into an array
+- D) Data, `next`, and `prev` always
 
-**2.** In this chain, `n3` refers to the node holding `3`. What does `n3.length()` return?
+**2.** Traversing n nodes is:
 
-```text
-5 -> 8 -> 3 -> 8 -> 1 -> None
-```
+- A) O(1)
+- B) O(log n)
+- C) O(n)
+- D) O(n²)
 
-- A) 3
-- B) 5
-- C) 2
+**3.** `insertAtFront` is O(1) because:
+
+- A) It walks to the end first
+- B) It only relinks the head
+- C) Python lists insert at 0 in O(1)
+- D) The list stays sorted
+
+**4.** Empty list + `insertAtEnd(head, x)` should:
+
+- A) Crash
+- B) Return the new node as head
+- C) Return `None`
+- D) Insert at position 2
+
+**5.** In `insert_after`, the safe order is:
+
+- A) `self.next = new`; `new.next = self.next`
+- B) `new.next = self.next`; then `self.next = new`
+- C) Either order
+- D) Set `new.next = None` only
+
+**6.** `remove_next` on the last node without a guard:
+
+- A) Is a no-op
+- B) Raises `AttributeError` on `None.next`
+- C) Deletes the last node itself
+- D) Reverses the list
+
+**7.** `last()` must loop with:
+
+- A) `while current is not None`
+- B) `while current.next is not None`
+- C) `for i in range(len(lst))`
+- D) Recursion only
+
+**8.** `find(val)` returns:
+
+- A) `True`/`False`
+- B) The first matching **node**, or `None`
+- C) A count
+- D) The last matching value
+
+**9.** Reverse uses which pointers?
+
+- A) Only `head`
+- B) `prev`, `curr`, `next`
+- C) `left` and `right`
+- D) A stack and a queue
+
+**10.** In `5 -> 8 -> 3 -> 8 -> 1`, `n3.length()` if `n3` holds 3:
+
+- A) 5
+- B) 3
+- C) 1
 - D) 4
 
-**3.** What does `last()` return?
+**11.** `head.next.remove_next()` on `10 -> 20 -> 30 -> 40` leaves:
 
-- A) The value stored in the last node
-- B) `None`
-- C) The number of nodes in the chain
-- D) The last node object itself
+- A) `10, 30, 40`
+- B) `10, 20, 40`
+- C) `20, 30, 40`
+- D) `10, 20, 30`
 
-**4.** What does this code print?
+**12.** `insert_after_value(5, 99)` on `1 -> 2 -> 3` (5 not present):
 
-```python
-head = LLNode(1)
-head.append(2)
-head.append(3)
-head.next.insert_after(9)
-print(head.to_list())
-```
+- A) Inserts 99 at the end
+- B) Crashes
+- C) Leaves the chain unchanged
+- D) Inserts at the head
 
-- A) `[1, 9, 2, 3]`
-- B) `[1, 2, 9, 3]`
-- C) `[1, 2, 3, 9]`
-- D) `[9, 1, 2, 3]`
+**13.** Delete at position 1 is the same as:
 
-**5.** Which of these methods always walks the **whole** chain, never stopping early?
+- A) `removeLastNode`
+- B) `deleteHead`
+- C) Reverse
+- D) Search
 
-- A) `contains(val)`
-- B) `find(val)`
-- C) `count(val)`
-- D) `insert_after_value(target, val)`
+**14.** Doubly linked `insert_after` must also:
 
-**6.** You already have a reference to a node in the middle of a long chain, and you need to insert a new value right after it. Why is a linked list a good fit for this?
+- A) Walk to the tail first
+- B) Update `prev` on the new node and on the old next
+- C) Drop `next` links
+- D) Use a stack
 
-- A) A linked list can jump to any position in \(O(1)\).
-- B) A linked list keeps its values sorted automatically.
-- C) A linked list never needs a walk loop.
-- D) Inserting right after a node you already have is \(O(1)\), since you only relink two arrows, while inserting into the middle of a Python list is \(O(n)\).
+**15.** `append` on this lab’s singly linked list is O(n) because:
 
-**7.** What does this code print?
-
-```python
-# chain: 4 -> 7 -> 4 -> 4 -> 9 -> None
-second = head.next
-print(second.count(4))
-```
-
-- A) 2
-- B) 3
-- C) 1
-- D) 0
-
-**8.** Suppose `remove_next` is written without its `if` check, as just `self.next = self.next.next`. What happens when it's called on the last node?
-
-- A) Nothing changes, and no error is raised.
-- B) It raises `AttributeError: 'NoneType' object has no attribute 'next'`.
-- C) It removes the last node itself.
-- D) It makes the last node point to itself.
-
-**9.** What does this code print?
-
-```python
-# chain: 10 -> 20 -> 30 -> 40 -> None
-head.next.remove_next()
-print(head.to_list())
-```
-
-- A) `[10, 30, 40]`
-- B) `[20, 30, 40]`
-- C) `[10, 20, 30]`
-- D) `[10, 20, 40]`
-
-**10.** Why is `append(val)` \(O(n)\) in this lab's linked list?
-
-- A) Creating a new `LLNode` is \(O(n)\).
-- B) It copies the whole chain first.
-- C) It calls `last()`, which has to walk every node to find the end, since there's no tail pointer.
-- D) It calls `to_list()` before adding the node.
-
-**11.** A student writes this version of `length`. What does it return for the chain `A -> B -> C -> None` when called on the first node?
-
-```python
-def length_buggy(self):
-    count = 0
-    current = self
-    while current.next is not None:
-        count += 1
-        current = current.next
-    return count
-```
-
-- A) 2
-- B) 3
-- C) 1
-- D) It crashes with `AttributeError`.
-
-**12.** Why does `append` use `last()` instead of the plain walk loop `while current is not None`?
-
-- A) The plain walk loop is \(O(n^2)\).
-- B) The plain loop ends with `current` set to `None`, and you can't attach a node to `None`. `last()` stops **on** the last node, so you can set its `.next`.
-- C) `last()` is \(O(1)\), so it's faster.
-- D) The plain loop skips the first node.
-
-**13.** What does this code print?
-
-```python
-# chain: 1 -> 2 -> 3 -> None
-head.insert_after_value(5, 99)
-print(head.to_list())
-```
-
-- A) `[1, 2, 3, 99]`
-- B) `[99, 1, 2, 3]`
-- C) `[1, 2, 3]`
-- D) It crashes with `AttributeError`.
-
-**14.** Your program needs to read the item at position i many times, for many different values of i. Which structure fits better?
-
-- A) A linked list, because inserting after a node is \(O(1)\).
-- B) A linked list, because `count` is faster than on a Python list.
-- C) Either one, since both get position i in \(O(1)\).
-- D) A Python list, because `data[i]` is \(O(1)\), while a linked list has to walk to position i, which is \(O(n)\).
-
-**15.** You're writing `insert_after` for a **doubly linked list**, where each node has both `next` and `prev`. Compared with the singly linked version, what's different?
-
-- A) You still grab the rest of the chain first and then relink, but you also have to fix the `prev` links.
-- B) Nothing. The `prev` links update themselves.
-- C) You have to walk to the end of the chain first.
-- D) The order of the pointer updates no longer matters.
+- A) Creating a node is O(n)
+- B) `last()` walks the whole chain; there is no tail pointer
+- C) `to_list` is called first
+- D) Python `append` is O(n)
 
 <details>
 <summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
 
-1. **C.** A chain is just a reference to its first node, and every `.next` is an arrow to the next object. Nothing stores all the nodes in a Python list.
-2. **A.** A method starts from the node you call it on, so it counts `3 8 1`. Answer B counts the whole chain, which would only happen if you called it on the first node.
-3. **D.** `last()` returns the **node**, not its value. That's why `append` can do `self.last().next = LLNode(val)`.
-4. **B.** `head.next` is the node holding 2, so 9 goes right after 2. Answer C is what `head.append(9)` would do.
-5. **C.** `count` has to see every node to count all matches. `contains` and `find` stop at the first match, and `insert_after_value` uses `find`.
-6. **D.** Insert or remove right after a known node is \(O(1)\) for a linked list. Jumping to a position is the thing linked lists are **bad** at, so A is backwards.
-7. **A.** `second` is the node holding 7, so it counts in `7 4 4 9`, which has two 4s. Answer B counts from the head.
-8. **B.** On the last node, `self.next` is `None`, and `None.next` raises that `AttributeError`. That's exactly why the guide's version has the `if`.
-9. **D.** `head.next` is the node holding 20, so its next node, 30, is unlinked. Answer A would be `head.remove_next()`.
-10. **C.** Without a tail pointer, finding the end means walking the whole chain. Making the node is \(O(1)\); the walk is the expensive part.
-11. **A.** The loop stops **on** the last node without counting it, so it counts only A and B. It doesn't crash, because it never steps onto `None`.
-12. **B.** After `while current is not None`, `current` is `None`, so there's no node left to attach to. Stopping on the last node is exactly what `last()` is for. `last()` is still \(O(n)\), so C is wrong.
-13. **C.** `find(5)` returns `None`, and the `if node is not None` check skips the insert, so the chain is unchanged. Without that check, you'd get the `AttributeError` from D.
-14. **D.** Going to position i means walking for a linked list. Fast insert after a node doesn't help if you mostly read by position.
-15. **A.** The "grab the rest first, then relink" order still applies, and a doubly linked list also needs its `prev` links fixed. Nothing updates them automatically.
+1. **B.** Data + `next`. `prev` is doubly linked.
+2. **C.** Visit each node once.
+3. **B.** A few pointer writes.
+4. **B.** Empty-list case in `insertAtEnd`.
+5. **B.** Grab the rest first.
+6. **B.** That is why the `if self.next is not None` guard exists.
+7. **B.** Stop **on** the last node so you can attach to it.
+8. **B.** `contains` is the boolean version.
+9. **B.** Classic iterative reverse.
+10. **B.** From 3: 3, 8, 1.
+11. **B.** `head.next` is 20, so 30 is unlinked.
+12. **C.** `find` returns `None`; the `if` skips the insert.
+13. **B.** Position 1 is the head.
+14. **B.** Both directions.
+15. **B.** The walk dominates.
 
 </details>

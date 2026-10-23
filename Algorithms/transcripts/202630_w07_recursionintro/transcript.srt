@@ -1,0 +1,715 @@
+1
+00:00:00,660 --> 00:00:04,080
+In this video, I will walk through the fundamental basics of recursion.
+
+2
+00:00:04,360 --> 00:00:08,100
+Our goal here is not to learn a lot about how to best use recursion,
+
+3
+00:00:08,360 --> 00:00:12,300
+but just to get a strong grasp of the simple core principles.
+
+4
+00:00:13,200 --> 00:00:17,180
+At a point in the future, we will look into how to best use recursion,
+
+5
+00:00:17,240 --> 00:00:21,880
+how to design good solutions, but this video is much more just the core stuff.
+
+6
+00:00:26,110 --> 00:00:28,590
+So what is recursion? You know what recursion is.
+
+7
+00:00:28,670 --> 00:00:31,530
+It's when, why is this double indented? What's going on?
+
+8
+00:00:31,530 --> 00:00:39,960
+Let's simplify this. This is from another video, but
+
+9
+00:00:39,960 --> 00:00:45,000
+you know that recursion is when a function calls itself.
+
+10
+00:00:46,100 --> 00:00:48,880
+This, by the way, is not good recursion. It's just to show you that it's calling itself.
+
+11
+00:00:50,480 --> 00:00:54,260
+Recursion is just when a function calls itself. That's the basic idea. There's nothing magical.
+
+12
+00:00:56,950 --> 00:01:00,210
+Little tangent here. If you Google for recursion, it asks you if you meant recursion,
+
+13
+00:01:00,210 --> 00:01:04,030
+which is a joke, right? That's because if I click there, I just end up back here.
+
+14
+00:01:04,790 --> 00:01:08,530
+And the Wikipedia page on recursion is full of funny self-references like this.
+
+15
+00:01:08,570 --> 00:01:13,570
+This is Drost advertising that has got a picture of the Drost tin on the Drost tin
+
+16
+00:01:13,570 --> 00:01:18,410
+and other fun things. What else is in here? Oh, this thing is really cute. You should go read that.
+
+17
+00:01:20,520 --> 00:01:27,440
+Okay, but back to the programming. So function calls itself. Let's just flesh this out a bit,
+
+18
+00:01:27,500 --> 00:01:35,490
+right? So we're going to walk through this execution. We're going to see what happens.
+
+19
+00:01:36,890 --> 00:01:41,650
+We're going to pay attention to what the variables do. We're going to see when it calls itself.
+
+20
+00:01:41,930 --> 00:01:49,510
+All that stuff. Okay, so we define the function. That's easy. Now we start running. So of course,
+
+21
+00:01:49,570 --> 00:01:56,550
+we're going to get a stack frame and it has n as the parameter. And then it's going to
+
+22
+00:01:56,550 --> 00:01:59,710
+make this message string because that's clearly what line three does.
+
+23
+00:02:00,970 --> 00:02:06,970
+And then it's going to check, is n equal to zero? And n is not equal to zero, so it doesn't return.
+
+24
+00:02:07,650 --> 00:02:14,720
+It prints the message and then it calls itself with a different value of n. And so now it's in
+
+25
+00:02:14,720 --> 00:02:20,940
+another stack frame. It figures out the message. It checks if it's zero or not. It's not zero.
+
+26
+00:02:21,300 --> 00:02:26,520
+So it prints and calls itself. It calls up with a different value. So now we've got a different
+
+27
+00:02:26,520 --> 00:02:38,290
+value of n. N is not zero, so it prints. I have to kind of scroll a bit here. And then we click
+
+28
+00:02:38,290 --> 00:02:44,370
+next. It calls itself with a different value. This time the value is zero. It calculates the message,
+
+29
+00:02:44,370 --> 00:02:46,170
+but it's not zero. So it's not zero. So it's not zero. So it's not zero. So it's not zero. So it's not zero.
+
+30
+00:02:46,190 --> 00:02:53,630
+N is zero. So is it going to print? No, because first it returns. And as you can see, by the way,
+
+31
+00:02:53,690 --> 00:02:58,310
+what does it return? It returns none, but that's off topic. So it returns to there. And now we're
+
+32
+00:02:58,310 --> 00:03:03,790
+in this one. We just finished the countdown. So what happens at the end of a function? It falls
+
+33
+00:03:03,790 --> 00:03:09,290
+off the bottom. It falls off the bottom. It returns. So it returns. Now we're in this stack
+
+34
+00:03:09,290 --> 00:03:14,090
+frame. It falls off the bottom. It returns. It falls off the bottom. It returns. And then we're
+
+35
+00:03:14,090 --> 00:03:16,170
+at the end of this and the code is done.
+
+36
+00:03:16,190 --> 00:03:27,890
+Okay. So as you can see, as you saw in other contexts, every call, sorry, every frame
+
+37
+00:03:27,890 --> 00:03:34,550
+caused by different calls has its own variables. That's one of the important facts about scope
+
+38
+00:03:34,550 --> 00:03:40,350
+here. And eventually we reach this N equals zero situation and the calls start returning.
+
+39
+00:03:41,150 --> 00:03:46,090
+So we need to know two terms here. We need to know recursive case and
+
+40
+00:03:46,090 --> 00:03:53,400
+base case. And as you know, the recursive case is a situation where the function calls itself.
+
+41
+00:03:54,560 --> 00:04:00,260
+And a base case is a situation where the function does not call itself. And every correct recursive
+
+42
+00:04:00,260 --> 00:04:13,900
+solution needs at least one of each. I'm going to make it real Markdown, even though I'm not
+
+43
+00:04:13,900 --> 00:04:21,420
+going to use it as Markdown. I just feel more secure. So I emphasize the, at least one,
+
+44
+00:04:21,520 --> 00:04:24,060
+because sometimes it's more than one and that can be fine. We're going to come back to that.
+
+45
+00:04:24,840 --> 00:04:29,080
+Okay. So a little digression. Why are we learning this? And I say this because,
+
+46
+00:04:29,080 --> 00:04:31,200
+you know, I want you to understand,
+
+47
+00:04:31,220 --> 00:04:35,900
+the correct perspective. We're learning this because recursion is genuinely useful. I'm a
+
+48
+00:04:35,900 --> 00:04:40,440
+big fan of recursion in context. There are some problems that are much easier to figure out
+
+49
+00:04:40,440 --> 00:04:45,600
+how to solve those problems when you know how to do recursion. That's the reason we learned this
+
+50
+00:04:45,600 --> 00:04:51,480
+stuff, right? But I should warn you that most of what we're doing this week are problems where
+
+51
+00:04:51,480 --> 00:04:56,660
+recursion is not the right solution. We're just doing them for practice, right? Almost all of
+
+52
+00:04:56,660 --> 00:05:00,920
+these, or maybe actually all of these are better solved with loops. So we're not,
+
+53
+00:05:01,220 --> 00:05:04,980
+learning recursion to solve these problems. We're learning recursion to solve,
+
+54
+00:05:05,140 --> 00:05:10,900
+you know, slightly harder problems in the future. Okay. So this is just like warmup week.
+
+55
+00:05:11,760 --> 00:05:15,600
+These problems are not good recursion problems. I'm sorry. There aren't any good,
+
+56
+00:05:15,680 --> 00:05:20,140
+really easy recursion problems, unless you really, really, really like math. And there's some, like
+
+57
+00:05:20,140 --> 00:05:26,520
+a few that are good and easy, but like, I don't know. I feel like that's not the thing that most
+
+58
+00:05:26,520 --> 00:05:30,560
+of you want is what if we just had more math? I feel like that's not the play.
+
+59
+00:05:31,220 --> 00:05:39,300
+Um, okay. So how do we make recursion work? Um, it's not necessarily clear whether you should
+
+60
+00:05:39,300 --> 00:05:45,720
+do the recursive side first or the base case first. It varies, but I, we're going to sort
+
+61
+00:05:45,720 --> 00:05:49,400
+of assume you're starting with the base case. Um, if I'm actually trying to solve a hard problem
+
+62
+00:05:49,400 --> 00:05:54,020
+with this, um, like a riddle, like a tricky riddle, I'll probably start with one. And if
+
+63
+00:05:54,020 --> 00:05:57,260
+that doesn't work, I'll try the other one. And then, but they've got to fit together eventually.
+
+64
+00:05:57,260 --> 00:06:01,180
+So, okay. So a base case is,
+
+65
+00:06:01,180 --> 00:06:13,800
+um, and I want to emphasize here, and I'll, I'll say this again later,
+
+66
+00:06:13,800 --> 00:06:29,020
+that case means situation. So we see this word in things like, um, if you're doing testing,
+
+67
+00:06:29,180 --> 00:06:35,020
+you think about test cases, um, blah, all these damn things. Where does this show up?
+
+68
+00:06:36,760 --> 00:06:42,040
+We've got, uh, well, in algorithms, we think about edge cases, or sometimes people call them
+
+69
+00:06:42,040 --> 00:06:44,220
+corner cases. We've got, uh, well, we've got, uh, well, we've got, uh, well, we've got,
+
+70
+00:06:44,240 --> 00:06:50,960
+we've got, um, you know, about in some languages, not Python, we have a switch case statement. Um,
+
+71
+00:06:51,360 --> 00:06:58,360
+we've got, uh, of course in algorithms, we've got best case complexity and worst case complexity or,
+
+72
+00:06:58,420 --> 00:07:04,140
+or time or whatever. Um, if you're in something like business, you have, you know, case studies
+
+73
+00:07:04,140 --> 00:07:09,520
+in all of these, the word case means situation. This is a situation we're testing. This is a
+
+74
+00:07:09,520 --> 00:07:13,640
+situation that's on the edge. We're going to switch between various situations, the best
+
+75
+00:07:13,640 --> 00:07:14,220
+situation, the worst situation, the worst situation, the worst situation, the worst situation,
+
+76
+00:07:14,220 --> 00:07:18,980
+studies of different situations. So the reason I'm saying it, well, I'll come back to it, but
+
+77
+00:07:18,980 --> 00:07:26,220
+anyway, uh, a case is a situation. So a base case is a situation that we can solve the problem
+
+78
+00:07:26,220 --> 00:07:39,220
+without recursion. Ideally, uh, and hopefully every time for you folks, it's ideally so simple
+
+79
+00:07:39,220 --> 00:07:44,140
+that it's almost kind of duh. And you'll see what I mean in a bit. I don't necessarily mean that
+
+80
+00:07:44,140 --> 00:07:48,940
+finding it is easy, but if somebody else finds it and they say, is this right or not? Like,
+
+81
+00:07:48,940 --> 00:07:50,760
+like, is this true or false? You're going to be like,
+
+82
+00:07:50,780 --> 00:07:56,950
+obviously it's true. And often the question you ask yourself is something like, um,
+
+83
+00:08:00,340 --> 00:08:15,160
+this isn't always going to work, but it often works. Or what's the problem or the version of
+
+84
+00:08:15,160 --> 00:08:19,100
+the problem where we can solve without doing any work, like any more work than we've already done.
+
+85
+00:08:20,500 --> 00:08:27,520
+Um, so what it looks like depends on the problem. Um, and even these things are not predictable.
+
+86
+00:08:29,320 --> 00:08:34,200
+Maybe it's if you're processing lists of different sizes,
+
+87
+00:08:34,200 --> 00:08:39,680
+maybe the base case is an empty list because that's really easy to process, right? Maybe
+
+88
+00:08:39,680 --> 00:08:50,020
+you're processing numbers. Uh, and so maybe the easiest number to handle is zero. Um, and then
+
+89
+00:08:50,020 --> 00:08:54,780
+we can imagine, you know, things outside of programming. Like if you're trying to get from
+
+90
+00:08:54,780 --> 00:08:57,960
+somewhere to somewhere else, maybe the base case is if you're already there, because if you're
+
+91
+00:08:57,960 --> 00:09:03,140
+already there, how do you get there? You do nothing. It's easy. Right. Or, you know, like
+
+92
+00:09:03,140 --> 00:09:08,140
+there isn't one universal, lots of other things.
+
+93
+00:09:08,200 --> 00:09:15,080
+No universal pattern, but to be honest, things like an empty list or a zero are going to come
+
+94
+00:09:15,080 --> 00:09:24,150
+up in this class. Um, it doesn't work for everything. Um, okay. And so if you have a
+
+95
+00:09:24,150 --> 00:09:28,270
+base case and you might need more than one, but you're probably going to try to start by trying
+
+96
+00:09:28,270 --> 00:09:40,630
+to have one, you're going to need a way to, and this is a must make progress towards the base
+
+97
+00:09:40,630 --> 00:09:45,110
+case, right? If your recursive case does not make progress towards the base case,
+
+98
+00:09:45,150 --> 00:09:52,430
+you do not have a valid recursive solution. It must make progress. What does progress mean?
+
+99
+00:09:52,790 --> 00:09:57,450
+Well, if the base case is an empty list, then progress means the list is smaller,
+
+100
+00:09:57,450 --> 00:10:04,150
+maybe one point smaller, maybe a lot smaller depends. If the base case is zero, then progress
+
+101
+00:10:04,150 --> 00:10:08,170
+means a number that's closer to zero. If that includes negative numbers, it might mean,
+
+102
+00:10:08,170 --> 00:10:12,530
+you know, numbers that are greater. Like you went from negative four to negative two,
+
+103
+00:10:12,710 --> 00:10:15,870
+but a lot of the time you're only doing with positive numbers. And so that's really easy,
+
+104
+00:10:15,870 --> 00:10:16,470
+right? Um,
+
+105
+00:10:16,490 --> 00:10:28,470
+subtract something and go. Um, and we're hoping that it's a version we can give to ourselves to
+
+106
+00:10:28,470 --> 00:10:44,230
+solve. Um, and so, and if we don't do that, we get this, um, I think that's what it's called
+
+107
+00:10:44,230 --> 00:10:58,140
+stack size exceeded. Okay. So let's go back here and keep working on new examples. So our
+
+108
+00:10:58,140 --> 00:11:03,640
+countdown function, when it returns, it doesn't do anything. It just calls the function. And when
+
+109
+00:11:03,640 --> 00:11:03,780
+it's done, it calls the function. And when it's done, it calls the function. And when it's done,
+
+110
+00:11:03,780 --> 00:11:08,020
+it's done, it's done. But a recursive call can give us a result just like any other function call.
+
+111
+00:11:08,260 --> 00:11:15,060
+And so let's look at an example of that. So what's the base case? What is the situation
+
+112
+00:11:15,060 --> 00:11:22,380
+that causes us to stop? Right. And so reversing an empty string is pretty easy,
+
+113
+00:11:22,380 --> 00:11:28,520
+right? If the string is empty, it's easy to reverse very, very easy. So you're done already.
+
+114
+00:11:28,740 --> 00:11:32,960
+So that's our base case. And this is the code that handles the base case.
+
+115
+00:11:33,780 --> 00:11:39,260
+And so that means the recursive case must be a string with more than zero letters.
+
+116
+00:11:42,150 --> 00:11:48,510
+And so we're going to ask it to reverse everything except the first letter. And I hope you can agree
+
+117
+00:11:48,510 --> 00:11:57,270
+that everything except the first letter is smaller than everything. I mean, if you were an empty
+
+118
+00:11:57,270 --> 00:12:01,350
+string, this would crash, but we already checked the empty string. So it must be a string of length
+
+119
+00:12:01,350 --> 00:12:05,570
+one or greater. And so if you're, if you are length one, then this section is an empty string.
+
+120
+00:12:05,930 --> 00:12:11,190
+If your string is length six, this string is length five and so on. So that's good. We're
+
+121
+00:12:11,190 --> 00:12:16,630
+making progress towards the base case. Really a big deal. Okay. Let's trace it and see what
+
+122
+00:12:16,630 --> 00:12:20,410
+happens. Well, let's just finish reading it first. We're going to reverse the rest of the string.
+
+123
+00:12:20,870 --> 00:12:27,750
+Then we take that rest and we're going to put the first letter to the right of it and return that.
+
+124
+00:12:33,580 --> 00:12:41,540
+Ew. Sorry. The format I have my notes in keeps inserting false tabs. Let's try that again. Same
+
+125
+00:12:41,540 --> 00:12:42,600
+code, one less integer.
+
+126
+00:12:42,680 --> 00:12:48,580
+Okay. We define the function. That's boring. And then we call it. And again, notice that we get
+
+127
+00:12:48,580 --> 00:12:54,680
+a stack frame and the parameter gets the value we gave it. Okay. We pass the, if nothing happens,
+
+128
+00:12:54,680 --> 00:12:59,080
+and now we're going to call reverse with all of the string, except the first letter.
+
+129
+00:12:59,700 --> 00:13:03,760
+Boom. All of the string, except the first letter. And then we're going to check if it's empty.
+
+130
+00:13:03,940 --> 00:13:06,800
+It's not empty. So we're going to do another thing. We call it with all, except the first letter.
+
+131
+00:13:07,980 --> 00:13:12,600
+We check if it's empty. It's not empty. So we call it with all the string, except the first letter.
+
+132
+00:13:12,680 --> 00:13:19,880
+Right. And now we are calling it on the string and that is the base case. So when we hit this
+
+133
+00:13:19,880 --> 00:13:29,580
+code, this line two, it's going to return the empty string. Great. And so what happens next?
+
+134
+00:13:32,260 --> 00:13:35,920
+What happens next is that this return value is going to go back to where we were.
+
+135
+00:13:36,280 --> 00:13:41,560
+It goes into rest. And then we have rest plus the zeroth letter of text. And the zeroth letter
+
+136
+00:13:41,560 --> 00:13:46,180
+of text here, of course, is T. So we return T, like empty string plus T is T.
+
+137
+00:13:46,180 --> 00:13:55,080
+So we bring that back here. And the zeroth letter of text here is A. So we're going to put that to
+
+138
+00:13:55,080 --> 00:14:03,940
+the right of rest and that'll be TA. And we're going to return that. And the zeroth letter of
+
+139
+00:14:03,940 --> 00:14:13,930
+text is C. And so we're going to put that to the right of rest and return that. And we have
+
+140
+00:14:13,930 --> 00:14:23,340
+a reversed cat. Okay. And so partly this is just like watch the machine run. It's not that
+
+141
+00:14:23,340 --> 00:14:26,560
+complicated. Notice how the base case eventually turns out. So we're going to put that to the right
+
+142
+00:14:26,580 --> 00:14:32,000
+of rest. Notice that when we're getting closer, if I just rewind a bunch, right, we're just getting
+
+143
+00:14:32,000 --> 00:14:38,100
+closer by one step at a time, making new stack frames each time. Right. But a thing that you
+
+144
+00:14:38,100 --> 00:14:42,980
+want to notice in this example that wasn't present in the last example is that the recursive call
+
+145
+00:14:42,980 --> 00:14:48,600
+doesn't necessarily solve the entire problem. Right. When I come back from, say, this one,
+
+146
+00:14:49,440 --> 00:14:52,560
+I haven't solved the reverse of cat. I've only
+
+147
+00:14:56,580 --> 00:15:01,600
+solved the recursive to. And then I have to put that onto here to get the reverse of at.
+
+148
+00:15:03,040 --> 00:15:06,940
+And then I have to get that back here and I have to add the C in to get the reverse of cat.
+
+149
+00:15:09,800 --> 00:15:12,860
+Right. And so you could ask yourself, you're trying to solve one of these problems.
+
+150
+00:15:14,100 --> 00:15:20,820
+Suppose the recursive call all goes okay. Who cares? How do we use the answer? Right. And if,
+
+151
+00:15:21,040 --> 00:15:26,400
+and, and since you're the one coming up with the recursive call, you know, that's a bit of a weird
+
+152
+00:15:26,400 --> 00:15:30,720
+way to phrase it, but okay, let's see what else.
+
+153
+00:15:30,800 --> 00:15:35,200
+In my notes. Oh, there's almost nothing in my notes we didn't already cover. Let's see.
+
+154
+00:15:36,180 --> 00:15:40,400
+We talked about base cases and recursive cases in some detail. We talked about how a case is
+
+155
+00:15:40,400 --> 00:15:45,960
+a situation. And so often people will point to a particular if or something like that and call
+
+156
+00:15:45,960 --> 00:15:53,740
+that the base case. Can I move? Right. You can see that if on line two, you might say that's the
+
+157
+00:15:53,740 --> 00:15:58,460
+base case and that's convenient language, but like, don't get confused. Occasionally you will
+
+158
+00:15:58,460 --> 00:16:00,780
+see code where there is no if like that. And so you're going to have to do that. And so you're
+
+159
+00:16:00,780 --> 00:16:04,900
+going to have to do that. That doesn't mean there's no base case. The base case might be
+
+160
+00:16:04,900 --> 00:16:09,560
+handled without a separate line of code. You'll see it eventually and you'll hopefully understand,
+
+161
+00:16:09,700 --> 00:16:14,440
+but base case doesn't mean code. It means situation. And I guess the other thing I want
+
+162
+00:16:14,440 --> 00:16:27,060
+to mention is that a recursive case is not the same thing as a recursive call. As you know,
+
+163
+00:16:27,060 --> 00:16:34,920
+a call like a function call, you know, is when a function gets called and you can have multiple
+
+164
+00:16:34,920 --> 00:16:35,440
+calls. You can have multiple calls. You can have multiple calls. You can have multiple calls. You
+
+165
+00:16:35,440 --> 00:16:37,020
+can have multiple calls. You can have multiple calls. You can have multiple calls as a response
+
+166
+00:16:37,020 --> 00:16:44,800
+to a single case. We haven't in any of our examples yet, but you can. And so just that's
+
+167
+00:16:44,800 --> 00:16:48,120
+just these separate words you want to know, right? You want to know the base case, recursive case,
+
+168
+00:16:48,420 --> 00:16:54,360
+and you want to know that recursive call is different. And I think that's the wrap up.
+
+169
+00:16:54,360 --> 00:16:58,580
+Let me see. What did I write at the end here? When you're trying to write a recursive solution,
+
+170
+00:16:59,060 --> 00:17:07,020
+here are three, I'll just copy it into this doc. This is my wrap up. When you're trying to write
+
+171
+00:17:07,020 --> 00:17:08,100
+a recursive solution, here are three. When you're trying to write a recursive solution, here are three.
+
+172
+00:17:08,120 --> 00:17:12,340
+Three problems that you could ask yourself. What's a situation where we can solve the problem
+
+173
+00:17:12,340 --> 00:17:17,060
+immediately? Oh, this isn't three questions. This is actually four questions, but these two are kind
+
+174
+00:17:17,060 --> 00:17:21,460
+of the same. They're just two different ways of saying the same thing. How can we make progress?
+
+175
+00:17:21,560 --> 00:17:27,640
+Or to put it differently, what smaller problem can we in fact solve? And also suppose it gives
+
+176
+00:17:27,640 --> 00:17:31,540
+us the answer. What do we do with the answer? And sometimes the answer is, sometimes what we do is
+
+177
+00:17:31,540 --> 00:17:36,220
+we're done. Like we just give the answer back, but not always. Sometimes we have to take the
+
+178
+00:17:36,220 --> 00:17:42,860
+answer to the smaller problem and combine it. And so this is your kind of setup for what we're
+
+179
+00:17:42,860 --> 00:17:43,360
+going to do in class.

@@ -1,0 +1,911 @@
+1
+00:00:00,530 --> 00:00:03,970
+In this video we're going to extend our knowledge of memory diagrams a little further
+
+2
+00:00:03,970 --> 00:00:08,450
+to include scope in particular to handle different scope regions like inside functions or methods.
+
+3
+00:00:09,410 --> 00:00:13,010
+As far as I'm aware this is really the only thing we haven't handled yet in our memory diagrams.
+
+4
+00:00:19,100 --> 00:00:27,570
+In our code so far we have just had little variables hanging out in space and when you
+
+5
+00:00:27,570 --> 00:00:32,530
+visualize those in python tutor we see that they're not hanging out in space they live in
+
+6
+00:00:32,530 --> 00:00:36,850
+a global frame in an area called frames and that suggests there might be other kinds of frames
+
+7
+00:00:36,850 --> 00:00:43,870
+and in effect that's what we're going to look at. So I wonder where those come from. Well maybe they
+
+8
+00:00:43,870 --> 00:00:50,430
+come from a function call and so in this code here you see that we're going to do something very much
+
+9
+00:00:50,430 --> 00:00:53,150
+like everything we've already always done. Then we're going to make a function then we're going
+
+10
+00:00:53,150 --> 00:00:58,670
+to call that function and call it again and then do a little goofing around down here and so you
+
+11
+00:00:58,670 --> 00:01:03,230
+may you know the question you want to be asking yourself is what will it show while I call the
+
+12
+00:01:03,230 --> 00:01:11,090
+function and so when I define the function it makes this little function object here and you
+
+13
+00:01:11,090 --> 00:01:11,810
+don't need to worry about that.
+
+14
+00:01:11,810 --> 00:01:20,380
+You could draw that you could not draw that I don't care I don't care and so when we invoke bump
+
+15
+00:01:21,900 --> 00:01:29,500
+of course the value of value sorry was 10 and so that 10 gets passed in here and then that 10 is in
+
+16
+00:01:29,500 --> 00:01:35,660
+the n and sure enough that 10 is in the n right and so we see that when we call the function we
+
+17
+00:01:35,660 --> 00:01:43,500
+get a new frame here the frame in python tutor has a label and inside the frame our parameter
+
+18
+00:01:43,500 --> 00:01:44,300
+looks like a variable.
+
+19
+00:01:45,740 --> 00:01:49,020
+And then on the next line we're going to reassign n to be n plus n.
+
+20
+00:01:49,740 --> 00:01:51,500
+Okay cool n is now n plus n.
+
+21
+00:01:52,700 --> 00:01:58,300
+Now the next time we're going to make a new value n times 2 and we're going to put it into extra
+
+22
+00:01:58,300 --> 00:02:03,420
+and extra is a local variable so parameters are kind of a special kind of local variable
+
+23
+00:02:03,420 --> 00:02:12,700
+and either way parameters and local variables live in this frame here right and when I reassign
+
+24
+00:02:12,700 --> 00:02:14,620
+if I just go back to the bit where I reassigned n.
+
+25
+00:02:14,940 --> 00:02:22,220
+When I reassign n it doesn't affect what's happening in the outer scope in the in the
+
+26
+00:02:23,020 --> 00:02:27,420
+scope that it was called from and the frame that it was called from I really should say frame
+
+27
+00:02:27,420 --> 00:02:33,900
+not scope but okay so proceeding along and now we're going to return extra and watch what happens
+
+28
+00:02:33,900 --> 00:02:38,220
+when we return extra so python tutor shows you that that's going to be the return value didn't
+
+29
+00:02:38,220 --> 00:02:43,020
+use to do that that's a nice feature and now that's going to come back to line 8 and it should
+
+30
+00:02:43,020 --> 00:02:44,140
+put that into a.
+
+31
+00:02:44,140 --> 00:02:44,640
+Okay.
+
+32
+00:02:45,500 --> 00:02:50,620
+And it puts it into a in this frame which is the frame that corresponds to the scope that this was
+
+33
+00:02:50,620 --> 00:02:58,140
+in then we're just going to do all that stuff again it's just the same do do do do and we return
+
+34
+00:02:58,140 --> 00:03:05,580
+40 and it goes into b and so there you see that when I call a function it makes a stack frame
+
+35
+00:03:05,580 --> 00:03:10,620
+and when I return it removes the stack frame the stack frame disappears oh and sorry I jumped ahead
+
+36
+00:03:10,620 --> 00:03:14,380
+and called them stack frames let's just pretend I said frames for a second just for a second.
+
+37
+00:03:15,900 --> 00:03:22,380
+Let's do another example here where I'm going to put this list of two strings into a little
+
+38
+00:03:22,380 --> 00:03:27,740
+variable called list and I'm going to call bump and it turns out that plus and times both work
+
+39
+00:03:27,740 --> 00:03:34,060
+on lists I don't really think you should use times very often but and so we're going to say
+
+40
+00:03:34,060 --> 00:03:39,740
+n equals n plus n and so just like before when doing assignment made a new like
+
+41
+00:03:40,940 --> 00:03:43,580
+didn't change the original variable it's going to
+
+42
+00:03:44,940 --> 00:03:49,500
+do assignment and then it's going to do n times 2 and do assignment again
+
+43
+00:03:50,860 --> 00:03:57,500
+and then it's going to turn extra now that means that the value in extra is going to get sent back
+
+44
+00:03:57,500 --> 00:04:02,460
+to c well the value in extra is this reference not this whole list but the reference this list
+
+45
+00:04:03,420 --> 00:04:07,980
+and so that is going to get sent back and boom that referenced this list I know it jumped around
+
+46
+00:04:07,980 --> 00:04:13,580
+but it's the same list like it didn't make a new list it just it just moved it in the picture um
+
+47
+00:04:13,580 --> 00:04:19,340
+so it it it copies over the reference and does not make a new list and so this is all just the
+
+48
+00:04:19,340 --> 00:04:25,470
+same as stuff we already knew except for the frames like all the stuff about making new lists
+
+49
+00:04:25,470 --> 00:04:30,270
+sometimes and making new variables sometimes. That's all old news I hope. The only thing that's
+
+50
+00:04:30,270 --> 00:04:39,410
+new is that we have frames. Let's jump to a fancier example. This is still pretty simple
+
+51
+00:04:39,410 --> 00:04:45,780
+code but it's a little longer so we'll just have a quick look at it I'm defining three functions
+
+52
+00:04:46,500 --> 00:04:48,420
+and then I'm calling one of them. I called the first one Speed ViewingF coûts Lake.
+
+53
+00:04:48,420 --> 00:04:49,200
+And then you can see that I'm calling one of them. I've just set up a couple available new some code上
+
+54
+00:04:49,200 --> 00:04:53,920
+and then I'm calling one of them. I call function first. Function first and function second and
+
+55
+00:04:53,920 --> 00:04:56,720
+function, they're all pretty similar. They've got a few different magic numbers in them,
+
+56
+00:04:56,760 --> 00:05:02,740
+but those don't matter. What is interesting is that first calls second, second calls third,
+
+57
+00:05:03,480 --> 00:05:11,330
+and third doesn't call any other function. And so, thank you. And so when we run this,
+
+58
+00:05:13,830 --> 00:05:18,230
+it defines those three functions, of course, blur, blur, blur. And then it's going to call
+
+59
+00:05:18,230 --> 00:05:22,330
+first with a parameter, with an argument of three. So the argument of three gets copied
+
+60
+00:05:22,330 --> 00:05:29,170
+into the parameter N. And then we're going to start running some code. So it's going to make
+
+61
+00:05:29,170 --> 00:05:35,350
+a new value variable and assign that. And then it's going to call second. And when it calls second,
+
+62
+00:05:36,190 --> 00:05:43,470
+boom, we get a new stack frame, new frame. And this frame has a new value of N that is what we
+
+63
+00:05:43,470 --> 00:05:47,290
+got put in here. We got value put in here. And so this thing in value got copied into N.
+
+64
+00:05:48,650 --> 00:05:51,250
+And then it goes on and it triples that.
+
+65
+00:05:53,350 --> 00:05:53,650
+And so it's going to call second. And then it goes on and it triples that.
+
+66
+00:05:53,650 --> 00:05:59,990
+And then it's going to call third with that value of 15. And there we are. Another stack frame.
+
+67
+00:06:00,590 --> 00:06:06,950
+15 is passed in. It sits in the parameter N. And then we're going to say value equals 15 plus 7.
+
+68
+00:06:08,750 --> 00:06:13,970
+And then we're going to say result equals value times two. And then we're going to put result in
+
+69
+00:06:13,970 --> 00:06:16,390
+a final. I don't remember why I wrote that extra line of code. That's not very useful.
+
+70
+00:06:16,870 --> 00:06:22,890
+And then it's going to return that. And so what's going to happen to this return value? Well,
+
+71
+00:06:22,890 --> 00:06:23,330
+we're going to,
+
+72
+00:06:23,330 --> 00:06:28,010
+we're going to leave this frame because we're leaving this function code and we're going to go
+
+73
+00:06:28,010 --> 00:06:35,390
+back to where we were, which is line nine. And the set of frames here tells us that it'll be in
+
+74
+00:06:35,390 --> 00:06:39,850
+second. It doesn't tell us where we'll be in second, but I assure you the program is recording
+
+75
+00:06:39,850 --> 00:06:48,390
+that too. We just can't see it in this visualization. And, um, we have put that value that
+
+76
+00:06:48,390 --> 00:06:53,310
+we had 44 into the result. And so we're going to go, okay, result minus N is fine,
+
+77
+00:06:53,310 --> 00:06:59,510
+final. Sure. Return final. And again, that 39 is going to go back to line three, where it's going
+
+78
+00:06:59,510 --> 00:07:07,090
+to drop into result. There's 39 in the result and blah, blah, blah. Through we go. We return 44 back
+
+79
+00:07:07,090 --> 00:07:12,650
+to line 19, line 19. The answer is 44. And then we print it out and it prints it up here. All very
+
+80
+00:07:12,650 --> 00:07:16,510
+boring. Love it. Okay. So what did we learn here? We learned that multiple frames can exist
+
+81
+00:07:16,510 --> 00:07:23,290
+simultaneously. Each frame can have variables that have identical names to other frames.
+
+82
+00:07:23,310 --> 00:07:26,970
+And it's, it's fine, right? There's an N and a value, and there's an N and a value, and there's an
+
+83
+00:07:26,970 --> 00:07:34,660
+N and a value. That's all fine. Um, each function call creates one of these frames and the frames
+
+84
+00:07:34,660 --> 00:07:39,080
+don't go away until the function returns. So we haven't returned from first yet. And so this has
+
+85
+00:07:39,080 --> 00:07:46,180
+to hang around and these frames go away in an order that I think we can fairly describe as
+
+86
+00:07:46,180 --> 00:07:52,100
+last in first out. This is second to last in. So at second to last
+
+87
+00:07:52,100 --> 00:07:55,180
+second out. I mean,
+
+88
+00:07:55,520 --> 00:08:02,100
+And then this was earlier in, so it's later out and so on, right? This is first in first out. And
+
+89
+00:08:02,100 --> 00:08:06,800
+so that's why I call this these stack frames. Cause that's what they're called. This set of
+
+90
+00:08:06,800 --> 00:08:12,180
+all the frames is called the call stack. So this is the call stack. It is a stack. It holds frames.
+
+91
+00:08:12,500 --> 00:08:17,300
+They're called stack frames sometimes. Okay. And so if you want to, you could go back to this
+
+92
+00:08:17,300 --> 00:08:22,320
+little section and put your attention on what happens when a function returns the return value
+
+93
+00:08:22,320 --> 00:08:25,280
+to the frame and to what runs next.
+
+94
+00:08:25,520 --> 00:08:33,810
+Now, this next little bit's a bit in the weeds, but I just want to make sure we're clear
+
+95
+00:08:33,810 --> 00:08:41,490
+that the values at different levels of scope aren't necessarily the same value. And in fact,
+
+96
+00:08:41,590 --> 00:08:45,250
+they're generally not the same value. And so even though we have a variable here called value on
+
+97
+00:08:45,250 --> 00:08:50,630
+line one and a variable here called value on line five, the one on five is a local variable inside
+
+98
+00:08:50,630 --> 00:08:56,910
+this scope. And so it will exist in its own stack frame, like in the stack frame of the function.
+
+99
+00:08:57,750 --> 00:08:59,150
+And it's when,
+
+100
+00:08:59,150 --> 00:09:05,370
+when this value gets assigned to be value plus one boop, that affects this one. It doesn't affect
+
+101
+00:09:05,370 --> 00:09:13,540
+this other one. The rest of this is pretty straightforward. And if I modify, you know what,
+
+102
+00:09:13,540 --> 00:09:16,820
+I'm not going to do the other version, but there is a way to get the value out there.
+
+103
+00:09:17,940 --> 00:09:21,060
+There's a way to read the value in. There's a more difficult way to get the value out,
+
+104
+00:09:21,160 --> 00:09:24,240
+but generally you shouldn't be doing that. Generally you should be passing things through
+
+105
+00:09:24,240 --> 00:09:29,620
+parameters, right? Which I hope you all know. Okay. What am I doing next?
+
+106
+00:09:32,910 --> 00:09:36,450
+Um, what's this an example?
+
+107
+00:09:37,050 --> 00:09:41,850
+Well, this is a combination of stuff. We've already been doing with how some things modify
+
+108
+00:09:41,850 --> 00:09:49,030
+lists and other things make new lists, right? That's stuff from before with stuff from this
+
+109
+00:09:49,030 --> 00:09:56,310
+lesson about, um, frames. And so the point is that these things, the point of this little example is
+
+110
+00:09:56,310 --> 00:10:01,370
+these things work together just in the most simple way you can imagine. So I'm going to define this
+
+111
+00:10:01,370 --> 00:10:05,390
+function. I'm going to set letters to be a new list with one element. The element is the string
+
+112
+00:10:05,390 --> 00:10:05,670
+A.
+
+113
+00:10:06,570 --> 00:10:12,290
+pass that into change so we're in the change stack frame now it has got a parameter of items
+
+114
+00:10:12,290 --> 00:10:17,050
+and that parameter is visible here and it references this same list right and so the
+
+115
+00:10:17,050 --> 00:10:22,350
+the reference got copied over the list didn't get a new copy of it made
+
+116
+00:10:22,350 --> 00:10:29,390
+and so when we dot append it's modifying this original like like this items points to the same
+
+117
+00:10:29,390 --> 00:10:35,870
+thing that letters points to and so when we items append it's going to modify letters in effect like
+
+118
+00:10:35,870 --> 00:10:40,350
+it's the same not like letters is the real name for this neither of them one is neither one of
+
+119
+00:10:40,350 --> 00:10:44,470
+these names is the real name they're both just names that this thing answers to and so then when
+
+120
+00:10:44,470 --> 00:10:50,170
+we do this assignment on line three we know that assignment is different from mutating method calls
+
+121
+00:10:50,170 --> 00:10:57,230
+and so assignment will make a list and point items that list line four is going to append to the new
+
+122
+00:10:57,230 --> 00:11:02,010
+list then we're going to return the new list and line eight says we're going to put that that
+
+123
+00:11:02,010 --> 00:11:05,850
+reference to the new list into a new variable called other and so
+
+124
+00:11:05,870 --> 00:11:10,450
+it kind of jumps here but you're going to see that there's a new variable here and it has an arrow
+
+125
+00:11:10,450 --> 00:11:14,690
+pointing to this list and it's not a new list it doesn't make a new list in this next step
+
+126
+00:11:14,690 --> 00:11:20,810
+it just okay in in one version when i was doing this it it moved it around and so it looked like
+
+127
+00:11:20,810 --> 00:11:26,250
+it might be making a new one but it was clear this time okay and so again this is just a combination
+
+128
+00:11:26,250 --> 00:11:36,700
+of the old ideas um the the new call stack frame the variables in that frame are their new variables
+
+129
+00:11:37,280 --> 00:11:42,460
+and so the things that would result in arrows getting unhooked still result in arrows getting
+
+130
+00:11:42,460 --> 00:11:45,620
+unhooked and the things that would keep the arrows hooked together still keep the arrows hooked
+
+131
+00:11:45,620 --> 00:11:52,900
+together it's like not any different in terms of when we make a new list or when we make a new
+
+132
+00:11:52,900 --> 00:12:06,110
+object or things like that do do do next thing okay the next thing is methods and again what
+
+133
+00:12:06,110 --> 00:12:10,090
+you're going to see is this is not a new idea we already covered the idea in the first couple
+
+134
+00:12:12,750 --> 00:12:18,170
+of episodes so we'll just cover this in this next one step the next thing is method we're going
+
+135
+00:12:18,170 --> 00:12:23,250
+to do is we're going to use this method because in this case we're going to look at the definition
+
+136
+00:12:23,250 --> 00:12:28,350
+of methods and we're going to call this method initialize so a method is used to define a class
+
+137
+00:12:28,350 --> 00:12:34,510
+so you can see here we define a class it's got three methods um this method doesn't call any
+
+138
+00:12:34,510 --> 00:12:37,870
+other methods but this method does so you can see what happens when a method calls another method
+
+139
+00:12:37,870 --> 00:12:40,770
+so we're going to do first is we're gonna when we run it we
+
+140
+00:12:40,770 --> 00:12:41,930
+zoom through the class definition and we get the class here okay whatever i don't care and then we
+
+141
+00:12:41,930 --> 00:12:42,750
+call the constructor which runs the initializer the initializer sets marbles to 10 in the new instance
+
+142
+00:12:42,750 --> 00:12:48,510
+and then it puts that into this variable called red by which or it puts it in i mean that it
+
+143
+00:12:48,510 --> 00:12:52,190
+gets a reference to it and the same thing is going to happen again except it's going to be
+
+144
+00:12:52,190 --> 00:12:58,970
+20 marbles and it's going to be referenced from the variable blue call it let me give it the
+
+145
+00:12:58,970 --> 00:13:04,110
+property 20 marbles put it into blue did i just double jump yeah i think i just i just think i
+
+146
+00:13:04,110 --> 00:13:11,150
+just like my finger just double clicked okay so what happens next what happens next is we're
+
+147
+00:13:11,150 --> 00:13:17,530
+going to call red dot receive red dot receive is just basically increasing by some number
+
+148
+00:13:17,530 --> 00:13:21,870
+like where these marbles come from i don't know we just we just bought one more we bought one
+
+149
+00:13:21,870 --> 00:13:28,470
+more red marble at the store and so you can see that because it's called on red that self is this
+
+150
+00:13:28,470 --> 00:13:32,470
+thing that was that red referenced right red had an arrow to here so self has an arrow the same
+
+151
+00:13:32,470 --> 00:13:38,510
+thing now we're going to go into this method call it's just like going into a function call it's got
+
+152
+00:13:38,510 --> 00:13:41,130
+a stack frame the whole self
+
+153
+00:13:41,130 --> 00:13:45,250
+thing is different but everything else is the same and you already knew all that from oh it's
+
+154
+00:13:45,250 --> 00:13:52,310
+just the same okay and so line six is gonna find what self marbles is it's gonna add one to it
+
+155
+00:13:52,310 --> 00:13:57,510
+because one is the amount and then it's gonna put that into self marbles okay great and then it gets
+
+156
+00:13:57,510 --> 00:14:03,850
+this final it returns final whatever we're gonna go on and do it again we're gonna buy two more
+
+157
+00:14:03,850 --> 00:14:10,890
+blue marbles so blue is the the thing that blue references is is
+
+158
+00:14:11,130 --> 00:14:18,370
+it's gonna find that two by itself um we've got the two in the amount we go through we do the
+
+159
+00:14:18,370 --> 00:14:24,730
+mutation over here we set up final over return it okay fine and now we get the one slightly more
+
+160
+00:14:24,730 --> 00:14:31,050
+complicated version where it's going to call move to and move two calls receive so we call move two
+
+161
+00:14:31,050 --> 00:14:38,470
+um we're moving four out of blue and four out of right into blue so we're gonna this 11th gonna go
+
+162
+00:14:38,470 --> 00:14:41,090
+down and the 22 is gonna go up i think hope i got that right
+
+163
+00:14:41,130 --> 00:14:48,070
+i'm getting a little tired okay so four got removed from the thing that red points to but
+
+164
+00:14:48,070 --> 00:14:53,770
+right now that's self and then we're going to put them into the other one we're going to do that by
+
+165
+00:14:53,770 --> 00:14:58,130
+calling receive you can see here on line 12 that we call receive and so what you're seeing here is
+
+166
+00:14:58,130 --> 00:15:01,970
+it's there's more details like all the details are getting a bit distracting and complicated
+
+167
+00:15:01,970 --> 00:15:08,170
+like it's like it's a lot of details to take care of but it's all just the same machinery as before
+
+168
+00:15:08,170 --> 00:15:14,370
+right we know about method calls from last term we know about self being this kind of funny thing
+
+169
+00:15:14,370 --> 00:15:21,410
+that's how method calls work then we know about um objects having properties we know about that
+
+170
+00:15:21,410 --> 00:15:27,630
+from the an earlier video we know about stack frames from a few minutes ago it's all just this
+
+171
+00:15:27,630 --> 00:15:30,690
+stuff it's just there's so much of it going on that it feels a bit bewildering maybe
+
+172
+00:15:30,690 --> 00:15:38,820
+but it's all actually stuff we already know and then we print it out don't care okay
+
+173
+00:15:38,820 --> 00:15:39,220
+okay
+
+174
+00:15:40,120 --> 00:15:45,900
+now this video is not about recursion but i want to show you how
+
+175
+00:15:45,900 --> 00:15:53,300
+un new like how simple and the same thing recursion is with respect to what we're doing
+
+176
+00:15:53,300 --> 00:16:06,120
+here we make the function we call it it gets a stack frame it calls itself it gets a stack frame
+
+177
+00:16:06,120 --> 00:16:18,880
+it calls itself it gets a stack frame it calls itself it gets a stack frame right
+
+178
+00:16:19,880 --> 00:16:31,160
+and then when they return they return they return and so we'll come back to this but i just wanted you to see that it's not any different just because it's recursion
+
+179
+00:16:31,160 --> 00:16:37,980
+okay we're almost at the end of this video i just want to tack on one more thing that we didn't cover previously
+
+180
+00:16:37,980 --> 00:16:50,980
+which is we didn't do dictionaries previously and i just want to show you the dictionaries are again if you can do all the other stuff you can do this if you can't do all the other stuff well uh i don't know
+
+181
+00:16:51,200 --> 00:16:53,260
+but this is a grâce to it kingdom
+
+182
+00:16:53,260 --> 00:16:54,020
+we're right in the middle of this video all right de decorate
+
+183
+00:16:54,020 --> 00:16:57,440
+but we're right in the middle of this video all right de create
+
+184
+00:16:57,440 --> 00:17:02,080
+imported class that makes things weird but we're just going to have this variable record and it
+
+185
+00:17:02,080 --> 00:17:05,280
+points to a dictionary you can see the dictionary is just like an object instance except instead of
+
+186
+00:17:05,280 --> 00:17:10,580
+saying blah blah instance it says dict you could write whatever you like there something that was
+
+187
+00:17:10,580 --> 00:17:15,620
+made it was clear like sorry what i'm trying to say is i don't mean write whatever you like i mean
+
+188
+00:17:15,620 --> 00:17:21,220
+write something that's clear but i'm not super picky about exactly what you write right if you
+
+189
+00:17:21,220 --> 00:17:26,500
+wrote instance of dictionary or you wrote dictionary or you wrote dict or if there was only
+
+190
+00:17:26,500 --> 00:17:30,780
+one kind of thing here and you didn't even write anything you know like as long as it's clear i
+
+191
+00:17:30,780 --> 00:17:37,960
+don't care i do care if it's not clear um anyway and so you can see that from inside the dictionary
+
+192
+00:17:37,960 --> 00:17:42,640
+we reference a list and that works just the way it would if we were referencing a list inside a
+
+193
+00:17:42,640 --> 00:17:47,420
+list and then what does the rest of this thing do oh we're just gonna make some new variables that
+
+194
+00:17:47,420 --> 00:17:52,880
+reference the things to show you that um reassigning a dictionary is just like reassigning
+
+195
+00:17:52,880 --> 00:17:56,480
+a list but reassigning something inside a dictionary is like reassigning something
+
+196
+00:17:56,480 --> 00:18:03,420
+inside a list and so when it's a string we just get a new copy of it but when it's a list we get
+
+197
+00:18:03,420 --> 00:18:12,280
+a new reference to it and then i'm going to edit the dictionary's name and that doesn't actually
+
+198
+00:18:12,280 --> 00:18:16,200
+edit this because it's it happened like it already happened it already made that copy
+
+199
+00:18:17,040 --> 00:18:22,400
+then i'm going to add a new score there and i went through the dictionary to get to the score
+
+200
+00:18:22,400 --> 00:18:26,040
+but you can see that if i just were to ask for baz2 i would now see that new score
+
+201
+00:18:27,840 --> 00:18:28,120
+but if i just were to ask for baz2 i would now see that new score
+
+202
+00:18:28,140 --> 00:18:32,120
+that's because i did an append but if i do an assignment here
+
+203
+00:18:32,120 --> 00:18:39,380
+you see that it makes a new list makes a new reference and and this this other variable that
+
+204
+00:18:39,380 --> 00:18:47,040
+sees that is not um not not seeing the new values because why would it and then i'm going to also
+
+205
+00:18:47,040 --> 00:18:52,340
+i'm going to show that you can add new values to dictionaries because you knew that and that just
+
+206
+00:18:52,340 --> 00:18:56,920
+works the way you think and i think i can somehow i feel like i'm supposed to be able to drag this
+
+207
+00:18:56,920 --> 00:18:58,120
+around why is that i can sometimes do that i can sometimes do that i can sometimes do that i can
+
+208
+00:18:58,140 --> 00:19:03,320
+sometimes drag this around i can't sometimes can't if i click this thing oh okay there we go
+
+209
+00:19:03,320 --> 00:19:08,120
+so i can just drag those around so they're not as confusing okay so what do we do in this video
+
+210
+00:19:08,120 --> 00:19:13,920
+at the end here we did i can drag this around too at the end here we did dictionaries you should be
+
+211
+00:19:13,920 --> 00:19:21,240
+able to draw dictionaries we also did these stack frame things let me just find some suitable example
+
+212
+00:19:21,240 --> 00:19:34,420
+from the earlier in the video and so um you should understand what happens when stack frames are
+
+213
+00:19:34,420 --> 00:19:35,640
+created and i'm going to show you how that works so i'm going to show you how that works and i'm going to
+
+214
+00:19:35,660 --> 00:19:52,890
+might ask you to do something like, I would say, um, so I had to say something like this. I would
+
+215
+00:19:52,890 --> 00:19:58,230
+say, as this code runs at some point, it's going to come across this print. And here is where I
+
+216
+00:19:58,230 --> 00:20:13,280
+want you to show the memory diagram. Right. And so if I asked you to do that, this is where it
+
+217
+00:20:13,280 --> 00:20:21,040
+printed. So this is the diagram you would show. Right. And notice that in this example, third
+
+218
+00:20:21,040 --> 00:20:27,840
+already got called, but it also already returned. And so if I just go back through the steps,
+
+219
+00:20:28,440 --> 00:20:34,560
+notice that third is created there and I'll go forward. Third returns, the frame gets removed
+
+220
+00:20:34,560 --> 00:20:39,780
+and we go back to line nine and then we go on to line 10, which is where you're supposed to take
+
+221
+00:20:39,780 --> 00:20:44,740
+the snapshot. Right. So I could ask you to do this much like with the class object objects.
+
+222
+00:20:44,840 --> 00:20:49,140
+I don't care about the function objects. I don't care if you do these or not. You just leave these,
+
+223
+00:20:49,140 --> 00:20:50,800
+leave the names out, leave these things out.
+
+224
+00:20:51,460 --> 00:20:55,500
+But you should be able to show multiple stack frames and be able to take a sort of a snapshot
+
+225
+00:20:55,500 --> 00:20:58,920
+partway through execution, which is more complicated than before where I said,
+
+226
+00:20:59,000 --> 00:21:03,540
+just show me at the end. But now I might say, show me a snapshot for the middle.
+
+227
+00:21:05,100 --> 00:21:08,320
+And that's it. That's memory diagrams about stack frames
+
+228
+00:21:08,320 --> 00:21:12,850
+with a little bit of dictionary stuff tacked on. Thank you.

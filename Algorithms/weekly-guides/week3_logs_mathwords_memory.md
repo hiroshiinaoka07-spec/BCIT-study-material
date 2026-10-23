@@ -1,178 +1,205 @@
-# Week 3: Logarithms, Math Words, and Memory Diagrams
+# Week 3: Logs and Memory Diagrams
 
-## Learning Objectives
+Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf` (memory-diagram method and lab Q1–Q5).
 
-- Match a formula to the right word: constant, linear, quadratic, polynomial, exponential, or logarithmic.
-- Turn a "how many times can you divide" word problem into a log.
-- Draw memory diagrams that show which variables share the **same** list.
+Logs are not worked out on those PDF pages, but Week 4’s **O(log n)** and “counter doubles or halves → log n” only make sense if you know what a log is, so a short recap stays here.
 
-## Where to Look
-
-- `transcripts/202630_w03_logs (1)/transcript.md`: the logs video, about 17 minutes.
-- `transcripts/202630_w03_mathwords/transcript.md`: the math words video, about 13 minutes.
-- `Algorithms/wk03_lab_diagrams.md`: the memory diagram lab, 14 questions.
-
----
-
-## Key Concepts
-
-### 1. Logs are the reverse of exponents
+## Logs in one page
 
 \[ 2^5 = 32 \quad\Longleftrightarrow\quad \log_2(32) = 5 \]
 
-- \(\log_b(n)\) asks: "b to the **what** gives n?"
-- In computing, assume **base 2** unless you're told otherwise.
-- Another way to see it: **how many times can you divide n by b until you reach 1?**
-
-### 2. Spotting a log in a word problem
-
-The instructor called this **the most important thing** in the logs video.
-
-- **Tournament:** a million players, 3 per game, only the winner moves on. Each round keeps a third, so the number of rounds is \(\log_3(1{,}000{,}000) \approx 13\). With n players it's \(\log_3(n)\).
-- **Binary search on 1600 items:** halve each step, 1600, 800, 400 and so on. That's about \(\log_2(1600) \approx 10.6\), so 10 or 11 steps.
-- **Not a log:** checking 1600 items one at a time goes 1599, 1598, 1597. That's **linear**.
-
-The rule: if the problem keeps **multiplying up to n** or **dividing down to 1**, it's probably a log. Close is good enough. "About 10 and a half" is a fine answer.
-
-### 3. Math words
+- \(\log_b(n)\) asks: “b to the **what** gives n?”
+- In computing, assume **base 2** unless you are told otherwise.
+- Same question in other words: **how many times can you divide n by b until you reach 1?**
+- Binary search on n items is about \(\log_2 n\) steps. Checking items one by one is **linear**, not a log.
+- You do **not** need the log base in Big O: \(O(\log_2 n)\) is \(O(\log n)\).
 
 | Word | Example | Big O |
-| - | - | - |
-| **Constant** | `y = 44` | \(O(1)\) |
-| **Logarithmic** | `y = log n` | \(O(\log n)\) |
-| **Linear** | `y = 3n + 7` | \(O(n)\) |
-| **Quadratic** | `y = 2n² + n` | \(O(n^2)\) |
-| **Polynomial** | `y = n³ + 3n + 4` | \(O(n^3)\) |
-| **Exponential** | `y = 2ⁿ`, with n **in the exponent** | \(O(2^n)\) |
+| ---- | ------- | ----- |
+| Constant | `y = 44` | \(O(1)\) |
+| Logarithmic | `y = \log n` | \(O(\log n)\) |
+| Linear | `y = 3n + 7` | \(O(n)\) |
+| Quadratic | `y = 2n^2 + n` | \(O(n^2)\) |
+| Exponential | `y = 2^n` (n in the **exponent**) | \(O(2^n)\) |
 
-- **Drop constants and smaller terms.** In \(n + 77\log n\), the \(n\) term **dominates** when n gets big, so it's \(O(n)\).
-- **Don't call linear "polynomial."** It's technically true, but you might lose marks.
-- **Exponential means n is in the exponent.** \(n^2\) is **not** exponential.
-- **You don't need the log base in Big O.** \(O(\log_2 n)\) is the same as \(O(\log n)\).
+\(n^2\) is **not** exponential. Drop constants and smaller terms: \(n + 77\log n\) is \(O(n)\).
 
-### 4. Memory diagrams
+---
 
-**Lists are objects, and variables are arrows pointing at them.**
+## Memory diagrams — the 4-step method
+
+Lists are objects. Variables are **arrows** pointing at them.
+
+### 1. Count created lists
+
+Find every `[]` (list literal) that actually runs and write down the total.
+
+```python
+a = []   # 1 list
+b = a    # no new list
+# Total [] : 1
+```
+
+### 2. Draw variable reference arrows
+
+Write each variable name and an arrow to the list it points at.
+
+```text
+a → []
+b → (same [])
+```
+
+After `b = a`, both names share one object. After `b = [6]`, `b` would point at a **new** list.
+
+### 3. Map shared references and nested elements
+
+Draw aliases (several variables pointing at the **same** list) and arrows from index slots to nested inner lists.
+
+```text
+a → []          x → [ _ , _ ]
+                    ↓     ↓
+                   (a)   []     ← a third list
+```
+
+### 4. Trace mutations vs reassignments
+
+**In-place mutation** (`.append()`, `x[i] = ...`) changes the list **inside its box**. Every arrow to that box sees the change.
+
+```text
+old: a → []          new after a.append(30): a → [30]
+```
+
+**Reassignment** (`a = []`, `a = b`, `a = [99]`) does **not** edit the old list. It draws a new object if needed and **moves a’s arrow**.
+
+```text
+old: a → []          new: a → [10]
+                              b still at the old list if it was sharing
+```
+
+Two rules that cover the lab:
+
+- `x = something` **moves an arrow**.
+- `x.append(...)` and `x[i] = ...` **change the list itself**.
+
+Only list literals (`[]`, `[1]`, `[a]`, `[99]`) create a **new** list. `b = a` never does.
+
+---
+
+## Worked checkpoint (Q1–Q5)
+
+### Q1
 
 ```python
 a = [10]
-b = a          # no new list, b points at the same one
+b = a
 b.append(20)
-print(a)       # [10, 20]
+print(a)
+print(b)
 ```
 
-The two rules that cover the whole lab:
+- Lists created: **1** (`[10]`).
+- `b = a` shares that list. `b.append(20)` mutates it.
+- Output: `[10, 20]` then `[10, 20]`.
 
-- **`x = something` moves an arrow.** It never changes the list the variable used to point at.
-- **`x.append(...)` and `x[i] = ...` change the list itself.** Every arrow pointing at that list sees the change.
+```text
+a ↘
+    [10, 20]
+b ↗
+```
 
-Only list literals like `[]` or `[1]` make a **new** list. Lab Question 4 shows why this matters:
+### Q2
+
+```python
+a = []
+x = [a, []]
+a.append(10)
+x[1].append(20)
+print(x)
+```
+
+- Lists created: **3** — `a`’s `[]`, `x`’s outer list, and the inner `[]`.
+- `a.append(10)` fills the first inner list, which is also `x[0]`.
+- `x[1].append(20)` fills the second inner list.
+- Output: `[[10], [20]]`.
+
+### Q3
+
+```python
+a = []
+b = []
+x = [a, b]
+a.append(b)
+b.append(5)
+print(a)
+print(b)
+print(x)
+```
+
+- Lists created: **3**.
+- `a.append(b)` stores a reference to `b` inside `a`. Then `b.append(5)` is visible through `a`, through `b`, and through `x`.
+- Output: `a: [[5]]` · `b: [5]` · `x: [[[5]], [5]]`.
+
+### Q4
 
 ```python
 a = []
 b = [a]
 c = a
-a = [99]       # a now points somewhere else, b and c still share the first list
+a = [99]
 c.append(10)
-print(a)       # [99]
-print(b)       # [[10]]
-print(c)       # [10]
+print(a)
+print(b)
+print(c)
 ```
 
-That's 3 list literals: `[]`, `[a]`, and `[99]`.
+- Lists created: **3** — first `[]`, `b`’s `[a]`, then `[99]`.
+- `a = [99]` only **moves a’s arrow**. `b[0]` and `c` still share the first list, which gets the 10.
+- Output: `[99]` · `[[10]]` · `[10]`.
 
----
+### Q5
 
-## Practical Takeaways
+```python
+a = [1]
+b = [a, a]
+c = a
+c.append(2)
+b[0] = []
+print(a)
+print(b)
+print(c)
+```
 
-- "Is it a log?" is how you'll recognize fast algorithms like binary search, and later tree height and sorting.
-- The right words matter in interviews. Calling \(n^2\) "exponential" is a common red flag.
-- Shared references cause a lot of real bugs, for example a default argument `def f(x=[])` that gets shared between calls. They're also exactly how linked lists work in Week 5.
+- Lists created: **3** — `[1]`, `b`’s outer list, and the later `[]`.
+- `c.append(2)` mutates the shared `[1]` into `[1, 2]`. Then `b[0] = []` replaces **one slot** of `b` with a new empty list; it does not touch `a`/`c`.
+- Output: `[1, 2]` · `[[], [1, 2]]` · `[1, 2]`.
 
 ---
 
 ## Knowledge Check
 
-**1. Multiple choice.** Which one is **exponential**?
+**1.** What question does \(\log_2(32)\) ask, and what is the answer?
 
-- A. \(n^{10}\)
-- B. \(10n^2 + 5\)
-- C. \(2^n\)
-- D. \(n \log n\)
+**2.** Which line **creates** a new list?
 
-**2. Multiple choice.** What's the Big O of \(5n + 300\log n + 9\)?
+- A) `b = a`
+- B) `b.append(1)`
+- C) `b = []`
+- D) `a[0] = 1`
 
-- A. \(O(\log n)\)
-- B. \(O(n)\)
-- C. \(O(n \log n)\)
-- D. \(O(300)\)
+**3.** After `a = [10]; b = a; a = [99]; b.append(20)`, what are `a` and `b`?
 
-**3. Code reading.** What prints, and how many lists are created?
+**4.** How many lists does Q4 create, and why isn’t the answer 2?
 
-```python
-x = [[]]
-y = x[0]
-x[0] = []
-y.append(999)
-print(x)
-print(y)
-```
-
-**4. Fill in the blank.** \(\log_2(1024) = \) ______ and \(\log_5(625) = \) ______.
-
-**5. Scenario.** A game keeps cutting a group of n people in half until one person is left. Your teammate says it takes n rounds. How do you explain why they're wrong, and what's the right answer?
+**5.** In Q5, why does `b` become `[[], [1, 2]]` instead of `[[], []]`?
 
 <details>
 <summary><strong>Answer Key</strong></summary>
 
-1. **C.** The variable is in the exponent. A is a polynomial, even with a big exponent.
-2. **B.** \(n\) dominates \(\log n\) as n grows, no matter how big the 300 is.
-3. Prints `[[]]` then `[999]`. **3 lists**: the outer list, the first inner `[]`, and the second `[]`. `y` still points at the first inner list, but `x[0]` was moved to a new empty list, so the append only shows in `y`.
-4. **10**, because \(2^{10} = 1024\). **4**, because \(5^4 = 625\).
-5. Each round **halves** the group, so you count how many times you can divide n by 2 to reach 1. That's \(\log_2(n)\), not n. Removing one person per round would be n, which is linear.
-
-</details>
-
----
-
-## Worked Answers: Memory Diagram Lab (`wk03_lab_diagrams.md`)
-
-Do each question on paper first. To count lists, **count every list literal that runs**: each `[]`, `[1]`, `[a, b]`, and so on. Assignments like `b = a` and `x[0] = x[1]` never make a new list.
-
-<details>
-<summary><strong>Questions 1 to 5, the checkpoint</strong></summary>
-
-| # | Lists | Output | Why |
-| - | - | - | - |
-| 1 | 1 | `[10, 20]` `[10, 20]` | `b = a` shares the one list, so the append shows in both. |
-| 2 | 3 | `[[10], [20]]` | `x` holds `a` itself plus a new `[]`. Both appends change lists inside `x`. |
-| 3 | 3 | `[[5]]` `[5]` `[[[5]], [5]]` | `a` contains `b`, and `x` contains both. Appending 5 to `b` shows up everywhere `b` appears. |
-| 4 | 3 | `[99]` `[[10]]` `[10]` | `a = [99]` only moves `a`'s arrow. `b[0]` and `c` still share the first list, which gets the 10. |
-| 5 | 3 | `[1, 2]` `[[], [1, 2]]` `[1, 2]` | `b[0] = []` swaps out one slot in `b`. It doesn't touch the list `a` and `c` point to. |
-
-</details>
-
-<details>
-<summary><strong>Questions 6 to 12</strong></summary>
-
-| # | Lists | Output | Why |
-| - | - | - | - |
-| 6 | 3 | `[7]` `[[7], 8]` `[[7], [[7], 8]]` | `c` holds `a` and `b`, and `b` also holds `a`, so the 7 shows up three times. |
-| 7 | 3 | `[[8], [8]]` `[9]` | `y` keeps the first inner list. `x[0] = x[1]` makes both slots point at the **second** inner list, which gets the 8. |
-| 8 | 3 | `[1]` `[[2], [2]]` | `b` holds the old `a` twice. `a = [1]` moves `a` away, then `b[1].append(2)` changes the old list, which both slots share. |
-| 9 | 3 | `[[1], [2]]` `[[1], [2]]` | `c = b` is the same list, so every change shows in both. |
-| 10 | 4 | `[1]` `[2]` `[[[1], 3], [1]]` | `b = [2]` moves `b`, but `c[0]` is still the **old** `b`, which gets the 3. |
-| 11 | 4 | `[1]` `[[1]]` `[[1], [[1]]]` `[2]` | `b.append(d)` stores `a`, because `d` pointed at `a` then. Then `d = []` moves `d` to a new list, which gets the 2. |
-| 12 | 3 | `[[]]` `[999]` | `y` keeps the original inner list. `x[0] = []` puts a new empty list in `x`. |
-
-</details>
-
-<details>
-<summary><strong>Questions 13 and 14, the cycles stretch</strong></summary>
-
-**13.** 1 list. It prints `[[...]]`. The list contains **itself**. Python notices it's already printing that list, so it shows `...` instead of printing forever.
-
-**14.** 2 lists. It prints `[[[...]]]`. `a` holds `b`, and `b` holds `a`, so following the arrows goes round in a loop. Python prints the outer list, then `b`, and then shows `...` when it gets back to `a`.
+1. “2 to the what equals 32?” Answer **5**.
+2. **C.** A list literal. `b = a` only moves an arrow; append mutates.
+3. `a` is `[99]`. `b` is `[10, 20]`. Reassignment moved `a`; append changed the original list.
+4. **3.** `[ ]`, `[a]`, and `[99]` are three literals. `c = a` is not a new list.
+5. `c.append(2)` hits the shared `[1]` first, so `b[1]` (still that same list) shows `[1, 2]`. `b[0] = []` only replaces slot 0.
 
 </details>
 
@@ -182,160 +209,133 @@ Do each question on paper first. To count lists, **count every list literal that
 
 One correct answer per question. Try all 15 before opening the key.
 
-**1.** What question does \(\log_b(n)\) ask?
+**1.** \(\log_b(n)\) asks:
 
-- A) "What is n to the power b?"
-- B) "What is n divided by b once?"
-- C) "b to the **what** gives n?"
-- D) "What is b times n?"
+- A) What is n to the power b?
+- B) b to the **what** gives n?
+- C) What is n divided by b once?
+- D) What is b times n?
 
-**2.** What is \(\log_3(81)\)?
-
-- A) 27
-- B) 4
-- C) 3
-- D) 9
-
-**3.** In computing, if a log's base isn't given, what base should you assume?
+**2.** In computing, if a log base is not given, assume:
 
 - A) 10
 - B) e
+- C) 2
+- D) 3
+
+**3.** Which formula is **exponential**?
+
+- A) \(n^{10}\)
+- B) \(10n^2\)
+- C) \(2^n\)
+- D) \(n \log n\)
+
+**4.** How many lists does this create?
+
+```python
+a = []
+b = a
+```
+
+- A) 0
+- B) 1
+- C) 2
+- D) 3
+
+**5.** `x = something` does which of the following?
+
+- A) Always mutates the old list
+- B) Moves x’s arrow
+- C) Copies every element
+- D) Creates two new lists
+
+**6.** After Q1 (`a = [10]; b = a; b.append(20)`), `print(a)` shows:
+
+- A) `[10]`
+- B) `[10, 20]`
+- C) `[20]`
+- D) `[]`
+
+**7.** Q2 creates how many lists?
+
+- A) 1
+- B) 2
 - C) 3
-- D) 2
+- D) 4
 
-**4.** A tournament has 1024 players. Each game has **4** players, and only the winner moves on. How many rounds until there's one champion?
+**8.** Q2’s `print(x)` is:
 
-- A) 5
-- B) 10
-- C) 256
-- D) 1023
+- A) `[[10], [20]]`
+- B) `[10, 20]`
+- C) `[[], []]`
+- D) `[[10, 20]]`
 
-**5.** Which of these is **not** a log?
+**9.** In Q3, after `a.append(b)` and `b.append(5)`, `print(a)` is:
 
-- A) Halving a sorted list of 1600 items until you find the one you want
-- B) Checking 500 items one at a time until you find the one you want
-- C) A tournament with 2 players per game where only the winner moves on
-- D) Dividing n by 10 again and again until you reach 1
+- A) `[]`
+- B) `[5]`
+- C) `[[5]]`
+- D) `[b]`
 
-**6.** What's the right word for \(y = 4n^2 + 10n + 3\)?
+**10.** In Q4, `a = [99]` causes:
+
+- A) `b` and `c` to become `[99]` too
+- B) Only a’s arrow to move to a new list
+- C) The original list to be deleted immediately
+- D) `c.append(10)` to change `[99]`
+
+**11.** Q4 output for `b` is:
+
+- A) `[99]`
+- B) `[[10]]`
+- C) `[10]`
+- D) `[]`
+
+**12.** In Q5, `c.append(2)` changes:
+
+- A) Only `c`, because it is a copy
+- B) The shared `[1]` object, so `a` becomes `[1, 2]` as well
+- C) `b[0]` into `[2]`
+- D) Nothing
+
+**13.** In Q5, `b[0] = []`:
+
+- A) Mutates `a`
+- B) Replaces one slot of `b` with a **new** empty list
+- C) Makes `c` empty
+- D) Creates no new list
+
+**14.** Which operation mutates a list in place?
+
+- A) `a = [99]`
+- B) `a = b`
+- C) `a.append(10)`
+- D) `a = []`
+
+**15.** Binary search’s “how many times can you halve n down to 1?” is:
 
 - A) Linear
-- B) Exponential
-- C) Quadratic
-- D) Logarithmic
-
-**7.** What's the Big O of \(n^3 + 50n^2 + 1000\)?
-
-- A) \(O(n^3)\)
-- B) \(O(n^2)\)
-- C) \(O(1000)\)
-- D) \(O(3^n)\)
-
-**8.** A teammate describes \(3n + 7\) as "polynomial" on a quiz. What's the best response?
-
-- A) That's wrong; it's exponential
-- B) That's the preferred word, so keep it
-- C) That's wrong; it's constant
-- D) It's technically true, but call it **linear**, or you might lose marks
-
-**9.** How do \(O(\log_2 n)\) and \(O(\log_{10} n)\) compare?
-
-- A) \(O(\log_2 n)\) grows much faster, so they're different
-- B) They're the same; you don't need the log base in Big O
-- C) \(O(\log_{10} n)\) is actually linear
-- D) You always have to write the base in Big O
-
-**10.** What does this print?
-
-```python
-a = [1, 2]
-b = a
-a = [3]
-b.append(4)
-print(a)
-print(b)
-```
-
-- A) `[3, 4]` then `[1, 2]`
-- B) `[1, 2, 4]` then `[1, 2, 4]`
-- C) `[3]` then `[1, 2, 4]`
-- D) `[3]` then `[1, 2]`
-
-**11.** How many lists does this code create?
-
-```python
-p = [1]
-q = [p, p]
-r = q
-s = [r]
-```
-
-- A) 3
-- B) 4
-- C) 5
-- D) 2
-
-**12.** What does this print?
-
-```python
-a = [5]
-b = [a, a]
-b[0].append(6)
-print(b)
-```
-
-- A) `[[5, 6], [5]]`
-- B) `[[5], [5], 6]`
-- C) `[[5, 6]]`
-- D) `[[5, 6], [5, 6]]`
-
-**13.** What does this print?
-
-```python
-a = [1]
-b = [a]
-b[0] = [2]
-b[0].append(3)
-print(a)
-print(b)
-```
-
-- A) `[1, 3]` then `[[2]]`
-- B) `[2, 3]` then `[[2, 3]]`
-- C) `[1]` then `[[2, 3]]`
-- D) `[1]` then `[[1], 3]`
-
-**14.** `a` and `b` point at the same list. Which line changes **the list itself**, so the change shows up through both variables?
-
-- A) `a = [0]`
-- B) `a[0] = 0`
-- C) `a = b`
-- D) `b = a`
-
-**15.** An algorithm starts a counter at 1 and **doubles** it until it reaches n. About how many steps does that take?
-
-- A) About \(\log_2(n)\), which is logarithmic
-- B) About \(n / 2\), which is linear
-- C) About \(2^n\), which is exponential
-- D) About \(n^2\), which is quadratic
+- B) Quadratic
+- C) Logarithmic
+- D) Exponential
 
 <details>
 <summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
 
-1. **C.** Logs are the reverse of exponents: \(\log_b(n)\) is the power you raise b to in order to get n. Option A is the exponent itself, going the wrong way.
-2. **B.** \(3^4 = 81\), so \(\log_3(81) = 4\). Option A is \(81 / 3\), which is only one division.
-3. **D.** In computing, assume **base 2** unless you're told otherwise.
-4. **A.** Each round keeps a quarter of the players, so it's \(\log_4(1024)\). Since \(4^5 = 1024\), that's 5 rounds. Option B is \(\log_2(1024)\), which would be right for 2 players per game.
-5. **B.** Checking one at a time goes 499, 498, 497, and so on, which is **linear**. The other three keep dividing down to 1, so they're all logs.
-6. **C.** The biggest term is \(n^2\), so it's quadratic. Calling \(n^2\) exponential (option B) is the common mistake, since n isn't in the exponent.
-7. **A.** Drop constants and smaller terms; \(n^3\) dominates as n grows. Option D puts n in the exponent, which the formula never does.
-8. **D.** Linear is technically a polynomial, but the guide warns that calling it "polynomial" might lose you marks. Use the most specific word.
-9. **B.** The base doesn't matter in Big O, so both are just \(O(\log n)\).
-10. **C.** `b = a` makes both point at `[1, 2]`. Then `a = [3]` only moves `a`'s arrow, so `b.append(4)` changes the original list, which only `b` still points at. Option B forgets that `a` was moved.
-11. **A.** Count the list literals that run: `[1]`, `[p, p]`, and `[r]`. `r = q` only moves an arrow, so counting it (option B) is the trap.
-12. **D.** Both slots of `b` point at the same list `a`, so appending through `b[0]` shows up in both. Option A treats the two slots as separate copies.
-13. **C.** `b[0] = [2]` replaces one slot in `b` with a new list and doesn't touch `a`. The append then changes that new list. Option A assumes `b[0]` still points at `a`.
-14. **B.** `a[0] = ...` changes the list itself, so every arrow pointing at it sees the change. The other three are all `x = something`, which only moves an arrow.
-15. **A.** Doubling from 1 up to n is "multiplying up to n," which the guide says is a log. You double about \(\log_2(n)\) times. Option B would be adding a fixed amount each step.
+1. **B.** Logs reverse exponents.
+2. **C.** Base 2 in computing.
+3. **C.** n is in the exponent. \(n^{10}\) is a polynomial.
+4. **B.** One literal; `b = a` shares it.
+5. **B.** Reassignment moves the arrow.
+6. **B.** Shared list, mutated by append.
+7. **C.** `[]`, `[a, []]`’s outer list, and the inner `[]`.
+8. **A.** First slot is `a` (now `[10]`); second slot got 20.
+9. **C.** `a` holds `b`, and `b` is `[5]`.
+10. **B.** Reassignment does not edit the old list that `b` and `c` still share.
+11. **B.** `b` still wraps the original list, which now holds 10.
+12. **B.** `c` and `a` are aliases.
+13. **B.** Index assignment moves one slot; `a`/`c` stay `[1, 2]`.
+14. **C.** Append edits the box. The others reassign.
+15. **C.** Halving is a log; that is binary search.
 
 </details>
