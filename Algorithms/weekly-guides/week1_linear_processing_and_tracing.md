@@ -108,6 +108,26 @@ def search_2d(matrix, target):
 
 **Exam focus:** nested loop order (row, then column) and time complexity **O(R × C)**.
 
+Class quizzes also ask you to **generate every pair** from two ranges (shelf numbers × slot numbers) with nested `for` loops. Same shape as the 2D walk; you `print` instead of search.
+
+### 7. Neighbours and instrumented traces
+
+Class week-2 quizzes start with a one-pass neighbour loop and a **trace table** of the `print` values.
+
+```python
+def count_increases(xs):
+    count = 0
+    for i in range(len(xs) - 1):   # stop before the last index
+        if xs[i + 1] > xs[i]:
+            count += 1
+        print(i, xs[i], xs[i + 1], count)
+    return count
+```
+
+- Use `range(len(xs) - 1)` so `xs[i + 1]` never goes off the end.
+- Fill one table row per loop iteration with **exactly** what `print` shows, then the return value.
+- Same pattern as “is this pair out of order?” / “are these two equal?” — only neighbours, not the whole list.
+
 ---
 
 ## Binary Search
@@ -160,6 +180,35 @@ Same list, looking for **10** (missing):
 | 2 | 1 | | | `low <= high` is false, return **-1** |
 
 Bugs that show up on exams: using `low = mid` (range may never shrink → infinite loop), putting `return -1` inside the loop, or running binary search on an **unsorted** list.
+
+### Class-quiz version: half-open interval
+
+The week-2 class quiz uses the **lecture** code, not the closed-interval version above. Both are correct if you stay consistent.
+
+```python
+def binary_search(needle, haystack):
+    lo = 0
+    hi = len(haystack)          # one past the last index
+    while lo < hi:              # empty when lo == hi
+        mid = (lo + hi) // 2
+        print(lo, hi, mid, haystack[mid])
+        if haystack[mid] == needle:
+            return mid
+        elif haystack[mid] < needle:
+            lo = mid + 1
+        else:
+            hi = mid            # hi is excluded, so mid is already out
+    return None
+```
+
+| | Closed (midterm notes) | Half-open (class quiz) |
+| - | ---------------------- | ---------------------- |
+| `hi` starts at | `len - 1` | `len` |
+| Loop | `while lo <= hi` | `while lo < hi` |
+| Go left | `hi = mid - 1` | `hi = mid` |
+| Not found | `-1` | `None` |
+
+Quiz work: one table row **every time the loop body runs** (`lo`, `hi`, `mid`, `haystack[mid]`), then the returned value. Unsuccessful searches still need every row until `lo == hi`.
 
 ---
 

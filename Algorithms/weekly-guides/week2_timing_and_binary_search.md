@@ -1,6 +1,8 @@
 # Week 2: Timing / Benchmarking
 
-Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf`.
+Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf`, plus topics from the week-2 class quiz.
+
+**Class quiz topics:** instrumented neighbour-loop traces (see week 1); half-open binary-search traces (`lo < hi`, `hi = mid`); memorize `time.perf_counter()` as the better timer than `time.time()`; time **only** the call you care about (not building/sorting the list); put the timer **inside** each trial, not around the whole trial loop.
 
 ## `time.perf_counter()`
 
@@ -19,6 +21,33 @@ print(end - start)  # seconds, e.g. 0.059...
 - Call it **before** and **after** the work.
 - `end - start` is elapsed time in **seconds**.
 - No parameters: `time.perf_counter()`.
+- Memorize this name. The flipped reading prefers it over `time.time()` because it is a high-resolution elapsed-time clock (better accuracy on some architectures).
+
+### What the timer must wrap
+
+Time **only** the operation you are measuring.
+
+```python
+# BAD — includes building and sorting the list
+before = time.perf_counter()
+data = make_random_list(100000)
+data.sort()
+result = binary_search(73129, data)
+after = time.perf_counter()
+```
+
+Fix: build and sort **first**, then start the clock, run `binary_search`, then stop.
+
+```python
+# BAD — one start before 1000 trials; each append is “time since the very beginning”
+before = time.perf_counter()
+for trial in range(1000):
+    do_experiment()
+    after = time.perf_counter()
+    times.append(after - before)
+```
+
+Those values are **cumulative** (trial 1 ≈ one run, trial 2 ≈ two runs, …), not 1000 separate durations. Put `before = time.perf_counter()` **inside** the loop, right above `do_experiment()`.
 
 ### Example 1 — time a loop
 

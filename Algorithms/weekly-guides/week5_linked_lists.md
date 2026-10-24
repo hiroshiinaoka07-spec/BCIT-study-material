@@ -2,6 +2,8 @@
 
 Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf`.
 
+**Class quiz topics (week 5 + quiz 6):** list aliases vs a second literal (week 3); objects whose attributes point at other objects (`friend`, `.name`); linked `Box`/`LLN` nodes; **rewiring existing nodes** (not only `insert_after` / `remove_next`); walk and print after the rewires.
+
 A linked list is a linear structure whose items (**nodes**) are not in contiguous memory. Each node holds **data** and a **link** to the next node. The first node is the **head**; you walk the whole list from there. The last node’s `next` is `None`.
 
 ```python
@@ -32,6 +34,23 @@ print("None")
 Or chain from the head: `head = Node(10); head.next = Node(20); head.next.next = Node(30); …`
 
 A method called on a node **starts from that node**. In `A -> B -> C -> D`, `B.length()` counts B, C, D.
+
+### Rewire nodes that already exist
+
+Class quizzes give you a chain, a couple of names (`p`, `q`) parked on middle nodes, then three or four assignments. Draw the arrows after **each** line, then walk from the new `head`.
+
+```python
+# start: A -> B -> C -> D -> None
+head = A
+p = head.next          # B
+q = p.next             # C
+p.next = q.next        # B now skips C, points at D     A -> B -> D
+q.next = head          # C -> A
+head = q               # head is C
+# walk from head: C -> A -> B -> D
+```
+
+Order matters. After `p.next = q.next` you have unlinked `q`; `q.next = head` hangs `q` on the front. Changing `head` last is what makes the walk start at `q`.
 
 ---
 

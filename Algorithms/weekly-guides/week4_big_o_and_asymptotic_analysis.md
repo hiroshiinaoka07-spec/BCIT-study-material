@@ -1,6 +1,8 @@
 # Week 4: Big O Notation
 
-Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf`.
+Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf`. The week-5 class quiz asks you to **label line costs on the code**, combine sequential vs nested loops, and **circle the final Big-O**.
+
+**Class quiz topics:** one O(n) loop then a nested O(n²) pair → add → O(n²); `append` is O(1) but `insert(0, x)` is O(n), so a loop of inserts is O(n²) even if other loops in the same function are only O(n).
 
 Big O describes an **upper bound** on an algorithm’s time or space. It is about **asymptotic behaviour** (how cost grows with input size), not the exact number of microseconds. We usually quote the **worst case**.
 

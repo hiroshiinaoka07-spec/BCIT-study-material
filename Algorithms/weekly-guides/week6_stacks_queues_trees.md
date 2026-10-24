@@ -8,6 +8,8 @@ The midterm notes use **binary** trees (`left` / `right`) for inorder and preord
 
 Useful words for the lab: **root** (no parent), **leaf** (no children), **depth** (edges up to the root; root is 0), **height** (longest distance down to a leaf; a leaf is 0). Height of a tree = height of the root = max depth.
 
+**Class quiz topics (quiz 6):** mixed `push`/`pop` traces on a stack and `insert`/`remove` traces on a queue; for one node, **how many children**, plus **both** its depth and its height; **forward** pre-order DFS (node, then children left to right); BFS left to right. Depth of a node is edges **up** to the root. Height of that same node is edges **down** to its furthest leaf, not the height of the whole tree.
+
 ---
 
 ## Traversal techniques (DFS)

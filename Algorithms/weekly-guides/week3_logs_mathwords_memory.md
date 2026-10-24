@@ -1,6 +1,8 @@
 # Week 3: Logs and Memory Diagrams
 
-Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf` (memory-diagram method and lab Q1–Q5).
+Source: `Algorithms/Applied Algorithms Midterm Notes (1).pdf` (memory-diagram method and lab Q1–Q5), plus topics from class quiz 3 and the memory half of the week-5 quiz.
+
+**Class quiz topics:** nested loops that print every combination from two ranges; rewrite \(b^x = n\) as \(\log_b(n) = x\) (do not evaluate); tournament word problems where a **fraction** remain each round (\(\log_{\text{1/fraction}}(n)\), e.g. one quarter remain → \(\log_4 n\)); pick the **most specific** math word from constant / logarithmic / linear / quadratic / polynomial / exponential; how polynomial differs from exponential; alias vs a second list literal; object attributes that point at other objects (`friend`, `next`).
 
 Logs are not worked out on those PDF pages, but Week 4’s **O(log n)** and “counter doubles or halves → log n” only make sense if you know what a log is, so a short recap stays here.
 
@@ -23,6 +25,18 @@ Logs are not worked out on those PDF pages, but Week 4’s **O(log n)** and “c
 | Exponential | `y = 2^n` (n in the **exponent**) | \(O(2^n)\) |
 
 \(n^2\) is **not** exponential. Drop constants and smaller terms: \(n + 77\log n\) is \(O(n)\).
+
+**Polynomial vs exponential:** look at **where n sits**. If n is the **base** (\(n^5\), \(n^2 + 3n\)) it is polynomial (and you may have a more specific word: linear, quadratic). If n is in the **exponent** (\(3^n\), \(2^n\)) it is exponential. On a quiz, \(y = n^5\) is **polynomial**, not exponential; \(y = 3^n\) is **exponential**. \(y = 17\) is **constant**, not “polynomial,” if they ask for the most specific word. \(y = 4n + 3\) is **linear**. \(y = 5\log n\) is **logarithmic**.
+
+### Rewrite an exponential as a log
+
+\[ b^x = n \quad\Longleftrightarrow\quad \log_b(n) = x \]
+
+Do not evaluate. \(5^x = 47256\) becomes \(\log_5(47256) = x\).
+
+### Tournament / “fraction remain” logs
+
+If each round keeps about \(1/k\) of the players, the number of rounds down to 1 is about \(\log_k(n)\). Halving → \(\log_2 n\). About one quarter remain → \(\log_4 n\). About one third remain → \(\log_3 n\). The nearest integer is fine; you usually **do not** compute it.
 
 ---
 
@@ -82,6 +96,28 @@ Two rules that cover the lab:
 - `x.append(...)` and `x[i] = ...` **change the list itself**.
 
 Only list literals (`[]`, `[1]`, `[a]`, `[99]`) create a **new** list. `b = a` never does.
+
+**Two literals are two objects.** `a = nums` shares. `b = [10, 20, 30, 40]` when `nums` is already `[10, 20, 30, 40]` is a **second** list. Changing `a[2]` does not change `b`.
+
+### Objects and attributes (week-5 quiz)
+
+Same arrows, but the box has named fields instead of indexes.
+
+```python
+class Pet:
+    def __init__(self, name):
+        self.name = name
+        self.friend = None
+
+cat = Pet("Miso")
+dog = Pet("Rex")
+cat.friend = dog
+dog.name = "Buddy"
+```
+
+`cat.friend` is an arrow to the **same** dog object, so `cat.friend.name` is `"Buddy"` after the rename. `print(cat.name)` is still `"Miso"`.
+
+A `Box` with `.label` and `.next` is the same picture as a linked list: `first.next = second` is an arrow, and `third.label = "gold"` mutates that object no matter who points at it.
 
 ---
 

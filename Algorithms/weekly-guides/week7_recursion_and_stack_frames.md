@@ -9,6 +9,8 @@ From the two lecture videos (transcripts interleaved with screenshots):
 
 On-screen code in the frames is more reliable than the auto-transcript for names and numbers. This week is **warmup**: the instructor says these problems are usually **better with loops**. Recursion is here so later, harder problems are easier.
 
+**Class quiz topics:** read a **worklist** loop (`pending.pop()` is a stack / DFS; `pop(0)` / `popleft` is a queue / BFS) and say what it **returns** and what it **computes** on any tree; `(node, depth)` pairs — collect something only at a given depth (often `len(node.children)`); one memory-diagram **snapshot** at `# STOP HERE` (global + every **active** frame); recursion with **more than one** stopping situation (e.g. `n <= 0` and “n is even, skip to `n - 1`”).
+
 ---
 
 ## Part 1 — Recursion intro
@@ -84,6 +86,49 @@ Trace of `reverse("cat")`:
 | 4 | `""` | base case | `""` |
 
 `reverse("at")` only reversed `"at"`. The outer call still has to stick `"c"` on the end. **Suppose the recursive call works — what do you do with its answer?** Sometimes you just return it (countdown). Sometimes you **combine** it (reverse).
+
+### Reading a worklist (week-7 quiz)
+
+The quiz hands you a tree and a `mystery` that uses a list as a stack (`pop()` from the end) or carries `(node, depth)` pairs. Trace it; also say in English what it computes.
+
+```python
+# stack DFS: count nodes that have 2+ children
+pending = [root]
+answer = 0
+while pending:
+    node = pending.pop()
+    if len(node.children) >= 2:
+        answer += 1
+    pending.extend(node.children)   # last child is popped next
+```
+
+```python
+# stack of (node, depth): at depth 2, record how many children that node has
+pending = [(root, 0)]
+awesome = []
+while pending:
+    node, flavour = pending.pop()
+    if flavour == 2:
+        awesome.append(len(node.children))
+    for child in node.children:
+        pending.append((child, flavour + 1))
+```
+
+`extend` / append-left-to-right + `pop()` visits **rightmost child first**. The return **list** can be in that reverse-DFS order, not left-to-right BFS order.
+
+### Recursion with two stopping situations
+
+```python
+def mystery(n):
+    if n <= 0:
+        return "!"
+    if n % 2 == 0:
+        return mystery(n - 1)      # even: drop 1, do not add a digit
+    tail = mystery(n - 2)
+    return str(n) + tail           # odd: keep n, then the rest
+```
+
+`mystery(8)` goes 8 (even) → 7 (odd) → 5 → 3 → 1 → `-1` → `"!"`, then builds `"1357!"`. Two base-ish situations: `n <= 0`, and “even, just recurse.” That is allowed: **at least one** of each kind of case, and more is fine.
 
 ### Four questions when you write a recursive solution
 
