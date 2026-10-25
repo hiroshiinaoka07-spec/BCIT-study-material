@@ -1,6 +1,6 @@
 # Applied Algorithms — Midterm Study Guide
 
-Built from `Algorithms/Applied Algorithms Midterm Notes (1).pdf`. Weekly write-ups (with quizzes) live in `weekly-guides/`. Extra practice in the shape of the class quizzes: `quizzes.md` (Test A and Test B for weeks 2, 3, 5, 6, and 7).
+Built from `Algorithms/Applied Algorithms Midterm Notes (1).pdf`. Weekly write-ups (with quizzes) live in `weekly-guides/`. Extra practice in the shape of the class quizzes: [`../quizzes/`](../quizzes/) (Test A and Test B for weeks 2, 3, 5, 6, and 7; answers in `answer-key.md`).
 
 | Week | Guide | Exam focus |
 | ---- | ----- | ---------- |
