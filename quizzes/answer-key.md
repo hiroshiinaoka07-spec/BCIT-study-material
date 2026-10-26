@@ -1,6 +1,6 @@
 # Practice Quiz Answer Key
 
-Answers for the week files in this folder. Questions: [week-2](week-2.md) · [week-3](week-3.md) · [week-5](week-5.md) · [week-6](week-6.md) · [week-7](week-7.md).
+Answers for the week files in this folder. Questions: [final](final.md) · [week-2](week-2.md) · [week-3](week-3.md) · [week-5](week-5.md) · [week-6](week-6.md) · [week-7](week-7.md).
 
 ---
 
@@ -105,3 +105,44 @@ Answers for the week files in this folder. Questions: [week-2](week-2.md) · [we
 2. Depth 1 is Q, R, S. Stack pops S, then R, then Q → **`['S', 'R', 'Q']`**.
 3. Global: `base = 2`, functions (`result` not assigned). **first:** `n = 2`, `extra = 10` (`got` not assigned). **second:** `n = 10`, `extra = 7`, `got = 8`.
 4. 6 even → 5 → `"5" + mystery(3)` → `"3" + mystery(1)` → `"1" + mystery(-1)` → `"end"` → **`531end`**
+
+---
+
+## Final
+
+Questions: [final.md](final.md).
+
+### Week 1
+
+1. **`-1`** then **`0`**. The `else` returns on the first mismatch, so `11` is never seen. `6` is at index 0, so that call happens to work.
+2. `(0, 6, 3, 18)` → low=4; `(4, 6, 5, 27)` → high=4; `(4, 4, 4, 22)` found. Return **4**.
+
+### Week 2
+
+1. `(0, 8, 6, 1)`, `(1, 6, 6, 1)`, `(2, 6, 9, 1)`, `(3, 9, 4, 2)`. Return **2**.
+2. (a) **`perf_counter`**. (b) The clock includes `list(range(50000))`. Build the list first, **then** start the timer around `linear_search` only.
+
+### Week 3
+
+1. Nested loops, e.g. `for cab in range(5, 7):` / `for drawer in range(1, 4):` / `print(cab, drawer)`.
+2. (a) \(\log_5(3125) = x\). (b) \(\log_2(12000)\). (c) constant, logarithmic, linear, quadratic, exponential. Unused: **polynomial**. (d) n is the **base**, 3 is the exponent. Exponential means n is **in the exponent**.
+
+### Week 4
+
+1. O(n) + O(n²) → **O(n²)**
+2. `x not in out` is O(n) per item. n × O(n) → **O(n²)**
+
+### Week 5
+
+1. `99` / `3` / `12`
+2. **3** Cell objects. `p` → A → B → Z (`r.val` changed).
+
+### Week 6
+
+1. `A` `C` `D`  (B is skipped; walk still starts at A)
+2. (a) `S` `T` `R`. (b) `R` `S` `T`. (c) **2** children (H and I). Depth **2** (D–E–I). Height **1** (I–K). (d) `D E H I K F G J`. (e) `D E F G H I J K`.
+
+### Week 7
+
+1. (a) **4** (P, Q, Y, R). (b) How many **leaves** (nodes with no children).
+2. 8 even → 7 → `"7" + mystery(4)` → 4 even → 3 → `"3" + mystery(0)` → `"x"` → **`73x`**
