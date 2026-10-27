@@ -7,6 +7,7 @@ By the end of this week you should be able to:
 1. **Install and authenticate AWS CLI v2** in your Linux environment as your IAM user.
 2. **Read and write CLI commands** — including `--query` filters and `--output` formats — to find, create, and delete resources.
 3. **Write safe, reusable Bash scripts** around AWS CLI commands (strict mode, argument checks, error handling, command substitution, heredocs).
+4. **Launch a VPC + EC2 from the CLI** using the GitLab `aws-cli-exercise-start` scripts (`create-vpc`, complete `create-instance`).
 
 ---
 
@@ -182,6 +183,61 @@ latest_key=${latest}
 EOF
 ```
 
+### 9. GitLab in-class lab: `aws-cli-exercise-start`
+
+Repo: [gitlab.com/cit_3640/aws-cli-exercise-start](https://gitlab.com/cit_3640/aws-cli-exercise-start)
+
+This lab stitches Weeks 3–5 together: import `bcitkey`, build a public VPC from the CLI, then launch a Debian instance with cloud-init nginx. `create-vpc`, `import-key-pair`, and the delete scripts are complete. **Your job is the three TODOs in `create-instance`.**
+
+**`create-vpc` builds a public subnet the CLI way** (same ideas as Week 4, scripted):
+
+| Step | Command |
+| ---- | ------- |
+| Pick an AZ | `aws ec2 describe-availability-zones --filters Name=state,Values=available --query 'AvailabilityZones[0].ZoneName'` |
+| Create VPC | `aws ec2 create-vpc --cidr-block 10.0.0.0/16 --query 'Vpc.VpcId'` |
+| DNS | `aws ec2 modify-vpc-attribute --vpc-id … --enable-dns-support` and `--enable-dns-hostnames` |
+| Subnet | `aws ec2 create-subnet` then `modify-subnet-attribute --map-public-ip-on-launch` |
+| IGW | `create-internet-gateway` → `attach-internet-gateway` |
+| Route | `create-route-table` → `create-route --destination-cidr-block 0.0.0.0/0 --gateway-id …` → `associate-route-table` |
+| Persist IDs | heredoc to `infrastructure_data` (`vpc_id`, `subnet_id`, `igw_id`, …) |
+
+**`create-instance` TODOs** — fill in `run-instances`, `describe-instances`, and a heredoc. Completed shape:
+
+```bash
+instance_id=$(aws ec2 run-instances \
+  --image-id "$debian_ami" \
+  --instance-type t3.micro \
+  --key-name "$key_name" \
+  --subnet-id "$subnet_id" \
+  --security-group-ids "$security_group_id" \
+  --user-data file://cloud-init.yaml \
+  --query 'Instances[0].InstanceId' \
+  --output text \
+  --region "$region")
+
+aws ec2 wait instance-running --instance-ids "$instance_id" --region "$region"
+
+public_ip=$(aws ec2 describe-instances \
+  --instance-ids "$instance_id" \
+  --query 'Reservations[0].Instances[0].PublicIpAddress' \
+  --output text \
+  --region "$region")
+
+cat > instance_data <<EOF
+instance_id=$instance_id
+public_ip=$public_ip
+security_group_id=$security_group_id
+EOF
+```
+
+Notes that show up again in Week 7:
+
+- Later scripts **`source` the data files** (`infrastructure_data`, `efs_data`) instead of hard-coding IDs.
+- `aws ec2 wait instance-running` blocks until the instance is up; then you can query the public IP.
+- `--user-data file://cloud-init.yaml` (text `file://`, not `fileb://`) is how you attach cloud-init from the CLI.
+- The imported key name **`bcitkey`** is reused by the Week 7 EFS lab. Do not delete it until that lab is done.
+- Clean up with `delete-aws-resources` (or delete leftover instances, SGs, VPCs, and EIPs by hand).
+
 ---
 
 ## Repository Tour
@@ -190,6 +246,7 @@ EOF
 | ---- | ---------------- |
 | `aws-cli.md` | v1 vs v2 warning, install, completion, `aws login`, `~/.aws` config, command structure, key pair describe/delete/import, `file://` vs `fileb://`, the import script, getting help |
 | `aws-cli-exercise.md` | Exercise: turn the Debian AMI lookup into a script (latest ID only → variable → heredoc file); the key-import script |
+| [GitLab: aws-cli-exercise-start](https://gitlab.com/cit_3640/aws-cli-exercise-start) | In-class lab: complete `create-instance` (`run-instances`, public IP, heredoc). `create-vpc` is the CLI version of the Week 4 public-subnet layout |
 | `aws-ec2.md` | Where the SSH key you're importing was created (Week 3) |
 
 ---
@@ -200,6 +257,7 @@ EOF
 - **Strict mode prevents silent disasters.** Without `set -e`, a failed command can let the script keep going and create (or delete) the wrong things.
 - **Idempotency is a core DevOps idea.** Checking "does this already exist?" before creating it means you can safely run a script twice — the same idea Terraform/OpenTofu is built on.
 - **`--query` makes AWS composable.** Pulling out a single ID lets you chain commands: find the AMI → launch an instance → tag it, all in one script.
+- **Data files are the glue between scripts.** `create-vpc` writes `infrastructure_data`; `create-instance` sources it. Week 7's EFS lab does the same with `efs_data` / `mount_data`. Keep **`bcitkey`**.
 
 ---
 

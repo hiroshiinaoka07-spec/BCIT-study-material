@@ -7,6 +7,7 @@ By the end of this week you should be able to:
 1. **Match a workload to the right storage type**: **object** (S3), **block** (EBS) or **shared file** (EFS).
 2. **Choose an S3 storage class** based on how often the data is accessed, how fast it has to come back, and whether it can live in a single Availability Zone.
 3. **Pick an EBS volume type** for a workload, and explain how **snapshots**, **Elastic Volumes** and **Multi-Attach** work.
+4. **Provision EFS from the CLI** (filesystem → mount target + NFS SG → EC2 + cloud-init mount) and **script an S3 backup/restore** (`s3api` + `s3 sync`).
 
 ---
 
@@ -157,14 +158,159 @@ aws s3 ls s3://my-unique-bucket-name                      # list
 
 ---
 
+### 6. Matching workloads (`aws-storage-services.md`)
+
+The lab notes add concrete "when do I pick this?" examples on top of the chapter:
+
+| Service | Pick it when… | Course examples |
+| ------- | ------------- | --------------- |
+| **S3** | Unstructured objects fetched by key, over the internet or APIs | Website images/videos; database backups with lifecycle policies; data lakes feeding Athena |
+| **EBS** | One EC2 instance needs a disk (boot volume, database, or provisioned IOPS) | MySQL/PostgreSQL data; OS + app files; financial transaction systems on io1/io2 |
+| **EFS** | Many servers must read/write the **same POSIX files at once** | Shared uploads for a web fleet; CMS content; scientific datasets mounted from EC2 and on-prem Linux |
+
+---
+
+### 7. GitLab lab 1 — `aws-cli-efs-exercise` (demo)
+
+Repo: [gitlab.com/cit_3640/aws-cli-efs-exercise](https://gitlab.com/cit_3640/aws-cli-efs-exercise)
+
+Uses the **default VPC** (so you can ignore the Week 4 custom VPC) and the **`bcitkey`** key pair from Week 5. Default Debian user is still **`admin`**.
+
+Order matters: **the filesystem must be `available` before you create a mount target**, and a mount target needs a **subnet + security group**.
+
+```
+create-efs  →  wait until LifeCycleState=available  →  efs_data
+     ↓
+create-mount-target  →  default VPC + subnet, two SGs, mount target  →  mount_data
+     ↓
+create-ec2  →  Debian AMI + cloud-init nfs mount  →  instance_<id>_data
+     ↓
+SSH, df -h, write /mnt/efs/shared.txt, launch a second instance, confirm the file is there
+```
+
+**`create-efs`** creates an encrypted, general-purpose, bursting filesystem:
+
+```bash
+aws efs create-file-system \
+  --creation-token "efs-lab-$(date +%s)" \
+  --encrypted \
+  --performance-mode generalPurpose \
+  --throughput-mode bursting \
+  --tags Key=Name,Value=bcit-lab-efs \
+  --query 'FileSystemId' --output text
+```
+
+Then it polls `aws efs describe-file-systems --query 'FileSystems[0].LifeCycleState'` until the state is `available` (or errors out after ~150 s) and writes `REGION` / `EFS_ID` to `efs_data`.
+
+**`create-mount-target`** discovers the default VPC (`Name=isDefault,Values=true`) and one available subnet, then creates **two** security groups:
+
+| SG | Ingress |
+| -- | ------- |
+| EC2 SG (`efs-lab-ec2-…`) | TCP **22** and **80** from `0.0.0.0/0` (lab only — restrict SSH in production) |
+| EFS SG (`efs-lab-storage-…`) | TCP **2049** (NFS) from the **EC2 security group**, not from the internet |
+
+```bash
+aws efs create-mount-target \
+  --file-system-id "$EFS_ID" \
+  --subnet-id "$SUBNET_ID" \
+  --security-groups "$EFS_SG" \
+  --query MountTargetId --output text
+```
+
+Poll `describe-mount-targets` until `LifeCycleState=available`.
+
+**`create-ec2`** looks up the latest Debian 13 AMI (same owner `136693071363` as Week 5), renders cloud-init by substituting the EFS DNS name:
+
+```text
+${EFS_ID}.efs.${REGION}.amazonaws.com
+```
+
+then launches with `--user-data file://cloud-init-rendered.yaml` and `aws ec2 wait instance-running`.
+
+**`cloud-init.yaml`** installs `nfs-common`, writes a mount script, and appends fstab:
+
+```text
+$EFS_DNS:/  /mnt/efs  nfs4  defaults,_netdev,nfsvers=4.1  0  0
+```
+
+`_netdev` waits for the network before mounting. After SSH:
+
+```bash
+df -h
+echo "Created on instance A" | sudo tee /mnt/efs/shared.txt
+```
+
+Run `create-ec2` again. The second instance must see the same `shared.txt` — that is the whole point of EFS.
+
+**Cleanup (console):** delete the EFS (mount target goes with it), the **two tagged lab SGs** (never the Default SG), and both EC2 instances.
+
+---
+
+### 8. GitLab lab 2 — `aws-cli-s3-exercise` (Sourcehut submit)
+
+Repo: [gitlab.com/cit_3640/aws-cli-s3-exercise](https://gitlab.com/cit_3640/aws-cli-s3-exercise)
+
+Two CLI surfaces:
+
+| Command family | Level | Used for |
+| -------------- | ----- | -------- |
+| `aws s3` | High-level | `sync`, `cp`, `ls`, `rb --force` |
+| `aws s3api` | Low-level, 1:1 with the API | `create-bucket`, `head-bucket`, `list-objects-v2` |
+
+`backup-info` needs **`jq`** (`sudo apt install jq` on Debian).
+
+**TODOs to complete:**
+
+`create-bucket` — buckets outside `us-east-1` need a **LocationConstraint**:
+
+```bash
+aws s3api create-bucket \
+  --bucket "$bucket_name" \
+  --region "$region" \
+  --create-bucket-configuration LocationConstraint="$region"
+```
+
+Idempotency guard already in the script: `aws s3api head-bucket --bucket "$bucket_name"` (succeeds → bucket exists → exit 1).
+
+`backup` — sync a local directory to the `backups/` prefix:
+
+```bash
+aws s3 sync "$source_dir" "s3://$BUCKET_NAME/backups/" --region "$AWS_REGION"
+```
+
+`backup-info` — list objects as JSON, then parse with `jq`:
+
+```bash
+objects_json=$(aws s3api list-objects-v2 \
+  --bucket "$BUCKET_NAME" \
+  --prefix "$backup_prefix" \
+  --region "$AWS_REGION" \
+  --output json)
+```
+
+`backup-restore` — reverse of backup:
+
+```bash
+aws s3 sync "s3://$BUCKET_NAME/backups/" "$destination_dir" --region "$AWS_REGION"
+```
+
+`delete-bucket` is already complete: confirms by retyping the name, then `aws s3 rb "s3://$BUCKET_NAME" --force` (empties and deletes) and removes local `bucket_info`.
+
+**Deliverable:** your own Sourcehut repo of the completed scripts, submitted on D2L.
+
+---
+
 ## Repository Tour
 
 | File | What to look for |
 | ---- | ---------------- |
 | `chapter10-week7` | Data-growth drivers, shared responsibility for storage, S3 durability/availability, **storage classes**, bucket-creation steps (Figures 10-1/10-2), **EBS volume types**, snapshots, Multi-Attach, EFS features |
+| `aws-storage-services.md` | One-page S3 vs EBS vs EFS comparison plus concrete use-case examples; diagrams in `assets/aws-s3.jpeg`, `aws-ebs.jpeg`, `aws-efs.jpeg` |
+| [GitLab: aws-cli-efs-exercise](https://gitlab.com/cit_3640/aws-cli-efs-exercise) | Encrypted EFS, mount target, NFS port 2049 SG, cloud-init `nfs-common` + fstab, two instances sharing `/mnt/efs` |
+| [GitLab: aws-cli-s3-exercise](https://gitlab.com/cit_3640/aws-cli-s3-exercise) | `s3` vs `s3api`, `LocationConstraint`, `s3 sync` backup/restore, `head-bucket`, `jq`, `s3 rb --force` |
 | `chapter 7.md` (Week 3) | EBS vs **instance store**, creating an AMI from an EBS snapshot |
 | `study-guide/week-02-iam-security.md` | KMS, SSE-S3 vs SSE-KMS, the EC2 → S3 **IAM role** scenario (`transcripts/6.2 …`) |
-| `study-guide/week-05-aws-cli-bash.md` | CLI basics for scripting S3 and EBS work |
+| `study-guide/week-05-aws-cli-bash.md` | CLI basics; `bcitkey` and Debian AMI lookup reused here |
 
 ---
 
@@ -174,6 +320,8 @@ aws s3 ls s3://my-unique-bucket-name                      # list
 - **"Block all public access" is the default for a reason.** Public buckets are one of the most common causes of cloud data leaks. That configuration is *your* side of the shared responsibility model.
 - **Snapshots are your EBS safety net.** They're incremental and cheap, so snapshot before risky changes and automate it with Data Lifecycle Manager.
 - **Shared data across servers → EFS, not EBS.** Trying to share one EBS volume (without io2 Multi-Attach and a cluster-aware app) is a classic design mistake.
+- **NFS is not open to the internet.** The EFS lab SG allows port **2049** only from the EC2 security group. Opening 2049 to `0.0.0.0/0` is a common, dangerous mix-up with the SSH/HTTP rules.
+- **`s3 sync` is incremental.** Re-running `backup` after you change one test file only uploads the delta — same idea as EBS snapshots storing changed blocks.
 
 ---
 

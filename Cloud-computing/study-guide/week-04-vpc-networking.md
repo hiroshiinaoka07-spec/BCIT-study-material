@@ -121,8 +121,9 @@ Why this works: the **main** route table applies to any subnet *without* an expl
 | ---- | ---------------- |
 | `chpater10` | VPC section: CIDRs, subnets, internet gateways, security groups, NACLs, peering, VPN, Direct Connect, and the VPC review questions (first ~7) |
 | `aws-vpc.md` | Plain-language VPC intro, RFC 1918 table, forbidden CIDRs, the full step-by-step lab build |
+| `assets/vpc-3640.png` | The lab topology: public subnet `10.0.1.0/24` in `us-west-2a`, private subnet `10.0.2.0/24` in `us-west-2b`, IGW on the main route table |
 
-> `aws-vpc.md` references a diagram at `./assets/vpc-3640.png` that isn't in the repo. The ASCII diagram above shows the same layout.
+`aws-vpc.md` also links the official AWS "how a VPC works" diagram. Use that plus `assets/vpc-3640.png` alongside the ASCII diagram above.
 
 ---
 

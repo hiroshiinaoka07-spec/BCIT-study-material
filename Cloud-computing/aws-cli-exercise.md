@@ -7,9 +7,9 @@
 This will return several AMI IDs along with the name and creation date.
 
 **Tasks:**
-Convert the code snippet below to Bash script that will: 
+Convert the code snippet below to a Bash script that will: 
 - only get the most recent AMI ID. Just a single ID, without name and creation date
-- store the value in a variable using command substitution
+- store the value(the AMI ID) in a variable using command substitution
 - write the value to a file using a heredoc
 
 ```bash

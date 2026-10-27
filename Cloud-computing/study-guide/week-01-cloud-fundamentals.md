@@ -6,7 +6,7 @@ By the end of this week you should be able to:
 
 1. **Define cloud computing** and explain why organizations adopt it (flexibility, security, efficiency, cost).
 2. **Classify** a service by deployment model (public / private / community / hybrid) and service model (IaaS / PaaS / SaaS).
-3. **Set up and correctly use** a Linux development environment for the rest of the course.
+3. **Set up and correctly use** a Linux development environment for the rest of the course, plus the accounts the course requires (AWS and Sourcehut).
 
 ---
 
@@ -87,6 +87,25 @@ systemd=true
 
 Debian is the recommended distro since it's what most of the class already knows.
 
+### 7. Course logistics you will be asked about
+
+Evaluation (`wk01.md`):
+
+| Criteria | Weight |
+| -------- | ------ |
+| Participation | 15% |
+| Test (in class, Week 6) | 15% |
+| Midterm | 30% |
+| Final | 40% |
+
+You also need:
+
+- A **Linux environment** (this week's lab).
+- An **AWS account** — daily work is done as an IAM user, not root (Week 2).
+- A **[Sourcehut](https://sourcehut.org) account** — Week 7's S3 lab is submitted as a Sourcehut repo.
+
+The course region is **`us-west-2`**. Later weeks use the AWS console, the AWS CLI + Bash, then a little IaC with **Terraform / OpenTofu**.
+
 ---
 
 ## Repository Tour
@@ -94,8 +113,9 @@ Debian is the recommended distro since it's what most of the class already knows
 | File | What to look for |
 | ---- | ---------------- |
 | `README.md` | The week-by-week reading schedule (flipped material) for the whole term |
-| `wk01.md` | Course evaluation (Participation 15%, Test 15%, Midterm 30%, Final 40%), cloud definitions, deployment/service models, regions & AZs, IaC |
+| `wk01.md` | Course evaluation (Participation 15%, Test 15%, Midterm 30%, Final 40%), AWS + Sourcehut accounts, cloud definitions, deployment/service models, regions & AZs, IaC |
 | `linux-environment.md` | The three ways to set up Linux, the WSL `/mnt/c` warning, optional systemd |
+| `README.md` | Full-term flipped/lab schedule, including GitLab lab links from Week 7 onward |
 
 ---
 
