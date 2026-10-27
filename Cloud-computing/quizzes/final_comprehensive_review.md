@@ -4,6 +4,8 @@ Materials in this repo stop at storage. Weeks 9–13 (ALB/ASG, Route 53, DynamoD
 
 Midterm (Week 8): Tue Oct 27, 14:00–15:00, DTC-825, 1 hour.
 
+**Scope note:** Chapter 5 / IAM theory is **not** on the midterm. Week 5 Bash **is** — command substitution `$( )`, heredocs, and the `if` statements in the CLI lab scripts. See [`week_05_quiz.md`](week_05_quiz.md) and the expanded Week 5 study guide.
+
 ---
 
 ## 1. Core concepts by module
@@ -22,7 +24,9 @@ Midterm (Week 8): Tue Oct 27, 14:00–15:00, DTC-825, 1 hour.
 
 Course region: **`us-west-2`**. Accounts: AWS + **Sourcehut**. Eval: 15 / 15 / 30 / 40.
 
-### IAM (Week 2)
+### IAM (Week 2) — not on this midterm
+
+Skip for the midterm. Kept here for the final exam later.
 
 - AuthN = who; AuthZ = what. Root = account email; lock it (password, MFA, **delete root access keys**), daily admin = IAM user + **`AdministratorAccess`**. Root-only example: **close the account**.
 - Identities: user (person), group (shared policies — scales), role (assumed by a trusted entity).
@@ -54,13 +58,42 @@ cloud-init: first line `#cloud-config`. Lab keys: `users` / `packages` / `write_
 - SG: instance, deny inbound default, **stateful**. NACL: subnet, allow-all default, **stateless**, cannot filter same-subnet traffic.
 - Peering = two VPCs, no overlap. VPN = over internet (VGW ↔ CGW). Direct Connect = dedicated private link.
 
-### CLI + Bash (Week 5)
+### CLI + Bash (Week 5) — high yield for the midterm
 
-- CLI **v2** from the official installer; `aws login` (or `--remote` in a VM); IAM user; `us-west-2`.
+- CLI **v2** from the official installer; `aws login` (or `--remote` in a VM); not root; `us-west-2`.
 - Anatomy: `aws <service> <operation> [options]`. `--output json|yaml|text|table`. `--query` = **JMESPath**.
 - `fileb://` for key material; `file://` for cloud-init YAML.
-- Strict mode `set -euo pipefail`; `err` → stderr; idempotency via `describe-… &>/dev/null`.
-- GitLab `aws-cli-exercise-start`: `create-vpc` writes `infrastructure_data`; you complete `run-instances`, `describe-instances` public IP, heredoc `instance_data`. Key name **`bcitkey`**.
+- Strict mode `set -euo pipefail`; `err` → stderr.
+
+**Command substitution** — capture stdout into a variable (AMI ID, instance ID, public IP):
+
+```bash
+debian_ami=$(aws ec2 describe-images … --query 'sort_by(Images, &CreationDate)[-1].ImageId' --output text)
+```
+
+`--output text` so the variable is a bare ID, not JSON quotes.
+
+**Heredoc** — write a `KEY=value` file the next script can `source`. Unquoted `EOF` **expands** variables; `<<'EOF'` does not (wrong for these labs):
+
+```bash
+cat > instance_data <<EOF
+instance_id=$instance_id
+public_ip=$public_ip
+security_group_id=$security_group_id
+EOF
+```
+
+**`if` in the lab scripts** — true when the command exits 0:
+
+| `if` | Then-branch when |
+| ---- | ---------------- |
+| `[[ $# -ne 1 ]]` | You did not pass exactly one argument |
+| `[[ ! -f "$1" ]]` | Path missing / not a regular file |
+| `aws ec2 describe-key-pairs --key-names "$key_name" &>/dev/null` | Key **already exists** (CLI success). Missing key → non-zero → skip `then` and import. `set -e` does not abort `if` tests |
+| `[[ ! -f "infrastructure_data" ]]` | You have not run `create-vpc` yet |
+| `[[ -z "$az" \|\| "$az" == "None" ]]` | Empty, or AWS printed `None` |
+
+GitLab `aws-cli-exercise-start`: `create-vpc` heredoc → `infrastructure_data`; you complete `run-instances` / public IP (`$( )`) / heredoc `instance_data`. Key name **`bcitkey`**.
 
 ### Storage (Week 7)
 
@@ -130,6 +163,26 @@ aws ec2 wait instance-running --instance-ids "$id"
 aws ec2 describe-instances --instance-ids "$id" \
   --query 'Reservations[0].Instances[0].PublicIpAddress' --output text
 
+# Command substitution + heredoc (Week 5 exercise / create-instance)
+debian_ami=$(aws ec2 describe-images … --query 'sort_by(Images, &CreationDate)[-1].ImageId' --output text)
+instance_id=$(aws ec2 run-instances … --query 'Instances[0].InstanceId' --output text)
+public_ip=$(aws ec2 describe-instances … --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
+cat > instance_data <<EOF
+instance_id=$instance_id
+public_ip=$public_ip
+security_group_id=$security_group_id
+EOF
+# unquoted EOF expands $vars; <<'EOF' would write the dollar signs literally
+source ./infrastructure_data   # later script loads KEY=value lines as variables
+
+# Lab ifs (true = exit 0)
+# [[ $# -ne 1 ]]                         → not exactly one argument
+# [[ ! -f "$1" ]]                        → path is not a regular file
+# aws ec2 describe-key-pairs … &>/dev/null → key already exists (success)
+# [[ ! -f "infrastructure_data" ]]       → forgot create-vpc
+# [[ -z "$az" || "$az" == "None" ]]      → empty / no AZ
+# set -e does NOT abort a command used as an if condition
+
 # VPC (public subnet)
 aws ec2 create-vpc --cidr-block 10.0.0.0/16
 aws ec2 modify-vpc-attribute --vpc-id "$vpc" --enable-dns-hostnames
@@ -184,6 +237,8 @@ Bash patterns: `set -euo pipefail`; `$(cmd)` substitution; `cat > file <<EOF …
 ## 5. Mock exam (25 questions)
 
 One best answer unless the prompt says otherwise. Do the whole set before the key.
+
+For **this midterm**, skip **3, 15, 21** (Chapter 5 / IAM). Still do **8, 12, 13** and anything with `$( )` / heredocs / `if`.
 
 **1.** Which service model matches "you manage the OS, runtime, and application on a rented VM"?
 

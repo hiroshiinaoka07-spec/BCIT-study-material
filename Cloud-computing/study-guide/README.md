@@ -13,7 +13,7 @@ Standalone practice quizzes (MC / short answer / scenario, with answer keys) liv
 | [Week 5](week-05-aws-cli-bash.md) | Automating AWS with the CLI & Bash | `aws-cli.md`, `aws-cli-exercise.md`, [GitLab: aws-cli-exercise-start](https://gitlab.com/cit_3640/aws-cli-exercise-start) |
 | Week 6 | In-class test (weeks 1–5) | No new flipped material — use [`../quizzes/week_06_quiz.md`](../quizzes/week_06_quiz.md) |
 | [Week 7](week-07-aws-storage.md) | AWS storage services: S3, EBS & EFS | `chapter10-week7`, `aws-storage-services.md`, [GitLab: aws-cli-efs-exercise](https://gitlab.com/cit_3640/aws-cli-efs-exercise), [GitLab: aws-cli-s3-exercise](https://gitlab.com/cit_3640/aws-cli-s3-exercise) |
-| Week 8 | Midterm (1 hour) | Tue Oct 27, 14:00–15:00, DTC-825 — [`../quizzes/final_comprehensive_review.md`](../quizzes/final_comprehensive_review.md) |
+| Week 8 | Midterm (1 hour) | Tue Oct 27, 14:00–15:00, DTC-825 — [`../quizzes/final_comprehensive_review.md`](../quizzes/final_comprehensive_review.md). **No Chapter 5 / IAM theory.** Week 5 Bash (heredoc, `$( )`, lab `if`s) is in. |
 
 Weeks 9–14 (load balancing / auto scaling, DNS, DynamoDB, OpenTofu) are on the course schedule but have no materials in this repo yet.
 

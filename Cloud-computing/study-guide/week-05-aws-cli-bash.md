@@ -9,6 +9,8 @@ By the end of this week you should be able to:
 3. **Write safe, reusable Bash scripts** around AWS CLI commands (strict mode, argument checks, error handling, command substitution, heredocs).
 4. **Launch a VPC + EC2 from the CLI** using the GitLab `aws-cli-exercise-start` scripts (`create-vpc`, complete `create-instance`).
 
+> **Midterm (friend intel):** Chapter 5 / IAM theory is **not** on the midterm. The Bash from this week's labs **is** — especially **command substitution**, **heredocs**, and **what every `if` in the lab scripts does**. The exercise even links those two topics: [command substitution](https://www.golinuxcloud.com/bash-command-substitution/) and [heredocs](https://linuxize.com/post/bash-heredoc/).
+
 ---
 
 ## Key Concepts & Deep Dive
@@ -171,19 +173,173 @@ Run it with:
 
 > Note: `aws-cli.md` shows the example as `./script ~/.ssh/aws`. Since the script imports a **public** key, pass the `.pub` file — never upload your private key.
 
-### 8. Two Bash tools for the exercise
+### 8. Command substitution — put a command's output into a variable
+
+`$( … )` runs the command inside and **replaces itself with that command's stdout**. Trailing newlines are stripped. This is how every lab script captures an AMI ID, instance ID, or public IP.
 
 ```bash
-# Command substitution — capture a command's output in a variable
-latest=$(aws ec2 describe-key-pairs --query 'KeyPairs[-1].KeyName' --output text)
+debian_ami=$(aws ec2 describe-images \
+    --owners 136693071363 \
+    --filters \
+        "Name=name,Values=debian-13-amd64-*" \
+        "Name=architecture,Values=x86_64" \
+        "Name=root-device-type,Values=ebs" \
+        "Name=free-tier-eligible,Values=true" \
+    --query 'sort_by(Images, &CreationDate)[-1].ImageId' \
+    --output text)
+```
 
-# Heredoc — write multi-line text to a file, with variables expanded
-cat > settings <<EOF
-latest_key=${latest}
+| Piece | Why it's there |
+| ----- | -------------- |
+| `debian_ami=$( … )` | Store stdout in a variable. Spaces around `=` would break the assignment. |
+| `--query '…[-1].ImageId'` | One value only — not the `[ImageId,Name,CreationDate]` table in the starter snippet. |
+| `--output text` | Plain `ami-0b3c…`, no JSON quotes. Quoted output would break later `--image-id "$debian_ami"`. |
+
+Use it immediately:
+
+```bash
+echo "Using AMI: $debian_ami"
+aws ec2 run-instances --image-id "$debian_ami" …
+```
+
+Rules:
+
+- Course form is **`$( )`**, not backticks `` ` ` ``.
+- Capture **stdout**. Messages you `echo` to stderr (`>&2`) do not end up in the variable.
+- Quote when you use it: `"$debian_ami"`.
+- The GitLab `create-instance` TODOs are the same pattern twice more: `instance_id=$(aws ec2 run-instances …)` and `public_ip=$(aws ec2 describe-instances …)`.
+
+### 9. Heredocs — write a multi-line file, with variables filled in
+
+A heredoc feeds everything between two delimiters into a command as stdin. The labs use it to write `KEY=value` files that a later script can `source`.
+
+```bash
+cat > ami_data <<EOF
+debian_ami=${debian_ami}
 EOF
 ```
 
-### 9. GitLab in-class lab: `aws-cli-exercise-start`
+Resulting file:
+
+```
+debian_ami=ami-0b3c68efb8f9567ef
+```
+
+| Piece | Meaning |
+| ----- | ------- |
+| `cat > ami_data` | Overwrite (or create) `ami_data`. `>>` would append. |
+| `<<EOF` | Read stdin until a line that is exactly `EOF`. The name is arbitrary (`EOF`, `END`, `STOP` all work) but must match. |
+| Unquoted `EOF` | **Expand** `$vars` and `$(commands)` in the body. This is what the labs need. |
+| `<<'EOF'` (quoted) | Literal text — `${debian_ami}` would be written as those characters, not the AMI ID. Wrong for these labs. |
+| Closing `EOF` | Must be at the start of the line (no indent, unless you used `<<-` and tabs). |
+
+`create-vpc` already does this; `create-instance` asks you to do the same:
+
+```bash
+cat > infrastructure_data <<EOF
+region=$region
+availability_zone=$availability_zone
+vpc_id=$vpc_id
+subnet_id=$subnet_id
+igw_id=$igw_id
+route_table_id=$route_table_id
+EOF
+```
+
+```bash
+cat > instance_data <<EOF
+instance_id=$instance_id
+public_ip=$public_ip
+security_group_id=$security_group_id
+EOF
+```
+
+Later: `source ./infrastructure_data` turns those lines into shell variables in the next script. If you quote the delimiter, `source` loads the literal string `$vpc_id` and everything downstream breaks.
+
+### 10. Every `if` in the Week 5 lab scripts
+
+`if` tests a command's **exit status**: `0` = true (run the `then` branch), anything else = false.
+
+`[[ … ]]` is itself a command. Common tests in these labs:
+
+| Test | True when |
+| ---- | --------- |
+| `$# -ne 1` | Number of arguments is not 1 |
+| `-f "$1"` | `$1` is a regular file that exists |
+| `! …` | Negate the test |
+| `-z "$var"` | `$var` is empty |
+| `"$var" == "None"` | AWS `--output text` returned the string `None` (no match) |
+| `cmd &>/dev/null` | `cmd` itself exited 0; stdout and stderr discarded |
+
+`[[ ]]` vs `[ ]`: both appear in course scripts. `[[ ]]` is Bash-only and safer with `||` / `&&`. Same idea either way.
+
+#### Import-key script (`aws-cli-exercise.md`)
+
+**1. Wrong number of arguments**
+
+```bash
+if [[ $# -ne 1 ]]; then
+  err "Script requires the path to the public key file you would like to import."
+fi
+```
+
+`$#` = how many arguments you passed. `./script` → `$#` is 0 → error. `./script ~/.ssh/aws.pub extra` → `$#` is 2 → error. Only `./script ~/.ssh/aws.pub` continues.
+
+**2. Path is not a file**
+
+```bash
+if [[ ! -f "$1" ]]; then
+  err "Path to public key for import is incorrect; file does not exist."
+else
+  public_key_file="$1"
+fi
+```
+
+`-f` is true if `$1` exists and is a regular file. `!` flips it: missing path, a directory, or a typo → error. Only the `else` assigns `public_key_file`.
+
+**3. Key already in AWS (idempotency)**
+
+```bash
+if aws ec2 describe-key-pairs --key-names "$key_name" &>/dev/null; then
+  err "Key pair '$key_name' already exists in AWS. Delete it first or use a different name."
+fi
+```
+
+Here the `if` condition is the **AWS CLI**, not `[[ ]]`.
+
+- Key `bcitkey` exists → `describe-key-pairs` exits **0** → `then` runs → script stops. No second import.
+- Key missing → CLI exits **non-zero** → `if` is false → fall through and import.
+
+`&>/dev/null` throws away the YAML/JSON *and* the "does not exist" error, so you only care about the exit code.
+
+This does **not** trip `set -e`. A failing command used as an `if` condition is allowed to fail; that is how you branch on it.
+
+#### `create-instance` (GitLab)
+
+```bash
+if [[ ! -f "infrastructure_data" ]]; then
+  echo "ERROR: 'infrastructure_data' file not found. Run the VPC script first."
+  exit 1
+fi
+source ./infrastructure_data
+```
+
+No `infrastructure_data` means you have not run `create-vpc` yet, so `$vpc_id` / `$subnet_id` would be empty. Fail early instead of launching into nowhere.
+
+#### `create-vpc` (GitLab)
+
+```bash
+if [[ -z "$availability_zone" || "$availability_zone" == "None" ]]; then
+  echo "ERROR: Could not find an available Availability Zone."
+  exit 1
+fi
+```
+
+`-z` = empty string (CLI printed nothing). `== "None"` = JMESPath found no AZ (`--output text` prints `None`). Either way, do not call `create-subnet` with a garbage AZ.
+
+Trace: `./import-key-pair` with no args hits **if 1** and never reaches the file check. `./import-key-pair /no/such/key.pub` passes if 1, fails **if 2**. A second successful run with a real `.pub` file passes 1 and 2, then **if 3** stops you.
+
+### 11. GitLab in-class lab: `aws-cli-exercise-start`
 
 Repo: [gitlab.com/cit_3640/aws-cli-exercise-start](https://gitlab.com/cit_3640/aws-cli-exercise-start)
 
@@ -257,7 +413,8 @@ Notes that show up again in Week 7:
 - **Strict mode prevents silent disasters.** Without `set -e`, a failed command can let the script keep going and create (or delete) the wrong things.
 - **Idempotency is a core DevOps idea.** Checking "does this already exist?" before creating it means you can safely run a script twice — the same idea Terraform/OpenTofu is built on.
 - **`--query` makes AWS composable.** Pulling out a single ID lets you chain commands: find the AMI → launch an instance → tag it, all in one script.
-- **Data files are the glue between scripts.** `create-vpc` writes `infrastructure_data`; `create-instance` sources it. Week 7's EFS lab does the same with `efs_data` / `mount_data`. Keep **`bcitkey`**.
+- **Data files are the glue between scripts.** `create-vpc` writes `infrastructure_data` with a heredoc; `create-instance` sources it. Week 7's EFS lab does the same with `efs_data` / `mount_data`. Keep **`bcitkey`**.
+- **The midterm Bash trio:** `$(cmd)` captures stdout; `cat > file <<EOF` writes expanded variables; `if` branches on exit codes (`[[ ]]` tests or a silent `aws` command).
 
 ---
 
@@ -290,6 +447,15 @@ aws ec2 describe-key-pairs \
 - In `if aws ec2 describe-key-pairs --key-names "$key_name" &>/dev/null`, the `&>/dev/null` discards both ________ and ________, so the `if` only looks at the command's ________.
 
 **Q5 (Scenario).** This is the exercise from `aws-cli-exercise.md`. Starting from the Debian AMI lookup command, write a Bash script that (1) gets **only the most recent** AMI ID, (2) stores it in a variable with command substitution, and (3) writes `debian_ami=<id>` to a file using a heredoc. Which part of the original command do you change, and why?
+
+**Q6 (Code reading).** For each `if` below, say when the `then` branch runs.
+
+```bash
+if [[ $# -ne 1 ]]; then err "need one arg"; fi
+if [[ ! -f "$1" ]]; then err "not a file"; else public_key_file="$1"; fi
+if aws ec2 describe-key-pairs --key-names "$key_name" &>/dev/null; then err "exists"; fi
+if [[ -z "$availability_zone" || "$availability_zone" == "None" ]]; then exit 1; fi
+```
 
 <details>
 <summary><strong>Answer Key (click to expand)</strong></summary>
@@ -333,6 +499,12 @@ EOF
 - `$( … )` is command substitution: it captures the output into `debian_ami`.
 - `cat > ami_data <<EOF … EOF` is the heredoc; `${debian_ami}` is expanded because the `EOF` delimiter isn't quoted.
 - `--owners 136693071363` stays: it's Debian's official account ID, which the notes say to verify by hand on the Debian wiki.
+
+**Q6**
+1. `then` when you did not pass exactly one argument.
+2. `then` when `$1` is missing or not a regular file; `else` (assign `public_key_file`) only when the file exists.
+3. `then` when `describe-key-pairs` **succeeds** — the key already exists. Missing key → non-zero exit → skip `then` and import. `&>/dev/null` hides output so only the exit code matters.
+4. `then` when the AZ variable is empty **or** AWS returned the text `None`.
 
 </details>
 
@@ -477,6 +649,40 @@ echo -e "\033[1;31m ERROR:\033[0m ${error_message}" >&2
 - C) Sends the message to stderr instead of stdout
 - D) Runs `echo` in the background
 
+**16.** What does `instance_data` contain after this, if `instance_id=i-abc`?
+
+```bash
+cat > instance_data <<'EOF'
+instance_id=$instance_id
+EOF
+```
+
+- A) `instance_id=i-abc`
+- B) `instance_id=$instance_id`
+- C) An empty file
+- D) The script errors because `EOF` is quoted
+
+**17.** Why does the AMI-lookup exercise insist on `--output text` inside `debian_ami=$(aws …)`?
+
+- A) JSON is not allowed in Bash variables
+- B) So the variable holds a bare AMI ID, not a quoted JSON string that would break `--image-id`
+- C) `--output text` is required for `--query` to work
+- D) It writes the value to `ami_data` automatically
+
+**18.** `key_name=bcitkey` is already in AWS. What does this `if` do?
+
+```bash
+if aws ec2 describe-key-pairs --key-names "$key_name" &>/dev/null; then
+  err "already exists"
+fi
+echo "importing"
+```
+
+- A) Prints `importing` because a successful describe is ignored under `set -e`
+- B) Runs `err` and never prints `importing`, because a 0 exit from `describe-key-pairs` makes `if` true
+- C) Crashes with a raw AWS error; `set -e` fires before `if` can run
+- D) Prints `importing` because `&>/dev/null` makes the command always look like a failure
+
 <details>
 <summary><strong>Multiple-Choice Answer Key (click to expand)</strong></summary>
 
@@ -495,5 +701,8 @@ echo -e "\033[1;31m ERROR:\033[0m ${error_message}" >&2
 13. **B.** The script imports a **public** key, so pass the `.pub` file and never upload your private key. `fileb://` is already added inside the script.
 14. **A.** The guide says to sign in as your **IAM user, never root**. `aws login` gives **short-term credentials**, so there are no long-lived access keys to leak.
 15. **C.** `>&2` redirects the output to **stderr**, which is where error messages belong. `exit 1` on the next line is what sets the exit status.
+16. **B.** Quoted `'EOF'` disables expansion, so the dollar-sign text is written as-is. Unquoted `<<EOF` is what the labs need so `source` can load a real ID.
+17. **B.** `--query` still works with JSON; `text` is so command substitution captures `ami-…` with no quotes or brackets.
+18. **B.** `if cmd` is true when `cmd` exits 0. An existing key makes describe succeed, so `err` runs. `set -e` does not abort a command used as an `if` condition. `&>/dev/null` only hides output.
 
 </details>

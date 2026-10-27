@@ -1,6 +1,8 @@
-# Week 5 Quiz — AWS CLI v2 & Bash
+# Week 5 Quiz — CLI labs: `if`, `$( )`, heredocs
 
 Sources: `aws-cli.md`, `aws-cli-exercise.md`, [GitLab: aws-cli-exercise-start](https://gitlab.com/cit_3640/aws-cli-exercise-start).
+
+**Midterm focus (not Chapter 5):** command substitution, heredocs, and the `if` statements in the lab scripts.
 
 Attempt all questions before opening the answer key.
 
@@ -8,96 +10,138 @@ Attempt all questions before opening the answer key.
 
 ## Multiple Choice
 
-**1.** Why not install the AWS CLI from Debian's apt repo without checking?
+**1.** After this runs, what is in `settings`?
 
-- A) apt cannot install CLI tools
-- B) Distro packages are often CLI v1 or an old v2; this course requires a current v2
-- C) apt always installs to `~/.aws`
-- D) The official installer does not work on Debian
+```bash
+latest="bcit-demo"
+cat > settings <<EOF
+latest_key=${latest}
+EOF
+```
 
-**2.** `aws login` stores the region you type in:
+- A) `latest_key=${latest}`
+- B) `latest_key=bcit-demo`
+- C) `latest_key=`
+- D) Nothing; `cat` prints to the terminal
 
-- A) `~/.ssh/config`
-- B) IAM user tags
-- C) `~/.aws/config`
-- D) `/etc/aws/region`
+**2.** Same body, but the delimiter is quoted. What is in `settings`?
 
-**3.** `--query` uses:
+```bash
+latest="bcit-demo"
+cat > settings <<'EOF'
+latest_key=${latest}
+EOF
+```
 
-- A) jq
-- B) SQL
-- C) JMESPath
-- D) grep
+- A) `latest_key=bcit-demo`
+- B) `latest_key=${latest}`
+- C) A Bash error: quoted EOF is illegal
+- D) `latest_key=`
 
-**4.** `import-key-pair` uses `fileb://` because:
+**3.** What does `debian_ami=$(aws ec2 describe-images … --query 'sort_by(Images, &CreationDate)[-1].ImageId' --output text)` store?
 
-- A) The private key must be uploaded
-- B) The file is read as raw binary with no extra encoding
-- C) `file://` only works inside S3
-- D) It enables MFA on the key
+- A) A YAML table of every Debian AMI
+- B) The newest ImageId as a bare string, e.g. `ami-0b3c68efb8f9567ef`
+- C) The newest ImageId still wrapped in JSON quotes
+- D) The contents of `ami_data`
 
-**5.** Inside a VM you authenticate with:
+**4.** You run the import script as `./script` (no arguments). Which `if` fires, and what happens?
 
-- A) `aws login --remote`
-- B) `aws login --profile remote`
-- C) root user credentials
-- D) `aws configure sso` only
+```bash
+if [[ $# -ne 1 ]]; then
+  err "Script requires the path to the public key file you would like to import."
+fi
+if [[ ! -f "$1" ]]; then
+  err "Path to public key for import is incorrect; file does not exist."
+fi
+```
+
+- A) The file check, because `$1` is empty
+- B) The `$# -ne 1` check; `err` prints to stderr and the script exits 1. The file check never runs
+- C) Neither; `set -e` aborts first
+- D) Both, and both error messages print
+
+**5.** `bcitkey` already exists. What does this do?
+
+```bash
+if aws ec2 describe-key-pairs --key-names "$key_name" &>/dev/null; then
+  err "Key pair '$key_name' already exists in AWS. …"
+fi
+```
+
+- A) `describe-key-pairs` succeeds (exit 0), `if` is true, `err` runs, no import
+- B) `describe-key-pairs` succeeds, so `set -e` kills the script with a raw AWS error
+- C) `&>/dev/null` makes the command fail, so the script imports a duplicate
+- D) The `if` only looks at stdout, which was discarded, so it always imports
 
 ---
 
 ## Short Answer
 
-**6.** Label each token:
+**6.** In one sentence each: what is command substitution, what is a heredoc, and why do the labs use them *together*?
+
+**7.** Translate each test into English.
 
 ```bash
-aws ec2 describe-key-pairs --output yaml
+[[ $# -ne 1 ]]
+[[ ! -f "$1" ]]
+[[ -z "$availability_zone" || "$availability_zone" == "None" ]]
+[[ ! -f "infrastructure_data" ]]
 ```
 
-List the four valid `--output` values.
+**8.** Why `&>/dev/null` on the `describe-key-pairs` `if`? Why does a *missing* key **not** abort the script even with `set -e`?
 
-**7.** What does `set -euo pipefail` do, piece by piece? Why does the import script still survive `if aws ec2 describe-key-pairs … &>/dev/null` when the key is missing?
-
-**8.** Explain this query in four parts. What does it print?
-
-```bash
-aws ec2 describe-key-pairs \
-  --query 'KeyPairs | sort_by(@, &CreateTime) | [-1].KeyName' \
-  --output text
-```
-
-**9.** The notes show `./script ~/.ssh/aws` as the example invocation. What is wrong with that path, and what should you pass?
+**9.** The starter `--query` is `'sort_by(Images, &CreationDate)[*].[ImageId,Name,CreationDate]'`. What do you change for the exercise, and why would leaving the table in the substitution break `run-instances --image-id "$debian_ami"`?
 
 ---
 
 ## Hands-on / Scenario
 
-**10.** Rewrite the Debian AMI lookup so a script stores **only the newest ImageId** and writes `debian_ami=ami-…` via a heredoc. Keep owner `136693071363`.
+**10.** Write the AMI exercise: newest ID only, command substitution, heredoc file that looks like `debian_ami=ami-…`. Owner `136693071363`.
 
-**11.** Complete the three TODOs from GitLab `create-instance` (run-instances, public IP, heredoc). Use variables already in that script (`$debian_ami`, `$key_name`, `$subnet_id`, `$security_group_id`, `$region`).
+**11.** Trace this run and state which `if` (if any) stops it:
 
-**12.** `create-vpc` must produce a **public** subnet. List the CLI calls that (a) enable public IPv4 on the subnet and (b) send `0.0.0.0/0` to the internet. What file do later scripts `source`?
+```bash
+./script /tmp/does-not-exist.pub
+```
+
+Assume the script is the import-key script from `aws-cli-exercise.md`.
+
+**12.** Complete the `create-instance` heredoc and the two substitutions it depends on. Then say what `source ./instance_data` would give a later script.
+
+```bash
+instance_id=$(     )     # run-instances
+public_ip=$(       )     # describe-instances
+cat > instance_data <<EOF
+# three KEY=value lines
+EOF
+```
 
 ---
 
 ## Answer Key
 
-**1. B.** Official install: `curl -fsSL https://awscli.amazonaws.com/v2/install.sh | bash` → `~/.local/bin`. Confirm with `aws --version` (`aws-cli/2.x`). Fedora 44 is the notes' exception with a recent package.
+**1. B.** Unquoted `EOF` expands `${latest}`. `cat > settings` writes a file, not the terminal.
 
-**2. C.** Plain-text INI. Short-term credentials also land under `~/.aws/`. Sign in as the **IAM user, never root**.
+**2. B.** Quoted `'EOF'` is literal — no expansion. That is the wrong form for lab data files you later `source`.
 
-**3. C.** JMESPath. `jq` is a separate tool (Week 7 `backup-info` uses it on `s3api` JSON).
+**3. B.** `[-1].ImageId` plus `--output text` → one bare ID. The starter query's `[*].[ImageId,Name,CreationDate]` is the table you are supposed to get rid of.
 
-**4. B.** `file://` applies normal CLI encoding; `fileb://` is raw binary — required for `--public-key-material`. Never upload the private key.
+**4. B.** `$#` is 0, so `-ne 1` is true. `err` calls `exit 1`. The `-f` test is never reached.
 
-**5. A.** `--remote` is for environments without a local browser hand-off. `--profile` selects a named credential set; it is not a substitute.
+**5. A.** `if cmd` is true on exit 0. Existing key → describe succeeds → `then`/`err`. `set -e` does not apply to commands in `if` tests. `&>/dev/null` hides output only.
 
-**6.** `aws` = base; `ec2` = top-level service; `describe-key-pairs` = operation; `--output yaml` = option. Outputs: `json` (default), `yaml`, `text`, `table`.
+**6.** Command substitution `$(cmd)` captures stdout into a variable. A heredoc (`cat > file <<EOF … EOF`) writes a multi-line file, expanding variables if the delimiter is unquoted. Labs capture IDs with `$(aws …)` then persist them with a heredoc so the next script can `source` the file.
 
-**7.** `-e` exit on error; `-u` unset variables are errors; `-o pipefail` a pipeline fails if any stage fails. Commands in an `if` test do **not** trigger `-e`; a missing key makes `describe-key-pairs` fail, the `if` is false, and the script continues into `import-key-pair`. `&>/dev/null` discards stdout and stderr so only the exit code is used.
+**7.**
+- Not exactly one argument.
+- `$1` is missing or not a regular file.
+- AZ string is empty, or AWS printed `None`.
+- `infrastructure_data` is not a file in the current directory (you forgot `create-vpc`).
 
-**8.** Take `KeyPairs` → sort by `CreateTime` ascending → last element (`[-1]`) = newest → `.KeyName` as plain text. `[0].KeyName` after the same sort would be the **oldest**.
+**8.** You only want the exit code: success = key exists, failure = safe to import. The JSON and the "not found" error would clutter the terminal. `set -e` ignores failures in `if`/`while` tests, which is how a missing key is allowed to continue into `import-key-pair`.
 
-**9.** `~/.ssh/aws` is the **private** key. Pass `~/.ssh/aws.pub`. The script already prefixes `fileb://`.
+**9.** Change it to `'sort_by(Images, &CreationDate)[-1].ImageId'` (drop `[*].[…]`). Leaving the table means `$debian_ami` holds several columns/rows; `--image-id` expects a single ID and will error.
 
 **10.**
 
@@ -120,9 +164,9 @@ debian_ami=${debian_ami}
 EOF
 ```
 
-Unquoted `EOF` expands `${debian_ami}`. Verify the owner ID on the Debian wiki, do not scrape it blindly.
+**11.** `$#` is 1, so the argument-count `if` passes. `[[ ! -f "$1" ]]` is true (file does not exist) → `err` about the path → exit 1. AWS is never called.
 
-**11.**
+**12.**
 
 ```bash
 instance_id=$(aws ec2 run-instances \
@@ -149,6 +193,4 @@ security_group_id=$security_group_id
 EOF
 ```
 
-`--user-data` uses **`file://`** (text YAML), not `fileb://`. `aws ec2 wait instance-running` should run before you query the public IP. Key name is **`bcitkey`** — Week 7 EFS lab reuses it.
-
-**12.** (a) `aws ec2 modify-subnet-attribute --map-public-ip-on-launch`. (b) `aws ec2 create-route --destination-cidr-block 0.0.0.0/0 --gateway-id "$igw_id"` on the route table associated with that subnet (after `create-internet-gateway` + `attach-internet-gateway`). Later scripts `source ./infrastructure_data` for `vpc_id`, `subnet_id`, etc.
+`source ./instance_data` sets those three variables in the current shell (same pattern as `source ./infrastructure_data` after `create-vpc`).

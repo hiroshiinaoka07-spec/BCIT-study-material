@@ -8,7 +8,7 @@ Standalone quizzes for the weeks that have materials in this repo. Answer keys w
 | [week_02_quiz.md](week_02_quiz.md) | IAM, root lockdown, roles, KMS, Artifact |
 | [week_03_quiz.md](week_03_quiz.md) | EC2, AMIs, pricing, cloud-init |
 | [week_04_quiz.md](week_04_quiz.md) | VPC, CIDR, subnets, SG vs NACL, lab topology |
-| [week_05_quiz.md](week_05_quiz.md) | AWS CLI v2, JMESPath, Bash scripts, GitLab `create-instance` |
+| [week_05_quiz.md](week_05_quiz.md) | **Midterm Bash:** heredocs, `$( )`, lab `if`s (no Ch 5) |
 | [week_06_quiz.md](week_06_quiz.md) | In-class test review (weeks 1–5) |
 | [week_07_quiz.md](week_07_quiz.md) | S3 / EBS / EFS, GitLab EFS + S3 CLI labs |
 | [final_comprehensive_review.md](final_comprehensive_review.md) | Midterm/final prep: concept map, command sheet, 25-question mock exam |
