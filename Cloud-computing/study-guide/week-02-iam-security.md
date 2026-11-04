@@ -152,7 +152,7 @@ For reference (this goes a little beyond the chapter), a role has two parts:
 - **Leaked credentials are the #1 cloud breach story.** Locking root and never hard-coding access keys prevents most of those disasters.
 - **Groups scale; individual permissions don't.** On a real team you'll manage dozens of people — groups keep that sane and auditable.
 - **Roles are how AWS services talk to each other securely.** Every later topic (EC2 reading S3, Lambda writing to a database) relies on roles.
-- **You'll use your IAM user for the CLI in Week 5.** `aws login` authenticates as the IAM user you create now, so set it up correctly.
+- **You'll use your IAM user for the CLI in Week 5.** `aws login` authenticates as the IAM user you create now, so set it up correctly. (`aws-cli.md` says "the IAM user we created in week 1" — that user is created in **this** week's IAM work, not Week 1.)
 
 ---
 
