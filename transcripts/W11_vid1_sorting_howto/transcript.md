@@ -1,0 +1,132 @@
+# Transcript: W11_vid1_sorting_howto.mp4
+
+- Source: `C:\Users\hiros\BCIT-study-material\Algorithms\wk09 quiz\W11_vid1_sorting_howto.mp4`
+- Duration: 00:15:28
+- Segments: 228, screenshots: 21
+- Whisper model: `large-v3` (auto-generated; may contain recognition errors)
+
+## [00:00:00]
+
+![screenshot at 00:00:00](frames/frame_0001.jpg)
+
+`[00:00:01]` Hello. It is traditional for an algorithms course to cover a number of sorting algorithms, `[00:00:05]` and we will in fact spend the next few weeks doing largely that. `[00:00:09]` And in this video I'm going to give you some context for that, or `[00:00:13]` more to the point, some context about what it's not. So the reason we're going to cover sorting `[00:00:20]` is not because if you need to write some software you're going to be like, oh I know, `[00:00:24]` I'll write my own sorting algorithm because I learned how in algorithms class. `[00:00:27]` That's not what you're going to do. That's very unlikely to be a good idea. `[00:00:31]` So let's first talk about how you should sort things in Python. `[00:00:37]` So there are two ways to sort things in Python, right?
+
+## [00:00:45]
+
+![screenshot at 00:00:45](frames/frame_0002.jpg)
+
+`[00:00:45]` Here's a list, and we can sort with the global function sorted. `[00:00:55]` And so that does that. And then we also have a method dot sort, and that does that, right? `[00:01:07]` So in many ways these functions are equivalent, but let's first talk about how they're different. `[00:01:13]` I've talked before about how some functions do their work by returning something, `[00:01:19]` and others do their work some other way, and that the difference matters, `[00:01:25]` and that's the difference here, right? So sorted returns a new sorted list,
+
+## [00:01:30]
+
+![screenshot at 00:01:30](frames/frame_0003.jpg)
+
+`[00:01:30]` right? So if I reset my list here, and then I call sorted, and then I look at my original list, `[00:01:37]` you'll see that my original list is unaffected. Sorted returned a new list, and it did return that, `[00:01:44]` right? So I could go new list equals, and then I could check what's in new list, `[00:01:49]` and there's the sorted thing, right? And those are different lists, right? `[00:01:53]` My list and new list are different lists, and if I edit one of them, it won't affect the other one, `[00:01:58]` and so on and so forth, right? On the other hand, let's just start at the top here, do do do, sort, `[00:02:11]` doesn't return anything, right? In fact, I could go,
+
+## [00:02:15]
+
+![screenshot at 00:02:15](frames/frame_0004.jpg)
+
+`[00:02:16]` I'm sorry, I should call it dot, so I go like that, and what's an x? None is an x, because `[00:02:22]` that's what Python uses when it has nothing to return. It just always returns something, `[00:02:28]` but if it doesn't need to return, it returns none. So again, technically sort returns something, `[00:02:32]` but in practice it doesn't. On the other hand, it does mutate the original list, right? Sometimes you want to `[00:02:41]` mutate, sometimes you don't want to mutate, sometimes you don't care. Sometimes you would `[00:02:47]` rather have a return value, sometimes you don't care. So that's how you normally choose between `[00:02:53]` these things, right? And a lot of the time mutating the original is kind of bad software engineering `[00:02:57]` practice, but it's also sometimes good from an efficiency standpoint, so that can be part of
+
+## [00:03:00]
+
+![screenshot at 00:03:00](frames/frame_0005.jpg)
+
+`[00:03:01]` the trade-off. Also sometimes it's good software engineering practice, but that's less common. `[00:03:05]` Okay, so that's the first thing to know about sort and sorted is that the difference between them is that one's a method, one's a function, one returns, one doesn't return, one mutates, one doesn't mutate, those things. `[00:03:20]` Hopefully you already knew that. `[00:03:23]` Now let's talk about what can be sorted. `[00:03:25]` So we've already seen that Python will gladly sort lists of numbers, and I only used integers here, but it will also sort floating point numbers, and it will sort, in fact, combinations of the two. `[00:03:38]` Looks good, and I can do my list.
+
+## [00:03:45]
+
+![screenshot at 00:03:45](frames/frame_0006.jpg)
+
+`[00:03:50]` It's not sorted yet, but now I'm going to go do that sort and do it this way as well. `[00:03:55]` Looks good, right? `[00:03:57]` It can also sort strings, so that's great. `[00:04:19]` But it won't sort a combination of... `[00:04:23]` strings and numbers. `[00:04:27]` You should try it out yourself to find out why not and what it complains about, and think about what the heck is going on.
+
+## [00:04:30]
+
+![screenshot at 00:04:30](frames/frame_0007.jpg)
+
+`[00:04:34]` So go ahead, pause the video now, go try it. `[00:04:37]` Off you go. `[00:04:39]` Hopefully you've been and come back now, and you've tried that. `[00:04:43]` And if you haven't, you're going to, I trust. `[00:04:45]` So you should know what the error message says, and you should think about that. `[00:04:50]` Okay, so other than numbers and lists, what other sorts of things... `[00:04:53]` can be sorted? `[00:04:56]` So I can, for example, sort a list of lists. `[00:05:01]` That's a pretty boring list of lists, but I could put, you know, it's got an opinion about that, right?
+
+## [00:05:15]
+
+![screenshot at 00:05:15](frames/frame_0008.jpg)
+
+`[00:05:22]` So I can sort lists of numbers. `[00:05:32]` I can sort it. `[00:05:36]` Sorry, did I say that correctly? `[00:05:37]` I can sort lists of numbers. `[00:05:37]` I can sort lists of lists of numbers. `[00:05:39]` I think I've been saying that wrong. `[00:05:40]` I'm sorry. `[00:05:41]` Um. `[00:05:42]` But I cannot sort a list of dictionaries, so that's interesting. `[00:05:56]` And if you experiment with various objects, various sorts of things you can create, um, here, like, let's just import math, import random.
+
+## [00:06:00]
+
+![screenshot at 00:06:00](frames/frame_0009.jpg)
+
+`[00:06:07]` Can I sort math and random? `[00:06:12]` Hmm. `[00:06:12]` Can't do that. `[00:06:13]` Okay. `[00:06:14]` Right. `[00:06:14]` So I can sort some kinds of things and other kinds of things. `[00:06:17]` Um. `[00:06:19]` So suppose you've got a bunch of things you want to sort, like, um, maybe a bunch of customers you want to sort, and you try that and it won't let you sort it. `[00:06:30]` There's two ways to fix this, and the first one, I'm just going to kind of hand wave rather than explain it fully because it's not as useful. `[00:06:38]` So the hand wavy explanation is look at this error message and then think about Dunder methods, and that's the hint.
+
+## [00:06:45]
+
+![screenshot at 00:06:45](frames/frame_0010.jpg)
+
+`[00:06:48]` Okay. `[00:06:48]` So anyway. `[00:06:49]` Anyway, that's fine. `[00:06:51]` Right. `[00:06:51]` Um, that's the thing you can do, but that solution is not very flexible, right? `[00:06:58]` So imagine you've got a bunch of customers and each one is an instance of a customer class, right? `[00:07:04]` So you made a customer class and then you made a bunch of customer instances or users or something like that. `[00:07:09]` I don't know. `[00:07:10]` Right. `[00:07:12]` Some of the time you might want to sort your customers by their ID number. `[00:07:15]` Probably not, but maybe you might want to sort them by their first name. `[00:07:17]` You want to sort them by their last name. `[00:07:19]` You might want to sort them by how recently they interacted with your web app. `[00:07:22]` You might want to sort them by how much money they owe you, whatever. `[00:07:25]` Right. `[00:07:26]` And we would like our code to be able to just switch from one of the other to the other.
+
+## [00:07:30]
+
+![screenshot at 00:07:30](frames/frame_0011.jpg)
+
+`[00:07:30]` However, we need to kind of on the fly. `[00:07:32]` Right. `[00:07:34]` I mean, nevermind fancy classes, right? `[00:07:36]` Strings, um, sort by let's do this, make that one nice and short strings, always sort alphabetically lexicographically technically, but that more or less means the same as alphabetically. `[00:08:01]` Um, it's just fancier, um, strings, always sort alphabetic, uh, lexicographically, but what if you wanted them sorted by length, right. `[00:08:12]` Um, or some other property.
+
+## [00:08:15]
+
+![screenshot at 00:08:15](frames/frame_0012.jpg)
+
+`[00:08:15]` So it turns out that we can tune the behavior of Python's built in sorting, whether that's the sorted global or the dot sort method to sort according to whatever philosophy we like. `[00:08:25]` So we can read about it in the docs. `[00:08:27]` Let's see if we can figure out how to read about the docs. `[00:08:29]` We can go help sorted. `[00:08:30]` Okay. `[00:08:31]` Okay. `[00:08:31]` Okay. `[00:08:31]` And we get this and, or we could go help a list dot sort and we get this right. `[00:08:40]` And so this says it returns a new list. `[00:08:42]` Good. `[00:08:43]` And it says it's in ascending order. `[00:08:45]` Good. `[00:08:45]` This says sorted in ascending order return. `[00:08:47]` None. `[00:08:48]` Okay, good. `[00:08:48]` So we've already learned about that stuff. `[00:08:51]` This talks a bit about being in place and stable. `[00:08:53]` That's something we should talk about later, but we're going to go that for now. `[00:08:56]` Then this one talks about a custom key function and this one talks about a key function, right?
+
+## [00:09:00]
+
+![screenshot at 00:09:00](frames/frame_0013.jpg)
+
+`[00:09:00]` So these are a little. `[00:09:01]` But they could be more useful. `[00:09:04]` Um, you can look this up in guides online on Google, um, but it is actually already in the docs a little bit here. `[00:09:11]` And then I really had to, you wouldn't find this if you didn't know what you were looking for. `[00:09:14]` At least I didn't. `[00:09:15]` But if you go like this and then, um, whoops, help, and then I write top picks and then I looked at, what did I look at? `[00:09:29]` I had to really look around to find this in here. `[00:09:30]` Maybe it was in basic methods. `[00:09:43]` I can't remember. `[00:09:44]` I did find it in the help system somewhere, but the realistic thing to do would be to ask Google or maybe chat GPT on how to customize this.
+
+## [00:09:45]
+
+![screenshot at 00:09:45](frames/frame_0014.jpg)
+
+`[00:09:50]` Right. `[00:09:51]` And you should learn how to do this. `[00:09:52]` Like, this is not, um, an esoteric idea. `[00:09:57]` Um, we've learned all about, uh, callbacks and how they can be used to tune behavior. `[00:10:02]` Um, and this is an important example of that. `[00:10:06]` Okay. `[00:10:06]` So let's do that. `[00:10:07]` So that. `[00:10:11]` Are sorted here. `[00:10:12]` So it's these. `[00:10:12]` By, um, length. `[00:10:16]` So we add a, let's just look at that help again. `[00:10:22]` So it says we're going to add a key and it turns out we need to add that by name cause otherwise it gets confused. `[00:10:29]` So we're going to say key equals, and now they're sorted in length.
+
+## [00:10:30]
+
+![screenshot at 00:10:30](frames/frame_0015.jpg)
+
+`[00:10:38]` Actually, you kind of can't tell cause they're all almost the same length. `[00:10:41]` So let's just make it. `[00:10:42]` So the gamma is really long and then alpha is like a little bit long and then. `[00:10:49]` Right. `[00:10:49]` So it should be cat and then Bravo and then alpha and then gamma cat, Bravo, alpha, gamma. `[00:10:53]` Good. `[00:10:54]` Right. `[00:10:54]` So we can tune our sort with this key keyword, keyword argument called key. `[00:11:02]` How many times do I have to say the word key in this? `[00:11:04]` If only this involved dictionaries, then I could say we have a keyword argument called key that influences the key. `[00:11:10]` That would be really clear. `[00:11:11]` Right. `[00:11:11]` Everybody would have be having more fun then. `[00:11:14]` Okay. `[00:11:14]` Sorry.
+
+## [00:11:15]
+
+![screenshot at 00:11:15](frames/frame_0016.jpg)
+
+`[00:11:15]` Um, is sarcasm. `[00:11:19]` Amusing in these videos are just annoying. `[00:11:21]` Um, okay. `[00:11:23]` Anyway, so the point is we can give a, a keyword argument that is called key. `[00:11:31]` That is a function that changes how sort behaves. `[00:11:32]` And the same thing works for sorted and dot sort. `[00:11:36]` Um, it's very flexible. `[00:11:37]` And by the way, if we want to reverse this, we could do something like this and now it's reversed. `[00:11:43]` But like, if that's too complicated or you're using a key function, you're allowed just right. `[00:11:47]` Reverse equals. `[00:11:48]` True. `[00:11:49]` And that works even if you're not giving custom key function. `[00:11:53]` So I just delete the custom key function and I've got reverse equals true. `[00:11:56]` And these are now in reverse alphabetical order.
+
+## [00:12:00]
+
+![screenshot at 00:12:00](frames/frame_0017.jpg)
+
+`[00:12:00]` Okay. `[00:12:03]` Okay. `[00:12:04]` So the point here is what, what have I said so far? `[00:12:06]` Let's just, uh, Python's built in sorting is very flexible and it's not that hard to use. `[00:12:18]` So that's the thing I've demonstrated so far. `[00:12:20]` Right. `[00:12:21]` Two. `[00:12:21]` I haven't demonstrated this, but I'm going to tell you Python sorting is really good. `[00:12:37]` Already. `[00:12:38]` Um, it's good enough that other languages have copied it. `[00:12:41]` Right. `[00:12:41]` Um, there are special cases where it could be imagined.
+
+## [00:12:45]
+
+![screenshot at 00:12:45](frames/frame_0018.jpg)
+
+`[00:12:45]` You might write a better sort, like if there's something very specialized going on, but in general, you're not going to, and it's generally not worth thinking about. `[00:12:52]` Right. `[00:12:53]` So this is not, um, why we're going to learn sorts, right? `[00:13:05]` Partly is because we all are supposed to learn sorting. `[00:13:08]` It's just what everybody does. `[00:13:09]` So if you don't know anything about sorting, people will look at you funny. `[00:13:12]` This isn't sort of a stupid reason though. `[00:13:16]` The real reason is it trains our minds, right? `[00:13:18]` So we all know what it's supposed to do. `[00:13:24]` The question is how, right? `[00:13:26]` So sorting is not like, Oh, what's even the point.
+
+## [00:13:30]
+
+![screenshot at 00:13:30](frames/frame_0019.jpg)
+
+`[00:13:31]` How do you know when you got the right answer? `[00:13:33]` We'll know what the right answer looks like to a sort. `[00:13:36]` So the that's not going to distract us. `[00:13:40]` We can focus our attention just on how does it work? `[00:13:42]` And the thing is, there are like, I don't know, dozens of good. `[00:13:46]` Sort routines that people have discovered. `[00:13:47]` And so we'll have lots of different examples we can think about and like `[00:13:52]` flex our brains on them, right? `[00:13:55]` Um, some of them are easier to learn. `[00:13:59]` Some of them are harder to learn. `[00:14:01]` Some of them have better asymptotic performance. `[00:14:03]` Some of them have, um, not such good asymptotic performance, but good `[00:14:07]` performance for small values of N. `[00:14:09]` Some of them are just really bad. `[00:14:11]` Um, some of them are funny if you, okay. `[00:14:14]` Maybe they're not luck.
+
+## [00:14:15]
+
+![screenshot at 00:14:15](frames/frame_0020.jpg)
+
+`[00:14:15]` Maybe. `[00:14:16]` Yeah. `[00:14:16]` I've just been doing this for too long. `[00:14:17]` I don't know. `[00:14:18]` Right. `[00:14:19]` Okay. `[00:14:25]` Now that said, right. `[00:14:27]` I said that sorted, uh, is a function, not a method. `[00:14:35]` And it works by returning, not mutating on the other hand, dot sort is a method, `[00:14:41]` not a function, and it works by mutating, not returning our sort functions in this `[00:14:47]` class will all be functions, not methods. `[00:14:51]` Cause I don't have to deal with writing methods. `[00:14:53]` Cause. `[00:14:53]` That's just a little bit more work in assignments. `[00:14:54]` And it's a pain in the butt, but they'll do their work by mutating.
+
+## [00:15:00]
+
+![screenshot at 00:15:00](frames/frame_0021.jpg)
+
+`[00:15:06]` Okay. `[00:15:07]` Now this is a little bit non-Pythonic to combine these two things. `[00:15:12]` It's bad style, tough shit. `[00:15:14]` There's a, there's a reason from an education standpoint, and then we're `[00:15:17]` just going to go with it and we'll see how it goes. `[00:15:19]` Okay. `[00:15:20]` So that's our introduction. `[00:15:22]` Um, we'll actually get down to the work in the next video, but that's the context video. `[00:15:26]` Hope it helped.

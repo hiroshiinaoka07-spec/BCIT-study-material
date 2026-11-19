@@ -1,0 +1,1103 @@
+1
+00:00:01,460 --> 00:00:05,540
+Hello! It's time for us to study our first official proper sorting routine.
+
+2
+00:00:07,060 --> 00:00:10,260
+This comes in a few variants, and we'll just go through a few variants. That's how it is.
+
+3
+00:00:11,700 --> 00:00:13,620
+And while I'm teaching this, I want to...
+
+4
+00:00:16,820 --> 00:00:20,740
+I want you to focus your attention not entirely on the sorting routine itself.
+
+5
+00:00:20,740 --> 00:00:26,020
+Like, yes, I'm teaching you a thing that arguably you should know, but it's kind of not that
+
+6
+00:00:26,020 --> 00:00:30,980
+interesting in its own right. The most noteworthy thing about this sort is how mediocre it is.
+
+7
+00:00:31,860 --> 00:00:35,860
+The thing that we're actually interested in is the pattern of thinking. The sort of,
+
+8
+00:00:37,460 --> 00:00:43,060
+how do we have some reason to believe this is going to work? So again, try to focus on the
+
+9
+00:00:43,060 --> 00:00:47,140
+forest more than the trees. Oh, except I shouldn't say trees because I think I'm talking about
+
+10
+00:00:47,140 --> 00:00:53,620
+districts. Never mind. Try to focus on the big picture. The type of reasoning, not the actual
+
+11
+00:00:53,620 --> 00:01:01,060
+algorithm. Okay, so the sort we're going to learn is based on a pretty basic idea. The idea is,
+
+12
+00:01:01,140 --> 00:01:06,500
+that if you were to look at two elements, say, I don't know, these two elements,
+
+13
+00:01:09,410 --> 00:01:13,490
+you could compare them. And if the one on the left is greater than the one on the right,
+
+14
+00:01:13,490 --> 00:01:19,890
+then you could swap them. Except that these were in the right order. So that was a dumb example,
+
+15
+00:01:19,890 --> 00:01:24,050
+right? On purpose, in that case, right? So if I was to compare these two,
+
+16
+00:01:24,050 --> 00:01:32,530
+I would see that the one on the left is greater. So I would want to swap them, right? And if I do,
+
+17
+00:01:33,090 --> 00:01:40,090
+we get a little bit closer to being sorted and if we just did like a lot of that maybe it would
+
+18
+00:01:40,090 --> 00:01:46,770
+work out now of course um it won't necessarily be to their true home right so if i look at say
+
+19
+00:01:46,770 --> 00:01:57,150
+these two and then i swap them and that's great and then i happen to look at these two and i swap
+
+20
+00:01:57,150 --> 00:02:05,150
+them that's making things better but unfortunately the 7-11 actually belongs um where it was a second
+
+21
+00:02:05,150 --> 00:02:10,150
+ago right so we're not necessarily saying we're going to get better with every step but like i
+
+22
+00:02:10,150 --> 00:02:12,430
+don't know maybe it's going to work out maybe it's going to move us in the right direction
+
+23
+00:02:12,430 --> 00:02:21,250
+um so this is kind of a bit of an idea um but how will we know when to stop
+
+24
+00:02:21,250 --> 00:02:29,440
+hmm well i'm just not going to worry about the stop for a second i'm just gonna
+
+25
+00:02:30,000 --> 00:02:34,380
+um sort of point out that this is a possibility this is not our official sort for this video by
+
+26
+00:02:34,380 --> 00:02:40,880
+the way this is something i just um made up i'm calling it an enthusiasm sort because it just
+
+27
+00:02:40,880 --> 00:02:45,060
+enthusiastically does stuff this is just me being a little bit silly here so don't worry about it
+
+28
+00:02:45,060 --> 00:02:55,520
+too much but i could just kind of write um i just keep sorting i could keep swapping i mean until
+
+29
+00:02:55,520 --> 00:03:07,820
+it's sorted so let's look at that i'm gonna pick one at random and then i pick another one at random
+
+30
+00:03:08,220 --> 00:03:14,780
+here i'm choosing indices not the actual values and then i just want to make sure they're different
+
+31
+00:03:14,780 --> 00:03:21,170
+i don't really know that i need to do this but i'll say while they're the same then redo this
+
+32
+00:03:21,170 --> 00:03:33,600
+step so now i know that i and j are different um i guess i could say if lens sec is less than
+
+33
+00:03:33,600 --> 00:03:39,760
+equal to one return so that i don't otherwise this would be an infinite loop here was only
+
+34
+00:03:39,760 --> 00:03:43,520
+length one anyway so the idea here is i'd pick
+
+35
+00:03:43,720 --> 00:03:52,580
+two indices i and j that are different at random then i say something like if i is less than j and
+
+36
+00:03:52,580 --> 00:04:02,160
+sec j is less than sec i right but i also need to do it the other way around where i say or
+
+37
+00:04:02,160 --> 00:04:08,340
+and then i swap all the i's and the j's but you can just pretend i only do it one way
+
+38
+00:04:08,340 --> 00:04:14,820
+it's kind of gets at the spirit of the problem so if i should swap them
+
+39
+00:04:17,500 --> 00:04:21,360
+and the simplest way to just swap in python you can do it with more complicated way
+
+40
+00:04:22,080 --> 00:04:33,810
+but i can just do it in one line here so this is like a kind of a python trick where i put these
+
+41
+00:04:33,810 --> 00:04:39,370
+two things in a tuple and then i unpack them into this tuple which is the other way around
+
+42
+00:04:39,370 --> 00:04:50,740
+and so that's a swap um some nice modern languages let you do that including python
+
+43
+00:04:52,660 --> 00:04:59,450
+okay and so this actually would work um there is sort of another step i have in
+
+44
+00:04:59,450 --> 00:05:05,830
+done here which is we need some kind of a plan for checking whether or not we're done yet but
+
+45
+00:05:05,830 --> 00:05:10,790
+i haven't written that you'll have to figure that out for yourself um and the performance of this
+
+46
+00:05:10,790 --> 00:05:15,470
+this is based on this randomness and we generally don't like algorithms that have random in them
+
+47
+00:05:16,230 --> 00:05:19,870
+there are some algorithms there's a whole family of algorithms called randomized algorithms where
+
+48
+00:05:19,870 --> 00:05:24,830
+we use randomness for a reason but if we don't have a reason then generally this would be considered
+
+49
+00:05:26,110 --> 00:05:28,630
+um sort of a little bit dumb
+
+50
+00:05:30,410 --> 00:05:37,450
+um anyway technically this works but it's not very good the point i want to make here don't
+
+51
+00:05:37,450 --> 00:05:42,330
+bother learning this unless you are feeling bored the point i want to make here is just that this
+
+52
+00:05:42,970 --> 00:05:50,250
+this if i should swap then swap activity is actually uh potentially useful
+
+53
+00:05:50,250 --> 00:06:01,500
+for our sorting we just need to organize it better than this silliness okay so um let's do better
+
+54
+00:06:01,660 --> 00:06:08,860
+let's make a less goofy plan so for now i'm just going to call this sort one and those of you who
+
+55
+00:06:08,860 --> 00:06:12,380
+have a little background can see if you can figure out what this is you probably have already figured
+
+56
+00:06:12,380 --> 00:06:18,940
+it out actually but i'll give you the real name in a bit though okay so instead of picking out pairs
+
+57
+00:06:18,940 --> 00:06:30,230
+at random where's my illustration app instead of picking out pairs at random what we're going to do
+
+58
+00:06:30,230 --> 00:06:34,790
+is we're going to start in we're going to go in sweeps so first we're going to do this pair here
+
+59
+00:06:36,310 --> 00:06:39,190
+which in this case you can see swaps but ignore that for the second we're just going to do this
+
+60
+00:06:39,190 --> 00:06:45,670
+pair and then we're going to do this pair and then we're going to do this pair and then we're going
+
+61
+00:06:45,670 --> 00:06:51,430
+to do this pair and then we're going to do this pair right so we're just going to look at these
+
+62
+00:06:51,430 --> 00:06:59,350
+pairs from left to right okay and for each pair we're going to um optionally swap
+
+63
+00:07:00,230 --> 00:07:08,410
+we're gonna swap if it would make them that pair be in the correct order here let's make that a
+
+64
+00:07:10,170 --> 00:07:36,310
+helper function okay so we're gonna do this in a sweep right so we're basically gonna go
+
+65
+00:07:36,310 --> 00:07:46,420
+for i in range and we're gonna go from zero to lens sec minus one and we're gonna say
+
+66
+00:07:47,300 --> 00:08:00,980
+right so we're just saying go from left to right and look at every adjacent pair
+
+67
+00:08:00,980 --> 00:08:07,770
+and swap if needed don't get me wrong a single sweep like this
+
+68
+00:08:07,770 --> 00:08:19,140
+is not enough um that's not the whole sorting routine um but let's look at how that works
+
+69
+00:08:26,250 --> 00:08:33,290
+okay so we're gonna um we're gonna go left to right so first we do these two
+
+70
+00:08:33,930 --> 00:08:41,700
+okay we look at them and we see that the one to the left is bigger so we swap them okay then we
+
+71
+00:08:41,700 --> 00:08:47,300
+do these two they're in the correct order so we don't do anything so we go look at these two
+
+72
+00:08:48,020 --> 00:08:54,020
+they're not in the correct order and i want you to notice that this number here in particular
+
+73
+00:08:54,020 --> 00:08:58,100
+this is the biggest number and i want you to watch what happens to it now what happens to
+
+74
+00:08:58,100 --> 00:09:04,340
+it now is that from now on every time we look at a pair this will be in now on this sweep i
+
+75
+00:09:04,340 --> 00:09:13,990
+mean in this in this left to right sweep this will always be moving up right okay and there it is
+
+76
+00:09:15,510 --> 00:09:22,710
+so that was our first sweep and we once twice once twice three times four times five times
+
+77
+00:09:23,350 --> 00:09:37,240
+six times did a compare and maybe swap and that was the first pass okay so again i want to talk
+
+78
+00:09:37,240 --> 00:09:45,660
+about what happened to this 987 here here let me just randomize a new set okay how's that so
+
+79
+00:09:45,660 --> 00:09:51,820
+in this set this one is the biggest one right this is the one that must go all the way to the right
+
+80
+00:09:52,220 --> 00:09:57,260
+and i'll add by the way there could be more the one that's tied you know often you're sorting
+
+81
+00:09:57,260 --> 00:10:00,620
+ties to them but we're going to ignore that for now it turns out it doesn't make it any harder
+
+82
+00:10:00,620 --> 00:10:05,960
+it doesn't make it any different at all actually but i don't you can just pretend it's not relevant
+
+83
+00:10:05,960 --> 00:10:14,780
+for now we'll just assume that everything is distinct um so as we sweep along look either
+
+84
+00:10:14,780 --> 00:10:18,020
+the biggest number already started over all the way on the right or it didn't right if it didn't
+
+85
+00:10:18,020 --> 00:10:23,800
+start all the way to the right then at some point as we sweep along we're gonna get a pair
+
+86
+00:10:23,800 --> 00:10:33,700
+not this pair but in this case it will be at this pair where it's involved now right and at first
+
+87
+00:10:33,700 --> 00:10:37,720
+it'll be on the right side and nothing happens but then it'll be on the left side and because
+
+88
+00:10:37,720 --> 00:10:42,460
+it's the biggest one it will always need to be swapped to the right so it gets swapped to the
+
+89
+00:10:42,460 --> 00:10:48,870
+right there then it's going to get swapped to the right here and then it's going to get swapped to
+
+90
+00:10:48,870 --> 00:10:58,830
+the right here right so this happens for the entire first sweep
+
+91
+00:10:58,830 --> 00:11:01,390
+until we get to the end of the list and when we get to the end of the list
+
+92
+00:11:01,390 --> 00:11:02,850
+the largest
+
+93
+00:11:02,850 --> 00:11:03,750
+number
+
+94
+00:11:03,750 --> 00:11:07,150
+has gotten all the way to the right it has bubbled up
+
+95
+00:11:07,150 --> 00:11:09,130
+from where it started in this bubble
+
+96
+00:11:09,130 --> 00:11:10,490
+whoops ignore that sorry
+
+97
+00:11:10,490 --> 00:11:13,330
+it's bubbled up
+
+98
+00:11:13,330 --> 00:11:15,190
+from wherever it started all the way up
+
+99
+00:11:15,190 --> 00:11:15,630
+to the top
+
+100
+00:11:15,630 --> 00:11:19,330
+and that bubbling action is what gives this
+
+101
+00:11:19,330 --> 00:11:21,090
+sort its name this is called bubble sort
+
+102
+00:11:21,090 --> 00:11:23,310
+because the big things bubble up
+
+103
+00:11:23,310 --> 00:11:28,160
+first and we can do another pass
+
+104
+00:11:28,160 --> 00:11:29,600
+so let's do another pass
+
+105
+00:11:29,600 --> 00:11:32,100
+first we do these
+
+106
+00:11:32,100 --> 00:11:34,200
+two and nothing
+
+107
+00:11:34,200 --> 00:11:36,100
+happens then we do these two
+
+108
+00:11:36,100 --> 00:11:37,120
+and we get a swap
+
+109
+00:11:37,120 --> 00:11:40,260
+and then we do these two and nothing
+
+110
+00:11:40,260 --> 00:11:41,980
+happens then we do these two
+
+111
+00:11:41,980 --> 00:11:43,580
+and get a swap
+
+112
+00:11:43,580 --> 00:11:45,500
+and then we do these two
+
+113
+00:11:45,500 --> 00:11:48,300
+okay and after the end of the second
+
+114
+00:11:48,300 --> 00:11:50,260
+sweep it turns
+
+115
+00:11:50,260 --> 00:11:52,000
+out that the second to greatest number
+
+116
+00:11:52,000 --> 00:11:54,140
+has found its home
+
+117
+00:11:54,140 --> 00:11:59,040
+let's do another sweep
+
+118
+00:11:59,040 --> 00:12:04,940
+we look at these two then we look
+
+119
+00:12:04,940 --> 00:12:05,540
+at these two
+
+120
+00:12:05,540 --> 00:12:08,800
+and they're fine and then we look at these two
+
+121
+00:12:08,800 --> 00:12:10,600
+and they're fine
+
+122
+00:12:10,600 --> 00:12:12,940
+we look at these two it turns out they're fine
+
+123
+00:12:12,940 --> 00:12:14,460
+we look at these two it turns out they're fine
+
+124
+00:12:14,460 --> 00:12:15,560
+these two it turns out they're fine
+
+125
+00:12:15,560 --> 00:12:19,280
+so on the third sweep the third to largest
+
+126
+00:12:19,280 --> 00:12:21,220
+will find its home
+
+127
+00:12:21,220 --> 00:12:24,250
+okay
+
+128
+00:12:24,250 --> 00:12:25,290
+so
+
+129
+00:12:25,290 --> 00:12:28,070
+we can just do
+
+130
+00:12:28,070 --> 00:12:30,910
+one sweep to make
+
+131
+00:12:30,910 --> 00:12:32,850
+the biggest one be in the right bubble up to the right place
+
+132
+00:12:32,850 --> 00:12:33,170
+whoops
+
+133
+00:12:33,170 --> 00:12:36,850
+one sweep to make the second biggest one
+
+134
+00:12:36,850 --> 00:12:37,510
+find its right place
+
+135
+00:12:38,250 --> 00:12:42,250
+one sweep to make the third biggest finance right place and so on we don't actually have to do a
+
+136
+00:12:42,250 --> 00:12:49,640
+last sweep for the last one so we can just do n minus one sweeps doesn't really matter so our
+
+137
+00:12:49,640 --> 00:13:07,370
+code could look like this but actually we could just do one less than that if we want to doesn't
+
+138
+00:13:07,370 --> 00:13:13,850
+really matter if we do that or not okay and so this is a variation of bubble sort let's check
+
+139
+00:13:13,850 --> 00:13:25,060
+if it works i've got a little thing here to make a case so i'm going to say make let's say
+
+140
+00:13:26,260 --> 00:13:30,180
+list equals oh i'm about to have a coughing fit turn off the microphone before you cough jeremy
+
+141
+00:13:31,140 --> 00:13:38,020
+or better yet instead of turning the microphone pause the recording okay um so let's make a case
+
+142
+00:13:38,020 --> 00:13:45,060
+with 20 numbers in it and then let's print the list and then let's sort one the list
+
+143
+00:13:46,420 --> 00:13:55,130
+is actually now going to be called bubble sort one and then print the list again
+
+144
+00:13:58,940 --> 00:14:11,660
+okay okay looks like us a random list and then we get it sorted great it works it sorts
+
+145
+00:14:12,540 --> 00:14:17,980
+okay so that was plan number one bubble sort number one there you go our first official sort
+
+146
+00:14:19,500 --> 00:14:26,700
+now we can make this a bit more efficient okay so we know that the first pass
+
+147
+00:14:28,300 --> 00:14:29,420
+bubbles the top one up
+
+148
+00:14:29,500 --> 00:14:38,070
+the top so the second pass doesn't need to go the whole way right so let's go back to our demo tool
+
+149
+00:14:41,030 --> 00:14:46,630
+make a new one so on the first pass we know that 819 is going to go all the way to the top
+
+150
+00:14:47,590 --> 00:14:50,790
+right and then we know that on the second pass i guess it'll be this one i'll go all the way
+
+151
+00:14:50,790 --> 00:14:55,670
+up to the top and on the third pass i guess it'll be this one and so we don't need to go all the way
+
+152
+00:14:55,670 --> 00:15:03,030
+right so first pass we're going to go one two three
+
+153
+00:15:04,070 --> 00:15:10,550
+four and five this pass however instead of going five we're just going to go four of them
+
+154
+00:15:11,110 --> 00:15:15,510
+so one whoops no don't do that sorry we don't do that one because it was already the right order
+
+155
+00:15:15,510 --> 00:15:26,310
+so one but we don't do it two three four right next pass we're gonna go three so we compare these
+
+156
+00:15:26,310 --> 00:15:31,670
+two and it happens we compare these two and it happens we compare these two and it doesn't happen
+
+157
+00:15:31,670 --> 00:15:32,870
+whoops i said it doesn't happen
+
+158
+00:15:33,510 --> 00:15:39,510
+sorry but we just do those three and we don't go any further we don't look at these ones up here
+
+159
+00:15:40,950 --> 00:15:45,430
+any further right so we just finished doing this one it turns out we didn't have to move it but
+
+160
+00:15:45,430 --> 00:15:53,830
+we just did just finish doing it okay so for the next one we're gonna do just the bottom three
+
+161
+00:15:53,830 --> 00:15:58,470
+so that's two swaps or two optional swaps so we look at these two and they do need swapping
+
+162
+00:16:00,070 --> 00:16:02,950
+they look at these two and they don't need swapping and now we know that one more is in place
+
+163
+00:16:03,110 --> 00:16:06,470
+we move this down to here and we compare these two and they don't need swapping and so we're done
+
+164
+00:16:08,070 --> 00:16:14,230
+right so the point is that we can modify our code to be a little bit more effective a little
+
+165
+00:16:14,230 --> 00:16:18,950
+bit more efficient and we'll talk in class about whether or not we care about this efficiency and
+
+166
+00:16:18,950 --> 00:16:23,270
+why we would or why we would not but still it's interesting to know so we're going to start
+
+167
+00:16:23,270 --> 00:16:34,710
+with it's going to go up to lens sec minus one and it's gonna go down to one by negative one hope i
+
+168
+00:16:34,710 --> 00:16:49,040
+got that right and then the inner loop is gonna go from zero up to um whatever j is right so as j
+
+169
+00:16:49,040 --> 00:16:57,080
+gets smaller this loop will be shorter okay let's see if that works i admit that my confidence is
+
+170
+00:16:57,080 --> 00:16:57,700
+pretty good but not so much so let's see if that works
+
+171
+00:16:57,720 --> 00:17:06,810
+100 it's making a bigger list so it can't possibly be accidental yay it worked this was shuffled
+
+172
+00:17:07,690 --> 00:17:14,490
+this is ordered great okay so that was our second version of bubble sort so in the first version
+
+173
+00:17:15,050 --> 00:17:21,050
+we just like went all the way every time how many times n minus one times go all the way
+
+174
+00:17:21,690 --> 00:17:26,010
+in our second version it's still n minus one steps i think n minus one sweeps might be n
+
+175
+00:17:26,010 --> 00:17:28,570
+minus two at this point but um
+
+176
+00:17:30,250 --> 00:17:32,890
+we only go up to the where we haven't yet
+
+177
+00:17:34,570 --> 00:17:38,730
+um terminated this is a little bit faster like if we race these against each other
+
+178
+00:17:39,370 --> 00:17:49,900
+this one will go a little bit faster but i'd like you to think about how much faster right what do
+
+179
+00:17:49,900 --> 00:17:58,380
+you think is the ratio of the speed of this to this and ideally think about that in terms of
+
+180
+00:17:58,380 --> 00:18:01,980
+asymptotic curves asymptotic functions right
+
+181
+00:18:04,890 --> 00:18:10,460
+okay but i've got a third variant for you you see in this version
+
+182
+00:18:11,180 --> 00:18:13,820
+we say we finalize the top element and then
+
+183
+00:18:13,900 --> 00:18:15,820
+we finalize the next element and then we
+
+184
+00:18:15,820 --> 00:18:17,980
+finalize the next element one per sweep
+
+185
+00:18:20,410 --> 00:18:21,450
+but actually could happen
+
+186
+00:18:23,050 --> 00:18:25,690
+faster than that let's look at uh this
+
+187
+00:18:26,170 --> 00:18:28,570
+example will be somewhat faster this should be good
+
+188
+00:18:33,080 --> 00:18:36,920
+i like this it'll be faster so how many sweeps will it take i'm not sure but i think it'll be about
+
+189
+00:18:38,600 --> 00:18:41,960
+two or three sweeps not five sweeps let's find out
+
+190
+00:18:41,960 --> 00:18:42,280
+okay
+
+191
+00:18:42,280 --> 00:18:45,860
+Okay, so look at the first two.
+
+192
+00:18:45,860 --> 00:18:46,800
+Do we swap them?
+
+193
+00:18:46,800 --> 00:18:47,640
+Yes.
+
+194
+00:18:48,900 --> 00:18:50,520
+Look at the next two.
+
+195
+00:18:50,520 --> 00:18:51,360
+Do we swap them?
+
+196
+00:18:51,360 --> 00:18:52,200
+No.
+
+197
+00:18:52,200 --> 00:18:53,100
+We look at the next two.
+
+198
+00:18:53,100 --> 00:18:53,920
+Do we swap them?
+
+199
+00:18:53,920 --> 00:18:54,740
+No.
+
+200
+00:18:54,740 --> 00:18:55,580
+We look at the next two.
+
+201
+00:18:55,580 --> 00:18:56,420
+Do we swap them?
+
+202
+00:18:56,420 --> 00:18:57,240
+Yes.
+
+203
+00:18:57,240 --> 00:18:58,080
+Look at the next two.
+
+204
+00:18:58,080 --> 00:18:58,920
+Do we swap them?
+
+205
+00:18:58,920 --> 00:19:00,180
+Yes.
+
+206
+00:19:00,180 --> 00:19:01,860
+Okay, that was one sweep.
+
+207
+00:19:01,860 --> 00:19:03,140
+Look at the first two.
+
+208
+00:19:03,140 --> 00:19:04,020
+Do we swap them?
+
+209
+00:19:04,020 --> 00:19:04,860
+No.
+
+210
+00:19:04,860 --> 00:19:06,340
+Look at these ones.
+
+211
+00:19:06,340 --> 00:19:07,180
+Do we swap them?
+
+212
+00:19:07,180 --> 00:19:08,000
+No.
+
+213
+00:19:08,000 --> 00:19:09,040
+We look at these ones.
+
+214
+00:19:09,040 --> 00:19:09,880
+Do we swap them?
+
+215
+00:19:09,880 --> 00:19:10,720
+Yes.
+
+216
+00:19:11,860 --> 00:19:13,520
+Look at these ones.
+
+217
+00:19:13,520 --> 00:19:17,080
+Do we swap them? Yes. And now we stop here. We don't have to do the last one.
+
+218
+00:19:17,400 --> 00:19:20,820
+Okay. That was two sweeps. Next sweep. Do I have to swap these ones? No.
+
+219
+00:19:20,880 --> 00:19:24,780
+Do we have to swap these ones? No. Do I have to swap these ones? Yes.
+
+220
+00:19:26,140 --> 00:19:29,020
+And we don't look any further. Now, we've done
+
+221
+00:19:29,020 --> 00:19:33,000
+three sweeps out of the five we would do. But if you
+
+222
+00:19:33,000 --> 00:19:36,720
+just look, you can see that it is fully sorted. So if we had a way of
+
+223
+00:19:36,720 --> 00:19:40,980
+detecting the sortedness and stopping early, then maybe we could
+
+224
+00:19:40,980 --> 00:19:45,020
+save some work. Right? So let's talk about that
+
+225
+00:19:45,020 --> 00:19:47,760
+plan now. The thing is, though, there's a catch.
+
+226
+00:19:49,160 --> 00:19:52,940
+Right? If the thing we do to find out if it's time to
+
+227
+00:19:52,940 --> 00:19:57,000
+stop slows us down a lot, it could slow us down
+
+228
+00:19:57,000 --> 00:20:01,120
+more than the early stopping speeds us up. So we've got to be a little
+
+229
+00:20:01,120 --> 00:20:03,800
+thoughtful about that. Right?
+
+230
+00:20:04,760 --> 00:20:08,940
+We've got to be quite cheap in the
+
+231
+00:20:08,940 --> 00:20:10,220
+calculations we do to find out if we're done.
+
+232
+00:20:10,980 --> 00:20:20,320
+So here's a new plan. We're going to take that code here.
+
+233
+00:20:22,980 --> 00:20:27,280
+And every time we start a sweep, we're going to set a flag,
+
+234
+00:20:27,280 --> 00:20:38,480
+a Boolean variable. And if we
+
+235
+00:20:38,480 --> 00:20:41,880
+do swap, I have to modify swap if needed so that it
+
+236
+00:20:41,880 --> 00:20:50,480
+returns if it's swapped. It returns true if it's swapped. It returns false if it didn't swap.
+
+237
+00:21:03,440 --> 00:21:07,160
+Anytime we do the swap, we set the flag
+
+238
+00:21:07,160 --> 00:21:11,040
+to true. If this swap happens 15 times, it'll still be true.
+
+239
+00:21:11,080 --> 00:21:12,720
+If it happens once, it'll be true. If it happens zero times,
+
+240
+00:21:12,720 --> 00:21:16,560
+though, it'll be false. Right? And so now we can do this thing
+
+241
+00:21:16,560 --> 00:21:20,560
+where when we leave this for loop,
+
+242
+00:21:21,000 --> 00:21:24,620
+either we will have swapped or we didn't. And if we didn't swap at all,
+
+243
+00:21:26,730 --> 00:21:29,630
+then we'll know that the reason we didn't swap is because everything was already in order.
+
+244
+00:21:30,090 --> 00:21:39,930
+And we can terminate early. So we added this to terminate early.
+
+245
+00:21:40,970 --> 00:21:44,210
+And it wasn't very expensive. We just had to keep track of this did swap.
+
+246
+00:21:45,850 --> 00:21:47,550
+So again, the question is,
+
+247
+00:21:47,550 --> 00:21:49,390
+is it faster?
+
+248
+00:21:50,150 --> 00:21:57,800
+Faster. First, let's make sure that it works. Good. Still works.
+
+249
+00:22:06,780 --> 00:22:10,180
+Okay. So if we go back to our example,
+
+250
+00:22:10,180 --> 00:22:16,650
+the last sweep we ran did swap these two.
+
+251
+00:22:16,730 --> 00:22:20,690
+So we have to do one more sweep. Right? So we're going to do another sweep that's
+
+252
+00:22:20,690 --> 00:22:24,850
+going to look like this. Do we swap those two? No. Do we swap these two?
+
+253
+00:22:25,210 --> 00:22:28,650
+No. And that's our whole fourth sweep.
+
+254
+00:22:28,650 --> 00:22:32,590
+And in that fourth sweep, we don't swap anything. So we skip the fifth sweep
+
+255
+00:22:32,590 --> 00:22:34,510
+and just
+
+256
+00:22:34,710 --> 00:22:37,990
+stop. Now, in this case, the fifth sweep is very, very short.
+
+257
+00:22:37,990 --> 00:22:41,190
+It's just one compare. So in this case, it's not worth it.
+
+258
+00:22:42,330 --> 00:22:45,190
+Well, maybe in some other case it would be worth it. Right?
+
+259
+00:22:45,190 --> 00:22:49,810
+So again, if we sort of imagine this code, is it faster on average?
+
+260
+00:22:49,810 --> 00:22:53,070
+Is it faster all the time? Is it slower all the time? Is it slower than average?
+
+261
+00:22:53,970 --> 00:22:58,050
+And if it is faster on average, how much faster? And again,
+
+262
+00:22:58,810 --> 00:23:04,760
+ideally think asymptotically. Okay.
+
+263
+00:23:06,990 --> 00:23:08,490
+So that is bubble swap.
+
+264
+00:23:08,550 --> 00:23:13,350
+We did this dumb thing up here that is never a real name, so I just made it up.
+
+265
+00:23:14,550 --> 00:23:19,110
+But then we did three variations of bubble sort, and they got slightly more clever,
+
+266
+00:23:19,150 --> 00:23:20,390
+slightly more complicated.
+
+267
+00:23:22,290 --> 00:23:27,170
+They're probably each, I think two, well, two is definitely a little bit faster than one.
+
+268
+00:23:27,690 --> 00:23:30,930
+And three is, I think, on average, faster than two.
+
+269
+00:23:31,210 --> 00:23:34,230
+But it might actually be slower sometimes, because it has to do this extra crap here,
+
+270
+00:23:34,270 --> 00:23:36,150
+and it might not ever return early.
+
+271
+00:23:36,930 --> 00:23:38,250
+So it's not actually clear.
+
+272
+00:23:38,550 --> 00:23:39,870
+Three is a net win.
+
+273
+00:23:41,250 --> 00:23:44,550
+But even if it is faster, again, I want you to think about asymptotically.
+
+274
+00:23:44,550 --> 00:23:45,270
+Is it faster?
+
+275
+00:23:46,170 --> 00:23:47,250
+Something about, okay.
+
+276
+00:23:47,610 --> 00:23:48,810
+And that is bubble sort.
