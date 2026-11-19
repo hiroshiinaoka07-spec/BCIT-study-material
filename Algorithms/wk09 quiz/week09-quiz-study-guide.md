@@ -239,21 +239,31 @@ On the demo he walked, the list was visually sorted after three sweeps, but swee
 
 ---
 
-## How the lab fits the week 9 lecture
+## The lab, from zero Python
 
-The lab is recursive tree walks and divide-and-conquer on lists. The patterns from the lecture, applied to the lab:
+The walkthrough that explains the Python itself, then every line of every exercise, is in [`Algorithms/answer-keys/wk09_lab_recur2_answers.md`](../answer-keys/wk09_lab_recur2_answers.md). Start at section 1. A short version of the idea:
 
-| Lecture pattern | Where the lab uses it |
-| --- | --- |
-| A leaf is the base case. The `for` over children runs zero times. | `count_leaves`, `height`, `postorder_values`, `best_path` |
-| Do the node after the children (post-order) | `postorder_values` |
-| Use the value a recursive call returns | Every numbered exercise. `count_leaves` adds them. `height` takes the max. `find_path` keeps the first path that is not `None`. |
-| Split a list in half, recurse on both halves, combine | `min_max_split`, `is_sorted_split` |
-| One recursive call, on the tail of a list | The optional `remove_all` warmup |
+Each box in the picture is one object. It has `value` (the number) and `children` (the boxes one level under it). A leaf's children list is empty.
 
-The trap from the `size` example still applies: calling `child.height()` and throwing away the number does nothing. The parent has to combine the numbers.
+```python
+root = make_tree()
+root.count_leaves()
+```
 
-`is_sorted_split` is the one that looks like `list_length_d_and_c` and is not. Both halves being sorted does not make the whole list sorted. The combine step has to look at the boundary between the halves. The answer key walks through that with the lab’s own failing examples.
+That runs `count_leaves` with `self` set to the 8. Inside, `self.children` is `[the 3, the 10]`. The line `child.count_leaves()` starts the function **again**, with `self` now set to that child, and the run on 8 waits until the child `return`s a number.
+
+On the small piece of the tree that is just 6 over 4 and 7:
+
+1. 6 sees that it has children, so it does not answer yet.
+2. 4 has no children, so 4 returns `1`. 6 was waiting.
+3. 7 returns `1`.
+4. 6 adds them and returns `2`.
+
+6 never walked "the whole tree." It asked its children and used what they returned. 8 does the same thing. The 3 cannot answer until 6 has answered, and 6 cannot answer until 4 and 7 have. The numbers come back one `return` at a time.
+
+Every tree method in the lab is that shape. A leaf answers immediately. A parent asks each child, then combines the answers: add them (`count_leaves`), keep the max and add one (`height`), paste the lists together (`postorder_values`), or keep the first list that is not `None` (`find_path`). Calling the child and ignoring the returned value still walks the tree, and the parent then returns the wrong answer.
+
+The list functions use the same pause-and-wait. The smaller problem is a sliced list instead of a child. `values[1:]` is everything after the first item. `values[:2]` and `values[2:]` are the two halves.
 
 ---
 
