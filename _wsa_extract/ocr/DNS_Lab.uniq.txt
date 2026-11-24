@@ -1,0 +1,117 @@
+===== frame_0001
+S Aar. 3420-1%
+Press Ctri+Alt+Delete to unlock.
+Saturday, October 24
+Host P (occss 'Ot W.ndOwS
+===== frame_0002
+Configure DNS Zone transfers
+Network Topology
+Subnet: 255.255.255.0
+DNS: 127.0.0.1
+Switch (NAT 9)
+The five basic steps in deploying DNS are:
+DNSI 127.0.0.1
+qANNED DOCUMENTS
+Restrict editing
+Install DNS on one or more servers.
+Configure the DNS servers.
+Create forward and reverse lookup zones.
+===== frame_0004
+Netwoi•k Topology
+Press Ctrl+Alt+
+Saturda€40ctober 24
+3. Create forward and reverse lookup zones.
+===== frame_0006
+S KIT, 3420, ONS
+such as nslookup
+• work Topology
+Press Ctrl+Alt+Delete to unlock
+Create forward and reverse I
+===== frame_0009
+WELCOME TO SERVER MANAGER
+O Configure this local server
+Add role"; and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+===== frame_0011
+and Storage Services >
+===== frame_0013
+MN. unrearcc«c
+===== frame_0014
+V2020 80239 PM
+===== frame_0015
+using to join dwin.
+===== frame_0016
+Windows Media Player
+Wrndows Defender Firewall with Atvanced Security
+Windows Update settings
+Windows Defender settings
+Advanced Windows Update options
+u2020 80239 PM
+===== frame_0019
+9,'27/2020 •mm
+===== frame_0022
+Configure this local server
+ROLES AND SERVER GROUPS
+@ Manageability
+Add roles and features
+Add other servers to mar-age
+===== frame_0027
+and Storage Service
+2 Add roles and features
+3 Add Other servers to manage
+4 Create a server group
+5 Connect this server to cloud services
+===== frame_0028
+Connect this server to doud services
+===== frame_0029
+Select server roles
+C) Di Cetsøte SevM
+===== frame_0031
+Installation progress
+===== frame_0032
+CA .VAN.svR4 cns
+BEST PRACTICES ANAL
+===== frame_0033
+BEST PRACTICES ANALYZER
+is the zone space?
+===== frame_0036
+• Virtual Machine Details
+===== frame_0037
+Create a zone?
+hat is the zone space?
+===== frame_0038
+hat the zone space?
+===== frame_0042
+BEST PRACTICES A
+===== frame_0045
+9,'22.'ZOZO 7-ma
+===== frame_0046
+Command Prompt
+===== frame_0054
+atsT PRACTiCts ANALYZtR
+===== frame_0056
+do you this is
+It can ten you "ho Is the —aster zone
+Serial version of dns (S•ml and
+===== frame_0057
+Serial version of your dns (Svel and are the for
+retry Interval: If your secondary zone can not access the mast*
+===== frame_0058
+retry Interval: If secondary zone can not access the •aster zone,
+Challenge: after
+try again le I day
+===== frame_0060
+So,d t. to Active
+===== frame_0061
+"inging 192.168.239.4 *ith 32 bytes of data:
+Peauest timd .
+•ins statistics for 192.168.239.4;
+Packets: Sent a, Received - 1, Lost loss),
+192.158.239. a
+'inging 192 "ith 32 bytes Of data:
+192.168_239.4: bytes-32
+192.16B.239.4: bytes-32
+"ing Statistics for
+packets: Sent - Received - 4, Lost

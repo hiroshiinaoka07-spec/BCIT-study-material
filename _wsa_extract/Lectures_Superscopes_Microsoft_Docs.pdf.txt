@@ -1,0 +1,42 @@
+--- page 1 ---
+3.4 DHCP Superscopes
+02/14/2019 • 2 minutes to read
+Superscope is an administrative feature of a DHCP server that can be used to
+group multiple scopes as a single administrative entity. Superscope allows a
+DHCP server to provide leases from more than one scope to clients on a single
+physical network. Scopes added to a superscope are called member scopes.
+With this feature, a DHCP server can do the following:
+Support DHCP clients on a single physical network segment (such as a
+single Ethernet LAN segment) where multiple logical IP networks are used.
+When more than one logical IP network is used on each physical subnet or
+network, such configurations are often called multinets.
+Support remote DHCP clients located on the far side of DHCP and BOOTP
+relay agents (where the network on the far side of the relay agent uses
+multinets).
+In multinet configurations, DHCP superscopes can be used to group and activate
+individual scope ranges of IP addresses used on the network. In this way, a DHCP
+server computer can provide leases from more than one scope to client on a
+single physical network.
+Superscopes can resolve certain types of DHCP deployment issues for multinets,
+including the following situations:
+The available address pool for a currently active scope is nearly depleted,
+and more computers need to be added to the network.
+The original scope includes the full addressable range for a single IP
+network of a specified address class. Another IP network range of addresses
+is needed to extend the address space for the same physical network
+segment.
+[MS-DHCPM]: DHCP Superscopes | Microsoft Docs
+https://docs.microsoft.com/en-us/openspecs/windows_protocol...
+1 of 2
+3/19/19, 9:15 PM
+
+--- page 2 ---
+Clients must be migrated over time to a new scope (such as to renumber
+the current IP network from an address range used in an existing active
+scope to a new scope that contains another IP network range of addresses).
+Two DHCP servers are wanted on the same physical network segment to
+manage separate logical IP networks.
+[MS-DHCPM]: DHCP Superscopes | Microsoft Docs
+https://docs.microsoft.com/en-us/openspecs/windows_protocol...
+2 of 2
+3/19/19, 9:15 PM

@@ -1,0 +1,8 @@
+Conditional Forwarders vs. Forwards vs. Stub Zone
+
+
+
+
+
+
+Primary Zone vs. Secondary Zone vs. Stub Zone vs. Active Directory Integrated Zone

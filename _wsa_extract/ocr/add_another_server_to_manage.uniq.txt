@@ -1,0 +1,185 @@
+===== frame_0001
+TO direct input to
+Type here to * arch
+•vVin2016S Base Image
+ACIT3420 servet Core
+x I a Acrr3420-DC1 x
+'GOG)) • Server Manager • Dashboard
+i Local Server
+WELCOME TO SERVER MANAGER
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+Roles: | groups:' I Sewers total:
+@ Manageability
+Q) Manageability
+the pointer inside or
+===== frame_0002
+ACIT3420-DC2 - VMware Workstation
+TO direct input to this
+Type here to k arch
+All events I O total
+Windows Activation
+ID Severity Log
+===== frame_0005
+'J v,ew Vu Tabs Help
+Please wait for the gpsvc
+===== frame_0007
+& serverManager File Edit View VM Help II • C)
+x O ACIT3420«1 x
+===== frame_0008
+AdministQtor Prompt
+9/9/2018 6:15 PM
+Oownloaa updates only. using Wtn•dcnvs Update
+nced Secunty Configuration Unknown
+(urc-08m Pacific Time (US & Canada)
+Severity Source
+===== frame_0009
+v,ew vu tabs Help
+i local Servpr
+ii All Servers
+Administrator Command Prompt
+(c) 2ø16 Microsoft Corporation.
+All rights reserved.
+Oownloaa updates only. using Windows Update
+9/1S/2018 856 PM
+Pacific Time (US & Canada)
+00316-30727-59619.mws (activated)
+Intel{R) coregM) 8-63000 cpu @ 2.40GH2
+M icrOSOft •W.ndOM•
+Microsoft •Windows• TQ•Service
+DNS Gent Events
+Microsoft •Windows-Cum
+M icrOSOft •WmdOWS•
+M icrOSOft •WmdOWS • Ti me• Service
+9/20/201 g 94740 PM
+===== frame_0010
+_ Server Vanagel
+Windows Update
+'E Enhanced Security Configuration
+Instatlea memory (RAM)
+Remote Desktop
+Operatmg systern Version
+Harawage information
+192.10.2392 IVh.•6 enabled
+Servet 2016 Standard
+VMware. VMware7.I
+00376-30727-59619.mws (activated)
+All | 20 total
+M icrOSOft •Windom •
+M icrOSOft •W.ndOWS•
+Microsoft DNS Gent Events
+Microsoft plus
+M icrOSOft •Wmdows• OstributedCOM
+M ZrOSOft •WmdOWS • Ti me• Service
+9/20/20 lg 946:52 PM
+===== frame_0011
+ii All Windows Security
+Computer Name/Domain Changes
+Enter the name and password of an account with permission
+to join the domain.
+Domain- adatum.com
+Last • r •stalled updates
+W' r•dows Update
+ctrcked updates
+Feedback & thagnostics
+•E Enhanced Se-cunty Configuration
+Installed rnernory (RAM)
+ptotection; On
+M G:rOSOft •Wmdows• OstributedCOM
+M G:rOSOft •WmdOWS • Ti me• Service
+===== frame_0012
+Ping request could not find host
+Pinging 192.168.239.1 with 32 bytes Of data:
+Reply from 192.168.239.1: bytes.32 time«lns
+Reply 192.168.239.1: bytes=32
+Reply 192.168.239.1: bytes•32 timeclms
+pine statistics for 192.168.239.1:
+Packets: Sent • 4, Received • 4, Lost
+Please Check the and again.
+Approximate round trip times in milli •seconds:
+= maximum = Average =
+Pinging (192.168.239.11
+Reply fr•c• 192 _ 168.239. I: bytes—
+Reply 192.168.239.1: bytes
+Reply from 192.168.239.1: bytes.
+Reply fr•c• 192.168.239.1: bytes
+Ping statistics for 192.168.239.1.
+with 32 bytes of data:
+timeclms TTL=12g
+time<lms TTL=128
+timeclms TTL=12S
+= a, Lost = ø (øx loss),
+Maximum • øms, Average •
+===== frame_0014
+Press Ctrl+Alt+Delete to unlock.
+Thursday, September 20
+===== frame_0015
+QI Edit v,ew Vu Tabs Help II
+Applying computer settings
+===== frame_0016
+'J Elle vy labs Help
+===== frame_0018
+& ServerManager Eile Edit Yiew VM labs Help
+x ACIT3420-DC2
+===== frame_0019
+V,ew vy labs Help Jl
+9/20/2018 *3642 PM
+All events | 5 total
+Kerberos target error
+Microsoft-Windows- Service Control Manager
+Microso ft-Windows- Pedi b
+Microso ft-Windows- Time-Service
+Microsoft-Windows- Windows Remote Management System
+Microso DNS Cbent Events
+A" | 205 total
+===== frame_0020
+Active Directory users and Computers
+Active Direct O ry users and Name
+Ä.I Domain Controllers
+Managed Accounts
+===== frame_0021
+Administrator Command Promot
+: c) 2016 microsoft Corporation. All rights reserved.
+t Manageability
+9/20/2018 9:52 PM
+9/20,201 g 9:52 PM
+===== frame_0022
+r_ Server Vanagel
+3 | groups: I I
+===== frame_0023
+request could not find host Ca-bby.Svr2. Check the and try again.
+===== frame_0024
+: XUsers\Administra:
+Active Directory users and Co
+Domain Controllers
+Pei '0/ mat ice
+9120/201 g 9:52 PM
+===== frame_0025
+X ) 2016 microsoft Corporation. All rights reserved.
+: \Users iAdministrator»
+===== frame_0026
+Foreign Securitypri
+===== frame_0027
+Add Roles aM Features Wizard
+Select installation type
+Before You Beal r
+Select the installation type, You can install and features a running physical Computer or virtual
+machine, or on an offline virtual hard disk WHO).
+Server Select.
+Conficyre a single server by adding Ides. role services. and features.
+Remote Desktop Services installation
+Install requited role semces for V"tual Desktop Infrastructure (VD') to create a virtual machine-based
+O' Session -based desktop depJOY-nent_
+===== frame_0028
+ACIB420-DC1 - VMware Workstation
+ACIB420 ser•æt Core
+IL Acrr342coc2
+(9) Server Manager
+An events IO total
+- counters not 9/20/2018 PM
+00375-30727-59679-AA475 (Activated)
+AA475 (Activated)

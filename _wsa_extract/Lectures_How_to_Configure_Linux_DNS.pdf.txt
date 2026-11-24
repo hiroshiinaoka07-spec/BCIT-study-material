@@ -1,0 +1,341 @@
+--- page 1 ---
+ACIT3420 
+1 
+ 
+How to Configure Linux DNS 
+ 
+[johnny@Ca-Van-Ns1 ~]$ netstat -antp 
+(Not all processes could be identified, non-owned process info 
+ will not be shown, you would have to be root to see it all.) 
+Active Internet connections (servers and established) 
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name     
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      -                    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                    
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      -                    
+tcp6       0      0 :::111                  :::*                    LISTEN      -                    
+tcp6       0      0 :::22                   :::*                    LISTEN      -                    
+tcp6       0      0 ::1:631                 :::*                    LISTEN      -                    
+[johnny@Ca-Van-Ns1 ~]$ systemctl restart named 
+[johnny@Ca-Van-Ns1 ~]$ netstat -antp 
+(Not all processes could be identified, non-owned process info 
+ will not be shown, you would have to be root to see it all.) 
+Active Internet connections (servers and established) 
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name     
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      -                    
+tcp        0      0 192.168.239.10:53       0.0.0.0:*               LISTEN      -                    
+tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      -                    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                    
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      -                    
+tcp        0      0 127.0.0.1:953           0.0.0.0:*               LISTEN      -                    
+tcp6       0      0 :::111                  :::*                    LISTEN      -                    
+tcp6       0      0 ::1:53                  :::*                    LISTEN      -                    
+tcp6       0      0 :::22                   :::*                    LISTEN      -                    
+tcp6       0      0 ::1:631                 :::*                    LISTEN      -                    
+
+--- page 2 ---
+ACIT3420 
+2 
+ 
+tcp6       0      0 ::1:953                 :::*                    LISTEN      -                    
+[johnny@Ca-Van-Ns1 ~]$ cat /etc/named 
+cat: /etc/named: Permission denied 
+[johnny@Ca-Van-Ns1 ~]$ su 
+Password:  
+[root@Ca-Van-Ns1 johnny]# cat /etc/named.conf 
+// 
+// named.conf 
+// 
+// Provided by Red Hat bind package to configure the ISC BIND named(8) DNS 
+// server as a caching only nameserver (as a localhost DNS resolver only). 
+// 
+// See /usr/share/doc/bind*/sample/ for example named configuration files. 
+// 
+ 
+options { 
+ 
+listen-on port 53 { 127.0.0.1;192.168.239.10;}; 
+ 
+listen-on-v6 port 53 { ::1; }; 
+ 
+directory  
+"/var/named"; 
+ 
+dump-file  
+"/var/named/data/cache_dump.db"; 
+ 
+statistics-file "/var/named/data/named_stats.txt"; 
+ 
+memstatistics-file "/var/named/data/named_mem_stats.txt"; 
+ 
+secroots-file 
+"/var/named/data/named.secroots"; 
+ 
+recursing-file 
+"/var/named/data/named.recursing"; 
+ 
+allow-query     { any; }; 
+ 
+ 
+/*  
+ 
+ - If you are building an AUTHORITATIVE DNS server, do NOT enable recursion. 
+ 
+ - If you are building a RECURSIVE (caching) DNS server, you need to enable  
+
+--- page 3 ---
+ACIT3420 
+3 
+ 
+ 
+   recursion.  
+ 
+ - If your recursive DNS server has a public IP address, you MUST enable access  
+ 
+   control to limit queries to your legitimate users. Failing to do so will 
+ 
+   cause your server to become part of large scale DNS amplification  
+ 
+   attacks. Implementing BCP38 within your network would greatly 
+ 
+   reduce such attack surface  
+ 
+*/ 
+ 
+recursion yes; 
+ 
+ 
+dnssec-validation yes; 
+ 
+ 
+managed-keys-directory "/var/named/dynamic"; 
+ 
+geoip-directory "/usr/share/GeoIP"; 
+ 
+ 
+pid-file "/run/named/named.pid"; 
+ 
+session-keyfile "/run/named/session.key"; 
+ 
+ 
+/* https://fedoraproject.org/wiki/Changes/CryptoPolicy */ 
+ 
+include "/etc/crypto-policies/back-ends/bind.config"; 
+}; 
+ 
+logging { 
+        channel default_debug { 
+                file "data/named.run"; 
+                severity dynamic; 
+        }; 
+}; 
+ 
+ 
+
+--- page 4 ---
+ACIT3420 
+4 
+ 
+zone "." IN { 
+ 
+type hint; 
+ 
+file "named.ca"; 
+}; 
+ 
+include "/etc/named.rfc1912.zones"; 
+include "/etc/named.root.key"; 
+ 
+[root@Ca-Van-Ns1 johnny]# firewall-cmd --permanent --add-port=53/udp 
+success 
+[root@Ca-Van-Ns1 johnny]# firewall-cmd --reload 
+success 
+[root@Ca-Van-Ns1 johnny]# cat /etc/name.rfc1912.zones 
+cat: /etc/name.rfc1912.zones: No such file or directory 
+[root@Ca-Van-Ns1 johnny]# cat /etc/named.rfc1912.zones 
+// named.rfc1912.zones: 
+// 
+// Provided by Red Hat caching-nameserver package  
+// 
+// ISC BIND named zone configuration for zones recommended by 
+// RFC 1912 section 4.1 : localhost TLDs and address zones 
+// and https://tools.ietf.org/html/rfc6303 
+// (c)2007 R W Franks 
+//  
+// See /usr/share/doc/bind*/sample/ for example named configuration files. 
+// 
+// Note: empty-zones-enable yes; option is default. 
+// If private ranges should be forwarded, add  
+// disable-empty-zone "."; into options 
+
+--- page 5 ---
+ACIT3420 
+5 
+ 
+//  
+ 
+zone "Adatum.com" IN { 
+ 
+type master; 
+ 
+file "Adatum.com.db"; 
+ 
+allow-update { none; }; 
+}; 
+ 
+zone "localhost" IN { 
+ 
+type master; 
+ 
+file "named.localhost"; 
+ 
+allow-update { none; }; 
+}; 
+ 
+zone "1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa" IN { 
+ 
+type master; 
+ 
+file "named.loopback"; 
+ 
+allow-update { none; }; 
+}; 
+ 
+zone "1.0.0.127.in-addr.arpa" IN { 
+ 
+type master; 
+ 
+file "named.loopback"; 
+ 
+allow-update { none; }; 
+}; 
+ 
+zone "0.in-addr.arpa" IN { 
+ 
+type master; 
+ 
+file "named.empty"; 
+
+--- page 6 ---
+ACIT3420 
+6 
+ 
+ 
+allow-update { none; }; 
+}; 
+[root@Ca-Van-Ns1 johnny]# cd /var/ 
+[root@Ca-Van-Ns1 var]# ls 
+account  cache  db     ftp    kerberos  local  log   named  opt       run    target  yp 
+adm      crash  empty  games  lib       lock   mail  nis    preserve  spool  tmp 
+[root@Ca-Van-Ns1 var]# cd named 
+[root@Ca-Van-Ns1 named]# ls 
+Adatum.com.db  chroot  data  dynamic  named.ca  named.empty  named.localhost  named.loopback  
+slaves 
+[root@Ca-Van-Ns1 named]# cat Adatum.com.db  
+$TTL 1D 
+@ 
+IN SOA Ca-Van-Ns1.Adatum.com. root.Adatum.com. ( 
+ 
+ 
+ 
+ 
+ 
+0 
+; serial 
+ 
+ 
+ 
+ 
+ 
+1D 
+; refresh 
+ 
+ 
+ 
+ 
+ 
+1H 
+; retry 
+ 
+ 
+ 
+ 
+ 
+1W 
+; expire 
+ 
+ 
+ 
+ 
+ 
+3H ) 
+; minimum 
+ 
+ 
+IN 
+NS 
+Ca-Van-Ns1.Adatum.com. 
+Ca-Van-Ns1      IN 
+A 
+192.168.239.10 
+Ca-Van-Svr1 
+IN 
+A 
+192.168.239.1 
+Ca-Van-Svr5 
+IN 
+A 
+192.168.239.5 
+Ca-Van-Svr6 
+IN 
+A 
+192.168.239.6 
+[root@Ca-Van-Ns1 johnny]# chown named.named Adatum.com.db 
+[root@Ca-Van-Ns1 named]# ll 
+total 20 
+-rw-r-----. 1 named named  306 Feb 23 17:12 Adatum.com.db 
+drwxr-x---. 8 root  named   73 Feb 23 06:53 chroot 
+drwxrwx---. 2 named named   23 Feb 23 16:07 data 
+
+--- page 7 ---
+ACIT3420 
+7 
+ 
+drwxrwx---. 2 named named   60 Feb 23 17:30 dynamic 
+-rw-r-----. 1 root  named 2253 Nov 26 07:19 named.ca 
+-rw-r-----. 1 root  named  152 Nov 26 07:19 named.empty 
+-rw-r-----. 1 root  named  152 Nov 26 07:19 named.localhost 
+-rw-r-----. 1 root  named  168 Nov 26 07:19 named.loopback 
+drwxrwx---. 2 named named    6 Nov 26 07:19 slaves 
+[root@Ca-Van-Ns1 johnny]# host -t ns Adatum.com 
+Adatum.com name server Ca-Van-Ns1.Adatum.com. 
+[root@Ca-Van-Ns1 johnny]# host -a Adatum.com 
+Trying "Adatum.com" 
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 20635 
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1 
+ 
+;; QUESTION SECTION: 
+;Adatum.com.  
+ 
+IN 
+ANY 
+ 
+;; ANSWER SECTION: 
+Adatum.com. 
+ 
+86400 IN 
+SOA 
+Ca-Van-Ns1.Adatum.com. root.Adatum.com. 0 86400 
+3600 604800 10800 
+Adatum.com. 
+ 
+86400 IN 
+NS 
+Ca-Van-Ns1.Adatum.com. 
+ 
+;; ADDITIONAL SECTION: 
+Ca-Van-Ns1.Adatum.com. 
+86400 IN 
+A 
+192.168.239.10 
+ 
+Received 110 bytes from 127.0.0.1#53 in 2 ms 

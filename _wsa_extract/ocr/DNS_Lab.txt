@@ -1,0 +1,733 @@
+===== frame_0001
+Edit VM •
+S Aar. 3420-1%
+4
+Press Ctri+Alt+Delete to unlock.
+8:04
+Saturday, October 24
+Host P (occss 'Ot W.ndOwS
+is using
+===== frame_0002
+Home TCK'Is
+Edit PDF
+Host P (occss 'Ot W.ndOwS
+is using
+using
+• More
+Configure DNS Zone transfers
+Manage and troubleshoot DNS such as nslookup
+Network Topology
+IP:192.168.239.1
+Subnet: 255.255.255.0
+DNS: 127.0.0.1
+CA-VAN-Svrl
+(Adatum.com)
+DC/DNS
+Switch (NAT 9)
+The five basic steps in deploying DNS are:
+Sign In
+o
+IP:192.168.239.4
+Subnet: 255.255.255.0
+DNSI 127.0.0.1
+CA-VAN-Svr4
+1
+qANNED DOCUMENTS
+Restrict editing
+2.
+3.
+Install DNS on one or more servers.
+Configure the DNS servers.
+Create forward and reverse lookup zones.
+===== frame_0003
+Home TCK'Is
+Edit PDF
+HOS' W.ndOwS
+is using
+using
+• More
+Configure DNS Zone transfers
+Manage and troubleshoot DNS such as nslookup
+Network Topology
+IP:192.168.239.1
+Subnet: 255.255.255.0
+DNS: 127.0.0.1
+Sign In
+o
+IP:192.168.239.4
+Subnet: 255.255.255.0
+DNSI 127.0.0.1
+CA-VAN-Svr4
+1
+qANNED DOCUMENTS
+ngs
+Restrict editing
+===== frame_0004
+VMware
+Edit VM •
+E CZI
+AQT-A&oca
+S ACIT.34&0Ns
+HOS' W.ndOwS
+is using
+Configure DNS Zone transfers
+Manage and troubleshoot DNS such as nslookup
+Netwoi•k Topology
+DNS:
+VAN Svtl
+(Adatumvorn)
+oc/0NS
+Press Ctrl+Alt+
+Switch (NAT 9)
+tgps depl'
+Saturda€40ctober 24
+3. Create forward and reverse lookup zones.
+zss.ass.zss.o
+DNS: 1270m
+CA-VAN-Svra
+Sign
+o
+===== frame_0005
+Edit VM
+oca
+Host P (occss 'Ot W.ndOwS
+is using
+===== frame_0006
+"T •3420-OCI
+Edit VM •
+FS CZI
+S KIT, 3420, ONS
+HOS' W.ndOwS
+Configure DNS Zone transfers
+Manage and troubles
+using
+'P:192.168.239.4
+2SS-2SS.255.0
+4
+such as nslookup
+• work Topology
+IP:192.16a239.1
+255.255.
+DNS: 127.0.0.1
+Press Ctrl+Alt+Delete to unlock
+• oc.•oNs
+switch (NAT 9)
+Saturday, October 24
+Install DNS on One or more servers.
+2.
+3.
+Configure the DNS servers.
+Create forward and reverse I
+===== frame_0007
+VMware
+Edit VM •
+4
+Host P (occss 'Ot W.ndOwS
+is using
+===== frame_0008
+Edit VM •
+S Aar. 3420-1%
+Host P (occss 'Ot W.ndOwS
+is using
+===== frame_0009
+Vu 11 •
+S Aar. 3420-1%
+Apps
+Notepad
+Host P (occss 'Ot W.ndOwS
+is using
+All Sewers
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+O Configure this local server
+4
+MORE
+Add role"; and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+===== frame_0010
+Edit VM •
+S Aar. 3420-1%
+4
+Host P (occss 'Ot W.ndOwS
+is using
+will add my
+===== frame_0011
+Vu 11 •
+S Aar. 3420-1%
+Host P (occss 'Ot W.ndOwS
+is using
+Server Manager Local Server
+PROPERTIES
+WOREGRCOP
+and Storage Services >
+this
+upd.te
+o
+ACPnPv'J
+this
+. 2SS
+p
+e
+===== frame_0012
+VMware
+Vu 11 •
+S Aar. 342006
+Host P (occss 'Ot W.ndOwS
+is using
+u the
+Server Manager Local Server
+PROPERTIES
+NOREE CQ P
+and Storage Services
+NIC
+"2394
+Upd.te
+US
+7. cpu
+2020
+2020 803m PM
+2020 80239 PM
+202010742"
+2020
+2020
+===== frame_0013
+Vu 11 •
+S Aar. 3420-1%
+Server Manager Local Server
+PROPERTIES
+WOREGRCx.JP
+and Storage Services >
+Host P (occss 'Ot W.ndOwS
+is using
+2019
+' '2020
+US
+m cpu
+127
+MN. unrearcc«c
+10
+'0149
+snt«
+wu•2020
+WW2020 80239
+WW2020
+WW2020
+WW2020
+swt
+p
+e
+===== frame_0014
+Vu 11 •
+S Aar. 3420-1%
+Host P (occss 'Ot W.ndOwS
+using
+upd.te
+US
+m cpu .7
+V2020 PM
+V2020 80239 PM
+V2020 10742"
+V2020
+V2020
+===== frame_0015
+Vu 11 •
+S Aar. 3420-1%
+DSi
+Host P (occss 'Ot W.ndOwS
+is using
+- Notepad
+using to join dwin.
+is faster
+127
+Col 37
+p
+e
+===== frame_0016
+Vu 11 •
+S Aar. 3420-1%
+DSi
+Host P (occss 'Ot W.ndOwS
+is using
+upd.te
+utC-O&C0 US
+m cpu .7
+WordPad
+Oesktop
+Windows Media Player
+Wrndows Defender Firewall with Atvanced Security
+Windows Update settings
+Windows Defender settings
+Advanced Windows Update options
+V2020 PM
+u2020 80239 PM
+V2020 10742"
+V2020
+v2020 AM
+===== frame_0017
+Edit VM •
+S Aar. 3420-1%
+4
+Host P (occss 'Ot W.ndOwS
+is using
+e 'OPM
+===== frame_0018
+VMware
+VU 11 •
+DNS
+p
+Host P (occss 'Ot W.ndOwS
+using
+(SOA'
+INS)
+192. t
+23420
+static
+wu,'zoa
+9,'27/ZOZO
+Server
+BPA
+All Servers
+Manageability
+e
+===== frame_0019
+VMware
+VU 11 •
+Host P (occss 'Ot W.ndOwS
+is using
+1011 'COEN
+(SRV)
+SRV)
+'SRV'
+SRV'
+( SRV'
+(SRV)
+9,'27/2020 •mm
+VO.'24Q020
+SPA
+p
+e
+===== frame_0020
+VMware
+VU 11 •
+Host P (occss 'Ot W.ndOwS
+is using
+Not
+Server
+BPA
+All Servers
+Manageability
+===== frame_0021
+VMware
+VU 11 •
+Host P (occss 'Ot W.ndOwS
+is using
+(SOA'
+INS)
+192. t
+static
+9,'27/ZOZO
+V22_r2-azo
+p
+e
+===== frame_0022
+VMware
+VU 11 •
+Host P (occss 'Ot W.ndOwS
+is using
+All
+DNS
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+Configure this local server
+4
+ROLES AND SERVER GROUPS
+@ Manageability
+Add roles and features
+Add other servers to mar-age
+Create a server group
+Connect this server to cloud services
+DNS
+result'
+Storage
+Local Server
+BPA
+All Servers
+Manageability
+===== frame_0023
+VMware
+VU 11 •
+Host P (occss 'Ot W.ndOwS
+using
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+All
+ADDS
+DNS
+Vile and
+p
+2
+4
+ROLES AND SERVER GROUPS
+AD DS
+SPA
+Add roles and features
+Create a server group
+Connect this server to cloud services
+ONS
+@ Manageability
+results
+File and Storage
+Server
+BPA
+All Servers
+Manageability
+e
+===== frame_0024
+ONS - on
+Edit VM •
+4
+Host P (occss 'Ot W.ndOwS
+using
+===== frame_0025
+Edit VM •
+S Aar. 3420-1%
+Host P (OCCSS 'Ot W.ndOwS
+using
+ther user
+===== frame_0026
+Edit VM •
+S Aar. 3420-1%
+Host P (OCCSS 'Ot W.ndOwS
+is using
+apøica to
+Protection
+AD; 10348
+===== frame_0027
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+AM Sewers
+and Storage Service
+•S NEW
+O Configure this local server
+2 Add roles and features
+3 Add Other servers to manage
+4 Create a server group
+5 Connect this server to cloud services
+ROLES AND SERVER GROUPS
+File and Storage
+Local Server
+All
+===== frame_0028
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+A" Sewers
+and Storage Services
+NEW
+Configure this local server
+4
+ROLES AND SERVER GROUPS
+File and Storage
+Services
+Add role; and features
+Add Other servers to manage
+Create a server group
+Connect this server to doud services
+Local
+SPA
+All Servers
+===== frame_0029
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+A" Sewers
+and Storage
+Select server roles
+C) Di Cetsøte SevM
+rcpnp
+ORS
+CNS
+===== frame_0030
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+A" Sewers
+and Storage
+DNS Server
+of ON S
+to m' S to
+Tbngs to
+• ONS ONS
+ONS
+===== frame_0031
+Server Manager Dashboard
+A" Sewers
+and Storage
+WELCOME TO SERVER MANAGER
+Installation progress
+DNS
+this
+===== frame_0032
+Dash board
+Server Manager DNS
+SERVERS
+CA .VAN.svR4 cns
+BEST PRACTICES ANAL
+Ot-es
+e to
+Zone types ?
+Create a
+===== frame_0033
+Dash board
+Server Manager DNS
+SERVERS
+CA .VAN.svR4 cns
+BEST PRACTICES ANALYZER
+to
+Date
+Edit V.
+mS type S
+Stuu
+Help
+is the zone space?
+===== frame_0034
+===== frame_0035
+===== frame_0036
+Eile
+ACIT•
+VM Jabs Help •
+ACIT-3420-Mastenmage
+G (SCSO
+• Description
+• Virtual Machine Details
+===== frame_0037
+Dash board
+Server Manager DNS
+SERVERS
+CA .VAN.svR4 cns
+BEST PRACTICES ANALYZER
+to
+Date
+Edit V.
+mS type S
+Zone
+stub
+Create a zone?
+Help
+hat is the zone space?
+===== frame_0038
+Dash board
+Server Manager DNS
+SERVERS
+CA .VAN.svR4 cns
+BEST PRACTICES ANALYZER
+to
+Date
+Edit V.
+mS type S
+Zone
+Stub Z me
+Help
+nd odify dns
+Zme
+Create a zone?
+hat the zone space?
+===== frame_0039
+File Help
+ONS
+(SOAI
+t5L
+IW'2eä20 P"
+BEST PRACTICES ANALYZER
+===== frame_0040
+Server Manager DNS
+SERVERS
+Dash board
+===== frame_0041
+Eile
+VM Jabs II •
+ACIT-3420-Mastenmage
+(SCSO
+Net.k
+LSE
+• Descnptvon
+of this
+• Virtual Machine Details
+===== frame_0042
+Dash board
+Server Manager DNS
+SERVERS
+CA .VAN.svR4 cns
+BEST PRACTICES A
+ONS
+DNS to the
+The
+F dick
+DM Help.
+- Not""
+File
+Help
+===== frame_0043
+Dash board
+Server Manager DNS
+SERVERS
+CA .VAN.svR4 cns
+BEST PRACTICES ANALYZER
+ONS
+to to
+DNS to the
+The
+F click
+Help.
+master
+of data
+to
+===== frame_0044
+file
+ONS
+Lookup
+IC'2uä20 P"
+nc..v.
+BEST PRACTICES ANALYZER
+===== frame_0045
+file
+ONS
+Lookup
+9m/zazo
+9,'22.'ZOZO 7-ma
+Inc
+tots
+BEST PRACTICES ANALYZER
+===== frame_0046
+file
+ONS
+Lookup
+Command Prompt
+Character Map
+Inc
+===== frame_0047
+===== frame_0048
+===== frame_0049
+11 -
+===== frame_0050
+===== frame_0051
+===== frame_0052
+Server Manager DNS
+SERVERS
+Dash board
+ONS
+) _rm*s
+===== frame_0053
+Server Manager DNS
+SERVERS
+Dash board
+st Poi
+n
+nc..w
+===== frame_0054
+Server Manager •
+a
+Sni*ng is
+SERVICES
+DNS
+9'ip
+atsT PRACTiCts ANALYZtR
+===== frame_0055
+Dash board
+Server Manager DNS
+SERVERS
+BEST PRACTICES ANALYZER
+ONS
+5t.t
+sert
+_rm*s
+• Notep.d
+do this iS
+is
+SOA
+===== frame_0056
+Dash board
+Server Manager DNS
+SERVERS
+BEST PRACTICES ANALYZER
+Help
+do you this is
+is the SOA
+It can ten you "ho Is the —aster zone
+Serial version of dns (S•ml and
+===== frame_0057
+Dash board
+Server Manager DNS
+SERVERS
+BEST PRACTICES ANALYZER
+Help
+do you this is
+is the SOA
+It can ten you "ho Is the —aster zone
+Serial version of your dns (Svel and are the for
+Refresh IS
+retry Interval: If your secondary zone can not access the mast*
+19.
+===== frame_0058
+Dash board
+Server Manager DNS
+SERVERS
+BEST PRACTICES ANALYZER
+Help
+do you this is
+is the SOA
+It can ten you "ho Is the —aster zone
+Serial version of your dns (Svel and are the for
+Refresh IS
+retry Interval: If secondary zone can not access the •aster zone,
+Challenge: after
+try again le I day
+29
+===== frame_0059
+Server Manager DNS
+SERVERS
+Dash board
+ONS
+_rm*s
+'*2.10239.2
+===== frame_0060
+file
+ONS
+L Neup
+(SOAI
+(A AAAA)_
+Mail (MX).
+tn.'Z.23g.'
+static
+W'2eä20 P"
+nc..v,n.climt'
+So,d t. to Active
+tot*
+BEST PRACTICES ANALYZER
+===== frame_0061
+) 2018
+A11
+rights
+192-168-239.4
+"inging 192.168.239.4 *ith 32 bytes of data:
+•:equest out.
+Peauest timd .
+bytes-32
+•ins statistics for 192.168.239.4;
+Packets: Sent a, Received - 1, Lost loss),
+„ppr•oxiute
+192.158.239. a
+'inging 192 "ith 32 bytes Of data:
+•:eply f
+192.168_239.4: bytes-32
+192.16B.239.4: bytes-32
+192 bytes—32
+bytes-32
+"ing Statistics for
+packets: Sent - Received - 4, Lost
+e (eX loss),
+: , ppmximate
+trip ttys
+in
+BEST PRACTICES ANALYZER

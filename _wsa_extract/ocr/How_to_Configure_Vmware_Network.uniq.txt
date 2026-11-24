@@ -1,0 +1,85 @@
+===== frame_0003
+v Devices and drives (2)
+===== frame_0004
+Area Connect ion•
+adapter Network ;
+Link-local IPv6 A"resS . . .
+. : aSS.2SS.zsS.ø
+adapter V"uare Network Adapter V&et8:
+Link, local IPv6 Address
+. 2ss.2ss.2ss.e
+Default Gateway _
+C—ctiM-SpeCific NS Suffix
+. : Media discomected
+===== frame_0013
+S' Sörpe for Business
+Check for updates
+Firewall & netwotk ptotection
+===== frame_0015
+- A4DHCPV6-ln)
+===== frame_0016
+Ip configuration
+'Ethernet adapter Ethernet:
+Media State . . . . . .
+IPV4 Address .
+Default Gat&ay . .
+LAN adapter Local
+. : 192.168.1.76
+: 255.255. zss.e
+. 192.168.1.254
+: Media disconnected
+. Media discomezted
+. . 192.168.126.1
+: assass.ass.e
+Default . . . . . . . :
+Ethernet Ethernet 2:
+===== frame_0017
+Ethernet adapter Ethernet 6:
+IVv6 Address . . . .
+: 192.168.1.2S4
+. . disconnected
+cal Area Connection•
+Area Connection• le:
+state . . . . . . .
+===== frame_0018
+heala State . .
+. : heala disconnected
+. 2ss.2ss.2ss.o
+"ireless LAN adapter
+Media State . . . . . . . . . . . : Media disconnected
+Hireless LAN adapter Local
+Area Connection• te:
+Default Gat.y . . . . .
+Medla State . . . . . . .
+Ethernet adapter Network Adapter
+Link. local Address . . . . .
+Address. . . . .
+Default Gateway .
+• 2ss.2S5.2ss.ø
+===== frame_0019
+State . . . . . . . . . . . : media disconnected
+Wdåa State . . .
+"ask . . . . . . . . . .
+. 169.254.168.1
+: media disc m wcted
+===== frame_0020
+Default Gateuay
+primary suffix
+peoxy Enabled. . . .
+physical Addre
+E t hernet adapter 6:
+: media discmnected
+physical Address. . .
+Intel(R) Ethernet connection (S) 1219.v
+: 8c-16-45-67-98-SE
+. 88-60-97-1E.ez.1e
+Autæfigur•atim IPv4 •
+Servers . . . . . . . .
+Microsoft Virtual Adapter
+===== frame_0024
+[t ACIT3420.Master Image
+• Desert ption
+• Virtual Machine Details
+===== frame_0025
+ACIT3420-Master Image
+• V.rtual Machine

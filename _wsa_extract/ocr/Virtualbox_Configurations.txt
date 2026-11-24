@@ -1,0 +1,313 @@
+===== frame_0001
+BCIT
+Welcome to VirtualBox!
+The w i odow gl&l toes "d all
+VMS
+You can a tools bunon,
+You can to get hep. or
+o
+ENG
+20190-07
+===== frame_0002
+BCIT
+Create Virtual M achirk
+Name and operating system
+deønoton fOWr fM ttæ new vrtudl
+mochine the to
+used to
+Typ.
+VMS
+(64-bit)
+7 (32-bit)
+7 (64•bit)
+8 (32-bit)
+e (64. bit)
+8.1 (n•bit)
+8.1
+(64-bit)
+64-b•t
+ENG
+o
+20190-07
+===== frame_0003
+This pc
+o
+CIT
+ENG
+20190-07
+===== frame_0004
+BCIT
+mocWne
+Create Virtual M achirk
+Name and operating system
+deønatOn foWr the new vrtudl
+mechine the "gem to
+used to this
+C VMS
+; 2016
+Wde
+ENG
+2019-09-07
+===== frame_0005
+Select
+t 1 Thispc wnos(c:)
+Organize • New folder
+VirtualBox
+ACIT 3420
+Date m.dified
+2019-09-07&52 A.
+Type
+File toider
+BCIT
+search ACIT 3420
+Select Folder
+o
+Database
+Folders
+Shared With Me
+This PC
+uments
+Dom loads
+Mus i c
+Pictwes
+Videos
+Winos
+•u Backup (D)
+Name
+Folder DC
+ENG
+o
+2019-09-07
+===== frame_0006
+BCIT
+e— Create Virtual Hard Disk
+Hard disk file type
+type file Eke tp. hud
+disk. o u rot use wth nu Can
+VDt
+O vMDK tW)
+o
+ENG
+2019-09-07
+===== frame_0007
+BCIT
+Base Image • Settings
+System
+Display
+StcHage
+Aud,o
+Shared Folders
+use
+CPU
+Featwes:
+Controls the number Of wrtua•
+CPUs in the v.rtual machne. You
+need hardware virtualization
+support on your host System to
+use more than one CPU.
+ease Image
+ENG
+o
+20190-07
+===== frame_0008
+BCIT
+JU
+Input
+Proxy
+éüb
+NAT Network Details
+10.0.2.0/24
+DHCP
+SumrtS
+tRfmJlt
+II
+o
+ENG
+2019-09-07
+===== frame_0009
+BCIT
+powered Off
+Input
+Update
+Proxy
+éüb
+NAT Network Details
+VMmtS
+Network CDR: 10.0.2.0/24
+Sum-tg DHCP
+SumrtS
+ENG
+o
+20190-07
+===== frame_0010
+"acmne
+BCIT
+Base Image • Settings
+@ System
+Storage
+use
+Shared Folders
+use
+4
+ease Image
+ENG
+o
+2019-09-07
+===== frame_0011
+This
+ctwg.
+System
+Settings
+CIT
+Map
+This PC
+Search Inis
+ENG
+2019-09-07
+===== frame_0012
+Select n
+pin to Qin C om
+ACIT 3420
+Desktop
+My
+Application
+202019
+Win2016
+Sha
+red With Me
+This pc
+3D Objects
+Desktop
+Documents
+Downloads
+Music
+u: Pictures
+Videos
+Winos
+Backup
+21 items I item selected
+o
+McNe
+SWINDOWS.-BT
+MININT
+Files
+program Files
+m Data
+Virtua
+IA48BC52BC28
+copy
+Ren
+Date fied
+2019-03-0611-20 AM
+2019-07-08
+2018-10-22 7:43 PM
+2019-07-08 5:23 PM
+2019-08-19
+2019-01-27
+9:28 AM
+2018-07-05 AM
+2019-C6-07
+2019-08-27
+2019-09-05 3:40
+2019-05-07 1:43
+2018-09-28 AM
+11.38 AM
+AM
+20190-051016 AM
+2018-0705 11:55 AM
+9:27 AM
+Open
+File folder
+File toider
+File folder
+File folder
+File folder
+File folder
+File folder
+File folder
+File folder
+File folder
+File folder
+File folder
+File folder
+File t older
+File folder
+File folder
+folder
+File folder
+File
+Ten
+Search WirOs
+Search Winos
+Videos
+WinCx
+Backup (D)
+21 items I item selected
+857 AM
+ENG
+20190-07
+===== frame_0013
+Oracle VM VirtualBox Manager
+Machine Help
+BCIT
+Start
+2016 (
+settings File
+4096 Me
+Fhppy. Hud
+VT-XJAMO-V,
+128
+SATA o: Base ( Normal Q)
+A l: Empty
+use
+.•ase Image
+ENG
+857 AM
+2019-09-07
+===== frame_0014
+- Notepad
+File Edit Format Hep
+o
+===== frame_0015
+Oracle VM VirtualBox Manager
+File Machine Help
+BCIT
+Start
+2016 (
+File
+4096 Me
+Fhppy. Hud
+VT-XJAMO-V,
+128
+SATA o: Base ( Normal, a)
+A 1: Empty
+use
+.•ase Image
+ENG
+o
+857 AM
+2019-09-07
+===== frame_0016
+BCIT
+Image Off) - VM VirtualBox
+Machine View Input O&ces
+ease Image
+arv
+o
+ENG
+2019-09-07
+===== frame_0017
+BCIT
+'mage - VM VirtualBox
+File Machine View Input Devices Help
+You have the Auto key-board turned on. This will cau• Virtual
+use
+Ctrl
+ENG
+o
+2019-09-07
+===== frame_0018
+BCIT
+ENG
+AM
+2019-09-07

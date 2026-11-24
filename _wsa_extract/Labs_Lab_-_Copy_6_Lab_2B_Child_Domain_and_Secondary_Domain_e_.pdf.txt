@@ -1,0 +1,163 @@
+--- page 1 ---
+ACIT3420 
+1 
+How to deploy a child domain controller and a secondary domain controller 
+Why do we need Child Domains? 
+For domain administrators, they may need to create child domains for managing and maintaining 
+network hierarchy. In a domain environment, child domain can be implemented on separate 
+departments and branches with the purpose of helping domain administrators to define security 
+and resources boundaries. For example, you can apply different group polices for child domains 
+without affecting parent domain polices (Note: You will have a better understanding of why 
+child domain is important in a domain environment after you learn group policy).  
+Network topology 
+Prerequisites 
+Clone one VM (Ca-Van-Svr3) and configure the member server (Ca-Van-Svr3)
+Join your domain (Ca-Van-Svr3: No)
+
+--- page 2 ---
+ACIT3420 
+2 
+An administrator account has strong password
+Static IP is configured for each VM.
+Firewall is turned off (Optional)
+Latest updates from Microsoft are installed (Optional)
+DNS server IP address in TCP/IPv4 properties is correct.
+Note: Double check Network Topology and verify the followings: computer name, IP address, 
+DNS, and Virtual Switch (Vmnet9). Make sure that you can ping each other. 
+Task 1: Create a Child domain (Subdomain) 
+1. Log in the Ca-Van-Svr3 and Launch Server Manager, select the Manage drop down
+menu, select Add role and features and then you are going to run Add Role and
+Feature Wizard.
+2. Review the Before You Begin Page, Click Next.
+3. On the Select installation type page ensure Role-based or feature-based installation 
+radial button is selected, click Next.
+4. On the Select destination server window, select a desired server from the Server Pool.
+(Note: The windows server 2012-2022 sever manager, server managers can install roles
+
+--- page 3 ---
+ACIT3420 
+3 
+and features on one of remote servers selected from the Server Pool. In your server pool, 
+you only have one server until you add other servers on your server manager.) 
+5. Select the Active Directory Domain Servers.
+
+--- page 4 ---
+ACIT3420 
+4 
+6. The Add features that are required for Active Directory Domain Services dialog box
+pops up, select Add Features, Click Next.
+7. On select features windows, you do not need to add new features and use the default
+selections.
+8. Review the Active Directory Domain Services information page and click next.
+9. Click install and wait for an installation to finish. This may take several minutes to
+complete so be patient.
+Promoting the server to Domain Controller and Configuring it as Child Domain 
+10. On the Installation Progress page that appears at the end of the Active Directory Domain
+Services role installation procedure, click the Promote this server to a domain
+controller hyperlink.
+
+--- page 5 ---
+ACIT3420 
+5 
+Note: If you close the above window you can click on the notification flag to check on 
+installation status. 
+11. Choose Add a new domain to an existing forest and Child Domain from domain type.
+Provide parent domain name, new domain name and the credentials of an account
+which is part of enterprise admins group of your parent domain. (Note: You can use
+domain administrator account.)
+
+--- page 6 ---
+ACIT3420 
+6 
+12. Choose Domain Name System (DNS) server and Global Catalog (GC). Provide DSRM
+password and click Next.
+
+--- page 7 ---
+ACIT3420 
+7 
+Note 1: The default First Site name should be selected for the site name unless you have 
+created a new one. You can use the default setting. In the Password and Confirm 
+Password text boxes, type the password you want to use for Directory Services Restore 
+Mode (DSRM). (Question: DSRM allows an administrator to repair or recover an Active 
+Directory Database. How to use the DSRM?) 
+Note 2 (Error): If you have the following error, you have to configure your DNS on 
+your Svr1 (Delegate the Subdomain (Bby.Adatum.com) to Svr3 DNS server.) 
+
+--- page 8 ---
+ACIT3420 
+8 
+13. On the DNS Options interface, on “DNS Options” step you will receive a warning.
+Review it and then click Next
+14. On the Additional Options interface, this tab will take few seconds to load. Check it the
+NetBIOS domain name is correct, if not change it to the required one. When satisfied,
+click Next
+15. On the Paths interface, click Next
+16. On the Review Options interface, click Next
+17. On the Prerequisites Check interface, confirm that there are no issues, and then click
+Install
+Task 2: Secondary Domain Controller 
+Domain controller can be divided into two categories: Primary domain controller and back 
+domain controller (BDC) or secondary domain controller. If the primary DC fails and there’s no 
+backup, users will not be able to gain access to network. When a user attempts to log in, the 
+software contacts the primary DC. If the primary DC is unavailable, it then contacts the backup 
+DC. In addition, we need an additional domain controller to balance the load. For example, BCIT
+has 8 domain controllers for balance the load and increase fault tolerance. Generally, you have to
+deploy at least two domain controllers for your organization.
+18. Install an AD DS roll on Ca-Van-Svr2 (Note: repeat task 1 from step 1 to 10)
+19. In the activate Directory Domain Servers Configuration Wizard, on the Deployment
+Configuration page, the ADD a domain controller to an existing domain option is
+selected by default. If necessary, specify the domain information for this operation by
+type the existing domain name in the Domain field. If you need to change the credentials,
+click the Change button and then specify credentials as a domain administrator for the
+domain you are about to add a domain controller for. After you specify credentials for a
+domain administrator, click next. (Note: You must use your domain administrator
+account. Do not use your local administrator account because as a local administrator,
+you do not have privileges to modify your domain.)
+
+--- page 9 ---
+ACIT3420 
+9 
+
+--- page 10 ---
+ACIT3420 
+10 
+20. On the Domain Controller Option page, leave the Domain Name System (DNS) server
+and Global Catalog (GC) options selected.
+21. On the DNS option page, click Next.
+22. On the Additional Options page, the replication will occur from any domain controller.
+Click Next. (Note: In my environment, I want it to be able to replicate from any domain
+controller. The replication depends on how you installed the first DC and location of
+other DCs. If they are all in the same site, then replicate from any will work. If they are
+located in multiple sites, then you need prepare different replication strategy. Since all the
+DCs in the same site and same subnet, you can set them up to replicate from any.)
+23. On the Paths page, modify the default locations for the AD DS files, if desired, and click
+Next.
+24. On the Review Option page, click Next. The Prerequisites Check page appears.
+25. After the system passes all the prerequisite checks, click Install. The wizard configures
+the server to function as a domain controller.
+26. When you are about to be signed out, click Close. The server will reboot. (Note: If you
+want to verify your install and health of the Domain Controller run dcdiag /v from the
+command line.)
+
+--- page 11 ---
+ACIT3420 
+11 
+Lab 2b Assignment 
+Create a new user account (ACIT3420) on the domain controller (Ca-Van-Svr2) and use 
+the new account to log in your client (Ca-Van-Client1). After you log into your client, run 
+the following command lines: hostname and whoami /user. Paste your screenshot of your 
+CMD.
+Create another new user account (WinServer) on the domain controller (Ca-Van-Svr3) 
+and use the new account to log in your client (Ca-Van-Client1). After you log into your 
+client, run the following command lines: hostname and whoami /user. Paste your 
+screenshot of your CMD.
+
+--- page 12 ---
+ACIT3420 
+12 
+Challenge Questions: 
+1. Can you see the account, ACIT3420 on your Server, Ca-Van-Svr1?
+2. Can you see the account, ACIT3420 on your Server, Ca-Van-Svr3? Why and Why not?
+3. Can you see the account, WinServer on your Servers (Ca-Van-Svr1 & Ca-Van-Svr2)?
+Why and Why not?
+Practice the Nesting Groups (Domain Local, Global Group, Universal Group) in AD (Optional) 

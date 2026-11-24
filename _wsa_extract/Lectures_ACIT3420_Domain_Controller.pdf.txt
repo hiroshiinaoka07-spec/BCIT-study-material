@@ -1,0 +1,511 @@
+--- page 1 ---
+Module 3-4: 
+Installing and Configuring 
+Domain Controllers
+Lei Zhang (Johnny)
+ACIT 3420
+Windows Server Administration
+
+--- page 2 ---
+Learning Objectives
+Terminologies (Partition, scheme, tree, forest, GC, site, OU, 
+domain, subdomain…)
+Deploying Active Directory Domain Services (AD DS)
+Join Domain (GUI)
+Troubleshooting 
+
+--- page 3 ---
+Understanding Active Directory
+Active Directory Domain Services (AD DS) is a specialized type 
+of database called a directory. It does the following:
+Stores information about the identities of users, computers, 
+and services
+Provides authentication for users and computers
+Provides authorization for users and computers to access 
+network resources
+
+--- page 4 ---
+What is an AD DS?
+• AD DS requires one or more domain controllers
+• All domain controllers hold a copy of the domain 
+database, which is continually synchronized (Ex. Exchange 
+Problem)
+• The domain is the context within which user accounts, computer 
+accounts, and groups are created
+• The domain is a replication boundary
+• The domain is an administrative center for configuring and 
+managing objects (Ex. Change password)
+• Any domain controller can authenticate any sign-in anywhere in 
+the domain (Ex. Logon BBY and DTC)
+• The domain provides authorization
+AD DS
+Computers
+Users
+Groups
+
+--- page 5 ---
+Active Directory Basics
+Domain controllers (DCs)
+Servers that have the AD DS server role installed
+Contain writable copies of information in Active Directory
+Member servers
+Servers on a network managed by Active Directory that do not 
+have Active Directory installed
+Domain
+Container that holds information about all network resources 
+that are grouped within it
+Every resource is called an object
+
+--- page 6 ---
+Active Directory Basics (cont.)
+Schema
+The AD DS schema is the component that defines all the object 
+classes and attributes that AD DS uses to store data.
+Enable Active Directory Schema snap-in
+Run: regsvr32 schmmgmt.dll -> Run: mmc ->File->add/remote 
+Snape-in->add Active Directory Schema
+
+--- page 7 ---
+Active Directory Basics (cont.)
+Partition
+A partition is a portion of the AD DS database. 
+Although the database is one file named ntds.dit, different partitions contain different 
+data.
+o
+Schema partition, 
+o
+configuration partition, 
+o
+domain partition
+o
+application partition
+AD DS database (%systemroot%\NTDS)
+o
+ntds.dit
+
+Contains all AD DS partitions and objects
+
+Main AD DS database file
+o
+EDB*.log : Transaction logs
+o
+EDB.chk : Database checkpoint file
+o
+Edbres00001.jrs (10 MB) & Edbres00002 (10 MB)
+
+Reserve transaction log file that allows the directory to process transactions if the server runs out of disk 
+space
+
+--- page 8 ---
+The Active Directory Architecture
+Active Directory is a hierarchical directory service, based on the 
+domain, which is scalable in both directions.
+You can subdivide a domain into organizational units and 
+populate it with objects.
+You can create multiple domains and group them into sites, trees, 
+and forests.
+AD DS provides a highly flexible architecture that can 
+accommodate the smallest and the largest organizations.
+
+--- page 9 ---
+Objects and Attributes
+Consists of objects, each of which represents a logical or 
+physical resource.
+Each object consists of attributes which store information 
+about the object.
+Different objects have different attributes, depending on 
+their function (Ex. Modify Schema for Applications).
+
+--- page 10 ---
+Classes of Objects
+A container object can 
+have other objects 
+subordinate to it:
+Domain
+Organizational unit
+A leaf object cannot have 
+subordinate objects:
+Users
+Computers
+Groups
+Applications
+Network resources
+
+--- page 11 ---
+Objects and Attributes
+The attributes of a user object, as 
+displayed in its Properties sheet
+
+--- page 12 ---
+Understanding Active Directory: 
+Logical Components
+The logical components (which administrators create, organize, and 
+manage) include:
+Organizational units (OUs): Containers in a domain that allow you 
+to organize and group resources for easier administration, 
+including providing and delegating administrative rights.
+Domains: Administrative boundaries for users and computers that 
+are stored in a common directory database. 
+Domain trees: Collections of domains that are grouped together 
+in hierarchical structures and that share a common root domain. 
+Forests: Collections of domain trees that share a common AD DS. 
+
+--- page 13 ---
+Organizational Units
+
+--- page 14 ---
+Domain Tree
+When you create your first domain on an Active Directory 
+network, you are creating the root of a domain tree.
+Contains one or more domains that are in a common 
+relationship
+Tree has the following characteristics:
+o Two-way trust relationships exist between parent domains and 
+child domains
+o All domains in a single tree use the same schema for all types of 
+common objects
+o All domains use the same global catalog
+UK.Adatum.co
+m
+Adatum.com
+CA.Adatum.com
+US.Adatum.co
+m
+
+--- page 15 ---
+Domain Trees (cont.)
+You can add as many domains to the tree as you need.
+Each domain in a tree is a separate security entity with its 
+own separate Group Policy settings, permissions, and user 
+accounts.
+Unlike OUs, subdomains in a tree do not inherit 
+permissions and policies from their parent domains.
+Domains in the same tree have two-way trusts between 
+parent domains and child domains, which means that an 
+administrator of a particular domain can grant any user in 
+the tree access to that domain’s resources.
+
+--- page 16 ---
+Forests
+An Active Directory forest consists of one or more separate 
+domain trees, which have the same two-way trust 
+relationships between them as two domains in the same 
+tree.
+When you create the first domain on an Active Directory 
+network, you are creating a new forest, and that first 
+domain becomes the forest root domain.
+
+--- page 17 ---
+AD DS forest
+Tree root 
+domain
+fabrikam.com
+atl.adatum.com
+Child domain 
+adatum.com
+Forest root 
+domain
+
+--- page 18 ---
+Site
+
+A TCP/IP-based concept (container) within Active Directory that is linked to IP subnets
+
+A site has the following functions:
+o
+Reflects one or more interconnected subnets
+o
+Reflects the physical aspect of the network
+o
+Is used for DC replication
+o
+Is used to enable a client to access the DC that is physically closest
+o
+Is composed of only two types of objects, servers and configuration objects
+
+Sites are based on connectivity and replication functions
+
+--- page 19 ---
+Site (cont.)
+
+Reasons to define a site
+o
+Enable a client to access network servers using 
+the most efficient physical route
+o
+DC replication is most efficient when Active 
+Directory has information about which DCs are in 
+which locations
+
+One advantage of creating a site is that it sets up 
+redundant paths between DCs
+o
+Paths are used for replication
+
+Bridgehead server
+o
+A DC that is designated to have the role of 
+exchanging replication information
+
+Only one bridgehead server is set up per site
+
+--- page 20 ---
+DCs Replicating Within and Between 
+Sites
+
+--- page 21 ---
+Global Catalog (GC)
+The global catalog:
+•
+Hosts a partial attribute set for other domains in 
+the forest (The partial copy of all objects is 
+used for logon, object searches, and 
+universal group membership. )
+•
+Supports queries for objects throughout the 
+forest
+Global catalog server
+Schema
+Configuration
+Domain A
+Domain B
+Domain A
+Configuration
+Schema
+Domain B
+Configuration
+Schema
+Domain B
+Configuration
+Schema
+AD 
+DS 
+
+--- page 22 ---
+Configuring the Global Catalog 
+Q: Can we set all DCs as GC? Benefits vs Drawbacks
+
+--- page 23 ---
+Functional Levels
+Functional levels are designed to provide backwards 
+compatibility in AD DS installations with domain controllers 
+running various versions of the Windows Server operating 
+system.
+By selecting the functional level representing the oldest 
+Windows version running on your domain controllers, you 
+disable the new features so that the various domain 
+controllers can interoperate properly.
+
+--- page 24 ---
+Functional Levels (Benefits vs. Drawbacks)
+
+--- page 25 ---
+Deploying AD DS
+There are many variables that can affect the performance of 
+an Active Directory installation:
+The hardware you select for your domain controllers
+The capabilities of your network
+The types of WAN links connecting your remote sites
+As with most major network technologies, installing AD DS on 
+a test network first, before you put it into actual production, 
+is a good idea. 
+
+--- page 26 ---
+Installing AD DS on Server Core 
+In Windows Server 2019, you can now install Active Directory 
+Domain Services on a computer running the Server Core installation 
+option and promote the system to a domain controller, all by using 
+Windows PowerShell. 
+For AD DS installations on Server Core, Windows PowerShell is now 
+the preferred method. 
+As with the wizard-based installation, the PowerShell procedure 
+occurs in two phases: First, you must install the Active Directory 
+Domain Services role; then you must promote the server to a 
+domain controller 
+
+--- page 27 ---
+Upgrading AD Domain Services 
+Introducing a Windows Server 2019 domain controller onto 
+an existing AD DS installation is quite simple. 
+You can upgrade the existing down-level domain controllers 
+to Windows Server 2019 or you can add a new Windows 
+Server 2019 domain controller to your existing installation. 
+You can upgrade a Windows Server 2008 R2 with SP1, 
+Windows Server 2012, or Windows Server 2012 R2 domain 
+controller to Windows Server 2019, but no earlier versions 
+are upgradable. 
+
+--- page 28 ---
+Install from Media (IFM)
+Install from media is an option that enables administrators 
+to streamline the process of deploying replica domain 
+controllers to remote sites.
+Using a command line tool called Ntdsutil.exe, 
+administrators can create domain controller installation 
+media that includes a copy of the AD DS database.
+When using this installation media, the data is installed 
+along with the database structure and no replication (X) is 
+needed.
+
+--- page 29 ---
+Install From Media (IFM)
+
+--- page 30 ---
+
+--- page 31 ---
+Troubleshooting DNS SRV Registration Failure 
+The Domain Name System (DNS) is essential to the operation of 
+Active Directory Domain Services. 
+To accommodate directory services such as AD DS, a special DNS 
+resource record was created that enables clients to locate domain 
+controllers and other vital AD DS services 
+
+--- page 32 ---
+How to Restrict Domain Users to Join Computers 
+Into Domain Windows Server
+
+--- page 33 ---
+Installing and Configuring an RODC 
+Windows Server 2008 introduced the read-only domain controller 
+(RODC), which contains a full replication of the domain database. 
+It was created to be used in places where a domain controller is 
+needed but the physical security of the domain controller cannot 
+be guaranteed. 
+For example, it might be placed in a remote site that is not very 
+secure and has a slower WAN link. Because it has a slow WAN link, a 
+local domain controller would benefit the users at that site. 
+
+--- page 34 ---
+Installing and Configuring an RODC 
+
+--- page 35 ---
+Cloning a Domain Controller 
+Starting with Windows Server 2012, you can safely virtualize a 
+domain controller and rapidly deploy virtual domain controllers 
+through cloning. 
+It allows you to quickly restore domain controllers when a failure 
+occurs and to rapidly provision a test environment when you need to 
+deploy and test new features or capabilities before you apply the 
+features or capabilities to production. 
+
+--- page 36 ---
+Managing Operations Masters 
+Operations masters, sometimes referred to as Flexible Single Master 
+Operations (FSMO), are specialized domain controllers that perform 
+certain tasks that can be handled only by a single domain controller in a 
+multimaster environment. 
+Primary Domain Controller (PDC) Emulator (AD Users and Computers)
+Infrastructure Master (AD Users and Computers)
+Relative Identifier (RID) Master (AD Users and Computers)
+Schema Master (Register: regsvr32 schmmgmt.dll)
+Domain Naming Master (AD Domains and Trust)
+
+--- page 37 ---
+Groups
+Group objects contain users (from a single or multiple domains or 
+OUs) who require similar access to resources or rights to perform 
+tasks.
+Members of a group inherit rights and permissions assigned to the 
+group.
+
+--- page 38 ---
+Group Types
+Distribution groups
+Used only with email applications
+Not security enabled (no SID)                               
+Cannot be given permissions
+Security groups
+Security principal with a SID
+Can be given permissions
+Can also be email-enabled
+Security groups and distribution groups can be converted to 
+the other type of group
+
+--- page 39 ---
+Group Scopes
+Local Groups can contain users, computers, global groups, domain 
+local groups and universal groups from the same domain, domains 
+in the same forest and other trusted domain and can be given 
+permissions to resources on the local computer only
+Domain Local Groups have the same membership possibilities but 
+can be given permission to resources anywhere in the domain
+Universal Groups can contain users, computers, global groups and 
+other universal groups from the same domain or domains in the 
+same forest and can be given permissions to any resource in the 
+forest (No Domain Local)
+Global Groups can only contain users, computers and other global 
+groups from the same domain and can be given permission to 
+resources in the domain or any trusted domain (No Domain 
+Local)
+
+--- page 40 ---
+Implementing group management
+This best practice for nesting groups is known as IGDLA
+I: Identities, users, or computers, 
+which are members of
+G: Global groups, which collect 
+members based on members’ roles, 
+which are members of
+DL: Domain-local groups, which 
+provide management such as 
+resource access which are
+A: Assigned access to a resource
+ACL_Sales_Read
+(domain-local group)
+Sales
+(global group)
+Auditors 
+(global group)
+
+--- page 41 ---
+Questions
+Adatum.com->Downtown (OU)
+•
+ACIT Global (Global Group)
+•
+ACIT Local(DL) 
+•
+ACIT Universal (Universal Group) 
+•
+ACIT Students (Universal Group)
+•
+ACIT Faculty Global (Global 
+Group)
+Bby.adatum.com->BBY(OU)
+CIT Global (Global Group)
+CIT Local(DL) 
+CIT Universal (Universal Group) 
+1. Can I add ACIT Faculty Global to ACIT Global?
+2. Can I add ACIT Universal to ACIT Global?
+3. Can I add ACIT Local to ACIT Faculty Global? 
+4. Can I add ACIT Global to ACIT Universal?
+5. Can I add ACIT Universal to ACIT Local?
+6. Can I add CIT Global to ACIT Global?
+7. Can I add CIT Local to ACIT Local?
+8. Can I add ACIT Universal to CIT Universal?
+9. Can I add ACIT Universal to CIT Local?
+10.Can I add ACIT Global to CIT Universal?
+
+--- page 42 ---
+Issue
+
+--- page 43 ---
+
+--- page 44 ---
+Replication
+
+--- page 45 ---
+Active Directory (Summary)
+The physical components that make up Active Directory include the following:
+Domain controllers: 
+Are servers that host the AD DS database (Ntds.dit) and SYSVOL
+Host the Kerberos authentication service and KDC services to perform 
+authentication
+Have best practices for:
+Availability: 
+
+Use at least two domain controllers in a domain
+Security:
+
+Use an RODC or BitLocker
+Site: A group of IP subnets that are connected at high speed.

@@ -1,0 +1,735 @@
+1
+00:00:00,910 --> 00:00:05,390
+Hello everyone this week. I'm going to teach you how to share the permission
+
+2
+00:00:05,890 --> 00:00:15,850
+So suppose you work for visa it and you're gonna share permissions
+
+3
+00:00:16,990 --> 00:00:19,890
+between the factory group and the student group
+
+4
+00:00:20,950 --> 00:00:26,830
+So from this slide you can find two groups. They are all domino co-group
+
+5
+00:00:28,030 --> 00:00:31,510
+You're gonna ask me why they are domino co-group
+
+6
+00:00:32,630 --> 00:00:34,630
+because you're gonna see that I have a
+
+7
+00:00:36,110 --> 00:00:39,150
+The faculty folder and assignment folder
+
+8
+00:00:40,770 --> 00:00:50,930
+You always gonna sign the permission to domain local last week we learn group nesting
+
+9
+00:00:52,210 --> 00:00:58,250
+And also we learn how to sign permissions how to sign permission cross the multiple domain
+
+10
+00:00:58,610 --> 00:01:02,010
+Cross the domain domain tree cross the forest
+
+11
+00:01:02,490 --> 00:01:07,590
+so you always
+
+12
+00:01:07,590 --> 00:01:09,590
+signed permission to
+
+13
+00:01:09,990 --> 00:01:11,190
+Domino co
+
+14
+00:01:11,190 --> 00:01:16,670
+So this is the reason why I created two domino co-group faculty and the students
+
+15
+00:01:18,590 --> 00:01:21,350
+Faculty group may have one employee F1
+
+16
+00:01:22,350 --> 00:01:26,550
+Student group have two students S1 and S2
+
+17
+00:01:28,640 --> 00:01:30,640
+Okay, so faculty group
+
+18
+00:01:31,240 --> 00:01:34,700
+Can access the both folder faculty and assignments?
+
+19
+00:01:35,720 --> 00:01:39,280
+But a student group only can access assignment group
+
+20
+00:01:40,280 --> 00:01:48,360
+And also S1 students only can access student one group and the student two only can access
+
+21
+00:01:48,760 --> 00:01:53,300
+student two group the reason why because if
+
+22
+00:01:54,660 --> 00:01:56,660
+Student one can access both
+
+23
+00:01:57,940 --> 00:01:59,940
+student one student two
+
+24
+00:02:00,700 --> 00:02:03,820
+So student one may copy assignment from student two
+
+25
+00:02:04,340 --> 00:02:10,970
+So we allow the both students to log in assignment folder
+
+26
+00:02:11,650 --> 00:02:12,850
+but
+
+27
+00:02:12,850 --> 00:02:16,050
+Each students only can access their own folder
+
+28
+00:02:19,420 --> 00:02:25,460
+Facting needed to access both folder because fact you needed to mark assignments give them a comment
+
+29
+00:02:27,180 --> 00:02:29,180
+Okay, so
+
+30
+00:02:29,620 --> 00:02:32,220
+In order to complete this live assignment
+
+31
+00:02:32,820 --> 00:02:35,620
+You need to prepare three VMs
+
+32
+00:02:36,540 --> 00:02:38,540
+The first one is server one
+
+33
+00:02:39,140 --> 00:02:41,140
+IP address already provide to you
+
+34
+00:02:42,140 --> 00:02:44,620
+So the one is don't be controller
+
+35
+00:02:45,900 --> 00:02:52,580
+Server six and that is a file server. So you needed to clone another server, which is a server six
+
+36
+00:02:54,180 --> 00:02:56,180
+And also we're gonna need a client
+
+37
+00:02:57,930 --> 00:03:05,210
+Okay, so let's start to work on this lab. So first
+
+38
+00:03:06,290 --> 00:03:08,170
+file server
+
+39
+00:03:08,170 --> 00:03:22,300
+You need to log in as domain on the main and also I want you to double check exactly
+
+40
+00:03:22,340 --> 00:03:31,100
+IP address and make sure you have already joined domain
+
+41
+00:03:32,660 --> 00:03:39,860
+Okay, pure domain controller. Okay
+
+42
+00:03:40,500 --> 00:03:42,140
+so next
+
+43
+00:03:42,140 --> 00:03:44,660
+You needed to install a
+
+44
+00:03:45,420 --> 00:03:47,220
+File server row
+
+45
+00:03:47,220 --> 00:04:08,010
+Okay, we want to install the file server. It will take around one minute to finish the installation
+
+46
+00:04:09,570 --> 00:04:14,610
+So at the same time you can go to domain controller
+
+47
+00:04:16,370 --> 00:04:18,370
+to create the two
+
+48
+00:04:18,650 --> 00:04:36,020
+Domain local group already created two domain local group one factory group
+
+49
+00:04:37,660 --> 00:04:41,380
+If you look at the members only include one employee
+
+50
+00:04:43,020 --> 00:04:47,160
+Students group also domain local
+
+51
+00:04:48,080 --> 00:04:49,360
+members
+
+52
+00:04:49,360 --> 00:04:51,200
+Is Lisa on the team?
+
+53
+00:04:51,200 --> 00:04:57,760
+So you probably ask me how to add a student add a student to the student group
+
+54
+00:04:57,760 --> 00:05:09,070
+So right click add it to a group and then search students. Okay, so this is how to add
+
+55
+00:05:10,830 --> 00:05:12,830
+Students to student group
+
+56
+00:05:13,630 --> 00:05:15,310
+Okay
+
+57
+00:05:15,310 --> 00:05:19,270
+Next one. Hopefully already install. Yes already done
+
+58
+00:05:20,110 --> 00:05:22,590
+Okay, so after you install
+
+59
+00:05:23,790 --> 00:05:25,790
+Go to a server manager
+
+60
+00:05:26,670 --> 00:05:36,000
+Expand the file and you can see shares click that one. I want to create a file
+
+61
+00:05:38,000 --> 00:05:42,000
+And I want to use the quick options
+
+62
+00:05:43,360 --> 00:05:48,000
+The quick options and advanced options the major difference is
+
+63
+00:05:49,600 --> 00:05:53,680
+The advanced options you have access deny assistant
+
+64
+00:05:54,560 --> 00:05:56,000
+okay
+
+65
+00:05:56,000 --> 00:05:59,040
+But for this level summit we don't need that one
+
+66
+00:05:59,600 --> 00:06:03,200
+Okay, and NFS so that it can be used to
+
+67
+00:06:04,000 --> 00:06:05,760
+share permission
+
+68
+00:06:05,760 --> 00:06:07,760
+for Linux or unix
+
+69
+00:06:08,960 --> 00:06:14,860
+Okay, and I wanted to
+
+70
+00:06:15,980 --> 00:06:22,460
+Put my share folder on the d drive. Okay, if you don't have a d drive you can put on the c drive
+
+71
+00:06:22,700 --> 00:06:27,010
+I'm going to use the name is
+
+72
+00:06:28,130 --> 00:06:37,010
+factory next
+
+73
+00:06:37,810 --> 00:06:41,330
+You will see one options enable access based
+
+74
+00:06:42,690 --> 00:06:44,690
+Ineurations
+
+75
+00:06:45,250 --> 00:06:48,450
+So if you use if you enable these functions
+
+76
+00:06:49,890 --> 00:06:53,170
+So that means if you don't have permissions
+
+77
+00:06:54,930 --> 00:06:56,930
+You cannot see that folder
+
+78
+00:06:57,810 --> 00:07:01,650
+Okay, if you don't have the permissions you cannot see that folder
+
+79
+00:07:02,450 --> 00:07:06,210
+so that can give you a lot of benefit because
+
+80
+00:07:07,090 --> 00:07:08,930
+Some employee
+
+81
+00:07:08,930 --> 00:07:10,850
+Probably you careless
+
+82
+00:07:10,850 --> 00:07:13,490
+Why I have that folder why cannot open?
+
+83
+00:07:15,090 --> 00:07:16,370
+Okay
+
+84
+00:07:16,370 --> 00:07:18,370
+So if you allow them to see
+
+85
+00:07:18,930 --> 00:07:22,770
+You give them the chance to mess up the folders
+
+86
+00:07:23,810 --> 00:07:25,810
+To bother you to send email
+
+87
+00:07:26,690 --> 00:07:28,690
+to file tickets
+
+88
+00:07:28,690 --> 00:07:30,930
+And ask you to explain why cannot access
+
+89
+00:07:32,130 --> 00:07:34,610
+Okay, so I want you to enable that one
+
+90
+00:07:35,010 --> 00:07:40,210
+So next we need to confirm configure the permissions
+
+91
+00:07:41,810 --> 00:07:43,810
+So first
+
+92
+00:07:44,130 --> 00:07:46,630
+I want you to disable the inheritance
+
+93
+00:07:47,490 --> 00:07:49,810
+So that is a pre-configure the permissions
+
+94
+00:07:51,810 --> 00:07:56,770
+But that permission cannot satisfy our scenarios because we only allowed
+
+95
+00:07:57,490 --> 00:07:59,810
+faculty to access faculty group
+
+96
+00:08:00,370 --> 00:08:02,530
+So I'm going to use disable inheritance
+
+97
+00:08:03,250 --> 00:08:06,930
+Remove all the inheritance permissions from this object
+
+98
+00:08:09,900 --> 00:08:11,900
+Okay, so you will see that right now
+
+99
+00:08:13,660 --> 00:08:17,740
+The local administrator have a full control. I also want to remove that one
+
+100
+00:08:19,260 --> 00:08:21,260
+I want to give it a permission to
+
+101
+00:08:23,100 --> 00:08:31,650
+Don't know me I want to give it a full control
+
+102
+00:08:32,850 --> 00:08:35,650
+So what's that different between the full control and modify?
+
+103
+00:08:36,530 --> 00:08:39,170
+Full control you can take the ownership
+
+104
+00:08:39,890 --> 00:08:41,890
+Okay
+
+105
+00:08:42,050 --> 00:08:44,050
+Next I want to share
+
+106
+00:08:44,050 --> 00:08:48,450
+to faculty
+
+107
+00:08:48,450 --> 00:08:51,140
+That is a group
+
+108
+00:08:51,140 --> 00:08:53,140
+I'll give you the modified permissions
+
+109
+00:08:54,500 --> 00:08:56,020
+Share
+
+110
+00:08:56,020 --> 00:08:59,540
+I don't want to share everyone. I only want to share to
+
+111
+00:09:00,420 --> 00:09:07,900
+faculty
+
+112
+00:09:07,900 --> 00:09:14,560
+You can give it a change permission apply
+
+113
+00:09:15,360 --> 00:09:16,720
+Okay
+
+114
+00:09:16,720 --> 00:09:18,720
+Next create
+
+115
+00:09:21,860 --> 00:09:23,620
+If you go to the
+
+116
+00:09:23,620 --> 00:09:24,900
+D drive
+
+117
+00:09:24,900 --> 00:09:26,900
+Shares you will see the
+
+118
+00:09:27,300 --> 00:09:28,740
+faculty folder
+
+119
+00:09:28,740 --> 00:09:35,310
+Okay, we want to create another one. We want to create a
+
+120
+00:09:38,480 --> 00:09:40,080
+student folder
+
+121
+00:09:40,080 --> 00:09:51,360
+or assignment from disable everything
+
+122
+00:09:52,720 --> 00:09:54,800
+You only want to give the permission to
+
+123
+00:09:56,320 --> 00:10:10,240
+Don't mind me and also this is a student folder
+
+124
+00:10:10,880 --> 00:10:23,360
+I'll give it to students keep students to modify because students need to sum in their assignments
+
+125
+00:10:23,920 --> 00:10:25,920
+You can create a sub folder
+
+126
+00:10:26,320 --> 00:10:40,430
+Okay
+
+127
+00:10:40,430 --> 00:10:44,430
+Next we'll give the faculty so faculty can give some comments
+
+128
+00:10:44,910 --> 00:10:49,040
+So faculty also can have a modify permissions
+
+129
+00:10:49,200 --> 00:10:52,400
+I want to give the faculty this folder or the sub folder
+
+130
+00:10:55,200 --> 00:10:57,200
+share I want to share to
+
+131
+00:10:57,840 --> 00:11:01,600
+faculty
+
+132
+00:11:01,600 --> 00:11:27,310
+And the student only apply. Okay next close dmd not share
+
+133
+00:11:28,190 --> 00:11:31,550
+You can see that right now two folder are ready to
+
+134
+00:11:32,430 --> 00:11:34,940
+share
+
+135
+00:11:34,940 --> 00:11:39,500
+And also you can modify the permission if you set up something wrong
+
+136
+00:11:41,570 --> 00:11:43,570
+You can remodify
+
+137
+00:11:44,210 --> 00:11:48,100
+Okay, let's modify
+
+138
+00:11:49,300 --> 00:12:12,910
+So first I'm going to use my account lobby, which is a faculty folder backslash backslash c
+
+139
+00:12:13,870 --> 00:12:16,480
+win
+
+140
+00:12:16,480 --> 00:12:20,590
+spr6
+
+141
+00:12:20,590 --> 00:12:22,590
+So you can see that I can access
+
+142
+00:12:23,390 --> 00:12:25,390
+assignment and the faculty folder
+
+143
+00:12:31,260 --> 00:12:36,270
+so next I want to create a
+
+144
+00:12:38,030 --> 00:12:49,900
+A folder for so this folder is only for team
+
+145
+00:12:51,020 --> 00:12:52,460
+to
+
+146
+00:12:52,460 --> 00:13:02,830
+access
+
+147
+00:13:02,830 --> 00:13:07,150
+So when teams sum in assignment, so team can have a permission
+
+148
+00:13:07,790 --> 00:13:09,310
+to modify
+
+149
+00:13:09,310 --> 00:13:18,110
+Okay, yeah, but next I'm going to create
+
+150
+00:13:19,070 --> 00:13:21,070
+A folder for Lisa
+
+151
+00:13:21,390 --> 00:13:24,670
+So when Lisa login Lisa only can see this folder
+
+152
+00:13:24,990 --> 00:13:45,230
+So let's look at the faculty make sure faculty can access the both folder
+
+153
+00:13:55,620 --> 00:13:57,140
+faculty can
+
+154
+00:13:57,140 --> 00:13:59,460
+Create a folder in here can give some comments
+
+155
+00:14:06,640 --> 00:14:10,690
+Excellent
+
+156
+00:14:10,690 --> 00:14:17,490
+Okay, so this is can verify faculty have both permissions to modify and create folders can give some comments
+
+157
+00:14:18,450 --> 00:14:21,630
+So let's
+
+158
+00:14:21,630 --> 00:14:35,020
+Switch the user I want to log in as a Lisa when Lisa login
+
+159
+00:14:37,780 --> 00:14:48,080
+Let's try
+
+160
+00:14:48,080 --> 00:14:50,240
+Lisa can only see
+
+161
+00:14:50,240 --> 00:14:51,920
+her folder
+
+162
+00:14:51,920 --> 00:14:53,920
+She cannot
+
+163
+00:14:54,560 --> 00:14:57,920
+Find any folder related to team, right?
+
+164
+00:15:01,730 --> 00:15:29,940
+Let's log in as a team team only can see his folder
+
+165
+00:15:30,900 --> 00:15:32,900
+Okay
+
+166
+00:15:32,900 --> 00:15:34,820
+team also can
+
+167
+00:15:34,820 --> 00:15:36,660
+create a folder like
+
+168
+00:15:36,660 --> 00:15:42,620
+assignment
+
+169
+00:15:42,780 --> 00:16:05,630
+Six check my and team also cannot
+
+170
+00:16:07,630 --> 00:16:09,630
+See Lisa's folder, right?
+
+171
+00:16:10,190 --> 00:16:13,230
+And also team don't have permission to modify the faculty
+
+172
+00:16:16,510 --> 00:16:18,030
+So when we switch
+
+173
+00:16:20,560 --> 00:16:49,280
+Back to the faculty group
+
+174
+00:16:49,360 --> 00:16:51,360
+So I can see both folder
+
+175
+00:16:51,520 --> 00:16:54,420
+team
+
+176
+00:16:54,420 --> 00:16:56,420
+Can give some comments
+
+177
+00:16:58,560 --> 00:17:04,690
+Good job
+
+178
+00:17:04,690 --> 00:17:13,580
+Also can modify Lisa's folder to modify this code
+
+179
+00:17:18,340 --> 00:17:20,740
+Okay, so this is a demonstration how to
+
+180
+00:17:21,700 --> 00:17:25,100
+share the permissions
+
+181
+00:17:25,100 --> 00:17:27,340
+If you have questions talk to me
+
+182
+00:17:28,140 --> 00:17:30,140
+Okay
+
+183
+00:17:30,460 --> 00:17:31,580
+And
+
+184
+00:17:31,580 --> 00:17:33,580
+See you in the lecture

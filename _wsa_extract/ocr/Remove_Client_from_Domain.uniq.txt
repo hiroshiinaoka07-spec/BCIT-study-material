@@ -1,0 +1,43 @@
+===== frame_0001
+- VMware WorkStation
+Q Type here to search
+Win2016S Base Image
+For CA-VAN-Svr2
+Wiru10wS Firewall
+Remote management
+Remote Desktop
+Operating system version
+192_16g.2392 1M enabled
+Microsoft Server 2016 Star ufird
+VMware. VMware/.
+last installed updates
+Last Checked for updates
+Feedback & Diagnostics
+IE Enhanced Security Configuration
+Installed (RAM)
+Total disk space
+System 9/20/2013 PM
+updates only, Wincms
+9/15/2013 8:56 PM
+(UTC.oe-00J Pacific Time (US & Canada)
+00276-30727.S9619.*W7S (activated)
+core(TM) i5-6300u cpu @ 2AOGHz
+All events | 9 total
+Server Name 'O
+CA.VAN.SVR2 1129
+Severity Scuce
+direct input to this VM, move the mouse pointer inside or press Ctrl
+===== frame_0002
+ACIT3420- OQ - VMware %Ork5tation
+x x Acrr3420-c1
+Computer Name/Domain Changes
+You cm change name of his computer,
+computer n arne:
+Server 2016 Star ufird
+920/2013 E7:20 PM
+9/15/2013 g:S6 PM
+Pacific Time (US & Canada)
+0027600727-59619.'W7S (activated)
+Intel(R) core(TM) i5-6300u cpu @ 2AOGHz
+Microso ft •Wind OWS • Grouppo•l
+your computer, the mouse pointer outside ot Ctrl

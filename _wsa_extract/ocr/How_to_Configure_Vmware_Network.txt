@@ -1,0 +1,378 @@
+===== frame_0001
+Edit
+My Computer
+P
+o
+wc
+===== frame_0002
+is using
+My Computer
+P
+o
+WC a-cud,
+===== frame_0003
+o
+is
+Add
+v Folders 7)
+v Devices and drives (2)
+P
+O
+s
+14•c
+===== frame_0004
+is
+Add
+LAN adapter
+Media State .
+ccmection•speciflc
+Area Connect ion•
+. . Media di
+adapter Network ;
+N'S Suffix
+Link-local IPv6 A"resS . . .
+Address
+Default _
+Ethem-vet 2:
+Media State
+Suffix
+. : aSS.2SS.zsS.ø
+disconnected
+adapter V"uare Network Adapter V&et8:
+Suffix .
+Link, local IPv6 Address
+Addre
+. 2ss.2ss.2ss.e
+Default Gateway _
+wrostc,)
+P
+O
+Media State .
+C—ctiM-SpeCific NS Suffix
+S
+. : Media discomected
+wc
+===== frame_0005
+o
+is
+Add
+v Devices and drives (2)
+wnos
+wrostc,)
+S
+4
+wc
+===== frame_0006
+disconnect•
+Suffix
+P
+o
+wc
+===== frame_0007
+Lenovo
+===== frame_0008
+O NAT
+Lenovo
+P
+o
+===== frame_0009
+ts using
+Help
+use
+WAN
+WAN
+WAN
+WAN
+WAN
+WAN
+hint qw-—-i
+Lenovo
+===== frame_0010
+Lenovo
+===== frame_0011
+O NAT
+Lenovo
+P
+o
+===== frame_0012
+Lenovo
+P
+o
+===== frame_0013
+File Explorer
+Feedback Hub
+S' Sörpe for Business
+Check for updates
+Font settings
+Firewall & netwotk ptotection
+File Optic nS
+Seuch web
+f • See and
+Barry Feil
+Lenovo
+===== frame_0014
+Lenovo
+===== frame_0015
+Rue
+by
+by
+(Tcp.ln)
+- A4DHCPV6-ln)
+O - Qu„y
+O weh
+O
+Rue
+cut
+Cow
+king
+App web
+Lenovo
+===== frame_0016
+(c) All
+Ip configuration
+'Ethernet adapter Ethernet:
+Media State . . . . . .
+rights
+Link-
+IPv6 Addre
+IPV4 Address .
+"ask
+Default Gat&ay . .
+LAN adapter
+Media State . . . .
+LAN adapter Local
+Media State . . . . .
+LAN adapter
+Media State . . .
+Suffix
+suffix
+suffix
+. : 192.168.1.76
+: 255.255. zss.e
+. 192.168.1.254
+: Media disconnected
+Area Eon •
+Are
+suffix
+suffix .
+. Media discomezted
+. : Media
+"IS Suffix
+Link-loc
+Address.
+. . 192.168.126.1
+: assass.ass.e
+Default . . . . . . . :
+Ethernet Ethernet 2:
+Media State .
+. Media
+'*IS Suffix
+Y-IS Suffix
+Lenovo
+P
+o
+===== frame_0017
+state . . . .
+. media disconnected
+Vü&w,.
+Suffix
+Ethernet adapter Ethernet 6:
+Suffix
+IVv6 Address . . . .
+: 192.168.1.76
+2ss.2ss.2ss.e
+: 192.168.1.2S4
+. . disconnected
+suffix
+cal Area Connection•
+: media disconnected
+suffix
+Area Connection• le:
+suffix
+Adapter
+suffix
+• . 192.168.126.1
+: Media disconnected
+Dus suffix
+Adapter
+tns suffix
+Address . .
+Mask .
+•ii Default
+fese:
+adapter ;
+state . . . . . . .
+: media
+Suffix
+===== frame_0018
+heala State . .
+N'S Suffix
+Ethernet adapter Ethernet 6:
+. : heala disconnected
+: 192.168.1.76
+. 2ss.2ss.2ss.o
+. : Media
+Default Gateway _
+"ireless LAN adapter
+Media State . .
+suffix .
+LAN adapter Local
+Area 1 :
+Media State . . . . . . . . . . . : Media disconnected
+C. fic N'S
+suffix
+Hireless LAN adapter Local
+Area Connection• te:
+Media State . . . . . . . . . . .
+suffix
+Netw•k Adapt
+Suffix
+Link-
+IPv6 Addre
+"dress. ,
+"ask .
+Default Gat.y . . . . .
+2:
+Medla State . . . . . . .
+NS Suffix
+Ethernet adapter Network Adapter
+- fic NS
+Link. local Address . . . . .
+Address. . . . .
+Default Gateway .
+Media
+• : 192.168.126.1
+• 2ss.2S5.2ss.ø
+: Media disconnected
+Media
+state . .
+suffix
+Suff i x .
+P
+o
+===== frame_0019
+Zhang*
+Wsers\Lei
+State . . . . . . . . . . . : media disconnected
+Suffix
+E t hernet adapter Ethernet 6:
+Suffix
+Address . . . .
+LAN adapter local
+Area 1 :
+State . . . .
+"ireless LAN
+Area
+Wdåa State . . .
+Specific
+. : media
+disc ed
+Suffix
+State
+- Suffix
+LAN adapter
+Suffix
+Address .
+IPv4
+"ask . . . . . . . . . .
+Default
+¯ , adapter
+Suffix
+Media disconnected
+. 169.254.168.1
+. 25s.2ss.e.ø
+: media disc m wcted
+P
+o
+Lenovo
+la•c
+===== frame_0020
+Mask .
+Default Gateuay
+adapter
+. 2ss.2ss.e.e
+Suffix
+IP configuration
+k"St N. .
+primary suffix
+We Type .
+peoxy Enabled. . . .
+adapter
+State . . .
+Suffix
+c»scription .
+physical Addre
+Enabled . . .
+E t hernet adapter 6:
+Suffix
+discmnected
+. : Hybrid
+: media discmnected
+physical Address. . .
+Intel(R) Ethernet connection (S) 1219.v
+: 8c-16-45-67-98-SE
+. USB •3
+. 88-60-97-1E.ez.1e
+Address . . . .
+Autæfigur•atim IPv4 •
+Mask .
+Servers . . . . . . . .
+LAN adapter Local
+Area
+media State . .
+suffix
+physical .
+. 25s.2ss.e.e
+sas2E7S7S
+: Enabled
+disc m nected
+Microsoft Virtual Adapter
+Lenovo
+P
+o
+===== frame_0021
+Lenovo
+===== frame_0022
+My Computer
+P
+o
+WC a-cud,
+===== frame_0023
+My Computer
+P
+o
+01 pv
+===== frame_0024
+[t ACIT3420.Master Image
+Edit
+• Devices
+C)
+cad
+• Desert ption
+• Virtual Machine Details
+P
+o
+01 pv
+===== frame_0025
+ACIT3420-Master Image
+120 Ge
+• V.rtual Machine
+lec aoudy
+===== frame_0026
+Add
+v Folders 7)
+v and drives
+wrostc,)
+P
+O
+s
+o
+is
+[t] ACIT3420•Master Image
+• Devices
+@COOvO
+cad
+• Desert ption
+• Virtual Machine Details
+off
+14•c

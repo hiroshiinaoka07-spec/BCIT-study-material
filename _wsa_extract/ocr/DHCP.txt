@@ -1,0 +1,886 @@
+===== frame_0001
+@ACiTJ4200c -
+File Edit View VM Hep
+p to searcn
+E My Computer
+CJ W,n2016S Base Image
+ACIT3420-oc
+CJ ACIB420.SDC
+ACIT3420 DHCP
+ACIT3420.C1
+ACIT1420
+VMS
+ENG
+ACID 420-DC
+20-CI
+Server Manager • AD DS
+Server
+All
+File
+To d:rect input to th:s VM click inside cr
+4:S9 PM
+2018-11-04
+===== frame_0002
+@ACIT3420.Dc VMware workstation
+File Edit View VM Hep
+p to searcn
+E:' My Corn puter
+CJ W.n2016S Base Image
+ACIT3420-oc
+ACIT3420.0NS
+CJ ACIB420.SDC
+ACJT3420 DHCP
+ACIT3420.C1
+ACIT1420
+VMS
+ENG
+Acro 420-DC
+ACT" 20-CI
+(4 • Server Manager • AD DS
+Server
+All
+File
+To d:rect input to thls VM click inside
+4:S9 PM
+2018-11-04
+===== frame_0003
+@ACIT3420.C1 - VMware
+File Edit View VM Hep
+ACID 420-DC
+p to searcn
+E My Computer
+CJ W.n2016S Base Image
+ACIT3Q0-oc
+ACIT3420-0NS
+CJ ACIB420.SDC
+ACIT3Q0 DHCP
+ACIT3420.C1
+ACIT1420
+VMS
+To d:rect input to th:s VM click inside cr
+ENG
+4:S9 PM
+2018-11-04
+===== frame_0004
+@ACIT3420.Dc - VMware workstation
+File Edit View VM Hep
+G,
+p to searcn
+E My Computer
+CJ W,n2016S Base Image
+ACIT3420-oC
+ACIT3420-0NS
+CJ ACIT3420.SDC
+ACJT3420 DHCP
+ACIT3420.C1
+CJ ACIT1420
+VMS
+(4 • Server Manager • AD DS
+AIJ
+File
+To dirat {nout to th:s VM inside o:
+ENG
+4:S9 PM
+2018-11-04
+===== frame_0005
+@ACIT3420.DC - VMware wc„kstation
+File Edit View VM Hep
+p to searcn
+EJ My Computer
+CJ W,n2016S Base Image
+ACIT3420-oc
+ACIT3420.0NS
+CJ ACIB420.SDC
+ACIT3420 OHCP
+Acro 420-DC
+ACTr3'20-C1
+ACIT3420.C1
+CJ ACIT1420
+VMS
+To d:rect input to th:s
+move lhe rrcose oointer Inside or mess (tri-6
+4:S9 PM
+ENG
+2018-11-04
+===== frame_0006
+Q @ File Edit View VM Tabs Helo
+Server Manager • AD DS
+SERVERS
+DNs
+and Storage Services
+P
+O
+===== frame_0007
+@ File Edit View
+Add Roles Featwes Wizard
+Installation progress
+Tabs
+Helo
+g LEI
+cesTINance'
+CA •VAN•S«
+ii All
+P
+View installation ptcMess
+O Feature i nation
+started on CA-
+DHCP server
+Remote Sewer Administration
+Role Administration Tools
+DHCP Tools
+can close this wizard without interrupting tasks. task progress or open this
+page again by dicking Notifications in the command bar, and then Task Details.
+Export figuration settings
+Date ari Time
+11/4/2018 4S7•So PM
+453m PM
+11/4/2018 4S2;49 PM
+11/4/2018 4S2;49 PM
+4S2;39 PM
+CA-VAN-WRI 1202 Error
+CA-VAN-SVRI 1202 Erm.r
+CA-VAN-SVRI W'aming
+SERVICES
+All semcesl total
+AOWS
+Server Na me
+CA-VAN-WRI
+Display Na
+Wind cnws Time
+e Name Status
+Active OirEtOry 'Web
+S Repbcation
+Start Type
+Automatic (Triggered)
+V.'32Vvme
+A r,ws
+Running
+o
+View
+TASKS
+TASKS
+11/4/2018
+===== frame_0008
+@ File
+Install
+Edit
+View
+Tabs
+Helo
+g LEI
+cesTINance'
+ii All
+DHCP Configuration wizard
+Authorization
+Specify the credentials to be used to authorize the server in AD DS.
+@ use the user' s credentials
+Name:
+C) Use alternate credentials
+UserName:
+C) Skip AD authorization
+SERVICES
+All semcesl 14 total
+Time
+B 4S7•S0 PM
+B 4S4•Sg
+8 453m PM
+g 4S2;49 PM
+8 4S2;49 PM
+B 4S2;39 PM
+Server Na me
+CA-VAN-WRI
+c A-uAN-svRl
+Display Na
+Wind cnws Time
+e Name Status
+Start Type
+Automatic (Triggered)
+V.'32Vvme
+A r,ws
+Running
+P
+o
+View
+TASKS
+TASKS
+11/4/2018
+===== frame_0009
+@ File Edit View VM Tabs Helo
+9) Server Manager DHCP
+Active D.rectory users and Computers
+Dashboa
+Manage
+i Local
+ii All
+ADDS
+DNS
+File and
+P
+Action View Help
+Active Directory Com
+Saved
+Domam C
+ntyP n nci
+Man.ged Service
+Name
+Hype-V Adm
+Forest Trust
+Netwotk Configuration
+P Log users
+P Mondo' „
+P re • Wind
+P Operators
+ROS Endpoint Servers
+ROS Management Servers
+ROS Remote Access
+Remote users
+Rmote U.
+Replic •to
+Server Operators
+Replica
+System
+License
+Authorization
+Group
+Secur*y Grou
+Gnu p
+Security Group
+Security
+Grou
+See pm
+unty
+Groupm
+Secur*y p
+Security
+Groupm
+Description
+Members Of this group
+group used
+Mernb«s Of this group
+Members in this grot.w
+of this group
+of this group
+A backward
+Can •drninistem
+in this group
+in this group
+in this group
+Of this group
+Supports file repbc•tion
+Members can
+of this group
+of this g.oup
+of this group
+Users prevented from
+Mernbers Of this group. „
+CA-VAN-WRI warning Microsoft-windows-DHCP-Se,ve, System
+CA-VAN-SVRI 1056 warning Microsoft-Windows-DHCP-Server System 11/4/2018 SOO-SS
+CA-VAN-SVRI 1036 Error
+SERVICES
+All semcesl I total
+Server Na Display Na me
+CA-VAN-WRI DHCP server
+Microsoft-Windows-DHCP-Server PM
+Sta
+DHCPServer
+Start Type
+Automatic
+o
+View He%'
+TASKS
+TASKS
+TASKS
+11/4/2018
+===== frame_0010
+@ File
+Edit View VM Tabs Helo
+Server Manacer DHCP
+DHCP
+Action
+Manage
+Dash
+i Local
+DHCP
+ii All
+ADD
+DNS
+i' File
+P
+c .adatum.com
+mspOy "atisticsm
+Configure Faibvem
+Failover sc
+Reconcile AJI
+Set Pred&'ed
+CA-VAN -SvR1
+CA-VAN -SvR1
+CA-VAN-WRI
+CA-VAN-WRI
+CA-VAN -SvR1
+CA-VAN-WRI
+SERVICES
+nge ot IP addresses assigned
+'questing dynamic IP
+tust create and '0Migure a
+•ynamic IP an be
+on the Action menu
+up a
+online
+1059
+1059
+1036
+Error
+Error
+Error
+Error
+M tt -Windows- DHCP-
+M jCrcr50 ft-Windows- DHCP- Server
+M ft -Windows- DHCP- Server
+iCroso ft-Windows- DHCP- Server
+M icrcr50 ft -Windows- DHCP-
+M jcroso ft-Windows- DHCP-
+Systern
+System
+Systern
+System
+System
+System
+Soo-S9
+SOO-SA
+SOO-S9
+11/4/2018 SOO-SS
+SOO-SS
+All semcesl I total
+Server Na Display Na me
+CA-VAN-WRI DHCP server
+Sta
+DHCPServer
+Start Type
+Automatic
+o
+View He%'
+TASKS
+TASKS
+903 PM
+11/4/2018
+===== frame_0011
+@ File
+Edit View VM Tabs Helo
+Server Manaaer DHCP
+New Scope Wizard
+Action
+Manage
+Dashi
+i Local
+DHCP
+ii All
+ADD
+DNS
+i' File
+P
+Policies
+IP
+CA-VAN -SvR1
+CA-VAN -SvR1
+CA-VAN -SvR1
+CA-VAN-WRI
+CA-VAN -SvR1
+CA-VAN-WRI
+SERVICES
+by P
+to
+2ssassQss
+1059
+1059
+1036
+Error
+Error
+Error
+Error
+M tt -Windows- DHCP-
+M jCrcr50 ft-Windows- DHCP- Server
+M ft -Windows- DHCP- Server
+iCroso ft-Windows- DHCP- Server
+M icrcr50 ft -Windows- DHCP-
+M jcroso ft-Windows- DHCP-
+Systern
+System
+Systern
+System
+System
+System
+Soo-S9
+SOO-SA
+SOO-S9
+11/4/2018 SOO-SS
+SOO-SS
+All semcesl I total
+Server Na Display Na me
+CA-VAN-WRI DHCP server
+Sta
+DHCPServer
+Start Type
+Automatic
+o
+View He%'
+TASKS
+TASKS
+903 PM
+11/4/2018
+===== frame_0012
+@ File
+Edit View VM Tabs Helo
+Server Manacer DHCP
+DHCP
+Action
+Manage
+Dash
+i Local
+DHCP
+ii All
+ADD
+DNS
+i' File
+P
+Contents Of DHCP Server
+sc 1192. BCIT Downtown
+Serve O*ions
+v Scope (1*2.168.239.01
+P olicies
+Filters
+Addres
+Reserations
+Polices
+Options
+Policies
+Filters
+CA-VAN -SvR1
+CA-VAN -SvR1
+CA-VAN-WRI
+CA-VAN-WRI
+CA-VAN -SvR1
+CA-VAN-WRI
+SERVICES
+1059
+1059
+1036
+Error
+Error
+Error
+Error
+M tt -Windows- DHCP-
+M jCrcr50 ft-Windows- DHCP- Server
+M ft -Windows- DHCP- Server
+iCroso ft-Windows- DHCP- Server
+M icrcr50 ft -Windows- DHCP-
+M jcroso ft-Windows- DHCP-
+Systern
+System
+Systern
+System
+System
+System
+Soo-S9
+SOO-SA
+SOO-S9
+11/4/2018 SOO-SS
+SOO-SS
+All semcesl I total
+Server Na Display Na me
+CA-VAN-WRI DHCP server
+Sta
+DHCPServer
+Start Type
+Automatic
+o
+View He%'
+TASKS
+TASKS
+11/4/2018
+===== frame_0013
+@ File Edit View VM Tabs Help
+9) Server Manager Local Server
+ACTrS4ao•X
+Manage
+o
+View
+TASKS
+Dashboard! Administrator: Command Prcvmpt
+i Local So
+(c) 2016 Microsoft Corporation.
+ii All Server,
+FileandS%
+All rights reserved.
+v Search Network
+this •
+nem item selected
+CA-VAN-CI
+CA-VAN-CI
+SERVICES
+A" '93 total
+134
+Warning Microsoft-Windows-Time-service
+system
+P
+o
+is-8350UCPU @ 1.70GHz
+TASKS
+TAS ps
+SOS PM
+11/4/2018
+===== frame_0014
+@ File Edit View VM Tabs Help
+9) Server Manager Local Server
+ACTrS4ao•X
+Dashboard
+i Local Server
+ii All Servers
+File and Storage Services
+PROPERTIES
+CA.VANRI
+Computer name
+Network Corvnecr:cnn
+Connection-specltuc
+Description .
+Physical
+(Hcp Enabled. .
+Organize •
+D i sable
+Adatum,corr
+em item selected
+Autoconfiguration Enabled .
+Link •local IPV6 Address .
+Autoconfiguration IPv4 Address.
+Subnet Mask . . . . . . . . . .
+Default Gateuay
+HPv6 . . .
+client LXJID. .
+Servers .
+NetBIOS
+unnel adapter isatap.{AD43ce95-5BD7-4FDc-83F6-25362D3BB189):
+. disconnected
+State
+Connection-specific DNS Suffix
+Description _
+Micmsoft Adapter
+physical Address. .
+cw-ee-ee-€w-ee-ee-ee-Ee
+Enabled. .
+Enabled
+: 'renew
+IP Configuration
+: Intel(R) 82574L Gigabit Connection
+cøg9 SSa6
+169.254.169.56(Preferred)
+. : 255.255.e.e
+. 50334761
+: ee-e1-oe-e1-»-71-3e-5F-ee-ec-29-89-55-62
+ffff;
+: 3X1
+CA-VAN-CI
+CA-VAN-CI
+SERVICES
+A" | 193
+134
+Warning Microsoft-Windows-Time-service
+system
+P
+o
+1
+===== frame_0015
+@ File Edit View VM Tabs Help
+9) Server Manager Local Server
+ACTrS4ao•X
+Dashboard
+i Local Server
+ii All Servers
+File and Storage Services
+PROPERTIES
+CA.VANRI
+Computer name
+Network Corvnecncnn
+Organize •
+D i sable
+Administrator: Command 'rompt
+netHiOS -
+-unnei adapter isatap. (NWC095-5BD7-aFtx-83F6-2S362D3BB189):
+Media State . .
+. : disconnected
+Connect • Spec Suffix
+Description _ _ . .
+• ISATAP Mapter•
+Physical Address.
+: ee-ee-ee-ee-ee-ee-ee-€e
+t*KP Enabled. . . . . . . . . .
+Autoconfiguration Enabled .
+Adatum.com
+em item selected
+"ind.yas IP Configuration
+i : thernet adapter Ethernete:
+Connection-specific
+Suff
+Link-local Address . . . .
+Mdr•ess. .
+Subnet hask
+Default Gateuay .
+unnel adapter isatap.Adatu..
+Media State
+Connection- specific mlS Suffix
+192.168 _ 239. so
+255.255.255.e
+: 192.168.239.2'»1
+system
+P
+CA-VAN-CI
+CA-VAN-CI
+SERVICES
+A" | 193
+o
+134
+Warning Microsoft-Windows-Time-service
+View
+TASKS
+is-8350UCPU @ 1.70GHz
+TASKS
+e
+TAS ps
+SOS PM
+11/4/2018
+===== frame_0016
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+ACTrS4ao•X
+Dashboard
+i Local Server
+ii All Servers
+File and Storage Services
+PROPERTIES
+CA.VANRI
+Computer name
+Wm dOWS
+Remote manager-ner
+Remote Desktop
+NIC reaming
+Administrator: Command
+"etfli0S -
+•coup. . . -
+- hnanJed
+-unnel adapter isatap. (ADa3ce95-5BD7-aFtX-83F6-25362D3BB189):
+Media State
+t • Spec if iC Suffix
+Description
+Physical Address. .
+tncp Enabled.
+AutoconfiguraticN' Enabled .
+. lindtxs IP Configuration
+Oøeratsng system
+Hardware
+I : thernet adapter Ethernete:
+Connection-specific
+Suff
+Link-local Address . . . .
+IPva Mdr•ess.
+Subnet Nask
+Default Gateuay .
+All events | 79 total
+- unnel adapter isatap.Adatu..cc*:
+Media State
+Connection-spec ific Suffix
+. : disconnected
+Microsoft ISATAP Adapter
+: ee-ee-ee-ee-ee-ee-ee-€e
+: 192.168.239.50
+255.255.255.e
+: 192.168.239.2*1
+disconnected
+Server Na me
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+SERVICES
+All | '93
+7023
+7023
+7023
+134
+134
+üror
+Error
+Error
+Warning
+Warning
+Microsoft-Windows-Service Control Manage
+Microsoft- Windows- Service Control Manage
+Microsoft-Windows-Service Control Manage
+M icroso ft- Windows- Tim eService
+Microso ft-Windows-Time-Service
+system
+system
+*stem
+system
+system
+11/4/2018 PM
+11/4/2018 PM
+P
+o
+View
+TASKS
+core(TM) is-8350UCPU @ 1.,'OGHz
+TASKS
+TAS ps
+SOS PM
+11/4/2018
+===== frame_0017
+_ Manager
+Dashboard
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+ACTrS4ao•X
+Last installed umtates
+Windows u # ate
+Last Checked 'Ot updates
+Windtnys Defend
+Feedback & Diagnostics
+IE Enhanced Security Configuration
+Time 2 one
+Product ID
+Installed memory (RAM)
+Total d S k
+Date and Time
+1 V4,Q018 PM
+11/4/2018 PM
+11/4/2018 PM
+11/4,Q018 PM
+View
+TASKS
+i Local Server
+ii All Servers
+File and Storage Services
+PROPERTIES
+CA.VANRI
+Computer name
+Workgroup
+W i n dows Firewall
+Remote management
+Remote Desktop
+NIC reaming
+Ether neto
+Operating system version
+Hardware m fomation
+All events | 79 total
+CA-VAN-CI
+WORKGROUP
+Enabled
+Oise bled
+IP-v4 address assigned by OHCP, IPv6 enabled
+M•aosott Windows Server 2016 Standard
+VMware. VMware7.1
+Server Na me
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+CA-VAN-CI
+SERVICES
+AR | 193
+7023
+7023
+7023
+7023
+134
+134
+Seveti ty
+üror
+Error
+Oro r
+Error
+Warning
+Warning
+Microsoft- Windows- Service Control Manage
+Microsoft- Wndows-Service Control Manager
+Microsoft-Windows- Service Control Manager
+Microsoft-Windows-Service Control Manager
+Microsoft- Windows-Time-ServSce
+M icroso ft- Windows-Time-Service
+Log
+system
+system
+system
+system
+system
+system
+P
+o
+9/9/2018615 PM
+updates only, using Windmvs update
+9/9/2013 PM
+Real • Protection: On
+Settings
+on
+(urc.ogcx)) Pacifrc lime CUS & Canada)
+C0376-30727-59679-AA475 (activated)
+15-83500 CPU @ I.Joc,Hz. core(TU) is-8350U @ 1.70GHz
+119.68 Gg
+TASKS
+TAS ps
+SOS PM
+11/4/2018
+===== frame_0018
+@ File Edit
+Action
+DHCP
+Scope BCIT
+Address
+Options
+Polioes
+Policies
+Filters
+View
+VM Tabs Help
+Client IP Address
+192.168.2B"
+CA.VAN.C1.Adatu—
+113 E)
+Expiration
+11/12/2018 5%27PM
+k ACIT3420•0C A ACIT3420•C1
+Unique I O
+Description
+Network AK cess P
+Expiration
+Sunday. November 4, 2018
+November 201 g
+Su
+18
+25
+Mo
+12
+19
+26
+13
+20
+27
+We
+21
+28
+15
+22
+29
+16
+23
+30
+10
+24
+Set up your calendars to see
+where you need to be
+Get started
+Hide agenda setup
+11/4/2018
+===== frame_0019
+e'

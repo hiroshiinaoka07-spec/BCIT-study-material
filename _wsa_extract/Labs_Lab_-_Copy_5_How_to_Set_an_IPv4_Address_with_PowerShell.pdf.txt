@@ -1,0 +1,102 @@
+--- page 1 ---
+ACIT3420 
+1 
+ 
+How to Set an IPv4 Address with PowerShell  
+Server Core is a more security-enhanced, less resource-intensive installation option (lower consumption 
+of CPU, RAM, and disk space) than the Desktop Experience installation. Since server core is GUI-less 
+OS, how to manage server core is big challenge for Sysadmin. You can manage it remotely by using one 
+of the remote management options (Remote Server Administration Tools: RSAT) or you can manage 
+Server Core locally by using Windows PowerShell (Enter-PSSession) or a command-line interface. You 
+should know how to use PowerShell to install and configure services. You are going to learn how to use 
+PS to set up an IP address this week. 
+Learning Objectives 
+• 
+Learn how to use PS to configure an IP address for your server. 
+• 
+Trouble shooting IPv4 or IPv6 issues 
+Network Topology 
+ 
+Preparations 
+1. Remove your Client IPv4 address 
+2. Follow the network topology to connect your client1 and Svr1 to Switch (NAT 9) 
+3. Configure Windows Firewall (Svr1 and Client1) to allow pings 
+ 
+
+--- page 2 ---
+ACIT3420 
+2 
+ 
+1. Login your Client computer (Ca-Van-Client1) and run your PS as administrator. Use the Get-
+NetIpAddress to double check your client IP. If you have one of the following IPs (169.254.x.x), 
+you can move to the next step. Note: if not, remove your IP address from your client. 
+Questions:  
+• 
+What is APIPA?  
+• 
+Why do we need APIPA 
+ 
+2. Use the Get-NetAdapter cmdlet to get the basic network adapter properties. (Note: double check 
+your ifIndex. When we set up an IP, we need the ifIndex because a server may has more than 
+one adapters.) 
+ 
+3. Set up a static IP address for your client computer (192.168.239.20) 
+ 
+
+--- page 3 ---
+ACIT3420 
+3 
+ 
+Note: Double check your ifIndex. You also can use another parameter (interfaceAlias) instead of 
+ifInterface. Check step 1, you should see  interfaceAlias: vmnet9. 
+4. Use the Get-NetIPConfiguration to check your network configuration. You have not set up your 
+DNS addresses yet. You have to provide DNS server IP addresses to your client computer.  
+ 
+5. This cmdlet lets you set the DNS servers that are associated with a particular network interface. 
+ 
+6. Check your network adapter property. You should see the following figure. 
+ 
+7. Login your domain controller (Svr1) and run cmdlet to ping your client computer. 
+
+--- page 4 ---
+ACIT3420 
+4 
+ 
+ 
+Note: if you can not ping your client computer, double check client computer Windows Firewall. Try to 
+DO IT again to set up a new IP on your client computer such as 192.168.239.220 
+How to manually set up IPv6 on your server 
+1. Login your domain controller (Ca-Van-Svr1) and double click Internet Protocol Version 
+(TCP/IPv6) to set up an IP.  
+ 
+
+--- page 5 ---
+ACIT3420 
+5 
+ 
+ 
+Note: What is ::1? 
+2. Login your client computer (Ca-Van-Client1) and set up an IPv6 address (check network 
+topology) for your client computer 
+ 
+3. Run PS and ping your domain or use the IPv6. 
+ 
+
+--- page 6 ---
+ACIT3420 
+6 
+ 
+Lab Assignments 
+Task1: 
+Paste the screenshot of your step 3 above here.  
+Example: 
+ 
+Task 2: 
+CIDR: Classless Inter-Domain Routing 
+192.168.1.55 /26  
+ 
+Question: Is this a usable host address? Provide your detailed solution. You should learn it in term 2. 
+Hits:  
+1. There are totally 4 networks. List all usable space for each network. If the IP is in one of ranges, 
+it is a usable host address. Otherwise, no.   
+2. Network ID and Broadcast ID are not useable addresses. 

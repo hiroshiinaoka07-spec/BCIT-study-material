@@ -1,0 +1,522 @@
+--- page 1 ---
+Module 7: 
+Server Storage
+Lei Zhang (Johnny)
+ACIT 3420
+Windows Server Administration
+
+--- page 2 ---
+Configuring Disks and Drive Types 
+In Windows Server 2019/2022, a physical hard drive can be 
+designated as a basic disk or a dynamic disk. 
+o Basic Disks
+Default storage for Windows OS
+Contain only simple volumes
+o Dynamic Disks
+Can be modified without restarting the Windows system
+Can contain simple, spanned, striped, and mirrored volumes
+A partition is a defined storage space on a hard disk. To be 
+usable, a hard disk needs to have at least one partition. 
+A volume is a partition that has been formatted into a file 
+system (Disk volume requirements include a system volume 
+and a boot volume). 
+
+--- page 3 ---
+Configuring Disks and Drive Types 
+You can configure dynamic disk volumes as:
+Simple volume: Uses free space available on a single disk.
+Spanned volume: Extends a simple volume across multiple disks, 
+up to a maximum of 32.
+Mirrored volume: Duplicates data from one disk to a second disk 
+for redundancy and fault tolerance; if one disk fails, data can be 
+accessed from the second disk. You cannot span a mirrored 
+volume; a mirrored volume must reside on a single disk. Mirroring 
+is also referred to as RAID-1.
+Striped volume: Stores data across two or more physical disks. 
+Data on a striped volume is written evenly to each of the physical 
+disks in the volume. You cannot mirror or span a striped volume. 
+Striping is often referred to as RAID-0.
+
+--- page 4 ---
+Configuring local storage: Selecting a 
+Partition Table Format
+MBR: Master Boot Record
+Standard partition table format since early 1980s
+Supports a maximum of four primary partitions per drive or up to three 
+primary partitions with one extended partition.
+Can partition a disk up to 2 TB
+The MBR is a single point of failure. If it becomes corrupted or damaged, it 
+could prevent the computer from starting.
+GPT
+GPT is the successor of the MBR partition table format 
+Supports a maximum of 128 partitions per drive
+Can partition a disk up to 18 exabytes
+Use MBR for disks smaller than 2 TB
+Use GPT for disks larger than 2 TB
+
+--- page 5 ---
+Selecting a File System
+When selecting a file system, consider the differences between FAT, NTFS, 
+and ReFS
+FAT provides:
+• Basic file system
+• Partition size limitations
+• FAT32 to enable larger disks
+• exFAT developed for flash drives
+NTFS provides:
+• Metadata
+• Auditing and journaling
+• Security (ACLs and encryption)
+ReFS provides:
+• Backward compatibility support for NTFS
+• Enhanced data verification and error correction
+• Support for larger files, directories, and volumes
+
+--- page 6 ---
+Implementing ReFS (Advantages)
+Metadata integrity with checksums
+Integrity streams with user data integrity
+Allocation on write transactional model
+Large volume, file, and directory sizes (2^78 bytes with 
+16 KB cluster size)
+Storage pooling and virtualization
+Data striping for performance and redundancy
+Disk scrubbing for protection against latent disk errors
+Resiliency to corruptions with recovery
+Shared storage pools across machines
+
+--- page 7 ---
+
+--- page 8 ---
+Selecting a Disk Type
+
+--- page 9 ---
+What is RAID
+RAID:
+Combines multiple disks into a single logical unit to 
+provide fault tolerance and performance
+Provides fault tolerance by using:
+Disk mirroring
+Parity information
+Can provide performance benefits by spreading disk I/O 
+across multiple disks
+Can be configured using several different levels
+Should not replace server backups
+
+--- page 10 ---
+RAID Levels: RAID 0
+
+--- page 11 ---
+RAID Levels: RAID 1
+
+--- page 12 ---
+RAID Levels: RAID 5
+
+--- page 13 ---
+RAID Levels: RAID 6
+
+--- page 14 ---
+RAID Levels: RAID 1+0
+
+--- page 15 ---
+Overview of Enterprise Storage Solutions
+When planning storage for Windows Server 2019/2022, you need 
+to determine how the servers will access the disks and multiple 
+options exist:
+o Direct Attached Storage(DAS)
+o Network Attached Storage(NAS)
+o Storage Area Network(SAN)
+These options differ in type as well as access technologies and 
+usage scenarios
+The right choice is critical to the overall success of the storage 
+solution.
+
+--- page 16 ---
+Direct Attached Storage
+DAS is a technology that is available in nearly every server
+Can include
+Physical disks located inside the server
+Connections to an external array
+Connections to USB disks or alternative connectors.
+Advantages (Easiest storage system to deploy and Maintain. Example? ERP)
+Easy to configure (Disk Management)
+In expensive (Based on disk type and host bus adapter (HBA)) (No Network 
+devices, hubs, switches or routers) 
+Disadvantages
+Isolated because the disks are attached to a single server
+Less flexibility
+Scalability limits
+
+--- page 17 ---
+NAS
+
+--- page 18 ---
+Network Attached Storage
+NAS  is  a file-level data storage device that is connected 
+to the server over a computer network to provide shared 
+drives or folders, usually using Server Message Block 
+(SMB) or Network File System (NFS). 
+Storage locations are accessed through file level 
+access to shares
+Use protocols like (Common Internet File System)CIFS, 
+(Server Message Block) SMB, and (Network File 
+System) NFS to access files.
+Devices are often in headless configuration requiring 
+network communication in order to configure the 
+device
+File server
+Local Area 
+Network 
+(Ethernet)
+NAS device
+File-level access 
+(CIFS, NFS)
+Network
+
+--- page 19 ---
+Advantages vs. Disadvantages
+Advantages
+o Relatively inexpensive centralized storage
+o Easy to configure
+Disadvantages
+o Slower access times
+o Not appropriate in many enterprise scenarios (Sql, Exchange)
+
+--- page 20 ---
+Storage Area Network (SAN)
+A SAN is an enterprise centralized storage solution that 
+provides high availability and maximum flexibility.
+SAN is a storage architecture that allows systems to attach to 
+the storage in the SAN and presents the drives to the server 
+just as if the drives were locally attached.
+Include various components
+Provides block level access to centralized storage
+
+--- page 21 ---
+SAN: Advantages vs. Disadvantages
+Advantages
+o Storage can be accessed by multiple servers simultaneously with more 
+robust, faster processing.
+o Easily expandable
+o Centralized storage with high levels of redundancy
+o High level of redundancy(Multiple network devices, such as switches. 
+Redundant components such as Uninterruptible power supply, hard 
+drives) 
+Disadvantages
+o Most expensive solution (A entry-level SAN=Full loaded server with a 
+DAS or NAS device)
+o Requires specialized administrative skills (Logical Unite Number (LUN) 
+setup,  Each storage vendors provide different tools and features )
+Servers
+Switches
+Storage devices
+
+--- page 22 ---
+Protocol to Configure SAN: Fibre Channel 
+Fibre Channel is high performance network technology primarily 
+used within SAN solutions
+Node: Any device connected to the SAN.
+WWN(World Wide Name): Unique identifier used to identify 
+storage devices
+Fabric: Encompasses all hardware that connects servers and 
+workstations to storage devices through the use of fibre channel 
+switching technology
+
+--- page 23 ---
+FC Components
+Components
+SAN (Storage backend; It serves as a Fibre Channel target which is 
+the component that listens for requests from computers.)
+Physical or virtual system containing an HBA card (FC or iSCSI)
+Fiber Channel Switch
+Fibre Channel over Ethernet (FCoE) (offering outstanding 
+performance: in expensive, preexisting, Ethernet infrastructure)
+Provides the benefits of Fibre Channel in a more cost-effective 
+manner
+It is easier to manage a single network topology
+Specialized training is not required.
+
+--- page 24 ---
+Fiber Optic Cable 
+Fibre channel transmits data serially, 
+this means bit by bit. That's why the 
+cabling only consists of a transmit port 
+and a receive port. 
+
+--- page 25 ---
+Fibre Channel Layouts (O) 
+You can arrange a Fibre Channel network in one of 
+three layouts 
+Arbitrated Loop
+Point-to-point
+Switched Fabric
+
+--- page 26 ---
+Fibre Channel Considerations
+There are several important factors used to determine whether Fibre Channel is 
+right for your environment
+Infrastructure requirements
+o Fabric or network switches
+o HBAs
+o Additional cabling
+o Storage controllers
+Bandwidth requirements (32Gbps)
+Reliability (TCP/IP: TTL lost packages) and security (Distributed denial of 
+service (DDos))
+Costs
+o More expensive than other solutions
+o Large initial investment
+o Training costs are often high
+
+--- page 27 ---
+Overview: Comparing Storage Solutions
+DAS
+Least complex
+Low setup costs
+NAS
+Best solution in specific situations
+Often used to compliment DAS and SAN solution
+SAN 
+Highest levels of performance
+Provides the most features
+Windows Server 2019/2022 provides storage features that are 
+expanding to improve capabilities when using DAS. 
+
+--- page 28 ---
+Comparing Storage Technology
+You can arrange data on a disk in two ways: by blocks or by files
+Block level storage
+High performing
+Most often associated with SANs
+Presents Logical Unit Numbers (LUNs) to the Server
+Not the most cost effective
+File level storage
+Delivered via NAS, an external storage or file server
+Uses common file level protocols (CIFS, SMB, NFS)
+Uses block level storage on the backend
+
+--- page 29 ---
+Scenarios for using DAS, NAS or SAN
+High performance storage for transactional databases 
+User home folders
+Storage of virtual machines
+Branch office shared folders
+Tiered storage for applications
+Microsoft exchange database and log storage
+
+--- page 30 ---
+iSCSI SAN
+iSCSI (Internet) is a protocol that supports access to SCSI based storage over 
+standard TCP/IP network (Note: Local network but it runs over Internet 
+Protocol, TCP/IP)
+Typically relies on standard Ethernet network architecture
+Could use specialized hardware such as HBA or network switches
+Uses TCP/IP and TCP port 3260 to communicate
+Components
+IP network
+iSCSI targets: servers that run on the storage device
+iSCSI initiators: software or host adapter that provides access to targets
+IQN (iSCSI Qualified Name): Globally unique identifier used to address 
+initiators and targets on an iSCSI network
+
+--- page 31 ---
+iSCSI Target Server
+iSCSI Target Server
+Available as a role service in Windows Server 2019/2022
+Provides different types of functionality
+Network or diskless boot
+Server application storage
+Non-Microsoft platforms
+Lab environments
+Features
+Authentication (Challenge handshake authentication protocol)
+Query initiator computer for ID
+Virtual hard disks
+Scalability and manageability
+
+--- page 32 ---
+iSCSI Initiator
+iSCSI initiator
+Runs as an operating system service
+Installed by default in Windows Server 2008 and Vista and 
+later operating systems
+Only requires the service to be started before configuring the 
+initiator to connect to iSCSI target. 
+
+--- page 33 ---
+Configuring Storage Pools and Storage Spaces 
+Storage Spaces (Virtual Disks) is a storage virtualization 
+feature built into Windows Server 2019/2022 and Windows 
+10.
+The Storage Spaces feature consists of two components:
+Storage Pools are a collection of any type and size of physical disks 
+(JBOD) aggregated into a single logical disk, allowing you to 
+manage the multiple physical disks as a single disk. 
+These storage pools can then be segmented into multiple storage 
+spaces, which are then formatted with a file system and can be 
+used just like any other regular disk on your computer. 
+New disks (internal/external) can be added to the storage 
+pool as space requirements increase over time. 
+Disk drive
+Physical disks
+Storage pool
+Virtual disk
+VHDX vs. VHD
+
+--- page 34 ---
+Creating Storage Pools 
+One physical disk is required to create a storage pool
+At least two physical disks are required to create a resilient, mirrored 
+virtual disk.
+At least three physical disks are required to create a virtual disk with 
+resiliency through parity.
+At least five physical disks are required for three-way mirroring
+At least seven physical disk are required for dual parity.
+Disk must be blank and unformatted, which means no volumes can 
+exist on the disks.
+Disks can be attached using a variety of bus interfaces including SAS, 
+SATA, SCSI, NVMe, and USB.
+
+--- page 35 ---
+Creating and Configuring Storage Spaces 
+When creating storage spaces, there are four resiliency types to 
+select from (Storage Layout). Only three of them provide real fault 
+tolerance, as shown in the following list:
+Simple (no resiliency): Writes one copy of your data but doesn’t 
+protect against drive failures; requires at least one drive (RAID 0)
+Two-way mirror: Writes two copies of your data to protect against 
+a single drive failure; requires at least two drives (RAID 1)
+Three-way mirror: Writes three copies of your data to protect 
+against two simultaneous drive failures; requires at least five drives
+Parity: Writes data with parity information to protect against single 
+drive failures; requires at least three drives (RAID 5)
+
+--- page 36 ---
+Considerations for Implementing iSCSI
+Several factors exist which should be examined prior to the 
+implementation of iSCSI
+Network speed and performance
+High availability
+Security
+Infrastructure staff
+Application teams
+Vendor information
+Consider alternative solutions
+
+--- page 37 ---
+iSNS
+The Internet Storage Name Service (iSNS) protocol is used to discover, manage, 
+and configure iSCSI devices automatically on a TCP/IP network.
+iSNS is a Windows feature containing three primary components.
+iSNS Server (respond to iSNS protocol queries and requests, authentication)
+iSNS client
+iSNS database (an information repository, contains information about iSNS
+client attributes)
+Provides numerous advantages
+Reduces administrative overhead
+Compatible with multiple storage technologies
+Can make an IP network function like a SAN
+Can integrate IP and Fibre Channel networks
+
+--- page 38 ---
+iSNS Functions and Installation
+The four primary functions of iSNS are
+A name service
+A discovery domain and login control service
+A state change notification service
+Mapping information to an iSNS database
+Installation occurs using Server Manager or Windows PowerShell
+
+--- page 39 ---
+MPIO
+A single connection to an iSCSI storage device makes the storage available, 
+but it does not make the storage connections highly available. 
+If the network connection or a switch fails, the server connecting to the 
+iSCSI storage will lose access to its storage. 
+Because many servers require high availability, you need to use high-
+availability technologies, such as multiple connected session (MCS) and 
+multi-path I/O (MPIO).
+Built into Windows Server since Windows Server 2008
+Storage vendors offer their own MPIO software
+Used primarily 
+Create a highly available storage infrastructure
+Increase performance to achieve high performance requirements. 
+
+--- page 40 ---
+Configuring Sharing in Windows Server 2019/2022
+File sharing is a core service on any network and provided in 
+Windows Server 2019/2022 by default
+Each version of Windows Server will increase upon the capabilities 
+of the previous versions
+SMB version change
+NFS updates
+FSRM capabilities
+Storage of VHDs on an SMB share
+Scaled out File server cluster
+
+--- page 41 ---
+Server Message Block
+SMB is the file sharing protocol that Windows clients and servers 
+will utilize and comes in different versions
+Versions
+SMB 1.X : Currently no dependencies on this antiquated version 
+and it can be disabled in most situations
+SMB 2.X: supported in Windows Vista and Windows 7
+SMB 3.0 : supported in Windows 8 and Server 2012
+SMB 3.0.2: supported in Windows 8.1 and Server 2012R2
+SMB 3.1.1: supported in Windows 10 and Windows Server 
+2019/2022
+
+--- page 42 ---
+Configuring SMB Shares
+Folders must be shared in order to be accessible over the network
+Windows Server 2019/2022 provides various tools to create 
+shared folder
+Server Manager
+Windows PowerShell
+File explore
+SMB share profiles
+Quick
+Advanced
+Applications
+
+--- page 43 ---
+Configuring SMB shares
+Windows PowerShell cmdlets for SMB share management:
+New-SmbShare
+Set-SmbShare: is used to modify the properties of the Server Message Block 
+(SMB) share
+Remove-SmbShare
+Get-SmbShare: is used to retrieve retrieves objects that represent the Server 
+Message Block (SMB) shares being displayed by the computer.
+Get-SmbSession: is used to identify users that are connected to SMB shares
+Get-SmbOpenFile: is used to identify open files if the users have open files.
+Set-SmbBandwidthLimit: is used to define a maximum throughput level that 
+is allocated to SMB traffic on a server for different categories. (useful for 
+Hyper-V hosts.)
+
+--- page 44 ---
+What is NFS
+NFS is a file system based on open standards
+Current version is 4.1
+Windows NFS components include:
+Client for NFS
+Server for NFS
+Support for Kerberos v5 authentication
+The primary uses for NFS are:
+Storage for VMware virtual machines
+Sharing data across multiple operating systems
+Sharing data across different  IT infrastructures after a 
+company merger
+
+--- page 45 ---
+Configuring NFS shares
+Install the Server for NFS server role
+Two options for NFS share profile:
+NFS Share – Quick
+NFS Share – Advanced
+Authentication options:
+Kerberos v5 authentication
+No server authentication
+Share permissions define allowed and denied hosts
+Follow best practices

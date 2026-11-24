@@ -1,0 +1,2524 @@
+===== frame_0001
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0002
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0003
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0004
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0005
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0006
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0007
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0008
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0009
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0010
+Lab J Secondary DNS Zone C L
+Getting Started
+O
+BCIT
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Manage and troubleshoot DNS such as nslookup
+Network Top010kY
+IP:192.168.239.1
+subnet: 255.255.255.0
+DNS: 127.0.0.1
+CA-VAN-Svrl
+(Adatum.com)
+• Dc/DNS
+switch (NAT 9)
+The five basic steps in deploying DNS are:
+E-Mail HELP! Edit Course
+IP:192.168.239A
+Subnet: 255.255.255.0
+DNS: 127.001 ; 192.168.239.1
+CA-VAN-Svr4
+2.
+Install DNS on one or more servers.
+Configure the DNS servers.
+Create forward and reverse lookup zones.
+===== frame_0011
+@ File Edit View VM Tabs Help II -
+===== frame_0012
+59 @ File Edit View VM Tabs Help
+ck.
+tober 24
+um Lock On
+===== frame_0013
+9 @ File
+j S) Type hete to sealch
+My Computer
+ACIT3420-DC1
+Edit View VM Tabs Help
+Win2022 Base Image
+on this virtual machine
+Edit virtual machme settings
+upgrade this virtual machine
+ACIT3420-DQ Win2022 Base Image
+CJ ACIT3420.Sub0C Image\Wn2022 gase 'mage_vmx
+ACIT3420-Dom&inTree
+CJ ACIT3420-HyperV
+[t] ACIT3420.File Sewer
+C] ACIT3420-Client
+CJ ACIT-3420-GW(Ptsense)
+[t] VMware 7 CSV,9)
+C] ACIT3420.VPN
+Memory
+Processors
+g Hard Disk (NVMe)
+Network Adapter
+B USB controller
+Sound Card
+Printer
+• Description
+120 GB
+Custom (VMnet9)
+Auto
+Type here to enter a description ot this virtual
+machine.
+• Virtual Machine Details
+State: Powered Off
+Snapshot 'O r ACIT3420• Hyper-V
+Sna hot;
+Configuration tile: ImagelWn2022 Base Image.vmx
+Hardware compatibility: Workstation virtual machine
+===== frame_0014
+9 @ File
+j S) Type hete to sealch
+My Computer
+Wi n2022 Base
+ACIT3420-DC1
+ACIT3420-DC2
+C] ACIT3420.Sub0C
+ACIT3420-DomainTree
+CJ ACIT3420-Hyperv
+ACIT3420.File Server
+C] ACIB420-Client
+(t] VMware Esxj 7 CSV,9)
+C] ACIT3420.VPN
+Edit View VM Tabs Help
+Win2022 Base Image
+on this virtual machine
+Edat Virtual settings
+upgrade this virtual machine
+wmon
+Memory
+Processors
+Hard Disk (NVMe)
+Netv•ork Adapter
+B use controller
+Sound Card
+Printer
+Di SP lay
+• Description
+120 GB
+Custom (VMnet9)
+Auto
+Auto detect
+Type here to enter a description ot thas virtual
+machine.
+Brome For Folder
+Vrtual
+folder
+• Wrtual Machine Details
+State: Powered Off
+Snapshot; Snapshot
+OC2
+DomainTree
+Server
+Hyper •V
+Master Image
+Configuration tile: Image\Wn2022 Base Image.vmx
+Hardware compatibility: WorkStation Virtual machine
+===== frame_0015
+9 @ File
+j S) Type hete to sealch
+My Computer
+Wi n2022 Base
+ACIT3420-DC1
+ACIT3420-DC2
+C] ACIT3420.Sub0C
+ACIT3420-DomainTree
+CJ ACIT3420-Hyperv
+ACIT3420.File Server
+C] ACIB420-Client
+(t] VMware Esxj 7 CSV,9)
+C] ACIT3420.VPN
+Edit View VM Tabs Help
+Win2022 Base Image
+'Ower on this virtual machine
+wmon
+===== frame_0016
+9 @ File
+j S) Type hete to sealch
+My Computer
+Wi n2022 Base
+ACIT3420-DC1
+ACIT3420-DC2
+C] ACIT3420.Sub0C
+ACIT3420-DomainTree
+CJ ACIT3420-Hyperv
+ACIT3420.File Server
+C] ACIB420-Client
+(t] VMware Esxj 7 CSV,9)
+C] ACIT3420.VPN
+Edit View VM Tabs Help
+Win2022 Base Image
+on this virtual machine
+Edat Virtual machine Sett.ngs
+upgrade this virtual
+wmon
+Memory
+Processors
+Hard Disk (NVMe)
+Network Adapter
+B use Controller
+Card
+Printer
+• Description
+120 GB
+Custom (VMnet9)
+Auto detect
+Auto detect
+Type here to enter a description ot this virtual
+machine.
+Vhtual
+VV*are
+• Virtual Machine Details
+State: Powered Off
+Snapshot IO r ACIT3420• Hyper-V
+Sna hot;
+Configuration tile: CWMware\Win2022Waster ImagelWn2022 Base Image.vmx
+Hardware compatibility: Workstation Virtual machine
+===== frame_0017
+9 @ File
+j S) Type hete to sealch
+My Computer
+Wi n2022 Base
+ACIT3420-DC1
+ACIT3420-DC2
+C] ACIT3420.Sub0C
+ACIT3420-DomainTree
+CJ ACIT3420-Hyperv
+ACIT3420.File Server
+C] ACIB420-Client
+(t] VMware Esxj 7 CSV,9)
+C] ACIT3420.VPN
+Edit View VM Tabs Help
+Win2022 Base Image
+on this virtual machine
+Edat Virtual settings
+upgrade this virtual machine
+wmon
+Memory
+Processors
+Hard Disk (NVMe)
+Netv•ork Adapter
+B use controller
+Sound Card
+Printer
+Di SP lay
+• Description
+120 GB
+Custom (VMnet9)
+Auto
+Auto detect
+Type here to enter a description ot thas virtual
+machine.
+Vhtual
+VV*are
+• Wrtual Machine Details
+State: Powered Off
+Sna hot;
+Snapshot IO r Hyper-V
+Configuration tile: CWMware\Win2022XMaster Image\Wn2022 Base Image.vmx
+Hardware compatibility: WorkStation Virtual machine
+===== frame_0018
+@ Workstation •
+j S) Type hete to sealch
+My Computer
+Win2022 Base Image
+ACIT3420-DC1
+ACIT3420-DC2
+C] ACIT3420.Sub0C
+ACIT3420-DomainTree
+CJ ACIT3420-Hyperv
+ACIT3420.File Server
+C] ACIB420-Client
+(t] VMware Esxj 7 CSV,9)
+C] ACIT3420.VPN
+CJ ACIT-3420-WDS
+CJ ACIT3420-DNS(Snd)
+wr,2022
+===== frame_0019
+File
+Edit
+View
+Tabs
+Help
+tj wm2022
+Mar* as Favorite
+Open directory
+@ Removable Devices
+send Ctrl.Alt*Del
+b Input
+Snapshot
+Manage
+update VMware TOO's.
+Sett'ngs.„
+g fcaturc is globally disabled
+on this system. and not be X
+===== frame_0020
+Q @ Workstation •
+wr,2022
+S*Cty of this
+[NS(smf)
+Virtual Macn.ne
+Hud (WMe)
+USB
+c.l• Card
+muhjple Of
+for machine
+(VMr*)
+4096 :
+memory
+m»ping
+13.4 GB
+OS
+===== frame_0021
+@ Workstation •
+wr,2022
+===== frame_0022
+@ File Edit View VM Tabs Help
+Press Ctrl+Alt+Delete to unlock.
+5:37
+Sunday, October 24
+Num Lock Off
+===== frame_0023
+fi• @ File Edit View VM Tabs Help II •
+Server Manager All Servers
+SERVERS
+All 1 2 total
+Manage Tools
+View
+Help
+Dashboard
+i I cral Sewer
+All Servers
+GI ADDS
+DNS
+Server Name
+CA-VAN-SVRI
+All events 1 3S total
+Address
+Manageability
+Online - Performarxe counters not started
+accessible
+SOO
+Ost Update
+Windows Activa tion
+10/24/2021 (Activated)
+File and Storage Services >
+f' rer
+Server Name
+CA-VAN-SVRS
+CA-VAN-SVRS
+CA-VAN-SVRS
+CA-VAN-SVRS
+CA-VAN-SVRS
+CA-VAN.SVRS
+CA-VAN.SVRS
+SERVICES
+10016
+8198
+10016
+8198
+1014
+4440
+10149
+Warning
+Error
+Warning
+Error
+Warning
+Waming
+M ndows- buted COM
+Microsoft- W ndows- Securitr SPP
+Microsoft- W ndows- Distributed COM
+M icrosoft• Windows- Secu ritv SPP
+Microsoft• Wndows•DNS Client Events
+Microsoft- Windows-Complus
+system
+Application
+system
+Application
+system
+Application
+Microsoft-Wi
+p
+• Windows Remote M
+ement
+All services total
+filter
+Server Display Name
+Service N me
+CA-VAN-SVRS Application Identity
+Date and Time
+10/24/2021 50632
+10/24/2021 506:25 PM
+10/24/2021 50616
+10/24/2021 PM
+10/24/2021 PM
+10/24/2021 PM
+Status Start Type
+Stopped Manual (Triggered)
+===== frame_0024
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0025
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+Manage
+Tools
+View
+Help
+Dashboard
+i I Oral Servpr
+All Servers
+ADDS
+DNS
+File and Storage Services >
+PROPERTIES
+For C. -Van-Svrl
+ter name
+Microsoft Defender firewall
+Ote
+Re Desktop
+NIC Teaming
+Operating system version
+infol ma
+All events | 6 total
+Server N arne
+ca.van.svrl
+Adatum.com
+pub"c: On
+b led
+192.168239,1,
+Microsoft Windcnws Server 2022 Standard
+1
+Last Installed
+Windcw.•s Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOstiCS
+Enhanced Secunty Configuration
+Time zone
+(RAM)
+disk space
+5AI PM
+Download up-dates only, Wing Windows Update
+9,QS/2021 PM
+Real-fime Protection: On
+Set'
+On
+curc-08:w Pacific Time (US & Canada)
+(activated)
+Intel(RJ core(TMJ is-83SOU CPU @ Intel(R) coregu 15-83500 CPU 1.70GHz
+CA.VAN.SVRI
+CA-VAN -SvR1
+CA-VAN-SVRI
+CA-VAN -SvR1
+CA-VAN-SVRI
+CA-VAN-WRI
+SERVICES
+All services | 220 total
+Severity
+Error
+1023
+12
+1014
+1014
+Source
+M •Di
+M -Wi ndOwS • Mib
+M i CrMOft -Wi ndOw•S
+M i CrMOft DNS Events
+ONS Client EventS
+109
+System
+Application
+System
+System
+system
+system
+Date Time
+10/24/2021 PM
+10/24/2021 4-36-45 PM
+10/24/2021 PM
+10/24/2021 4-56-08 PM
+10/24/2021 4-56-04 PM
+10,124/2021 PM
+===== frame_0026
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+Manage Tools
+View
+Help
+Das hboard
+I oral
+All Servers
+ADDS
+DNS
+PROPERTIES
+For Ca-Van-Svr1
+name
+Network
+Ca.van.Svr1
+t Control Network and Internet Network Cornections
+File and Storage Organize •
+Disable this netm»rk device Diagnose this connection Renarne this connection
+Last Installed uiX3ates
+View status of this connection
+10,'24/2021 PM
+5:41 PM
+Char»e settings of this conræction
+15-83500 CPU @ 1.70GHz
+===== frame_0027
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+Manage Tools
+View
+Help
+Dashboard
+I oral
+All Servers
+ADDS
+DNS
+PROPERTIES
+For C. -Van-Svrl
+name
+Ca.van.Svr1
+File and Storage Services Organize •
+t Control Networkandlntemet NetworkConnections
+Disable this network device Diagnose this connection Renarne this connection
+Last •nstalled
+View status of this connection
+9/25/2021 5:41 PM
+Cha* settings of this conræction
+Intel(R) az574L Gigab,t C,'
+I item I item selected
+i5-8350U CPU @ 1.70GHz
+CA-VAN-WRI
+SERVICES
+All services | 220 total
+1014
+Client EventS
+system
+10/24/2021 PM
+===== frame_0028
+@ File
+Edit View VM Tabs
+Help
+AcrrJ420•DC1
+Please wait for the Windows Modules Installer
+ms(smf)
+===== frame_0029
+File
+Edit
+View
+Tabs
+Help
+===== frame_0030
+@ File Edit View VM Tabs Help •
+AcrrJ4zo•DC1
+===== frame_0031
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0032
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0033
+File
+Edit
+View
+Tabs
+Help
+===== frame_0034
+Dashboard
+local
+ii All Servers
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+Computer name
+File and Storage Services
+t Control Networkand Internet Network Connections
+Organize •
+Disable this network device Diagnose this connection
+Renarne this connection
+Last installed ucdates
+View status of this connection
+ms(smf)
+Char»e settings of this conræction
+Unidentified
+Intel(R)
+I item I item selected
+WIN-A19PCTMV6CA 134
+SERVICES
+| 210
+'5-83500 cpu e 1,70GH:
+system
+10,'24.'2021 PM
+===== frame_0035
+Dashboard
+local
+ii All Servers
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+2SS . 2SS
+192 . 239 . 254
+192 . 254
+PROPERTIES
+Computer narne
+Net•M3rk
+Control Networkand Internet
+Last installed updates
+File and Storage Services
+Organize •
+Disable this network device Diagnose this
+ms(smf)
+Search Netwotk Connections
+Char»e settings ofthisconræction •
+Intel(R) 825741 Gigabit Network C,'
+I item I item selected
+WIN-AJ9ecTMV6CA ' 34
+SERVICES
+Network Co nnections
+Vmnet9
+rkmg
+Internet protocol Wrsion 4 (TCP/P.4) properties
+can get IP if
+qop«-ts Demise, ask
+—ttms.
+the
+192 . 239
+2SS
+the DNS
+Refened seme
+Ahernate
+'5-83500 cpu e 1,70GH:
+===== frame_0036
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+Dashboard
+local
+ii All Servers
+File and Storage Services
+Remote Desktop
+vaN.A19PCTMV€CA
+Public
+192168239.5, enabled
+Ost
+WrndOwS
+checked
+Antivirus
+memory (RAM)
+disk space
+9/19/2021
+updates Wi'Ows Update
+9:09
+- On
+(uTc-0800) tus & Canada)
+CPU core(TM) i5-8350U CPU
+11937 GB
+===== frame_0037
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+Dashboard
+local
+ii All Servers
+File and Storage Services
+Best m atch
+Command prompt
+App
+Top apps
+El settings
+Paint
+Microsoft Azure Services
+Performance Monitor
+Quick searches
+*stalled
+9/19/2021
+Whdows update
+On
+Desktop
+NIC
+On
+1921632395 IPv6 enabled
+IE E ed Security On
+zone
+trey
+- sp«e
+is-83SOU CPU e coreffM) i5-8350U cpc e 170GH:
+===== frame_0038
+Dashboard
+i local Server
+ii
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+Computer narne
+insulted updates
+Select Administrator Command Prompt • adatumtom
+File an
+I Version
+microsoft Corporation. All rights reserved.
+: adatu•.cc—
+WIN-AJ9PcTMv«A 8198 Error Microsoft-Windows-security-SPP Application 10.'24,'2021 5:4022 PM
+W'N-A19PCTMV6CA Warning Microsoft-Windows-Distr,butedCOM system 10/24/2021 PM
+WIN-AJ9PCTMV6CA 8198 Error Microsoft-Windows-secur,t-y-spp Appletion ICV24.Q021 PM
+WIN-AJ9PCTMV6CA Warning system PM
+| 210 total
+ms(smf)
+oråy, Windows
+9.'19/2021 PM
+On
+Time
+Ir,teKR) core(TM) i5-83SOU e 170GHz corefTM) '5-83500 cpu 1.7cGH:
+11937 GB
+===== frame_0039
+fi• @ File Edit View VM Tabs Help
+Server Manager Local Seryer
+PROPERTIES
+Dashboard
+i local Server
+ii
+name
+WIN. A19PCTMV6CA
+Last updates
+Se'ect Administrator Command Prompt • adatLmtom
+File an
+1 Version
+{ c ) Microsoft Corporation. All rights resen•ed.
+: Wserswministrator>ping adatu•.cc•
+WIN-AJ9PCTMv«A 8198 Error Microsoft-Windows-security-SPP Application 10.'24,'2021 5:4022 PM
+WIN-ABPCTMV6CA Warning Microsoft-Windows-Distr,butedCOM system PM
+WIN-AJ9PCTMV6CA 8198 Error Microsoft-Windows-secur,t-y-spp Appletion ICV24.Q021 PM
+WIN-AJ9PCTMV6CA Warning system PM
+| 210 total
+ms(smf)
+9/19/2021
+Windows Update
+9/19/2021 9:09
+(uTc-0800) PKif,c US & Canada)
+is.83"J cpu e com(TM) i5.osou CPU
+1 '937 GB
+===== frame_0040
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+Dashboard
+local
+ii All Servers
+File and Storage Services
+PROPERTIES
+management
+Remote Desktop
+NIC
+Operating System version
+ms(smf)
+Windows update
+909 PM
+*Stalled updates
+Antim_ß
+Feedback & Oognc•stics
+IE E ed Security Configuration On
+192168239.5. IPv6 enabled
+Microsoft W.ru±ows Senet 2022 Standard
+system
+Application
+Application
+Application
+system
+Application
+Time zone
+—y (RAM)
+disk spee
+Date Time
+W24,'2021 54231 PM
+W24/2021 5:4217 PM
+10/24/2021 54022 PM
+W24/2021 540;05 PM
+(urc.ogm) rime (US
+is-83SOU CPU e coreffM) i5-8350U cpc e
+11937 GB
+Severity
+WamirB
+WIN-AJ9PCTMVeCA
+WIN-AJ9PCTMV€A
+W'N-AJ9PCTMV6CA
+WIN-AAPCTMVKA
+WIN. A19PCTMV6CA
+SERVICES
+8198
+8198
+8198
+8198
+Gent Events
+SecuritrSPP
+SPP
+===== frame_0041
+Dashboard
+local
+ii
+fi• @ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+WIN-A,9PCTMV6CA
+WIN A19PCTMV6CA
+Administrator: Prompt
+File an
+I Version
+{ c ) Microsoft Corporation. All rights resen•ed.
+adatu•.cc—
+Pine request could not find host adatu•.«•.
+Wserswministrator>
+request could not find host adatu•.cc•.
+W'N.AJ9pCTMvKA 8198
+WIN-AJ9PCTMV6CA 8198
+WIN-AJ9PCTMV6CA
+WIN-A19PCTMV6CA 8198
+SERVICES
+Please check the name and try again.
+Please check the name and try again.
+Last
+Application W24,'2021 54217 PM
+Application 54022
+system W24,'2021 PM
+W24,'2021 PM
+ms(smf)
+9/19/2021
+Windows Update
+9/19/2021
+On
+(uTc-0800) Puific Time US & Canada)
+cpu C i5-050U e
+===== frame_0042
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+Dashboard
+local
+ii All Servers
+File and Storage Services
+Remote
+Remote Desktop
+Opeating system version
+WIN
+On
+1921632395 IP-v6
+M i crown Server 2022 Standard
+ms(smf)
+oråy. update
+9/19/2021 PM
+On
+core(TM) is-83SOU cpu e 1.70GHz coreßM) '5-83500 cpu e 1
+119.37 GB
+| 20 total
+WIN-AJ9PCTMV6CA
+WIN-AJ9pcTMV6CA
+WIN-AJ9PCTMV6CA
+WIN-AJ9PCTMV6CA
+WIN-A19PCTMV6CA
+WIN.A19PCTMV6CA
+SERVICES
+system
+system
+Application
+Application
+Application
+system
+Last *stalled
+U pdate
+Feedback &
+zone
+(RAM)
+rot.' disk spue
+Date Time
+W24,'2021 54303 PM
+W24,'2021 PM
+W24/2021 5:4224 PM
+10/24/2021
+W24,'2021 5:4022 PM
+WW2021 54006 PM
+'Y
+Severity
+Source
+Microsoft-WvndmwDNS Cbent Events
+Microsoft-Wmd0M-SecuntrSPp
+8198
+81 %
+===== frame_0043
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+Dashboard
+local
+ii All Servers
+File and Storage Services
+C omputer name
+Sotem Prover'..e•s
+Computer Name/Oomain Cha
+Changes b
+-A19PCTMvec_A
+Microsoft-Wvnd0M-DNS Cbent Events
+Last uvdates
+Antiwus
+Feedback &
+IE Configuration On
+ms(smf)
+oråy, update
+On
+Canada)
+C a-Van-SVS
+WORKGROUP
+WIN-A19pcTMV6CA
+WIN-AJ9PCTMV6CA
+W'N-ABPCTMVKA
+W'N-A19PCTMVKA
+W'N-AJ9PCTMV6CA
+SERVICES
+i5-83SOU e core(TM) '5-83500 cpu e
+11937 GB
+8198
+81
+system
+system
+Application
+Application
+Application
+system
+Tot.l disk space
+Time
+W24,'2021 5:4303 PM
+W24,'2021 542.•31
+10/24/2021 PM
+ICV24,Q021
+54022 PM
+W24.'2021 PM
+===== frame_0044
+File
+Edit
+View
+Tabs
+Help
+===== frame_0045
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0046
+File
+Edit
+View
+Tabs
+Help
+===== frame_0047
+@ File
+Edit
+View
+Taos
+Help
+Application
+Application
+Application
+system
+10'24,'2021 5:4224 PM
+10/24/2021 5:4217
+W24,'2021 5:4022 PM
+10/24/2021 54006 PM
+===== frame_0048
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+Dashboard
+local
+ii All Servers
+File and Storage Services
+PROPERTIES
+M i æft Defende
+Remote
+Remote Desktop
+ca-van-svr5
+Public:
+192.168.2395 IPv6
+updates
+Antiwus
+Feedback &
+ms(smf)
+Wodows
+9.'19'2021 PM
+On
+IE E ed Configuration On
+You must restart your computer to apply these
+changes
+Wore restarting. save any files and close a" programs
+Time Canada)
+core(TM) i5-83SOU e 170GHz corefTM) '5-83500 cpu 1.7cGH:
+119.37 GB
+ndOWS•DNS Client Events
+system
+system
+Application
+Application
+Application
+system
+Time
+W24,'2021 5:4303 PM
+W24,'2021 54231 PM
+ICV24,'2021
+ICV24,Q021 5:4022 PM
+===== frame_0049
+File
+Edit
+View
+Tabs
+Help
+===== frame_0050
+@ File Edit View VM Tabs Help
+ms(smi)
+Please wait for the gpsvc
+===== frame_0051
+@ File Edit View VM Tabs Help
+AcrrJ420•DC1
+Num Lock Off
+===== frame_0052
+@ File Edit View VM Tabs Help
+Administrator
+Other user
+Acrruzo•cct
+Other user
+adatum\Administator
+Sign in to: adatum
+I-I'"' do Sion in to another domain?
+Caps Lock Off
+===== frame_0053
+@ File Edit View VM Tabs Help
+Administrator
+Other user
+Acrruzo•cct
+Other user
+AdatunMdminisl
+Password
+Sign in to: Adatum
+How do I sign in to another domain?
+===== frame_0054
+File
+Edit
+View
+Tabs
+Help
+===== frame_0055
+@ File Edit View VM Tabs
+Actrve LhteCtO•ry and
+Vile Action Help
+Dash Comput«s
+Manage
+Tools
+View
+Help
+Name
+S cA-WN-svR6
+ii All
+AD
+DNS
+ii File
+Built' n
+Cha ble Uses
+Foregnm•ntypnncipals
+uses
+CA-VAN-SVRI
+SERVICES
+All services | 220 total
+tel(R3 coregu 15-83500 CPU @ 1.70GHz
+4/2021 PM
+Num Lock OH
+===== frame_0056
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0057
+@ File Edit View VM Tabs Help
+===== frame_0058
+@ File Edit View VM Tabs Help
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+ms(smf)
+ears
+O Configure this local server
+2 Add roles and features
+3 Add other servers to manage
+4 Create a server group
+S Connect this server to cloud services
+ROLES ANO SERVER GROUPS
+i Local Server
+All Servers
+===== frame_0059
+File
+Edit
+View
+Tabs
+Help
+===== frame_0060
+ms(smf)
+Dashboard
+fi• @ File Edit View VM Tabs Help •
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+i Local Server
+AJI Servers
+File and Storage Services
+yours NEW
+O Configure this local server
+2
+3
+4
+5
+Add roles and features
+Add Other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+| groups: | total:
+File and Storage
+Sewices
+@ Manageability
+BPA results
+Local Server
+Manageability
+BPA results
+All Servers
+@ Manageability
+Num Lock On
+24/2021 548 PM
+===== frame_0061
+fi• @ File Edit View VM Tabs Help II •
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+ms(smf)
+Dashboard
+i Local Server
+AJI Servers
+File and Storage Services
+yours NEW
+O Configure this local server
+2
+3
+4
+5
+Add roles and features
+Add Other servers to manage
+Create a server group
+Connect this server to cloud services
+i Local Server
+Manageability
+BPA results
+W24,Q021 548
+All Servers
+@ Manageability
+===== frame_0062
+@ File Edit View VM Tabs Help II •
+Server Manager Dashboard
+Dashboard
+i Locat Server
+AJI Servers
+File and Storage Services
+WELCOME TO SERVER MANAGER
+Configure this local server
+2
+Add roles and features
+3
+Add other servers to manage
+• , eability
+It' AcrrJ420•DC1
+548
+===== frame_0063
+@ File Edit View VM Tabs Help II •
+Server Manager Dashboard
+Dashboard
+i Locat Server
+AJI Servers
+File and Storage Services
+TOP
+Settings
+type here to search
+WELCOME TO SERVER MANAGER
+Configure this local server
+2
+Add roles and features
+paint
+Microsoft Azure S...
+performance Monm
+• , eability
+It' AcrrJ420•DC1
+548
+===== frame_0064
+It' AcrrJ420•DC1
+Dashboard
+@ File Edit View VM Tabs Help II •
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+i Local Server
+AJI Servers
+File and Storage Services
+NEW
+O Configure this local server
+2
+3
+4
+5
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+Servers total:
+File and Storage
+Services
+Manageability
+BPA results
+i Local Server
+Manageab
+BPA results
+ii All Servers
+Manageability
+BPA results
+===== frame_0065
+File
+Edit
+View
+Tabs
+Help
+===== frame_0066
+@ File Edit View VM Tabs
+Server Manager All
+Dashboard Remove and Wizard
+Help
+Servers
+Manage Tools
+View
+Help
+local Se
+All Servers
+GI ADDS
+DNS
+File and
+Before you begin
+Server Selection
+Wizard or features.
+To add roles, rok services. features:
+Stan the Add Roles Features
+Before you continue. that the foUOWing tasks have been completed:
+• Decide if you want to save ot delete role data
+• Migrate *ttings data to another
+• Schedule downtime for affected services
+• users Of Service mtetruptions
+TO Next.
+C] Skip this by default
+37 (Activated)
+CA-VAN-SVRS 4440 Warning Microsoft-Windows-Complus
+Application 10/24/2021 PM
+CA-VAN.SVRS 10149
+SERVICES
+services | 210 total
+Microsoft-Wi
+• Windows Remote M
+p
+ement
+Viller
+Server
+CA-VAN-SVRS
+Disp lay Name
+Wired AutoConfig
+Service N a me
+Status
+Start Type
+Stopped Manual
+===== frame_0067
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0068
+@ File Edit View VM Tabs Help
+Signing out
+===== frame_0069
+@ File Edit View VM Tabs Help
+Num Lock On
+===== frame_0070
+File
+Edit
+View
+Tabs
+Help
+===== frame_0071
+@ File Edit View VM Tabs
+Server Manager All
+SERVERS
+Help
+Servers
+Manage Tools
+View
+Help
+Dashboard
+I Server
+All Servers
+GI ADDS
+DNS
+File and Storag
+2 total
+Add Roles and Features Wizard
+Installation progress
+Wew instalation progress
+O Feature installation
+Installation started Ca•
+DNS server
+Administratm
+Role Administration Tools
+DNS Tools
+SERVER
+(A ctivated)
+you can close th is wizard wit i nterrupting ru nning tasks. Vsew task progress or open this
+page again by Notifxations in the command bar. and then Task Details.
+Export settings
+VAN-SVRS 1 149
+SERVICES
+services | 210 total
+Microsoft-Wi
+Vilrer
+Server
+CA-VAN-SVRS
+-Windcn•vs Remote M ement
+Service N a me
+Disp lay Name
+Wired AutoConfig
+Status
+Start Type
+Stopped Manual
+===== frame_0072
+@ File Edit View VM Tabs
+Server Manager All
+SERVERS
+Help
+Servers
+Manage Tools
+View
+Help
+Dashboard
+I Server
+All Servers
+GI ADDS
+DNS
+File and Storag
+2 total
+Add Roles and Features Wizard
+Installation progress
+SERVER
+(A ctivated)
+View instanation progress
+O Feature installation
+DNS server
+VAN-SVRS 1 149
+SERVICES
+services | 210 total
+start«i on Svr5Adat
+Administratm TOOB
+Role Administration Tools
+DNS Tools
+you can close th is wizard wit hout interrupting ru nning tasks. View task progress or open this
+page again by dicking Notifxations in command bar. and then Task Details.
+Export tion settings
+Stopped Manual
+Microsoft-Wi
+Viller
+Server
+CA-VAN-SVRS
+-Windcn•vs Remote M ement
+Set-vice N me
+Disp lay Name
+Wired AutoConfig
+Stat
+Start Type
+===== frame_0073
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0074
+@ File
+Edit View VM
+Tabs
+Help
+Acrruzo•cct
+Num Lock On
+===== frame_0075
+File
+Edit
+View
+Tabs
+Help
+===== frame_0076
+@ File
+New Zone Wizard
+Edit
+View
+Tabs
+Help
+ii
+ms(smf)
+9/19/2021 9:16 PM
+Download up-dates only. using Windows Update
+9,119/2021 9:09
+Real-Vime Protection: On
+Set'
+On
+Pacific Time (US & Canada)
+Not activa ted
+Manage Tools
+View
+Help
+or Lookup ZON
+can e
+A rever* bokup zone ranoes IP aæroes runes.
+Last Installed ugx3ates
+Windcwvs Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOsticS
+Enharyed Secunty Configuration
+Time zone
+(RAM)
+disk space
+Intel(RJ core(TMJ is-83SOU CPU @ 1.70GHz Intel(R) core(TM) 15-83500 CPU 1.70GHz
+filter
+Server N arne
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN-SVRS
+SERVICES
+8198
+8198
+8198
+Severity
+Error
+Warning
+Error
+Source
+M Wi ndOWS• SPP
+M icrOSOft• W'ndOwS• Distri buted COM
+M iCrOSOft• Wi ndOwS- Distri butedCOM
+iCrOSO ft-Wi ndOwS- rity- SPP
+M icrOSOft-Wi ndOwS-
+M •croSO ft-Wi ndows- SPP
+Application
+System
+System
+Application
+system
+Application
+Date and Orne
+10/24,'2021 PM
+10/24/2021 7M
+10/24/2021 5-47-_50 PM
+10/24/2021 5:47-A2
+10/24/2021 PM
+10/24/2021 sgs:33 PM
+All services | 211 total
+===== frame_0077
+@ File
+New Zone Wizard
+DNS
+Edit
+View
+Tabs
+Help
+ms(smf)
+9/19/2021 9:16 PM
+Download updates only. using Windows Update
+9,119/2021 9:09
+Real-Vtme Protection: On
+Set'
+On
+Pacific Time (US & Canada)
+Not activa ted
+Manage Tools
+View
+Help
+ii
+192.1682*
+CE€J
+Last Installed ugx3ates
+Windcwvs Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOsticS
+Enharyed Secunty Configuration
+Time zone
+(RAM)
+Total disk space
+Intel(RJ core(TMJ is-83SOU CPU @ 1.70GHz Intel(R) core(TM) 15-83500 CPU 1.70GHz
+Server N arne
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN-SVRS
+SERVICES
+8198
+8198
+8198
+Severity
+Error
+Warning
+Error
+Source
+M Wi ndOWS• SPP
+M icrOSOft• W'ndOwS• Distri buted COM
+M iCrOSOft• Wi ndOwS- Distri butedCOM
+iCrOSO ft-Wi ndOwS- rity- SPP
+M icrOSOft-Wi ndOwS-
+M ft-Wi ndows- SPP
+Application
+System
+System
+Application
+system
+Application
+Date and
+10/24,'2021 PM
+10/24/2021 7M
+10/24/2021 5-47-_50 PM
+10/24/2021 5:47-A2
+10/24/2021 PM
+10/24/2021 sgs:33 PM
+All services | 211 total
+===== frame_0078
+@ File
+New Zone Wizard
+DNS
+Edit
+View
+Tabs
+Help
+ms(smf)
+9/19/2021 9:16 PM
+Download updates only. using Windows Update
+9,119/2021 9:09
+Real-Vtme Protection: On
+Set'
+On
+Pacific Time (US & Canada)
+Not activa ted
+Manage Tools
+View
+Help
+ii
+Last Installed ugx3ates
+Windcvvs Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOsticS
+Enharyed Secunty Configuration
+Time zone
+(RAM)
+disk space
+Intel(RJ core(TMJ is-83SOU CPU @ 1.70GHz Intel(R) core(TM) 15-83500 CPU 1.70GHz
+CE€J
+filter
+Server N arne
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN-SVRS
+SERVICES
+8198
+8198
+8198
+Severity
+Error
+Warning
+Error
+Source
+M Wi ndOWS• SPP
+M icrOSOft• W'ndOwS• Distri buted COM
+M Wi ndOwS- Distri butedCOM
+iCrOSO ft-Wi ndOwS- rity- SPP
+M icrOSOft-Wi ndOwS-
+M •croSo ft-Wi ndows- SPP
+Application
+System
+System
+Application
+system
+Application
+Date and
+10/24,'2021 PM
+10/24/2021 5:5224
+10/24/2021 PM
+10/24/2021 5-47-42
+10/24/2021 54731 PM
+10/24/2021 sgs:33 PM
+All services | 211 total
+===== frame_0079
+View
+ii
+@ File Edit
+DNS Manager
+File
+z TX EDO
+CA.WN.SVRS
+Forward Look up Zones
+Adatum
+Look up zoOs
+0 Trust
+Conditional
+Tabs
+Help
+ms(smf)
+9/19/2021 9:16 PM
+Download updates only. using Windows Update
+9,119/2021 9:09
+Real-Vtme Protection: On
+Set'
+On
+Pacific Time (US & Canada)
+Not activa ted
+Manage Tools
+View
+Help
+ZOM Not DNS
+The a atternpting to load the Zone The transfe Of
+data from the rnast« server
+FS or on the Adion dick
+about DNS Se
+Last Installed ugx3ates
+Windcvvs Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOsticS
+Enharyed Secunty Configuration
+Time zone
+(RAM)
+disk space
+Intel(RJ core(TMJ is-83SOU CPU @ 1.70GHz Intel(R) core(TM) 15-83500 CPU 1.70GHz
+Server N arne
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN-SVRS
+SERVICES
+8198
+8198
+8198
+Severity
+Error
+Warning
+Error
+Source
+M Wi ndOWS• SPP
+M icrOSOft• W'ndOwS• Distri buted COM
+M Wi ndOwS- Distri butedCOM
+iCrOSO ft-Wi ndOwS- rity- SPP
+M icrOSOft-Wi ndOwS-
+M •croSo ft-Wi ndows- SPP
+Application
+System
+System
+Application
+system
+Application
+Date and
+10/24,'2021 PM
+10/24/2021 7M
+10/24/2021 5-47-_50 PM
+10/24/2021 5:47-A2
+10/24/2021 PM
+10/24/2021 sgs:33 PM
+All services | 211 total
+===== frame_0080
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0081
+ONSV, @ File Edit View
+Vile Help
+CA-VAN-SW'
+• up Zones
+Lookup
+Punts
+Cond'tional
+VM
+Tabs Help
+n me as parent
+as parent
+[Sa me as parent folde)
+[Sa me as parent
+(same as parent
+nca.van.aientl
+n ca-van-swl
+• n •SWS
+Ca • •Svr6
+Adatum.com Properties
+zone
+A that mp•,•.
+on the tab
+To
+9/25/2021
+10/24/20214mmPM
+'0/24/2021 smmPM
+10,4/2021 9mcn AM
+===== frame_0082
+ONSV, @ File Edit View
+Vile Help
+CA-VAN-SW'
+• up Zones
+Lookup
+Punts
+Cond'tional
+VM
+Tabs Help
+n me as parent
+as parent
+[Sa me as parent
+[Sa me as parent
+(same as parent
+nca.van.aientl
+n ca-van-swl
+• n •SWS
+Ca • •Svr6
+Adatum.com Properties
+zone
+A that mp•,•.
+tob
+To
+9/25/2021
+10/24/20214mmPM
+'0/24/2021 smmPM
+10,4/2021 9mcn AM
+===== frame_0083
+f,' @ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0084
+View
+ii
+@ File Edit
+DNS Manager
+File +É•lp
+CA.nN.SVRS
+Trust Poi n
+Condition
+Crete a zone
+Tabs
+Help
+ms(smf)
+9/19/2021 9:16 PM
+Download updates only. using Windows Update
+9,119/2021 9:09
+Real-Vtme Protection: On
+Set'
+On
+Pacific Time (US & Canada)
+Not activa ted
+Manage Tools
+View
+Help
+din System mS) a to be into Zone
+formation about one or rt»re cont•guous [NS domains.
+zone on the dick Zone
+Last Installed ugx3ates
+Windcwvs Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOsticS
+Enharyed Secunty Configuration
+Time zone
+(RAM)
+disk space
+Intel(RJ core(TMJ is-83SOU CPU @ 1.70GHz Intel(R) core(TM) 15-83500 CPU 1.70GHz
+Server N arne
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN-SVRS
+SERVICES
+8198
+8198
+8198
+Severity
+Error
+Warning
+Error
+Source
+M Wi ndOWS• SPP
+M icrOSOft• W'ndOwS• Distri buted COM
+M iCrOSOft• Wi ndOwS- Distri butedCOM
+iCrOSO ft-Wi ndOwS- rity- SPP
+M icrOSOft-Wi ndOwS-
+M ft-Wi ndows- SPP
+Application
+System
+System
+Application
+system
+Application
+Date and Time
+10/24,'2021 PM
+10/24/2021
+10/24/2021 PM
+10/24/2021 5-47-42
+10/24/2021 54731 PM
+10/24/2021 sgs:33 PM
+All services | 211 total
+===== frame_0085
+View
+ii
+@ File Edit
+DNS Manager
+File +É•lp
+CA.wN.SVRS
+Forward Look up Zon«
+up Zones
+Trust Points
+Cond
+Tabs
+Help
+ms(smf)
+9/19/2021 9:16 PM
+Download updates only. using Windows Update
+9,119/2021 9:09
+Real-Vtme Protection: On
+Set'
+On
+Pacific Time (US & Canada)
+Not activa ted
+Manage Tools
+View
+Help
+msdcs
+F o restDnsZones
+as parent folds)
+( as parent fol&j
+Barne as patent folder)
+(same as patent folder'
+as parent
+nca-vt„-cnent3
+Ca • • SVt6
+St&t Of Q'thority
+Narne INS)
+Host
+Host (A)
+Host IA)
+Host A)
+Source
+Ca •Van - ad
+adaturncom
+1921682392
+1921Æ239'
+1921 a.2392
+192 ta239.s
+192168.2396
+Static
+static
+Last Installed ugx3ates
+Windcwvs Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOsticS
+Enharyed Secunty Configuration
+Time zone
+(RAM)
+Total disk space
+Intel(RJ core(TMJ is-83SOU CPU @ 1.70GHz Intel(R) core(TM) 15-83500 CPU 1.70GHz
+Server N arne
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN-SVRS
+SERVICES
+8198
+8198
+8198
+Severity
+Error
+Warning
+Error
+M Wi ndOWS• SPP
+M icrOSOft• W'ndOwS• Distri buted COM
+M iCrOSOft• Wi ndOwS- Distri butedCOM
+iCrOSO ft-Wi ndOwS- rity- SPP
+M icrOSOft-Wi ndOwS-
+M ft-Wi ndows- SPP
+Application
+System
+System
+Application
+system
+Application
+Date and
+10/24,'2021 PM
+10/24/2021 7M
+10/24/2021 5-47-_50 PM
+10/24/2021 5:47-A2
+10/24/2021 PM
+10/24/2021 sgs:33 PM
+All services | 211 total
+===== frame_0086
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0087
+f,' @ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0088
+@ File Edit View
+VM
+Tabs
+Vile Hep
+Task
+Storage
+Windom Badu
+Disk M anagen—'t
+and
+Nan*
+Syst«n
+Storage
+More Adi on s
+===== frame_0089
+Server Manager @ File Edit View VM Tabs Help •
+===== frame_0090
+VM
+ii
+59 @ File Edit View
+Vile Help
+• CA-VAN-SW'
+up Zones
+Læ-kup
+Cond'tional
+tcp
+_udp
+Revese Lookup Zones
+Trust points
+j Conditional Forwarders
+Tabs Help
+as parent 'Olde)
+n (Sa me as parent folde
+[Sa me as parent
+(same as parent
+n ca-van-swl
+•SMS
+Ca • •Svr6
+Start of @A_)
+Serve CNS)
+Host 'A)
+I-B-st
+192
+1921682391
+1921
+1921
+192
+192
+1921 æ239.6
+===== frame_0091
+View VM
+ii
+ONSV, @ File Edit
+Vile Help
+CA-VAN-SW'
+• up Zones
+.msdcs
+_tcp
+• .udp
+Reese Lmkup Zones
+Trust poi n ts
+Lookup Zorws
+' _msdcs
+_sites
+_tcp
+s _udp
+Zones
+Trust Points
+Conditional
+Tabs Help
+n me as parent
+as parent
+n (Sa me as parent
+[Sa me as parent
+(same as parent 'owe)
+Ca •W n •SMS
+Ca • •Svr6
+Start of @A_)
+New H Ost
+hostnust«adatum.com
+Host
+192 |
+9/25/2021
+10/24/20214mmPM
+'0/24/2021 smmPM
+10,4/2021 9mcn AM
+owner
+===== frame_0092
+DNSV. @ File Edit
+Vile Help
+CA-VAN-SW'
+• up Zones
+ii
+.msdCS
+site
+_tcp
+• .udp
+View VM
+Tabs Help
+n me as parent
+as parent
+(Sa me as parent
+Start of @A_)
+hostnust«adatum.com
+Svrl•datummrn
+192
+1921682391
+1921
+1921
+1921682392
+192
+1921
+1921 æ23911
+9/25/2021
+10/24/20214mmPM
+'0/24/2021 smmPM
+10,4/2021 9mcn AM
+===== frame_0093
+View VM
+ii
+ONSV, @ File Edit
+Vile Help
+CA-VAN-SW'
+.msdcs
+• .udp
+J Zones
+Trust
+Conditional
+' _ msdcs
+_sites
+_tcp
+_udp
+Lookup Zones
+Trust Points
+Tabs Help
+n [Sa me as parent
+[Sa me as parent
+(same as parent 'owe)
+nca.van.aientl
+n ca-van-swl
+•SWS
+Ca •Svr6
+Start of
+Serve CNS)
+Host 'A)
+hostnust«adatum.com
+van• Svr2adatMTLCOm
+1921 æ2392
+1921682391
+1921
+1921
+192
+1921 æ239.s
+192 ' æ239.6
+1921 æ23911
+9/25/2021
+'0/24/2021 smmPM
+10,4/2021 9mcn AM
+===== frame_0094
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0095
+File
+Edit
+View
+Tabs
+Help
+===== frame_0096
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+ms(smf)
+Manage Tools
+View
+Help
+Das hboard
+I oral
+All Servers
+DNS
+File and Storage Services
+For G -Van -
+Corn ter name
+Microsoft Defender
+Ote
+mote Desktop
+NIC Teaming
+Operating system
+All events | 31 total
+DNS Manager
+File ktion
+3, ONS
+Lookup
+Zone
+Trust points
+Conditional
+_msdcs
+n (Sa as folder)
+n (same as parent folder)
+as parent folder)
+pamt folder)
+as parent folder)
+Ca- SWS
+Svr6
+n.
+*art of Rathority
+Name Sever B S)
+HMt (A)
+Host IA)
+1831 ca static
+n atu mcom.
+stat iC
+1921 Z2392
+19216823920
+'921±2392
+'921 æ2396
+'921æ23911
+tel(R3 coreßM) 15-83500 CPU @ 1.70GHz
+Server N
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN -svR5
+SERVICES
+8198
+8198 Error
+M Wi ndows- Secu SPP
+Application 10/24/2021 5-4±33 PM
+All services | 211 total
+===== frame_0097
+@ File Edit View VM Tabs Help
+Server Manager Local Server
+PROPERTIES
+For Ca-Van-SvrSQ
+ms(smf)
+Manage Tools
+View
+Help
+Dashboard
+i I oral Servpr
+ii All Servers
+DNS
+name
+File and Storage Services
+Microsoft Defender
+Ote
+Remote Desktop
+NIC Teaming
+Operating system
+Hardware
+All events | 31 total
+DNS
+ktion
+3, ONS
+Lookup
+Zone
+Trust points
+Conditional
+Adaturncom Progenes
+Change Zone Type
+Seve zooe
+stat iC
+coreßM) 15-83500 CPU 1.70GHz
+Server N
+CA-VAN. SVR5
+CA-VAN. SvR5
+CA-VAN-SVR5
+CA-VAN-SvR5
+CA-VAN-SvR5
+CA-VAN -svR5
+SERVICES
+8198
+8198 Error
+M ft- Wi ndows- Secu SPP
+Application 10/24/2021 PM
+All services | 211 total
+===== frame_0098
+@ File
+Edit View VM
+Tabs
+Help
+Num Lock On
+===== frame_0099
+VM
+ii
+Fil
+@ File Edit View
+File View
+• CA-UN-SVRI
+Lookup Zones
+Tmstmnts
+• Conditional
+Tabs Help
+Zong
+Trust PO ints
+Hints
+===== frame_0100
+View VM
+ii
+@ File Edit
+File Help
+CA-VAN-SW'
+• up Zones
+.tcp
+• .udp
+Reese Zones
+Trust poi n ts
+Cond' tional Foreorders
+Tabs Help
+n me as parent
+as parent
+n (Sa me as parent folde
+(Sa me as parent
+[same as parent 'owe)
+n -van-swl
+Ca n •SMS
+Ca • •Svr6
+Start of @A_)
+hostnust«adatum.com
+1921 æ2392
+1921682391
+1921
+1921
+192
+1921 æ239.s
+192 ' æ239.6
+1921 æ23911
+9/25/2021
+10/24/20214mmPM
+'0/24/2021 smmPM
+10,4/2021 9mcn AM
+===== frame_0101
+'Lab 7 secondaryDNSZone1EI x
+Getting Started
+O
+BCIT
+https:/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+000
+ooo
+000
+Course Home
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+===== frame_0102
+Presentati..
+Presentati„.
+d wtxt
+Multiprogr_..
+New levt
+Document, tx'
+Share
+folderspdf
+BCIT
+===== frame_0103
+Presentati..
+Presentati„.
+d wtxt
+Multiprogr_..
+New levt
+Document, tx'
+Share
+folderspdf
+BCIT

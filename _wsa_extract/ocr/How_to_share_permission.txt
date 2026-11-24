@@ -1,0 +1,1086 @@
+===== frame_0001
+- AdoO* Armbar DC
+File Edit View Wndcm
+Home Tools
+Share Permission.pdf
+Fl
+Faculty
+Student
+LD Share
+Faculty
+Assignment
+===== frame_0002
+- AdoO* Armbar DC
+File Edit View Wndcm
+Home Tools
+Share Perrnission.pdf
+Fl
+Faculty
+Student
+LD Share
+Faculty
+Assignment
+===== frame_0003
+- AdoO* Armbar DC
+File Edit View Wndcm
+Home Tools
+Share Perrnission.pdf
+Fl
+Faculty
+Student
+LD Share
+Faculty
+Assignment
+===== frame_0004
+- AdoO* Armbar DC
+File Edit View Wndcm
+Home Tools
+Share Perrnission.pdf
+Fl
+Faculty
+Student
+LD Share
+Faculty
+Assignment
+===== frame_0005
+- AdoO* Armbar DC
+File Edit View Wndcm
+Home Tools
+Share Perrnission.pdf
+LD Share
+IP: 192.168.239.1/24
+DNS: 127.0.0.1
+ca-Van-svr1
+AD DS/DNS
+Switch
+Ca-Van-Client1
+IP: 192.168.239.6/24
+DNS: 192.168.239.1
+ca-Van-svr6
+File Server
+IP: 192.168.239.20/24
+DNS: 192.168.239.1
+===== frame_0006
+@ ACIT3420-FiIe Server - VMware VWkstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to computer. "ess Ctrl.
+actt3a2CDC1
+Acrr34*o-v•
+Num Lock Off
+===== frame_0007
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl
+acrr3420•DC1
+Acrr34*0-r•
+Acrr34
+10/13/2021
+===== frame_0008
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+acrr342&OC1
+Acrr34*o-v•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+Recyee Bin
+Best m atch
+Command Prompt
+Control panel
+Character Map
+Remote Desktop n
+Settings )
+p dunm
+To retun to your computer. press Ctrl A'
+and Prompt
+10/13/2021
+===== frame_0009
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew vy Tabs Help II • O
+Acrr34woc1
+Server Manager
+Acrr3420-F•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To return to your computer. press Ctrl
+e GS) • Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+i Local Server
+All Servers
+File and Storage Sen.•ices
+O Configure this local server
+ntJlCKSTART
+IS NEW
+2
+4
+5
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+Roles:' Serverqroups.•l Servers total: I
+File and Storage
+Services
+Manageability
+BPA results
+Local Server
+Manageability
+Num Lock Off
+ii All Servers
+Manageability
+Performance
+BPA results
+10/13/2021 PM
+10/13/2021
+===== frame_0010
+@ ACIT3420-DC1 - VMware
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To direct input to ttüS VM. Click insi& or
+ACrt342CDCI
+Num Lock On
+===== frame_0011
+@ ACIT3420-DC1 - VMware V,orkstation
+Eile Edit Yiew vy Tabs Help II • O
+Acrr34n-tK1
+Server Manager
+My Comwtet
+Win2022
+ACIT3420-DC1
+ACIT3420-DC2
+C] ACIT3420-Sub0C
+ACIT3420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIT3420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+Cl ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+• Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+i Local Server
+All Servers
+ADDS
+DNS
+File and Storage Services
+O Configure this local server
+ntJlCKSTART
+IS NEW
+2
+4
+5
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+Roles: | Server groups.' I I Servers total: I
+AD DS
+Manageability
+BPA results
+DNS
+Manageability
+Events
+Performance
+BPA results
+File and Storage
+Services
+Manageability
+Performance
+BPA results
+Local Server
+Manageability
+Services
+Performa nce
+BPA results
+9:CO
+10/13/2021
+===== frame_0012
+My Comwtet
+Win2022
+ACIT3420-DC1
+ACIT3420-DC2
+C] ACIT3420-Sub0C
+ACIT3420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIT3420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+Cl ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+@ ACIT3420-DC1 - VMware V,orkstation
+Eile Edit Yiew VM Tabs Help
+Acrr34n-tK1
+BOT
+ii All
+DNS
+File
+Active Directory Users and Computers
+File
+Active and
+Bu iltin
+Disable U Sers
+pals
+M kcounts
+users
+Lei
+usa
+St ents
+Group _
+10/13/2021
+===== frame_0013
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+SMB Share • Advanced
+NFS Share • Advanced
+Acrn.wocu
+Acrr3420-F•
+i
+Server Manager • File and Storage Services Shares
+New Share Wizard
+Select the profile for this share
+S profi
+Snare LCGtlCr
+SMB Share -
+SMB Share
+- Applications
+NFS Share - Qu.ck
+This basic profile represents the fastest way to Create an
+SMB file share, typically used to share files with
+Windows- based computers.
+• Suitable for general file sharing
+• Advanced options C an configured by
+using the dialog
+Create
+Select a share to display related
+Select o to display quota.
+901 PM
+10/13/2021
+===== frame_0014
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+Acrn.wocu
+Acrr3420-F•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+i
+Server Manager • File and Storage Services Shares
+New Share Wizard
+Configure share settings
+Select Profile
+Share Lo:ation
+Permsyons
+CD EVIe access-based enumeration
+Access-based enumeration displays only the files and folders that a user has permissions to
+access. If a does not have (Or equivalent) pemSSiOnS a folder, WmdOwS hides the
+folder from the users view.
+•J Anow caching of share
+Caching makes the Contents Of the share available to Offlü-ve use'S. If the BtarKhCache
+NetwCwk File-S role Service iS installed. you Can enable BranchCache on the Share.
+granchCa& on the file Share
+enable-S Computers in a branch Offre Cache this Share,
+and then allows the files to be securely available to other computers in the branch.
+C] Encrypt data
+When enabled. remote file access to this share will be encrypted. This secures the data against
+unauthorized While the data iS transferred to and the Share. If this is Checked
+and grayed an administrator has turned encryption the entire
+Create
+Select a share to display related
+Select o to display quota.
+9:02
+10/13/2021
+===== frame_0015
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+Acrn.wocu
+Acrr3420-F•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+i
+Server Manager • File and Storage Services Shares
+New Share Wizard
+Configure share settings
+Select Profile
+Share Lccation
+Cline'
+Permsyons
+EVIe access-based enumeration
+Access-based enumeration displays only the files and folders that a user has permissions to
+access. If a does not have (Or equivalent) a folder, WmdowS hides the
+folder from the users view.
+•J Allow caching of share
+Caching makes the Contents Of the share available to Offlive use'S. If the BtarKhCache
+NetwCwk File-S role Service iS installed, you Can BranchCache the Share.
+Enable on the file Share
+enables COrnputerS a branch Offre to cache files
+and then allows the files to be securely available to other computers in the branch.
+Encrypt data ECES
+When enabled. remote file access to this share will be encrypted. This secures the data against
+unauthorized While the data iS transferred to and the Share. If this box is Checked
+and grayed administrator has turned encryption the entire
+Create
+Select a share to display related
+Select o to display quota.
+10/13/2021
+===== frame_0016
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+Acrn.wocu
+Acrr3420-F•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Server Manager • File and Storage Services Shares
+i
+Specify permis
+Select Profile
+Share Lccation
+Share Narre
+Cther Setting:
+Confirmation
+Advanced Security Settings for Faculty
+res\Facu1ty
+Administrators (CA-VAN-SVR61Administrators) Change
+Auditing Effective Access
+For additional information double-click a permission entry. To modify a permission entry, Elect entry and click Edit (if available).
+Permission entries:
+Type Principal
+Allow Full Control
+j¯Add liii—€iil
+Replace all child object permissim entries with inheritable permission entries from Object
+Applies to
+This folder only
+10/13/2021
+===== frame_0017
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+Acrn.wocu
+Acrr3420-F•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Server Manager • File and Storage Services Shares
+i
+Speci
+Share L
+Share N
+Coni
+permsson
+user, Computer, Account, or Group
+ype
+From s locabon
+he object name select (eumolQS)
+Ob*ct
+904 p M
+10/13/2021
+===== frame_0018
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Acrn.wocu
+Acrr3420-F•
+Servers
+Server Manager • File and Storage Services
+All shares I total
+Shares
+TASKS
+VOLUME
+Facult on Ca-Van-Svr6
+Volumes New Share Wizard
+Stor
+Shares
+Work FO
+Configure share settings
+Sele:t Profile
+Share Locaocn
+Share Narre
+pe„wssrons
+access-based enumeration
+Access-based enumeration displays only the files and folders that a user has permissions to
+access. If a does not have (Ot equivalent) a Windows hides
+folder from the user'S view
+Allow Of Share
+Caching makes the cmtents of the share available to offline users. If the BranchCache for
+Network Files service is å'Stalled, you Can enable BranchCache on the Share.
+Enable BranchCache on the file share
+BranchCa& enables computers in a branch office to mes downloaded from this share.
+and then allows the to be secure-ly available to other computers in the branch.
+Encrypt data access
+W'hen file access to this Share will be encrypted. This the data against
+unauthorized access while the data is transferred to and from the share. If this is checked
+grayed an has turned on errryption the entire
+Create
+99.4 GB Space
+hip Manager must be "'Stalled.
+Start the Add ROWS and Features
+90S PM
+10/13/2021
+===== frame_0019
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Acrn.wocu
+Acrr3420-F•
+Server Manager • File and Storage Services
+*mission Entry for Assignments
+Shares
+Servers
+Volumes
+Storage
+Shares
+Work FO
+principal: Students (AOATUMiStudents) Select a principal
+Type:
+s
+Applies to: This folder, subfolders and files
+Basic permissions:
+Ü Full control
+Modi fy
+@Read & execute
+@List folder contents
+Read
+Write
+Spec. a' pert" g ions
+Only appty permissions to objects and/or containers Within this contairw
+a to limit prir%ipai Will granted specified permissioru only if are met.
+Add a condition
+Show advanced permissions
+906
+10/13/2021
+===== frame_0020
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Acrn.wocu
+Acrr3420-F•
+Server Manager • File and Storage Services
+*mission Entry for Assignments
+Principal: Students (AOATUM\Students) Select a principal
+Shares
+Servers
+Volumes
+Storage
+Shares
+Work FO
+s
+Change
+Read
+Speci
+Clear all
+906
+10/13/2021
+===== frame_0021
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Acrr34woc1
+Acrr3420-F•
+Server Manager • File and Storage Services
+All shares | 2 total
+Shares
+Servers
+VOLUME
+Faculty on Ca-Van-Svr6
+ICK'.OGB
+".4 GB Space
+- Van-Sw6
+TO quotas hip Resource Manager must be "'Stalled.
+File Server Start the Add ROWS and Features
+9:06
+10/13/2021
+===== frame_0022
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+Server Manager
+Acrn.wocu
+Acrr3420-F•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Server Manager • File and Storage Services
+Shares
+Servers
+Volumes
+Storage Pools
+Shares
+Work FO Iders
+All shares | 2 total
+Share
+' Ca.Van-Svr6(2)
+Assignments
+Lcu:al Patn
+DAS es*ss.gnmen ts
+Protocol
+SMH
+SMB
+Ava.lability Type
+Not Clustered
+VOLUME
+Faculty on Ca-Van-Svr6
+Data
+100.0 GB
+99.4 GB Free Space
+GO to VO I urvB
+QUOTA
+Faculty on Ca-Van-Svr6
+TO quotas Manager must be "'Stalled.
+TO File Server Resource Start the Add ROWS and Features
+9:07 PM
+10/13/2021
+===== frame_0023
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To direct input to ttüS VM. Click insi& o r
+ACrt342CDC1
+Num Lock On
+===== frame_0024
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl •
+acroa2CDCI
+Please wait
+===== frame_0025
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To direct input to ttüS VM. Click insi& or
+Num Lock On
+===== frame_0026
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew vy Tabs Help II • O
+Acrr342&DC1
+Server Marager
+Acrr3420-F•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to computer. moVe the mow
+Server Manager • File and Storage Services
+Shares
+Servers
+Volumes
+Storage Pools
+Shares
+Work FO Iders
+All shares | 2 total
+' Ca.Van-Svr6(2)
+Assignments
+p
+Lcu:al Patn
+DAS es*ss.gnmen ts
+Protocol
+SMH
+SMB
+Ava.lability Type
+Not Clustered
+VOLUME
+Faculty on Ca-Van-Svr6
+Data
+ICK'.OGB
+99.4 GB Free Space
+GO to Overview
+QUOTA
+Faculty on Ca-Van-Svr6
+TO hip Resource Manager must be
+TO File Server Start the Add and Features
+10/13/2021
+===== frame_0027
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your Computer. move the
+Recyee Bin
+acrr342&DC1
+L Assignments
+* Qlick access
+Desktop
+Downloads
+Documents
+Pictures
+This pc
+Data (DJ
+Network
+ACß34
+Assignments
+Shares
+Tim
+Search Assignments
+Date
+10/13/2021 908
+Type
+File folder
+tolder
+2 item S
+item selected
+o
+10/13/2021
+===== frame_0028
+@ ACIT3420-FiIe Server - VMware Whitstation
+Eile Edit Yiew VM Tabs Help
+acrr342&DC1
+ACß34
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HyøeN
+ACIT3420-File Server
+ACIB420-Client
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the
+Bin
+10/13/2021
+===== frame_0029
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+P
+To retun to your computer. move the mou •e
+acrr342&OC1
+0
+===== frame_0030
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. move the m t
+ACrt342CDC1
+===== frame_0031
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl • A -
+ACrt342CDCI
+===== frame_0032
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl • A' 1
+acrr342&DC1
+P
+0
+===== frame_0033
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to computer. press Ctrl • A -
+ACrt342COCI
+===== frame_0034
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl • A -
+ACrt342CDCI
+===== frame_0035
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl • A' 1
+acrr342&DC1
+Help
+ch«k
+p Type here to h
+0
+===== frame_0036
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl • A -
+ACrt342COCI
+===== frame_0037
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To retun to your computer. press Ctrl • A -
+ACrt342CDC1
+===== frame_0038
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To computer. move the mou •e
+acrr342&OC1
+You need to mdify
+0
+(CRLQ
+P
+===== frame_0039
+@ ACIT3420-CIient - VMwa re Workstation
+Eile Edit Yiew VM Tabs Help
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+P
+To retun to your computer. move the mou •e
+acrr342&OC1
+0
+===== frame_0040
+@ ACIT3420-FiI e Server - VMware Workstation
+Eile Edit Yiew VM Tabs Help
+ACrT3420•DC1
+Acrr34*0-r•
+My Comwtet
+Win2022
+ACIT3420.DC1
+C] ACIT3420-SuoDC
+ACIB420-DomainTree
+ACIT3Q0-HypeN
+ACIT3420-File Server
+ACIT3420-Client
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+t ACIT-3420-WDS
+VMS
+To direct input to VM. Click insi& or
+Recyee Bin
+9:12
+10/13/2021

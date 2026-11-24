@@ -1,0 +1,14 @@
+--- page 1 ---
+ACIT3420 
+Windows Software Download 
+This is how you download MS software now: 
+1) Go to https://portal.azure.com/#home
+2) Login with your user name@my.bcit.ca and your BCIT password.
+3) This takes you to the standard Azure portal. Click on Education.
+Note: If you can not find “Education”, click “More Service” and then search the key word, 
+education. 
+
+--- page 2 ---
+ACIT3420 
+4) You should see the free software option on the right-side. Click the Explore all and you can find
+more free software applications. Download Windows Server 2022 Standard.

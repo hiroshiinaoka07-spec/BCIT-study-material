@@ -1,0 +1,202 @@
+--- page 1 ---
+ACIT 3420 
+1 
+ 
+Installing and Configuring Hyper-V 
+ 
+Hyper-V is a virtualization platform that is built into Windows Sever. Not only you can use Hyper-
+V to host VMs and containers, but also it is integrated into the very fabric of Microsoft’s Azure 
+Cloud computing environment. Actually, your client operating system such as Windows 10 also 
+support Hyper-V but you have to enable the Hyper-V features. (Note: Before you work on the lab, 
+make sure you have already known the following terms: Hypervisor, Hypervisor Type 1 vs Type 2, 
+Virtualization, and Snapshots) 
+Learning Objectives 
+After completing this lab, you should be able to: 
+• 
+Verify the installation of Hyper-V server role. 
+• 
+Configure Hyper-V networks (Private, Public, Internal)) 
+• 
+Create and configure virtual machines. 
+• 
+Troubleshoot Hyper-V issues. 
+Network Topology 
+ 
+
+--- page 2 ---
+ACIT 3420 
+2 
+ 
+Lab Preparations 
+1. 2 VMS (Domain Controller (Ca-Van-Svr1) and Hyper-V Host Server (Member Server) 
+(Ca-Van-Svr6)) (Note: Clone a new one, Ca-Van-Svr6). 
+2. Configure your Svr6 and verify all IP Addresses. You have to make sure that you can ping 
+from your Svr6 to your domain controller. 
+3. Install VMware tools on your Svr6. 
+Note: In order to run Hyper-V, your host server (Svr6) needs to satisfy the following 
+requirements: 
+• A 64-bit processor that incorporates second level address translation (SLAT) Technology 
+• A minimum of 4 Gb of memory (running more than one VM at a time requires more) 
+• Intel Virtualization Technology (Intel VT) or AMD Virtualization (AMD-V) enabled. 
+(check your VMware workstation Pro Setting, Processor). 
+ 
+ 
+Task 1: Installation of the Hyper-V server role 
+
+--- page 3 ---
+ACIT 3420 
+3 
+ 
+To install the Hyper-V Role, perform the following steps: 
+1. Log in your Svr6 (Ca-Van-Svr6) as domain administrator or local administrator and 
+then open Server Manager. 
+2. In the Server Manager window, open the Manage menu and click Add Role and 
+Features. 
+3. When the Add Roles and Features Wizard opens, on the Before You Begin page, click 
+Next. 
+4. On the Installation Type page, Role-based or feature-based installation is already 
+selected. Click Next. 
+5. When the Select Destination Server page appears, select the server on which you 
+want to install Hyper-V and click Next. The Select Server Role page appears, as 
+show in Figure. 
+6. Select the Hyper-V role. When you are prompted to add features, click the Add 
+Features 
+button. Click Next. 
+7. When the Hyper-V page appears, click Next. 
+8. On the Create Virtual Switches page and click Next. 
+
+--- page 4 ---
+ACIT 3420 
+4 
+ 
+ 
+9. When the Virtual Machine Migration page appears, click Next. 
+10. When the Default Stores page appears, specify alternatives to the default locations 
+for virtual hard disk and virtual machine configuration files, if desired, and click 
+Next. 
+ 
+ 
+ 
+11. On the Confirm Installation Selections page, select Restart the destination server 
+
+--- page 5 ---
+ACIT 3420 
+5 
+ 
+automatically if required and then click Yes. Click Install. The host may restart several times 
+as the system is rebooted. 
+Task 2: Configuring Hyper-V Networks 
+ Launch Hyper-V Manager 
+ Create a Virtual Public Switch 
+1. Under Actions, click Virtual Switch Manager. 
+ 
+ 
+2. Select the type of switch that you want to create and click the Create Virtual Switch 
+button. 
+
+--- page 6 ---
+ACIT 3420 
+6 
+ 
+ 
+3. On the New Virtual Switch page, in the Name text box, type a descriptive name for the 
+switch. 
+ 
+Note: You have to choose a correct Network Card. If you use Wi-Fi to access Internet, 
+you have to choose Wi-Fi module. If you use wired cable, you have to choose Ethernet 
+Module. Otherwise, your virtual machine will not have Internet access. 
+
+--- page 7 ---
+ACIT 3420 
+7 
+ 
+4. Click OK to close the Virtual Switch Manager. When you are prompted to apply 
+networking changes, click Yes. 
+Questions: 
+• 
+Private Network vs. Internal Switch vs. Public Network 
+• 
+When do you need private Network? 
+Task 3: Creating and Configuring Virtual Machines 
+Note: You have to allocate 4GB above RAM to your CA-VAN-Svr6. 
+1. In Hyper-V Manager, right-click the host node and choose New>Virtual Machine 
+ 
+2. In the New Virtual Machine Wizard, on the Before You Begin page, click Next. 
+
+--- page 8 ---
+ACIT 3420 
+8 
+ 
+3. On the Specify Name and Location page, in the Name text box, type CA-Van-Vm1. Click 
+Next. 
+Note: Browse and modify the location. Do not use the default location. 
+4. On the Specify Generation page, select Generation 2 and click Next. 
+ Question: what’s difference between Generation 1 and Generation 2? 
+
+--- page 9 ---
+ACIT 3420 
+9 
+ 
+5. On the Assign Memory page, select the Use Dynamic Memory for this virtual 
+machine option and click Next. 
+ 
+Questions: 
+• 
+Why do you choose dynamic memory? 
+• 
+What is start-up memory 
+6. On the Configure Networking page, for the Connection option, select a switch, Public Switch. 
+Click Next.  
+
+--- page 10 ---
+ACIT 3420 
+10 
+ 
+7. On the Connect Virtual Hard Disk page, select Create a Virtual Hard Disk but you have to 
+modify its location of the disk. 
+ 
+8. Select the location of your ISO image.  
+ 
+ 
+Note 1: You also can choose Install an operating system later but you will be asked to 
+add SCSI controller, DVD (Check Lab Video) 
+
+--- page 11 ---
+ACIT 3420 
+11 
+ 
+ 
+ 
+ 
+ 
+Note 2: You have to copy the ISO image from your local host (Laptop or Desktop). If you 
+are not allowed to copy, make sure to install VMware tools (VM->Install VMware tools; 
+The installation application will direct mount to your virtual machine. Check your VM, D or 
+
+--- page 12 ---
+ACIT 3420 
+12 
+ 
+E drive.). Browse and select the ISO image. 
+9. Complete the New Virtual Machine Wizard and review the summary. 
+ 
+Task 4: Install Windows 2019 
+Note: The windows 2019 installation is the same as Lab1b. If you do not know, check your lab 1b. 
+ 
+Task 5: Join your VM (CA-VAN-Vm1) to your Domain (Adatum.com) 
+ 
+Lab Assignment 
+ 
+User your domain user account (ACIT3420 or Win2019 or Create a new account on your domain 
+or subdomain) to log in your VM (Ca-Van-Vm1). After you log into your VM, run the following 
+commend lines:  
+• hostname  
+• whoami /user 
+ 
+Paste your screenshot of your CMD (See an example below) 
+
+--- page 13 ---
+ACIT 3420 
+13 
+ 
+ 

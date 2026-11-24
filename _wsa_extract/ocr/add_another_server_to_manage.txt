@@ -1,0 +1,834 @@
+===== frame_0001
+File Edit Vrtew VM Tabs Help • .
+TO direct input to
+Library
+Type here to * arch
+My Computer
+•A ACIT 1420
+•vVin2016S Base Image
+ACIT3420 servet Core
+ACIT3420-OC1
+ACIT3420-DC2
+ACIT3420.C1
+Shared VMS
+x I a Acrr3420-DC1 x
+ACT"2CC1
+ServerVanager
+'GOG)) • Server Manager • Dashboard
+ii Dashboard
+i Local Server
+All Servers
+File and Storage Services
+WELCOME TO SERVER MANAGER
+o
+Configure this local server
+QUICKSTART
+fWHAT•s NEW
+2
+3
+4
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+Roles: | groups:' I Sewers total:
+File and Storage
+Services
+@ Manageability
+BPA results
+Local Server
+Manageability
+Events
+Pe rformance
+BPA results
+All Servers
+Q) Manageability
+BPA results
+the pointer inside or
+===== frame_0002
+ACIT3420-DC2 - VMware Workstation
+File Edit View VM Tabs Help II
+TO direct input to this
+Library
+Type here to k arch
+My Computer
+1420
+•vVin2016S Base Image
+ACIT3420 servet Core
+ACIT3420-OC1
+ACJT3420-DC2
+ACIT3420.C1
+Shared VMS
+Home
+Acrr342cFDCl
+Sorvvrs
+Volumes
+Disks
+Storage Pools
+Acrr342+ct
+SERVERS
+SERVERS
+All total
+p
+Manageability
+Server Name
+All events I O total
+Address
+Last Update
+Windows Activation
+not
+Servet Name
+ID Severity Log
+Date and lime
+the pointer inside or
+===== frame_0003
+labs
+===== frame_0004
+labs
+===== frame_0005
+'J v,ew Vu Tabs Help
+ACIT3420-DC1
+Please wait for the gpsvc
+ACIT3420-C1
+===== frame_0006
+tabs
+Help
+ACIT3•20-DC1
+===== frame_0007
+& serverManager File Edit View VM Help II • C)
+x O ACIT3420«1 x
+x Acrr3420-C1
+===== frame_0008
+vanage
+File Edit View
+AdministQtor Prompt
+i
+Filter
+Server Name
+x ACITN20-DC1
+lied updates
+ate
+upda
+De fender
+& thag
+ACIT3420-DO
+ACIT3420-C1
+9/9/2018 6:15 PM
+Manage
+View
+TASKS
+Help
+Oownloaa updates only. using Wtn•dcnvs Update
+9/15/2018 PM
+Set t.ngs
+nced Secunty Configuration Unknown
+memory (RAM)
+(urc-08m Pacific Time (US & Canada)
+Unkrwwn
+Severity Source
+Oate and lime
+===== frame_0009
+v,ew vu tabs Help
+Server Manager Local Server
+ACIT3420-DO
+Dashboard
+i local Servpr
+ii All Servers
+ACIT3420-C1
+PM
+Manage
+View
+TASKS
+Help
+PROPERTIES
+Administrator Command Prompt
+(c) 2ø16 Microsoft Corporation.
+All rights reserved.
+Oownloaa updates only. using Windows Update
+9/1S/2018 856 PM
+pmtection; On
+Set t. ngs
+Pacific Time (US & Canada)
+00316-30727-59619.mws (activated)
+Intel{R) coregM) 8-63000 cpu @ 2.40GH2
+11968
+CA.B3Y.SVR2
+CA.g3Y.SVR2
+CA. B gy.SVR2
+CA. ggy.SVR2
+CA. ggy.SVR2
+CA. g gy.SVR2
+CA. ggy.SVR2
+134
+134
+134
+1014
+4440
+10016
+134
+Warning
+Warning
+Warning
+Error
+M icrOSOft
+M icrOSOft •W.ndOM•
+Microsoft •Windows• TQ•Service
+DNS Gent Events
+Microsoft •Windows-Cum
+M icrOSOft •WmdOWS•
+M icrOSOft •WmdOWS • Ti me• Service
+System
+System
+System
+system
+Application
+system
+svstem
+9/20/2018 P"
+9/20/2018 PM
+9/20/201 g 94740 PM
+9/20/201 g PM
+9/20/201 g PM
+9/20/201 g PM
+9/20,r201g PM
+===== frame_0010
+_ Server Vanagel
+Dashboard
+v,ew vu tabs Help
+Server Manager Local Server
+ACIT3420-DO
+ACIT3420-C1
+PM
+Manage
+Last uvxiates
+Windows Update
+updates
+W' Defender
+& Diagnostics
+'E Enhanced Security Configuration
+Time
+Product ID
+Instatlea memory (RAM)
+Total disk
+View
+TASKS
+Help
+i local Servpr
+All Servers
+File and Storage Services
+PROPERTIES
+For
+Corn putet n
+Windmys Fi
+Remote
+Remote Desktop
+NIC Teaming
+Operatmg systern Version
+Harawage information
+CA.gay.svr2
+WORKGROUP
+Public On
+Ena b
+Disabled
+192.10.2392 IVh.•6 enabled
+Servet 2016 Standard
+VMware. VMware7.I
+Oownloaa updates only. using Windows Update
+9/1S/2018 856 PM
+On
+Set t.ngs
+on
+Pacific Time (US & Canada)
+00376-30727-59619.mws (activated)
+Intel{R) coregM) 8-63000 cpu @ 2.40GH2
+11968
+All | 20 total
+Filter
+Server N ame
+CA.B3Y.SVR2
+CA.g3Y.SVR2
+CA. ggy.SVR2
+CA.ggy.SVR2
+CA. ggy.SVR2
+CA. g gy.SVR2
+CA. ggy.svR2
+134
+134
+134
+1014
+4440
+10016
+134
+Seve rity
+Warning
+Warning
+Error
+Warni
+Sowce
+M icrOSOft •Windom •
+M icrOSOft •W.ndOWS•
+M icrOSOft
+Microsoft DNS Gent Events
+Microsoft plus
+M icrOSOft •Wmdows• OstributedCOM
+M ZrOSOft •WmdOWS • Ti me• Service
+System
+System
+System
+system
+Application
+system
+Oate and Time
+9/20/2018 PM
+9/20/2018 PM
+9/20/201 g 947>40 PM
+9/20/201 g PM
+9/20/201 g PM
+9/20/20 lg 946:52 PM
+===== frame_0011
+v,ew vu tabs Help
+Server Manager Local Server
+Dashboard
+i local Serv.
+ii All Windows Security
+i' Fil
+Computer Name/Domain Changes
+Enter the name and password of an account with permission
+to join the domain.
+ACIT3420-DO
+ACIT3420-C1
+PM
+Manage
+View
+Help
+administrator
+Domain- adatum.com
+Filter
+Server Name
+CA.B3Y.SVR2
+CA.g3Y.SVR2
+CA. ggy.SVR2
+CA.ggy.SVR2
+CA. ggy.SVR2
+CA. g gy.SVR2
+CA. ggy.svR2
+2016 Standard
+Last • r •stalled updates
+W' r•dows Update
+ctrcked updates
+WI De fender
+Feedback & thagnostics
+•E Enhanced Se-cunty Configuration
+Time
+Product I D
+Installed rnernory (RAM)
+Total disk
+Oownloaa updates only. using Windows Update
+9/1S/2018 856 PM
+ptotection; On
+Set t. ngs
+on
+Pacific Time (US & Canada)
+00376-30727-59619.mws (activated)
+Intel{R) coregM) 8-63000 cpu @ 2.40GH2
+11968
+Cancel
+134
+134
+134
+1014
+4440
+10016
+134
+Severity
+Warning
+Warning
+Error
+Warni
+Sowce
+M icrOSOft •Windom •
+M icrOSOft •W.ndOWS•
+M icrOSOft
+Microsoft DNS Gent Events
+Microsoft
+M G:rOSOft •Wmdows• OstributedCOM
+M G:rOSOft •WmdOWS • Ti me• Service
+System
+System
+System
+system
+Appl.cation
+system
+Oate and Time
+9/20/2018 P"
+9/20/2018 PM
+9/20/201 g 947>40 PM
+9/20/201 g PM
+9/20/201 g PM
+9/20/20 lg 946:52 PM
+===== frame_0012
+tabs
+Help
+ACIT3•20-DC1
+Recycle Bin
+Administrator Command Prompt
+Ping request could not find host
+192.168.239.1
+Pinging 192.168.239.1 with 32 bytes Of data:
+Reply from 192.168.239.1: bytes.32 time«lns
+Reply 192.168.239.1: bytes=32
+Reply 192.168.239.1; bytes=32
+Reply 192.168.239.1: bytes•32 timeclms
+pine statistics for 192.168.239.1:
+Packets: Sent • 4, Received • 4, Lost
+Please Check the and again.
+TTL.128
+TTL=128
+TTL.128
+e (øx loss),
+Approximate round trip times in milli •seconds:
+= maximum = Average =
+Pinging (192.168.239.11
+Reply fr•c• 192 _ 168.239. I: bytes—
+Reply 192.168.239.1: bytes
+Reply from 192.168.239.1: bytes.
+Reply fr•c• 192.168.239.1: bytes
+Ping statistics for 192.168.239.1.
+with 32 bytes of data:
+timeclms TTL=12g
+time<lms TTL=128
+time«lms TTL.128
+timeclms TTL=12S
+Packets: Sent
+round
+hinimu• •
+= Received
+trip times in
+= a, Lost = ø (øx loss),
+milli-seconds;
+Maximum • øms, Average •
+===== frame_0013
+labs
+===== frame_0014
+Press Ctrl+Alt+Delete to unlock.
+9:49
+Thursday, September 20
+===== frame_0015
+QI Edit v,ew Vu Tabs Help II
+ACIT3•20-DC1
+Applying computer settings
+Y ACIT342&-C1
+===== frame_0016
+'J Elle vy labs Help
+ACIT3420-oa
+ACIT3420-C1
+===== frame_0017
+Edi'.
+Tabs
+Yelp
+ACT13420-tR1
+4<13420-0C2
+===== frame_0018
+& ServerManager Eile Edit Yiew VM labs Help
+x ACIT3420-DC2
+Acrr3420-C1
+o
+===== frame_0019
+_ Server vanagel
+Dashboard
+V,ew vy labs Help Jl
+Server Manager All Servers
+AM 2 total
+ACTT3420-OC1
+Windows Activation
+Date and time
+9/20/2018 PM
+9/20/2018 PM
+9/20/2018 PM
+9/20/2018 PM
+9/20/2018 *3642 PM
+ACIT3420-OC2
+ACIT3420-C1
+Manage
+Last Update
+9/20/2018 PM
+View
+TASKS
+Help
+local Server
+All Servers
+ii ADDS
+DNS
+File and Storage Services t'
+Server Name
+All events | 5 total
+Address
+Manageability
+online .
+Kerberos target error
+CA-VAN-WR
+CA-VAN-WRI
+CA-VAN-WRI
+CA-VAN-WRI
+CA-VAN-WR
+7023
+12
+10154
+1014
+Severity
+Error
+Error
+Warning
+Warning
+Warning
+Source
+Microsoft-Windows- Service Control Manager
+Microso ft-Windows- Pedi b
+Microso ft-Windows- Time-Service
+Log
+system
+Application
+system
+Microsoft-Windows- Windows Remote Management System
+Microso DNS Cbent Events
+system
+A" | 205 total
+===== frame_0020
+ACTT3420-OC1
+ACIT3420-OC2
+ACIT3420-C1
+Server Manager All Servers
+Active Directory users and Computers
+File Action View Help
+Active Direct O ry users and Name
+Manage
+View
+TASKS
+Help
+Dashboard
+local Server
+All Servers
+ii ADDS
+DNS
+Description
+Saved eS
+Adatum.com
+Itin
+Ä.I Domain Controllers
+Foreignsecuntyprincipals
+Managed Accounts
+Office
+A" I O total
+•cA-BBY-SvR2
+&CA-VAN-CI
+Computer
+File and Storage Services t'
+===== frame_0021
+ACIT3420-OC2
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+Administrator Command Promot
+: c) 2016 microsoft Corporation. All rights reserved.
+ACTT3420-OC1
+Pei tonnance
+BPA results
+ACIT3420-C1
+Manage
+All Servers
+@ Manageability
+BPA results
+View
+Help
+Dashbmtd
+Local Server
+All Servers
+ADDS
+DNS
+File and Storag
+Pei 'onnance
+BPA results
+Pet
+BPA results
+Local Server
+t Manageability
+BPA results
+9/20/2018 9:52 PM
+9/20,201 g 9:52 PM
+===== frame_0022
+r_ Server Vanagel
+Dashbmtd
+Local Server
+All Servers
+ADDS
+DNS
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+o
+Configure this local server
+ACTT3420-OC1
+File and Storage
+Services
+Manageability
+Events
+Services
+BPA results
+ACIT3420-OC2
+ACIT3420-C1
+Manage V's
+All Servers
+@ Manageability
+BPA results
+View
+Help
+File and Storage Services t'
+STARI
+2
+3
+NEW
+4
+ROLES AND SERVER GROUPS
+3 | groups: I I
+@ Manageability
+Perform ance
+BPA results
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+DNS
+Manageability
+BPA results
+Local Server
+Manageability
+BPA results
+9/20/2018 9:52 PM
+9/20,201 g 9:52 PM
+===== frame_0023
+Dashbmtd
+Local Server
+All Servers
+ADDS
+DNS
+V,ew vy labs Help Jl
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+Administrator Command Promot
+: c) 2016 microsoft Corporation. All rights reserved.
+ca•bby.svr2
+request could not find host Ca-bby.Svr2. Check the and try again.
+ACTT3420-OC1
+Pet Sonnance
+BPA results
+ACIT3420-OC2
+ACIT3420-C1
+Manage
+All Servers
+Manageability
+BPA results
+View
+Help
+File and Storag
+Pei founance
+BPA results
+Pet 'ounatn_e
+BPA results
+Local Server
+t Manageability
+BPA results
+9/20/2018 9:52 PM
+9/20/2018 9:52 PM
+===== frame_0024
+Elle vy labs
+Server Manager Dashboard
+Active Directory users and Computers
+File Action View Help
+ACTI 3420-(XI
+ACIT3420-OC2
+ACIT3420-C1
+Description
+Pet tonnance
+BPA results
+Manage
+All Servers
+@ Manageability
+BPA results
+View
+Help
+Dashboard
+Local Server
+All Servers
+ADDS
+DNS
+: c) 2016
+request could
+File and Storag
+: XUsers\Administra:
+Active Directory users and Co
+Saved
+Adatum.com
+Bultin
+Computers
+Domain Controllers
+ForeignS.RurityPrinCipalS
+Managed Accounts
+J Office
+Pei 'onnance
+BPA results
+Name
+•cA-BBY-SvR2
+Pei '0/ mat ice
+BPA results
+Local Server
+Manageability
+BPA results
+9/20/201 g 9:52 PM
+9120/201 g 9:52 PM
+===== frame_0025
+Dashboard
+Local Server
+All Servers
+ADDS
+DNS
+Elle vy labs
+Server Manager Dashboard
+Administrator Command Promot
+X ) 2016 microsoft Corporation. All rights reserved.
+ca•bby.svr2
+request could not find host ca-bby.Svr2. Check the and try again.
+ACTI 3420-(XI
+Pet 'onnance
+BPA results
+ACIT3420-OC2
+ACIT3420-C1
+Manage
+All Servers
+@ Manageability
+BPA results
+View
+Help
+File and Storag
+: \Users iAdministrator»
+Pei 'onnance
+BPA results
+Pet
+BPA results
+Local Server
+Manageability
+BPA results
+9/20/201 g 9:52 PM
+9120/201 g 9:52 PM
+===== frame_0026
+ACIT3420-OC2
+Server Manager Dashboard
+ACTT3420-OC1
+Pe rformance
+BPA results
+ACIT3420-C1
+Manage
+All Servers
+@ Manageability
+BPA results
+View
+Help
+Dashbmtd
+Local Server
+All Servers
+ADDS
+DNS
+File and Storage Services t'
+iii
+users a
+File Action View Help
+Active a
+Saved eS
+Adatum.com
+, dultin
+Ccymputé.€
+Domain Controllers
+Foreign Securitypri
+Managed
+Office
+Perform ance
+BPA results
+BPA results
+Local Server
+Manageability
+BPA results
+9/20/2018 9:52 PM
+9/20,201 g 9:52 PM
+===== frame_0027
+V,ew
+Add Roles aM Features Wizard
+Select installation type
+Jabs
+Help
+Fil
+ACTT3420-OC1
+_5%79. AA475
+AA47 S
+ACIT3420-OC2
+ACIT3420-C1
+Maruge
+View
+TASKS
+TASKS
+Help
+SERVER
+No
+Before You Beal r
+Select the installation type, You can install and features a running physical Computer or virtual
+machine, or on an offline virtual hard disk WHO).
+Server Select.
+Conficyre a single server by adding Ides. role services. and features.
+o
+Remote Desktop Services installation
+Install requited role semces for V"tual Desktop Infrastructure (VD') to create a virtual machine-based
+O' Session -based desktop depJOY-nent_
+A" I O total
+===== frame_0028
+ACIB420-DC1 - VMware Workstation
+Eile Edit yew
+Library
+Type here to * arch
+g My Computer
+•AACIT 1420
+•vVin2016S Base Image
+ACIB420 ser•æt Core
+ACIT3420-DC1
+ACIT"20-oC2
+ACIT3420.C1
+Shared VMS
+TO direct input to
+IL Acrr342coc2
+ServerManager
+(9) Server Manager
+Acrr3420C1
+All Servers
+Dashboard
+Local Server
+All Servers
+ii ADDS
+DNS
+File and Storage Services
+SERVERS
+All servers 2 total
+Filte'
+Serve' Name
+CA-B3y-SvR2
+CA-VAN-SVRI
+An events IO total
+Server Name
+Aaaress
+192.168239.2
+192.1682391
+Manageability
+Last Umlate
+- not PM
+- counters not 9/20/2018 PM
+Severity Source
+Windows Activation
+00375-30727-59679-AA475 (Activated)
+AA475 (Activated)
+Dare and
+the pointer inside or

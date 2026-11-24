@@ -1,0 +1,42 @@
+Deploying DNSSEC (Optional)
+In this lab, you will learn how to use the Zone Signing Wizard in the DNS Manager console to configure DNSSEC.
+To deploy DNSSEC follow these steps:
+Logon DC as domain administrator, open the DNS Manager console. 
+Use the DNSSEC Zone Signing Wizard to sign the Adatum.com zone
+
+
+Select the Customize zone signing parameters option.
+
+Ensure that DNS server (DC.Adatum.com) is the Key Master.
+
+
+Add the Key Signing Key by accepting default values for the new key.
+
+Add the Zone Signing Key by accepting the default values for the new key.
+Choose to use nsce3 with default values.
+
+
+Select the Enable the distribution of trust anchors for this zone option.
+
+Accept the default values for signing and polling.
+
+
+
+
+Verify that the DNSKEY resource records were created in the Trust Points zone.
+
+
+Note: You also can unsign the zone. 
+
+Use the Group Policy Management Console (GPMC.MSC) to configure Name Resolution Policy Table (NRPT). You have to create a GPO first in (Group Policy Objectives) GPOs container. In the Group Policy Management Editor, navigate to Computer Configuration\Policies\Windows Settings\Name Resolution Policy.
+Specify a namespace for which the new rule will apply. Click the dropdown and select one of the following options: 
+Suffix: The latter part of a fully qualified domain name (FQDN). For example, selecting Suffix and entering microsoft.com in the corresponding field will apply the rule to queries for anything in the *.microsoft.com namespace, which includes microsoft.com and all of its child domains. 
+Prefix: The first part of an FQDN. For example, selecting Prefix and typing www will apply the rule to a query for any server named www in any domain. 
+FQDN: A complete fully qualified domain name. 
+Subnet (IPv4): An IPv4 subnet in CIDR notation (10.10.10.0/24, for example). This rule will apply to reverse DNS lookups. 
+Subnet (IPv6): An IPv6 subnet. This rule will apply to reverse DNS lookups. 
+Any: This configures the default rule, which applies to anything not covered by another rule.
+
+ The DNSSEC tab is where the rule settings are configured. You have to Enable DNSSEC in this rule to configure DNSSEC settings. Check Require DNS clients to check that name and address data has been validated by the DNS server to require DNSSEC validation for the specified namespace. Note: Use IPsec in communication between the DNS client and the DNS server to force the client and server to use IPsec when the client issues a query for the namespace. 
+
+Logon your client computer and run GPupdate /force; gpresult /r. Make sure you can find out the GPO (DNSSEC gpo) has been apply to your local computer. 

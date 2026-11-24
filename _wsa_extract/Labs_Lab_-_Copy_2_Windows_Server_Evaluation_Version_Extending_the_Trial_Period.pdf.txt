@@ -1,0 +1,28 @@
+--- page 1 ---
+ACIT 3420 
+1 
+ 
+Windows Server Evaluation Version Extending the Trial Period 
+ 
+You should see the countdown in the corner down right. 
+ 
+Start PowerShell and run slmgr. 
+slmgr -dlv 
+Note: Pay attention to the Timebased activation expiration and the Remaining Windows rearm 
+count. You can rearm the period 6 times. (180 days * 6 = 3 years). 
+ 
+
+--- page 2 ---
+ACIT 3420 
+2 
+ 
+When the period comes to an end, run slmgr -rearm to extend it by another 180 days. 
+slmgr -rearm 
+ 
+Next restart your computer. 
+Restart-Computer 
+Once restarted, open PowerShell and check your settings. slmgr -dli 
+ 
+Important Note 
+The evaluation version cannot use for production environment.  
+ 

@@ -1,0 +1,61 @@
+--- page 1 ---
+ACIT 3420 
+Final Exam Study Guide 
+1. Windows Server 2016 /2019/2022 upgrade
+2. Windows server 2016/2019/2022 new features. (Linux Secure Boot Powershell Direct, 
+Shielded VM such as Host Guardian Service, and ReFS)
+3. Windows Server 2016/2019/2022 Standard vs. Data Center
+4. What are the different types of accounts in Windows Server? Such as built-in user 
+accounts?
+5. Which command line can be used to ensure that the clone receives its own SID?
+6. What is domain controller? How to deploy ADDS
+7. How many primary Domain Controller (PDC) Emulators are required?
+8. ADDS DB (Partition), Site, trees, forests,
+9. What is the global catalog server? How many global catalogs are recommended for every 
+organization? (2)
+10. What is FSMO? List all roles and explain for each.
+11. What is functional levels (domain and forest)? When do we need to raise domain 
+functional level?
+12. When you add attributes to an Active Directory object, you change the schema of the 
+domain database.
+13. Fully qualified domain name (FQDN)?
+14. What is RODC? Why do we need RODC? How to deploy a RODC?
+15. What are Domain local group, global groups, universal groups, and distribution groups?
+nesting group
+16. Implementing group management: IGDLA
+17. How to share a folder on Windows 2016/2019/2022?
+18. What is a Nano Server? Benefit of a Nano Server? Services can be provided by a Nano 
+server? How to use offline domain join (djoin.exe)? In which scenario do you need djoin?
+19. How to create and deploy a Nano Server?
+20. NTFS Basic Permission and compare the differences between each other. For
+example, full control vs. modify
+21. How to assign appropriate permission?
+22. What is IPv4? What is IPv6? Private ip vs public ip.
+23. What is storage pool? Which type of media can be added to a storage pool? Parity vs. 
+three-way mirror vs. two-way mirror
+
+--- page 2 ---
+ACIT 3420 
+24. Block level vs file level storage
+25. What is RAID? RAID 0, RAID 1, RAID 5
+26. What is GPO? Why do we need GPO?
+27. Configuring Security Policies: You need to remember the default value
+28. Make sure that you are able to do the following:
+•
+Configure User Rights Assignment
+•
+Configure Security Options settings
+•
+Configure Security templates
+•
+Configure Audit Policy
+29. What is DHCP? Services provided by DHCP? What is scope?
+30. How DHCP lease generation works?
+31. When will your clients send requests to renew their IP addresses?
+32. How to create a DHCP scope? What is DHCP proxy? What is superscope?
+33. What is DNS? DNS Zones
+34. What is a split DNS? DNS port number?
+35. How to protect your DNS server? DNS records? Nslookup?
+36. What is virtualization? Type I vs. Type II
+37. Virtual switch
+38. VPN Protocols and Ports

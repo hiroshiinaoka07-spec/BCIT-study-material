@@ -1,0 +1,607 @@
+1
+00:00:00,880 --> 00:00:07,880
+OK, today I am going to teach you how to configure Wimware Workstation Network.
+
+2
+00:00:07,880 --> 00:00:14,880
+For the whole term, you have to follow my instructions to configure the network properly.
+
+3
+00:00:14,880 --> 00:00:25,790
+OK, so first step, go to Edit Wimware Network Editor.
+
+4
+00:00:25,790 --> 00:00:28,790
+OK, from here, Wimware Network Editor,
+
+5
+00:00:28,790 --> 00:00:36,790
+you're going to see the current virtual network, which is VM91 and VM98.
+
+6
+00:00:36,790 --> 00:00:41,790
+So how do you know I have a VM91, VM98?
+
+7
+00:00:41,790 --> 00:00:46,790
+So first, you can go to your network configuration.
+
+8
+00:00:46,790 --> 00:01:03,110
+You're going to see virtual network card from here, so VM91 and VM98.
+
+9
+00:01:03,110 --> 00:01:10,110
+And you're also going to see the Internet9, and that is for my computer.
+
+10
+00:01:10,110 --> 00:01:14,110
+I have a Wi-Fi module, also I have a docking station.
+
+11
+00:01:14,110 --> 00:01:19,110
+So you're going to have two virtual adapter cards.
+
+12
+00:01:19,110 --> 00:01:24,670
+And also you can use command line.
+
+13
+00:01:24,670 --> 00:01:26,670
+I pick config.
+
+14
+00:01:26,670 --> 00:01:34,670
+You will see the two network cards, which is virtualized network card.
+
+15
+00:01:34,670 --> 00:01:36,670
+Let me double check.
+
+16
+00:01:36,670 --> 00:01:44,490
+So you will see VM91 and VM98.
+
+17
+00:01:44,490 --> 00:01:50,020
+Yeah, VM91 and VM98.
+
+18
+00:01:50,020 --> 00:01:57,020
+So right now I need you to config, VM90 and VM9.
+
+19
+00:01:57,020 --> 00:02:00,020
+OK, change the setting.
+
+20
+00:02:00,020 --> 00:02:07,520
+VM90, which is bridge.
+
+21
+00:02:07,520 --> 00:02:12,520
+You need it to modify by yourself.
+
+22
+00:02:12,520 --> 00:02:15,520
+You cannot use automatic.
+
+23
+00:02:15,520 --> 00:02:26,520
+So automatic means VMware workstation will automatically select one of options from here, from the drop list.
+
+24
+00:02:26,520 --> 00:02:41,520
+If you have an Internet module or Wi-Fi module, sometimes you get Internet, sometimes you will not, because it's automatic.
+
+25
+00:02:41,520 --> 00:02:54,520
+OK, a VMware workstation is not smart enough to select the network card that is using to access the Internet.
+
+26
+00:02:54,520 --> 00:02:56,520
+VMware don't know that.
+
+27
+00:02:56,520 --> 00:03:04,520
+So if you want to use Wi-Fi module, so you need to tell VMware, I'm going to use Wi-Fi module.
+
+28
+00:03:04,520 --> 00:03:06,520
+For example, I'm going to use Wi-Fi module.
+
+29
+00:03:06,520 --> 00:03:13,520
+Or if you use the Internet, you're going to tell VMware workstation you're going to use the Internet module.
+
+30
+00:03:13,520 --> 00:03:15,520
+They have Intel Internet module.
+
+31
+00:03:15,520 --> 00:03:23,520
+Because I told you before, I have a docking station, Lenovo USB docking station.
+
+32
+00:03:23,520 --> 00:03:27,520
+So I'm going to choose the Lenovo USB Internet.
+
+33
+00:03:27,520 --> 00:03:35,520
+But if you only have one wireless module, so you will select the wireless one.
+
+34
+00:03:35,520 --> 00:03:44,520
+And some students are going to ask me, how should I find the name of my Wi-Fi module?
+
+35
+00:03:44,520 --> 00:03:57,520
+So you can go to the control panel, or you can right-click, go to the Disk Manager, Device Manager, not Disk Manager, Device Manager.
+
+36
+00:03:57,520 --> 00:04:03,520
+Go to the Device Manager, expand your network adapters.
+
+37
+00:04:03,520 --> 00:04:10,520
+From here you will find your Internet or Wi-Fi module.
+
+38
+00:04:10,520 --> 00:04:17,520
+So you will see I have an Internet, wireless, AC8265.
+
+39
+00:04:17,520 --> 00:04:23,520
+I also have Internet and USB.
+
+40
+00:04:23,520 --> 00:04:28,520
+So I'm going to use the Lenovo USB Internet.
+
+41
+00:04:28,520 --> 00:04:31,520
+Maybe I use Wi-Fi.
+
+42
+00:04:31,520 --> 00:04:33,520
+I'm going to choose Wi-Fi.
+
+43
+00:04:33,520 --> 00:04:37,520
+And then you can choose to apply it.
+
+44
+00:04:37,520 --> 00:04:41,520
+But right now I want you to configure another one also.
+
+45
+00:04:41,520 --> 00:04:44,520
+So I don't need a VMnet one, but that's fine.
+
+46
+00:04:44,520 --> 00:04:47,520
+You can remove that one or you can leave in there.
+
+47
+00:04:47,520 --> 00:04:49,520
+So I'm probably going to remove that one.
+
+48
+00:04:49,520 --> 00:04:51,520
+I don't need a VMnet 8.
+
+49
+00:04:51,520 --> 00:04:54,520
+I'm going to use the host only.
+
+50
+00:04:54,520 --> 00:05:00,520
+Make sure you understand the difference between the host only, net and bridged.
+
+51
+00:05:00,520 --> 00:05:10,520
+So host only also is one of the net types.
+
+52
+00:05:10,520 --> 00:05:14,520
+So what is net?
+
+53
+00:05:14,520 --> 00:05:22,520
+So the net, if you select the net, so that means your VM can talk to your virtual machine,
+
+54
+00:05:22,520 --> 00:05:26,520
+which is your host can talk to your virtual machine.
+
+55
+00:05:26,520 --> 00:05:37,520
+And also other virtual machine also can talk to your virtual machine
+
+56
+00:05:37,520 --> 00:05:40,520
+if you set up a port forwarding.
+
+57
+00:05:40,520 --> 00:05:46,040
+If you set up port forwarding.
+
+58
+00:05:47,040 --> 00:05:54,040
+Bridged, that means your VMware, your virtual machines
+
+59
+00:05:54,040 --> 00:06:04,040
+can join the SimSumNet as your local host.
+
+60
+00:06:04,040 --> 00:06:08,040
+So that means your local host can talk to your VMware
+
+61
+00:06:08,040 --> 00:06:15,040
+and other local hosts also can talk to your VMware without extra configurations.
+
+62
+00:06:15,040 --> 00:06:19,040
+If you cannot pin, that means the firewall issues.
+
+63
+00:06:19,040 --> 00:06:25,850
+You have to enable the firewall.
+
+64
+00:06:25,850 --> 00:06:27,850
+Go to the firewall.
+
+65
+00:06:27,850 --> 00:06:30,850
+You can select advanced configuration.
+
+66
+00:06:30,850 --> 00:06:43,830
+Look at the inbound row.
+
+67
+00:06:43,830 --> 00:06:49,340
+You can find ICMPv4.
+
+68
+00:06:49,340 --> 00:06:54,340
+ICMPv4.
+
+69
+00:06:54,340 --> 00:07:01,340
+So you have to enable that one.
+
+70
+00:07:01,340 --> 00:07:06,340
+After you enable ICMPv4 and you can pin.
+
+71
+00:07:06,340 --> 00:07:10,340
+So echo request, so make sure allowed.
+
+72
+00:07:10,340 --> 00:07:22,940
+Because I have Kaspersky, so I use Kaspersky firewall.
+
+73
+00:07:22,940 --> 00:07:28,940
+VM98, I want you to choose host only and uncheck the two options.
+
+74
+00:07:28,940 --> 00:07:34,940
+If you leave the two options, that means your VM98
+
+75
+00:07:34,940 --> 00:07:41,940
+can automatically get the IP address from the VMware DCP.
+
+76
+00:07:41,940 --> 00:07:48,940
+The subnet is 192.168.134.0.
+
+77
+00:07:48,940 --> 00:07:54,940
+So you can look at your VM98.
+
+78
+00:07:54,940 --> 00:08:02,560
+Let me look at your VM98.
+
+79
+00:08:02,560 --> 00:08:15,680
+You will see the IP address 192.168.134.1.
+
+80
+00:08:15,680 --> 00:08:21,680
+Because of the VMware DCP.
+
+81
+00:08:21,680 --> 00:08:30,680
+Also you can modify the scope.
+
+82
+00:08:30,680 --> 00:08:32,680
+You can modify the scope.
+
+83
+00:08:32,680 --> 00:08:39,680
+Also you can modify how many days you want to list to your VMware.
+
+84
+00:08:39,680 --> 00:08:41,680
+Your virtual machine.
+
+85
+00:08:41,680 --> 00:08:43,680
+You can modify from here.
+
+86
+00:08:43,680 --> 00:08:46,680
+I need you to uncheck these two.
+
+87
+00:08:46,680 --> 00:08:48,680
+Add another one.
+
+88
+00:08:48,680 --> 00:08:50,680
+VM99.
+
+89
+00:08:50,680 --> 00:08:52,680
+Click OK.
+
+90
+00:08:52,680 --> 00:08:57,680
+I need you to config the same as VM98.
+
+91
+00:08:57,680 --> 00:08:59,680
+Host only.
+
+92
+00:08:59,680 --> 00:09:01,680
+Click apply.
+
+93
+00:09:01,680 --> 00:09:06,500
+Click OK.
+
+94
+00:09:06,500 --> 00:09:11,500
+After you config, you can use IP config.
+
+95
+00:09:11,500 --> 00:09:20,820
+You can find release and renewal my IP address.
+
+96
+00:09:20,820 --> 00:09:47,650
+Use IP config.
+
+97
+00:09:47,650 --> 00:09:49,650
+You will see.
+
+98
+00:09:49,650 --> 00:10:03,460
+Let me double check my network.
+
+99
+00:10:03,460 --> 00:10:08,820
+Look at my IP network.
+
+100
+00:10:08,820 --> 00:10:09,820
+OK.
+
+101
+00:10:09,820 --> 00:10:11,820
+Right now I use Wi-Fi.
+
+102
+00:10:11,820 --> 00:10:12,820
+It's fine.
+
+103
+00:10:12,820 --> 00:10:24,470
+Wi-Fi has the IP address to no IP address.
+
+104
+00:10:24,470 --> 00:10:26,470
+Which is Kaspersky.
+
+105
+00:10:26,470 --> 00:10:37,480
+And you cannot find the IP address for VM99, VM98.
+
+106
+00:10:37,480 --> 00:10:39,480
+If you cannot find.
+
+107
+00:10:39,480 --> 00:10:42,480
+That means you set up correctly.
+
+108
+00:10:42,480 --> 00:10:44,480
+If you cannot find.
+
+109
+00:10:44,480 --> 00:10:46,480
+That means you set up correctly.
+
+110
+00:10:46,480 --> 00:10:52,970
+I'm going to create a VM.
+
+111
+00:10:52,970 --> 00:11:02,920
+I'm going to install later.
+
+112
+00:11:02,920 --> 00:11:04,920
+Windows Server 2019.
+
+113
+00:11:04,920 --> 00:11:06,920
+Next.
+
+114
+00:11:06,920 --> 00:11:16,220
+I'm going to call Windows Server ACIT 3420.
+
+115
+00:11:16,220 --> 00:11:27,400
+The master image.
+
+116
+00:11:27,400 --> 00:11:29,400
+Put to here.
+
+117
+00:11:29,400 --> 00:11:30,400
+D drive.
+
+118
+00:11:30,400 --> 00:11:36,060
+Base image.
+
+119
+00:11:36,060 --> 00:11:38,060
+UEFI security boot.
+
+120
+00:11:38,060 --> 00:11:48,160
+Give you 4GB.
+
+121
+00:11:48,160 --> 00:11:49,160
+Use NIT.
+
+122
+00:11:49,160 --> 00:11:51,160
+You can use NIT right now.
+
+123
+00:11:51,160 --> 00:11:57,020
+That's fine.
+
+124
+00:11:57,020 --> 00:11:59,020
+You can use default.
+
+125
+00:11:59,020 --> 00:12:00,020
+NVMe.
+
+126
+00:12:00,020 --> 00:12:01,020
+Yes.
+
+127
+00:12:01,020 --> 00:12:03,020
+I want to create a new disk.
+
+128
+00:12:03,020 --> 00:12:04,020
+Yes.
+
+129
+00:12:04,020 --> 00:12:08,360
+120.
+
+130
+00:12:08,360 --> 00:12:09,360
+OK.
+
+131
+00:12:09,360 --> 00:12:13,360
+You can use the multiple file in order to get the better performance.
+
+132
+00:12:13,360 --> 00:12:15,360
+Next.
+
+133
+00:12:15,360 --> 00:12:18,360
+This is a virtual disk names.
+
+134
+00:12:18,360 --> 00:12:20,360
+OK.
+
+135
+00:12:20,360 --> 00:12:22,360
+Finish.
+
+136
+00:12:22,360 --> 00:12:24,360
+So after you finish.
+
+137
+00:12:24,360 --> 00:12:26,360
+I want to connect to VM99.
+
+138
+00:12:26,360 --> 00:12:27,360
+Customer.
+
+139
+00:12:27,360 --> 00:12:28,360
+VM99.
+
+140
+00:12:28,360 --> 00:12:37,060
+I also want you to go to the network.
+
+141
+00:12:37,060 --> 00:12:44,720
+To double check.
+
+142
+00:12:44,720 --> 00:12:45,720
+OK.
+
+143
+00:12:45,720 --> 00:12:52,420
+That's normal.
+
+144
+00:12:52,420 --> 00:12:58,820
+I'm going to double check again before I overcome my stop.
+
+145
+00:12:58,820 --> 00:12:59,820
+Customer.
+
+146
+00:12:59,820 --> 00:13:00,820
+Customer.
+
+147
+00:13:00,820 --> 00:13:05,590
+Yes.
+
+148
+00:13:05,590 --> 00:13:06,590
+That's normal.
+
+149
+00:13:06,590 --> 00:13:07,590
+OK.
+
+150
+00:13:07,590 --> 00:13:08,590
+If you have questions.
+
+151
+00:13:08,590 --> 00:13:10,590
+Talk to me or email me.
+
+152
+00:13:10,590 --> 00:13:11,590
+Bye.

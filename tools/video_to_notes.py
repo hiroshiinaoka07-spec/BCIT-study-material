@@ -155,7 +155,8 @@ def write_outputs(video: Path, out_dir: Path, segments, frames, duration: float,
 
 
 def process(video: Path, args) -> None:
-    out_dir = OUT_ROOT / video.stem
+    # Windows cannot create folders whose names end in a space or dot.
+    out_dir = OUT_ROOT / video.stem.strip().rstrip(". ")
     if (out_dir / "transcript.md").exists() and not args.force:
         print(f"skip (already done): {video.name}  -> use --force to redo")
         return
@@ -200,7 +201,10 @@ def main():
         if not v.exists():
             print(f"not found: {v}")
             continue
-        process(v.resolve(), args)
+        try:
+            process(v.resolve(), args)
+        except (Exception, SystemExit) as exc:
+            print(f"FAILED: {v.name}: {exc}")
 
 
 if __name__ == "__main__":

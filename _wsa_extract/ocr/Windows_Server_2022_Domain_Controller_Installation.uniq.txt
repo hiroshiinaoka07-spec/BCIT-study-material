@@ -1,0 +1,149 @@
+===== frame_0001
+Vile nd Storage
+===== frame_0002
+Installation progress
+===== frame_0006
+steps nuire-S to this
+===== frame_0009
+Deployment Configuration
+===== frame_0010
+Additional Options
+===== frame_0011
+Review Options
+===== frame_0015
+You're about to be signed out
+computer is t*ing restarted because Rtive Directcgy thmain Services was instdled
+===== frame_0017
+[t] ACIT3420-Client
+• Virtual Machine Details
+===== frame_0019
+Applying computer settings
+===== frame_0021
+Sunday, September 18
+===== frame_0022
+v Frequent folders (4)
+v Recent files (O)
+===== frame_0023
+Your PC is monitored and protected.
+Device specifications
+Windows specifications
+===== frame_0024
+and protected.
+Advanced system
+Rename this PC
+===== frame_0026
+IP Configuratl(l
+adapter Etherr.
+O. fault Gateway _
+Shared expenences
+Remote Desktop
+Read the Miaosott Software license
+system se flings
+===== frame_0027
+IP Configurat ion
+•duress . . . . . .
+: 192.16.g.1.ga
+Subnet . . . . . . . . . .
+. ; 2ss.2ss.2ss.ø
+• : 192.168.1.254
+: Media di"Äted
+Read the Miaosott Software
+===== frame_0029
+adapter Bluetooth
+Physical . . . .
+WSerSXJOhnny>pIng •datum.
+ping request not find host
+please the n. try again.
+anced system se
+===== frame_0031
+Windows Server
+Administration (X-Iist
+COMP-37210 - Intro
+Communications -
+32733 (3G) - Lab
+32730 - (3A)-Lab
+ACIT-3640.O Cloud
+Computing (x-list
+46918 (30) - Lab
+COMP-2454-NET -
+Python Fundamentals
+- 46632 - Internet
+starts October 28.2022
+- 46962 - Internet
+47193 (3V) - Lab
+- 48619 - Lecture/Lab
+StMts 29.2022 at
+(202230) Term:
+Request your Crosslists Here
+• Term Start Checklist
+How-to wdeos tor Instructors
+aids and resources
+NOTE: Google Chrome is the
+BCIT Library Resources and Services
+during the Transition to Online
+Click here for more information
+LTC Services News v
+Educational Technology Services
+(including the Learning Hub)
+• Education Technology Services
+(ETS) Helpdesk • Hours and
+Contact us information
+Need a guided tour ot The
+Learning & Teaching Centre
+(LTC) in General
+• Click h ere to the Em
+Learning Centre
+Here you will find professional
+development Courses. resource
+sites. and communities of practice
+offered by a range of BCIT
+departments, including the Guided
+Tour Of the Learning Hub.
+===== frame_0033
+. : (Personal Area
+Enabled. . . . .
+request not find host
+Please check the
+Pinging 192.168.239.1 "ith 32 bvt s
+192.168.239. S&ytes-ya tie-ins
+192.168.239 -i:
+192.168.239å: bytes-32
+Ping statistics 68.239.1:
+Pukets; • 4. Received • a, Lost e (ax loss).
+===== frame_0038
+Computer Name/Domain Changes
+Enter the name and Of account permission to
+projecting to pc
+===== frame_0039
+it —y take lots of GPOS will be applied
+this s you ( a nd pas
+Read the Miacsott Sottwa'e license
+===== frame_0041
+it may take Ie because lots of GPOS be applied on the controller.
+this is your administrator ( Ca-Van-SW'I) and
+Om ice Manager
+system se tongs
+===== frame_0042
+it —y take lots of GPOS will be
+this is local administrator accwnt (Ca-Van-SW'I) and
+Read the Software license
+===== frame_0046
+WELCOME TO SERVER MANAGER
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+===== frame_0047
+you Can find information user and
+===== frame_0053
+can find your user and
+I to •y to iog in Client
+Yes, I can In.
+00 you want to save changes to Untitled?
+Don't turn off your PC
+===== frame_0054
+Vile nd Storage Services
+p Type here to search
+===== frame_0056
+This might take several minutes

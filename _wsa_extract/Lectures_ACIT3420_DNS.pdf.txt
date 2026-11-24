@@ -1,0 +1,464 @@
+--- page 1 ---
+Module 8: 
+Windows Server 2019/2022 DNS
+Lei Zhang (Johnny)
+ACIT 3420
+Windows Server Administration
+
+--- page 2 ---
+Learning Objectives
+Implementing DNS servers
+Configuring Zones and records in DNS
+Configuring name resolution between DNS zones
+Configuring DNS integration with AD DS
+Configuring advanced DNS settings
+
+--- page 3 ---
+Understanding DNS
+Domain Name System (DNS) is a naming service that is used by the 
+TCP/IP network and is an essential service used by the Internet. Every 
+time a user accesses a web page, the user must type a URL. 
+Before the client communicates with the web server, the client 
+computer needs to use DNS to retrieve the IP address of the web 
+server, similar to how someone uses a phone book to find a phone 
+number. 
+When an enterprise client needs to communicate with a corporate 
+server, the enterprise client also uses DNS to find the IP address of the 
+corporate server. The DNS servers are often referred to as name 
+servers. 
+Port 53 TCP & UDP (Linux & Windows)
+
+--- page 4 ---
+FQDN
+A hostname is a computer name that is added to a domain 
+name  and top level domain to make a fully qualified domain 
+name (FQDN)
+Fully qualified domain name = AcctDirPC.adatum.com
+Hostnam
+e
+AcctDirPC
+Domain
+adatum
+Top level
+com
+
+--- page 5 ---
+Understanding DNS Names
+DNS uses fully qualified domain names (FQDNs) to map a host 
+name to an IP address. 
+An FQDN describes the exact relationship between a host and 
+its DNS domain. 
+Traditionally, top-level domains consist of generic top-level 
+domains (.com) and international country codes (such as us for 
+United States, uk for United Kingdom, de for Germany, and jp
+for Japan). 
+Second-level domains are registered to individuals or 
+organizations.
+A host is a specific computer or other network device in a 
+domain. 
+
+--- page 6 ---
+DNS Hierarchy
+
+--- page 7 ---
+Resolving DNS names between zones
+
+--- page 8 ---
+What are DNS Zones
+A DNS zone is a specific portion of DNS 
+namespace that contains DNS records
+Divided for administration reasons
+Zone Types:
+Forward lookup zone
+Reverse lookup zone
+
+--- page 9 ---
+DNS Components
+DNS namespace is a hierarchical naming structure that provides 
+multiple identifiers for each network node that can be identified 
+relative to the root domain:
+computer01.unitedstates.microsoft.com
+DNS infrastructure components include:
+DNS server: Contains a database of host names and IP addresses. 
+DNS zone: A DNS infrastructure is broken up into zones. A DNS zone is the 
+specific portion of a DNS namespace that contains DNS records.
+DNS resolvers: provides the service to query for host-to-ip address 
+mappings.
+Resource records: are actual entries in the DNS database that are used to 
+answer queries such as A, AAAA, SVR, PTR.
+
+--- page 10 ---
+Planning and Installing DNS Servers
+The five basic steps in deploying DNS are:
+1.
+Install DNS on one or more servers (?).
+2.
+Configure the DNS servers.
+3.
+Create forward and reverse lookup zones.
+4.
+Add resource records to the forward and reverse lookup zones 
+that you just created.
+5.
+Configure clients to use DNS servers.
+(Redundancy and Performance)
+Q: Can we deploy DNS service on a NANO Server?
+
+--- page 11 ---
+Authoritative/Non-authoritative Responses
+Non-authoritative responses come from DNS servers that have 
+cached an answer for a given host, but received that 
+information from a server that is not authoritative for the 
+domain.
+Any DNS server that contains a complete copy of the domain's 
+zone file is considered to be authoritative for that domain only. 
+A complete copy of a zone file must have:
+
+A valid Start of Authority (SOA) record
+
+Valid Name Server (NS) records for the domain
+
+The listed NS records should match the servers listed in the SOA 
+record. 
+
+--- page 12 ---
+Types of Zones
+
+--- page 13 ---
+Types of DNS Zones
+Zones
+Description
+Primary
+o
+Read/Write copy of a DNS database (Authority DNS)
+Stored in a text file
+o
+Easy to back up and recover
+o
+Primary zone must be available to make changes
+Secondary
+o
+Read-only copy of a DNS database 
+Can be copies of Primary, Secondary, and Active 
+Directory Integrated
+o
+Primary zone must be available to make changes
+o
+Windows can be a secondary zone to a Unix Primary 
+Zone
+Stub
+o
+Copy of a zone that contains only records used to 
+locate name servers. (Redirects the requests to a 
+server that can answer it)
+o
+Subset of records: Glue host (A) records, Start of 
+Authority (SOA), Name Server (NS) records.
+Active Directory-Integrated
+o
+Zone data is stored in AD DS rather than in zone files
+o
+Only available on domain controller
+o
+High availability and redundancy
+o
+Harder to restore in a disaster
+
+--- page 14 ---
+Benefits of an Active Directory-Integrated 
+Zone
+Multi-master updates
+Replication of DNS zone data by using AD DS 
+replication (attribute-level replication)
+Secure dynamic updates
+Detailed security (delegated administration 
+of zones and ACL)
+
+--- page 15 ---
+DNS Records 1
+Resource records in forward lookup zones include: 
+Host (A and AAAA) : A for IPv4 and AAAA for IPv6
+Note: Host names <-> IP addresses
+Mail Exchanger (MX): Identifies mail server for DNS name 
+Service Record (SRV): (Service name and port, protocol, host name)
+Location of service on the network (DC) (Host (A) record)
+Contains the following data: Service, Target port, Priority
+Usually created automatically by applications
+Note: Service <-> Host names
+Name Server (NS) : contains authority DNS Servers for that domain.
+Alias (CNAME): Alternative record or alias for another record
+
+--- page 16 ---
+
+--- page 17 ---
+DNS Records 2
+Start of Authority (SOA): 
+One per zone; 
+Primary Name Server; 
+Email of Administrator
+Serial Number
+Refresh time for the zone
+TXT or SPF & MX (Email Spoofing)
+Resource records in reverse lookup zones include: 
+Pointer (PTR): Provides IP Address to Name Mapping
+
+--- page 18 ---
+Creating Records in DNS
+Add-DnsServerResourceRecordA -ZoneName Adatum.com -Name CA-VAN-Svr3 -IpAddress 192.168.239.4
+
+--- page 19 ---
+DNS Record Issues
+
+--- page 20 ---
+DNS Record Issues (cont.)
+Which tools can be used to identify the problem?  
+
+--- page 21 ---
+Benefits of Service Resource Locator Records
+Benefits of SRV Resource Records
+Domain controllers register their SRV resource records 
+dynamically, by service and site location
+Client systems in sites use SRV resource records recorded in 
+a site to find domain controllers in their own site before 
+attempting to connect to domain controllers across wide 
+area network links
+Keeps network traffic across links down and manageable
+
+--- page 22 ---
+Configuring Forwarders
+By default, when a client contacts a DNS server and the 
+DNS server does not know the answer, it performs an 
+iterative query to find the answer, which means it first 
+contacts the root domain and additional DNS servers 
+until it finds the authoritative DNS server for the zone. 
+However, DNS servers can be configured to be 
+forwarded to another DNS server or a conditional 
+forwarder based on the domain name queried. 
+By using a forwarder, you control name resolution 
+queries and traffic, which can improve the efficiency of 
+name resolution for the computers in your network. 
+Q: Why do we need forwarders?
+
+--- page 23 ---
+Implementing Advanced Settings
+The DNS server Properties Advanced options 
+tab is used to configure common server 
+options, including enabling or disabling 
+recursion, round robin, netmask ordering, and 
+secure cache against pollution option. 
+By default, the round robin, netmask ordering, 
+and secure cache pollution options are 
+enabled. 
+Round robin is a DNS balancing mechanism 
+that distributes network load among multiple 
+servers by rotating resource records retrieved 
+from a DNS server. 
+
+--- page 24 ---
+Using Root Hints 
+Root Name Servers: A root name server is a name server for the root 
+zone of the Domain Name System (DNS) of the Internet. It directly 
+answers requests for records in the root zone and answers other 
+requests by returning a list of the authoritative name servers for the 
+appropriate top-level domain (TLD).
+The root hints are used by DNS servers to find the root servers when 
+performing iterative queries. 
+The root hints are essential for DNS servers that are authoritative at 
+lower levels of the DNS namespace when locating and finding the 
+authoritative server for a zone. 
+
+--- page 25 ---
+
+--- page 26 ---
+Configuring DNS Logging
+DNS logging is a troubleshooting tool to allow for detailed, 
+file-based analysis of all DNS packets and messages. 
+The full title is DNS debug logging. There is a processing 
+and storage overhead in the use of debug logging. 
+
+--- page 27 ---
+
+--- page 28 ---
+Configuring Security for DNS
+Windows Server 2019/2022 includes a number of domain 
+naming system (DNS) security features. 
+Securing the DNS server and DNS records prevents false 
+records from being added and prevents clients from receiving 
+incorrect DNS query responses, which can lead them to visit 
+phishing sites or worse. 
+To prevent DNS from being used to attack systems, DNS 
+Security Extensions (DNSSEC), cache locking, and other 
+security measures can be implemented. 
+
+--- page 29 ---
+Configuring DNSSEC 
+DNS Security Extensions (DNSSEC) is a suite of protocols 
+defined by the Internet Engineering Task Force (IETF) for 
+use on IP networks. 
+DNSSEC provides DNS clients, or resolvers, with proof of 
+identity of DNS records and verified denial of existence. 
+DNSSEC does not provide availability or confidentiality 
+information. 
+
+--- page 30 ---
+Configuring the DNS Socket Pool
+The DNS socket pool is a tool used to allow source port 
+randomization for DNS queries, which reduces the 
+chances of an attacker guessing which IP address and 
+port (socket) the DNS traffic uses. 
+Cmdlet: dnscmd /Config /SocketPoolSize
+(0-10,000)
+
+--- page 31 ---
+Configuring DNS Cache Locking
+DNS cache locking prevents an attacker from replacing 
+records in the resolver cache while the Time to Live (TTL) 
+is still in force. When cache locking is enabled, records 
+cannot be overwritten. 
+Cmdlet: dnscmd /Conifg /CatcheLockingPercent 100
+PS: Set-DnsServerCache –LockingPercent
+
+--- page 32 ---
+Time to Live(TTL)/Aging
+TTL:
+Time a DNS record can be stored in cache
+TTL can be set according to requirements
+DNS Record Aging
+Applies to dynamic DNS records
+Can be configured on static records
+Timestamp can be updated
+No-Refresh Interval/Refresh Interval
+Reduce replication traffic
+Prevent DNS records being removed too quickly
+No-refresh interval: 
+timestamp cannot be updated
+Other changes can be made (IP address change,  Service changes: e.g. Ports)
+Refresh Interval
+Any data can be changed includes timestamps
+
+--- page 33 ---
+Scavenging
+The process used to remove outdated DNS records
+Occurs after No-refresh interval + refresh interval (14 days 
+by default)
+Not configured by default
+Requires a number of settings to be configured
+Can appear to happen randomly
+
+--- page 34 ---
+Configuring Delegated Administration 
+DNS is a key service within your network. Administration 
+of the service should be restricted to those who really 
+need it. 
+The principle of least privilege should always apply to DNS 
+administration. 
+
+--- page 35 ---
+Configuring Zone Delegation 
+A DNS subdomain is a child domain that is part of a parent 
+domain and has the same domain suffix as the parent 
+domain. 
+Subdomains allow you to assign unique names to be used 
+by a particular department, subsidiary, function, or service 
+within the organization. 
+However, you can create a different zone for the 
+subdomain, which can be stored on another server. 
+As a result, you can increase performance for the DNS 
+zones as the traffic is delegated to multiple servers. 
+
+--- page 36 ---
+DNS Forwarding
+A forwarder is a DNS server that is designated to resolve external or 
+offsite DNS domain names
+
+--- page 37 ---
+DNS Forwarding and Stub Zone Guidance
+When to use conditional forwarding
+Points to a different domain name
+Name can even be in a different top level
+When you want all name resolution for that name to take a 
+particular path
+When to use stub zones
+Usually when the domain name is below a higher level
+Delegation below a delegation
+
+--- page 38 ---
+Understanding Split DNS
+For security reasons, most organizations use Split DNS, 
+where DNS is divided into internal and external DNS. 
+The internal DNS must remain separate from the external 
+DNS and must be inaccessible from outside the firewall. 
+In addition, external DNS records of servers and services 
+must be accessible internally. 
+
+--- page 39 ---
+Understanding Split DNS
+External DNS 
+server
+Perimeter Network
+Mail server
+Web 
+server
+Domain controllers 
+running Active Directory-
+integrated DNS
+Inside 
+firewall
+Outside 
+firewall
+Internal network
+Hosts only records that are 
+resolved from the outside, 
+such as mail and web server
+1.
+Clients and servers on the internal network send all DNS 
+queries to Active Directory-integrated DNS servers.
+
+--- page 40 ---
+Understanding Split DNS
+External DNS 
+server
+Perimeter Network
+Mail server
+Web 
+server
+Domain controllers 
+running Active Directory-
+Integrated DNS
+Inside 
+firewall
+Outside 
+firewall
+Internal network
+2.
+The Active Directory-Integrated DNS servers return IP 
+addresses back to those querying clients and servers on 
+the internal network. 
+Hosts only records that are 
+resolved from the outside, 
+such as mail and web server
+
+--- page 41 ---
+Understanding Split DNS
+External DNS 
+server
+Perimeter Network
+Mail 
+server
+Web 
+server
+Domain controllers 
+running Active Directory-
+integrated DNS
+Inside 
+firewall
+Outside 
+firewall
+Internal network
+3.
+The external DNS server provides name 
+resolution for Internet clients.
+Hosts only records that 
+are resolved from the 
+outside, such as mail 
+and web server

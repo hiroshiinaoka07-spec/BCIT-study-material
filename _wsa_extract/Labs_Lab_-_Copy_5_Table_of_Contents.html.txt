@@ -1,0 +1,1 @@
+    ACIT-3420-0 - Windows Server Administration (merge 202630 45155 45156 45860 48487) - Week 7-Lab 5: IPv4 &amp; IPv6 &amp; Share Permission      &nbsp;      ACIT-3420-0 - Windows Server Administration (merge 202630 45155 45156 45860 48487) - Week 7-Lab 5: IPv4 &amp; IPv6 &amp; Share Permission     1. Lab5: How to Set an IPv4 Address with PowerShell       

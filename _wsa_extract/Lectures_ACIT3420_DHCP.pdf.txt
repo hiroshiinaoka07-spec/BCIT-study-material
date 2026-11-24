@@ -1,0 +1,362 @@
+--- page 1 ---
+Module 9: 
+DHCP
+Lei Zhang (Johnny)
+ACIT 3420
+Windows Server Administration
+
+--- page 2 ---
+Module Overview
+Overview of the DHCP server role
+Deploying DHCP
+Managing and troubleshooting DHCP
+
+--- page 3 ---
+Overview of the DHCP server role
+Benefits of using DHCP
+How DHCP allocates addresses
+How DHCP lease generation works
+How DHCP lease renewal works
+
+--- page 4 ---
+Benefits of using DHCP
+DHCP reduces the complexity and amount of administrative work by using 
+automatic IP configuration
+Automatic IP configuration
+Manual IP configuration
+Supplies IP addresses automatically
+Type IP addresses manually
+Ensures correct configuration information
+Typing incorrect IP address is a possibility
+Updates client configuration 
+automatically
+Can result in possible communication and 
+network issues
+Eliminates a common source of network 
+problems
+Frequent computer moves increase 
+administrative effort
+IPv6 is also supported by Microsoft DHCP service
+
+--- page 5 ---
+How DHCP Allocates Addresses
+IP Address1: Leased to DHCP Client1
+IP Address2: Leased to DHCP Client2
+IP Address3: Available for lease
+DHCP client2:
+IP configuration 
+from DHCP server
+Non-DHCP client: Static IP 
+configuration
+DHCP client1:
+IP configuration from 
+DHCP server
+Lease generation 
+Lease
+renewal
+DHCP database
+DHCP server
+
+--- page 6 ---
+How DHCP Lease Generation Works
+DHCP server2
+DHCP server1
+DHCP client
+1. DHCP client broadcasts a DHCPDISCOVER packet
+2. DHCP servers broadcast a DHCPOFFER packet
+3. DHCP client broadcasts a DHCPREQUEST packet
+4. DHCP Server1 broadcasts a DHCPACK packet
+
+--- page 7 ---
+How DHCP Lease Renewal Works
+87.5% of lease 
+duration has 
+expired
+1.
+DHCP client sends a DHCPREQUEST packet
+2.
+DHCP Server1 sends a DHCPACK packet
+3.
+If the client fails to renew its lease after 50% of the lease duration has 
+expired, the DHCP lease renewal process begins again after 87.5% of the 
+lease duration has expired
+4.
+If the client fails to renew its lease after 87.5% of the lease has expired, the 
+DHCP lease generation process starts over again with a DHCP client 
+broadcasting a DHCPDISCOVER
+DHCP server2
+DHCP
+clients
+DHCP server1
+50% of lease 
+duration has 
+expired
+100% of lease 
+duration has 
+expired
+
+--- page 8 ---
+Deploying DHCP
+Installing and configuring the DHCP server role
+DHCP server authorization
+Demonstration: Install a DHCP server and performing post-
+installation tasks
+Allocating and managing IPv4 addresses with DHCP
+Configuring DHCP options
+Demonstration: Configure a DHCP server
+What is a DHCP relay agent?
+
+--- page 9 ---
+Installing and Configuring the DHCP 
+Server Role
+• You can install the DHCP server role by using:
+• The Add Roles and Features Wizard in server manager
+• Windows PowerShell: 
+• Add-WindowsFeature DHCP
+• The server hosting DHCP requires a static IP address
+• Post installation tasks include:
+• Creating DHCP security groups
+• Restarting the DHCP Server service
+• Authorizing the DHCP server in AD DS
+
+--- page 10 ---
+DHCP Server Authorization
+Domain
+controller
+AD DS
+DHCP client 
+DHCP Server2 checks with the domain controller to obtain 
+a list of authorized DHCP servers
+If DHCP Server2 does not find its IP address on the list, the 
+service does not start and support DHCP clients
+DHCP client receives IP address 
+from authorized DHCP Server1
+DHCP Server1 checks with the domain controller to obtain 
+a list of authorized DHCP servers
+If DHCP Server1 finds its IP address on the list, the service starts 
+and supports DHCP clients
+Unauthorized
+Does not service DHCP 
+requests
+Authorized
+Services DHCP 
+requests
+DHCP server1
+DHCP server2
+DHCP authorization registers the DHCP Server service in the Active Directory 
+domain to support DHCP clients
+
+--- page 11 ---
+
+--- page 12 ---
+
+--- page 13 ---
+
+--- page 14 ---
+
+--- page 15 ---
+Allocating and Managing IPv4 
+Addresses with DHCP
+• You must create scopes to define the network information that will 
+be distributed to clients
+• A scope must contain:
+• A range of IP addresses
+• A subnet mask
+• A lease duration
+• A scope might contain:
+• Default gateway address
+• DNS server and suffix
+• Other network options
+• IP addresses can be reserved based on the MAC address of the 
+client network interface
+
+--- page 16 ---
+Configuring DHCP Options
+• DHCP options:
+• Are values for common configuration data
+• Can be applied to the server, scope, class, and reservation level
+• Common scope options include:
+• Router (Default gateway)
+• DNS domain name
+• DNS servers
+
+--- page 17 ---
+What is a DHCP Relay Agent?
+Routers
+(non–RFC 1542 
+compliant)
+Subnet A
+Subnet B
+A DHCP relay agent listens for DHCP broadcasts from DHCP clients, and then 
+relays them to DHCP servers in different subnets
+DHCP 
+server
+DHCP 
+relay 
+agent
+DHCP 
+broadcast
+DHCP clients
+DHCP clients
+Unicast
+Unicast
+
+--- page 18 ---
+Managing and Troubleshooting DHCP
+What are DHCP security options?
+Advanced options for configuring DHCP
+Configuring superscopes and multicast scopes
+High availability options for DHCP
+What is DHCP failover?
+Demonstration: Configure DHCP failover
+Maintaining the DHCP database
+Migrating the DHCP server
+Discussion: Troubleshooting DHCP
+
+--- page 19 ---
+DHCP Security Options 1
+Limit physical access to the network by:
+Disconnecting unused LAN drops
+Require authenticated layer 2 connections
+Enable DHCP auditing (DHCP-Operational Log) to track DHCP usage (Event 
+Viewer)
+Event Viewer tree → Applications and Services Logs → Microsoft → 
+Windows -> DHCP-Server
+
+--- page 20 ---
+DHCP Security Options 2
+DHCP name protection:
+Prevents Windows operating systems 
+from having their DNS name registration 
+overwritten by non-Windows operating 
+systems using the same name
+Uses a (Dynamic Host Configuration 
+Identifier)DHCID resource record to track 
+the devices that originally requested the 
+DNS name registration
+
+--- page 21 ---
+Advanced options for configuring DHCP
+Policy-based assignments allow you to base IP assignment on the 
+following criteria:
+• Vendor class (defined by hardware vendors)
+• User class (defined by Administrators)
+• MAC address
+• FQDN
+• Relay agent information
+
+--- page 22 ---
+Configuring Superscopes and Multicast Scopes
+LAN A
+LAN B
+DHCP server
+Scope A and Scope B
+LAN A
+LAN B
+DHCP server
+Scope A
+Scope B
+
+--- page 23 ---
+High Availability Options for DHCP
+Shared storage
+DHCP Cluster member 1
+DHCP Cluster member 2
+DHCP configuration 
+information
+DHCP split scope
+DHCP server A
+DHCP server B
+192.168.0.1 –
+192.168.0.150
+192.168.0.151 –
+192.168.0.254
+Delay configuration 
+set to 500 
+milliseconds
+DHCP cluster
+
+--- page 24 ---
+1.
+Install the DHCP Server role on a second server, if this has not already been done.
+2.
+On the DHCP server which currently hosts the scope, open the DHCP console and 
+locate the scope to be split.
+3.
+Right-click the scope and select Advanced > Split-Scope.
+4.
+Click Next to proceed past the introductory screen of the Split-Scope Configuration 
+Wizard.
+5.
+Type the name or IP address of the second DHCP server in the appropriate field or click 
+Add Server to search for the server. Click Next when finished.
+How to Split a DHCP Scope
+
+--- page 25 ---
+What is DHCP Failover?
+DHCP failover:
+Enables two DHCP servers to 
+provide IP addresses and optional 
+configurations to the same subnets 
+or scopes
+Requires failover relationships to 
+have unique names (Ex. 
+Relationship name: Svr1-Svr2) (Any 
+Problem?)
+Supports the hot standby mode 
+and the load sharing mode
+
+--- page 26 ---
+DHCP Failover
+When you use DHCP failover:
+The MCLT (Maximum Client Lead Time)
+determines when a failover partner 
+assumes control of the subnet or scope
+The auto state switchover interval 
+determines when a failover partner is 
+considered to be down
+Message authentication (Shared secret: 
+password) can validate the failover 
+messages
+Firewall rules are auto-configured during 
+DHCP installation (TCP 647)
+Microsoft-Windows-DHCP-Failover-TCP-in
+Microsoft-Windows-DHCP-Failover-TCP-out
+
+--- page 27 ---
+Maintaining the DHCP database
+The DHCP database (Dhcp.mdb) contains information relating to 
+scopes, leases, reservations, and all other configuration information
+The default location of DHCP database files is 
+%systemroot%\system32\DHCP
+The DHCP database is automatically backed up every 60 minutes, or 
+can be backed up manually
+You can reconcile the DHCP database to repair inconsistencies
+You can move the DHCP database to a new DHCP server when the 
+DHCP Server service is moved
+
+--- page 28 ---
+Migrating the DHCP server
+You can migrate the DHCP server by exporting the DHCP data from the old server 
+and importing it to the new server
+You can use Windows PowerShell or NetShell commands
+Export  data from current 
+server to a file
+Import data to new 
+server from the file
+
+--- page 29 ---
+Discussion: Troubleshooting DHCP
+10 minutes
+How do you address the following issues that can occur when you do not 
+configure DHCP properly?
+•
+Address conflicts
+•
+Failure to obtain a DHCP address
+•
+Address obtained from an incorrect scope
+•
+DHCP database suffered data corruption or loss
+•
+DHCP server has exhausted its IP address pool

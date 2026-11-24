@@ -1,0 +1,199 @@
+--- page 1 ---
+1 
+ 
+Install Windows 10 on VirtualBox 
+Learning Objectives 
+ 
+Learn how to install Virtual Box and create a Windows 10 (Education x64) VM 
+ 
+Install another virtual disk for your VM 
+Task 1: Download VirtualBox (https://www.virtualbox.org/wiki/Downloads) and Windows 10 ISO Image 
+(Education) (https://www.bcit.ca/its/software/).  
+Task 2: Install VirtualBox 
+Note: download the current version. I used 5.2.8 to demonstrate how to install it on Windows 10. 
+After downloading, double click on the installer to launch the setup Wizard. Click on Next to 
+continue. Run the executable to begin installing the software. When you start the installation, 
+you should get a prompt like the one below. 
+ 
+You will see custom setup dialog box. There is not much to choose from. You can accept the 
+default and click next. 
+Note: If you wish to change the installation directory, you van change it by clicking on the 
+browse button and selecting the new directory and clicking OK. Normally I leave it as the default 
+as the whole installation process does not take much space on your hard drive. 
+
+--- page 2 ---
+2 
+ 
+ 
+In this dialog box you can choose which features to install. As you can see, there is not much to 
+choose. You can accept the default and click next. Normally I uncheck Create a shortcut in the 
+quick launch bar. 
+ 
+During the installation wizard, you’ll get a Network Interfaces warning. Click Yes to proceed. If 
+you’re in the process of downloading or copying files and data, this will interrupt your network 
+connection briefly. 
+
+--- page 3 ---
+3 
+ 
+ 
+On the next screen, click Install to begin installing the program. 
+ 
+Note: If you see Windows User Account Control Warning, click yes to accept and continue. 
+Continue with the wizard until you’re done. 
+ 
+ 
+ 
+
+--- page 4 ---
+4 
+ 
+Task 3: Create a Windows 10 Virtual Machine 
+VM Specifications 
+Processor: 
+1 Core 
+RAM: 
+2 GB 
+Hard disk: 
+20 GB, VDI, Dynamically Allocated 
+Network: 
+NAT 
+System: 
+Enable EFI 
+ 
+1. The first step is to define the type of virtual machine. Enter a descriptive name into the 
+Name box; Select Microsoft Windows as the Type; Choose Windows 10 (64 bits) as the 
+Version; Click Next to continue. 
+       
+ 
+ 
+ 
+Note: Make sure that you choose the correct version. 
+ 
+2. The next screen asks you to allocate memory to your virtual machine. You should not go 
+below the minimum specified and you should also make sure you leave enough memory 
+for your host operating system (Windows or MacOS) to keep running. I recommend 2GB 
+(2x1024=2048M)above.  
+
+--- page 5 ---
+5 
+ 
+ 
+3. The next a few steps are all about allocating disk space to the virtual machine. Select 
+“Create a virtual hard disk now” 
+ 
+ 
+4. Select hard disk type: VDI.  
+
+--- page 6 ---
+6 
+ 
+ 
+ 
+ 
+Note:  
+ 
+A fixed size disk creates the hard drive to be the maximum size you define straight away 
+whereas a dynamically sized disk adds space to the file as it is required up to the maximum size 
+that you specify. 
+ 
+
+--- page 7 ---
+7 
+ 
+A fixed size disk performs better because as you install software within the virtual machine it 
+doesn't have to increase the file size on the fly. If you have enough disk space then I recommend 
+this option.  
+Note: You can use the default location or you can modify the virtual disk location as following 
+steps: 
+ 
+ 
+ 
+ 
+
+--- page 8 ---
+8 
+ 
+ 
+Note: At this stage, you should have a blank guest machine without any operating system. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- page 9 ---
+9 
+ 
+System->Motherboard: Enable EFI. 
+ 
+ 
+System->Processor: Processor(s) 1. 
+ 
+ 
+
+--- page 10 ---
+10 
+ 
+System->Acceleration: Enable virtualization. Note: You also need to make sure that your host 
+motherboard enables virtualization technology.  
+ 
+Click the add DVD and select your download Windows 10 ISO image and then remove the 
+empty DVD. 
+ 
+
+--- page 11 ---
+11 
+ 
+ 
+ 
+ 
+
+--- page 12 ---
+12 
+ 
+ 
+Task 4: Install Windows 10 Education on the VM 
+ 
+1. Click Start to power on your virtual machine.  
+ 
+ 
+2. Press any key to begin the installation. 
+ 
+ 
+3. Select the language and other options you want to install on the incoming screen and 
+click on the Next button. 
+ 
+
+--- page 13 ---
+13 
+ 
+4. On the screen that appears, click Install Now. 
+ 
+5. Check the box next to I accept the license terms and click on the Next button. 
+ 
+6. Once you have selected the disk partition you want to install, click on the Next button. 
+
+--- page 14 ---
+14 
+ 
+ 
+7. The installation process will begin. This may take some time. 
+ 
+8. After installation is complete, screens will appear for you to personalize your personal 
+computer. Continue after filling in the required fields on these screens. 
+
+--- page 15 ---
+15 
+ 
+9.  In the step of selecting a user on a computer, you can continue with your Microsoft 
+account, or you can create a local user account on the computer by clicking Domain join 
+instead. 
+ 
+10. Complete the setup by selecting your computer's privacy settings. 
+11. Windows 10 installation is complete. 
+ 
+Task 5: Examine the disk layout using the disk manager and potentially add another virtual disk 
+– format it and mount it to an arbitrary location 

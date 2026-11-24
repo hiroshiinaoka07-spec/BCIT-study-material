@@ -1,0 +1,18 @@
+How to Configure Static IP Address on Windows Server 2022
+A static IP address is an IP address that was manually configured for a Windows device instead of an IP address assigned by a DHCP server. This tutorial covers how to configure a Static IP Address on Windows Server 2022
+Demo environment
+Computer Name: server1
+Operating System: Windows Server 2022 
+The IP address is assigned by DHCP by default.
+1. Open the Server Manager dashboard, select Local Server, and click Ethernet.
+
+2. Right-Click on Ethernet and Click Properties.
+
+3. In Ethernet Properties, click Internet Protocol Version 4(TCP/IPv4)
+
+4. In Internet Protocol Version 4(TCP/IPv4) Properties, set Static IP address, Gateway, and other details and click OK. Note: Check your network topology. I have already provided in your lab assignment.
+Use the following IP address;
+Use the following DNS Server address;
+5. Click OK.
+
+The static IP (IPv4) address has been configured.

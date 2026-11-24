@@ -1,0 +1,12 @@
+--- page 1 ---
+Storage Pool 
+To create a storage space, you must first create one or more storage pools. A storage pool is a 
+collection of physical disks. A storage pool enables storage aggregation, elastic capacity 
+expansion, and delegated administration. 
+From a storage pool, you can create one or more virtual disks. These virtual disks are also 
+referred to as storage spaces. A storage space appears to the Windows operating system as a 
+regular disk from which you can create formatted volumes. When you create a virtual disk 
+through the File and Storage Services user interface, you can configure the resiliency type 
+(simple, mirror, or parity), the provisioning type (thin or fixed), and the size. 
+ 
+ 

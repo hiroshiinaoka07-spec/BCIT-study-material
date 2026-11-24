@@ -1,0 +1,92 @@
+--- page 1 ---
+ACIT 3420 
+ 
+9 Windows DNS mistakes to avoid 
+If you are running DNS services on a Windows server, then you’ve probably got Active 
+Directory running, your DNS servers are also your domain controllers, and you have your clients 
+configured to use their nearest DC for DNS. That’s a good start, but there are several 
+misconfigurations in DNS that come up again and again. Let’s review nine mistakes that can 
+cause problems with any network environment when DNS server is not configured correctly. 
+1. Setting up the lonely island 
+When you set up your first domain controller in a forest, you really have no choice but to point 
+the server to itself for DNS. However, don’t leave it that way, or do that for any other server. As 
+soon as your second domain controller is up and running, reconfigure the first to use the second 
+for DNS, and the second to use the first. Once you build a third, add that one into the mix so no 
+DC must rely upon itself for DNS (using its local ip.addr or 127.0.0.1.). When domain 
+controllers use themselves for DNS, especially when DNS is AD integrated, they can become 
+islands and start to fail replication. When they use other DCs for DNS, you will find fewer 
+overall issues with AD replication. 
+2. DNS servers too far away from clients 
+Keep DNS response times fast for your clients. I strive for under 25ms, but under 50ms is good 
+enough. To do that, you need to have a DNS server local to your clients. If you don’t have 
+domain controllers in every site, you should at least deploy a caching-only DNS server on some 
+system in the location, such as the File and Print server. With DNS close by, all other apps will 
+perform better because name resolution happens locally. 
+3. Not storing AD zones in AD 
+AD integrated zones are stored and replicated with Active Directory, and can be configured to 
+replicate to all DNS servers in the domain or the forest. That provides high availability, fault 
+tolerance, and easy setup when running DNS on domain controllers. It’s the best way to go for 
+your internal DNS. 
+4. Requiring secure updates 
+This may cause some comments, but bear with me for a moment. When you run AD integrated 
+DNS, you have the option to permit dynamic updates and require that they be secure … meaning 
+authenticated by domain members. All your servers and workstations (that are domain-joined 
+and running Windows) can automatically register themselves into DNS. That’s great if you are a 
+pure Windows shop, but if you have Linux or Mac clients and servers out there, it leaves them in 
+the cold. Allow dynamic updates, or if your non-domain-joined systems are all workstations, 
+compromise and allow DHCP to register DNS records for clients. The more systems you have 
+registered in DNS, the easier it is for you to find, and manage, them. 
+5. Not setting up the PTRs 
+
+--- page 2 ---
+ACIT 3420 
+ 
+Reverse DNS records, called PTR records, resolve ip.addrs to names, making it much easier to 
+run down a system when you know what IP it has, but not what it is. Far too often, admins opt to 
+skip out on setting up the in-addr.arpa zones that hold the PTR records, breaking this often 
+critical functionality. Don’t be that guy! 
+6. Forwarding far, far away 
+Just as you want to keep DNS servers close to clients, you want your DNS servers to resolve as 
+close to themselves as possible. More and more services on the Internet today are taking 
+advantage of CDNs and multiple instances that leverage GeoDNS or other site aware approaches 
+to provide local responses to globally distributed clients. If your domain controller in the Tokyo 
+office is set to forward to the domain controller in Dallas for resolution, you’re going to find 
+things on the Internet are unnecessarily slow for your users in Japan, both because that’s a long 
+way to go to resolve a name, and the name resolved won’t be local to the users more often than 
+not. 
+7. Setting up a forwarding loop 
+Want 
+to take down a WAN connection in two easy steps? Configure the DNS server in location A to 
+forward to the server in location B. Configure the DNS server in location B to forward to the 
+server in location A. Query one of them for a name. It doesn’t matter what name, as long as it is 
+in a domain for which neither is authoritative. Query A, but A won’t know, so it will query B. B 
+won’t know, so it will query A. It doesn’t matter that A asked it, it will still query A. And A 
+won’t care that it just asked B the same question … it got a query, it won’t know the answer, so 
+it will query B. DNS queries are stateless. There’s no TTL or origin marker or anything else. The 
+two servers will loop the query to one another ad infinitum until you kill one of them or the 
+network goes down. Sure, that’s fun for stress testing the network, but not so much for getting 
+work done. 
+
+--- page 3 ---
+ACIT 3420 
+ 
+8. Not setting up aging and scavenging 
+Just as your clients and your DHCP servers both should be allowed to dynamically register DNS 
+records, those records should be maintained. Windows DNS offers aging and scavenging, which 
+looks at records older than X days, and removes them from DNS. However, this is off by default, 
+which can lead to old or out-of-date data in DNS, including registrations for systems that you 
+shut down ages ago. Keeping DNS clean makes it easier to find resources and troubleshoot 
+issues. Aging and scavenging ensures DNS is kept clean automatically. 
+9. Allowing zone transfers externally, and not allowing them internally 
+Zone transfers enable a DNS server to provide the entire set of records for a namespace in 
+response to a single query. When one DNS server in an authoritative zone needs to update its full 
+zone file, or when an admin needs to check on things, that makes it easy to see the entire zone. 
+But on the outside, allowing zone transfers makes it far too easy for an attacker to do 
+reconnaissance. Zone transfers internally should be allowed to help admins do their jobs. 
+Externally, you should not allow zone transfers other than to the other DNS servers you control, 
+so that someone scoping you out at least must work for it! 
+Remember the old saying, “If DNS ain’t happy, ain’t nobody happy.” Getting DNS set up 
+correctly and ensuring it remains that way is key to making sure your network, your applications, 
+and your users all have the best experiences. Avoiding these nine pitfalls helps to make sure that 
+happens. 
+Reference: http://techgenix.com/windows-dns-mistakes/ 

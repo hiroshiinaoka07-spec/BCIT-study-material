@@ -1,0 +1,73 @@
+--- page 1 ---
+How to identify the iSCSI software initiator node name (IQN) from a host operating system 
+Description 
+Every iSCSI node must have a node name. Node names typically take the iSCSI Qualified Name 
+(IQN) format. The IQN-type designator is a logical name that is not linked to an IP address. 
+The following is an example format: 
+iqn.yyyymm.backward-naming-authority:unique-device-name
+yyyy-mm is the month and year in which the naming authority acquired the domain name. 
+'backward-naming-authority' is the reverse domain name of the entity responsible for naming this 
+device. An example reverse domain name is 'com.microsoft'. 
+'unique-device-name' is a free-format unique name for this device assigned by the naming 
+authority. 
+The following example shows the iSCSI node name for an initiator that is an application server: 
+iqn.1991-05.com.microsoft:example
+Note: Some initiators might provide variations on the preceding format. 
+An iSCSI initiator node name is used when associating an iSCSI host with a Data ONTAP 
+initiator group (igroup) for the purpose of mapping a LUN to the host. 
+Procedure 
+The following are the procedures that can be used to identify the iSCSI initiator node name 
+defined on a host for various operating system types. 
+Windows - GUI: 
+Open the iSCSI Initiator Properties dialog box: 
+Windows Server 2012 Server Manager > Dashboard > Tools > iSCSI Initiator > 
+Configuration 
+Windows Server 2008 Start > Administrative Tools > iSCSI Initiator > 
+Configuration 
+Windows Server 2003 Start > All Programs > Microsoft iSCSI Initiator > 
+Microsoft iSCSI Initiator 
+The exact label in the dialog box will differ depending on the Windows version. 
+The iSCSI initiator node appears similar to the following: 
+ACIT 3420
+1
+
+--- page 2 ---
+iqn.1991-05.com.microsoft:XXXXX 
+VMware ESXi - From vSphere Client: 
+1. Log in to the vSphere Client, and select an ESXi Host from the Hosts and Clusters 
+Inventory panel. 
+2. Click the Configuration tab and click Storage Adapters in the Hardware panel. (A list 
+of available storage adapters is displayed). 
+3. Select the vmhba under iSCSI Software Adapter. 
+The iSCSI initiator node name will be listed in the Details pane similar to the following: 
+iSCSI Name: iqn.1998-01.com.vmware:XXXXX-1-b6f00d9 
+Linux: 
+Run the following command: 
+cat /etc/iscsi/initiatorname.iscsi 
+The iSCSI initiator node name will be included in the resulting output similar to the following: 
+InitiatorName=iqn.1994-05.com.XXXXX 
+Solaris: 
+Run the following command: 
+iscsiadm list initiator-node 
+The iSCSI initiator node name will be included in the resulting output similar to the following: 
+Initiator node name: iqn.1986-03.com.XXX:01:0003bad935da.4906be64  
+AIX: 
+Run the following command: 
+lsattr -El iscsi0 
+The iSCSI initiator node name will be included in the resulting output similar to the following: 
+initiator_name iqn.XXX.YYY.ZZZ 
+HP-UX: 
+Run the following command: 
+ACIT 3420
+2
+
+--- page 3 ---
+iscsiutil -l 
+The iSCSI initiator node name will be included in the resulting output similar to the following: 
+Initiator Name :iqn.1986-03.com.hp:XXXXX 
+Reference: 
+https://kb.netapp.com/app/answers/answer_view/a_id/1032212/~/how-to-identify-the-iscsi-
+software-initiator-node-name-%28iqn%29-from-a-host 
+ 
+ACIT 3420
+3

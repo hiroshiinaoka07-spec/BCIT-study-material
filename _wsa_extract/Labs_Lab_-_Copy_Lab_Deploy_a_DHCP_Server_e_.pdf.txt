@@ -1,0 +1,219 @@
+--- page 1 ---
+ACIT 3420 
+1 
+ 
+DHCP Server 
+All network clients need to have unique IP addresses assigned to their network interfaces. 
+Manually assigning addresses and tracking the information can be arduous, even in small 
+networks. Dynamic Host Configuration Protocol (DHCP) plays an import role in a typical 
+network infrastructure. It provides an automated means of distributing important network 
+configuration information to network clients, and it provides configuration information to other 
+network-enabled services.  
+Learning Objectives 
+After completing this lab, you will be able to: 
+• Install and configure the DHCP server role on Ca-Van-Svr1 
+• Configure DHCP scopes 
+• Validate the DHCP deployment 
+Network Topology 
+ 
+Task 1: Deploy a DHCP Server 
+To install the DHCP Server service on a server with Server Manager, perform the following 
+steps. 
+
+--- page 2 ---
+ACIT 3420 
+2 
+ 
+1. Log on to your domain controller (Computer Name: Ca-Van-Svr1, Static IP 
+192.168.239.1) running Windows Server 2019 as domain administrator 
+(Adatum\administrator). 
+2. Start->Server Manager > Manage->Add Roles and Features. The Add Roles and 
+Features Wizard starts, displaying the Before You Begin page.  
+3. Click Next. The Select Installation Type page appears. 
+4. Leave the Role-based or feature-based installation radio button selected and click 
+Next. The Select Destination Server page appears. 
+Note: What are the differences between Role-based and feature-based installation? List 
+the Role-based installations and feature-based installations. 
+5. Select the server on which you want to install the roles and/or features and click Next. 
+The Select Server Roles page appears. 
+6. Select the DHCP Server check box. An Add features that are required for DHCP Server 
+dialog box opens. 
+ 
+
+--- page 3 ---
+ACIT 3420 
+3 
+ 
+ 
+7. Click Add Features. Then, click Next. The Select Features page appears.  
+8. Click Next. The DHCP Server page appears. 
+ 
+
+--- page 4 ---
+ACIT 3420 
+4 
+ 
+Note: Read the DHCP Server’s description above.  You have to plan your subnets, scopes 
+and exclusion. 
+9. Click Next. The Confirm Installation Selections page appears. 
+ 
+10. Click Install. The Installation Progress page appears as the wizard installs the role. 
+11. Click Close. The wizard closes. 
+ 
+
+--- page 5 ---
+ACIT 3420 
+5 
+ 
+Task 2: Authorizing a DHCP Server 
+ 
+ 
+ 
+In Active Directory Domain Services (AD DS) environments, domain-joined Windows 
+DHCP servers must be authorized to service DHCP client requests. By forcing DHCP servers to 
+be authorized, clients are protected from rogue domain-joined Windows DHCP servers that 
+might maliciously affect network clients. Notes that this authorization does not prevent rogue 
+
+--- page 6 ---
+ACIT 3420 
+6 
+ 
+access points, non-domain-joined devices, or other devices from issuing addresses. Those types 
+of devices must be restricted through the use of port security.  
+ 
+Note 1: If you got the following Window, you can not select the “Use the following user’s 
+credentials”. The radio button is gray. You have to sign out and logon as domain 
+administrator (Adatum\administrator). Otherwise, you will get the “DHCP authorization 
+error 20079”. 
+ 
+
+--- page 7 ---
+ACIT 3420 
+7 
+ 
+Note 2: If you got the error above, you can login your DHCP Server by using domain 
+administrator account and manually authorize the DHCP. When retiring DHCP servers, we 
+should always ensure we unauthorize them from active directory first. Failure to do so can 
+cause issues further down the line. In the Manage, select the server and select unauthorize. 
+ 
+Note 3: You can use the netsh command line utility to list all DHCP server.  
+ 
+ 
+
+--- page 8 ---
+ACIT 3420 
+8 
+ 
+Questions: What is DHCP Administrations group? What is DHCP Users group? 
+Task 3: Create a DHCP Scope and Testing 
+To create a DHCP scope, perform the following steps. 
+1. Log on your DHCP Server (Computer Name: Ca-Van-Svr1) running Windows Server 
+2019 as domain administrator (Adatum\administrator) with the password. 
+2. Click Start and click Server Manager. 
+3. Click Tools > DHCP. 
+ 
+4. Expand the server (Ca-Van-Svr1.adatum.com) node and the IPv4 node. 
+ 
+
+--- page 9 ---
+ACIT 3420 
+9 
+ 
+5. Right-click the IPv4 node and choose New Scope. 
+ 
+6. In the New Scope Wizard, on the Welcome to the New Scope Wizard page, click Next. 
+7. On the Scope Name page, in the Name text box, type a descriptive name and click Next. 
+ 
+Note: Make sure to use a meaningful name and add description.  
+
+--- page 10 ---
+ACIT 3420 
+10 
+ 
+8. On the IP Address Range page, in the Start IP address text box, type the first in the range 
+of addresses you want to assign. In the End IP address text box, type the last address in 
+the range. 
+9. In the Subnet mask text box, type the mask value for the subnet on which the scope will 
+operate and click Next.  
+ 
+Note: You can create a new scope. You also can use all IPs (1~254) and then add several 
+exclusions in order to reserve IPs for you member servers. 
+10. On the Add Exclusions and Delay page, in the Start IP address and End IP address text 
+boxes, specify a range of addresses you want to exclude from the scope. You can also 
+specify a delay interval between the server’s receipt of DHCPDISCOVER messages and 
+its transmission of DHCPOFFER messages. Then, click Next. 
+ 
+
+--- page 11 ---
+ACIT 3420 
+11 
+ 
+ 
+11. On the Lease Duration page, specify the length of the leases for the addresses in the 
+scope. The default lease duration is set to 8 days. Click Next.  
+ 
+Note: How about the lease duration of wireless devices? How long do you want to 
+configure? Why?  
+12. On the Configure DHCP Options page, select Yes, I want to configure these options 
+now and click Next. 
+
+--- page 12 ---
+ACIT 3420 
+12 
+ 
+ 
+13. On the Router (Default Gateway) page, in the IP address text box, specify the address of 
+a router on the subnet served by the scope and click Add. Then, click Next. 
+ 
+14. On the Domain Name and DNS Servers page, in the Server name text box, type the name 
+of a DNS server on the network and click Resolve, or type the address of a DNS server in 
+the IP address text box and click Add. Then, click Next.  
+
+--- page 13 ---
+ACIT 3420 
+13 
+ 
+ 
+Note: If you have multiple DNS server such as primary DNS and secondary DNS Server, 
+you can add multiple DNS IP addresses. 
+15. On the WINS Servers page, click Next. 
+Question: What is Windows Internet Name Service (WINS)? WINS vs. DNS? 
+16. On the Activate Scope page, select Yes, I want to activate this scope now and click 
+Next. The Completing the New Scope Wizard page appears. 
+Note: You have to activate the scope. Otherwise, DHCP service will not provide service. 
+17. Click Finish. 
+ 
+
+--- page 14 ---
+ACIT 3420 
+14 
+ 
+Task 4: Repeat the steps (1-17) above to create Houston scope 
+ 
+ 
+Task 5: Log in your client computer (Ca-Van-C1) and then remove your static IP. 
+ 
+
+--- page 15 ---
+ACIT 3420 
+15 
+ 
+Question: Does your client need to join the domain in order to use Windows DHCP service? 
+Lab Assignment 
+1. Login your client and run the following cmdlet, ipconfig /release, ipconfig /renew, 
+ipconfig /all. Paste the screenshot of cmdlet. See an example down below. Note: I am 
+using a different scope. Your IP may different as the example. 
+ 
+ 
+
+--- page 16 ---
+ACIT 3420 
+16 
+ 
+2. Does you client get the IP from your DHCP Scope?  
+Login your Svr1 and then run DHCP Manager. Check the address lease. Paste the screenshot of 
+you DHCP manager. See the example below. 
+ 
+3. Challenge Labs (Optional): DHCP Relay Agent (Check Lab Doc and Video) and DHCP 
+Policies (Lab doc only). Discuss in which scenarios you have to deploy the DHCP Relay 
+Agent. 

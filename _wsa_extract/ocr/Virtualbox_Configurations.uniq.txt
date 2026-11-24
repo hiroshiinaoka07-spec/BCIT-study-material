@@ -1,0 +1,57 @@
+===== frame_0001
+Welcome to VirtualBox!
+The w i odow gl&l toes "d all
+You can a tools bunon,
+You can to get hep. or
+===== frame_0002
+Create Virtual M achirk
+Name and operating system
+deønoton fOWr fM ttæ new vrtudl
+mochine the to
+===== frame_0004
+deønatOn foWr the new vrtudl
+mechine the "gem to
+===== frame_0005
+t 1 Thispc wnos(c:)
+Organize • New folder
+2019-09-07&52 A.
+search ACIT 3420
+Shared With Me
+===== frame_0006
+e— Create Virtual Hard Disk
+Hard disk file type
+type file Eke tp. hud
+disk. o u rot use wth nu Can
+===== frame_0007
+Base Image • Settings
+Shared Folders
+Controls the number Of wrtua•
+CPUs in the v.rtual machne. You
+need hardware virtualization
+support on your host System to
+use more than one CPU.
+===== frame_0008
+NAT Network Details
+===== frame_0009
+Network CDR: 10.0.2.0/24
+===== frame_0012
+pin to Qin C om
+21 items I item selected
+2019-03-0611-20 AM
+2018-10-22 7:43 PM
+2019-07-08 5:23 PM
+2019-09-05 3:40
+2019-05-07 1:43
+20190-051016 AM
+2018-0705 11:55 AM
+===== frame_0013
+Oracle VM VirtualBox Manager
+SATA o: Base ( Normal Q)
+===== frame_0015
+SATA o: Base ( Normal, a)
+===== frame_0016
+Image Off) - VM VirtualBox
+Machine View Input O&ces
+===== frame_0017
+'mage - VM VirtualBox
+You have the Auto key-board turned on. This will cau• Virtual

@@ -1,0 +1,648 @@
+===== frame_0001
+AaBbceE
+,uBbccE ,uBEceE
+AaBbceE
+AaBbcc1
+AaBbccJ
+2
+Aay
+AOT $420
+A.BbCcC
+Lab
+Aodbcca
+POF
+Lab: and ring Hyp.mV
+Hyp«-V i. tint i. built into Not
+V to ud but it is integrated into fabric of '
+Actually. your client operating system as Windcnvs IO also
+Hyper-V you to the features. ; you work on the lab.
+müe you almady following terms : I v' 2.
+you 'o:
+Vo-iS ofHyp«-V
+Public.
+Create zd virtual
+Topoloø•
+ca-van-svri
+DNS:
+Switch (NAT 9)
+Public Switch
+1
+ca-van-vml
+zss.25s.25So
+DNS:
+2 HYF•-V (C&Vw
+SWS)) (N•W a C.AWSvr6).
+Svr4 all IP hm to
+yotÄ to you
+Install
+In to to
+A (SLAT)
+A Gb (nming at
+• T&hmlogy AND (AND-V)
+: or Hyper.V server
+To Hype-V ROE
+Log in (C*VwSu4)
+===== frame_0002
+DO 'Sub)
+• 11
+Oil.
+===== frame_0003
+ACIT-3QCEMS1 -
+Edit •
+rt-J
+To to the
+===== frame_0004
+x cut
+AaBbccE
+,uBEccE ,uBEceE
+AaBEceE
+AaBbcc1
+AaBbccJ
+Aay
+A.BbCcC
+Lab
+POF
+AOT $420
+3420
+Lab: and ring Hyp.mV
+Hyp«-V i. tint i. built into S nn Not
+V to ud but it is integrated into fabric of
+Actually. your client operating system as Windcnvs IO also
+Hyper-V you to the features, you on the lab.
+müe almdy following terms : I v' 2.
+and
+you to:
+ofHyp«-V
+public. mtæl))
+Create zd
+DNS: tazo.o.l
+Topoloø•
+ca-van-svri
+IAdarum.com}
+Switch (NAT 9)
+Public Switch
+ONS;
+Ca-VarvSvr6
+1
+ca-van-vml
+zss.25s.25So
+DNS:
+2 Cmtmlle 1) HYF•-V (C&Vw
+C.mfigue Svr4 all IP hm to Ping
+yotÄ to
+Install
+N". In to (Su6) to "lbwing
+A (SLAT)
+A Gb (nming at
+• Tmhmlogy AND (AND-V)
+: or the Hyper.V
+To imtall Hype-V ROE
+IÄg in VWSu4)
+===== frame_0005
+ACIT-A2CbMS1
+Edit
+(Sub)
+Server Manager • Dashboard
+Vin" M" S«tinqs
+All
+File
+===== frame_0006
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+AJI
+File
+• Server Manager Local Server
+PROPERTIES
+Digue e
+of this
+6M vä20
+of this
+iS-83SW
+===== frame_0007
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+AJI
+File
+• Server Manager Local Server
+PROPERTIES
+Disable
+205
+of this
+6M vä20
+this
+iS-83SW
+===== frame_0008
+ACIT-A2CEDC1 -
+Edit •
+(Sub)
+Num Lock Off
+===== frame_0009
+ACIT-A2CEDC' -
+Edit •
+(Sub)
+===== frame_0010
+ACIT-A2CEDC' -
+Edit II •
+(Sub)
+• Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+Senet
+201B Nic
+rosoft All
+rights
+===== frame_0011
+ACIT-A2CEDC' -
+Edit •
+(Sub)
+===== frame_0012
+ACIT-A2CEDC' -
+Edit •
+(Sub)
+===== frame_0013
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+D ash bQrd
+File
+Server Manager Local Server
+PROPERTIES
+192168.2396, IP-S
+v2020
+Ljpa.t.
+cus
+CVu
+===== frame_0014
+ACIT-A2CEDC1 -
+(Sub)
+===== frame_0015
+ACIT-A2CEDC1 -
+Edit II •
+• Server Manager • Dashboard
+DNS
+(Sub)
+WELCOME TO SERVER MANAGER
+Configure this local server
+All
+ADDS
+DHCP
+DNs
+and Storage Sewices
+NEW
+4
+ROLES AND SERVER GROUPS
+AD Ds
+All Servers
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server Io cloud services
+DHCP
+a nd Storage
+i Local Server
+SPA results
+===== frame_0016
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+AJI
+File
+Server Manager Local Server
+PROPERTIES
+Virtual Machine Migration
+205
+6M vä20
+u gote-i
+CUS
+CVU iS-83SW
+to to
+===== frame_0017
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+AJI
+File
+Server Manager Local Server
+PROPERTIES
+Installation progress
+205
+6M vä20
+CUS
+CVU iS-83SW
+Hyp« V Gut
+===== frame_0018
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0019
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0020
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Please wait for the Trustedlnstaller
+===== frame_0021
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0022
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Please wait for the Trustedlnstaller
+===== frame_0023
+ACIT-3QCEMS1 -
+(Sub)
+===== frame_0024
+ACIT-3QCEMS1 -
+(Sub)
+Start typing to search
+for apps, files, and
+settings.
+===== frame_0025
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Acrvnzom•sa
+===== frame_0026
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+Server Manager • Hyper-V
+SERVERS
+i Server
+Servers
+and
+===== frame_0027
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+Server Manager • Hyper-V
+SERVERS
+i Server
+Servers
+and H
+*Of' t. 'w —Of-y m 32
+===== frame_0028
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+Server Manager • Hyper-V
+SERVERS
+i Server
+and
+Caps Lock On
+===== frame_0029
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+To to the
+i Server
+Servers
+and
+Server Manager • Hyper-V
+SERVERS
+.vax-sv%
+ca-vax-svR6
+CA-vax-svR6 '2320
+'CV2,'202C
+===== frame_0030
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0031
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0032
+ACIT-3QCEMS1 -
+Edit
+(Sub)
+===== frame_0033
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0034
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Help
+If you want to copy file ISO) your local host (Laptop desktop) to your Virtual
+caps Lock Off
+===== frame_0035
+ACIT-A2CEMS1 -
+Acrvnzoo•sa
+(Sub)
+Help
+If you want to copy file ISO) your local host (Laptop desktop) to your Virtual (Ca.Van.Svr6),
+vvlnstail WEare tools.
+Check your D drive
+have to Install tool
+===== frame_0036
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0037
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+SAN
+Edit
+===== frame_0038
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+CA-uN-SvRE -
+===== frame_0039
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Help
+90
+===== frame_0040
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+00 n
+CA-AN-MS
+===== frame_0041
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Help
+00 „
+CA-AN-MS
+===== frame_0042
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Help
+00 n
+===== frame_0043
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Help
+90
+===== frame_0044
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Help
+00
+CA-an-MS
+===== frame_0045
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Action
+Medi.
+CA-14N-sv«
+===== frame_0046
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Hype v
+SAN
+Edit
+stop
+===== frame_0047
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+20B* %
+===== frame_0048
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0049
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+"itch
+90
+===== frame_0050
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Press
+any key
+to boot from CD or DVD..
+»start .
+===== frame_0051
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0052
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+n c.v.-v-
+===== frame_0053
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+90
+O Sha
+===== frame_0054
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+===== frame_0055
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+File
+CWMd
+.00
+any key
+===== frame_0056
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+.00
+Windows Server 2019
+===== frame_0057
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Activate
+===== frame_0058
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Wi ndows
+up
+===== frame_0059
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Wi ndows
+up
+===== frame_0060
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Wi ndows
+up
+===== frame_0061
+===== frame_0062
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Wi ndows
+up
+===== frame_0063
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Wi ndows
+up
+===== frame_0064
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Num Lock Off
+===== frame_0065
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Hyper-V*
+Getting ready
+===== frame_0066
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+90
+===== frame_0067
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Administrator e
+===== frame_0068
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Server Manager
+p
+===== frame_0069
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Server Manager
+• Local Server
+and
+(TCPnPv4
+if
+m . 168.2—.254
+45729
+===== frame_0070
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+ii Allse
+and
+Server Manager • Local Server
+PROPERTIES
+C mpute
+2019
+UTC
+' "'2/2020
+W2.'202c
+45729 pv
+===== frame_0071
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Acrvnzoo•sa
+===== frame_0072
+ACIT-A2CEDC1 -
+Edit II •
+• Server Manager Dashboard
+DNS
+Ity
+(Sub)
+WELCOME TO SERVER MANAGER
+Configure this local server
+All
+ADDS
+DHCP
+ONS
+File and Storage Sewices
+4
+ROLES AND SERVER GROUPS
+ADDS
+All Servers
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cioud services
+DHCP
+a nd Storage
+i Local Server
+SPA results
+===== frame_0073
+ACIT-3QCEMSt -
+Edit •
+(Sub)
+ii Anse
+and
+Server Manager • Local Server
+PROPERTIES
+WIN.
+o
+wkAEC7EuES.eO
+update
+UTC
+45729 pv
+===== frame_0074
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+Restarting
+===== frame_0075
+ACIT-A2CEDC1 -
+Edit •
+(Sub)
+===== frame_0076
+ACIT-A2CEMS1 -
+Edit •
+(Sub)
+press Ctri4Alt to unlock
+5:00
+Friday, October 2
+===== frame_0077
+ACIT-3QCEMS1 -
+Edit •
+(Sub)
+CPU
+SAN
+Edit
+stop
+90
+Num Lock Off
+===== frame_0078
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+Vatu.'
+Edit
+===== frame_0079
+ACIT-A2CEMS1 -
+Edit
+M.chQ„
+Edit
+p
+===== frame_0080
+ACIT-3QCEMS1 -
+Edit II •
+(Sub)
+Edit
+-J - Notepad
+V— Help
+USER
+ad a t unxjohnr
+p

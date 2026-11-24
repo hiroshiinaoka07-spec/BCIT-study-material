@@ -1,0 +1,262 @@
+===== frame_0001
+Type her to search
+Win2016S Base Image
+CJ ACIB420-SDC
+CJ ACIB420-Client
+Power on this virtual machine
+g Hard Disk (scsl)
+@CD/DVO (SAIA)
+Net•.wrk Ad apter
+using file c.A,VM-
+Type here to enter a descr.pt.on Of
+• Virtual Machine Details
+Configura•uon Server 2016vmx
+Hardware compatibility: Workstation virtual machine
+Primary IP address:
+Netwtyk information is available
+===== frame_0002
+@Win2016Core - VMware WorkStation
+f p Type her to search
+[t] VMware ESXi
+TO return to Computer. press
+We XXXxX• XkxXX
+===== frame_0004
+p Type her to search
+Installing Wndows
+===== frame_0011
+f p Type her to
+C] VMware ESXi
+TO direct input to this VM. Click or p I
+Virtual Machine Settings
+@CDjDvO (SATA)
+Memory for this :
+===== frame_0012
+@Wvn2016Core - VMware Workstation
+TO direct input to VM. inside p'
+===== frame_0013
+Cl ACIT3420-Client
+CJ CentOS Server
+TO direct input to VM,
+===== frame_0014
+CJ Win2016S Base Image
+TO return to Computer. the mau
+WELCOME TO SERVER MANAGER
+ROLES AND SERVER GROUPS
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+Roles: 4 1 Sewer groups: I Servers total:
+===== frame_0015
+@W.n2016Core - VMware WorkStation
+TO direct input to VM. p I
+===== frame_0016
+Adapter Settings
+Intel(R) Gigabit
+Set Adapter Addre"
+elect (S)tatic
+nter static IP address.
+IP (Blank.cancel)• s
+===== frame_0017
+nter "IS (Blank - n
+Iternate tns se„,
+) Set Adapter Address
+clear rms server sect Ings
+===== frame_0018
+) update Settings:
+2) Log Off User
+S) Exit to C—and Line
+===== frame_0019
+TO direct input to VM. Ot
+Network Comections
+Internet Protocol Version 4 (TCPAPv4) Properties
+Can P —tMgS automatice,• if
+supports this need to
+Search Com-ve•ctions
+Disable this net.wrk
+825741 Gigabit N
+===== frame_0020
+G' ACIT3420-DC
+Cl ACIB420-SDC
+TO return to Computer. the
+Disable this net,wrk device
+Diagnose this connection
+v Search Netwm Connecti o
+Rename this connection
+Adrnnistrator Promot
+verosoft I Version Ie.C.14SY31
+(c) ze16 Microsoft Corporation. All rights resen•ed.
+: CA-VAN-SVRI>
+===== frame_0021
+Network ark' Internet
+Disable this netvwrk device
+vcrosoft IO.e.14S'JSl
+(c) 2016 Microsoft Corporation. All rights
+J untitled - Notepad
+'tinging 192.168.239.9
+R equest timed out.
+R•quest timed out.
+Request tined out.
+'ing statistics for 192.16b
+packets; Sent = 4,
+why? 1 can not ping my server Core but I can ping from c
+===== frame_0022
+v crosoft I Version IC.e.14S'JSl
+- : 192.168.239.9
+192.168.239.9 32 bytes Of data:
+R equest timed
+'ing statistics for 192.168.239.9:
+packets; Sent = 4, Received =
+===== frame_0023
+) Hindms Settings:
+Install updates
+J) Restart Server
+(D) inble R.te Desktop? e
+Rea)te Desktop Level Authenticatlm
+version of Desktop (less Secure)
+===== frame_0024
+- VMware WOC*StatiOn
+TO to Computer. press Ai t
+Server Configuration
+) Configure Hanagænt
+) Tel—try settings
+===== frame_0025
+Cl ACIB420-Client
+TO direct input to this VM. p'
+J Untitlea - Notepao
+) "ind.NS update Settings:
+) Install updat,-
+) Net-or•k Set t I nes
+Restart Seruer
+===== frame_0026
+) Net-Of•k Settings
+===== frame_0028
+r Cmfigur•atim
+Cmfigure R.te Manage—nt
+tmnload and Install updates
+2) Log Off LSer
+4) Shut Semler
+nter to select an option: IS
+Enabled secure only)
+===== frame_0030
+G' ACJT3420-DC
+Disable this network device
+O i agnose this
+v Search Connecti o
+this connection
+Administrator: Promot
+Packets; Sent = 4, Rxceaved = O,
+: advfir•euall firewall add ping-
+profile—any interfacetype=any
+Dinging 192.168.239.9 with bytes Of data;
+Reply fr•c• 192.168.239.9: bytes•32 timecl•s
+Reply f 192.168.239.9:
+Reply f bytes=32
+Reply fr•c• 192.168.239.9: bytes•32
+Ping statistics for 192 _
+Packets: Sent 4, Received 4, Lost
+approxi•ate round trip tires in •illi•seconds:
+===== frame_0031
+- VMware WorkStation
+CJ ACIT3420-SDC
+protocol—it.v4 interfacetype—any
+===== frame_0032
+[t] ACAB420-Client
+Remote ma nagement
+Operating system version
+All events I total
+Microsoft Windows Server 2016 Standagd
+VMware, Inc. VMware',
+Last installed upd
+Windows U vd ate
+Feedback & Diag
+Enhanced Security
+Total desk space
+===== frame_0033
+Tele—try Settings
+===== frame_0034
+@Wln2016Core - VMware WorkStation
+===== frame_0035
+t t t a n opt 1
+nange t—bershLp
+oin (Blank-Cancel) d
+f an authorized
+===== frame_0038
+Server Name IO Severity
+CA.VAN.svR' 10020 warning
+M •Wnd O ws • DHC P •
+system 1/20/2019 P'
+===== frame_0039
+CJ ACIT3420-Client
+w,n2016 in2016 co.e
+===== frame_0040
+Online - Perf0"nance counters started 1 '20/2019 7 A 1:47 PM
+CA.VA.svR9 gigg
+Severity Source
+M O • Secu • S
+===== frame_0042
+i Local Server
+•a All Servers
+Add and Features Wizard
+Before you begin
+This Wizard helps pu ro role services. or features. Vou determine which roles.
+features to install based on Of Such as Sharing
+TO role Or features:
+Stan the Remove Rotes and features Wizard
+Before verify that tasks have been completed:
+• The Administrator account has a password
+• Network settings, such as static IP addresses. are configured
+• The most current security updates trom Windows Update are installed
+'f you must that any ot the weeding prerequisites have t
+complete the steps. and then run the wizard again.
+To continue. click Next.
+===== frame_0043
+Windows ActivatiCM
+00376-30727-5%79.AA475 (Activated)
+1/20/2019 7:4903 PM
+1/20/2019 74U9 PM
+1/20/2019 7:48:49 PM
+Status Start Type
+Online • Pedormance counters not started
+Computer Management
+Remo te Desktop Co
+Start Performance Counters
+An events | total
+Microsoft-Windows- DNS Client Events
+Microso ft-Windows- Secu ritv SPP
+Microso ft •Wind ows•Secu rity•SPP
+Microsoft-Windows- Wirufows Remote Management
+Microso ft-Wi Secu SPP
+Microsoft-Windows-DNS Client Gents
+WinHTTP Web Proxy AutO• Service
+Windows Driver Foundation • Driver Framework
+===== frame_0044
+Administrator; Windows
+Las turi teTime
+-VA-Svr9.Adatum.com : PS
+ICA-VA-Svr9.Adatum.com : PS
+[CA-VA-svr9.Adatum.com]: PS C: \users» exit
+Program Files 086)
+Administrator. ADATW
+O ACIT1420. txt
+===== frame_0045
+(9) Server Manager All Servers
+Search Quick access
+; ; File Explorer
+•t' * Chick mcess
+===== frame_0046
+AJI servers 2 total
+Admi ni s trator. CA-VAN-SVRI
+Select Administrator
+C: \Users» cd..
+Wm HttpAutOPrOXYSVC
+Windows Driver Foundation • User•mode Driver Framework
+===== frame_0047
+1/20/2019 74&49 PM
+1/20/2019 7:4701 PM
+Online • Pettormance counters not started
+Onlme counters nor s'.al'.ecl
+Microso ft-Windows- Secu SPP
+===== frame_0048
+p Type to searcn

@@ -1,0 +1,1817 @@
+===== frame_0001
+File
+- VMware
+Edit VM Tabs Help
+Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+C] VMware
+CentOS Server
+core
+@W.n201é
+Shared VMS
+core
+[Ü core
+Power on this virtual machine
+Edit virtual machine settings
+Memory
+Processors
+g Hard Disk (scsl)
+@CD/DVO (SAIA)
+Net•.wrk Ad apter
+controller
+Sound Card
+Printer
+• Description
+120 GB
+using file c.A,VM-
+Type here to enter a descr.pt.on Of
+m acmne_
+• Virtual Machine Details
+State: o ff
+Configura•uon Server 2016vmx
+Hardware compatibility: Workstation virtual machine
+Primary IP address:
+Netwtyk information is available
+===== frame_0002
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+Activate Wi
+H this pc
+wpy
+We XXXxX• XkxXX
+===== frame_0003
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+Installing
+===== frame_0004
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+Installing Wndows
+===== frame_0005
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+Installing Wndows
+===== frame_0006
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+===== frame_0007
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+start up
+manager
+•mware
+===== frame_0008
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+r hit
+Esc
+===== frame_0009
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+===== frame_0010
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+===== frame_0011
+- VMware
+File Edit VM Help
+f p Type her to
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+ACIB420-Client
+ACIT3Q0-vpN
+C] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO direct input to this VM. Click or p I
+El
+Virtual Machine Settings
+Hard (SCSO
+@CDjDvO (SATA)
+usa CoMrou«
+Cud
+Mer
+120
+the to
+o of 4
+Memory for this :
+Sli
+memwy
+may
+this
+OS
+memory.
+===== frame_0012
+@Wvn2016Core - VMware Workstation
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO direct input to VM. inside p'
+===== frame_0013
+- uvwa,e
+Edit VM Tabs Help
+p Type her to
+My Computer
+Win2016S Base Image
+ACJT3420-DC
+ACIT3420.DNS
+ACIB420-SDC
+ACIT3420 RTR
+Cl ACIT3420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CJ CentOS Server
+Win2016 core
+Win201é
+C] Shared VMS
+TO direct input to VM,
+Virtual Machine Settings
+Hard (SCSO
+@CDjDvO (SATA)
+2
+Cyd
+WAT
+1/20/2019
+===== frame_0014
+- VMware
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+CJ Win2016S Base Image
+ACIT3420DC
+ACIT3420.DNS
+ACIB420-SDC
+@ACIT3420 RTR
+ACIT3420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win201é
+C] Shared VMS
+TO return to Computer. the mau
+Dashboard
+WELCOME TO SERVER MANAGER
+01 r
+Manage
+Tods
+View
+Help
+Dashboard
+Local Server
+All Servers
+DHCP
+DNS
+START
+File and Storage Services
+2
+3
+4
+5
+ROLES AND SERVER GROUPS
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+Roles: 4 1 Sewer groups: I Servers total:
+Mi ADDS
+Ma
+DHCP
+ahil•tv
+P
+e
+1-26 PM
+1/20/2019
+===== frame_0015
+@W.n2016Core - VMware WorkStation
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420.DNS
+ACIB420-SDC
+@ACIT3420 RTR
+ACIT3420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO direct input to VM. p I
+===== frame_0016
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+elect Adapter
+Adapter Settings
+Index
+Address
+P enabled
+fault
+Intel(R) Gigabit
+239.se
+192.168.239.1
+Set Adapter Addre"
+) clear
+to Main Menu
+elect option:
+elect (S)tatic
+et static IP
+nter static IP address.
+IP (Blank.cancel)• s
+192.168.239.1
+===== frame_0017
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+elect option;
+nter "IS (Blank - n
+Settings
+192.108.239.1
+Index
+scription
+Address
+ubnet Mask
+fault Gate."
+Iternate tns se„,
+Gigabit
+192 _ 168.
+192.168.239
+) Set Adapter Address
+clear rms server sect Ings
+===== frame_0018
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+tee
+R&ite
+Server
+Local
+) update Settings:
+updates
+) R.te
+) Settlngs
+2) Log Off User
+4) shut
+S) Exit to C—and Line
+svR9
+Enabled
+Enabled
+Enhanced
+===== frame_0019
+- VMware
+File Edit VM Help
+f p search
+My Computer
+Win2016S Base Image
+& ACIT3420-
+CJ ACIB420-
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win2016
+C] Shared VMS
+TO direct input to VM. Ot
+Internet
+Network Comections
+Internet Protocol Version 4 (TCPAPv4) Properties
+Can P —tMgS automatice,• if
+supports this need to
+IP æmngs.
+Search Com-ve•ctions
+Organize •
+Disable this net.wrk
+2 items
+P
+OisabSed
+825741 Gigabit N
+item selected
+e
+the fouowing
+Defwtt
+Obtam DNS
+the
+Preferred
+exit
+. 168-239.
+2ss.2ss.2ss.
+. . 254
+1:29 PM
+1/20/2019
+===== frame_0020
+- VMware
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+CJ Win2016S Base Image
+G' ACIT3420-DC
+ACIT3420.DNS
+Cl ACIB420-SDC
+@ACIT3420 RTR
+ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win201é
+C] Shared VMS
+TO return to Computer. the
+Organize •
+Disable this net,wrk device
+Network Comections
+Diagnose this connection
+v Search Netwm Connecti o
+Rename this connection
+Adrnnistrator Promot
+verosoft I Version Ie.C.14SY31
+(c) ze16 Microsoft Corporation. All rights resen•ed.
+: CA-VAN-SVRI>
+1/20/2019
+===== frame_0021
+- VMware
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+CJ Win2016S Base Image
+ACIT3420DC
+ACIT3420.DNS
+ACIB420-SDC
+@ACIT3420 RTR
+ACIT3420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win201é
+C] Shared VMS
+TO return to Computer. the mau
+Organize •
+Network ark' Internet
+Disable this netvwrk device
+Network Comections
+Diagnose this connection
+v Search Netwm Connecti o
+Rename this connection
+vcrosoft IO.e.14S'JSl
+(c) 2016 Microsoft Corporation. All rights
+J untitled - Notepad
+'tinging 192.168.239.9
+i
+R equest timed out.
+R•quest timed out.
+Request tined out.
+R equest tined out.
+'ing statistics for 192.16b
+packets; Sent = 4,
+: CA •
+Edit Format View Help
+why? 1 can not ping my server Core but I can ping from c
+i-_30 PM
+1/20,'2019
+===== frame_0022
+- VMware
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+CJ Win2016S Base Image
+ACIT3420DC
+ACIT3420.DNS
+ACIB420-SDC
+@ACIT3420 RTR
+ACIT3420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win201é
+C] Shared VMS
+TO return to Computer. the mau
+Organize •
+Disable this netvwrk device
+Network Comections
+Diagnose this connection
+v Search Netwm Connecti o
+Rename this connection
+i
+Administrator:
+v crosoft I Version IC.e.14S'JSl
+(c) 2016 Microsoft Corporation. All rights
+- : 192.168.239.9
+192.168.239.9 32 bytes Of data:
+R equest timed
+Request timed out.
+* tined out.
+equest t out.
+'ing statistics for 192.168.239.9:
+packets; Sent = 4, Received =
+Lost
+= 4 loss),
+7:31 PM
+1/20/2019
+===== frame_0023
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+) Hindms Settings:
+Install updates
+) Desktop:
+) Settings
+Dat and
+settings
+1) activation
+J) Restart Server
+t an 7
+svR9
+Enabled
+Enhanced
+(E)nable
+(D) inble R.te Desktop? e
+) clients
+Rea)te Desktop Level Authenticatlm
+version of Desktop (less Secure)
+) Clients any
+selection:
+===== frame_0024
+- VMware WOC*StatiOn
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420.DNS
+ACIB420-SDC
+@ACIT3420 RTR
+ACIB420-Client
+ACIT3Q0-vpN
+VMware ESXi
+CentOS Server
+Win2016 core
+W,n2016
+C] Shared VMS
+TO to Computer. press Ai t
+Remte
+Server Configuration
+) Configure Hanagænt
+update Settings
+) Install updates
+) R.te
+) Set tings
+Date and
+) Tel—try settings
+Activation
+Log Off user
+Restart
+Shut Serw
+Exit to C—and
+svR9
+Enabled
+Enabled
+E n hanced
+1)
+2)
+4)
+S)
+nt
+an IS
+===== frame_0025
+- VMware
+File Edit VM Help
+f p Type her to search
+My Computer
+CJ Win2016S Base Image
+ACIT3420-0C
+ACIT3420.DNS
+CJ ACIB420-SDC
+RTR
+Cl ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CJ CentOS Server
+Win2016 core
+w,n2016
+Shared VMS
+TO direct input to this VM. p'
+J Untitlea - Notepao
+Edit View Help
+nabling Remte
+Add L al
+) Configure
+) "ind.NS update Settings:
+) Install updat,-
+) R.te
+) Net-or•k Set t I nes
+Date and
+) Tel—try Settings
+1)
+Log Off User
+2)
+Restart Seruer
+Shut Serw
+4)
+S)
+Exit to C—and
+to
+n opt
+===== frame_0026
+@Wvn2016Core - VMware Workstation
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W.n201é
+C] Shared VMS
+TO direct input to VM. inside p'
+nabling Remte
+Server Configuration
+CA - VA-svR9
+Add L al
+) Configure
+"i nd.NS update Settings
+) Install updates
+) R.te
+) Net-Of•k Settings
+Date and
+) Tel—try Settings
+1)
+Log Off user
+2)
+Restart
+Shut Serw
+S)
+Exit to C—and
+E n abled (m
+an IS
+===== frame_0027
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+nabling Remte
+Server
+Add L al
+) Configure
+) "ind.NS update Settings:
+) R.te
+) Net-or•k Set t I nes
+Date and
+) Tel—try Settings
+1)
+Log Off User
+2)
+Restart Seruer
+Shut Serv
+4)
+S)
+Exit to C—and
+an IS
+CA - VA-svR9
+Enabled
+Enhanced
+add
+===== frame_0028
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+n.OlLng
+r Cmfigur•atim
+*jRKGRüJP
+Cmfigure R.te Manage—nt
+) update Settings:
+tmnload and Install updates
+) Remte
+Settings
+) Date and
+try settings
+1) Activation
+2) Log Off LSer
+3) Restart
+4) Shut Semler
+5) Exit to C
+nter to select an option: IS
+CA. VA. svR9
+abled
+Enabled secure only)
+add rule
+ping Ipva
+enable-yes
+===== frame_0029
+@Win2016Core - VMware WorkStation
+File Edit VM Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+r Cmfigur•atim
+*jRKGRüJP
+Cmfigure R.te Manage—nt
+) update Settings:
+tmnload and Install updates
+) Remte
+Settings
+) Date and
+try settings
+1) Activation
+2) Log Off LSer
+3) Restart
+4) Shut Semler
+5) Exit to C
+nter to select an option: IS
+CA. VA. svR9
+abled
+Enabled secure only)
+add
+ping IPVa
+enable-yes
+===== frame_0030
+- VMware
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+G' ACJT3420-DC
+ACIT3420.DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+Cl ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win201é
+C] Shared VMS
+TTL.128
+TIL-128
+TTL=128
+TTL.128
+Organize •
+Disable this network device
+Network Comections
+O i agnose this
+Lost luss),
+v Search Connecti o
+this connection
+Administrator: Promot
+Packets; Sent = 4, Rxceaved = O,
+: advfir•euall firewall add ping-
+profile—any interfacetype=any
+r. : 192
+.168.239 9
+Dinging 192.168.239.9 with bytes Of data;
+Reply fr•c• 192.168.239.9: bytes•32 timecl•s
+Reply f 192.168.239.9:
+Reply f bytes=32
+Reply fr•c• 192.168.239.9: bytes•32
+Ping statistics for 192 _
+Packets: Sent 4, Received 4, Lost
+e (ox loss),
+approxi•ate round trip tires in •illi•seconds:
+= = Average =
+' : CA-VAN-SVRI>
+1/20/2019
+TO return to Computer. the
+===== frame_0031
+- VMware WorkStation
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420.DNS
+CJ ACIT3420-SDC
+ACIT3420 RTR
+Cl ACIB420-Client
+VMware ESXi
+CentOS Server
+w,n201
+016 core
+Shared
+TO direct input to VM. p I
+Add L al
+update Settings
+) Install
+R.te
+) Settings
+) Date and
+CA svR9
+Enabled
+Enabled
+secure
+1)
+2)
+4)
+S)
+tel—try settings
+Activation
+Log Off User
+Restart
+Shut Serw
+Exit to C—and
+an IS
+add
+protocol—it.v4 interfacetype—any
+ping dir.in
+===== frame_0032
+- VMware
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT34 NS
+CJ ACIT
+ACIT
+[t] ACAB420-Client
+VMware ESXi
+CJ CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO direct input to this VM. Click or p I
+Local Server
+Manage
+Tods
+View
+Help
+Dashboard
+Local Server
+All Servers
+ADDS
+DHCP
+DNS
+File and Storage Services
+PROPERTIES
+CA-VAN.S„I
+Computer name
+Firewall
+Remote ma nagement
+NIC
+Operating system version
+Hamlware
+All events I total
+CA-VAN-SWI
+Adatum.com
+Public On
+Disa b led
+192.168.2391
+Microsoft Windows Server 2016 Standagd
+VMware, Inc. VMware',
+P
+e
+Last installed upd
+Windows U vd ate
+La St Checked
+Windows
+Feedback & Diag
+Enhanced Security
+Time Z one
+Product ID
+Processors
+I n5talle•d
+Total desk space
+TASKS
+1/20/2019
+===== frame_0033
+@W.n2016Core - VMware WorkStation
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420.DNS
+ACIB420-SDC
+@ACIT3420 RTR
+Cl ACIT3420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO direct input to VM. p I
+Wm7016
+clients r
+nter
+nabllng Remte
+Server
+Add L al
+) Update Settings;
+) Install
+R.te
+) Settln8S
+Date and
+CA - VA-svR9
+Enabled
+E n abled
+Enhanced
+1)
+2)
+S)
+Tele—try Settings
+A' t Iva u on
+Log Off user
+Restart
+Shut
+Exit to C—and
+to
+===== frame_0034
+@Wln2016Core - VMware WorkStation
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+===== frame_0035
+@Wln2016Core - VMware WorkStation
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+) Our
+Local
+Manage—en t
+) update Settings:
+) Install Updates
+) Settings
+) Date and
+y settings
+1) Activation
+J) Restart Server
+t t t a n opt 1
+nange t—bershLp
+CA VA svR9
+Enabled
+Enabled (
+Enhanced
+oin (Blank-Cancel) d
+aQ of to
+f an authorized
+===== frame_0036
+@Wln2016Core - VMware WorkStation
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+===== frame_0037
+@Wln2016Core - VMware WorkStation
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420-DNS
+CJ ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n201é
+C] Shared VMS
+TO return to Computer. press
+El
+===== frame_0038
+ACIB420-
+ACIT3420
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win2016
+C] Shared VMS
+TO direct input to this VM. Click or p I
+- VMware
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+& AC113420-
+ACIT3420-0c
+All 1 total
+Server Manager DHCP
+Manage
+ily
+Tods
+Last update
+View Help
+Dashboard
+Local Server
+All Servers
+ADDS
+DNS
+File and Storage Services
+Server Name
+events | total
+Farer
+I Pv4 Address
+Server Name IO Severity
+CA.VAN.svR' 10020 warning
+Source
+M •Wnd O ws • DHC P •
+P
+e
+Log Oate and
+system 1/20/2019 P'
+1-47 PM
+1,'20/2019
+===== frame_0039
+@W.n2016Core - VMware WorkStation
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT3420-oC
+ACIT3420.DNS
+ACIB420-SDC
+@ACIT3420 RTR
+CJ ACIT3420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+w,n2016 in2016 co.e
+Shared VMS
+TO direct input to VM. p I
+Server Configuration
+Add L al
+) Configure
+"i nd.NS update Settings
+) Install updates
+) R.te
+) Net-Of•k Settings
+Date and
+) Tel—try Settings
+Log Off User
+Restart SeNer
+Shut Serw
+Exit to CÄand
+CA svR9
+E n abled (m
+Enhanced
+2)
+4)
+S)
+nt
+an IS
+===== frame_0040
+- VMware
+File Edit VM Tabs Help
+f p Type her to search
+My Computer
+Win2016S Base Image
+ACIT34 NS
+CJACIB420
+CJ ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+Win2016
+C] Shared VMS
+TO direct input to this VM. Click or p I
+All Servers
+Server Name
+CA-VAN-SVRI
+Manage
+Tods
+View
+TASKS
+Help
+Dashboard
+Local Server
+All Servers
+DHCP
+DNS
+Address
+192.1682391
+Manageability
+Last Update
+Online - Perf0"nance counters started 1 '20/2019 7 A 1:47 PM
+File and Storage Services
+28 total
+Nam e IO
+CA.VA.svR9 gigg
+Severity Source
+M O • Secu • S
+AL p I 'cat
+1:48 PM
+P
+e
+===== frame_0041
+@W.n2016Core - VMware WorkStation
+Edit VM Tabs Help
+f p Type her to search
+My Computer
+CJ Win2016S Base Image
+ACIT3420.DNS
+CJ ACIT3420-SDC
+ACIT3420 RTR
+Cl ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+€2
+w,n201
+Shared
+TO direct input to VM. inside p'
+===== frame_0042
+Hap
+Dashboard
+i Local Server
+All Servers
+DHCP
+DNS
+File and S
+•a All Servers
+SERVERS
+All servers | 2 total
+Add and Features Wizard
+Before you begin
+Type
+This Wizard helps pu ro role services. or features. Vou determine which roles.
+features to install based on Of Such as Sharing
+a web-site.
+TO role Or features:
+Stan the Remove Rotes and features Wizard
+Before verify that tasks have been completed:
+• The Administrator account has a password
+• Network settings, such as static IP addresses. are configured
+• The most current security updates trom Windows Update are installed
+'f you must that any ot the weeding prerequisites have t
+complete the steps. and then run the wizard again.
+To continue. click Next.
+749 PM
+1/20/2019
+===== frame_0043
+Server Manager All Servers
+Dashboard
+Local Server
+All Servers
+ADDS
+DHCP
+DNS
+File and Storage Services
+Last
+1 '20/2019
+34906
+Windows ActivatiCM
+00376-30727-5%79.AA475 (Activated)
+No'
+Oate and Time
+1/20/2019 7:4903 PM
+1/20/2019 PM
+1/20/2019 PM
+1/20/2019 74U9 PM
+1/20/2019 7:48:49 PM
+1/20/2019 PM
+1/202019 PM
+Status Start Type
+M an ual
+View
+TASS
+TASKS
+TASKS
+Help
+CA.VAN.SVRI
+IPv4 Address
+192168239.1
+I'ty
+Online • Pedormance counters not started
+Add Roles and Features
+Computer Management
+Remo te Desktop Co
+NIC
+Manage As
+Start Performance Counters
+An events | total
+CA-VA. SVR9
+CA-VA-SVR9
+CA-VA-SVR9
+CA-VA. SVR9
+CA.VA.SVR9
+CA.VA.SVR9
+CA.VA.SVR9
+1014
+8198
+8198
+10154
+5719
+8198
+1014
+Severity
+Warning
+Error
+Error
+Warning
+Error
+Error
+Warnina
+Source
+Microsoft-Windows- DNS Client Events
+Microso ft-Windows- Secu ritv SPP
+Microso ft •Wind ows•Secu rity•SPP
+Microsoft-Windows- Wirufows Remote Management
+NETLOGON
+Microso ft-Wi Secu SPP
+Microsoft-Windows-DNS Client Gents
+system
+Application
+Application
+system
+system
+Application
+svstem
+An 14 total
+Name
+CA.VA.SVR9
+CA.VA.SVR9
+Display Name
+WinHTTP Web Proxy AutO• Service
+Windows Driver Foundation • Driver Framework
+Sennce N a me
+HttpAutoproxySVC
+wudfSVC
+===== frame_0044
+Server Manager All Servers
+View
+TASS
+Help
+Dashboard
+Local Server
+All Servers
+ADDS
+DHCP
+DNS
+File and Storage Services
+Administrator; Windows
+Las turi teTime
+CA-VAN.
+SVRd-r---
+CA
+An events
+7/16/2016
+2/3/2018
+2/3/2018
+1/20/2019
+1/20/2019
+6:18 A'
+6:01 p,
+6:01 PN
+7:49 PY
+7:28 PN
+-VA-Svr9.Adatum.com : PS
+ICA-VA-Svr9.Adatum.com : PS
+Directory:
+cd users
+C: \users» Is
+Las turi teTime
+1/20/2019
+7:24
+1/20/2019
+7:49
+2/3/2018
+6:05
+[CA-VA-svr9.Adatum.com]: PS C: \users» exit
+PS c: dir
+Directory:
+Length
+Length
+Length
+CA-VA.SvR •
+CA-VA-Svk
+CA-VA. Svg
+CA-VA. Svg
+CA-VA. Svg
+CA.VA.SVR
+VA.SVR
+An 14 total
+Las turi teTime
+11/4/2018
+11/26/2018
+1/13/2019
+11/22/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/22/2018
+4:41
+7:35
+4:55
+4:41
+4:41
+4:41
+4:41
+4:41
+4:41
+4:41
+11
+09
+PerfLogs
+Program Files
+Program Files 086)
+users
+Wi n dows
+Name
+Administrator
+Administrator. ADATW
+public
+Name
+Contacts
+Desktop
+Documents
+Downloads
+Favor 1 tes
+Links
+Mus 1 c
+Pictures
+Saved Games
+Searches
+videos
+O ACIT1420. txt
+Sennce N a me
+HttpAutoproxySVC
+wudfSVC
+TASKS
+e:
+TASKS
+Name
+CA.VA.SVR9
+CA.VA.SVR9
+Display Name
+Status
+Runn
+WinHTTP Web Proxy AutO• Service
+Windows Driver Foundation • Driver Framework
+Start Type
+M an ual
+===== frame_0045
+(9) Server Manager All Servers
+Search Quick access
+View
+TASS
+TASKS
+TASKS
+Help
+Dashboard
+Local Server
+All Servers
+ADDS
+DHCP
+DNS
+File and Storage Services
+AJI 2 total
+; ; File Explorer
+•t' * Chick mcess
+All 14 total
+Name
+CA.VA.SVR9
+CA.VA.SVR9
+Display Name
+WinHTTP Web Proxy AutO• Service
+Windows Driver Foundation • Driver Framework
+Sennce N a me
+HttpAutoproxySVC
+wudfSVC
+Status
+Runn
+Start Type
+M an ual
+===== frame_0046
+Dashboard
+Server Manager All Servers
+— SERVERS
+AJI servers 2 total
+Favorites
+Links
+Music
+Pictures
+Saved Games
+Searches
+Vi deos
+O ACIT1420. txt
+Name
+Apps
+Dep Wallpaper
+pern ogs
+Program Files
+Program Files 086)
+shares
+software
+users
+Wi nd mgs
+odjblob
+N Mne
+Administrator
+Admi ni s trator. CA-VAN-SVRI
+View
+TASS
+TASKS
+TASKS
+Help
+Local Server
+All Servers
+ADDS
+DHCP
+DNS
+File and Storage Services
+Select Administrator
+11,2
+11/472018
+11/4/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/4/2018
+11/22/2018
+a: 41
+4:41
+4:41
+4:41
+11
+09
+CA-VAN
+PS
+An events
+CA-VA-SvR
+CA-VA-svg
+CA-VA. Svg
+CA-VA. Svg
+CA.VA.SvR
+CA.VA.SVR
+An 14
+Name
+CA.VA.SVR9
+CA.VA.SVR9
+C: cd..
+C: \Users» cd..
+Directory: CA
+Las turi teTime
+11/19/2018
+11/18/2018
+9/9/2018
+11/22/2018
+11/22/2018
+11/18/2018
+11/19/2018
+11/19/2018
+11/4/2018
+10/14/2018
+cd users
+Directory:
+Las turi teTime
+2:25
+10.
+.52
+5 : 14
+2:24
+11
+: 50
+2:56
+2:15
+4:51
+10
+: 09
+3:17
+Length
+2484
+Length
+9/9/2018
+1/14/2019
+9/9/2018
+2/3/2018
+11/19/2018
+Display Name
+7:56
+3:22
+3:51
+2:15
+ohnny
+Public
+test
+Service Name
+Wm HttpAutOPrOXYSVC
+wudfSVC
+Status
+WinHTTP Web Proxy AutO• Service
+Windows Driver Foundation • User•mode Driver Framework
+Start Type
+Manual
+M an ual
+===== frame_0047
+Server Manager All Servers
+Dashboard
+Local Server
+All Servers
+ADDS
+DHCP
+DNS
+File and Storage Services
+Last e
+1/20/2019 PM
+Windows Activaticm
+00376-30727-5%79.AA475 (Activated)
+No'
+Oate and Time
+1/20/2019 74903 PM
+1/20/2019 PM
+1/20/2019 PM
+1/20/2019 74&49 PM
+1/20/2019 7:48:49 PM
+1/20/2019 PM
+1/20/2019 7:4701 PM
+Status Start Type
+M an ual
+View
+TASS
+TASKS
+TASKS
+Help
+CA.VAN.SVRI
+svR9
+IPv4 Address
+192168239.1
+192
+Ilty
+Online • Pettormance counters not started
+Onlme counters nor s'.al'.ecl
+An events | total
+Server Name
+CA-VA. SVR9
+CA-VA-SVR9
+CA-VA-SVR9
+CA-VA-SVR9
+CA.VA.SVR9
+CA.VA.SVR9
+CA.VA.SVR9
+1014
+8198
+8198
+10154
+5719
+8198
+1014
+Severity
+Warning
+Error
+Error
+Warning
+Error
+Error
+Warnina
+Microsoft-Windows-DNS Client Events
+Microso ft-Windows- Secu SPP
+Microso ft •Wind ows•Secu rity•SPP
+Microsoft-Windows- Wirufows Remote Management
+NETLOGON
+Microso ft-Windows• Secu SPP
+Microsoft-Windows-DNS Client Gents
+system
+Application
+Application
+system
+system
+Application
+svstem
+An 14 total
+Server Name
+CA.VA.SVR9
+CA.VA.SVR9
+Display Name
+WinHTTP Web Proxy AutO• Service
+Windows Driver Foundation • Driver Framework
+Sennce N a me
+HttpAutoproxySVC
+wudfSVC
+===== frame_0048
+- VMware
+Edit VM Tabs Help
+p Type to searcn
+My Computer
+Win2016S Base Image
+ACIT34200C
+ACIT3420.DNS
+CJ ACIB420-SDC
+ACIT3420 RTR
+ACIB420-Client
+ACIT3Q0-vpN
+[t] VMware ESXi
+CentOS Server
+Win2016 core
+W,n2016
+C] Shared VMS
+TO direct input to VM.
+Acro 420-DC

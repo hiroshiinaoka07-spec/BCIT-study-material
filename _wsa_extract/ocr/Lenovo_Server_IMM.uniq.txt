@@ -1,0 +1,11 @@
+===== frame_0002
+Integrated Management Module
+===== frame_0005
+System x3650 M5
+Host Name: IMM2-0894ef1ec504
+System Status •
+Hardware Health
+===== frame_0009
+controllers and Physical Drives
+===== frame_0012
+Network Protocol Properties

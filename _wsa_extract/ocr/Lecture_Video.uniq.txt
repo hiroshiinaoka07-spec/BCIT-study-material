@@ -1,0 +1,228 @@
+===== frame_0001
+Page Thumbnails
+Agenda of Hyper-V
+*What is Hyper-V?
+e Hyper-V host features in Windows Server 2022/2019
+Installing Hyper-V
+Configuring networking on Hyper-V host servers
+Configuring Hyper-V virtual machines
+Managing virtual machines
+===== frame_0004
+Course Home Content Activities v
+-O - Windows Server Admin for l...
+Grades Course Tools v myT001sv E-Mail HELP! Edit Course
+VMware to Hyper-V (V2V)TooIs v
+3. StarWind V2V Image Converter
+4. Symantec Backup Exec System Recovery
+5. Microsoft Virtual Machine Converter
+6. 5Nine V2V Easy Converter
+Elastic Load Balancing v
+25.2023 2:51 PM
+How-To: Understand the different types of Active
+50 unread Discussion posts
+6 New Assignment Submissions
+3 New Enrolments
+Have a Learning Hub
+Before giving ETS a call, have a 100k
+at the Instructor FAQs page.
+===== frame_0005
+Overview Virtual Machine
+By using virtual machine technology, you can run multiple
+operating systems concurrently on a single machine, which
+allows separation of services while keeping cost to a minimum.
+It can also be used to create Windows test systems in a safe,
+self-contained environment.
+Microsoft Hyper-V is a hypervisor-based virtualization system
+for x64 computers starting with Windows Server 2008.
+The hypervisor is installed between the hardware and the
+operating system and is the main component that manages
+the virtual computers.
+===== frame_0007
+Hyper-V is the hardware virtualization role in Windows Server
+• The hypervisor controls access to hardware
+• Hardware drivers are installed in the host operating system
+• Many guest operating systems are supported:
+• Windows Server 2008 SP2 or newer
+• Windows Vista SP2 or newer
+===== frame_0010
+4. Symantec Backup Exec 9stem Recovery
+===== frame_0011
+ACIT•3421-O • Windows Server Admin for
+Course Home Content Activities v Grades Course Tools v myTooIs v E•MaiI HELP! Edit Course
+VMware to Hyper-V (V2V)T001s
+3. Stat •Wind V2V Irnage
+Elastic Load Balancing
+Sep 2S 2023 2:51 PM
+Before giving ETS a call. have a look
+at Instructor FAQS page.
+===== frame_0012
+• Hardware drivers are installed in the host opqrating system
+===== frame_0015
+New Hyper-V host features
+in Windows Server 2019
+New features for Hyper-V hosts include:
+Host resource protection (prevents the excessive use of CPU Usage)
+(Set-VMProcessor -EnableHostResourceProtection STrue)
+Hyper-V Manager improvements (Manage earlier versions..)
+Nested virtualization (Educational Purpose)
+• Rolling Hyper-V cluster upgrades
+• Shielded virtual machines
+• Start order priority
+• Windows PowerShell Direct
+===== frame_0022
+New Hyper-V virtual machine features
+in Windows Server 2022
+New features for virtual machines include:
+• Discrete device assignment (DDA) (Peripheral Component Interconnect
+• Hot add or remove for network adapters and memory
+Integration services delivered through Windows Update
+• Key storage Drive(Trusted Platform Module (TPM) )
+• Linux Secure Boot: verifies digital signatures on files during the boot process
+to prevent malware.
+• Memory and processor capacity improvements (12 TB, 240 Virtual Processor.)
+• Standard checkpoints (Standard Checkpoints (Application-consistant) vs
+Production Checkpoints (
+)) vs. (Backup)
+• Virtual machine configuration file format (.XML vs. .VMCX, .VMRS)
+• Virtual machine configuration version
+===== frame_0030
+Prerequisites and Requirements for
+• Use Systeminfo.exe to verify that hardware requirements are
+met for Hyper-V
+iyper-V Requirements:
+W tor "Ede E *tensions: Yes
+Virtualization Enabled In Firmaare: Yes••—
+Second Level Address Translation: Yes
+Data Execution Prevention Available: Yes
+• You must have sufficient resources in the host to meet the
+requirements of the virtual machines:
+• Memory (8GB/Test)
+• Storage (SAN/Enterprise, S2D/Test)
+• Network(IGB/ Test, IOGB/Enterprise)
+===== frame_0034
+Nested virtualization
+¯ *Enables a Hyper-V guest virtual machine to also be a Hyper-V
+*Useful for development and test servers
+*At least 4 GB of static memory
+*Windows Server 2022 or Windows IO host operating system
+*The Hyper-V host and guest virtual machines running
+Hyper-V must be the same build
+*Some features are not available in the guest virtual machine
+running Hyper-V
+===== frame_0035
+Storage Options in Hyper-V
+*Virtual hard disk formats:
+.vhds This is the VHD Set file, which is what
+your virtual machines will connect to.
+v .avhdx: This is the advanced VHDX file or
+differencing/checkpoint disk, which is
+where all of your data is actually stored.
+*Virtual hard disk types:
+Fixed-size (production environment)
+Dynamically expanding (test environment)
+Pass-through (Do not use it)
+===== frame_0042
+Considerations for Virtual Hard
+Disk Formats and Types
+*Create .vhdx virtual hard disks unless you need backward
+compatibility with Windows Server 2008 or Windows Server
+••A dynamically expanding .vhdx-formatted virtual hard disk is
+suitable for production workloads
+•:•The free space shown by dynamically expanding virtual hard
+disks is not equal to physical free space
+*Multiple layers of differencing disks decreases performance
+you modify a parent disk, the differencing disk is no longer
+*You can relink a differencing disk to a parent disk
+===== frame_0043
+@ S - DC (64-bit)
+•:•lf you modify a parent disk, the differencing disk is no longer
+===== frame_0044
+Types of Hyper-V Networks
+• Use Virtual Switch Manager to create different types of
+virtual networks:
+• You can also:
+• Configure VLANs
+• Capture data travelling through a switch
+• Filter data travelling through a switch
+===== frame_0052
+What are virtual machine
+configuration versions?
+*Configuration versions allow compatibilityfor virtual machines
+/ Windows Server 2012 R2 (version 5 bios?)
+*"Windows Server 2022 (version 5 or 6 UEFI?) (8 above)
+/Windows server 2019 (Version 5 or 6 UEFI) (9 above)
+*Virtual machines must be manually updated from version 5 to
+Update-VMVersion "VMName"
+===== frame_0054
+v Windows Server 2012 R2 (version 5 bios?)
+VWindows Server 2022 (version 5 or 6 UEFI?) (8 above)
+===== frame_0056
+ACIBQO-HypoV -
+===== frame_0058
+Virtual Machine Generation
+Generation 2 virtual machines provide the following
+• Boot from a virtual hard disk that is connectedto a virtual
+SCSI controller
+• Boot from a virtual DVD that is connected to a virtual SCSI
+PXE boot by using a standard Hyper-V network adapter
+• UEFI firmware support
+===== frame_0059
+shielded virtual machine is:
+v Protected from anyone with access to the Hyper-V host
+VA Generation 2 virtual machine with a virtual TPM
+Protected by BitLocker
+*The Host Guardian Service has two attestation
+u Admin-trusted attestation
+TPM-trusted attestation
+===== frame_0060
+Virtual Machine Settings
+Integration services allow virtual machines to access
+Hyper-V services
+*Smart paging allows disk to be used temporarily during
+virtual machine startup, when it is highly needed
+*Resource metering monitors resource usage of virtual
+machines for planning
+*Discrete device assignment allows direct access to PCIe
+*Linux and FreeBSD Generation 2 virtual machines can use
+===== frame_0061
+Best Practices for Configuring Virtual
+• Use Dynamic Memory unless an application does not
+• Avoid using differencing disks
+• Configure multiple synthetic network adapters
+• Store each virtual machine's files on a separate
+===== frame_0062
+Managing Virtual Machine State
+Virtual machine states define what resources are being used:
+===== frame_0064
+*PowerShell Direct:
+Does not require network connectivity
+v Can only be used from the host to the virtual machine
+VThe host must be running Windows Server 2022 above or
+v The guest must be running Windows Server 2022 above or
+VWindows PowerShell must be running as administrator
+You must use credentials to authenticate to the virtual machine
+*Enter a session or invoke a command:
+v Enter-PSSession —VMName VMI
+V Invoke-Command—VMName VMI
+—Scriptblock {commands}
+===== frame_0065
+ACIT-3421-O- Windows server Admin for C
+C— v E•Mail HELP' Edit Cm
+3, starwnd vav
+===== frame_0066
+Content Activities v
+-O - Windows Server Admin for
+Grades Course Tools v
+E-Mail HELP! Edit Course
+Week 5-Lab 3: Hyper-V
+Course Schedule
+Table Of Contents
+Outline & Calendar
+Begins September 4
+Week I-Lab 1 (A):
+Installation and
+C starts Oct 2.2023 1201 AM
+Add a description...
+Add Existing Activities V
+Lab Hyper-V(e)
+Add a sub-module...

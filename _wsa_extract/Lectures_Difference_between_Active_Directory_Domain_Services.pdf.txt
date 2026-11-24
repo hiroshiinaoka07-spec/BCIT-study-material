@@ -1,0 +1,219 @@
+--- page 1 ---
+ACIT 3420 
+Difference between Active Directory Domain 
+Services (AD DS), Azure Active Directory 
+(Azure AD) and Azure Active Directory 
+Domain Services (Azure AD DS)  
+To provide applications, services, or devices access to a central identity, there are three common 
+ways to use Active Directory-based services in Azure. This choice in identity solutions gives you 
+the flexibility to use the most appropriate directory for your organization’s needs. For example, if 
+you mostly manage cloud-only users that run mobile devices, it may not make sense to build and 
+run your own Active Directory Domain Services (AD DS) identity solution. Instead, you could 
+just use Azure Active Directory. 
+Although the three Active Directory-based identity solutions share a common name and 
+technology, they’re designed to provide services that meet different customer demands. At high 
+level, these identity solutions and feature sets are: 
+Active Directory Domain Services (AD DS)  
+Enterprise-ready lightweight directory access protocol (LDAP) server that provides key features 
+such as identity and authentication, computer object management, group policy, and trusts. 
+AD DS is a central component in many organizations with an on-premises IT environment, and 
+provides core user account authentication and computer management features. 
+For more information, see Active Directory Domain Services overview in the Windows Server 
+documentation. 
+The Active Directory Domain Services (AD DS), is the traditional on-premises version of 
+domain services provided by AD. Organizations use AD DS to centrally manage all their 
+resource objects, such as users, computers, printers, shared folders, groups, organizational units 
+(OUs), etc. These objects are part of the Active Directory domain, which allows the 
+administrators to securely manage them through Group Policies. Some of the key features 
+offered by AD DS includes: 
+1. One-premises identity & authentication 
+2. User and computer management 
+3. Group Policies 
+4. Domain trusts 
+AD DS is managed by the organizations on-premises. The Enterprise Administrators are 
+responsible for managing AD DS domain controllers, AD sites, trust relationships between the 
+domains, Group Policies, backing up and restoring AD DS, etc. 
+
+--- page 2 ---
+ACIT 3420 
+NOTE: In this article, the terms traditional AD and traditional AD DS, refer to the on-premises 
+deployment of Active Directory and Active Directory Domain Services. 
+Azure Active Directory (Azure AD) 
+Azure Active Directory (Azure AD) is the Azure solution for identity and access management. 
+Azure AD is a multitenant, cloud-based directory and identity management service from 
+Microsoft. It combines core directory services, application access management, and identity 
+protection into a single solution. 
+Cloud-based identity and mobile device management that provides user account and 
+authentication services for resources such as Office 365, the Azure portal, or SaaS applications. 
+Azure AD can be synchronized with an on-premises AD DS environment to provide a single 
+identity to users that works natively in the cloud. 
+Azure AD offers some of the same features in the cloud, as AD DS offers on-premises. 
+However, just because they both have AD in their names, doesn’t mean they are identical 
+services. Azure AD is a cloud-based identity service that offers the following: 
+1. Cloud-based identification & authentication 
+2. User and computer management 
+3. Mobile Device Management (MDM) 
+4. Access to Software as a service (SaaS) application, Microsoft Azure portal, and Office 
+365 services 
+Because Azure AD is hosted and managed by Microsoft in the cloud, organizations don’t have 
+direct access to AD domain controllers the way they do in their on-premises environment. 
+Microsoft exposes parts of the Azure AD to organizations through the web-based interface so 
+they have enough control to run and customize the services, but Microsoft is responsible for 
+managing the services and servers behind the scenes in its datacenters across the globe. 
+Azure Active Directory Domain Services (Azure AD DS)  
+Provides managed domain services with a subset of fully-compatible traditional AD DS features 
+such as domain join, group policy, LDAP, and Kerberos / NTLM authentication. 
+Azure AD DS integrates with Azure AD, which itself can synchronize with an on-premises AD 
+DS environment. This ability extends central identity use cases to traditional web applications 
+that run in Azure as part of a lift-and-shift strategy. 
+The Azure AD DS is a managed AD DS service in the cloud. In other words, if you want the 
+traditional AD DS running in the cloud, you can take advantage of the Azure AD DS service by 
+running AD DS under Azure AD. This means that you will be able to use traditional AD DS 
+features, such as Kerberos and NTLM authentication, Group Policies (which aren’t supported in 
+Azure AD), LDAP, etc. 
+
+--- page 3 ---
+ACIT 3420 
+For organizations who are interested in running traditional AD DS services in the cloud, 
+Microsoft offers a couple of methods. You can either use a managed domain or a self-
+managed domain. Here’s the difference. 
+Managed Domain 
+A managed domain is something that you will create in the cloud using AD DS and Microsoft 
+will create and manage the associated resources as necessary. 
+Self-Managed Domain 
+A self-managed domain is an AD DS environment that you can create in the cloud using the 
+traditional tools. For example, you will use Virtual Machines (VMs) to install the AD DS 
+domain controllers, member servers, etc. This is a self-managed domain so you (not Microsoft) 
+will be responsible for managing the domain just like you do in your on-premises environment. 
+With Azure AD DS, the core service components are deployed and maintained for you by 
+Microsoft as a managed domain experience. You don’t deploy, manage, patch, and secure the 
+AD DS infrastructure for components like the VMs, Windows Server OS, or domain controllers 
+(DCs). 
+Azure AD DS provides a smaller subset of features to traditional self-managed AD DS 
+environment, which reduces some of the design and management complexity. For example, 
+there’s no AD forests, domain, sites, and replication links to design and maintain. For 
+applications and services that run in the cloud and need access to traditional authentication 
+mechanisms such as Kerberos or NTLM, Azure AD DS provides a managed domain experience 
+with the minimal amount of administrative overhead. 
+When you deploy and run a self-managed AD DS environment, you have to maintain all of the 
+associated infrastructure and directory components. There’s additional maintenance overhead 
+with a self-managed AD DS environment, but you’re then able to do additional tasks such as 
+extend the schema or create forest trusts. 
+Azure AD DS and Azure AD 
+Azure AD lets you manage the identity of devices used by the organization and control access to 
+corporate resources from those devices. Users can also register their personal device (a bring-
+your-own (BYO) model) with Azure AD, which provides the device with an identity. Azure AD 
+then authenticates the device when a user signs in to Azure AD and uses the device to access 
+secured resources. The device can be managed using Mobile Device Management (MDM) 
+software like Microsoft Intune. This management ability lets you restrict access to sensitive 
+resources to managed and policy-compliant devices. 
+Traditional computers and laptops can also join to Azure AD. This mechanism offers the same 
+benefits of registering a personal device with Azure AD, such as to allow users to sign in to the 
+device using their corporate credentials. 
+
+--- page 4 ---
+ACIT 3420 
+Azure AD joined devices give you the following benefits: 
+• 
+Single-sign-on (SSO) to applications secured by Azure AD. 
+• 
+Enterprise policy-compliant roaming of user settings across devices. 
+• 
+Access to the Windows Store for Business using corporate credentials. 
+• 
+Windows Hello for Business. 
+• 
+Restricted access to apps and resources from devices compliant with corporate policy. 
+On an Azure AD-joined or registered device, user authentication happens using modern 
+OAuth / OpenID Connect based protocols. These protocols are designed to work over the 
+internet, so are great for mobile scenarios where users access corporate resources from 
+anywhere. 
+With Azure AD DS-joined devices, applications can use the Kerberos and NTLM protocols for 
+authentication, so can support legacy applications migrated to run on Azure VMs as part of a lift-
+and-shift strategy 
+Aspect 
+Azure AD-joined 
+Azure AD DS-joined 
+Device controlled by Azure AD 
+Azure AD DS managed domain 
+Representation in 
+the directory 
+Device objects in the Azure 
+AD directory 
+Computer objects in the Azure AD DS 
+managed domain 
+Authentication 
+OAuth / OpenID Connect 
+based protocols 
+Kerberos and NTLM protocols 
+Management 
+Mobile Device Management 
+(MDM) software like Intune Group Policy 
+Networking 
+Works over the internet 
+Must be connected to, or peered with, the 
+virtual network where the managed domain 
+is deployed 
+Great for… 
+End-user mobile or desktop 
+devices 
+Server VMs deployed in Azure 
+Feature 
+Azure AD DS 
+Self-managed AD DS 
+Managed service 
+✓ 
+✕ 
+Secure deployments 
+✓ 
+Administrator secures the 
+deployment 
+DNS server 
+✓ (managed service) 
+✓ 
+Domain or Enterprise 
+administrator privileges 
+✕ 
+✓ 
+Domain join 
+✓ 
+✓ 
+Domain authentication using 
+NTLM and Kerberos 
+✓ 
+✓ 
+Kerberos constrained delegation 
+Resource-based 
+Resource-based & account-
+based 
+
+--- page 5 ---
+ACIT 3420 
+Custom OU structure 
+✓ 
+✓ 
+Group Policy 
+✓ 
+✓ 
+Schema extensions 
+✕ 
+✓ 
+AD domain / forest trusts 
+✓ (one-way outbound forest 
+trusts only) 
+✓ 
+Secure LDAP (LDAPS) 
+✓ 
+✓ 
+LDAP read 
+✓ 
+✓ 
+LDAP write 
+✓ (within the managed 
+domain) 
+✓ 
+Geo-distributed deployments 
+✕ 
+✓ 
+ 
+Ref: https://ramprasadtech.com/difference-between-azure-ad-azure-ad-ds-and-ad-ds/ 

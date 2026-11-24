@@ -1,0 +1,179 @@
+--- page 1 ---
+1 
+Planning and Installing Secondary DNS Zone 
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A 
+DNS server responds to name and IP address resolution queries (recursive queries and iterative 
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients 
+to locate network services, such as Active Directory Domain Services (AD DS) domain 
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS 
+infrastructure inappropriately or it is not working correctly, these important network service will 
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how 
+to deploy, configure, manage, and troubleshoot this critical service. 
+Learning Objectives 
+After completing this lab, you will be able to: 
+•
+Install and configure the DNS server role
+•
+Create and configure DNS zones.
+•
+Create and mange different DNS records such as MX, A, AAA, SRV, NS
+•
+Configure DNS Zone transfers
+•
+Manage and troubleshoot DNS such as nslookup
+Network Topology 
+The five basic steps in deploying DNS are: 
+1.
+Install DNS on one or more servers.
+2.
+Configure the DNS servers.
+3.
+Create forward and reverse lookup zones.
+
+--- page 2 ---
+2 
+ 
+4. Add resource records to the forward and reverse lookup zones that you just created. 
+5. Configure clients to use DNS servers. 
+Before you can start using DNS, you must install DNS. As you do with other Windows Server roles, use 
+Server Manager to deploy DNS. Most DNS installations do not require a lot of resources to operate, 
+unless they need to support thousands of requests each minute. Therefore, most systems only need a 
+1.4GB, 64-bit processor; 512 MB of RAM; and 32 GB of free disk space. For performance, a DNS server 
+should be available at each site, and you should have multiple DNS servers for redundancy. 
+Task 1: Install DNS Server 
+To install DNS on Windows Server 2019, perform the following steps. 
+1. Login Svr4 as Local Administrator or Domain Administrator. Click Start and click Server 
+Manager. 
+2. At the top of Server Manager, click Manage and then click Add Roles and Features. 
+3. On the Before You Begin page, click Next. 
+4. Click Role-based or feature-based installation and then click Next. 
+5. Click Select a server from the server pool, click the name of the server to install DNS to, and 
+then click Next. 
+6. Click DNS Server. 
+ 
+7. In the Add Roles and Features Wizard dialog box, select Add Features and then click Next. 
+8. On the Select Features page, click Next. 
+9. On the DNS Server page, click Next. 
+
+--- page 3 ---
+3 
+ 
+10. On the Confirm Installation Selections page, click the Install button. 
+11. When the installation is finished, click Close. 
+ 
+Task 2: Configure Forward Lookup Zones (Secondary Zone) 
+1. On CA-VAN-Svr4, log on as local administrator. 
+2. Click Start and click Server Manager. 
+3. Click Tools > DNS to open the DNS Manager console. 
+4. If necessary, expand the DNS Manager console to a full-screen view. 
+5. In DNS manager, expand the name of Computer (CA-VAN-Svr4). Right click Forward lookup 
+and select New Zone. 
+ 
+6. On the welcome wizard, click on next to continue. 
+7. In the Zone type window, select the type of DNS that you want to use. Since we want to create a 
+secondary zone, you have to choose Secondary Zone.  
+ 
+
+--- page 4 ---
+4 
+ 
+Note: DNS Zone Types 
+The four DNS Zone types are: 
+a) AD Integrated: It can only be configured on Domain Controller. In Active Directory integrated 
+zone, DNS data would replicate with Active Directory. For redundancy and load balancing, we can 
+install DNS on all the Domain Controllers. 
+b) Primary: In primary zone, data is not integrated with AD. A local file will be created on the DNS 
+Server in “c:\windows\system32\DNS” folder. We can have only 1 Primary DNS server in our 
+domain and it doesn’t replicate data with another DNS. All the client computers are supposed to point 
+to Primary for name resolution. 
+c) Secondary: Secondary zone is primarily used for remote sites and for small environments. It is the 
+read only copy of Primary. You can review the Steps to create secondary zone in future articles. It 
+also helps in fault tolerance. Secondary is used to transfer the zone data from Primary. 
+d) Stub: This is also a read only copy but we only have three types of records in Stub Zone i.e. 
+Nameserver (NS), Start of Authority (SOA) and glue Host (A) records. Stub zone is primarily used 
+for saving the bandwidth as it doesn’t transfer all the zone data but only the required records. 
+8. Type the name of Domain for which you are configuring DNS. Since the domain (adatum.com) 
+has been installed, you should type adatum.com. If you use a different domain, you have to type 
+your domain name.  
+ 
+9. On the master DNS Servers, you have to type the IP of your domain.  
+
+--- page 5 ---
+5 
+ 
+ 
+10. Completing the New Zone Wizard. 
+11. When you click your secondary zone, you will find the error “Zone Not loaded by DNS”.  Server. 
+ 
+Note: Before you move to next step, explain what caused the problem?  
+12. Login your domain controller as domain administrator. 
+13. Click Tools > DNS to open the DNS Manager console. Select your master zone (domain name) 
+and then Right-click to choose Properties. The server Properties dialog box opens. 
+
+--- page 6 ---
+6 
+ 
+14. On Zone Transfers Tab, you have to enable “Allow Zone Transfers”. For security purpose, you 
+have to choose “only to the following servers”. Type the IP address of secondary zone and then 
+click ok. You also need to modify notification by clicking notify. You have to type the secondary 
+IP address and then click OK.  
+ 
+ 
+
+--- page 7 ---
+7 
+ 
+15. Login DNS manager on your CA-VAN-Svr4 and then refresh your DNS manager. Could you 
+find out your Secondary Zone? Can you add any record on your secondary zone? Why and Why 
+not? 
+Task 3 (Optional): Complete DNS Namespace 
+ 
+Design a DNS namespace for your organization that conforms to the following guidelines.  
+• 
+The root domain name for the organization is adatum.com. All of the additional domains you create 
+must be subordinate to this domain.  
+• 
+The internal network must be in a different domain from the external network.  
+• 
+The organization consists of three internal divisions: Sales, Human Resources, and Production. 
+Each division must be represented by a separate subdomain in the namespace.  
+• 
+Each division has departmental servers performing various roles and as many as 200 workstations, 
+only some of which are shown in the diagram. Your host names should identify the function of 
+each computer.   
+• 
+Three servers on an external perimeter network host the company’s Internet services: Web, FTP, 
+and e-mail. These servers must be in the domain adatum.com. 
+ 
+On the worksheet shown in the figure on the next page, write the domain names and the fully 
+qualified domain names you have selected for the computers in the appropriate spaces.  
+
+--- page 8 ---
+8 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- page 9 ---
+9 
+ 
+Lab Assignment 
+1. Practice the Task 3 and make sure to understand how to add different DNS records on your DNS 
+Server. You do not need to submit it. 
+2. Login your Svr1 and run DNS manager. Select your DNS zone and take a screenshot of the right 
+click. Paste your screenshot here (See an example down below). 
+ 
+3. Login your Svr4 and run DNS manager. Select your DNS zone and take a screenshot of the right 
+click. Paste your screenshot here (See an example down below). 
+ 
+
+--- page 10 ---
+10 
+ 
+4. Bonus & Challenge Task (Optional Task) (2 mark): Optional Lab Deploying DNSSEC. Login 
+your Ca-Van-Client 1 and run the following CMD, gpresult /r. Paste your screenshot here (See 
+an example down below). 
+ 

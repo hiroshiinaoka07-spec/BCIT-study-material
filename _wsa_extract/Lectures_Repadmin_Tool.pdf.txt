@@ -1,0 +1,163 @@
+--- page 1 ---
+ACIT3420 
+1 
+ 
+Repadmin Tool: The handy, Dandy Fix for Your Active Directory Replication Problems 
+If you’re working on multiple domains, you’re sure to face issues at some point, 
+especially in the replication process. As you know, replicating the changes made on one domain 
+controller with all the other domain controllers in the same forest is necessary to ensure that 
+every controller stores the same set of information. If you’re managing a large organization, 
+you’ll often replicate within the local site as well as the additional sites to keep your data in sync 
+across all domains and forests. This replication is important, as the lack of it can cause 
+authentication problems. In turn, it can create problems with accessing resources on the network. 
+By and large, Active Directory makes it a breeze to manage multiple domains. However, it 
+throws up replication problems in many situations, and troubleshooting is surprisingly difficult. 
+But, don’t worry! Microsoft offers a tool called repadmin that you can use to diagnose and, 
+sometimes, even repair active directory replication problems. 
+What is repadmin? 
+Repadmin is a command-line tool that’s helpful to diagnose and repair Active Directory 
+replication problems. In fact, repadmin.exe is built into versions starting from Windows Server 
+2008 and Windows Server 2008 R2. It is also available if you’ve installed AD DS or AD LDS 
+server roles. You can even access it through AD domain services tools that come as a part of the 
+Remote Server Administration Tools (RSAT). 
+How to start repadmin 
+To use repadmin, open the elevated command prompt. To open this prompt, right-click the start 
+button and choose command prompt (admin) from the shortcut menu. And of course, you’ll have 
+to login as the domain administrator. 
+Next, run ntdsutil from the command prompt to start repadmin  
+Using repadmin 
+You can do different things with repadmin. Here are some of the important tasks for which 
+you’ll use repadmin. 
+Identifying the replication problem 
+With repadmin, you can see the replication topology from the perspective of every domain 
+controller. You can even get the replication status of your domain with this command: 
+repadmin / replsum 
+This command gets information from all the DCs and gives you a summary of every DC’s 
+replication status. 
+
+--- page 2 ---
+ACIT3420 
+2 
+ 
+This is also the first command you should use if you’re debugging a replication problem as it 
+gives you a snapshot of every DC’s replication status. 
+ 
+Let’s analyze this image a bit so you know where to look for problems. 
+Look closely and you’ll see two sections — one with source DSA and the other with destination 
+DSA. The servers listed in both these sections are the same. So, why have these two sections 
+then? 
+Well, that’s because active directory updates can be written to any domain controller except 
+read-only controllers, because it follows the multi master domain model. This means, all read-
+only domain controllers are listed in destination DSA only. This information makes it easy to 
+know which are read-only controllers, and obviously, why they’re not updated. 
+The rest of the sections tell you how many replications were attempted and the status of each 
+attempt. This snapshot also gives you the error percentage of replication attempts. 
+Detailed information 
+If you want to get more detailed information on replication attempts, use this command: 
+repadmin / showrepl * 
+
+--- page 3 ---
+ACIT3420 
+3 
+ 
+ 
+This command will show you the likely problem for every failed attempt and can give you a 
+better idea of what’s going on. But if you have multiple domain controllers, it can be 
+cumbersome to look through all the details to identify the error. 
+In the above example, the solution to the problem is to stop the “kerberos key distribution 
+center” service. And then, restart the “Active directory domain services” service. Next, restart 
+
+--- page 4 ---
+ACIT3420 
+4 
+ 
+the replication process through Active Directory sites and services. Check your logs and the 
+replication should be successful. Restart the “kerberos key distribution center,” if you choose to. 
+Overall, this command gives you more insight into the problem and can point you in the right 
+direction for a solution. 
+Queue 
+Some requests end up in a queue waiting to be executed. Use this command: 
+repadmin/queue 
+This will let you if your request is in the queue. Obviously, if your request is in the queue, there’s 
+nothing wrong with the process as such, but it can take up some more time. 
+However, if the same items sit in the queue for an indefinite period of time or if the queue gets 
+really long, it indicates a replication problem. 
+In this sense, the “queue” command helps you to know if there is an error in the replication 
+process or if your item is just sitting in the queue waiting to get executed. 
+Besides the above three common commands, here are other choices. 
+Checks for KCC 
+To run the Knowledge Consistency Checker, or KCC, use this command: 
+repadmin/kcc 
+Running KCC on each domain controller will recalculate the inbound replication topology of 
+that controller. 
+Though each domain controller makes this calculation once every 15 minutes, running this 
+command helps to troubleshoot KCC errors. At the same time, you can also evaluate if you need 
+new connection objects. 
+Managing password replication policy 
+The command 
+repadmin/prp 
+manages the password replication policy (PRP) for all read-only domain controllers (RODC). 
+However, you’ll have to run it against a writable domain controller instead of a read-only one. 
+
+--- page 5 ---
+ACIT3420 
+5 
+ 
+This command allows you to add, remove, move, and view PRPs for any domain controller. But 
+you can’t use this command to add or remove an account from the Deny List. 
+The syntax for adding is: 
+repadmin / prp add <RODC> allow <security principal that you want to add to 
+the allowed list> 
+For delete, use this command: 
+repadmin / prp delete <read-only domain controller> allow <security principal 
+that you want to delete from the allowed list> 
+To move PRP from one group to another, use this command: 
+repadmin /prp move <RODC> <Group> [/noauth2cleanup] [/users_only | 
+/comps_only] 
+When you just want to view, use this syntax: 
+repadmin /prp view <RODC> {<List_Name>|<User>} 
+Forced replication 
+Repadmin/replicate forces the replication of a directory or schema partition to all the domain 
+controllers in the network. 
+You’ll use this command mostly to set off AD replication for a task that you’re doing, and to 
+check the status of replication between different domain controllers. 
+Displays attribute 
+The command 
+repadmin/showattr 
+shows the attributes of the object at that point in time. The “showattr" command uses the 
+lightweight directory access protocol (LDAP) port 389 by default to query different writable 
+partitions. It may also use port 3268 to query read-only partitions. 
+If you want to know the number of times the attributes have been changed or details about the 
+domain controller that made these changes, use this command: 
+repadmin/showobjmeta 
+Also, this command gives information such as the attribute ID, version number, timestamp, 
+global unique identifier, update sequence numbers, and more. 
+
+--- page 6 ---
+ACIT3420 
+6 
+ 
+Synchronization 
+This command replicates a single domain controller with all its replication partners. The syntax 
+is: 
+repadmin /syncall <DSA> [<Naming Context>] [<flags>] 
+Breaking the command down, here is what each part means: 
+• 
+DSA is the host name of the domain controller. 
+• 
+Naming context is the name of the directory partition. If you don’t specify the directory 
+partition, it uses the configuration directory partition. 
+• 
+Flags is the set of optional flags you can use to get specific actions done. Supported flags 
+include:  
+o /a — aborts if the server is not available. 
+o /h — displays help. 
+o /i — iterates indefinitely. 
+o /s — does not synchronize. 
+o /q — suppresses call messages and runs in quiet mode. 
+Thus, these are some of the options for repadmin. 
+As you can see, repadmin.exe is a convenient tool that comes with Windows server and helps to 
+fix replication problems that happen in Active Directory. This is a command-line tool that makes 
+it easy to identify replication problems and fix them - something that’s not easy to do directly on 
+AD. 
+Reference: http://techgenix.com/repadmin-tool/ 

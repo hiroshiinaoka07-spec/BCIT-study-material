@@ -1,0 +1,150 @@
+===== frame_0001
+Press Ctrl+Alt+Delete to unlock.
+Sunday, October 18
+===== frame_0002
+@ Lab SCSI (MCURED) - DC
+O rganize Pages
+Send for Rewew
+Send for Review
+===== frame_0007
+@ Lab iSCSI (MCURED)
+Network Topology
+DNS: 127.0.0.1
+GW: 192.168.239.254
+DNS: 192.168.239.1
+iSCSI Tar et Server
+Switch (NAT 9)
+DNS: 192.168.239.1/192.168.239.2
+===== frame_0008
+and Storage Services
+===== frame_0011
+WELCOME TO SERVER MANAGER
+===== frame_0012
+Could explain it is
+I created a disk Hith
+===== frame_0017
+Command Prompt
+p cm - See web
+===== frame_0018
+iSCSI (S&CURED) -
+===== frame_0029
+BEST PRACTICES ANALYZER
+===== frame_0030
+Confirm selections
+Confm that the following are the correct settirgs and t+en Click Create.
+===== frame_0031
+Volumes Storage Pools
+===== frame_0032
+Specify the virtual disk name
+disk ISSC *DOE
+===== frame_0033
+Specify the size of the virtual disk
+===== frame_0034
+have New Ward.
+===== frame_0035
+@ Lib SCSI (SECURED)
+l. What is the minimum number of disks you need for a Parity Virtual Disk?
+2. Define the following virtual disk storage layouts:
+Task 3: Install iSCSI Target Server
+To install iSCSI Target Server, perform the following steps.
+l. Open Server Manager. Add the iSCSI Target Server role service on your Domain
+controller. At the top of the Server Manager console, click Add Roles and Features. The
+Add Roles and Feature Wizard opens.
+Johnny Zhang 13
+===== frame_0036
+Installation progress
+===== frame_0037
+cne connrm mstanauon
+When the installation is complete, c
+In Server Manager, click File and
+is displayed as shown on the next sl
+• Server Manager • Dashboar
+===== frame_0038
+Specify iSCSI virtual disk name
+===== frame_0039
+Specify target name
+===== frame_0042
+Select a method to identify the initiator:
+===== frame_0046
+Performance Monitor
+Computer Management
+===== frame_0050
+IP Routine Enabled.
+rms suffix List.
+connection •specific
+Physical . . . . . .
+Address. . . . . . . .
+Lease . . . . . . . . . .
+tease . . . . .
+tktBIOS over Tcp#'. . .
+_ Ca-Van-Clienti
+: Intel (R) 82574L Gigabit
+. ; ee-«-29-ee-Ae-83
+feBß; Preferred)
+• Octotær 18. ae2e 11
+: October 26, me
+. 192.168. 239.1
+===== frame_0051
+NetBIOS over rcplp. . . .
+_ Ca.Van-Cuenti
+: Intel (R) E2S74L Gigabit
+. feae; Preferred)
+• CRtotær 18. 202e 11 zea:S9
+• Honday, October 26, me
+• 192.168.239.
+. . . : Enabled
+===== frame_0052
+: -29. Ee.Ae-B3
+===== frame_0055
+ACIT•A2CCLmt 1
+===== frame_0056
+: Ca.Van-Cuenti
+Remote Desktop Con nection
+Defragment and Optimize Drives
+Display settings
+Duplicate or extend to a connected
+===== frame_0057
+WINS . . . . . . . : No
+: Intel (R) g2574L Gigabit
+physical Address. . . . . . . . . •
+. ee-ec-29-€e-Ae-83
+fe8ß; "referred)
+18. 202e 11 ze2:S9
+: Monday, october zeae
+*fault Gateway
+• 192.168.239.as4
+over rcpip. . . . . . . . .
+===== frame_0059
+Link-local tPv6 Addre
+Default Gateuay
+NetBIOS over rcpip. . . .
+: Intel (R) 82S74L Gigabit
+: Monday, October 26, me
+===== frame_0060
+WINS Enabled. . . . . .
+Suffix List. . .
+. Ca-Van-Cuent1
+p rwte • S— nb
+===== frame_0062
+have to login as administrator.
+using user to login so I not have to
+===== frame_0063
+IP Rout ins Enabled.
+tns suffix sewc
+connection-specific '*CS Suffix
+; ee-ec-29-€e-ne-B3
+; 192.166. 239.1
+Ch vou want to save charves to Untitled?
+===== frame_0064
+"ask . . . . . .
+xpv6 IAIO . . . . . .
+===== frame_0065
+Default Gateway
+. ee-«-29-€e-Ae-B3
+fe8B; "referred)
+OctotM• 18. 202e 11 ze2:S9
+===== frame_0069
+Lease Obtained. .
+• 82574L Gigabit
+. : ee-«-29-Ee-Aø-B3
+smday, 18. 2020

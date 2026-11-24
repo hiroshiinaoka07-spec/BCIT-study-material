@@ -1,0 +1,113 @@
+--- page 1 ---
+ACIT3420 
+1 
+ 
+Forced Removal of a Domain Controller 
+from Active Directory 
+Let’s assume the following scenario. We have a Domain Controller on the network that has 
+ceased to work altogether, for some reason that we don’t care about at this point. We have no 
+backup, it will not work again, so we will need to completely remove it from the infrastructure. 
+To achieve this, we will need to implement a forced removal of the Domain Controller from 
+Active Directory. Furthermore, because such an action leaves some orphaned metadata in the 
+AD, we will then need to go ahead and clean up these metadata. In case the DC is somewhat 
+online, the first action, however, is to try to demote it from AD. 
+With this scenario, we will deal with this article. Let’s move on. 
+Forced removal of a Domain Controller from Active 
+Directory 
+The forced removal of a DC can be done in 3 ways. Using the Active Directory Users and 
+Computers console, Active Directory Sites and Services console, and the NTDSUtil command-
+line tool. 
+When you use the two consoles, Microsoft claims that the orphaned metadata are automatically 
+cleaned. However, as you will see, there are still some records of the deleted DC, especially on 
+the DNS console and Sites and Services. Although DNS scavenging takes care of removing 
+them, personally when I delete a DC, I do a quick check of all DNS objects to confirm and delete 
+all the records that are left. 
+Using the Users and Computers console 
+Open the Active Directory Users and Computers console and go to the Domain Controllers 
+OU. Here, right-click the DC to be removed and then Delete. 
+
+--- page 2 ---
+ACIT3420 
+2 
+ 
+ 
+Confirm the deletion by pressing Yes. 
+ 
+Immediately afterward, you will see a message informing you that you are about to remove a 
+Domain Controller without using the classic method we have described in an earlier article. If 
+DC is not going to go back online again, you need to select the Delete this Domain Controller 
+anyway. It is permanently offline and can no longer be removed using the removal wizard 
+option, and then click the Delete button. 
+
+--- page 3 ---
+ACIT3420 
+3 
+ 
+ 
+If the DC you are deleting was also a Global Catalog (GC) server, click Yes to confirm the 
+deletion. 
+ 
+If the DC you are deleting had one or more FSMO roles, click OK to transfer them to another 
+DC. This if you have not already seized them yourself. 
+Using Active Directory Sites and Services console 
+Open the Active Directory Sites and Services console, expand the Sites object till you find the 
+DC you want to delete. Here, right-click the NTDS Settings icon on the DC, and then click 
+Delete. 
+
+--- page 4 ---
+ACIT3420 
+4 
+ 
+ 
+Confirm the deletion by pressing Yes. 
+ 
+Confirm again while accepting the warnings by clicking the Delete button. 
+
+--- page 5 ---
+ACIT3420 
+5 
+ 
+ 
+As before, if DC was also Global Catalog and/or had at least one of the FSMO roles, you will 
+need to confirm the deletion. 
+ 
+You can then delete the DC object in the Active Directory Sites and Services console. 
+Using the NTDSUtil tool 
+First, open the command line or PowerShell with administrator privileges. 
+Type ntdsutil and press Enter. 
+Type metadata cleanup and press Enter. 
+Type connections and press Enter. 
+Type connect to server <-servername> and press Enter. Where <-servername>, is the name of 
+a working DC in the same domain. 
+Type quit and press Enter. 
+Type select operation target and press Enter. 
+Type list domains and press Enter. 
+Type select domain <-number> and press Enter. Where <-number>, the corresponding number 
+to the domain that the non-functional DC member was a member of. 
+Type list sites and press Enter. 
+Type select site <-number> and press Enter. Where <-number>, the number that corresponds to 
+
+--- page 6 ---
+ACIT3420 
+6 
+ 
+the site that the non-functional DC member was a member of. 
+Type list servers in site and press Enter. 
+Type select server <-number> and press Enter. Where <-number>, the number that 
+corresponds to the DC you want to remove. 
+Type quit and press Enter. 
+Type remove selected server and press Enter. 
+ 
+In the confirmation window that appears, click Yes to continue the deletion process. 
+
+--- page 7 ---
+ACIT3420 
+7 
+ 
+ 
+Finally, type quit and press Enter to exit the NTDSUtil management environment. 
+After completing the steps above as you like, do not forget to check all DNS objects to delete 
+any records of the removed DC. 
+References: 
+https://www.dtonias.com/forced-removal-domain-controller/ 
+http://www.briandesmond.com/blog/remove-an-offline-domain-controller 

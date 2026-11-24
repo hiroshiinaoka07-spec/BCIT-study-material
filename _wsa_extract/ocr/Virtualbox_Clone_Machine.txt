@@ -1,0 +1,82 @@
+===== frame_0001
+BCIT
+Image
+120.00 GO
+===== frame_0002
+BCIT
+DiSQød Start
+Select Folder
+===== frame_0003
+BCIT
+DISC&d Start
+Vitttnl Machi ne
+Base Image
+New machine name and path
+optio fM new
+Acrr 3420-DC
+Omer. _
+WAC MAC
+C] Keep
+Network
+OHC
+===== frame_0004
+New Text Docunænt_txt -
+File Edit Format View Help
+===== frame_0005
+New Text • Notepad
+File Edit Format Vtew Help
+make sure that you have to run
+will get the same machine Sid.
+sysprep before you clone it. Otherwise, you
+You will be ask to run sysprep for eachl
+===== frame_0006
+New Text • Notepad
+File Edit Format Vtew Help
+make sure that you have to run sysprep before you
+will get the same machine Sid. You will be ask to
+machine.
+run sysprep before you clone it. Really important
+clone it. Otherwise,
+run sysprep for each
+you
+cloned
+===== frame_0007
+New Text Document. txt • Notepad
+File Edit Format Vtew Help
+make sure that you have to run sysprep before you
+will get the same machine sid as your base image.
+sysprep for each cloned machine.
+Problem: The cloned machine will
+run sysprep before you clone it. Really important
+clone it.
+You will
+Otherwise,
+be asked to
+you
+run
+===== frame_0008
+New Text Document. txt • Notepad
+File Edit Format Vtew Help
+make sure that you have to run sysprep before you clone it.
+will get the same machine sid as your base image. You will
+sysprep for each cloned machine.
+Otherwise,
+be asked to
+you
+run
+Problem: The cloned machine will not be allowed to join the domain. Some
+students will see the problem soon (Week 2?) .
+run sysprep before you clone it. Really important
+===== frame_0009
+New Text Document. txt • Notepad
+File Edit Format Vtew Help
+make sure that you have to run sysprep before you clone it.
+will get the same machine sid as your base image. You will
+sysprep for each cloned machine.
+Otherwise,
+be asked to
+you
+run
+Problem: The cloned machine will not be allowed to join the domain. Some
+students will see the problem soon (Week 2?) .
+run sysprep before you clone it. Really important

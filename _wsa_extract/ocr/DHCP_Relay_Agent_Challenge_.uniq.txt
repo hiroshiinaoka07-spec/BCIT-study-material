@@ -1,0 +1,394 @@
+===== frame_0003
+ACIT3420 - VMware W__
+===== frame_0004
+G' ACIT3420•CI
+===== frame_0006
+F•_ Serve! Manager
+S? @ File Edit View VM
+Last installed uodates
+Windows U # ate
+Last Checked 'Ot updates
+Windows Defend
+Feedback & Diagnostics
+IE Enharn;ed Security Configuration
+11/4/2018 701:15PM
+11/4/2018 70033 PM
+9/23/2018 4:18 PM
+updates only, using Windcws update
+9ns,2018 '207 PM
+Real •rime Protection: On
+(UTC.og:cx)) Pacific lime (US & Canada)
+C0376-30727-59679-AA475 (activated)
+W i n dows Firewall
+Remote management
+Remote Desktop
+Operating system version
+All events | 103 total
+MOosott Windows Server 2016 Standard
+VMware. 'nc_ VMware7.1
+M icroso ft-Windows- DistributedCOM
+Microsoft-Windows-DNS Client aents
+M icroso ft-Windows- DHCP- Server
+M icroso ft-Windows- Time-Service
+Microsoft-Windows-Windows Remote Management *stem
+'5-83500 cpu @ 1 .JOGHz. core(TM) is-83SOU CPU @ 1.70GHz
+===== frame_0007
+@ File Edit View VM Tabs Help II •
+9) Server Manager Local Server
+i Local Server
+ii All Servers
+Administratcw-_ Ccnmand promot
+Last installed updates
+: c ) 2016 Microsoft Corporation. All rights reserved.
+Wsers\Administratcw. CA-VAN-SVRI>
+nem item selected
+CA-VAN-WRI 10154
+CA-VAN-WRI 8193
+Warning Microsoft-Windows-Windows Remote Management *stem 11/4/2018 700.21 PM
+Aoolication 11/4/2018700.21 PM
+is-8350UCPU @ 1.70GHz
+===== frame_0008
+@ACIT3420.Dc - VMware workstation
+CJ W.n2016S Base Image
+CJ ACIB420-SDC
+DC A Acrr342cFc1
+Gi) • Server Manager
+To d:rect input to th:s VM
+move lhe rrü_'se oointer inside or oress Ctrl-G.
+Administrator Command Prompt
+11/4/2013 70021 PM
+I item I item selected
+CA-VAN.SVRI 10154
+Microsoft • Wim*ows Remote Manaaement
+===== frame_0009
+(c) 2016 All rights
+===== frame_0010
+To show the comrnand bar, move the mouse up to the top of the screen
+SeatCh Network CcmneC1ion-s
+: 192.168.239.254
+inging 192.168.239.254 with 32 bytes Of data:
+from 192.168.239.2rA: bytes-32 time«lms
+eply from 192.168.229.254: bytes=32
+• eply 192.168.239.254: bytes—32 time<lms
+statistics for 192.168.239.254:
+Packets: Sent = 4, Received = Lost =
+i•pproximate round trip tinæs in milli-seconds:
+: Wsers \Administrator. CA-VAN-SVRI>
+M iaoso ft -Windows- DHCP- Server
+Microsoft-Windows-Wandows Remote Management *stem
+9/15/2018 '207 PM
+lime & Canada)
+00376-30727-59679-M475 (activated)
+'5-83500 CPU @ I.JOGHz. is-8350U cpo @ 1.70GHz
+===== frame_0011
+Control Panel Interr*t
+Disable this network device
+Internet Protocol Version 4 (TCP/IPv4) Properties
+suppMs this —d to networt
+2SS . 2SS . 2SS .
+v O Search Network
+Change settings of this connection e. •
+unident"æd network
+82574L Gigabit Network
+===== frame_0012
+c cVss on a Micro
+G' ACIT342t•CI
+v O Search Connections
+Change settings of this connection •
+===== frame_0013
+Gigaba Network
+This c onnecbon
+_ N eWork Adapt« P
+===== frame_0015
+@ File Edit View VM Tabs Help
+ii AllServers Select role servi
+inst a ned updates
+back & Diagnostics
+nced Co nfi9uration On
+Add Roles and Features Wizard
+Add features that are required for Routing?
+You camot install Routing unless the following role services ot
+features are also .nstalled
+Group Policy Management
+RAS Connection Manage r Kit (CMm
+DirectAccess and VPN (RAS)
+Remote Server TOO G
+Administrati-cm Tools
+a Remote Access Management Tools
+Remote Access GUI and Command•Line Tool
+Remote Access module Wtndo•ws
+Web Server (ILS)
+Include management (if a bk)
+provides support for NAT
+LAN Routers running &GP,
+multicast capable routers
+curc.ogm Pacific Time (US & Canada)
+Intemcore(TM) CPU @
+Microsoft -Windows- Secu rity-SPP
+Microsoft -Windows-Secu ritv SPP
+crosott -Windows- Secu
+11/4/2018 n 142 PM
+===== frame_0016
+Virtual Network Ed'tor
+(connect VMS to the
+C) VMS in pryate
+to tgriute to VMS
+===== frame_0018
+@ File Edit View VM Tabs
+Adm nistratot Command Prompt
+(c) 2e16 Microsoft Corporation. All rights
+(D Manageability
+G) Manageability
+@ Manageability
+===== frame_0019
+WELCOME TO SERVER MANAGER
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+Roles: I I Servergroups:l I Servers total: I
+===== frame_0021
+9) • Server Manager Remote Access
+Configuration VPN (RAS) at CA-VAN-RTR
+A" events I O total
+Manageab' Rout;
+R'Nting Remote Access Server Setup Wizard
+Server Name ID Severity Source Log
+An semces 9 total
+CA-VAN-RTR Windows Firewall
+Service N Status
+===== frame_0022
+Routing and Remote Access
+Routing and Ret-note
+nd Remote Access
+and Remote Access
+CA-VAN-RTR W.ndows Firewall
+the Routina and
+changes to the
+vou can run the -Enable Wizard by seleaing the
+•Enable on the on the right or
+On right •clicking wde on left.
+Restate Routing and Remote Access for the selected sever
+===== frame_0023
+Routing and Rernote
+Network Inted•ces
+Remote Access Logging ÄSt•tic
+Opens a box in Which you modfy the columns in pane.
+===== frame_0024
+DHCP Relay Agent Properties
+Requests recewed
+===== frame_0025
+Design Layout References Mailings
+Deploy a DHCP Serverdoo Word
+ACROBAT me what to
+AaBbccDd AaBbCcDd AaBbC(
+No«nal No Head i n9 1
+Format * i ntet
+In Active Directory Domain Senices (AD DS) environments. domain-joined Windows DHCP
+savers must be authorized to DHCP Client requestS_ By DHCP servers be authorized,
+clients arc protected from rogue domain-joined Windows DHCP servers that might maliciously affect
+network clients. Notes that this authorization does not prevent points,
+or other from issuing addresses. Those types of must bc restricted through thc
+use of port security.
+Lei Zhang Share
+===== frame_0026
+All sewers 1 total
+Routing and Remote
+All semces 9 total
+WiMcnvs Firewall
+Name Status Start ype
+Running Automatic
+===== frame_0027
+@ File Edit View VM Taos Helo
+===== frame_0028
+1 1,'4/2018 PM
+11/4/2018 72904 PM
+Download updates only, using Windows Update
+9/9/2018 6-27 PM
+pacific Time (US & Canada)
+(c) 2016 Microsoft Corporation.
+ii All Server,
+All rights reserved.
+Microsoft- Windows-Time-SeMce
+M icrosott- Windows- Time-Service
+A" | '93 total
+coreJM) isnsoU CPU @ coregw is.nsoU cpo @
+===== frame_0030
+Real •Time Protection: On
+(urc.ogcx)) Pacifrc lime CUS & Canada)
+c0376-30727-59679-M475 (activated)
+thernet adapter
+Connection-specific DNS
+Default Gateway . . . . . . . . . .
+1 unnel adapter isatap.Adatum.ccn•.
+Connection-specific DNS Suffix
+. : Adatum.ccm
+: 172-16.30.1øe
+. 255.255.255.e
+: disconnected
+Microso eService
+colecTM) 15-83500 CPU @ I.JOGHz. core(TU) is-8350U cpo @ 1.70GHz
+===== frame_0031
+_ Server Manager
+Last Checked updates
+IE Enhanced Security Configuration
+Installed memory (RAM)
+9/9/2018615 PM
+Assigned by DHCP
+Miaosott Windows Server 2016 Standard
+VMware. lnc_ VMware7. I
+'5-83500 CPU @ 1 .JOGHz is-8350U cpo @ 1.70GHz
+===== frame_0032
+Microsoft Corporation
+inging 192.168.239.asa "Ith 3
+eply 192.168.2".2"; by
+192.168.239.asa: by
+192.168.239.234: by
+eplv 192.168.239.254: by
+statistics 192.168.23
+===== frame_0033
+*ywet On to Firmware
+Routmg and Ret-note
+===== frame_0034
+@ File Edit View VM
+i Local S ervcr
+Control Parkl Network and Internet
+Network Conrections
+Disable this network device Di agrMe this connection Rename this
+82574 L Giga bit Nes«k
+v Search Network Connections
+Intel(R) 825741 GÉeDit
+EtrerneID Status
+Network Ccmnection Details
+NC OOS Over Tcpip Enau_
+===== frame_0035
+v Search Network
+IPva Address. .
+===== frame_0036
+windows IP Cot
+Control Network and Internet
+Network Conræctions
+D i sable this network device Di agrMe thi S connection
+Intel(R) 825741 Gig. Dit Network
+em item selected
+===== frame_0037
+Administrator Prcvnpt
+DHCP Serwer . . . . . . . . . . . : 192.168.239.1
+: 192.168.239.1
+NetBIOS over Tcpip. . .
+'•kdia State . . . .
+Connection-specific Suffix
+Physical Address. .
+Autoconfiguration Enabled .
+: Media disconnected
+. Microsoft Adapter
+: øe-øe-øe-øe-øe-øe-øe-Ee
+windows IP Configuration
+F thernet adapter Ethernetø:
+Default G.åteway
+item i tern selected
+===== frame_0038
+I unnel adapter isatap.Adatum.cc•:
+Vrrtual Machine Settings
+@CD/DVD (S ATA)
+the ot .lloc.ted to ttus
+size be o of •
+for machine: Me
+Search Network
+DHCP Enabled. .
+IP Configuration
+thernet adapter EthernetO:
+Cug«n (VW'et8)
+===== frame_0040
+I unnel adapter isatap.Adatun.ca»:
+: &dia disconnected
+: Mie rosoft ISATAP Adapter
+: ee-øe-øe-ee-øe-øe-øe-Ee
+Autoconfiguration Enabled • Y
+E. thernet adapter EthernetO:
+===== frame_0041
+I unnel adapter isatap.Adatun.co•n:
+Routing Enabled
+'S proxy Enabled
+primary Dns Suffix
+IP Routing Enabled
+WINS proxy Enabled
+hernet adapter Ether
+is-8350UCPU @ 1.,'OGHz
+===== frame_0042
+Tunnel adapter isatap.Adatun.
+AdmnStratOr Prompt
+primary Suffix
+Node Type . . . . .
+hernet adapter
+(R) 82S7dL Gigabit Connection
+: 169.2sa.169.S6(Preferred)
+. : 255.255.e.e
+media State . . . . . . . . . .
+: Microsoft ISATAP
+===== frame_0047
+AdmrrvStrator: Command
+: 169.25a.169.S6(Preferred)
+DHCP Enabled. . . . Y
+===== frame_0048
+All events I O total
+Server Name ID Severity Source
+D I splay Name
+Windcm•s Firewall
+===== frame_0049
+F•_ Server Manager
+Roles: 3 Server groups: I I Servers total: I
+11/4/2018 7:54
+===== frame_0050
+AdmnStratOr Cornmam± Prompt • enew
+Autoconfiguration :
+Subnet Mask . .
+unnel adapter (ADOCø9S•5gD7
+: Microsoft ISATAP Adapter
+error occurred releasing interface Ethernete
+• An address has not yet been associated with the endpoint
+===== frame_0051
+@ File Edit View VM Tabs Helo
+All events 1 19 total
+M icrOSo -Windows- DHCP-
+M -W DHCP- Server
+icroso ft-Windows- DHCP-
+M icroso -Windows- DHCP- Server
+M icrcr50 ft-Windows- DHCP-
+Date and Varne
+11/4/2018 700-37
+11/4/2018 SOO-SY
+All semcesl I total
+Server Display Na me
+CA-VAN-WRI DHCP server
+===== frame_0052
+*Zmini5tratcn—_ Command *ornat
+) 2016 Microsoft Corporation. All rights reserved.
+Warning Microson-WindOws- DHCP- Server
+Warning Microsott-WindowS- DHCP-
+An semcesl I total
+Name Display Na me
+===== frame_0053
+Dropbox ACIT 3420 9
+ACIT3420 DHCPoptx
+DHCP Relay Agent-doe
+Create a DHCP SCOP
+DHCP Relay Ag ent Netwo
+Date mod i tied
+2018-06-14 924 A
+2018. n 04 6:52 PM
+201g.00.14 9:24 A
+201g.06-14 9:24 A
+Microsoft WI d
+===== frame_0054
+OHCP Network - Adobe 2017
+===== frame_0057
+All senersl total
+M iCrOSo ft-Windows- DHCP-
+M iCrcr50 ft -Windows- DHCP- Server
+M tt -Windows- DHCP- Server
+M jcrcr50 ft -Windows- DHCP-
+11/4/2018 SOO:59
+Server Na Display Na me

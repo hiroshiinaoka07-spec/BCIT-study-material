@@ -1,0 +1,474 @@
+===== frame_0001
++19.
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+i
+DNS
+ONS
+Stcwage Services
+Configure this local server
+START
+2
+Add roles and features
+Add other servers to manage
+Create a server group
+4
+ROLES AND SERVER GROUPS
+ADDS
+@ Maugeablity
+p Type here to search
+Connect this server to Cloud Services
+Mngea bi lity
+B PA results
+File and Storage
+Local Sewer
+8PA Its
+9/19,'2022
+All Servers
+BPA
+===== frame_0002
+Num Lock On
+===== frame_0003
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+you need to on all your domain Subdæin
+Install ams ROLE on ycu.,r
+to join d«ain.. It is required but it iS easy
+p Type here to
+update
+turc-ogoco ors &
+(CRLF)
+c«TM)
+===== frame_0004
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+Deployment Configuration
+Add
+sup"
+CA.vaN.Sv•u
+update
+turc-ogoco ors &
+i5-tusG7
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+ops
+DHCP
+Se•vQ
+Stet)
+Stet)
+===== frame_0005
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+Deployment Configuration
+Add
+sup"
+CA.vaN.Sv•u
+update
+turc-ogoco ors &
+i5-tusG7
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+ops
+DHCP
+Se•vQ
+Stet)
+===== frame_0006
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+Domain Controller Options
+CA.vaN.Sv•u
+update
+turc-ogoco ors &
+i5-tusG7
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+ops
+DHCP
+Se•vQ
+Caps Lock On
+===== frame_0007
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+DNS Options
+CA.vaN.Sv•u
+update
+turc-ogoco ors &
+i5-tusG7
+cSs
+ops
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+DHCP
+Se•vQ
+Stet)
+Stet)
+===== frame_0008
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+Prerequisites Check
+CA.vaN.Sv•u
+update
+turc-ogoco ors &
+i5-tusG7
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+ops
+DHCP
+Se•vQ
+Stet)
+Stet)
+===== frame_0009
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+Installation
+CA.vaN.Sv•u
+update
+TARGET SERVER
+Caps Lock On
+turc-ogoco ors &
+i5-tusG7
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+ops
+DHCP
+Se•vQ
+St&V
+===== frame_0010
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+Installation
+CA.vaN.Sv•u
+update
+turc-ogoco ors &
+i5-tusG7
+2022
+Fu (Htp•j/
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+ops
+DHCP
+Se•vQ
+Stet)
+Stet)
+===== frame_0011
+Server Manager • Local Server
+PROPERTIES
+All
+ONS
+E i I e Stcwage Services
+Installation
+CA.vaN.Sv•u
+update
+DNS
+2022
+Fu (Htp•j/
+turc-ogoco ors &
+i5-tusG7
+-SVRJ
+-SVRA
+-Svu
+-SVRa
+p Type here to search
+ops
+DHCP
+Se•vQ
+Stet)
+Stet)
+===== frame_0012
+Server Manager • Local Server
+PROPERr.ES
+AEI
+ous
+nd Services
+Results
+CA-VAN-svu
+uvAN-svu
+CA-VAN -SVRA OHO
+CA-VAN -SVR4
+p Type nere to search
+CAS
+ops
+CwVm
+You're about to be signed out
+The computer is being restated tpcause Active Directory Domain Services was or
+WW202210
+===== frame_0013
+===== frame_0014
+===== frame_0015
+Caps Lock Off
+===== frame_0016
+Applying computer settings
+===== frame_0017
+Applying computer settings
+===== frame_0018
+Applying computer settings
+===== frame_0019
+Applying computer settings
+===== frame_0020
+Applying computer settings
+===== frame_0021
+Applying computer settings
+===== frame_0022
+Caps Lock On
+===== frame_0023
+acro•moct
+p Type to search
+===== frame_0024
+Server Manager • Local Server
+PROPERTIES
+All
+ous
+E i I e and Stcwage Services
+S- 14567
+duk
+===== frame_0025
+Caps Lock On
+===== frame_0026
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+i
+All
+DNS
+ONS
+Storage Services
+Configure this local server
+2
+Add roles and features
+Add other servers to manage
+Create a server group
+'HArs
+4
+ROLES AND SERVER GROUPS
+Connect this server to cloud services
+B PA results
+File and Storage
+ADDS
+@ Maugeability
+Local Sewer
+BPA
+All Servers
+Manageability
+===== frame_0027
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+i
+ONS
+Stcwage Services
+Command Prom pt
+Configure this local server
+START
+2
+Add roles and features
+Add other servers to manage
+Create a server group
+4
+ROLES AND SERVER GROUPS
+Connect this server to Cloud Services
+bility
+Local Sewer
+8PA Its
+All Servers
+BPA
+===== frame_0028
+Server Manager • Dashboard
+(c) All rights r
+g find host
+Anse,
+ONS
+Please check the and try again.
+ned to on all your donain Subdæin
+Install ams ROLE on ycu.,r
+to join the It is required but it is easy to configure and install
+'OT Itoy.cc*l
+to fix
+after you learn dns, you Should to fix the
+I Will provide the Solution right
+In Col e
+(CALF)
+===== frame_0029
+Server Manager • Dashboard
+(c) All rights r
+t find host
+Anse,
+ONS
+Please check the and try again.
+B PA results
+Sewer
+8PA Its
+All Servers
+BPA
+===== frame_0030
+===== frame_0031
+===== frame_0032
+acro•moct
+===== frame_0033
+===== frame_0034
++19.
+i
+ous
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+and Stcwage Services
+Configure this local server
+2
+Add roles and features
+Add other servers to manage
+4
+Create a server group
+Connect this server to Cloud Services
+ROLES AND SERVER GROUPS
+ADDS
+DNS
+File a nd Storag e
+e Sbility
+Num Lock Off
+Local Sewer
+8PA Its
+gag,2022
+All Servers
+BPA
+===== frame_0035
+===== frame_0036
++19.
+i
+ONS
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+Stcwage Services
+Configure this local server
+START
+2
+Add roles and features
+Add other servers to manage
+Create a server group
+4
+ROLES AND SERVER GROUPS
+ADDS
+Connect this server to Cloud Services
+DNS
+File a nd e
+Sbility
+Local Sewer
+8PA Its
+gag,2022
+All Servers
+BPA
+===== frame_0037
+i
+ONS
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+Configure this local server
+START
+Stcwage Services
+: c) rights
+you need to on all your domain and Subdæin controllers..
+Install ams ROLE svN.
+to join the It but it is easy to configure and install
+'OT Itoy.cæ
+to fix
+after you learn dns, you Should to fix the
+I will provide Solution right I
+ur, Col Q
+===== frame_0038
++19.
+ONS
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+Configure this local server
+START
+Stcwage Services
+: c) rights
+'inging (192.168.239.41 "ith 32 bytes of data:
+192.168.239.4: bytes-n Tn-128
+192.168.239.4: bytes-32 TTL.12E
+eeply
+192.168.239.4; bytes-32 "1-128
+fro. 192.168.239.4: bytes-n
+'ing Statistics for 192.168.239.4;
+packets: sent - 4, Received - 4, - e (eX loss),
+trip
+in
+• • Average •
+All Servers
+Manageability
+===== frame_0039
+===== frame_0040
+All
+ONS
+Services
+:eply
+Server Manager • Local Server
+PROPERTIES
+c) All rights
+192.168.239.2: bytes-32
+;eply
+•ing statistics for 192.168.239.2:
+. ADATUN»p1ng
+tra
+1192.168-239.21
+.239.2: bytes-32
+192.168
+192.168.239.2: bytes-32
+192.168.239.Z: bytes-32
+eith •a bytes of data:
+TTL-128
+TTL-122
+. e (ox loss),
+update
+cur-ogoo) ors &
+i5-tusG7
+Sent • 4. • Lost
+—vd trip t in
+Average —s
+9/W2022
+9/W2022
+Num Lock Off
+===== frame_0041
+===== frame_0042
+===== frame_0043

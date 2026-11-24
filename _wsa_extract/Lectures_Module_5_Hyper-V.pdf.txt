@@ -1,0 +1,290 @@
+--- page 1 ---
+Module 5: Installing and 
+configuring Hyper-V and 
+virtual machines
+ACIT 3420
+Johnny Zhang
+
+--- page 2 ---
+Agenda of Hyper-V
+What is Hyper-V?
+New Hyper-V host features in Windows Server 2022/2019
+Installing Hyper-V
+Configuring networking on Hyper-V host servers
+Configuring Hyper-V virtual machines
+Managing virtual machines
+
+--- page 3 ---
+Overview Virtual Machine
+By using virtual machine technology, you can run multiple 
+operating systems concurrently on a single machine, which 
+allows separation of services while keeping cost to a minimum. 
+It can also be used to create Windows test systems in a safe, 
+self-contained environment.
+Microsoft Hyper-V is a hypervisor-based virtualization system 
+for x64 computers starting with Windows Server 2008. 
+The hypervisor is installed between the hardware and the 
+operating system and is the main component that manages 
+the virtual computers. 
+
+--- page 4 ---
+What is Hyper-V?
+• Hyper-V is the hardware virtualization role in Windows Server 
+2022/2019
+• The hypervisor controls access to hardware
+• Hardware drivers are installed in the host operating system
+• Many guest operating systems are supported:
+• Windows Server 2008 SP2 or newer
+• Windows Vista SP2 or newer
+• Linux
+• FreeBSD
+
+--- page 5 ---
+New Hyper-V host features in 
+Windows Server 2022
+New features for Hyper-V hosts include:
+• Host resource protection (prevents the excessive use of CPU Usage) 
+(Set-VMProcessor -EnableHostResourceProtection $True)
+• Hyper-V Manager improvements (Manage earlier versions..)
+• Nested virtualization (Educational Purpose)
+• Rolling Hyper-V cluster upgrades
+• Shielded virtual machines
+• Start order priority
+• Storage QoS
+• Windows PowerShell Direct
+
+--- page 6 ---
+New Hyper-V virtual machine features 
+in Windows Server 2022
+New features for virtual machines include:
+• Discrete device assignment (DDA) (Peripheral Component Interconnect 
+Express PCIE)
+• Hot add or remove for network adapters and memory
+• Integration services delivered through Windows Update
+• Key storage Drive(Trusted Platform Module (TPM) )
+• Linux Secure Boot: verifies digital signatures on files during the boot process 
+to prevent malware.
+• Memory and processor capacity improvements (12 TB, 240 Virtual Processor.)
+• Standard checkpoints (Standard Checkpoints (Application-consistant) vs 
+Production Checkpoints (Data-consistant)) vs. (Backup)
+• Virtual machine configuration file format (.XML vs. .VMCX, .VMRS)
+• Virtual machine configuration version
+
+--- page 7 ---
+New Hyper-V virtual machine features 
+in Windows Server 2019
+Easier two-node clusters (Router+USB+Share & Permission (Witness 
+share to server as the quorum))
+Improved Storage Spaces Direct (S2D) Performance and Limits (1Pb-
+>4PB;)
+ReFS deduplication added
+Windows Admin Center – improved S2D visibility
+o Historic view of performance and health for S2D
+o Centralized management plane for Hyper-V Clusters
+Smaller Server Core container image （5GB->1.58GB）
+Shielded VM improvements (Linux VMs are now supported for 
+shielded VM protection.)
+
+--- page 8 ---
+Prerequisites and Requirements for 
+Installing Hyper-V
+• Use Systeminfo.exe to verify that hardware requirements are 
+met for Hyper-V
+• You must have sufficient resources in the host to meet the 
+requirements of the virtual machines:
+• Processor
+• Memory (8GB/Test)
+• Storage (SAN/Enterprise, S2D/Test)
+• Network(IGB/ Test, 10GB/Enterprise)
+
+--- page 9 ---
+Nested virtualization
+Enables a Hyper-V guest virtual machine to also be a Hyper-V 
+host
+Useful for development and test servers
+Requirements:
+At least 4 GB of static memory
+Windows Server 2022 or Windows 10 host operating system
+The Hyper-V host and guest virtual machines running 
+Hyper-V must be the same build
+Some features are not available in the guest virtual machine 
+running Hyper-V 
+
+--- page 10 ---
+Storage Options in Hyper-V
+Virtual hard disk formats:
+.vhd
+.vhdx
+.vhds This is the VHD Set file, which is what 
+your virtual machines will connect to.
+.avhdx: This is the advanced VHDX file or 
+differencing/checkpoint disk, which is 
+where all of your data is actually stored.
+Virtual hard disk types:
+Fixed-size (production environment)
+Dynamically expanding (test environment)
+Pass-through (Do not use it)
+Differencing
+
+--- page 11 ---
+Considerations for Virtual Hard 
+Disk Formats and Types
+Create .vhdx virtual hard disks unless you need backward 
+compatibility with Windows Server 2008 or Windows Server 
+2008 R2
+A dynamically expanding .vhdx-formatted virtual hard disk is 
+suitable for production workloads
+The free space shown by dynamically expanding virtual hard 
+disks is not equal to physical free space
+Multiple layers of differencing disks decreases performance
+If you modify a parent disk, the differencing disk is no longer 
+valid
+You can relink a differencing disk to a parent disk
+
+--- page 12 ---
+Types of Hyper-V Networks
+• Use Virtual Switch Manager to create different types of 
+virtual networks:
+• External
+• Internal
+• Private
+• You can also:
+• Configure VLANs
+• Capture data travelling through a switch
+• Filter data travelling through a switch
+
+--- page 13 ---
+What are virtual machine 
+configuration versions?
+Configuration versions allow compatibility for virtual machines 
+between:
+Windows Server 2012 R2 (version 5 bios?)
+Windows Server 2022 (version 5 or 6 UEFI?) (8 above)
+Windows Server 2019 (Version 5 or 6 UEFI) (9 above)
+Virtual machines must be manually updated from version 5 to 
+version 6:
+Update-VMVersion “VMName”
+
+--- page 14 ---
+Virtual Machine Generation 
+Versions
+Generation 2 virtual machines provide the following 
+functionality:
+• Secure boot
+• Boot from a virtual hard disk that is connected to a virtual 
+SCSI controller
+• Boot from a virtual DVD that is connected to a virtual SCSI 
+controller
+• PXE boot by using a standard Hyper-V network adapter
+• UEFI firmware support
+
+--- page 15 ---
+The Hot Adding Feature in Hyper-V
+• Hot adding requires Generation 2 virtual machines
+• Memory:
+• Add memory to virtual machines with static memory while 
+they are running
+• Network adapter:
+• Add or remove network adapters to virtual machines while 
+they are running
+
+--- page 16 ---
+Shielded Virtual Machines
+A shielded virtual machine is:
+Protected from anyone with access to the Hyper-V host
+A Generation 2 virtual machine with a virtual TPM
+Protected by BitLocker
+The Host Guardian Service has two attestation 
+modes: 
+Admin-trusted attestation
+TPM-trusted attestation
+
+--- page 17 ---
+Virtual Machine Settings
+Integration services allow virtual machines to access 
+Hyper-V services
+Smart paging allows disk to be used temporarily during 
+virtual machine startup, when it is highly needed
+Resource metering monitors resource usage of virtual 
+machines for planning
+Discrete device assignment allows direct access to PCIe 
+devices
+Linux and FreeBSD Generation 2 virtual machines can use 
+secure boot
+
+--- page 18 ---
+Best Practices for Configuring Virtual 
+Machines
+• Use Dynamic Memory unless an application does not 
+support it
+• Avoid using differencing disks
+• Configure multiple synthetic network adapters
+• Store each virtual machine’s files on a separate 
+volume
+
+--- page 19 ---
+Managing Virtual Machine State
+Virtual machine states define what resources are being used:
+• Off
+• Starting
+• Running
+• Paused
+• Saved
+
+--- page 20 ---
+Managing Checkpoints
+Checkpoints allow administrators to make a snapshot of a 
+virtual machine at a particular point in time
+Checkpoints do not replace backups
+Standard checkpoints create differencing disks, .avhd files, 
+which merge back into the previous checkpoint when the 
+checkpoint is deleted
+Production checkpoints are created by using VSS and require 
+starting from an offline state
+
+--- page 21 ---
+Importing and Exporting 
+Virtual Machines
+Import options:
+Register the virtual machine in-place (use the existing unique ID)
+Restore the virtual machine (use the existing unique ID)
+Copy the virtual machine (create a new unique ID)
+Export options:
+Export a checkpoint
+Export a virtual machine including checkpoints
+Moving virtual machine storage:
+Move all the virtual machine’s data to a single location
+Move the virtual machine’s data to different locations
+Move the virtual machine’s virtual hard disks
+
+--- page 22 ---
+Windows PowerShell Direct
+PowerShell Direct:
+Does not require network connectivity
+Can only be used from the host to the virtual machine
+Requirements:
+The host must be running Windows Server 2022  above or 
+Windows 10
+The guest must be running Windows Server 2022 above or 
+Windows 10
+Windows PowerShell must be running as administrator
+You must use credentials to authenticate to the virtual machine
+Enter a session or invoke a command:
+Enter-PSSession –VMName VM1
+Invoke-Command –VMName VM1
+–Scriptblock {commands}
+
+--- page 23 ---
+Implementing Enhanced 
+Session Mode
+Starting with Windows Server 2012 R2, 
+Hyper-V supports enhanced session 
+mode. 
+By using enhanced session mode, you 
+can connect to a running VM with the 
+same features as Remote Desktop 
+Services (RDS), even if the virtual 
+machine does not have network 
+connectivity or does not have the 
+Remote Desktop feature enabled on the 
+guest operating system. 

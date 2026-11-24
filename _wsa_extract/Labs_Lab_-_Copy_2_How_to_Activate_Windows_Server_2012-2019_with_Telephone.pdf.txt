@@ -1,0 +1,14 @@
+--- page 1 ---
+ACIT3420 
+How to Activate Windows Server 2012-2019 with Telephone 
+If you get an error when attempting to activate your Windows 10 license on the Internet, and you 
+know the license is good and from a legitimate source, there is a way to activate your license 
+using the telephone system instead. 
+ 
+Note: there is a space between SLUI and 4. 
+ 
+
+--- page 2 ---
+ACIT3420 
+ 
+ 

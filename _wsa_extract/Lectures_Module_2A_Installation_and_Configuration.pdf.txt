@@ -1,0 +1,314 @@
+--- page 1 ---
+Windows Server 2022
+JOHNNY ZHANG
+
+--- page 2 ---
+Windows Server 2022: Update (Security)
+Secured-core server (Certified 
+secured-core server hardware 
+from OEM Partner provides 
+additional security protections)
+• Protects Against 
+Sophisticated attacks
+• Better for Handling Mission-
+Critical Data
+• Uses hardware, firmware, 
+and driver capabilities
+Hardware root of trust
+• TPM 2.0
+• Verifies server has been 
+started with legitimate code
+• Used by Bit locker
+Firmware protection
+• Firmware executes with high 
+privileges
+• Supports DRTM (Dynamic 
+root of trust for 
+Measurement) Technology
+• DMA protection
+
+--- page 3 ---
+Windows Server 2022: Update
+Virtualization-Based Security (VBS)
+o Secure region of memory
+o Protects against cryptocurrency mining attacks
+o Credential Guard
+Hypervisor-based code integrity (HVCI)
+o Uses VBS to strengthen code integrity enforcement
+o Checks all Kernel mode drivers
+Secure Connectivity
+o HTTPS and TLS 1.3 enabled by default
+o Encrypted DNS name resolution requests with DNS over HTTPS
+o SMB encryptions
+
+--- page 4 ---
+Azure Hybrid Capabilities
+Azure Arc-enabled Windows Servers
+Brings on premises and multicloud servers to Azure
+Consistent with native Azure VMs
+Treated as a resource in Azure
+Windows Admin Center improvements
+Azure Automanage-hotpatch
+New way to install updates
+Doesn’t require a reboot after installation
+
+--- page 5 ---
+Application Platform
+Windows container improvements
+o Application compatibility
+o Experience with Kubernetes
+o Reduced image size by up to 40%
+Application compatibility
+Kubernetes enhancement
+Windows Admin Center updates
+Support for Intel Ice Lake processors
+Nested virtualization for AMD processors
+Microsoft Edge browser
+
+--- page 6 ---
+Windows Server 2022 Edition
+There are three basic editions of Windows Server 2022:
+Windows Server 2022 Datacenter – Designed for highly virtualized datacenters and cloud 
+environments.
+Windows Server 2022 Standard – Designed primarily for physical or minimally virtualized 
+environments.
+Windows Server 2022 Essentials – Intended for small businesses with up to 25 users and 50 
+devices.
+Windows Server 2022 Datacenter: Azure Edition
+o Hotpatch: Hotpatching is a new way to install updates on supported Windows Server Azure Edition virtual machines (VMs) that 
+doesn’t require a reboot after installation.
+o SMB over QUIC: SMB over QUIC introduces an alternative to the TCP network transport, providing secure, reliable connectivity 
+to edge file servers over untrusted networks like the internet. 
+o Extended network for Azure – Extended network for Azure enables you to stretch an on-premises subnet into Azure to let on-
+premises virtual machines keep their original on-premises private IP addresses when migrating to Azure.
+https://docs.microsoft.com/en-us/windows-server/get-started/editions-comparison-windows-server-2022
+
+--- page 7 ---
+Standard 
+vs. 
+Datacenter
+
+--- page 8 ---
+Datacenter 
+vs. 
+Azure 
+Edition
+
+--- page 9 ---
+Datacenter 
+vs.
+Azure
+
+--- page 10 ---
+Pricing and licensing for Windows Server 2022
+
+--- page 11 ---
+
+--- page 12 ---
+Microsoft Hyper-V Server 2022 ( Type 1 or 2 ? )
+Acts as a stand-alone virtualization server for virtual machines. Includes all 
+new features around virtualization in Windows Server 2016. Although it 
+supports limited file server features, it does not support other Windows server 
+roles. Although the host operating system has no licensing cost, the virtual 
+machines must be licensed separately. Supports up to 64 processor sockets and 
+up to 24 TB of RAM. It supports domain joining. 
+Different from the Standard and Datacenter editions, Hyper-V Server edition 
+does not have a GUI, but it does have a user interface that displays a menu of 
+configuration tasks.
+
+--- page 13 ---
+Windows 
+Storage Server 
+2022
+Windows Storage Server 2022 Workgroup edition: An entry-
+level unified storage appliance. It allows 50 users, one 
+processor core, and 32 GB of RAM.
+Windows Storage Server 2022 Standard edition: A unified 
+storage appliance that supports up to 64 sockets but is licensed 
+on a two-socket, incrementing basis. Supports up to 24 TB of 
+RAM and it includes two virtual machine licenses. Includes 
+Domain Name System (DNS) and Dynamic Host Configuration 
+Protocol (DHCP) server roles, but does not support others, 
+including Active Directory Domain Services (AD DS), Active 
+Directory Certificate Services (AD CS), and Active Directory 
+Federation Services (AD FS). Licensing is processor core based. 
+
+--- page 14 ---
+Hardware Requirements
+Windows Server 2016/2019/2022 has the following minimum 
+hardware requirements for Server Core installation:
+Note: VM RAM 800 MB
+
+--- page 15 ---
+Installation 
+Options
+As important as choosing the right editions 
+is the choice of installation options in 
+Windows Server 2022
+Windows Server 2022 (Desktop Experience) 
+(Server with a GUI)
+Windows Server 2022 Server Core (Domain 
+Controller, DNS, DHCP, File Server) 
+
+--- page 16 ---
+WINDOWS 
+SERVER 
+SERVICING 
+BRANCHES
+Long term Servicing Channel 
+(LTSC) (Up to 10 years; January 9, 
+2029)
+Semi Annual Channel (SAC) (18 
+Months)
+
+--- page 17 ---
+Discussions (2 Bonuses)
+Selecting a suitable Windows Server Edition and installation type.
+• Your customer, a small legal firm, has a requirement for a single server that they want you to 
+deploy at their only office. Which Server 2022 installation option would be best?
+• One of your enterprise customers has a new branch office. You must deploy Windows Server 2019 
+to support the local users at this new branch. The server will be managed remotely from IT staff 
+located in the head office. The server will support the DNS, DHCP, and AD DS server roles. You 
+customer wants to minimize resource consumption on the server. Which windows server 2019 
+installation option would be best?
+• Your customer wants to run a web server based on IIS. The server must use as few hardware 
+resources as possible. Which Windows Server 2022installation option would be best?
+• You are the administrative assistant for the Psychology Department in your college, and they have 
+assigned you to set up a small server to provide basic file services to faculty, staff, and students in 
+that department, which currently has 122 users. For example, faculty will use the server to post 
+and receive class assignments. Which edition of Windows Server 2022 is most appropriate for this 
+situation?
+
+--- page 18 ---
+Options for Managing Servers
+Interactive management in Windows Server is minimized with a heavier emphasis on 
+remote management
+oRemote Server Administration Tools(RSAT) (Server Manager, Active Directory 
+Administrative Center, and Management consoles)
+oWindows PowerShell remoting
+oWindows PowerShell Direct (Virtualization host <=> VMs running on that host )(Hyper-V 
+administrator privilege + local VM administrator credentials)
+oRemote Shell (WinRM)
+oRemote Desktop Connection (Port 3389)
+oGroup Policy (not supported on Nano Server)
+oWindows Admin Center (WAC)
+Firewall exceptions required for remote management
+
+--- page 19 ---
+Windows PowerShell
+Windows PowerShell is the command line administrative interface and scripting language 
+design with system administration in mind. 
+The importance of remote management is magnified with Nano Server a headless 
+configuration.
+o No GUI
+o No local sign in option
+
+--- page 20 ---
+What’s New Since Windows Server 2012 Was Released?
+New features and improvements introduced in Windows Server 2016:
+PowerShell Direct (From host: 
+Enter-PSSession -VMName <VMName> )
+Shielded virtual machines
+Windows Defender
+Storage Spaces Direct (SSD/S2D)(SDS)
+Storage Replica
+Nano Server (DHCP x)
+Containers 
+Docker support
+Rolling upgrades for Hyper-V and 
+Storage Clusters
+Hot add/remove virtual memory 
+& network adapters
+Nested virtualization
+
+--- page 21 ---
+What’s New Since Windows Server 2016 Was Released 1?
+System Insights: It uses predictive analytics to analyze past usage trends and predict future resource 
+consumption (LTSC vs. SAC).
+Hybrid Cloud Support:  The improvements include better support for Azure Backup, File Sync, disaster 
+recovery, and other Azure services.
+Windows Defender Advanced Threat Protection (ATP)
+Storage Migration Service (SMS)(Inventory existing servers, migrate setting using SMB, Applications are 
+unaffected by the migration)
+Microsoft Defender ATP (Advanced Threat Protection)
+Docker (capable of managing large and distributed containerized applications) (Kubernetes )
+Server Core App Compatibility Feature on Demand (FOD)
+Linux Containers on Windows (Nano Image)
+
+--- page 22 ---
+Azure Network Adapter
+Point-to-Site VPN
+
+--- page 23 ---
+
+--- page 24 ---
+Windows Admin Center (Locally deployed, Browser-based, No internet or Azure required)
+What’s New Since Windows Server 2016 Was Released 2?
+
+--- page 25 ---
+S2S VPN (Hybrid Cloud)
+
+--- page 26 ---
+Windows Subsystem for Linux(WSL2) (https://community.spiceworks.com/how_to/161195-running-linux-on-
+windows-server-2019) (Q: how about windows 10?)
+What’s New Since Windows Server 2016 Was Released 3?
+
+--- page 27 ---
+
+--- page 28 ---
+Installing Server Core/Desktop
+Pre-Installation tasks
+Disconnect any Uninterruptible Power Supply (UPS) (Why?)
+Backup server unless performing clean install
+Disable virus protection for upgrades
+Ensure the availability of mass storage driver files
+Installation process
+Connect to installation source
+Configure locale based information
+Select install computer and choose type of installation
+Choose location for installation
+
+--- page 29 ---
+Post-installation Configuration Settings
+After you install Windows Server 2016/2019/2022, you must complete the following:
+Configure the IP address
+Set the computer name
+Join an Active Directory Domain
+Configure the time zone
+Enable automatic updates
+Add roles and features
+Enable the Remote Desktop feature
+Configure Windows Firewall settings
+
+--- page 30 ---
+Installing Features and Roles
+A server role is a set of software programs that perform a specific function as a 
+network service for multiple users.
+Role services are made up of one or more role services that provide the 
+functionality of the server role. 
+A feature is a software program that is not directly part of a server role but can 
+support or augment the functionality of a server role. To add, remove, or manage 
+server roles and features, you use Server Manager. 
+
+--- page 31 ---
+Managing 
+Windows Server 
+Core 
+Installations 
+When you are connected to the system locally, you can use the following 
+tools:
+vCmd.exe: Allows you to run traditional command-line tools, such as 
+ping.exe, ipconfig.exe, and netsh.exe. 
+vPowerShell.exe: Opens a Windows PowerShell session so that you can 
+execute Windows PowerShell commands. Windows Server 2016 comes 
+with Windows PowerShell version 5.0 installed.
+vSconfig.cmd: Functions as a command-line, menu-driven administrative 
+tool that enables you to perform most common server administrative 
+tasks, such as configuring networking, workgroups, and domains and 
+configuring Windows Firewall.
+vRegedt32.exe: Opens the Registry Editor to change registry settings.
+vMsinfo32.exe: Allows you to view system information for the system.
+vTaskmgr.exe: Launches Task Manager.
+
+--- page 32 ---
+Lab Issue: SID Duplication

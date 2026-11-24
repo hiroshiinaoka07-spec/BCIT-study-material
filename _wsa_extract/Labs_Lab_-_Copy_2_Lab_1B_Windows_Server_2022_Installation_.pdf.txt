@@ -1,0 +1,194 @@
+--- page 1 ---
+Windows Server Administration 
+1 
+Windows Server 2022 Installation
+Description 
+After this activity, you will have performed a full installation of Windows Server 2022 Standard 
+or Datacenter (Desktop Experience). You will learn how to install and configure Windows Server 
+2022 such as local computer name and IP.
+Task 1: Download Windows Server 2022 ISO
+Download Windows Server 2022 download it through Microsoft Azure Portal (Note: Using your
+my.bcit.ca email to login). 
+Task 2: Create One VM on VMware Workstation Pro 
+Create one virtual machines 
+❖Virtual Machine Names:
+o
+VM1: Win2022Standard-Base Image (or choose
+different name)
+❖Type: Windows Server 2022
+❖RAM: VM1: 2048 MB (2GB) or above
+❖Disk: 120GB
+How to Create a Virtual Machine 
+1. Launch the VMware Workstation Pro (Linux Centos: Centos/Applications/System Tools/
+VMware Workstation)
+2. Click Create File->New Virtual Machine. In the installation wizard window, Select
+Typical and then click Next.
+
+--- page 2 ---
+Windows Server Administration 
+2 
+3. In the Guest Operating System Installation Window, you can select Installer disc image
+file (iso) (Not Recommended) and then click Next or Choose I will install operating
+system later (Suggested). Note: If you choose “installer disc image file”, make sure that
+you choose the correct ISO location.
+Note: For Linux users, you have to select “I will install the operating system later”. (Do 
+not directly select Use ISO image.) 
+
+--- page 3 ---
+Windows Server Administration 
+3 
+Note: VMware workstation 16 has already fixed the issue so if you use Linux VMware 16, you can select use ISO 
+image instead of “I will install the operating system later.” However, I strongly suggest you choose “I will install the 
+operating system later” option. 
+4. On Select a Guest Operating System, Guest Operating System: Microsoft Windows and
+Version: Windows Server 2022.
+Note 1: For Linux user or older version of VMware Workstation, you can choose
+windows 10 or Windows Server 2016 if you cannot find Windows Server 2022.
+Note 2. For windows version, if you can not find Windows 2022 profile, so you have to
+choose Windows Server 20219 or 2016 or Windows 10. If you choose the wrong
+profile, your VM video card will not compatible with your OS.
+
+--- page 4 ---
+Windows Server Administration 
+4 
+5. On the Name the Virtual Machine Windows, Type your Virtual Machine Name:
+Win2022-Base Image or other names.
+Note: In order for you to easily organize VMs, you have to create a folder for each VM.
+Do not use the default location. You will get lots of issues when you use OneDrive
+because OneDrive always sync your personal folders such documents, desktop, photo to
+the cloud if you have already configured them. During the synchronization, you are not
+allowed to power on your VMs. In addition, your personal OneDrive may less than 5GB
+so you will get sync issues again and again.
+6. On Specify Disk Capacity Window, Maximum disk size is 120GB.
+
+--- page 5 ---
+Windows Server Administration 
+5 
+7. On the Ready to Create Virtual Machine window, you can review the summary of your
+VM and Click then Finish
+8. Select your virtual machine (ACIT 3420) and then right click to choose Settings. Note:
+you can remodify and configure your VM hardware resource.
+9. On Virtual Machine Settings Windows, Click the Processors to modify virtualization
+engine. Q: Why do you need to allow virtualize Intel VT-x/EPT or AMD-V/RVI and
+Virtualize CPU performance counters? Note: Your host machine must support and
+enable virtualization engine.
+If you have any errors, 
+uncheck Virtualization 
+engine.
+
+--- page 6 ---
+Windows Server Administration 
+6 
+10. Click CD/DVD (SATA) and select ISO image. Note: If you have physical DVD
+drive, you can choose to use physical drive. Otherwise, you must choose use ISO
+image file. 
+Task 3. Install Windows Server 2022 Standard Desktop Experience
+To install Windows Server 2022 with Desktop Experience:
+1. Insert the Windows Server 2022 disc into the DVD drive and turn on the computer. Press
+any key to boot from the DVD (if necessary) (Physical drive only).
+2. Power on the VM. Press any key as fast as possible to boot from cd or DVD (VMware
+workstation).
+
+--- page 7 ---
+Windows Server Administration 
+7 
+3. Using the drop-down lists provided, select the appropriate language to install, the time
+and currency format, and the keyboard or input method. Then, click Next.
+3. On the Windows Server 2022 Install Now page, click Install now.
+Note: You may have an issue below: 
+
+--- page 8 ---
+Windows Server Administration 
+8 
+The problem is that your sever is very old and it can not support your hard drive. You need to 
+use other Disk Types such as ID, SATA, SCSI. How to change your disk type? No, you can 
+not change your current disk type. You have to add a new disk. 
+Step1. Double click Hard Disk. 
+Step 2: Click next to add a new hard drive on Virtual Machine Settings Window 
+Step 3: Select Hard Disk and then click Next. If you need to modify other hardware resource, 
+you also can modify from here such as Network Adapter. 
+Step 4: Select an appropriate disk type and then configure the disk size. 
+
+--- page 9 ---
+Windows Server Administration 
+9 
+. 
+Note. This is also the way to add an additional hard drive. 
+4. When the Activate Windows page appears, in the text box, type the Windows Server
+2022 activation key and then click Next.
+5. Only two version of the windows server 2022 are available, Standard and Datacenter.
+Select Windows Server 2022 Standard (Desktop Experience). Click Next.
+Q: Can you install Windows Server Core and then upgrade to desktop experience?
+6. On the License Terms page, select the I accept the license terms option and then click
+Next.
+7. Click the Custom: Install Windows only (advanced) option.
+8. The Where Do You Want to Install Windows? page appears. From the list provided,
+select the partition on which you want to install Windows Server 2022, or select an area
+of unallocated disk space where the Setup program can create a new partition. Then click
+
+--- page 10 ---
+Windows Server Administration 
+10 
+Next. 
+VKAfter several minutes, during which the Setup program installs Windows Server
+OMOO, the computer reboots. When the Customize Settings page appears, in the
+Password and Reenter password text boxes, type your password. Click Finish.
+Note: Make sure that you have to create complex password. Otherwise, you will have
+issues when you install ADDS.
+NMK Active your windows server 2022.
+Note: Make sure your computer has internet access. Otherwise, check you VM settings.
+Task 4: Update Windows Server 2022
+Start->Server Manager->Local Server and then click Download updates only, 
+using Windows update. Note: Update your Windows Server 2022 before next step.
+Question: Do you have any ways to update Windows Server? 
+PowerShell? 
+
+--- page 11 ---
+Windows Server Administration 
+11 
+Task 5: Clone a new VM 
+1. Go to the command (cmd) prompt, not PowerShell. Run the following command:
+Sysprep /generalize /shutdown /oobe
+Note: Microsoft’s System Preparation Utility (Sysprep.exe) prepares a Windows computer for 
+cloning by removing specific computer information such as computer name and Security 
+Identifier (SID). SysPrep is a built-In tool that comes with Windows since the release of 
+Windows Server 2003 and Windows XP Professional and used for cloning and pre- 
+configuration of a master Operating System Image. 
+Note: You will have to be in the C:\Windows\System32\sysprep directory to run the sysprep 
+command. You also can directly double click sysprep.exe to run (See the figure below) 
+2. After you run sysprep, the VM will shut down automatically.
+3. Select Win2022-Base Image and Right click and choose ->manage->clone->Manage-
+>Clone Note: Make sure that you have to shut down your VM.
+
+--- page 12 ---
+Windows Server Administration 
+12 
+4. Create a Create a linked clone of your server.
+5. On the Name of the New Virtual Machine window, type virtual machine name and
+choose your location.
+
+--- page 13 ---
+Windows Server Administration 
+13 
+6. You should find the new clone VM.
+Note: DO NOT DELETE, MOVE, and CONFIGURE THE BASE IMAGE (Win2019S-Base 
+Image). Otherwise, your clone VMs will not work!!! 
+7. Power on the new VM (ACIT-3420-DC) and configure your VM.
+Q: Can you run sysprep in your cloned VMs? 
+
+--- page 14 ---
+Windows Server Administration 
+14 
+Issues: 
+1. Issue 1
+2. Issue 2
+Lab Assignment 
+1. Paste your screenshot of VMware workstation Pro (See example download below)
+Note: If you use Gen11 Intel CPU, do not update your Windows 2022. Your CPU may not support 
+it.
+
+--- page 15 ---
+Windows Server Administration 
+15 
+2. Login your ACIT-3420-DC1 and past your screenshot of your Windows Server Manager
+Note: You need to change your computer name. 

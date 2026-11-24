@@ -1,0 +1,914 @@
+===== frame_0001
+t) Wn&t9S.
+Press Ctrl+Alt+Delete to unlock.
+11:10
+Sunday, October 18
+===== frame_0002
+@ Lab SCSI (MCURED) - DC
+File Edit Vie." Window Help
+Home Tools
+figuring
+O
+Sign In
+Window Help
+Lab
+'6 a QOO
+Comb Files
+Edit POF
+Export PDF
+O rganize Pages
+Send for Rewew
+Comment
+Fill & Sign
+Enhance Scans
+O protect
+TOO'S
+in the
+Sign In
+Lb Share
+Combine Files
+Edit POF
+Export PDF
+Organize
+Send for Review
+Comment
+Fill & Sign
+Enhance Scans
+Protect
+More
+===== frame_0003
+===== frame_0004
+===== frame_0005
+t) Wn&t9S.
+p
+AM
+===== frame_0006
+Edi VM
+t) Wn&t9S.
+===== frame_0007
+@ Lab iSCSI (MCURED)
+- Pn DC
+File Edit Vie." Window Help
+Home Tools
+Cmfiguring
+ACII 3420
+23
+o
+Network Topology
+IP:192.168.239.1/24
+DNS: 127.0.0.1
+GW: 192.168.239.254
+CA-Van-Svrl
+(Adatum.com)
+AD DS/D S
+IP:192.168.239.7/24
+DNS: 192.168.239.1
+GW: 192.168.239.254
+CA-Van-Svr7
+iSCSI Tar et Server
+Sign In
+Create PDF
+Combine Fi
+Edit PDF
+Organize Pages
+Send for Review
+c omment
+Fill & Sign
+Enhance Scans
+O Protect
+MO Tools
+Switch (NAT 9)
+CA-Van-ClientI
+Ca-Van-Client1.Adatum.com
+IP:192.168.239.20/24
+DNS: 192.168.239.1/192.168.239.2
+GW: 192.168.239.254
+===== frame_0008
+t) Wn&t9S.
+Server Manager • Dashboard
+and Storage Services
+Add
+Disk
+p
+e
+===== frame_0009
+t) Wn&t9S.
+Server Manager • Dashboard
+and Storage Services
+E-csn
+p
+e
+===== frame_0010
+t) Wn&t9S.
+Server Manager • Dashboard
+and Storage Services
+(SCSO
+E-cs0
+Ecsn
+Add
+p
+e
+===== frame_0011
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+and Storage Services
+csno
+P02019
+9
+MS2
+lang.'2020
+10/102020
+WZ'2020 PM
+n : u22.•g
+===== frame_0012
+t) Wn&t9S.
+Ser
+Could explain it is
+I created a disk Hith
+and Storage
+mly 7.S6M>
+111422 A"
+11:u22AY
+WZ'2020 PM
+===== frame_0013
+Edi VM
+t) Wn&t9S.
+II • _ g O
+Si mple
+Simpk
+Simple
+===== frame_0014
+t) Wn&t9S.
+Server Manager • Local Server
+PROPERTIES
+EVENTS
+CA.VAN.svR7
+CA.vam-sv'R7
+02 PM
+ii
+and Storage Services
+JS &
+2019
+cpo
+Sutu
+p
+e
+===== frame_0015
+t) Wn&t9S.
+ii
+Server Manager • File and Storage Services Servers
+SERVERS
+Volu
+Storage POOE
+C' cmdl
+===== frame_0016
+t) Wn&t9S.
+Esxi 7
+===== frame_0017
+Edi VM •
+t) Wn&t9S.
+Apps
+Command Prompt
+Sexd' the web
+p cm - See web
+Sett
+Web
+===== frame_0018
+iSCSI (S&CURED) -
+BCIT
+===== frame_0019
+Edi
+Win&t9S•
+p
+O
+===== frame_0020
+t) Wn&t9S.
+===== frame_0021
+t) Wn&t9S.
+your basic
+so-it —
+p
+0
+===== frame_0022
+Edi VM •
+t) Wn&t9S.
+your basic
+Se up
+===== frame_0023
+t) Wn&t9S.
+===== frame_0024
+===== frame_0025
+p
+11:19 AM
+===== frame_0026
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+AD DS
+DHCP
+ONS
+and Storage
+===== frame_0027
+Wn&t9S.
+===== frame_0028
+t) Wn&t9S.
+WAC
+===== frame_0029
+Edi VM •
+t) Wn&t9S.
+ii
+Server Manager • File and Storage Services Servers
+SERVERS
+Volu
+Storage POOE
+BEST PRACTICES ANALYZER
+sæty
+p
+e
+===== frame_0030
+Edi VM •
+t) Wn&t9S.
+ii
+p
+Confirm selections
+e
+Confm that the following are the correct settirgs and t+en Click Create.
+STORGE
+PROPERTIES
+scs»c
+S tcrv._
+SAS
+SAS
+SAS
+sso
+sso
+SSD
+ssD
+===== frame_0031
+Edi VM •
+t) Wn&t9S.
+Server Manager • File and Storage Services
+ii
+Servers
+p
+Disk
+File
+e
+Help
+Volumes Storage Pools
+cosh
+vrtÄ S cCwV._
+scyc
+scs»o
+SAS
+SAS
+SAS
+sso
+sso
+SSD
+ssD
+===== frame_0032
+Edi VM •
+t) Wn&t9S.
+Pools
+Specify the virtual disk name
+disk ISSC *DOE
+Go to
+vrtÄ S cCwV._
+scyc
+scs»o
+SAS
+SAS
+SAS
+sso
+sso
+SSD
+ssD
+p
+e
+===== frame_0033
+Edi VM •
+t) Wn&t9S.
+Pools
+Specify the size of the virtual disk
+in 68
+CD M".
+O t. create
+Go to
+vrtÄ S cCwV._
+scyc
+scs»o
+SAS
+SAS
+SAS
+sso
+sso
+SSD
+ssD
+===== frame_0034
+Edi VM •
+t) Wn&t9S.
+Pools
+Completion
+have New Ward.
+scyc
+S tcrv._
+SAS
+SAS
+SAS
+sso
+sso
+SSD
+ssD
+p
+e
+===== frame_0035
+@ Lib SCSI (SECURED)
+File Edit View Window Help
+Home Tools
+- DC
+o
+23
+o
+Questions:
+l. What is the minimum number of disks you need for a Parity Virtual Disk?
+2. Define the following virtual disk storage layouts:
+Simple
+Mirrored
+Parity
+Task 3: Install iSCSI Target Server
+To install iSCSI Target Server, perform the following steps.
+l. Open Server Manager. Add the iSCSI Target Server role service on your Domain
+controller. At the top of the Server Manager console, click Add Roles and Features. The
+Add Roles and Feature Wizard opens.
+Johnny Zhang 13
+Sign In
+Create PDF
+Combi Files
+Edit PDF
+Export
+Organize Pages
+Send for Review
+Comment
+& Sign
+Enhance Scans
+O protect
+TOOL
+===== frame_0036
+Edi VM •
+t) Wn&t9S.
+ii
+Servers
+p
+Server Manager • File and Storage Services Volumes Storage Pools
+STORAGE POOLS
+Add Role Wud
+Installation progress
+iSCSI
+iSCSI NDS VSS
+e
+scyc
+S tcrv._
+SAS
+SAS
+SAS
+sso
+sso
+SSD
+ssD
+===== frame_0037
+Edi
+Winat9S.
+an iscg •
+File Edit View
+Windm•v Help
+Home Tcols
+8.
+ii
+Servers
+p
+Server Manager • File and Storage Services
+STORAGE POOLS
+Add Role Wud
+Installation progress
+iSCSI
+Volumes
+iSCS (VOS VSS
+DC
+cne connrm mstanauon
+When the installation is complete, c
+Task 4:
+In Server Manager, click File and
+is displayed as shown on the next sl
+• Server Manager • Dashboar
+e
+===== frame_0038
+Edi VM •
+t) Wn&t9S.
+Server Manager • File and Storage Services iSCSI
+ii
+Servers
+Storage POOE
+Work
+VIRTUAL DISKS
+SCSI
+Specify iSCSI virtual disk name
+.SCS:
+SCSI
+wuvd
+p
+e
+===== frame_0039
+Edi VM •
+t) Wn&t9S.
+Server Manager • File and Storage Services iSCSI
+scsr
+ii
+Servers
+Storage POOE
+Work
+VIRTUAL DISKS
+New iSCSI
+Specify target name
+Six
+p
+e
+===== frame_0040
+Edi VM •
+t) Wn&t9S.
+Server Manager • File and Storage Services iSCSI
+Servers
+Storage POOE
+Work
+scsr
+ii
+Specify ai
+p
+e
+===== frame_0041
+Edi VM •
+t) Wn&t9S.
+Server Manager • File and Storage Services iSCSI
+ii
+Servers
+Storage POOE
+Work
+scsr
+Specify ai
+===== frame_0042
+Edi VM •
+t) Wn&t9S.
+Servers
+Server Manager • File and Storage Services iSCSI
+Select a method to identify the initiator:
+SCSI
+ii
+Storage POOLS
+Work F
+,scs:
+Specify a
+Caps Lock On
+===== frame_0043
+Edi VM •
+t) Wn&t9S.
+Server Manager
+File and Storage Services iSCSI
+ii
+Servers
+Storage POOE
+Work
+Select a method to identify the initiator:
+CA.VAN 1
+Ent. type
+scsr
+Specify a
+p
+e
+===== frame_0044
+Edi VM •
+t) Wn&t9S.
+Server Manager
+Servers
+Storage POOE
+Work
+File and Storage Services iSCSI
+Select a method to identify the initiator:
+CA.VAN 1
+scsr
+ii
+Specify a
+===== frame_0045
+Edi VM •
+t) Wn&t9S.
+Server Manager
+ii
+Servers
+Storage POOE
+Work
+File and Storage Services iSCSI
+Select a method to identify the initiator:
+scsr
+Specify a
+p
+e
+===== frame_0046
+Edi VM •
+t) Wn&t9S.
+Apps
+Command
+File Explore'
+Command Prompt
+Performance Monitor
+Computer Management
+Sett
+Web
+===== frame_0047
+t) Wn&t9S.
+===== frame_0048
+Edi VM •
+t) Wn&t9S.
+Server Manager
+scsr
+ii
+Servers
+Storage POOE
+Work
+File and Storage Services iSCSI
+Select a method to identify the initiator'
+Specify a
+p
+e
+===== frame_0049
+t) Wn&t9S.
+To V" the
+===== frame_0050
+Edi VM •
+t) Wn&t9S.
+åndM
+'Est .
+Ons Suffix
+IP Routine Enabled.
+rms suffix List.
+connection •specific
+Physical . . . . . .
+Enabled.
+Autocmfiguration
+Addre
+Address. . . . . . . .
+Mask . . . 2
+Lease . . . . . . . . . .
+tease . . . . .
+Gateway
+SerN
+tktBIOS over Tcp#'. . .
+suffix
+_ Ca-Van-Clienti
+. : Hybrid
+: Intel (R) 82574L Gigabit
+. ; ee-«-29-ee-Ae-83
+feBß; Preferred)
+• Octotær 18. ae2e 11
+: October 26, me
+. 192.168. 239.1
+. 192.168. 239.1
+. : Enabled
+p
+0
+===== frame_0051
+t) Wn&t9S.
+åndM
+'Est _
+Ons Suffix
+IP Routine Enabled. .
+rms suffix List. . . . . . .
+Connect
+physical .
+Enabled.
+tPv6
+Address.
+mask . . . .
+tease .
+Gateuay
+NetBIOS over rcplp. . . .
+suffix
+_ Ca.Van-Cuenti
+. : Hybrid
+: Intel (R) E2S74L Gigabit
+. ; ee-«-29-Ee-Ae-83
+. feae; Preferred)
+• CRtotær 18. 202e 11 zea:S9
+• Honday, October 26, me
+• 192.168.239.
+192.16E.239.1
+. 192.168. 239.1
+. . . : Enabled
+p
+0
+===== frame_0052
+Edi VM •
+t) Wn&t9S.
+•z:S9
+: -29. Ee.Ae-B3
+AM
+===== frame_0053
+Edi VM •
+t) Wn&t9S.
+•z:S9
+: -29. Ee-Ae-B3
+p
+0
+===== frame_0054
+t) Wn&t9S.
+===== frame_0055
+t) Wn&t9S.
+ACIT•A2CCLmt 1
+===== frame_0056
+Edi VM •
+t) Wn&t9S.
+: Ca.Van-Cuenti
+: H•ybrid
+Apps
+åndM
+'Est . _
+Dns Suffix
+IP Routine Enabled. .
+WINS . . .
+rms suffix List.
+adapter
+Web
+Wore
+Disk Cleanup
+Remote Desktop Con nection
+Defragment and Optimize Drives
+Display settings
+Default apps
+Duplicate or extend to a connected
+display
+===== frame_0057
+Edi VM •
+t) Wn&t9S.
+åndM
+. . _ : Ca.Van-Cuenti
+'Est . _
+Dns Suffix
+: H•ybrid
+IP Routine Enabled. . . . .
+WINS . . . . . . . : No
+rms suffix List. . .
+adapter
+connection-specific
+suffix .
+: Intel (R) g2574L Gigabit
+physical Address. . . . . . . . . •
+. ee-ec-29-€e-Ae-83
+Enabled.
+tPv6 Addre
+fe8ß; "referred)
+Address. . .
+"ask
+18. 202e 11 ze2:S9
+: Monday, october zeae
+lease . . . .
+*fault Gateway
+• 192.168.239.as4
+SerN
+192.168. 239.1
+xpv6 IAIO .
+: 192.168. 239.1
+over rcpip. . . . . . . . .
+• Enabled
+p
+0
+===== frame_0058
+Edi VM •
+t) Wn&t9S.
+åndM
+. . _ : Ca.Van-Cuenti
+'Est . _
+Dns Suffix
+: H•ybrid
+IP Routine Enabled. . .
+WINS .
+rms suffix List. . . .
+adapter
+'2e 11:02
+===== frame_0059
+Edi VM •
+t) Wn&t9S.
+åndM
+: Ca.Van-Cuenti
+'Est . _
+Dns Suffix
+• H•ybrid
+IP Routine Enabled. .
+WINS . . . . . . . : No
+rms suffix List. . . .
+adapter
+mcs suffix .
+Connec t
+Physical . . . . . .
+Enabled.
+Link-local tPv6 Addre
+Address.
+"ask
+lease . .
+Default Gateuay
+Serw
+NetBIOS over rcpip. . . .
+: Intel (R) 82S74L Gigabit
+. . ; ee-«-29-Ee-Ae-83
+feBß; Preferred)
+: 18. 2B2e 11
+: Monday, October 26, me
+192.168.
+. . : 192.168. 239.1
+. 192.168. 239.1
+: Enabled
+p
+0
+===== frame_0060
+Edi VM •
+t) Wn&t9S.
+Apps
+åndM
+Ons Suffix
+IP Routine Enabled. .
+WINS Enabled. . . . . .
+Suffix List. . .
+adapter
+Sette•gs
+. Ca-Van-Cuent1
+: H•ybrid
+Notepad
+Sticky Notes
+Such the web
+p rwte • S— nb
+utts
+===== frame_0061
+Edi VM •
+t) Wn&t9S.
+p
+0
+===== frame_0062
+Edi VM •
+t) Wn&t9S.
+p
+Hep
+have to login as administrator.
+using user to login so I not have to
+0
+===== frame_0063
+Edi VM •
+t) Wn&t9S.
+to
+&inistr.tw.
+IP Rout ins Enabled.
+mus proxy . .
+tns suffix sewc
+E adapter
+connection-specific '*CS Suffix
+Enabled ,
+Address.
+Ca-Van-C11ent1
+; Hybrid
+: Gigab•-
+; ee-ec-29-€e-ne-B3
+: October
+; 192.166. 239.1
+. 192.166. 239.1
+; Enabled
+Ch vou want to save charves to Untitled?
+over
+rcpåp. .
+p
+0
+===== frame_0064
+Edi VM •
+t) Wn&t9S.
+åndM
+. . _ : Ca.Van-Cuenti
+'Est . _
+Dns Suffix
+. . : H•ybrid
+IP Routine Enabled.
+WINS . . . . . . . : No
+rms suffix List. . . .
+adapter
+connection-specific
+suffix .
+: Intel (R) g2574L Gigabit
+physical Address.
+. ; ee-«-29-ee-Ae-83
+Enabled.
+tPv6 Addre
+fe8ß; "referred)
+Address.
+"ask . . . . . .
+18. 202e 11 ze2:S9
+: Monday, october zeae
+lease .
+*fault Gateway
+• 192.168.239.as4
+SerN
+192.168. 239.1
+xpv6 IAIO . . . . . .
+: 192.168. 239.1
+over rcpip. . . . . . .
+. : Enabled
+p
+0
+===== frame_0065
+t) Wn&t9S.
+åndM
+'Est . _
+Ons Suffix
+IP Routine Enabled. . . . . .
+rms suffix List. . .
+E adapter
+sufflx .
+Ca.Van-ClEenti
+: H•ybrid
+Physical . . .
+Enabled.
+Address.
+Sutmet "ask .
+Obtained. .
+tease . . . . . . .
+Default Gateway
+tkP Serw
+NetBIOS over rcpip.
+: Intel (R) 82574L Gigabit
+. ee-«-29-€e-Ae-B3
+fe8B; "referred)
+OctotM• 18. 202e 11 ze2:S9
+: october me
+192.168. 239.1
+øe.01
+. 192.168. 239.1
+. : Enabled
+p
+0
+===== frame_0066
+Edi VM •
+t) Wn&t9S.
+NOtepad
+Notepad
+Node.js
+Search web
+p n - See
+Sette•gs •
+File
+Help
+535 Me NTFs
+===== frame_0067
+Edi VM •
+p
+File
+(Oise O S)
+76B
+Help
+C) MER
+Guo
+535 Me NTFs
+G' NTFS
+Mi—I
+0
+===== frame_0068
+Edi VM •
+t) Wn&t9S.
+Help
+Simple
+•crt 1
+NTS
+97
+29.23 a
+9.77
+===== frame_0069
+Edi VM •
+t) Wn&t9S.
+p
+'bde . .
+IP Routine
+E nab ie-a. .
+Physical
+Addr
+Lease Obtained. .
+NetBIOS
+• 82574L Gigabit
+. : ee-«-29-Ee-Aø-B3
+smday, 18. 2020
+192.168.239.1
+: a 3E.•.vs
+Data
+to what hap
+0
+===== frame_0070
+t) Wn&t9S.
+Caps Lock On
+===== frame_0071
+t) Wn&t9S.
+To the
+Caps Lock On
+===== frame_0072
+t) Wn&t9S.
+ACIT•A2CCLmt 1
+Caps Lock On

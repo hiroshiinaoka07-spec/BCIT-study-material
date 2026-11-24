@@ -1,0 +1,2 @@
+﻿ 
+     1. What is DNS? Why do we need DNS? functionalities provided by DNS? 2. Zone types(Primary Zone vs. Secondary Zone vs Stub Zone vs AD Integrate Zone) 3. DNS Records (Explain for each one) 4. How to protect your DNS component? 5.forward vs conditional forward vs stub zone   

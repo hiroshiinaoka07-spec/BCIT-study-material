@@ -1,0 +1,24 @@
+--- page 1 ---
+Faculty
+Student
+S1
+Faculty
+Assignment
+Student 1
+Student 2
+S2
+F1
+
+--- page 2 ---
+Ca-Van-Svr1
+Ca-Van-Svr6
+Switch
+Ca-Van-Client1
+IP: 192.168.239.20/24
+DNS: 192.168.239.1
+IP: 192.168.239.1/24
+DNS: 127.0.0.1 
+IP: 192.168.239.6/24
+DNS: 192.168.239.1
+AD DS/DNS
+File Server

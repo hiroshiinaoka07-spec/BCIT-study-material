@@ -1,0 +1,40 @@
+===== frame_0001
+Sign in to: adatum
+How do I sign to anotrer domain?
+===== frame_0003
+Sign in to: CA-VAN<I
+How do sign to anotrer domain?
+===== frame_0005
+Corpcwation. rights
+inging 192.168.239.1 with 32 of data:
+192.168.239.1: bytes-32 ITL-128
+===== frame_0006
+WELCOME TO SERVER MANAGER
+Configure this local server
+Add roes and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+===== frame_0008
+• Server Manager • Local Server
+9/2112019 8+536 Au
+===== frame_0012
+p n - See results
+===== frame_0013
+I can ping to my cl
+===== frame_0016
+Add roles and features
+You can not find out your Cl under
+===== frame_0017
+oined the dwin,
+yow• CI under the
+===== frame_0020
+Press Ctrl+Alt+Delete to unlock.
+Saturday, September 21
+===== frame_0024
+Vile and Storage Services
+===== frame_0026
+rights reserved.
+===== frame_0031
+Please wait for the gpsvc

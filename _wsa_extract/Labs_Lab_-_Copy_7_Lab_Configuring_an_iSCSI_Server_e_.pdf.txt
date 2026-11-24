@@ -1,0 +1,279 @@
+--- page 1 ---
+ACIT 3420 
+Johnny Zhang 1 
+Windows Server Storage 
+Multiple protocols can used to configure SANs. Based on your organization’s needs and 
+network infrastructure, you can choose an appropriate protocol for a SAN. Fibre Channel (FC) is 
+the best performing solution for SANs, but it is the most complex and expensive system to 
+implement.   iSCSI SAN storage provides an inexpensive and simple way to configure a 
+connection to remote disks. 
+iSCSI storage includes: 
+•
+Centralized management and control over the storage infrastructure.
+•
+Support for applications that require large amounts of storage for SQL databases.
+•
+An easy, inexpensive way to provision block-level storage that has minimal management
+overhead.
+•
+The provisioning of VMWare ESX/ESXi virtual machines.
+•
+The provisioning of Hyper-V virtual machines.
+•
+Support for UNIX clients that require access to shared folders.
+•
+Share access for older clients, if it is required.
+Note: iSCSI storage system is good for small and medium-sized enterprises (<=150 Employees). 
+If you need best performance, you have to use SAN. 
+An iSCSI SAN implementation typically includes, An IP network, iSCSI targets, iSCSI 
+initiators, iSCSI qualified name (IQN). Note: make sure that you can answer the following 
+questions: what is iSCSI target? What is iSCSI initiator? What is IQN? 
+Lab Preparations 
+1. 3 VMs: Domain Controller (Ca-Van-Svr1), File Server (Member Server) (Ca-Van-Svr7)
+(Note: Clone a new one, Ca-Van-Svr7), and Client1 (Ca-Van-Client1) (Check Network
+Topology down below).
+2. Configure your Svr7 and verify all IPs. You have to make sure that you can ping from
+your Svr7 to your domain controller and your client.
+3. Svr7 domain join (Recommend).
+
+--- page 2 ---
+ACIT 3420 
+Johnny Zhang 2 
+ 
+Network Topology 
+ 
+ 
+ 
+Task 1: Create a Storage Pool and a Storage Space 
+ 
+Storage space offers a nice alternative to a potentially expensive and complex Storage Area 
+Network (SAN). Storage Spaces allows you to use multiple physical disks attached to a 
+Windows Server system and present them to users in a flexible manner. 
+Storage Pools: A collection of physical disks presented as logical disks. 
+Storage Spaces: Virtual disks created from free space in a Storage Pool. 
+To create a storage pool and storage space, perform the following steps. 
+1. Connect the drives you want to use to your computer (CA-VAN-SVR7) (Note: You have 
+to add 5 hard disks (virtual disks) to your server because of at least five physical disks are 
+required for three-way mirroring. Q: How about the storage layout dual-parity?). 
+To add virtual disks to your host machine, perform the following steps 
+
+--- page 3 ---
+ACIT 3420 
+Johnny Zhang 3 
+a.
+Select the server (Server Name: CA-VAN-SVR7). Right click to choose settings.
+b.
+On Virtual Machine Settings, click Add.
+c.
+On Add Hardware Wizard, select hard disk and then click Next
+d.
+On Select a Disk Type, select SCSI (Note: What is SCSI?)
+e.
+On Select a Disk, choose “Create a New Virtual Disk” and then click Next.
+f.
+On Specify a Disk Capacity, you can give 10 GB or above. Click Next
+g.
+On Specify a Disk File, you can use the default name. Click Finish.
+h.
+Repeat a to g to create 4 more disks.
+
+--- page 4 ---
+ACIT 3420 
+Johnny Zhang 4 
+Note: Check your Disk Management. Can you find out the 5 disks? Does your server identify the 
+5 disks? Why? 
+
+--- page 5 ---
+ACIT 3420 
+Johnny Zhang 5 
+Note: Do not initialize them. Disk must be blank and unformatted, which means no volumes can 
+exist on the disks. 
+2. On Ca-Van-Svr7, log on with administrative credentials.
+3. Server Manager->File and Storage Services->Storage Pools. Refresh if you can not find
+out any disks from Physical disks
+
+--- page 6 ---
+ACIT 3420 
+Johnny Zhang 6 
+4. Right click “Primordial” and then click “New Storage Pool”. Or you can click Tasks and
+then Click “New Storage Pool”.
+5. On the Before you begin, read the description of Storage Pool.
+6. In the Storage Pool Name field, type a name for your storage space.
+What is the meaning of Primordial?
+You can use a different name.
+
+--- page 7 ---
+ACIT 3420 
+Johnny Zhang 7 
+7. On Select physical disks for the storage pool, you can select disks for the storage pool.
+Note: You do not need to choose all disks. You can add more disks later.
+8. Confirm your configuration and then click Create.
+Drive allocation defines how the drive 
+is allocated to the pool. There are three 
+options: Automatic (Default), Manual, 
+and Hot spare.
+Question:
+Automatic vs. Manual vs. Hot spare
+
+--- page 8 ---
+ACIT 3420 
+Johnny Zhang 8 
+Note: Check your Disk Management again. Can you still find the 5 disks? Why can you not see 
+them anymore? 
+Figure 1: Before Storage Pool 
+Figure 2: After Storage Pool 
+
+--- page 9 ---
+ACIT 3420 
+Johnny Zhang 9 
+Task 2: Create New Virtual Disk 
+1. Right click the new storage pool (ACIT 3420 Storage Pool) and then choose New Virtual
+Disk
+2. Launch the New Virtual Disk Wizard. On before you begin window, read the description
+and then click Next.
+
+--- page 10 ---
+ACIT 3420 
+Johnny Zhang 10 
+3. On Virtual Disk Name, give your own name such as Data Storage.
+4. On Enclosure Awareness windows, click the next.
+5. On Storage Layout, choose Mirror and read the description.
+6. On resiliency Settings, choose the three-way mirror. Read the resiliency types.
+
+--- page 11 ---
+ACIT 3420 
+Johnny Zhang 11 
+7. On provisioning window, choose thin. Compare the difference between thin and fixed.
+8. On the Size window, specify size such as 10 GB.
+9. Confirm your configuration and click create.
+10. Configure the volume and choose file system for the new volume.
+
+--- page 12 ---
+ACIT 3420 
+Johnny Zhang 12 
+Note: What’s difference between ReFS and NTFS? 
+
+--- page 13 ---
+ACIT 3420 
+Johnny Zhang 13 
+Questions: 
+1. What is the minimum number of disks you need for a Parity Virtual Disk?
+2. Define the following virtual disk storage layouts:
+o
+Simple
+o
+Mirrored
+o
+Parity
+Task 3: Install iSCSI Target Server 
+To install iSCSI Target Server, perform the following steps. 
+1. Open Server Manager. Add the iSCSI Target Server role service on your Domain
+controller. At the top of the Server Manager console, click Add Roles and Features. The
+Add Roles and Feature Wizard opens.
+
+--- page 14 ---
+ACIT 3420 
+Johnny Zhang 14 
+2. On the Before You Begin page, Click Next
+3. Select Role-based or feature-based installation and then click Next.
+4. On the Select Destination Server page, select the server that you are installing to and click
+Next.
+5. On the Select Server Roles page, expand File and Storage Services, expand File and
+iSCSI Services, and click iSCSI Target Server and iSCSI Target Storage Provider
+(VDS and VSS hardware providers). Click Next.
+Note: When you install iSCSI Target Server, you should install the following two
+components: iSCSI Target Server provides tools to create and manage iSCSI targets and
+virtual disks. Enabling iSCSI Target Server can provide application block storage,
+consolidate remote storage, provide for diskless boots, and run in a failover cluster
+environment.
+iSCSI Target Storage Provider enables applications on a server that is connected to an
+iSCSI target to perform volume shadow copies of data on iSCSI virtual disks. It also
+enables you to manage iSCSI virtual disks by using older applications that require a
+Virtual Disk Service (VDS) hardware provider, such as using the DiskRAID command-
+line tool.
+
+--- page 15 ---
+ACIT 3420 
+Johnny Zhang 15 
+6. On the Select Features page, click Next.
+7. On the Confirm Installation Selections page, click Install.
+8. When the installation is complete, click Close.
+Task 4: Create an iSCSI Virtual Disk 
+1. In Server Manager, click File and Storage Services and then click iSCSI. The iSCSI page
+is displayed as shown on the next slide.
+2. Click To create an iSCSI virtual disk, start the New iSCSI Virtual Disk Wizard.
+Alternatively, in the iSCSI Virtual Disks section, you can open the Tasks menu and click
+
+--- page 16 ---
+ACIT 3420 
+Johnny Zhang 16 
+3. On the Select Virtual Disk Location page, click a drive to store the iSCSI virtual disk and
+then click Next.
+4. On the iSCSI Virtual Disk Name page, in the Name text box, type the name of the iSCSI
+virtual disk, such as ISCSIDRIVE. Click Next.
+
+--- page 17 ---
+ACIT 3420 
+Johnny Zhang 17 
+5. On the iSCSI Virtual Disk Size page, specify the size in gigabytes (GB) of the iSCSI virtual
+disk, such as 5 GB or 10 Gb. Click Next.
+6. On the iSCSI Target page, if targets have been defined previously, you can click a target
+and then click Next. To create a new target, click New iSCSI target and then click Next.
+
+--- page 18 ---
+ACIT 3420 
+Johnny Zhang 18 
+7. If you chose the New iSCSI target, on the Target Name and Access page, type the name of
+the target, such as ISCSITarget1. Click Next.
+8. On the Access Servers page, click Add.
+9. On the Add Initiator ID page, for the type, select IQN, DNS Name, IP Address, or MAC
+address. Then, in the Value text box, type the corresponding value for the initiator that
+matches the type. For example, specify IP Address, and the address of CA-VAN-Client1,
+which is 192.168.239.20. Click OK. Or you can use your client computer name.
+Your target compute IP Address
+
+--- page 19 ---
+ACIT 3420 
+Johnny Zhang 19 
+Note 1: Make sure to power on your DNS Server (Ca-Van-Svr1). 
+Note 2: You can try FQDN as an example above. You also can use IP Address if your 
+iSCSI Wizard crashes again and again. 
+10. On the Access Servers page, add any other iSCSI initiators. Then, click Next.
+11. On the Enable Authentication page, if you want to use authentication, select Enable CHAP.
+Then, type a user name and password. When done, click Next.
+
+--- page 20 ---
+ACIT 3420 
+Johnny Zhang 20 
+12. On the Confirmation page, click Create.
+13. When the iSCSI virtual disk is created, click Close.
+Task 5: Configure iSCSI Initiator 
+Login your target server (CA-VAN-Client1) as administrator. To enable multiple connected 
+sessions on Windows 10, perform the following steps. 
+Double check your Client IP address
+
+--- page 21 ---
+ACIT 3420 
+Johnny Zhang 21 
+1. Login your windows 10 as local administrator or Domain administrator
+2. Targets Portals: type your iSCSI Server IP address and then click Quick Connect.
+Windows Server OS:
+Tools->iSCSI
+
+--- page 22 ---
+ACIT 3420 
+Johnny Zhang 22 
+3. Check the Discovery->Target portals.
+5. Go to Disk Management. You should find an unknown disk.
+6. Initialized it and New Volume.
+4. Check the Configuration, RADIUS, Volumes and Devices. Use the default settings.
+
+--- page 23 ---
+ACIT 3420 
+Johnny Zhang 23 
+Challenge questions: 
+1. To provide further security, which authentication method should be used?
+2. What is the default port for iSCSI?
+Lab Assignment 
+Log in your Svr7 and run Server Manager. Paste two screenshots of your storage pool and iSCSI 
+Storage Server (See example as down below) 

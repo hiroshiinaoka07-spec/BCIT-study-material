@@ -1,0 +1,955 @@
+===== frame_0001
+Press Ctrl+AJt+De1ete to
+9:41
+Sunday, September 78
+===== frame_0002
+SuEOC -
+ITk0-sueoc
+Wn2022
+===== frame_0003
+SuEOC -
+Wn2022
+•c" '4230: :
+===== frame_0004
+d ministr;tor
+===== frame_0005
+dministrator
+===== frame_0006
+SuEOC -
+Wn2022
+===== frame_0007
+SuEOC -
+Wn2022
+'r Manager
+prompt
+type hereto search
+MicrcMt Azure S—
+===== frame_0008
+SuEOC -
+Wn2022
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+3
+4
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+===== frame_0009
+SuEOC -
+Wn2022
+P
+O
+===== frame_0010
+SuEOC -
+Wn2022
+===== frame_0011
+SuEOC -
+Wn2022
+• Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+F and Storage Services
+O
+Configure this local server
+2
+4
+ROLES AND SERVER GROUPS
+File and Storage
+Services
+Manage ability
+Add roles and features
+Add other servers to manage
+Create a server grc»up
+Connect this server to cloud services
+Local Server
+9" 8/2022
+All Sewers
+results
+9," 8/2022 942
+P
+O
+===== frame_0012
+SuEOC -
+Wn2022
+Add nd
+Select server roles
+ONS
+the
+BPA
+9" 8/2022
+results
+942
+P
+O
+===== frame_0013
+Aaru2ø
+Press Ctrt+AJt*De1ete to
+9.44
+Sunday, September 18
+===== frame_0014
+SuEOC -
+Wn2022
+Add nd
+Installation progress
+log in your
+ping your domain controller and svr2.
+need to ad ds
+in order to install and your subdo•aln controller ,
+you do not need to join the
+(can
+uTF.8
+===== frame_0015
+SuEOC -
+Wn2022
+Server Manager ' Local Server
+•nd Storage Servic«
+seeted
+upd.te update
+the
+o
+i'. tusc7
+P
+O
+===== frame_0016
+Wn2022
+SuEOC -
+Server Manager ' Local Server
+PROPERTIES
+fr• 192.168.239.1; bytes
+byt
+e -32
+192.168.239.1: bytes
+Tn-128
+Tn-128
+Dashboard
+AD DS
+File and Storage Services
+All rights
+e ply
+eply
+eply f
+e ply
+-'ing
+•inging ad t
+statistics
+Sent
+1192.168.239
+192.168.239.1: byt s
+192.168.239.1.
+4, Received
+-32
+-32
+with 32 of data:
+4, Lost e (ox loss),
+seconds:
+Average
+upd.te update
+tus
+".tusG7 @
+trip in
+192.168.239.2
+Tinging 192.168.239.2 Kith 32 bytes of data:
+192.168.239.2: bytes-32
+bytes
+e oly
+192.168.239.2: byt
+ning statistics 192.168.239.2:
+e 5-32
+lost
+Packet S;
+a. VAK.svR3
+Sent Received
+trip in
+. e (ax loss).
+•seconds:
+gnv2022
+P
+O
+===== frame_0017
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+Deployment Configuration
+Credentials for deployment operation
+S.opiy credentials the
+Adat u
+upd.te update
+tus
+to, S. tusG7 @ B.
+a. VAN.svR3
+a .VAR.svR3
+CA -VAN-SvR3
+a. VAK.svR3
+134
+9/102022
+9/102022 92636
+MV2022
+P
+O
+===== frame_0018
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+Deployment Configuration
+supply to
+log fn
+ping dwin
+need to install ad ds
+n to install do need to Join the It is
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+to Ip add
+to dwfn
+click to ptuide user
+===== frame_0019
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+Deployment Configuration
+supply to
+log fn
+ping dwin
+need to install ad ds
+n to install do need to loin the d
+to Ip add
+to selut
+click to ptuide
+dwin
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+Your dcmain If you use different do—aid
+===== frame_0020
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+Deployment Configuration
+supply to
+Help
+log fn c
+ping dwin
+upd.te update
+tus
+to, S. tusG7 @ to,
+need to install ad ds
+n to install
+to Ip add
+to selut
+dwin
+do need to loin the d
+click to ptuide
+Your do—ain If you use different you need to use your do—ain
+"ovide your subdo.aln You can use WY Van.
+===== frame_0021
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+Deployment Configuration
+supply to
+a .vwsvn
+CA
+a - VAR-svR3
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+9/102022
+"102
+9/102022 92636
+MV2022
+P
+O
+===== frame_0022
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+Deployment Configuration
+supply to
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+log fn
+ping dwin
+need to install ad ds
+n to install do need to loin the d
+to Ip add
+to selut
+click to ptuide
+dwin
+Your do—ain If you use different you need to use your do.ain
+"ovide your subdo.aln You can use WY or Van. In lab is BEY. You can use different
+second Tree
+If you want to create a nm. tree, you can use the tree option. I
+===== frame_0023
+SuEOC -
+Wn2022
+Server Manager ' Local Server
+"1 ADDS
+File
+DNS Options
+a .VAK.svR3
+CA
+a - VAR-svR3
+DNS optin
+ONS
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+9/W2022
+"102
+9/102022 92636
+MV2022
+P
+O
+===== frame_0024
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+DNS Options
+DNS optin
+File Edit Help
+log fn ymm
+ping and
+need to Instan ad ds
+In to Install do to join dæ1n.
+You need to your Ip address.
+You need to select parent dc.ain na—. the select. You need to provide
+user administrator &
+Your If you use different you need to use your
+your sub-dc—ain none. You can use SBY Van. In Jab You can use different
+The second Opti" : Tre. domain.
+upd.te update
+tus
+required.
+If you to create a tree, pu can use the tree option. For exaele, I want to create a tree,
+If you *ant to deploy you have to use
+Indy.
+===== frame_0025
+SuEOC -
+Wn2022
+"1 ADDS
+File
+Server Manager ' Local Server
+Prerequisites Check
+a .vAK.svR3
+CA
+a -VAN-svR3
+to
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+gne'2022
+9/102022 92636
+MV2022
+P
+O
+===== frame_0026
+SuEOC -
+ACETAZO-sueoc
+Wn2022
+===== frame_0027
+ACtTA20•Climt
+Wn2022
+===== frame_0028
+ACtTA20•Climt
+Wn2022
+===== frame_0029
+ACtTA20•Climt
+Wn2022
+P
+O
+===== frame_0030
+• Server Manager
+Dashboard
+ACtTA20•Climt
+Wn2022
+GI ADDS
+DNs
+A CA-VAN. 90.2
+File Edit Help
+log fn ymjr c
+ping and
+need to Instan ad ds
+In to Install do to join dæ1n.
+You need to your Ip address.
+You need to select parent dc.ain na—. the select. You need to provide
+user administrator &
+Your If you use different you need to use your
+provide your sub-dc—ain none. You can use SBY Van. In Jab You can use different
+The second Opti" : Tre. domain.
+required.
+If you to create a tree, pu can use the tree option. For exaele, I want to create a tree,
+If you to deploy you have to use credentials
+log donaEn or
+can find the or
+Indy.
+===== frame_0031
+ACtTA20•Climt
+Wn2022
+GI ADDS
+DNs
+Server Manager Dashboard
+A CA-VAN. 90.2
+All Servers
+gna,'2D2Z
+P
+O
+===== frame_0032
+SuEOC -
+Wn2022
+Acrrgmoc2
+Edit Help
+log in ymm
+ping and
+need to Instan ad ds
+In to Install do to join dæin.
+you need to Ip address.
+You need to select parent na—. the select. You need to provide
+user administrator passwrd
+Your If you use different you need to use your nane.
+your sub-dc.ain You can use SBY or Van. In your lab B". You can use different
+The second domain.
+It is required
+If you to create a tree, pu can use the tree option. For exaele, I want to create a tree,
+If you to deploy you have to use credentials
+Indy.
+can find the or can not. hN you? tan you? Could you explain I can not find
+===== frame_0033
+ACtTA20•Climt
+Wn2022
+results
+LOGS I Server
+results
+All Servers
+VZ022 py
+gna,'2D2Z
+===== frame_0034
+ACtTA20•Climt
+Wn2022
+GI ADDS
+DNs
+• Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+Help
+i c.vAN•SvR2
+Nms
+BPA results
+results
+LOG I Server
+results
+All Servers
+VZ022 py
+gna,'2D2Z
+P
+O
+===== frame_0035
+ACtTA20•Climt
+Wn2022
+ACIT3420-DomainTree
+USE
+4. cud
+Description
+• Virtual Machine Details
+State
+C:
+P
+O
+===== frame_0036
+SuEOC -
+Wn2022
+Acrrgmoc2
+Applying computer settings
+===== frame_0037
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+• Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+"1 ADDS
+DNs
+2
+4
+ROLES AND SERVER GROUPS
+AD DS
+ity
+Add roles and features
+Add other servers to manage
+Create a server grc»up
+Connect this server to cloud services
+DNS
+ity
+BPA results
+File and Storage
+Manageab ibty
+results
+LOG I Server
+results
+V2022 py
+All Servers
+gna,'202Z
+===== frame_0038
+a arum sueoc
+Press Ctrl
+Delete to
+937
+Sunday, September 78
+===== frame_0039
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+p Type here to Search
+g.' wz-J22
+===== frame_0040
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+P
+O
+===== frame_0041
+ACtTA20•Climt
+Wn2022
+Applying computer settings
+===== frame_0042
+ITk0-sueoc
+Wn2022
+• Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+"1 ADDS
+DNs
+2
+4
+ROLES AND SERVER GROUPS
+AD DS
+ity
+Add roles and features
+Add other servers to manage
+Create a server grc»up
+Connect this server to cloud services
+DNS
+ity
+BPA results
+File and Storage
+Manageab ibty
+results
+LOG I Server
+results
+V2022 9 SS py
+All Servers
+gna,'202Z
+===== frame_0043
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+• Server Manager ' Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+GI ADDS
+DNs
+3
+4
+Add roles and features
+Add other servers to manage
+Create a server group
+Best
+Settings
+•J Paint
+Group Policy Management
+Microsoft Azure Se Nices
+Storage
+ibty
+LOG I Server
+Man
+results
+All Servers
+VZ022 py
+9ne,'2D22
+P
+O
+===== frame_0044
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+• Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+GI ADDS
+DNs
+2
+4
+ROLES AND SERVER GROUPS
+AD DS
+Manage •bdity
+Add roles and features
+Add other servers to manage
+Create a server grc»up
+Connect this server to cloud services
+DNS
+ity
+BPA results
+File and Storage
+Manageabibty
+results
+Local Server
+results
+All Servers
+VZ022 py
+9ne,'2D22
+P
+O
+===== frame_0045
+SuEOC -
+Wn2022
+Acrrgmoc2
+Edit Hep
+in
+ping dæin cmtroller• Svel and
+næd to ad ds
+n to install and
+to ip
+t dæin
+accmmt: &
+If
+pem•ide
+I he second option: Tree
+do —d to join the dwin. It is
+. click need to
+diffe
+to
+n lab is BBM.
+If you want to create a ne tree, you can use the tree For I want to create a
+Note: if wnt to deploy you to
+log In your controller, or sve2
+do you Svr3 Is a
+I _ you can check dns. You should find the bby
+2. the site
+3 _ your —anagen,
+check the replication Info your
+new ,
+Indy.
+can your the subdwin or here? i can not, can you? Could you explain I can not find
+can r use the domain account to log In ny suEH1æaIn?
+Ln3',CesS
+===== frame_0046
+SuEOC -
+Wn2022
+Edit Hep
+Qing dæin cmtroller Sw•1 and
+—d to join the dwin. It is
+an In
+næd to ad ds
+n to install and
+to ip
+t dæin
+If
+second option: Tree
+do
+. click need to
+diffe
+to
+lab is
+. Qn diffæt
+you want to create a ne tree, you can use the tree For
+I want to create
+a new
+tree, Indy.
+ucte: if wnt to deploy you to
+log In your controller, or sve2
+your the subdwin or here? i can not, can you? Could you
+do you Svr3 Is a
+Pres
+J _ you can check dns. You should find the bby
+2 _ the site
+your —anagen,
+check the replication Info your
+can use the domain account to log In ny subdÄa1n (boy
+use account to log •y parent (adatu•)
+I can
+not
+i Cos
+'CRLF)
+===== frame_0047
+SuEOC -
+Wn2022
+Edit Hep
+Qing dæin cmtroller Sw•1 and
+—d to join the dwin. It is
+an In
+næd to ad ds
+n to install and
+to ip
+t dæin
+If
+second option: Tree
+do
+. click need to
+diffe
+to
+lab is BBM.
+you want to create a ne tree, you can use the tree For
+I want to create
+a new
+tree, Indy.
+ucte: if wnt to deploy you to
+log In your controller, or sve2
+your the subdwin or here? i can not, can you? Could you
+do you Svr3 Is a
+Pres
+J _ you can check dns. You should find the bby
+2 _ the site
+3 _ your —anagen,
+check the replication Info your
+can use the domain achinistratcw account to log In ny subdÄa1n (boy
+I can
+Yes
+not
+Explain
+use account to log •y parent (adatu•.co•)? NO "hy?
+if you the answers,
+'CRT)
+===== frame_0048
+SuEOC -
+Wn2022
+===== frame_0049
+BBhAdmiDirrator
+===== frame_0050
+SuEOC -
+Wn2022
+===== frame_0051
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+===== frame_0052
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+Press Ctrl+Alt+Delete to unlock.
+10:02
+Sunday, September 18
+P
+O
+===== frame_0053
+ACtTA20•Climt
+Wn2022
+• Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+"1 ADDS
+DNs
+2
+4
+ROLES AND SERVER GROUPS
+AD DS
+ity
+Add roles and features
+Add other servers to manage
+Create a server grc»up
+Connect this server to cloud services
+DNS
+ity
+File and Storage
+Manageab ibty
+9/1812022 Itr03
+LOGS I Server
+Man
+results
+*18'2022
+All Servers
+1003 PM
+laoj
+===== frame_0054
+SuEOC -
+Wn2022
+Server Manager ' Local Server
+"1 ADDS
+DNs
+Vik md
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+gnv2022 '002:"
+100232 W
+9/102022
+9"8'2022
+gnv2022
+P
+O
+===== frame_0055
+SuEOC -
+Wn2022
+===== frame_0056
+SuEOC -
+Wn2022
+Press Ctrl+Alt+Delete to unlock.
+10:04
+Sunday, September 18
+===== frame_0057
+SuEOC -
+Wn2022
+log in
+Ping your dwin
+to install ad ds service.
+in to install nd
+to sw•3 ip addNss.
+You need to select parent do.ain click the select.
+u administrator &
+dmIn If
+subdmln
+second option: Tree
+different you
+can BBY In
+do næd to join dæin
+need to
+need to use your dmIn
+lab is BBM. can
+d ffæ t
+If you want to create a can use the tree option. want to create a tree,
+Note: you want to deploy you have to use do—aln credentials
+log En your svr2
+Indy.
+your find the subdomain or ca.van.svr3 can not. hw about you? can you? Could you explain can not find
+do you Svr3 a
+you can check dns. You should the bby
+a . the site
+manager, ca.van.sw•3 you can see so
+Double check the replication info your
+the account to log my subdomain Yes Why?
+can use •y account (bby\adninistrator) to log parent NO
+i f do not the discuss with
+use the bby (bby\administrator) to login bby domain
+I use the parent domain to log in my Sub do—ain
+I try to use to login •y parent
+===== frame_0058
+SuEOC -
+Wn2022
+log in
+ping your dwin
+to install ad ds service.
+in to install nd
+to sw•3 ip addNss.
+You need to select parent do.ain click the select.
+u see administrator
+dmIn If
+subdmln
+The second option: Tree
+different you
+can In
+do næd to join
+need to
+need to use your dmIn
+lab is BBM.
+d ffæ t
+If you want to create a can use the opticm. exnple, want to create a tree,
+"ote: you want to deploy you have to use do—aln credentials
+log In your dæain sw•2
+Indy.
+can your find the subdomain or ca.van.svr3 can not, hw about you? can you? Could you explain can not find
+do you Svr3 Ls a
+I Can Check dns. You find the boy
+2. the site
+manager, ca.van.sw•3 you can see so
+O•oubl• Check the replication info your
+Can the account to log my subdomain Yes
+Can i use ny subdo•aln account (bby\adninistrator) to log parent NO
+if do not the discuss with
+I use the bby (bby\administrator) to login bby domain
+use the parent domain to log in my Sub do—ain Yes
+try to use to login parent
+===== frame_0059
+SuEOC -
+Wn2022
+Server Manager ' Local Server
+"1 ADDS
+DNs
+Vile md
+p to sea r Ch
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+===== frame_0060
+SuEOC -
+Wn2022
+tog in
+your controller and svr•2.
+we need to Install ad ds sere.'it:e.
+to install and your controller, you do not need to join the
+You need to configure your ip address.
+Y Ou need to parent Click the You need to provide
+user account:
+If use different you need to use
+It not required.
+Subd«ain use BOY or Van. your lab iS ddY. You use different
+dwin.
+IF you to a new tree, you Can use the optiM. want to a new
+xant to deploy you have to use
+kog in your controller, Sw•1 Or Svr2
+van i c
+explain why
+do is a
+dns. stuld find subdwin bby
+the dwin site
+can Sæ bby.
+Info
+e the acæt to log in (bby Yes
+can i use subdmain account to log in 'y parent do—ain
+if you do not the answers, discuss with
+bby dæin to login —y bby dæin yes
+use the administrntr to log in ny sub Yes 1 can login
+I try to use subdo.ain to login my parent domain
+Indy.
+find it?
+Explain P
+Exaplain
+===== frame_0061
+SuEOC -
+Wn2022
+Server Manager ' Local Server
+"1 ADDS
+DNs
+Vik md
+upd.te update
+tus
+to, s. tusG7 @ i'. tusc7
+P
+O
+===== frame_0062
+SuEOC -
+Wn2022
+P
+O
+===== frame_0063
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+===== frame_0064
+Server Manager Dashboard
+WELCOME TO SERVER MANAGER
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022
+===== frame_0065
+fff •cvT3.Q0-v•pN
+ACtTA20•Climt
+Wn2022

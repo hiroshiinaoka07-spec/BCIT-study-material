@@ -1,0 +1,70 @@
+===== frame_0001
+WELCOME TO SERVER MANAGER
+Stcwage Services
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+ROLES AND SERVER GROUPS
+p Type here to search
+Connect this server to Cloud Services
+===== frame_0003
+E i I e Stcwage Services
+you need to on all your domain Subdæin
+Install ams ROLE on ycu.,r
+to join d«ain.. It is required but it iS easy
+p Type here to
+turc-ogoco ors &
+===== frame_0004
+Deployment Configuration
+===== frame_0006
+Domain Controller Options
+===== frame_0008
+Prerequisites Check
+===== frame_0012
+CA-VAN -SVRA OHO
+p Type nere to search
+You're about to be signed out
+The computer is being restated tpcause Active Directory Domain Services was or
+===== frame_0016
+Applying computer settings
+===== frame_0023
+p Type to search
+===== frame_0024
+E i I e and Stcwage Services
+===== frame_0026
+Storage Services
+@ Maugeability
+===== frame_0027
+Command Prom pt
+===== frame_0028
+(c) All rights r
+Please check the and try again.
+ned to on all your donain Subdæin
+to join the It is required but it is easy to configure and install
+after you learn dns, you Should to fix the
+I Will provide the Solution right
+===== frame_0034
+and Stcwage Services
+===== frame_0037
+you need to on all your domain and Subdæin controllers..
+Install ams ROLE svN.
+to join the It but it is easy to configure and install
+I will provide Solution right I
+===== frame_0038
+'inging (192.168.239.41 "ith 32 bytes of data:
+192.168.239.4: bytes-n Tn-128
+192.168.239.4: bytes-32 TTL.12E
+192.168.239.4; bytes-32 "1-128
+fro. 192.168.239.4: bytes-n
+'ing Statistics for 192.168.239.4;
+packets: sent - 4, Received - 4, - e (eX loss),
+===== frame_0040
+192.168.239.2: bytes-32
+•ing statistics for 192.168.239.2:
+.239.2: bytes-32
+192.168.239.Z: bytes-32
+eith •a bytes of data:
+. e (ox loss),
+cur-ogoo) ors &
+Sent • 4. • Lost

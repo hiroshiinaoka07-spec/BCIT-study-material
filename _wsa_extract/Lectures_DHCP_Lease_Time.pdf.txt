@@ -1,0 +1,125 @@
+--- page 1 ---
+ACIT3420 
+DHCP Lease Time – What is it and How does it work? 
+The DHCP Lease Time, an important part of the DHCP settings. But what is it, how long should 
+you set it or can you leave it on the default settings? In this article, I will explain how it works 
+and what the recommended settings are for your network.  
+Every network has it, a DHCP Server. It may be built into your router or you have a server that is 
+handling the DHCP Leases. Without it, you would have to assign every network device 
+(computer, mobile phone, network printer) manually an IP Address.  
+A DHCP server does this task automatically for you ensuring that every device gets a unique IP 
+Address to connect to the network. Now that address is leased to the client for a specific amount 
+of time, the DHCP Lease Time.  
+What is DHCP Lease Time? 
+In short, DHCP Lease Time is the amount of time in minutes or seconds a network device can 
+use an IP Address in a network. The IP Address is reserved for that device until the reservation 
+expires. 
+For computers and other network devices, to communicate on a network they need a unique IP 
+Address. You can compare an Ip Address to the postal address of your house. There can’t be 
+houses with the same address, otherwise, your mail might be delivered to the wrong house. 
+IP Addresses work the same way and, in a network,, a DHCP server is responsible for assigning 
+every device a unique address. The Lease Time indicates how long a device is allowed to use 
+that IP Address. Now, this is important because the amount of available IP Addresses is limited 
+in a network. For a typical home network, you have a DHCP Pool of 200 Ip Addresses. 
+How does DHCP Lease Work? 
+Before we go into detail what the optimal DHCP lease time is, lets first look into how DHCP 
+Lease works. When your computer powers up it doesn’t have an IP Address so it will need to 
+communicate with the DHCP server for an IP Address.  
+If the computer doesn’t have a reservation yet for an address it will begin a new lease of the IP 
+Address. But when it already has an active lease standing out, then it will confirm the availability 
+of it and resume the lease. 
+Every DHCP lease life cycle will follow a specific pattern, it starts with the initial lease, a 
+normal operation period, a renewal period and if the renewal fails a rebinding period.  
+• 
+At day 0 it will request a new lease 
+• 
+During normal operation, the client can use the address. 
+• 
+Halfway the lease time it will try to renew the lease so it can keep the same IP address. 
+
+--- page 2 ---
+ACIT3420 
+• 
+If renewing failed (DHCP server is offline for example), it will try to extend the current 
+lease with any active DHCP Server. 
+ 
+Now let’s say you have set the lease time to 8 days (pretty long, but common in an enterprise 
+network for wired devices). After 4 days the network device will try to renew the lease. On day 5 
+it is able to contact the DHCP server and renew the current lease. 
+At that point, the DHCP Lease life cycle will start over, so the timers (T1 and T2) will reset and 
+the lease is valid for another 8 days.  
+ 
+
+--- page 3 ---
+ACIT3420 
+Recommend DHCP Lease Time 
+So now we know how the DHCP lease works, how long should you set it? It depends on the 
+situation but that are some guidelines you can use to find the optimal lease time for your 
+network: 
+• 
+For wired devices, a lease time of 8 days is a typical period. Wired devices won’t leave 
+the network often, so there is no reason to create a shorter period. A shorter period only 
+increases the DHCP-related network traffic. 
+• 
+Wireless devices tend to leave the network pretty often and can stay away for a couple of 
+days. So a smaller lease of 24 hours is pretty common. This way regular devices will 
+keep mostly the same IP Address. 
+• 
+For guest networks and hotspots, you want a short lease time. Hotspots an hour max, 
+while for Office guest networks 8 hours will work fine. 
+• 
+Always make sure 20% of the DHCP pool remains available. To calculate the potential 
+amount of devices in the network and add 20%. Increase the pool size or lower the DHCP 
+Lease Time to make it fit. 
+Home networks 
+For a home network, the default 24 hours (1440 minutes or 86400 seconds) is fine. The amount 
+of devices in a home network is limited, maybe up to 3 per household member where your pool 
+of IP addresses is around the 200 addresses. 
+But a higher lease time of 8 days would work evenly good. The reason is simple, the amount of 
+network devices in a home network is pretty much static. The occasional guest won’t be a 
+problem with the number of available IP Addresses. 
+Guest networks and hotspots 
+The problem with guest networks and hotspots is that you will have a lot of devices that are 
+connected for only a short amount of time and then leaving. They might never come back, so 
+there is no reason for a high lease time. 
+But don’t want to set it to low, because this will only create a lot of DHCP-Related traffic. So 
+first you need to know how much IP Address you have available and how much visitors you 
+expect per day or per hour.  
+Example case 
+If you have a coffee bar and you get 400 visitors a day. They stay on average 30 to 60 minutes 
+and you have a DHCP Pool of 200 IP Address (192.168.0.10 – 192.168.0.210 for example). 
+When you leave the DHCP Lease Time on the default 24 hours (1440 minutes) after 200 guest 
+no other guest can use the free wifi network. Because all the 200 IP Addresses are reserved for 
+the first 200 guests.  
+
+--- page 4 ---
+ACIT3420 
+So in this case you want to lower the DHCP Lease Time to one hour for example. This way the 
+reservation is released soon enough for the other guests: 
+ 
+With a lease time one hour, the client will try to renew the lease after 30 minutes. At 35 min it 
+contacts the DHCP server to extend/renew the lease. It’s granted so the timers reset, a new lease 
+is acquired for another 60 minutes. In total, the IP Address is reserved for 95 minutes. With 200 
+addresses available you can have 130 guests per hour on average on your network. 
+Static IP Address and DHCP Pool 
+Permanent devices in a network can have a fixed IP Address. This is useful if you have to set 
+Port Forwarding to a device or if you need to manage the device. Typically network devices like 
+routers, switches, and network printers have a fixed or static IP Address. 
+If you leave a printer on DHCP mode, it might get a new IP Address if you turn it on after a long 
+time of period (after a holiday for example). If this happens you might have to re-install the 
+printer on your computer, because your computer doesn’t know anymore where to find the 
+printer. 
+So always leave some room in your DHCP Pool for fixed network devices. Typically you start 
+the DHCP Pool at 192.168.0.10 and let it end at 192.168.0.200. This leaves you with enough 
+room for the static Ip Address. (So you can assign your printer the IP Address 192.168.0.201 for 
+example). 
+
+--- page 5 ---
+ACIT3420 
+Conclusion 
+For home networks, you don’t have to change the DHCP Lease time. Just leave it on default and 
+you will be fine. Small Offices, Corporate Networks and Guest Networks, on the other hand, will 
+need some planning when settings up the DHCP Server. 
+Also, make sure to take a look into DNS Scavenging when you are settings up DHCP and DNS 
+servers in an enterprise network.  
+ 

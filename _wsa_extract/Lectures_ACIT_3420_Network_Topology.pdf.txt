@@ -1,0 +1,36 @@
+--- page 1 ---
+DC
+RTR
+Client 1
+Svr2
+Svr1
+Web Application Proxy
+DNS
+ADFS
+Remote Desktop Gateway
+ADCS, ADDS, DNS, DHCP
+Switch
+Internet Switch
+LAN
+WAN
+IP: 192.168.239.10/24
+DNS: 192.168.239.2
+DNS: 133.12.10.2
+DMZ
+DNS: 127.0.0.1
+IP: 133.12.10.10/24
+DNS: 133.12.10.2
+Web
+IIS
+Printer
+DMZ: Demilitarized Zone
+LAN: Local Area Network
+WAN: Wide Area Network
+DNS: 192.168.239.2
+Client 1
+S2S VPN
+ACIT3420
+
+--- page 2 ---
+https://docs.microsoft.com/en-us/azure/active-directory-domain-services/scenarios
+ACIT3420

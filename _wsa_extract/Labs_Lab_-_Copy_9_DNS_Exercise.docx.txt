@@ -1,0 +1,12 @@
+DNS Namespace
+
+Design a DNS namespace for your organization that conforms to the following 
+guidelines. 
+The root domain name for the organization is adatum.com. All of the additional domains you create must be subordinate to this domain. 
+The internal network must be in a different domain from the external network. 
+The organization consists of three internal divisions: Sales, Human Resources, and Production. Each division must be represented by a separate subdomain in the namespace. 
+Each division has departmental servers performing various roles and as many as 200 workstations, only some of which are shown in the diagram. Your host names should identify the function of each computer.  
+Three servers on an external perimeter network host the company’s Internet services: Web, FTP, and e-mail. These servers must be in the domain adatum.com.
+
+On the worksheet shown in the figure on the next page, write the domain names and the fully qualified domain names you have selected for the computers in the appropriate spaces. 
+

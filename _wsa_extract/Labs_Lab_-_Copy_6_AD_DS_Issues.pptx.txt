@@ -1,0 +1,30 @@
+--- ppt/slides/slide1.xml ---
+AD DS Issues
+Johnny
+--- ppt/slides/slide2.xml ---
+Domain Join 1/4
+Online vs Offline domain join (djoin.exe)?
+Domain administrator vs Domain user?
+Local Administrator?
+Do you need to type a domain administrator account when you join the domain?
+--- ppt/slides/slide3.xml ---
+Local Administrator
+--- ppt/slides/slide4.xml ---
+Domain Join 2/4
+--- ppt/slides/slide5.xml ---
+Limitation of domain user account?
+How to remove the limitation?
+Domain Join 3/4
+--- ppt/slides/slide6.xml ---
+
+--- ppt/slides/slide7.xml ---
+Domain Join 4/4
+--- ppt/slides/slide8.xml ---
+Logon as Domain Administrator
+--- ppt/slides/slide9.xml ---
+Child Domain Installation
+--- ppt/slides/slide10.xml ---
+Child Domain/Subdomain Login Issue
+--- ppt/slides/slide11.xml ---
+Child Domain/Subdomain Login
+--- ppt/slides/slide12.xml ---

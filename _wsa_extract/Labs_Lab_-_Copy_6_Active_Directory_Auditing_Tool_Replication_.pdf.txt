@@ -1,0 +1,48 @@
+--- page 1 ---
+ACIT 3420 
+1 
+ 
+Active Directory Auditing Tool 
+Step 1 - Check the replication health 
+Run the following command : 
+Repadmin /replsummary 
+The “/replsummary” operation quickly summarizes replication state and relative health of a 
+forest. 
+ 
+Step 2 - Check the inbound replication requests that are queued. 
+Repadmin /Queue 
+This command lists elements that are remaining in the replication queue. It displays inbound 
+replication requests that the Domain Controller needs to issue in order to become consistent with 
+its source replication partners. 
+ 
+Step 3 - Check the replication status 
+Repadmin /Showrepl 
+
+--- page 2 ---
+ACIT 3420 
+2 
+ 
+This command displays the replication status when the specified domain controller last attempted 
+to implement an inbound replication of Active Directory partitions. It helps in figuring out the 
+replication topology and replication failure. 
+ 
+Step 4 - Synchronize replication between replication partners 
+Repadmin /syncall 
+It ensures synchronization between replication partners 
+Step 5 - Force the KCC to recalculate the topology 
+Repadmin /KCC 
+This command forces the KCC (Knowledge Consistency Checker) on targeted domain 
+controller(s) to immediately recalculate its inbound replication topology. It checks and creates 
+the connections between the Domain Controllers. By default KCC runs in the background every 
+15 minutes to check if a new connection has been established between DCs. 
+
+--- page 3 ---
+ACIT 3420 
+3 
+ 
+ 
+Step 6 - Force replication 
+Repadmin /replicate 
+This command forces the replication of the specified directory partition to the destination domain 
+controller from the source DC. 
+ 

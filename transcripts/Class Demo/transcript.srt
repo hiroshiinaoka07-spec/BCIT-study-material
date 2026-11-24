@@ -1,0 +1,1455 @@
+1
+00:00:01,360 --> 00:00:08,360
+Hello everyone, this week I will teach you how to install and config DNS Zoom.
+
+2
+00:00:08,360 --> 00:00:13,360
+So first, let's talk about what is DNS Zoom.
+
+3
+00:00:13,360 --> 00:00:23,360
+A DNS Zoom is a portion of a DNS named space that has been divided for administration purpose.
+
+4
+00:00:23,360 --> 00:00:29,360
+Each DNS server may have many different zones.
+
+5
+00:00:29,360 --> 00:00:35,360
+Each DNS server may have more than one zone, that's pretty normal.
+
+6
+00:00:35,360 --> 00:00:43,670
+But the complete DNS named space could not be hold on one server.
+
+7
+00:00:43,670 --> 00:00:45,670
+Have you still remember?
+
+8
+00:00:45,670 --> 00:00:55,590
+In week 3 or week 4, I created a forest, like a subdomain domain tree.
+
+9
+00:00:55,590 --> 00:01:07,020
+Your subdomain DNS you can create on your domain controller, which is your parent's domain,
+
+10
+00:01:07,020 --> 00:01:17,020
+or you can delegate it to the subdomain domain controller, or any server from your forest.
+
+11
+00:01:17,020 --> 00:01:24,420
+There are many different types of zones, such as primary zone, secondary zone,
+
+12
+00:01:24,420 --> 00:01:29,420
+active directory, integrated zone, and stop zone.
+
+13
+00:01:29,420 --> 00:01:36,420
+Before you work on this lab, I want you to figure out, to completely understand,
+
+14
+00:01:36,420 --> 00:01:43,420
+the major difference between the primary zone, secondary zone, active directory,
+
+15
+00:01:43,420 --> 00:01:46,420
+integrated zone, and stop zone.
+
+16
+00:01:46,420 --> 00:01:51,420
+Why do we need AD integrated zone?
+
+17
+00:01:51,420 --> 00:01:53,420
+What is the purpose?
+
+18
+00:01:53,420 --> 00:01:58,020
+And it benefits and it drawback.
+
+19
+00:01:58,020 --> 00:02:00,020
+So what is the primary zone?
+
+20
+00:02:00,020 --> 00:02:02,020
+What is the secondary zone?
+
+21
+00:02:02,020 --> 00:02:05,020
+In which scenarios you need a primary zone?
+
+22
+00:02:05,020 --> 00:02:07,020
+You need a secondary zone?
+
+23
+00:02:07,020 --> 00:02:09,020
+You need a stop zone?
+
+24
+00:02:09,020 --> 00:02:11,020
+So I want you to figure out.
+
+25
+00:02:11,020 --> 00:02:14,020
+I want you to know that before you continue.
+
+26
+00:02:14,020 --> 00:02:21,030
+If you don't know, talk to me or ask me.
+
+27
+00:02:21,030 --> 00:02:30,110
+As I told you before, this week I will teach you how to install and config a secondary zone.
+
+28
+00:02:30,110 --> 00:02:35,110
+So first, what is secondary zone?
+
+29
+00:02:35,110 --> 00:02:38,110
+You probably already know it.
+
+30
+00:02:38,110 --> 00:02:44,110
+In Term 2, I believe you learned the Linux DNS.
+
+31
+00:02:44,110 --> 00:02:51,110
+So I also hope you already know how to install and configure the Linux DNS,
+
+32
+00:02:51,110 --> 00:02:56,860
+on the Linux DNS zone.
+
+33
+00:02:56,860 --> 00:03:03,300
+So the secondary zone can be the copy of a primary zone.
+
+34
+00:03:03,300 --> 00:03:08,300
+The secondary zone can be a copy of the secondary zone.
+
+35
+00:03:08,300 --> 00:03:15,300
+The secondary zone can be copies of active directory integrated zone.
+
+36
+00:03:15,300 --> 00:03:18,300
+So you will know that.
+
+37
+00:03:18,300 --> 00:03:25,300
+The secondary zone is a copy from another zone.
+
+38
+00:03:25,300 --> 00:03:33,150
+It comes from the primary zone, master room, or secondary zone.
+
+39
+00:03:33,150 --> 00:03:36,150
+This is the only zone.
+
+40
+00:03:36,150 --> 00:03:41,150
+Any changes must be made on the original zone, which is the primary zone.
+
+41
+00:03:41,150 --> 00:03:47,400
+So the primary zone must be available if you want to make some changes.
+
+42
+00:03:47,400 --> 00:04:01,920
+The data must be replicated from the master room, primary zone, or secondary zone.
+
+43
+00:04:01,920 --> 00:04:05,920
+You need to keep the updates.
+
+44
+00:04:05,920 --> 00:04:26,940
+The data must be replicated from the master copy to keep the secondary zone up to date.
+
+45
+00:04:26,940 --> 00:04:32,940
+So next questions you probably ask me, who can hold the secondary zone?
+
+46
+00:04:32,940 --> 00:04:35,940
+It really depends on your community environment.
+
+47
+00:04:35,940 --> 00:04:42,940
+You can use Windows or Windows, or you can use all Linux,
+
+48
+00:04:42,940 --> 00:04:45,940
+or you can use the mixed community environment.
+
+49
+00:04:45,940 --> 00:04:53,940
+For example, we use Linux as the primary zone, and Windows as the secondary zone.
+
+50
+00:04:53,940 --> 00:05:00,570
+Last questions, why do we need a secondary zone?
+
+51
+00:05:00,570 --> 00:05:09,900
+So this is a similar question that I asked you, why do you need a secondary domain controller?
+
+52
+00:05:09,900 --> 00:05:15,010
+For tolerance and load balance.
+
+53
+00:05:15,010 --> 00:05:19,010
+So if the primary zone failed,
+
+54
+00:05:19,010 --> 00:05:25,010
+you can change the secondary zone to become a primary zone.
+
+55
+00:05:25,010 --> 00:05:28,010
+I don't want to use the key words promote.
+
+56
+00:05:28,010 --> 00:05:31,010
+I use key words to change or switch.
+
+57
+00:05:31,010 --> 00:05:39,500
+So if the primary zone failed, you can change your secondary zone to primary zone.
+
+58
+00:05:39,500 --> 00:05:44,500
+In order, you have permission to modify the DNS record.
+
+59
+00:05:44,500 --> 00:05:49,070
+If you fix the problem for your primary zone,
+
+60
+00:05:49,070 --> 00:05:54,070
+you can change your current server back to the secondary zone again.
+
+61
+00:05:54,070 --> 00:06:02,180
+For this class, I also want you to familiar some DNS records,
+
+62
+00:06:02,180 --> 00:06:09,180
+such as Start Authority, Name Server, A record,
+
+63
+00:06:09,180 --> 00:06:15,180
+Quad A record, and MS record, which is for exchange server.
+
+64
+00:06:15,180 --> 00:06:24,710
+Okay, let's look at the network topology.
+
+65
+00:06:24,710 --> 00:06:28,710
+In order to complete this live assignment,
+
+66
+00:06:28,710 --> 00:06:31,710
+first, you need to prepare two servers,
+
+67
+00:06:31,710 --> 00:06:35,710
+Server 1, which is your domain controller,
+
+68
+00:06:35,710 --> 00:06:41,710
+hold the master room, and that one also is a Start Authority,
+
+69
+00:06:43,060 --> 00:06:48,060
+and also you need to prepare a new server, which is Server 4.
+
+70
+00:06:48,060 --> 00:06:54,060
+If you already have Server 4, you can create a Server 5.
+
+71
+00:06:54,060 --> 00:06:58,060
+I already have a Server 4 for my domain tree,
+
+72
+00:06:58,060 --> 00:07:02,060
+so I'm going to create a Server 5 instead of a Server 4.
+
+73
+00:07:02,060 --> 00:07:07,060
+So the IP, I'm going to use a .5, not a .4.
+
+74
+00:07:07,060 --> 00:07:09,060
+Okay, let's start it.
+
+75
+00:07:09,060 --> 00:07:17,310
+First, you need to power on your DC1.
+
+76
+00:07:17,310 --> 00:07:20,310
+Second, I'm going to clone one server.
+
+77
+00:07:20,310 --> 00:07:39,110
+I'm going to create a full clone.
+
+78
+00:07:39,110 --> 00:07:49,880
+Name, ACIT, Server 420, NS.
+
+79
+00:07:49,880 --> 00:08:06,960
+Second, create a new folder.
+
+80
+00:08:06,960 --> 00:08:38,090
+I have another folder, I created a long time ago.
+
+81
+00:08:38,090 --> 00:08:51,670
+I'm going to remove the folder.
+
+82
+00:08:51,670 --> 00:08:54,670
+So you can remove the folder after reboot.
+
+83
+00:08:54,670 --> 00:10:02,670
+Okay, I have already successfully to clone that one,
+
+84
+00:10:02,670 --> 00:10:04,670
+so I'm going to next step.
+
+85
+00:10:04,670 --> 00:10:09,670
+So we need to config the server,
+
+86
+00:10:09,670 --> 00:10:12,670
+which is a basic configuration,
+
+87
+00:10:12,670 --> 00:10:26,270
+like a committed name, joint domain, IP address.
+
+88
+00:10:26,270 --> 00:10:34,270
+First, I wanted to verify my server has been successfully to plug in VM99.
+
+89
+00:10:34,270 --> 00:11:10,950
+And also, if you haven't removed your IPv6 yet,
+
+90
+00:11:10,950 --> 00:11:14,950
+I want you to remove your IPv6 right now.
+
+91
+00:11:14,950 --> 00:11:26,200
+After you remove, I want you to run ipconfig.flacildines.
+
+92
+00:11:26,200 --> 00:11:50,100
+I wanted to do it later.
+
+93
+00:11:50,100 --> 00:12:08,500
+Password, login as a local administrator,
+
+94
+00:12:08,500 --> 00:12:11,500
+because you haven't joined domain yet.
+
+95
+00:12:11,500 --> 00:12:49,760
+Next step, you need to verify your time zoom.
+
+96
+00:12:49,760 --> 00:12:59,700
+Okay, 540 to make sure all the servers are located in the same zoom.
+
+97
+00:12:59,700 --> 00:13:12,580
+Your join domain.
+
+98
+00:13:12,580 --> 00:13:15,580
+So you're probably going to ask me,
+
+99
+00:13:15,580 --> 00:13:17,580
+why do we need join domain?
+
+100
+00:13:17,580 --> 00:13:26,960
+The reason we join domain is because it's for administration purpose.
+
+101
+00:13:26,960 --> 00:13:37,990
+So if you want to create a second reason,
+
+102
+00:13:37,990 --> 00:14:05,600
+VM99 IP address, as I told you before,
+
+103
+00:14:05,600 --> 00:14:08,600
+I'm going to use this one.
+
+104
+00:14:08,600 --> 00:15:46,970
+I'm going to use server 5, you're going to use server 4.
+
+105
+00:15:46,970 --> 00:15:49,970
+Okay, change the commit name.
+
+106
+00:15:49,970 --> 00:17:03,860
+You also can go to DC1 to verify.
+
+107
+00:17:03,860 --> 00:17:06,860
+Commuter, if you can see server 5,
+
+108
+00:17:06,860 --> 00:17:10,860
+that means your secondary domain controller
+
+109
+00:17:10,860 --> 00:17:13,860
+has been successfully to join domain.
+
+110
+00:17:13,860 --> 00:17:16,860
+Next step, you need to reboot.
+
+111
+00:17:16,860 --> 00:17:58,550
+So we're going to login as a domain administrator.
+
+112
+00:17:58,550 --> 00:18:08,030
+So you're going to ask me,
+
+113
+00:18:08,030 --> 00:18:12,030
+can we login as a local administrator to install the
+
+114
+00:18:12,030 --> 00:18:16,030
+secondary domain controller, secondary DNS zoom?
+
+115
+00:18:16,030 --> 00:18:18,030
+The answer is yes.
+
+116
+00:18:18,030 --> 00:18:21,030
+You just need an administrator.
+
+117
+00:18:21,030 --> 00:18:26,030
+No matter for domain administrator or local administrator,
+
+118
+00:18:26,030 --> 00:18:27,030
+it doesn't matter.
+
+119
+00:18:27,030 --> 00:19:01,710
+If you believe you type the password is correct,
+
+120
+00:19:01,710 --> 00:19:03,710
+but you cannot login.
+
+121
+00:19:03,710 --> 00:19:08,710
+So that means the keyboard may have some issues.
+
+122
+00:19:08,710 --> 00:19:12,710
+I had the problem before.
+
+123
+00:19:12,710 --> 00:19:17,710
+It looked like my keyboard is not compatible well
+
+124
+00:19:17,710 --> 00:19:19,710
+with the zoomware.
+
+125
+00:19:19,710 --> 00:19:24,710
+So if I use the caps lock,
+
+126
+00:19:24,710 --> 00:19:27,710
+so I supposed to use the capital key,
+
+127
+00:19:27,710 --> 00:19:30,710
+but actually that is a small key.
+
+128
+00:19:30,710 --> 00:19:32,710
+So I want to use a small key,
+
+129
+00:19:32,710 --> 00:19:35,710
+but that is a capital key.
+
+130
+00:19:35,710 --> 00:19:37,710
+So it's really strange.
+
+131
+00:19:37,710 --> 00:19:39,710
+After reboot, everything is fine.
+
+132
+00:19:39,710 --> 00:20:21,180
+So this time I will teach you the different solutions
+
+133
+00:20:21,180 --> 00:20:24,180
+to install the role and features.
+
+134
+00:20:24,180 --> 00:21:15,500
+You want to disable the edge.
+
+135
+00:21:15,500 --> 00:21:18,500
+So you're also going to see the event critical.
+
+136
+00:21:18,500 --> 00:21:22,500
+Microsoft Windows kernel power.
+
+137
+00:21:22,500 --> 00:21:24,500
+So that means you choose the power off
+
+138
+00:21:24,500 --> 00:21:26,500
+or you lost power before.
+
+139
+00:21:26,500 --> 00:21:34,660
+I have these issues because one day I choose
+
+140
+00:21:34,660 --> 00:21:40,660
+Sadam by using my zoomware functions.
+
+141
+00:21:40,660 --> 00:21:43,660
+And sometimes that can cause the issues.
+
+142
+00:21:43,660 --> 00:21:46,660
+So when you want to do Sadam from here,
+
+143
+00:21:46,660 --> 00:21:52,870
+don't use the zoomware Sadam.
+
+144
+00:21:52,870 --> 00:21:55,870
+Sometimes this function will be considered as power off.
+
+145
+00:21:55,870 --> 00:21:57,870
+It's very strange.
+
+146
+00:21:57,870 --> 00:22:02,760
+That is a software issues.
+
+147
+00:22:02,760 --> 00:22:04,760
+I want to disable the edge.
+
+148
+00:22:04,760 --> 00:22:10,130
+So you're probably going to ask me,
+
+149
+00:22:10,130 --> 00:22:13,130
+we need the browser.
+
+150
+00:22:13,130 --> 00:22:15,130
+Why you want to disable that one?
+
+151
+00:22:15,130 --> 00:22:16,130
+So this is the server.
+
+152
+00:22:16,130 --> 00:22:18,130
+This is not a member server.
+
+153
+00:22:18,130 --> 00:22:23,050
+So you cannot use the browser on the server.
+
+154
+00:22:23,050 --> 00:22:27,050
+That can bring some virus.
+
+155
+00:22:27,050 --> 00:22:59,190
+Disable.
+
+156
+00:22:59,190 --> 00:23:02,190
+Okay, so next we can install a role feature in here.
+
+157
+00:23:02,190 --> 00:23:07,680
+Add a role in feature.
+
+158
+00:23:07,680 --> 00:23:09,680
+Add the DNS on your server five.
+
+159
+00:23:09,680 --> 00:23:14,680
+But at this time I wanted to use a different way.
+
+160
+00:23:14,680 --> 00:23:17,680
+So lock in your DC1.
+
+161
+00:23:17,680 --> 00:23:23,680
+I want to add a server five to my domain controller.
+
+162
+00:23:23,680 --> 00:23:31,680
+So that can help me to build or centralize the community environment.
+
+163
+00:23:31,680 --> 00:23:34,680
+I can use a wine server to manage all.
+
+164
+00:23:34,680 --> 00:23:48,510
+This is the reason why I ask you to join domain.
+
+165
+00:23:48,510 --> 00:23:53,040
+You will see that.
+
+166
+00:23:53,040 --> 00:23:56,040
+I can find a server five.
+
+167
+00:23:56,040 --> 00:24:00,040
+So next, add a role in features.
+
+168
+00:24:00,040 --> 00:24:02,040
+I want to install on server five.
+
+169
+00:24:02,040 --> 00:24:13,530
+Okay, if you see all those agree
+
+170
+00:24:13,530 --> 00:24:20,090
+and you can reboot your server five.
+
+171
+00:24:20,090 --> 00:24:22,090
+You can reboot your server five.
+
+172
+00:24:22,090 --> 00:24:27,090
+This problem I saw in Windows Server 2019.
+
+173
+00:24:27,090 --> 00:24:34,930
+You can refresh or you can reboot.
+
+174
+00:24:34,930 --> 00:24:45,610
+You can sign out and sign in.
+
+175
+00:24:45,610 --> 00:24:59,610
+If doesn't work, reboot.
+
+176
+00:24:59,610 --> 00:25:01,610
+See, after I log out.
+
+177
+00:25:01,610 --> 00:25:05,610
+In the login, you can see that I can install now.
+
+178
+00:25:05,610 --> 00:25:07,610
+It's only the first time.
+
+179
+00:25:07,610 --> 00:25:20,270
+And also I want you to spend time to read the descriptions for DNS.
+
+180
+00:25:20,270 --> 00:25:23,270
+Restore if needed.
+
+181
+00:25:23,270 --> 00:25:24,270
+Normally don't need it.
+
+182
+00:25:24,270 --> 00:25:27,270
+It's only for ADDS and HyperB.
+
+183
+00:25:27,270 --> 00:26:50,700
+Okay, I already successfully to install on the server five.
+
+184
+00:26:50,700 --> 00:26:54,700
+So let's go to server five to take a look at.
+
+185
+00:26:54,700 --> 00:27:01,020
+I can refresh.
+
+186
+00:27:01,020 --> 00:27:11,510
+You can see DNS manager pop up.
+
+187
+00:27:11,510 --> 00:27:27,580
+Okay, let's look at DC1.
+
+188
+00:27:27,580 --> 00:27:31,580
+You also can connect to a DNS server.
+
+189
+00:27:31,580 --> 00:27:35,580
+You can connect this computer or you can connect to the following one.
+
+190
+00:27:35,580 --> 00:27:47,050
+You can connect the server five.
+
+191
+00:27:47,050 --> 00:27:55,120
+Okay, but this time I wanted to go to the server five.
+
+192
+00:27:55,120 --> 00:27:58,120
+Okay, I don't want to confuse you.
+
+193
+00:27:58,120 --> 00:28:12,570
+Okay, so we're going to create a secondary zone.
+
+194
+00:28:12,570 --> 00:28:14,570
+We're going to use a new zone.
+
+195
+00:28:14,570 --> 00:28:18,570
+Next, secondary zone.
+
+196
+00:28:18,570 --> 00:28:22,780
+What is the stop zone?
+
+197
+00:28:22,780 --> 00:28:25,780
+Stop zone is to create a copy of a zoom.
+
+198
+00:28:25,780 --> 00:28:29,780
+Continue only the name server and that server.
+
+199
+00:28:29,780 --> 00:28:33,780
+Start authority and the possible clue a record.
+
+200
+00:28:33,780 --> 00:28:39,780
+So stop zone is used to forward to the name server primary zone and secondary zone.
+
+201
+00:28:39,780 --> 00:28:45,300
+We want to create a forward local zone.
+
+202
+00:28:45,300 --> 00:28:53,900
+So what's the difference between the forward local zone and the reverse local zone?
+
+203
+00:28:53,900 --> 00:29:02,900
+We're going to use a delta and make sure if you use different domain name.
+
+204
+00:29:02,900 --> 00:29:08,530
+So you're going to put a different zone name IP address.
+
+205
+00:29:08,530 --> 00:29:15,640
+So you need to specify where you want to get as a data.
+
+206
+00:29:15,640 --> 00:29:21,640
+So we want to get a data from our server one, which is a primary zone.
+
+207
+00:29:21,640 --> 00:29:23,640
+So we're going to use IP.
+
+208
+00:29:23,640 --> 00:29:48,750
+You tap the valid IP address.
+
+209
+00:29:48,750 --> 00:30:51,060
+Okay, so next you will see that successfully to create a delta zone.
+
+210
+00:30:51,060 --> 00:30:55,060
+And in here you can see that there's no record.
+
+211
+00:30:55,060 --> 00:31:01,060
+And even you use the f5 to refresh.
+
+212
+00:31:01,060 --> 00:31:06,450
+It doesn't work.
+
+213
+00:31:06,450 --> 00:31:07,450
+Why doesn't work?
+
+214
+00:31:07,450 --> 00:31:14,190
+Because this is a secondary zone.
+
+215
+00:31:14,190 --> 00:31:18,190
+So you're going to fetch the data from the primary zone.
+
+216
+00:31:18,190 --> 00:31:24,190
+So you need to make sure your primary zone allow you to fetch the data.
+
+217
+00:31:24,190 --> 00:31:39,880
+So we're going to go to DC1 and we're going to look at our forward local zone.
+
+218
+00:31:39,880 --> 00:31:47,920
+And look at the property from here.
+
+219
+00:31:47,920 --> 00:31:50,920
+You will see zoom transfer.
+
+220
+00:31:50,920 --> 00:31:55,920
+So zoom transfer, you can configure in here.
+
+221
+00:31:55,920 --> 00:32:03,920
+So you can specify which server you're allowed to transfer all the DNS records.
+
+222
+00:32:03,920 --> 00:32:10,920
+Because DNS is the key components of your network infrastructures.
+
+223
+00:32:10,920 --> 00:32:17,920
+So if you allowed anyone to access your DNS record,
+
+224
+00:32:17,920 --> 00:32:22,920
+that can cause the big issues for your network infrastructure.
+
+225
+00:32:22,920 --> 00:32:29,920
+Because we can know who is the DNS, who is the domain controller, who is the DCP.
+
+226
+00:32:29,920 --> 00:32:36,920
+So what kind of services you set up on your network.
+
+227
+00:32:36,920 --> 00:32:45,920
+So therefore, you only allowed some limited specified server can fetch the data.
+
+228
+00:32:45,920 --> 00:32:57,340
+So I'm going to allow only the following servers.
+
+229
+00:32:57,340 --> 00:32:59,340
+I'm going to add an IP address.
+
+230
+00:32:59,340 --> 00:33:06,340
+This IP address is your secondary zone DNS server.
+
+231
+00:33:06,340 --> 00:33:14,930
+Click OK.
+
+232
+00:33:14,930 --> 00:33:15,930
+Apply.
+
+233
+00:33:15,930 --> 00:33:16,930
+OK.
+
+234
+00:33:16,930 --> 00:33:25,550
+So after you apply it, and then we can look at here.
+
+235
+00:33:25,550 --> 00:33:31,900
+Refresh.
+
+236
+00:33:31,900 --> 00:33:33,900
+Just refresh a little bit.
+
+237
+00:33:33,900 --> 00:33:39,900
+And sometimes it will take less than 1 minute to get the data.
+
+238
+00:33:39,900 --> 00:33:41,900
+Sometimes it may take longer.
+
+239
+00:33:41,900 --> 00:33:42,900
+That is network.
+
+240
+00:33:42,900 --> 00:34:05,280
+Let's try again.
+
+241
+00:34:05,280 --> 00:34:07,280
+Refresh.
+
+242
+00:34:07,280 --> 00:34:08,280
+Refresh.
+
+243
+00:34:08,280 --> 00:34:14,740
+If that doesn't work, I'm going to delete that one.
+
+244
+00:34:14,740 --> 00:34:15,740
+To create again.
+
+245
+00:34:15,740 --> 00:34:56,590
+Yeah, you found it out.
+
+246
+00:34:56,590 --> 00:35:00,590
+You found out right now I can get all the records.
+
+247
+00:35:01,590 --> 00:35:05,590
+Maybe I forgot to put it at .com.
+
+248
+00:35:05,590 --> 00:35:06,590
+Maybe.
+
+249
+00:35:06,590 --> 00:35:14,030
+I think that probably the reason why I cannot fetch the data.
+
+250
+00:35:14,030 --> 00:35:15,030
+But I don't think so.
+
+251
+00:35:15,030 --> 00:35:18,030
+You know, last term I use the .com.
+
+252
+00:35:18,030 --> 00:35:20,030
+Without .com, that's fine.
+
+253
+00:35:20,030 --> 00:35:25,030
+But you know, if you have the problem, just put it at .com.
+
+254
+00:35:25,030 --> 00:35:30,030
+And double check to use your domain name.
+
+255
+00:35:30,030 --> 00:35:31,030
+OK.
+
+256
+00:35:31,030 --> 00:35:34,030
+How do you know this is the secondary zone?
+
+257
+00:35:34,030 --> 00:35:36,820
+Red click.
+
+258
+00:35:36,820 --> 00:35:47,020
+And you cannot create a new record in here.
+
+259
+00:35:47,020 --> 00:35:49,820
+Refresh.
+
+260
+00:35:49,820 --> 00:35:54,820
+Because, you know, if you log in your DC1, I connect to server 5.
+
+261
+00:35:54,820 --> 00:35:57,820
+Server 5 is not a local server.
+
+262
+00:35:57,820 --> 00:36:09,830
+So sometimes it takes a while to fetch the data from the server 5.
+
+263
+00:36:09,830 --> 00:36:20,980
+I'm going to close that one to re-log in.
+
+264
+00:36:20,980 --> 00:36:24,980
+I want you to add a server, you know, to manage.
+
+265
+00:36:24,980 --> 00:36:27,980
+Because your computer is not powerful enough.
+
+266
+00:36:27,980 --> 00:36:32,980
+Sometimes, you know, the data delay or you're going to use more resource.
+
+267
+00:36:32,980 --> 00:36:35,980
+Your computer is going to extremely slow.
+
+268
+00:36:35,980 --> 00:36:39,980
+But in the production environment, you know, you can ignore that.
+
+269
+00:36:39,980 --> 00:36:40,980
+That's totally fine.
+
+270
+00:36:40,980 --> 00:37:05,390
+We can see that, you know.
+
+271
+00:37:05,390 --> 00:37:08,390
+I can connect to the server 5, you know.
+
+272
+00:37:08,390 --> 00:37:10,390
+So I cannot create a new record.
+
+273
+00:37:10,390 --> 00:37:16,690
+If you go to the server 1, right click.
+
+274
+00:37:16,690 --> 00:37:20,690
+So I can create any new record.
+
+275
+00:37:20,690 --> 00:37:24,060
+I can create a record.
+
+276
+00:37:24,060 --> 00:37:29,390
+Because this is my web server.
+
+277
+00:37:29,390 --> 00:37:30,390
+IP address.
+
+278
+00:37:30,390 --> 00:37:58,950
+I type one more dot here.
+
+279
+00:37:58,950 --> 00:38:02,420
+OK.
+
+280
+00:38:02,420 --> 00:38:05,420
+So I create the web.
+
+281
+00:38:05,420 --> 00:38:07,420
+This is for my web.
+
+282
+00:38:07,420 --> 00:38:09,420
+So if I pin...
+
+283
+00:38:09,420 --> 00:38:15,470
+So you see that?
+
+284
+00:38:15,470 --> 00:38:21,120
+IP address is dot 11.
+
+285
+00:38:21,120 --> 00:38:22,120
+OK.
+
+286
+00:38:22,120 --> 00:38:39,450
+Let's look at my secondary zone.
+
+287
+00:38:39,450 --> 00:38:43,450
+Let me take a while to get all the records.
+
+288
+00:38:43,450 --> 00:39:37,560
+It takes almost one minute after the refresh.
+
+289
+00:39:37,560 --> 00:39:40,560
+And the records can stop in here.
+
+290
+00:39:40,560 --> 00:39:46,560
+So if a refresh doesn't work, I'm going to tell you another way.
+
+291
+00:39:46,560 --> 00:39:48,560
+So you can right click.
+
+292
+00:39:48,560 --> 00:39:52,130
+Choose reload.
+
+293
+00:39:52,130 --> 00:39:58,130
+So this one can ask the server to refresh.
+
+294
+00:39:58,130 --> 00:40:03,820
+Force refresh to reload the data from the primary.
+
+295
+00:40:03,820 --> 00:40:07,820
+Or you can see transfer from master.
+
+296
+00:40:07,820 --> 00:40:09,820
+So use these two commands.
+
+297
+00:40:09,820 --> 00:40:11,820
+Two functions.
+
+298
+00:40:11,820 --> 00:40:15,820
+And you're going to see the record zone.
+
+299
+00:40:15,820 --> 00:40:18,460
+OK.
+
+300
+00:40:18,460 --> 00:40:23,460
+The next one I'm going to show you is as I told you before.
+
+301
+00:40:23,460 --> 00:40:26,460
+And this is the secondary zone.
+
+302
+00:40:26,460 --> 00:40:30,460
+You can change the room to the primary zone if you want.
+
+303
+00:40:30,460 --> 00:40:33,460
+If server 1 failed.
+
+304
+00:40:33,460 --> 00:40:37,460
+So you can change from the secondary zone to primary zone.
+
+305
+00:40:37,460 --> 00:40:40,460
+And then you're going to have a full permission.
+
+306
+00:40:40,460 --> 00:40:44,460
+Which is read, write and modify permissions.
+
+307
+00:40:44,460 --> 00:40:45,460
+OK.
+
+308
+00:40:45,460 --> 00:40:48,460
+Otherwise, you only have read permissions.
+
+309
+00:40:48,460 --> 00:40:51,460
+You cannot create any record in here.
+
+310
+00:40:51,460 --> 00:41:08,900
+After I add the server 5 to my server 1, DNS manager.
+
+311
+00:41:08,900 --> 00:41:15,000
+So it's extremely slow.
+
+312
+00:41:15,000 --> 00:41:19,000
+I believe probably that is the bug for the 2022.
+
+313
+00:41:19,000 --> 00:41:23,000
+And I want you to try on your 2019.
+
+314
+00:41:23,000 --> 00:41:27,340
+Do you have the similar issues?
+
+315
+00:41:27,340 --> 00:41:31,190
+OK.
+
+316
+00:41:31,190 --> 00:41:32,190
+OK.
+
+317
+00:41:32,190 --> 00:41:33,190
+So this is for the lab.
+
+318
+00:41:33,190 --> 00:41:45,080
+And also the questions is ask you to create a DNS namespace.
+
+319
+00:41:45,080 --> 00:41:46,080
+OK.
+
+320
+00:41:46,080 --> 00:41:48,080
+So suppose you work for one company.
+
+321
+00:41:48,080 --> 00:41:51,080
+And you have the following servers.
+
+322
+00:41:51,080 --> 00:41:55,080
+You're going to create the server name for each one.
+
+323
+00:41:55,080 --> 00:41:59,080
+For example, human resource file server.
+
+324
+00:41:59,080 --> 00:42:15,150
+So you can create a human resource folders here.
+
+325
+00:42:15,150 --> 00:42:19,150
+And then you can create a new delegation.
+
+326
+00:42:19,150 --> 00:42:20,150
+OK.
+
+327
+00:42:20,150 --> 00:42:29,660
+And then you can create the file server record in here.
+
+328
+00:42:29,660 --> 00:42:34,660
+Some students probably ask me, hey, I don't want to create a new delegation.
+
+329
+00:42:34,660 --> 00:42:36,660
+I don't want to create a new domain.
+
+330
+00:42:36,660 --> 00:42:39,660
+So how should I do?
+
+331
+00:42:39,660 --> 00:42:42,660
+You also can create a folder in here.
+
+332
+00:42:42,660 --> 00:42:44,660
+Create a folder.
+
+333
+00:42:44,660 --> 00:42:48,660
+But I need you to create a new domain.
+
+334
+00:42:48,660 --> 00:42:49,660
+OK.
+
+335
+00:42:49,660 --> 00:42:53,660
+You can create a new domain for HR.
+
+336
+00:42:53,660 --> 00:42:57,580
+Click OK.
+
+337
+00:42:57,580 --> 00:42:59,580
+So this is a folder.
+
+338
+00:42:59,580 --> 00:43:03,580
+And in here you can create a new file server.
+
+339
+00:43:03,580 --> 00:43:06,580
+Let's look at the DNS record.
+
+340
+00:43:06,580 --> 00:43:10,580
+You don't need to create a physical to create a domain controller.
+
+341
+00:43:10,580 --> 00:43:11,580
+OK.
+
+342
+00:43:11,580 --> 00:43:14,580
+But you need to create a folder in here.
+
+343
+00:43:14,580 --> 00:43:16,580
+That is a new domain.
+
+344
+00:43:16,580 --> 00:43:22,580
+So HR file server can call that one file.
+
+345
+00:43:22,580 --> 00:43:27,490
+File one.
+
+346
+00:43:27,490 --> 00:43:28,490
+OK.
+
+347
+00:43:28,490 --> 00:43:29,490
+You can see that.
+
+348
+00:43:29,490 --> 00:43:33,490
+It's file.hr.adultum.com.
+
+349
+00:43:33,490 --> 00:43:35,490
+You can give IP.
+
+350
+00:43:35,490 --> 00:43:42,880
+You can use 208.10.
+
+351
+00:43:42,880 --> 00:43:43,880
+It's up to you.
+
+352
+00:43:43,880 --> 00:43:48,400
+OK.
+
+353
+00:43:48,400 --> 00:43:52,400
+It is a seminar for the web server.
+
+354
+00:43:52,400 --> 00:43:53,400
+OK.
+
+355
+00:43:53,400 --> 00:43:56,400
+You can create a web server in here.
+
+356
+00:43:56,400 --> 00:44:03,800
+192.
+
+357
+00:44:03,800 --> 00:44:04,800
+209.0.
+
+358
+00:44:04,800 --> 00:44:05,800
+12.
+
+359
+00:44:05,800 --> 00:44:16,180
+So I want you to create several DNS record in here.
+
+360
+00:44:17,180 --> 00:44:19,180
+And also fill out this form.
+
+361
+00:44:19,180 --> 00:44:20,180
+OK.
+
+362
+00:44:20,180 --> 00:44:24,180
+If you have any questions, let me know.
+
+363
+00:44:24,180 --> 00:44:25,180
+OK.
+
+364
+00:44:25,180 --> 00:44:26,180
+Bye-bye.

@@ -1,0 +1,288 @@
+--- page 1 ---
+ACIT 3420 
+1 
+Install the AD DS Role 
+Review Questions: 
+Before you start to work on this lab, try to find answer for the following questions: 
+1. Define Active Directory
+2. What is the domain controller?
+3. Explain what domain trees and forests are?
+4. Which is the default protocol used in directory services?
+5. What tool would you use to edit AD?
+6. What is SYSVOL and WHY is it import?
+7. What is Kerberos?
+8. Domain admin group vs. enterprise admins group
+Learning Objectives 
+Install and promote Domain Service to Domain Controller
+Join a client computer to a Domain
+Troubleshooting issues
+Network Topology 
+Preparations 
+Create Network (Virtual Switch): VMnet 9
+1. VMware workstation->Edit->Virtual Network Editor
+
+--- page 2 ---
+ACIT 3420 
+2 
+ 
+ 
+2. Click Change Settings and then on user control account window click Yes to confirm  
+ 
+3. Click Add Network and select one you want to add (VMnet9 or different one) and then 
+Click Ok. 
+
+--- page 3 ---
+ACIT 3420 
+3 
+ 
+ 
+4. Configure the new network (VMnet9) as follows: 
+ 
+ Clone two (ACIT-3420-DC1 and ACIT-3420-DC2) virtual machines 
+(Note: It should have been done already in Lab 1b, VM1 (ACIT-3420-DC1). If not, you must 
+clone one. If you have already done the Lab 1b, you can skip this step.) 
+• VM1:  
+Virtual Machine Name: ACIT-3420-DC1 
+
+--- page 4 ---
+ACIT 3420 
+4 
+Computer Name: Ca-Van-Svr1 
+•
+VM2:
+Virtual Machine Name: ACIT-3420-DC2
+Create a clinet VM (ACIT-3420-Client1) (Note: It should have been done already in Lab
+1a, Windows 10. If you have already done lab 1a, you can skip this step.)
+Configure the three VMs: Computer name and IP address (Check the network topoloty)
+Make sure your local administrator password is complex in order satisfy the domain
+controller password complexity requirements.  Note: A complex password uses different
+types of characters in unique ways to increase security. Otherwise, you will be asked to
+modify your password during AD DS installation (https://docs.microsoft.com/en-
+us/windows/security/threat-protection/security-policy-settings/password-must-meet-
+complexity-requirements).
+Task 1: Install AD DS Role 
+Log on to the server (Ca-Van-Svr1) running Windows Server 2022 using an account with 
+administrative privileges. To install the Active Directory Domain Services role, perform the 
+following steps. 
+1. If Server Manager is not open, click Start > Server Manager.
+Note: You also can use PowerShell to run Server Manager.
+Go to PowerShell (as administrator) and type Server Manager.exe and press enter.
+
+--- page 5 ---
+ACIT 3420 
+5 
+ 
+2. In Server Manager, click Manage > Add Roles and Features. 
+ 
+Note: Or on Server Manager Dashboard, click on Add roles and features 
+ 
+3. In the Add Roles and Features Wizard, on the Before You Begin page, click Next. 
+4. On the Select Installation Type page, the Role-based or feature-based installation radio 
+button is already selected. Click Next. (Question: What are the differences between role-
+based and feature-based installation? List a few role-based installations and feature-based 
+installations.) 
+5. On the Server Selection page, click the server that you want to promote to a domain 
+controller and click Next. 
+6. On the Server Roles page, click the Active Directory Domain Service role. 
+7. When you are prompted to add features, click Add Features to accept the dependencies and 
+then click Next. (Note: List tools will be installed during the process.) 
+
+--- page 6 ---
+ACIT 3420 
+6 
+ 
+ 
+Note: Read the Description. Discuss with me if you have any questions.  
+8. On the Features page, click Next. 
+9. On the AD DS page, displaying information about the role, click Next.  
+10. On the Confirmation page, click the Install button. 
+ 
+
+--- page 7 ---
+ACIT 3420 
+7 
+ 
+Note: All those administration tools above will be used to manage and maintain AD DS. 
+11. After the Installation progress page shows a successful installation, a Promote this server to a 
+domain controller link appears, as shown here. 
+ 
+Task 2: Promoting the Server to Domain Controller 
+To create a new forest, perform the following steps. 
+1. On the Installation Progress page that appears at the end of the Active Directory Domain 
+Services role installation procedure, click the Promote this server to a domain controller 
+hyperlink. If you closed the Installation Progress page without clicking the Promote this 
+server to a domain controller link, you can click the yellow triangle with the black 
+exclamation point and click Promote this server to a domain controller. 
+ 
+
+--- page 8 ---
+ACIT 3420 
+8 
+ 
+2. In the Active Directory Domain Services Configuration Wizard, on the Deployment 
+Configuration page, click the Add a new forest option.  
+ 
+Note: Since it is your first domain controller, you have to create a new forest (at least domain 
+controller per forest). The first domain controller is also Root Domain of the forest.  
+Questions:  
+• Forest vs Domain vs Site?  
+• When do you need add a domain controller to an existing domain? 
+• In the Root domain name text box, type the name of the root domain, such as 
+adatum.com, and then click Next. 
+• On the Domain Controller Options page, make changes as needed. 
+• In the Password and Confirm password text boxes, type the password you want to use for 
+Directory Services Restore Mode (DSRM) and click Next. (Note: can you use numbers 
+only or strings only?) 
+Questions:  
+• What is DSRM?  
+• What is RODC?  
+• Why do we need RODC?  
+• What is GC? 
+
+--- page 9 ---
+ACIT 3420 
+9 
+•
+Functions of GC in AD?
+Questions: 
+1. Why do we need to modify forest functional level?
+2. Why do we need to modify domain functional level?
+3. In your forest, one domain controller is Windows Server 2012R2 and your directors want 
+you to install and configure Windows Server 2016 or 2019 or 2022 Domain controller for 
+high availability. Can you raise your domain functional level to Windows server 2016?
+
+--- page 10 ---
+ACIT 3420 
+10 
+Note 1: When do you need DSRM password? This password can be used to repair, demote, or 
+restore the directory in certain troubleshooting situations. It must adhere to the server’s password 
+policies. 
+Note 2: You can use the same password as your domain administrator account or local 
+administrator account. 
+3. The DNS Options page appears with a warning that a delegation for the DNS server cannot
+be created because the DNS Server service is not installed yet. Click Next.
+4. On the Additional Options page, the NetBIOS equivalent of the domain name you specified
+is displayed; modify the name, if desired, and click Next. (Question: What is NetBIOS?)
+5. On the Paths page, modify the default locations for the AD DS files, if desired, and click
+Next.
+
+--- page 11 ---
+ACIT 3420 
+11 
+ 
+Note 1: SYSVOL folder: SYSVOL is an important component of Active Directory and it is 
+shared on an NTFS volume on all the domain controllers in a particular domain. Sysvol is used 
+to deliver the policy and logon scripts to domain members. 
+Note 2: If you have more than one disks on your server, you can locate the Database folder and 
+the Log file folder on separate disks. Why? (If you do not know the answer, check with me in 
+your lab.) 
+6. On the Review Options page, click Next. 
+ 
+Script (PowerShell):  
+# 
+# Windows PowerShell script for AD DS Deployment 
+# 
+ 
+Import-Module ADDSDeployment 
+Install-ADDSForest ` 
+-CreateDnsDelegation:$false ` 
+-DatabasePath "C:\Windows\NTDS" ` 
+-DomainMode "WinThreshold" ` 
+-DomainName "adatum.com" ` 
+-DomainNetbiosName "ADATUM" ` 
+-ForestMode "WinThreshold" ` 
+
+--- page 12 ---
+ACIT 3420 
+12 
+ 
+-InstallDns:$true ` 
+-LogPath "C:\Windows\NTDS" ` 
+-NoRebootOnCompletion:$false ` 
+-SysvolPath "C:\Windows\SYSVOL" ` 
+-Force:$true 
+Note: Learn the script and you can install AD DS from PowerShell Command Line on 
+Server Core or Windows Desktop Experience.  
+7. On the Prerequisites Check page, click Install. The wizard creates the new forest and 
+configures the server to function as a domain controller. 
+ 
+8. When you are about to be signed out, click Close. The server will reboot.  
+Potential Topics 
+• Explain how to install a domain controller by installing from media 
+• Explain how to install and configure RODC 
+• How to clone a virtual domain controller  
+Task 3: Join/Quit a Domain (Online) 
+Import: Before you start to join the domain, make sure that your network adapter of a client 
+server needs to connect the same virtual network (Virtual Switch) as your domain server (VMnet 
+9).  Log in your client VM, ACIT-3420-Client1. 
+1. Ping your domain server (Adatum.com).  
+
+--- page 13 ---
+ACIT 3420 
+13 
+ 
+ 
+Note: If you can not ping your domain controller, you have to modify your windows firewall. 
+You have to enable rule: File and Printer Sharing (Echo Request –ICMPv4-In) or command line 
+at prompt: 
+netsh advfirewall firewall add rule name="ICMP Allow incoming V4 echo request" 
+protocol=icmpv4:8,any dir=in action=allow 
+ 
+
+--- page 14 ---
+ACIT 3420 
+14 
+2. Type the domain and click OK. You will be asked to provide administrator login
+information.
+Note 1: This is an example of Windows 2022 VM how to join a domain. 
+Note 2: If you use different domain such as xx.local, you should type xx.local in domain blank. 
+If you use xx.com, you only need to type xx without .com. 
+3. You will see the welcome screen to join the domain and reboot your computer.
+
+--- page 15 ---
+ACIT 3420 
+15 
+4. Reboot your client computer and login by using your local administrator account. Check
+Server Manager ->Local Server and you should see the Domain: Adatum.com.
+Note: If you use Windows 10, you should see the following figure. 
+Tasks: Repeat from step 1 to 4, join your two VMs (CA-VAN-Svr2 and CA-VAN-Client1) to 
+your domain. 
+
+--- page 16 ---
+ACIT 3420 
+16 
+ 
+How to remove your client computer from its domain 
+ 
+ 
+Task 4: Creating and Managing Active Directory User and Computer 
+1. Log on your domain controller (Ca-Van-Svr1) as domain administrator. 
+2. Start Server Manager from either the Start Menu or Taskbar. 
+3. From the context menu at the top of the panel, click Tools and then select Active 
+Directory User and Computer  
+ 
+4. Create a user account 
+
+--- page 17 ---
+ACIT 3420 
+17 
+
+--- page 18 ---
+ACIT 3420 
+18 
+5. Now, you can use your new user account to log in your client computer (Ca-Van-
+Client1).
+
+--- page 19 ---
+ACIT 3420 
+19 
+Lab 2a Assignment 
+Create a new user account and use the new account to login your client computer (Ca-Van-
+Client1 and Ca-Van-Svr2) 
+After you log into one of your VMs, run CMD (Command Prompt) and type hostname and 
+whoami /user. Paste your screenshots of your CMD.  
+Note: See an example download below. You must use your new account (not administrator) to 
+log in your VMs (Ca-Van-Svr2 and Ca-Van-Client1). You must paste two screenshots of your 
+CMD. One is for Ca-Van-Client1 and another is for Ca-Van-Svr2.
+Challenge Questions: Could you remove your computer from your Domain? How to remove a 
+client computer from your domain? 

@@ -1,0 +1,20 @@
+--- page 1 ---
+DC
+DHCP
+Relay 
+Agent
+Houston 
+Client
+Mexico
+Client
+Portland
+Client
+172.16.30.1/24
+172.16.40.1/24
+172.16.50.1/24
+GW: 192.168.239. 1
+DNS: 192.168.239.2
+Switch (WAN)
+Portland Switch
+Mexico Switch
+Houston Switch

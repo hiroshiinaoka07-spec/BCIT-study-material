@@ -1,0 +1,76 @@
+===== frame_0001
+O •anazo-oca -
+Eik Edit Yim VM J•bs Help I I •
+===== frame_0002
+Eik Edit Kim VM J•bs •
+type nere to searcn
+Microsoft Azure S.
+&tformarxe Mon.
+===== frame_0004
+Confirm installation selections
+===== frame_0005
+Installation progress
+===== frame_0008
+Deployment Configuration
+Vile and Storage
+===== frame_0011
+Prerequisites Check
+===== frame_0012
+Eik Edit VM J•bs Help
+===== frame_0013
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help
+===== frame_0014
+WELCOME TO SERVER MANAGER
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+L O eal Server
+===== frame_0015
+c an you find the
+===== frame_0020
+DO want to save to
+===== frame_0023
+Applying computer settings
+===== frame_0026
+let'S test data replication after install the
+===== frame_0027
+let •s test the dat. inst-I
+•Alt+Delete to unlock.
+ay, September 18
+DO you want to save to Untitled?
+===== frame_0031
+here to sea 'Ch
+===== frame_0039
+request the to re.repucate ALL changes for
+the Both the and
+lingering objects on destination DC.
+use Ehen USN Rollbacks suspected.
+enables Change notification the and
+is used the destination holds a read-only COPY Of the
+partition being repucated
+The replicate the Contoso
+'replicate dest•dcet
+The following a—and replicate the to
+dest-dcel specifying that is the
+source-den / readonly
+===== frame_0040
+The following replicate the Contoso
+The "—and the hayberry to
+dest-dcel specifying that is the destination
+ii All servers
+===== frame_0041
+ROLES AND SERVER GROUPS
+@ Manageability
+===== frame_0042
+lingering objects on the destination DC.
+use Ehen USN Rollbacks are suspected.
+enables Change notification the and destination.
+is used destination holds a read-only COPY Of the
+partition being
+The replicate the Contoso •deer
+'replicate dest•dcet source-den
+The replicate the Rayberry to
+dest-dcel specifying that the the

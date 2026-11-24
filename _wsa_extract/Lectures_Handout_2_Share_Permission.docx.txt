@@ -1,0 +1,75 @@
+NTFS vs. Share Permissions
+April 3, 2020 
+Access rights in your business are vitally important. Errors around who has access to what can create, at a minimum, productivity disruptions and problems with employees not having access to what they need—and at worst can result in unauthorized access, privacy breaches, data losses, or compliance failures.
+As a result, it’s important to be clear on different kinds of permissions and access rights, so you can ensure each of your staff members, users, or clients has access to the right things, and no more than what they need.
+NTFS Permissions
+Share Permissions
+NTFS vs. Share Permissions From a Data Security Perspective
+Best Software for Managing NTFS and Share Permissions
+NTFS Permissions
+Two common types of permissions and access rights are NTFS permissions and share permissions. NTFS stands for New Technology File System and is a type of file system used by the Windows NT operating system. Windows NT is primarily used on workstations and server computers and is an operating system intended specifically to be highly portable. Before NTFS was used, the prior version was called FAT (file allocation table), and it was used for much smaller file systems and less complex file structures.
+NTFS permissions apply to data stored in NTFS file systems. There are two different kinds of NTFS permissions: basic and advanced. You can create permissions for multiple elements and you can set the permissions to either “deny” or “allow” for any given user. You can set NTFS permissions for:
+Full Control: With this setting turned on, this means users can add, change, move, and delete files and directories. This also applies to any associated properties of the files or directories. Furthermore, users can change the permissions for the files and directories, which means they can give others full control or take permissions away.
+Modify: This is not as powerful as full control, but users can still view and modify files and their properties. They can add or delete files from a directory or add or delete properties from a file.
+Read and Execute: This means users can read files and run executable files including scripts. They cannot modify files and their properties.
+Read: Users can only read or view files, their properties, and directories.
+Write: Users are only able to write to a file or add files to a directory.
+To see what permissions are set for any given NTFS object, right-click on the object and click “Properties,” then “Security.” You can then see the list of permissions that are denied or allowed, and you can select with checkboxes whether you want to change any of these things.
+That covers the basics of NTFS. Share permissions are next, and I’ll go into a bit of detail afterwards on how to manage these two different permission sets.
+Share Permissions
+Share permissions are for managing the access to folders shared over a network. If you’re logged in locally, share permissions do not apply. Share permissions are more general than NTFS permissions, and can apply to NTFS, as well as FAT and FAT32 file systems. Basically, share permissions apply more generally to files, folders, and have three different levels of sharing: Full Control, Change, and Read. Each of these can either be allowed or denied when you share a folder and are defined as:
+Read: This is much like the NTFS permission above. Users can only view file names, read the data in those files, and run some programs.
+Change: Users have all the permissions included with read, but can also change data within files, add new files or folders, and delete files or folders. This permission is never assigned by default and must be assigned on purpose.
+Full Control: This is the same as the NTFS permission—users can do all of the things included in the read and change groups but can also change the permissions for files and folders. All administrators are granted full control permissions by default.
+Share permissions are simpler to manage and apply, but NTFS permissions allow you to grant more fine-grained control to users. In addition, NTFS permissions only apply to users who are locally logged on to your servers, while share permissions can be applied across networks. Share permissions can also be more restrictive than NTFS permissions, as you can set the number of connections to a folder you’ll allow to occur at any one given time.
+If you use share permissions and NTFS permissions together, the most restrictive permission will take precedence over the other. For example, if NTFS share permissions are set to Full Control, but share permissions are set to “Read,” the user will only be able to read the file or look at the items in the folder. In general, a good approach can be to stick to using one set of permissions, so you don’t end up with too much confusion or conflict.
+NTFS vs. Share Permissions from Data Security Perspective
+Data security is of the most important reasons you need to understand share permissions vs. NTFS permissions. Data protection, particularly when it comes to data such as health, finance, or credit card data, is important not just for customer trust but also for legal compliance reasons.
+
+There are some best practices you should follow when you’re using NTFS permissions and share permissions, because using either of these incorrectly can have serious security consequences for your enterprise.
+Assign permissions to groups, not users. By putting users into groups and then assigning permissions to the groups themselves, you can more easily keep track of who has access to what, and the management of access becomes much simpler. When users’ roles change, you can simply add them to a different group and remove them from groups they don’t need to have access to anymore.
+Give users only what they need. Don’t give users access to more than what they need to do their jobs, and if a user needs temporary access to more resources, don’t forget to remove access when they’re done performing their task. Ensuring everyone only has the basic privileges they need prevents security problems and vulnerabilities from arising. Using restrictive permission, you can change when needed is better than being too permissive where you don’t need to.
+Be careful with the “Everyone” group. This group includes every user who has access to shared folders, including guest accounts. By denying or approving privileges to this group, you can cause major issues or create huge vulnerabilities.
+Be open with shared resources. If a resource is shared and widely used, avoid explicitly denying permissions unless you need to override something already assigned.
+Keep a close eye on the “Administrators” group. Users in the “Administrators” group would usually have Full Access permissions to all shared folders and the files in them. Shared folder permission is powerful, and this means the members of this group should be carefully controlled, and all changes to the membership of the group should be audited and checked frequently.
+
+Best Software for Managing NTFS and Share Permissions
+On Windows computers, you can use Active Directory to set up users in groups with various access rights, and you can control access to some extent using its toolset. However, to manage all these things more centrally and simply, you can also look into using a professional tool such as SolarWinds® Access Rights Manager (ARM).
+ARM can integrate with common file sharing and access control tools. It has different features to help you manage access rights and change permissions in a straightforward way, with high levels of automation and accuracy. When you try to manage access rights and permissions manually, you risk missing users or accidentally leaving groups or people with large amounts of access they don’t need. Using a tool like ARM can help flag when somebody has unusual access rights or if permissions change in an unexpected way. It can also help to keep track of who has rights to what, and whether any accounts are high risk.
+Overall, ensuring you know the difference between NTFS vs. share permissions is vitally important for managing access to important folders, documents, and data generally. It helps you manage user control and access rights in a way that ensures your IT environment works well and stays secure. For a complete solution, get started with ARM today.
+Ref: https://www.dnsstuff.com/ntfs-vs-share-permissions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+What’s the Difference Between Share and NTFS Permissions?
+By Danny Murphy
+Both share and NTFS permissions serve the same purpose within Windows environments; namely, to help you prevent unauthorized access to your critical folders. However, there are some critical differences between the two that will determine which one you use.
+In this blog we will learn about what share permissions and NTFS permissions are, what the differences between the two are and the best practices for using them.
+What Are Share Permissions?
+Simply put, share permissions allow you to control who accesses folders over the network (they will not apply to those users who are accessing locally). In share permissions, you cannot control access to individual subfolders or objects on a share. Instead, share permissions apply to all of the files and folders within the share. Share permissions can be used with NTFS, FAT and FAT32 file systems and allow you to determine the number of users who can access the shared folder.
+Share Permissions allow you to grant Full Control, Change or Read permissions to users. As is suggested by the name, Full Control grants users the right to read, change and control permissions for NTFS files and folders. This is the highest level of privilege granted by share permissions (administrators will likely hold Full Control). Control permissions allow users to make changes to files and subfolders (including deleting), and Read permissions allows users only to view the data.
+What Are NTFS Permissions?
+New Technology File System (NTFS) is used to manage data stored on NTFS file systems and is the de facto file system for Windows NT and later operating systems. Unlike share permissions, NTFS permissions affect both network and local users. The types of NTFS permissions available are similar to share permissions but go into a bit more detail.
+The basic types of access permissions are Full Control, Modify, Read & Execute, Read and Write. Most of these are self-explanatory, and similar to share permissions. Read & Execute rights allow users to run executables, including scripts.
+Differences Between NTFS and Share Permissions
+The type of permissions you choose to use will depend on what you’re looking to achieve and the resources you have available to you. NTFS permission provide more granular access controls but are more difficult to apply and manage than share permissions. If you want to use both NTFS and share permissions together, the most restrictive permission will be the dominant one.
+As previously mentioned, NTFS permission give you the ability to control access to both network and local users, whereas share permissions will only apply to network users. Share permissions also allows you to limit the number of concurrent logons to a shared folder, which will help to eliminate data misuse.
+Best Practices for Using Permissions
+Your entire objective when using permissions should be to operate on a policy of least privilege, where users only have access to the files and folders they need to do their job. To help achieve this, there are a number of things you can do:
+Don’t assign permissions to user accounts: Permissions should be assigned only to groups in order to simplify the management of access to shared resources. If an employee in your organization changes roles and requires a new set of permissions, you can simply remove them and add them to the most appropriate groups.
+Use the Administrators group wisely: Users in this group will be able to do anything with your files and folders, including changing permissions. There are very few users who warrant this kind of control, and those that do need to be audited and monitored closely. You should use a third-party File Server audit solution to audit, monitor and alert on changes administrators are making to your files and folders.
+Group objects together depending on security requirements: If there are a load of folders that apply to one particular department in the organization, group them into a parent folder and share that parent folder. This will save you having to go through and share each folder individually.
+If you want to better understand the permissions and privileges in your organization and ensure that you are operating on a principle of least privilege, see how Lepide Data Security Platform can help you.
+Ref: https://www.lepide.com/blog/whats-the-difference-between-share-and-ntfs-permissions/

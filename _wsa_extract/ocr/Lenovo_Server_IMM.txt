@@ -1,0 +1,53 @@
+===== frame_0001
+===== frame_0002
+Lenovo
+Integrated Management Module
+o
+===== frame_0003
+o
+===== frame_0004
+Lenovo
+Power Modules
+n .013
+o
+===== frame_0005
+Lenovo
+System x3650 M5
+Host Name: IMM2-0894ef1ec504
+System Status •
+Active Events
+Hardware Health
+===== frame_0006
+Lenovo
+Event Log
+O usER0 p
+===== frame_0007
+Lenovo
+0'
+===== frame_0008
+Lenovo
+Local Storage
+50
+===== frame_0009
+Lenovo
+Local Storage
+controllers and Physical Drives
+uS2tuFO
+o
+i 50
+===== frame_0010
+Lenovo
+Local Storage
+RAIO
+sue Size
+===== frame_0011
+Lenovo
+User Accounts
+User Accounts
+===== frame_0012
+Lenovo
+Network Protocol Properties
+SWP LDAP
+Telnet
+- p¯LtW -j
+USB

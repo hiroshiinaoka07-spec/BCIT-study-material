@@ -1,0 +1,12 @@
+--- page 1 ---
+VMware Installation fail with Error 1327. Invalid Drive Error: 
+Reason: 
+The System Registry may be erroneously pointing to a temp drive. 
+Solution:  
+1. Back up your Registry. 
+2. Select Start> Run> and then type Regedit. 
+3. Navigate to the following folder:  computer 
+heky_local_machine\software\wow6432node\vmware\vmwareplayer\installpath64 
+4. In the right panel, search for entries that list the incorrect drive.  
+5. Modify the incorrect drive to point to C:\. 
+ 

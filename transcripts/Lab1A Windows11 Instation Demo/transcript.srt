@@ -1,0 +1,1475 @@
+1
+00:00:01,140 --> 00:00:08,140
+Hello everyone. Today I am going to demonstrate how to install Windows 11.
+
+2
+00:00:08,140 --> 00:00:13,140
+So first, let's download Windows 11 ISO.
+
+3
+00:00:13,140 --> 00:00:22,020
+So if you can directly download the ISO from Microsoft.com
+
+4
+00:00:22,020 --> 00:00:26,020
+or you can download it from Azure portal.
+
+5
+00:00:26,020 --> 00:00:30,020
+So let's try the first method.
+
+6
+00:00:30,020 --> 00:00:37,020
+I am going to Google search Windows 11 download.
+
+7
+00:00:37,020 --> 00:00:42,020
+And you can go to the download Windows 11 page.
+
+8
+00:00:42,020 --> 00:00:46,020
+So in here I am providing you three options.
+
+9
+00:00:46,020 --> 00:00:54,460
+So the first one, so this one is using the installation assistant.
+
+10
+00:00:54,460 --> 00:01:02,460
+So this one normally, if you upgrade from Windows 10 directly
+
+11
+00:01:02,460 --> 00:01:05,460
+and you can try this option.
+
+12
+00:01:05,460 --> 00:01:08,460
+So you are going to verify your computing environment
+
+13
+00:01:08,460 --> 00:01:15,460
+and make sure your computing environment satisfies the requirement.
+
+14
+00:01:15,460 --> 00:01:21,460
+So the most important requirement, you have to get the TPM 2.1 install.
+
+15
+00:01:21,460 --> 00:01:34,820
+So the second option can help you to make a USB bootable device.
+
+16
+00:01:34,820 --> 00:01:40,820
+So make sure find a USB flash memory, at least 20 GB.
+
+17
+00:01:40,820 --> 00:01:45,820
+So you download the software and the following instructions
+
+18
+00:01:45,820 --> 00:01:52,820
+so you can make a USB bootable installation media.
+
+19
+00:01:52,820 --> 00:01:58,820
+And the next one, so this one is for ARM 64 device.
+
+20
+00:01:58,820 --> 00:02:13,070
+So if you use Windows 10 or if you use Intel AMD CPU
+
+21
+00:02:13,070 --> 00:02:18,960
+so you don't need to download this one.
+
+22
+00:02:18,960 --> 00:02:23,960
+This is only for ARM computer architecture.
+
+23
+00:02:24,960 --> 00:02:36,960
+So for our computers, most students use X64, 86, 64 computer architecture.
+
+24
+00:02:36,960 --> 00:02:40,960
+So I believe you probably learned a little bit
+
+25
+00:02:40,960 --> 00:02:48,960
+and the 6th or risk, 6th or risk from your 1420.
+
+26
+00:02:48,960 --> 00:02:58,960
+So risk, that is for ARM ARM 64.
+
+27
+00:02:58,960 --> 00:03:04,960
+ARM also have an old version, so that is 32.
+
+28
+00:03:04,960 --> 00:03:11,960
+ARM 64, I believe that is version 8, also can support machine learning.
+
+29
+00:03:11,960 --> 00:03:20,190
+Alright, so let's download it from Microsoft as a portal.
+
+30
+00:03:20,190 --> 00:03:35,080
+So log in the portal by using your bcit email.
+
+31
+00:03:35,080 --> 00:03:40,080
+So if you already set up multi-factor authentication
+
+32
+00:03:40,080 --> 00:03:47,350
+and you need to check your phone.
+
+33
+00:03:47,350 --> 00:03:51,350
+So I can look at my phone, that is 39, I'm going to type that one.
+
+34
+00:03:51,350 --> 00:04:05,670
+Already logged in.
+
+35
+00:04:05,670 --> 00:04:09,670
+So after logging in as a portal, so click education
+
+36
+00:04:09,670 --> 00:04:18,150
+and you can find free software.
+
+37
+00:04:18,150 --> 00:04:23,580
+So click here, explore all
+
+38
+00:04:23,580 --> 00:04:26,580
+and you should find all the applications.
+
+39
+00:04:26,580 --> 00:04:31,020
+If you cannot find applications,
+
+40
+00:04:31,020 --> 00:04:35,020
+so you can Google search to find this website
+
+41
+00:04:35,020 --> 00:04:39,020
+accessing the other development tools
+
+42
+00:04:39,020 --> 00:04:42,020
+and the students' software.
+
+43
+00:04:42,020 --> 00:04:49,020
+So you need to agree the subscriptions requirement
+
+44
+00:04:49,020 --> 00:04:53,020
+and you can Google search to find this website
+
+45
+00:04:53,020 --> 00:04:57,020
+and follow the instructions and it's very simple.
+
+46
+00:04:57,020 --> 00:05:00,020
+Just provide your school emails,
+
+47
+00:05:00,020 --> 00:05:03,020
+maybe provide your contact information
+
+48
+00:05:03,020 --> 00:05:07,020
+and click next and next and then go back to the portal
+
+49
+00:05:07,020 --> 00:05:10,020
+and go to the education game software
+
+50
+00:05:10,020 --> 00:05:14,340
+you should find all the applications.
+
+51
+00:05:14,340 --> 00:05:17,340
+So for this course, I want you to download
+
+52
+00:05:17,340 --> 00:05:21,340
+Windows 11 education.
+
+53
+00:05:21,340 --> 00:05:24,340
+So if you direct the downloader from here
+
+54
+00:05:24,340 --> 00:05:29,340
+you only can download a home professional.
+
+55
+00:05:29,340 --> 00:05:31,340
+You cannot find the education.
+
+56
+00:05:31,340 --> 00:05:38,340
+So because we needed to practice some management tools
+
+57
+00:05:38,340 --> 00:05:43,340
+so therefore you need to install Windows 11 Pro above.
+
+58
+00:05:43,340 --> 00:05:46,340
+So you can install Pro professional
+
+59
+00:05:46,340 --> 00:05:48,340
+or you can install education.
+
+60
+00:05:48,340 --> 00:05:53,340
+You can install Enterprise.
+
+61
+00:05:53,340 --> 00:05:57,340
+And also you can download Windows 10
+
+62
+00:05:57,340 --> 00:06:03,340
+since Microsoft stopped to provide
+
+63
+00:06:03,340 --> 00:06:06,340
+this update service for Windows 10
+
+64
+00:06:06,340 --> 00:06:09,340
+so you better to download Windows 11.
+
+65
+00:06:09,340 --> 00:06:13,710
+So let's try to download Windows 11
+
+66
+00:06:13,710 --> 00:06:18,270
+and you can find your key in here.
+
+67
+00:06:18,270 --> 00:06:21,270
+You can click here, view the key.
+
+68
+00:06:21,270 --> 00:06:24,270
+So I'm going to download Windows 11.
+
+69
+00:06:24,270 --> 00:06:30,400
+My internet a little bit slow.
+
+70
+00:06:30,400 --> 00:06:34,400
+That can take around 7 minutes.
+
+71
+00:06:34,400 --> 00:06:37,400
+I'm going to stop here.
+
+72
+00:06:37,400 --> 00:06:42,400
+I'm going to return after I download the software applications.
+
+73
+00:06:42,400 --> 00:06:53,180
+Alright, almost the download.
+
+74
+00:06:53,180 --> 00:06:55,180
+Already downloaded.
+
+75
+00:06:55,180 --> 00:06:59,180
+So this file around 5GB.
+
+76
+00:06:59,180 --> 00:07:02,180
+You can see here around 5GB.
+
+77
+00:07:02,180 --> 00:07:06,190
+Alright, so I'm going to use this also
+
+78
+00:07:06,190 --> 00:07:11,190
+and to install it on my winware.
+
+79
+00:07:11,190 --> 00:07:13,190
+So I'm going to run winware.
+
+80
+00:07:13,190 --> 00:07:15,190
+If you haven't done winware yet
+
+81
+00:07:15,190 --> 00:07:18,190
+and look at the materials I provided you online
+
+82
+00:07:18,190 --> 00:07:21,190
+so download install winware.
+
+83
+00:07:21,190 --> 00:07:25,820
+Alright, so let's create a new virtual machine.
+
+84
+00:07:25,820 --> 00:07:27,820
+Click here.
+
+85
+00:07:27,820 --> 00:07:29,820
+I'm going to create a new virtual machine.
+
+86
+00:07:29,820 --> 00:07:34,820
+So you can try to use the first options.
+
+87
+00:07:34,820 --> 00:07:37,820
+So that's the basic options.
+
+88
+00:07:37,820 --> 00:07:42,820
+And also you can try to use advanced options.
+
+89
+00:07:42,820 --> 00:07:44,820
+So let's try the first one.
+
+90
+00:07:44,820 --> 00:07:50,230
+And in here you can provide your ISO.
+
+91
+00:07:50,230 --> 00:07:52,230
+So where is your ISO?
+
+92
+00:07:52,230 --> 00:07:56,230
+Normally located in your download folder.
+
+93
+00:07:56,230 --> 00:07:58,230
+And I like to choose
+
+94
+00:07:58,230 --> 00:08:01,230
+I will install the operating system later.
+
+95
+00:08:01,230 --> 00:08:05,230
+So I wanted to configure my virtual machine first
+
+96
+00:08:05,230 --> 00:08:08,230
+and before I install.
+
+97
+00:08:08,230 --> 00:08:13,230
+Next, so I'm going to install Windows 11.
+
+98
+00:08:13,230 --> 00:08:17,230
+And you need to choose the correct profile.
+
+99
+00:08:17,230 --> 00:08:21,230
+So if you choose the wrong profile
+
+100
+00:08:21,230 --> 00:08:25,700
+you can get the bad experience
+
+101
+00:08:25,700 --> 00:08:28,700
+or bad performance.
+
+102
+00:08:28,700 --> 00:08:30,700
+So what is the profile?
+
+103
+00:08:30,700 --> 00:08:33,700
+Profile is virtualize the software
+
+104
+00:08:33,700 --> 00:08:35,700
+virtualize the hardware
+
+105
+00:08:35,700 --> 00:08:37,700
+virtualize the drivers
+
+106
+00:08:37,700 --> 00:08:40,700
+to support your computing environment.
+
+107
+00:08:40,700 --> 00:08:47,360
+Alright, so I'm going to install Windows 11.
+
+108
+00:08:47,360 --> 00:08:49,360
+So can I use Windows 10?
+
+109
+00:08:49,360 --> 00:08:51,360
+So 100% you can use Windows 10.
+
+110
+00:08:51,360 --> 00:08:55,360
+I strongly suggest you to use Windows 11.
+
+111
+00:08:55,360 --> 00:08:57,360
+Next.
+
+112
+00:08:57,360 --> 00:09:00,360
+And so here is the virtual machine name.
+
+113
+00:09:00,360 --> 00:09:03,360
+I want you to give a meaningful name.
+
+114
+00:09:03,360 --> 00:09:06,360
+So you can give the name for
+
+115
+00:09:06,360 --> 00:09:09,360
+HIT
+
+116
+00:09:09,360 --> 00:09:19,020
+Windows 11
+
+117
+00:09:19,020 --> 00:09:21,020
+client.
+
+118
+00:09:21,020 --> 00:09:24,020
+And the next one is location.
+
+119
+00:09:24,020 --> 00:09:28,020
+Do not use the default location.
+
+120
+00:09:28,020 --> 00:09:30,020
+Always put
+
+121
+00:09:30,020 --> 00:09:34,020
+always put on the separate folders.
+
+122
+00:09:34,020 --> 00:09:37,020
+Alright, I'm going to put on my C drive
+
+123
+00:09:37,020 --> 00:09:39,020
+because I only have a C drive.
+
+124
+00:09:39,020 --> 00:09:41,020
+But if you have a D drive
+
+125
+00:09:41,020 --> 00:09:44,420
+you better put on a D drive.
+
+126
+00:09:44,420 --> 00:09:47,420
+Alright, I'm going to double check my Vimware folder first.
+
+127
+00:09:47,420 --> 00:09:50,420
+I found I do have a Vimware folder in here.
+
+128
+00:09:50,420 --> 00:09:54,740
+Alright, Vimware folder is empty.
+
+129
+00:09:54,740 --> 00:09:56,740
+So if you don't have a Vimware folder
+
+130
+00:09:56,740 --> 00:09:59,740
+you can create a Vimware folder
+
+131
+00:09:59,740 --> 00:10:03,180
+under your C drive.
+
+132
+00:10:03,180 --> 00:10:05,180
+Alright, I'm going to go to Vimware
+
+133
+00:10:05,180 --> 00:10:08,180
+and also have a virtual box.
+
+134
+00:10:08,180 --> 00:10:10,180
+I want to create a new folder
+
+135
+00:10:10,180 --> 00:10:12,180
+for its virtual machine.
+
+136
+00:10:12,180 --> 00:10:15,180
+I want you to create
+
+137
+00:10:15,180 --> 00:10:18,180
+one folder.
+
+138
+00:10:18,180 --> 00:10:20,180
+So I call this one is
+
+139
+00:10:20,180 --> 00:10:25,790
+Windows 11.
+
+140
+00:10:25,790 --> 00:10:27,790
+Click OK.
+
+141
+00:10:27,790 --> 00:10:32,090
+Next.
+
+142
+00:10:32,090 --> 00:10:34,090
+So next one
+
+143
+00:10:34,090 --> 00:10:37,090
+and do you want to enable
+
+144
+00:10:37,090 --> 00:10:40,090
+TPM?
+
+145
+00:10:40,090 --> 00:10:43,090
+Yes, I wanted to use TPM.
+
+146
+00:10:43,090 --> 00:10:52,540
+And I provided this password.
+
+147
+00:10:52,540 --> 00:10:53,540
+Make sure remember
+
+148
+00:10:53,540 --> 00:10:55,540
+if you move your virtual machines
+
+149
+00:10:55,540 --> 00:10:58,540
+from one device to another one
+
+150
+00:10:58,540 --> 00:11:01,540
+and you have to provide the password
+
+151
+00:11:01,540 --> 00:11:03,540
+in order to encrypt
+
+152
+00:11:03,540 --> 00:11:06,540
+your, in order to decrypt
+
+153
+00:11:06,540 --> 00:11:12,030
+your virtual machine.
+
+154
+00:11:12,030 --> 00:11:15,030
+The maximum disk size
+
+155
+00:11:15,030 --> 00:11:17,030
+since we're going to use
+
+156
+00:11:17,030 --> 00:11:20,030
+the virtualized disk
+
+157
+00:11:20,030 --> 00:11:23,030
+so therefore you can give a little bigger
+
+158
+00:11:23,030 --> 00:11:25,030
+so you can give 100 or 200 GB.
+
+159
+00:11:25,030 --> 00:11:26,030
+It doesn't matter.
+
+160
+00:11:26,030 --> 00:11:28,030
+So I'm going to give 100 GB.
+
+161
+00:11:28,030 --> 00:11:32,340
+And also you have two options.
+
+162
+00:11:32,340 --> 00:11:34,340
+You can store the virtual disk
+
+163
+00:11:34,340 --> 00:11:37,340
+as a single file
+
+164
+00:11:37,340 --> 00:11:39,340
+or you can spread the disk
+
+165
+00:11:39,340 --> 00:11:41,340
+into the multiple files.
+
+166
+00:11:41,340 --> 00:11:43,340
+So spread definitely can
+
+167
+00:11:43,340 --> 00:11:45,340
+improve the performance
+
+168
+00:11:45,340 --> 00:11:48,340
+because if you use the single file
+
+169
+00:11:48,340 --> 00:11:51,340
+the files more than 10 GB
+
+170
+00:11:51,340 --> 00:11:53,340
+so that's not a good idea.
+
+171
+00:11:53,340 --> 00:11:57,350
+So I'm going to use a spread.
+
+172
+00:11:57,350 --> 00:12:00,350
+So here I'm going to give you some basic information
+
+173
+00:12:00,350 --> 00:12:02,350
+about your firmware
+
+174
+00:12:02,350 --> 00:12:04,350
+about your virtual machine.
+
+175
+00:12:04,350 --> 00:12:11,140
+Locations, versions, operating systems,
+
+176
+00:12:11,140 --> 00:12:13,140
+hard disk, memories
+
+177
+00:12:13,140 --> 00:12:16,140
+so I use 4 GB
+
+178
+00:12:16,140 --> 00:12:19,140
+so definitely can increase the memory size.
+
+179
+00:12:19,140 --> 00:12:21,140
+So how to increase?
+
+180
+00:12:21,140 --> 00:12:24,140
+You can click customize hardware
+
+181
+00:12:24,140 --> 00:12:27,140
+and I wanted to increase the memory size
+
+182
+00:12:27,140 --> 00:12:29,140
+to 8 GB.
+
+183
+00:12:29,140 --> 00:12:32,140
+So 4 GB definitely is good enough.
+
+184
+00:12:32,140 --> 00:12:35,140
+And if you have a 16 GB
+
+185
+00:12:35,140 --> 00:12:38,140
+so definitely you can give 8 GB
+
+186
+00:12:38,140 --> 00:12:40,140
+for your virtual machine.
+
+187
+00:12:40,140 --> 00:12:44,140
+But if you run multiple virtual machines
+
+188
+00:12:44,140 --> 00:12:46,140
+I just want to suggest you
+
+189
+00:12:46,140 --> 00:12:48,140
+to calculate the first.
+
+190
+00:12:48,140 --> 00:12:52,140
+For example, if I want to run four virtual machines
+
+191
+00:12:52,140 --> 00:12:54,140
+simultaneously
+
+192
+00:12:54,140 --> 00:12:57,140
+so you have to sign the memories
+
+193
+00:12:57,140 --> 00:12:59,140
+less than two
+
+194
+00:12:59,140 --> 00:13:01,140
+or equal to, if you sign four
+
+195
+00:13:01,140 --> 00:13:03,140
+four times four is 16
+
+196
+00:13:03,140 --> 00:13:06,140
+and your host operating system
+
+197
+00:13:06,140 --> 00:13:09,140
+also use the memories
+
+198
+00:13:09,140 --> 00:13:12,140
+because I only run one
+
+199
+00:13:12,140 --> 00:13:15,140
+so 8 GB is good enough
+
+200
+00:13:15,140 --> 00:13:18,140
+and you can modify this one later.
+
+201
+00:13:18,140 --> 00:13:23,920
+I'm going to click finish.
+
+202
+00:13:23,920 --> 00:13:25,920
+Alright so right now you can see your
+
+203
+00:13:25,920 --> 00:13:27,920
+Windows 11
+
+204
+00:13:27,920 --> 00:13:30,920
+and also you can find in the TPM module
+
+205
+00:13:30,920 --> 00:13:32,920
+and if you forgot
+
+206
+00:13:32,920 --> 00:13:34,920
+to configure your TPM module
+
+207
+00:13:34,920 --> 00:13:37,920
+you can add one, you can click here add
+
+208
+00:13:37,920 --> 00:13:39,920
+and in here you can add a TPM module
+
+209
+00:13:39,920 --> 00:13:43,300
+and click next.
+
+210
+00:13:43,300 --> 00:13:46,300
+So I'm going to select my ISO
+
+211
+00:13:46,300 --> 00:13:48,300
+which is located on the
+
+212
+00:13:48,300 --> 00:13:50,300
+download folder
+
+213
+00:13:50,300 --> 00:13:56,520
+click OK
+
+214
+00:13:56,520 --> 00:13:58,520
+and then I'm going to power on
+
+215
+00:13:58,520 --> 00:14:04,300
+so you can see here
+
+216
+00:14:04,300 --> 00:14:08,300
+could not create anonymous pgms
+
+217
+00:14:08,300 --> 00:14:11,300
+files for 8.192
+
+218
+00:14:11,300 --> 00:14:16,380
+because I don't have enough
+
+219
+00:14:16,380 --> 00:14:19,380
+resource. OK that's fine
+
+220
+00:14:19,380 --> 00:14:21,380
+I'm going to drop down
+
+221
+00:14:21,380 --> 00:14:23,380
+I'm going to change to 4 GB
+
+222
+00:14:23,380 --> 00:14:37,630
+Alright so make sure to press any key
+
+223
+00:14:37,630 --> 00:14:39,630
+as fast as possible
+
+224
+00:14:39,630 --> 00:14:47,750
+otherwise you're going to see the pixie boot
+
+225
+00:14:47,750 --> 00:14:49,750
+the installation is pretty simple
+
+226
+00:14:49,750 --> 00:14:55,090
+just follow the steps
+
+227
+00:14:55,090 --> 00:14:58,090
+and also read carefully
+
+228
+00:14:58,090 --> 00:15:00,090
+and you have enough time
+
+229
+00:15:00,090 --> 00:15:02,090
+to complete the lab
+
+230
+00:15:02,090 --> 00:15:04,090
+so make sure to read each options
+
+231
+00:15:04,090 --> 00:15:05,090
+in here
+
+232
+00:15:05,090 --> 00:15:07,090
+Language install
+
+233
+00:15:07,090 --> 00:15:10,090
+you can choose English
+
+234
+00:15:10,090 --> 00:15:12,090
+United States
+
+235
+00:15:12,090 --> 00:15:14,090
+they don't give you the different options
+
+236
+00:15:14,090 --> 00:15:16,090
+so that's fine
+
+237
+00:15:16,090 --> 00:15:18,090
+and if you want to
+
+238
+00:15:18,090 --> 00:15:21,090
+get a different language package
+
+239
+00:15:21,090 --> 00:15:24,090
+then you can do this one later
+
+240
+00:15:24,090 --> 00:15:27,090
+time under currency format
+
+241
+00:15:27,090 --> 00:15:30,090
+so here you can choose the different one
+
+242
+00:15:30,090 --> 00:15:33,980
+so I'm going to use default
+
+243
+00:15:33,980 --> 00:15:36,980
+Keyboard we're going to use US standard keyboard
+
+244
+00:15:36,980 --> 00:15:42,930
+and here you can see the two options
+
+245
+00:15:42,930 --> 00:15:44,930
+and you can use
+
+246
+00:15:44,930 --> 00:15:47,930
+the Windows 11 ISO file
+
+247
+00:15:47,930 --> 00:15:50,930
+and to repair your PC
+
+248
+00:15:50,930 --> 00:15:53,930
+it's normally if your system file crashed
+
+249
+00:15:53,930 --> 00:15:55,930
+you can use the bootable ISO
+
+250
+00:15:55,930 --> 00:15:57,930
+or bootable USB device
+
+251
+00:15:57,930 --> 00:16:01,930
+to repair your current operating systems
+
+252
+00:16:01,930 --> 00:16:03,930
+normally they're going to copy
+
+253
+00:16:03,930 --> 00:16:06,930
+the system file to replace the old one
+
+254
+00:16:06,930 --> 00:16:08,930
+I wanted to press install
+
+255
+00:16:08,930 --> 00:16:10,930
+so therefore I'm going to choose the first options
+
+256
+00:16:10,930 --> 00:16:12,930
+install Windows 11
+
+257
+00:16:12,930 --> 00:16:14,930
+and also I want to agree
+
+258
+00:16:14,930 --> 00:16:17,930
+and make sure
+
+259
+00:16:17,930 --> 00:16:19,930
+check this one, next
+
+260
+00:16:19,930 --> 00:16:22,930
+and you're going to provide your product key
+
+261
+00:16:22,930 --> 00:16:24,930
+I've mentioned to you before
+
+262
+00:16:24,930 --> 00:16:26,930
+you can find your product key in here
+
+263
+00:16:26,930 --> 00:16:30,240
+you can view the product key
+
+264
+00:16:30,240 --> 00:16:32,240
+you can copy that one
+
+265
+00:16:32,240 --> 00:16:34,240
+and also I can see it here
+
+266
+00:16:34,240 --> 00:16:36,240
+I don't have a product key
+
+267
+00:16:36,240 --> 00:16:38,240
+I can sign the key later
+
+268
+00:16:38,240 --> 00:16:40,240
+so that's totally fine
+
+269
+00:16:40,240 --> 00:16:43,240
+and if you don't activate your Windows 11
+
+270
+00:16:43,240 --> 00:16:46,240
+I believe every 30 days
+
+271
+00:16:46,240 --> 00:16:49,240
+and you will get the black screen
+
+272
+00:16:49,240 --> 00:16:51,240
+so I'm going to install
+
+273
+00:16:51,240 --> 00:16:54,240
+and Windows 11
+
+274
+00:16:54,240 --> 00:16:55,240
+education
+
+275
+00:16:55,240 --> 00:16:57,240
+do not install Windows 11 Pro
+
+276
+00:16:57,240 --> 00:16:59,240
+because you don't have the license
+
+277
+00:16:59,240 --> 00:17:01,240
+so they have different options
+
+278
+00:17:01,240 --> 00:17:03,240
+so just to choose one
+
+279
+00:17:03,240 --> 00:17:05,240
+Windows 11 Pro education
+
+280
+00:17:05,240 --> 00:17:12,880
+and make sure to do some research
+
+281
+00:17:12,880 --> 00:17:15,880
+and to understand the difference between the
+
+282
+00:17:15,880 --> 00:17:17,880
+workstation
+
+283
+00:17:17,880 --> 00:17:19,880
+okay
+
+284
+00:17:19,880 --> 00:17:21,880
+what is a workstation
+
+285
+00:17:21,880 --> 00:17:23,880
+and also have a Windows 11
+
+286
+00:17:23,880 --> 00:17:26,880
+or Windows 10 for embedded system
+
+287
+00:17:26,880 --> 00:17:27,880
+okay
+
+288
+00:17:27,880 --> 00:17:29,880
+I'm going to choose Windows 10
+
+289
+00:17:29,880 --> 00:17:31,880
+education
+
+290
+00:17:31,880 --> 00:17:34,880
+Windows 11 education
+
+291
+00:17:34,880 --> 00:17:36,880
+alright click next
+
+292
+00:17:36,880 --> 00:17:43,690
+I'm going to agree the license
+
+293
+00:17:43,690 --> 00:17:57,050
+so next one
+
+294
+00:17:57,050 --> 00:17:59,050
+you can
+
+295
+00:17:59,050 --> 00:18:00,050
+right click next
+
+296
+00:18:00,050 --> 00:18:02,050
+or you can use the tools
+
+297
+00:18:02,050 --> 00:18:04,050
+I work on the partitions
+
+298
+00:18:04,050 --> 00:18:09,900
+so if you click create partitions
+
+299
+00:18:09,900 --> 00:18:14,750
+and you can use the whole disk
+
+300
+00:18:14,750 --> 00:18:15,750
+okay
+
+301
+00:18:15,750 --> 00:18:18,750
+or you can have a different
+
+302
+00:18:18,750 --> 00:18:21,750
+you can have a different
+
+303
+00:18:21,750 --> 00:18:23,750
+options for example
+
+304
+00:18:23,750 --> 00:18:25,750
+I want to use
+
+305
+00:18:25,750 --> 00:18:27,750
+60GB as my
+
+306
+00:18:27,750 --> 00:18:29,750
+operating systems
+
+307
+00:18:29,750 --> 00:18:31,750
+like C drive
+
+308
+00:18:31,750 --> 00:18:34,750
+I wanted to get 40GB for my D drive
+
+309
+00:18:34,750 --> 00:18:36,750
+since I only have 100GB
+
+310
+00:18:36,750 --> 00:18:39,750
+so I strongly suggest you to use whole
+
+311
+00:18:39,750 --> 00:18:50,460
+and after you click the next
+
+312
+00:18:50,460 --> 00:18:52,460
+so they're going to create the partition
+
+313
+00:18:52,460 --> 00:18:54,460
+and normally they're going to create
+
+314
+00:18:54,460 --> 00:18:56,460
+three partitions for you
+
+315
+00:18:56,460 --> 00:19:00,000
+the first partitions
+
+316
+00:19:00,000 --> 00:19:02,000
+is for
+
+317
+00:19:03,000 --> 00:19:05,000
+DPM
+
+318
+00:19:05,000 --> 00:19:08,000
+which is to store the encrypted key
+
+319
+00:19:08,000 --> 00:19:11,000
+and also you have your main partitions
+
+320
+00:19:11,000 --> 00:19:14,000
+which is for your operating systems
+
+321
+00:19:14,000 --> 00:19:16,000
+and you may have
+
+322
+00:19:16,000 --> 00:19:19,000
+another partitions for recovery
+
+323
+00:19:19,000 --> 00:19:22,000
+and if you look at
+
+324
+00:19:22,000 --> 00:19:24,000
+your
+
+325
+00:19:24,000 --> 00:19:27,000
+if you look at your
+
+326
+00:19:27,000 --> 00:19:29,000
+current operating systems
+
+327
+00:19:29,000 --> 00:19:31,000
+so if you look at the disk management
+
+328
+00:19:31,000 --> 00:19:42,760
+you can see the different partitions
+
+329
+00:19:42,760 --> 00:19:44,760
+you can see here I have a three
+
+330
+00:19:44,760 --> 00:19:48,140
+by default you're going to have a three
+
+331
+00:19:48,140 --> 00:19:50,140
+so EFI
+
+332
+00:19:50,140 --> 00:19:52,140
+and this one is for
+
+333
+00:19:52,140 --> 00:19:54,140
+because I use UEFI
+
+334
+00:19:54,140 --> 00:19:56,140
+so this is for
+
+335
+00:19:56,140 --> 00:19:58,140
+it's for booting
+
+336
+00:19:58,140 --> 00:20:01,140
+so you can see here I have about 100 MB
+
+337
+00:20:01,140 --> 00:20:03,140
+so that is for EFI
+
+338
+00:20:06,140 --> 00:20:08,140
+and also I have the main partitions
+
+339
+00:20:08,140 --> 00:20:10,140
+and this one for recovery
+
+340
+00:20:10,140 --> 00:20:13,140
+your TPM is going to use
+
+341
+00:20:13,140 --> 00:20:15,140
+going to use
+
+342
+00:20:15,140 --> 00:20:17,140
+the space from here
+
+343
+00:20:17,140 --> 00:20:19,140
+a little bit from here
+
+344
+00:20:21,140 --> 00:20:23,140
+and in 1420 I believe
+
+345
+00:20:23,140 --> 00:20:25,140
+when you learn
+
+346
+00:20:26,140 --> 00:20:28,140
+TPM
+
+347
+00:20:28,140 --> 00:20:30,140
+and Microsoft
+
+348
+00:20:30,140 --> 00:20:32,140
+recommend at least
+
+349
+00:20:32,140 --> 00:20:34,140
+500 MB
+
+350
+00:20:34,140 --> 00:20:36,140
+it's for TPM
+
+351
+00:20:37,140 --> 00:20:40,450
+if
+
+352
+00:20:40,450 --> 00:20:42,450
+the partitions are smaller
+
+353
+00:20:42,450 --> 00:20:44,450
+and you don't need to worry
+
+354
+00:20:44,450 --> 00:20:46,450
+so the system can automatically
+
+355
+00:20:47,450 --> 00:20:49,450
+modify the partitions for you
+
+356
+00:20:49,450 --> 00:20:54,940
+alright so let's move on
+
+357
+00:20:54,940 --> 00:20:58,310
+you can see here
+
+358
+00:20:58,310 --> 00:21:00,310
+the installation is pretty fast
+
+359
+00:21:00,310 --> 00:21:02,310
+if you use
+
+360
+00:21:02,310 --> 00:21:04,310
+USB
+
+361
+00:21:04,310 --> 00:21:06,310
+or Tab C
+
+362
+00:21:06,310 --> 00:21:09,310
+so installation can take less than 5 minutes
+
+363
+00:21:09,310 --> 00:22:48,430
+if you turn on the BitLocker
+
+364
+00:22:48,430 --> 00:22:50,430
+if you look at my C drive
+
+365
+00:22:50,430 --> 00:22:52,430
+and I'll return on the BitLocker
+
+366
+00:22:52,430 --> 00:22:56,430
+so BitLocker is going to use the TPM chips
+
+367
+00:22:56,430 --> 00:22:58,430
+so that means
+
+368
+00:22:58,430 --> 00:23:01,430
+all the encrypted key is going to store to the TPM
+
+369
+00:23:01,430 --> 00:23:03,430
+so the TPM is going to store the key

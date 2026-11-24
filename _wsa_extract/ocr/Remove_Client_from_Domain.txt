@@ -1,0 +1,151 @@
+===== frame_0001
+File Edit View
+- VMware WorkStation
+x Acrr3420-c1
+Q Type here to search
+Server Manager
+My Computer
+1420
+Win2016S Base Image
+ACIT3420 Cc„e
+Server Manager Local Server
+AC113420.DC1
+ACIT3420.DC2
+ACIT3420-C1
+Shared VMS
+Dashboard
+Local Server
+All Servers
+File and Storage Services
+PROPERTIES
+For CA-VAN-Svr2
+Computer name
+Domain
+Wiru10wS Firewall
+Remote management
+Remote Desktop
+NIC Teaming
+E theme to
+Operating system version
+Hardware
+CA-VAN -sva
+Public: On
+Enabled
+Disabled
+192_16g.2392 1M enabled
+Microsoft Server 2016 Star ufird
+VMware. VMware/.
+last installed updates
+Last Checked for updates
+W Defender
+Feedback & Diagnostics
+IE Enhanced Security Configuration
+zone
+Product ID
+Installed (RAM)
+Total disk space
+Date and Time
+System 9/20/2013 PM
+System 9012
+013 PM
+9/912018 6:15
+updates only, Wincms
+9/15/2013 8:56 PM
+• Time On
+Settings
+on
+(UTC.oe-00J Pacific Time (US & Canada)
+00276-30727.S9619.*W7S (activated)
+core(TM) i5-6300u cpu @ 2AOGHz
+119.68 GB
+All events | 9 total
+Server Name 'O
+CA.VAN.SVR2 1129
+CA-VAN-SvR2 1129
+Severity Scuce
+Error
+i CrOSO ft Cy
+direct input to this VM, move the mouse pointer inside or press Ctrl
+===== frame_0002
+ACIT3420- OQ - VMware %Ork5tation
+File Edit View VM Tabs Help
+Ifr Home
+Q Type here to search
+My Computer
+1420
+Win2016S Base Image
+ACIT3420 Cc„e
+AC113420.DC1
+ACIT3420-DC2
+ACIT3420-C1
+Shared VMS
+All
+Fil
+x x Acrr3420-c1
+Computer Name/Domain Changes
+You cm change name of his computer,
+Ctmges mi
+Co mpu&r
+CA-VAN
+computer n arne:
+Work*Ouø
+WORKGROUP
+All events 9 total
+IPV6 enabled
+Server 2016 Star ufird
+VMware7.1
+last installed updates
+Last Checked for updates
+W Defender
+Feedback & Diagnostics
+IE Enhanced Security Configuration
+Time zone
+Product ID
+Installed (RAM)
+Total disk space
+Date and Time
+9/20/2013 PM
+920/2013 E7:20 PM
+9/912018 6:15
+updates Only, Wincms
+9/15/2013 g:S6 PM
+• Time On
+Settings
+on
+Pacific Time (US & Canada)
+0027600727-59619.'W7S (activated)
+Intel(R) core(TM) i5-6300u cpu @ 2AOGHz
+119.68 GB
+Server Name
+CA.VAN.SVR2
+CA-VAN-SvR2
+1129
+1129
+Severi ty
+Error
+Scuce
+Microso ft •Wind OWS • Grouppo•l
+i CrOSO ft Cy
+System
+System
+return to
+your computer, the mouse pointer outside ot Ctrl
+===== frame_0003
+ACIT3420-OC2
+- VMware ion
+File Edit View
+VM Tabs Help
+Q Type here to search
+My Computer
+1420
+Win2016S Base Image
+ACIT3420 Cc„e
+AC113420.DC1
+ACIT3420-DC2
+ACIT3420-C1
+Shared VMS
+your com
+Acrr34zo-DC1
+Restarting
+return to
+puter press

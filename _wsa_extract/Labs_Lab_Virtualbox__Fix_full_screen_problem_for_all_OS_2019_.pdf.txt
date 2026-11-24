@@ -1,0 +1,294 @@
+--- page 1 ---
+June 3, 2019 by Pramod Kumar
+Oracle VM VirtualBox is an easy way to use multiple OS on a single window. You can install many
+Operating Systems on Virtualbox Virtual Machine. like- Windows, Linux, Solaris, BSD, IBM OS/2, Mac
+OS X2 & others etc. But after install, when we start any virtual machine then the problem is- it starts
+with a small screen. We choose full-screen mode but faces resolution problem. It is because when
+we installed any OS on the virtual box then Virtual Box doesn’t automatically install the drivers. We
+need to do this manually. So how to fix the full-screen resolution problem & how to enable full
+screen mode.
+Windows- Windows 3.1, 95, 98, ME, NT 4,  2000, XP, Vista, 2008, 7, 8, 8.1 & Windows 10 all 32
+& 64 Bits Windows Server 2003, 2008, 2012 All 32 & 64 bit versions.
+Linux- Linux 2.2, 2.4,2.6, Ubuntu, Debian, Open SUSE, Mandriva, Mandrake, Fedora, Oracle
+Linux, RHEL, Red Hat Linux, Xandros. ArchLinux & Gentoo.
+Solaris- Solaris 10, 11, OpenSolaris.
+BSD- FreeBSD, NET-BSD. Open BSD.
+IBM OS/2- OS/2 Warp 3, 4, 4.5, ecomstation, Other OS2.
+Mac OS X- Mac OS X, Mac OS X 10.6, 10.7, 10.8, 10.9
+Others- DOS, Netware, L4, QNX, JROKITVE & other unknown.
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+1 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 2 ---
+If you are facing full-screen resolution problem. Then you will need to install drivers for that
+Operating system. Oracle VirtualBox has included drivers for all OS virtual machines. The driver CD
+name is Virtualbox Guest additions.
+Before installing Guest additions Virtualbox, You will need to attach Guest Additions ISO image.
+To insert Guest Additions ISO CD image click on Devices menu of any operating systems
+running in normal mode.
+Now click on Insert Guest Additions CD image… option from the device menu.
+Now the Guest Additions ISO image has been successfully connected to Virtual Box virtual
+machines.
+To install drivers for the related OS, open Windows explorer or File explorer of the running OS
+in VirtualBox.
+Expand drives from the left pane & choose CD Drive (D:) VirtualBox Guest Additions.
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+2 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 3 ---
+Now install driver according to your Operating System-
+1. VBoxWindowsAdditions- For all windows versions.
+2. VBoxSolarisAdditions.pkg- For all Solaris versions.
+3. VBoxLinuxAdditions.run- For all Linux versions.
+4. OS2- Open OS2 folder for OS2 driver install.
+After clicking on any OS driver then an installation box will appear, click on Next & follow on
+screen instructions.
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+3 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 4 ---
+When it will ask you to install the driver then click on install button.
+Now the driver has been installed. Restart the VirtualBox OS.
+Click on View menu of any running OS in VirtualBox VM.
+Now Click on Switch to Fullscreen option.
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+4 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 5 ---
+That’s it! Now you have been successfully solved full-screen resolution problem in Oracle VM
+VirtualBox.
+If your Virtualbox version doesn’t have a VirtualBox Guest Additions ISO or you want to install the
+latest driver then you can download VirtualBox Guest Additions ISO image file from here-
+Download Guest Additions ISO Image file
+Click on Devices menu of any running OS in Virtual Box» Go to under CD/DVD devices» click on
+Choose a virtual CD/DVD Disk file. Select ISO file from the main Operating System download folder.
+Download driver operating systems wise- Windows, Linux, Solaris, BSD, IBM OS/2, Mac OS X2-
+Click here to go to download page
+Any Problem or Suggestion leave a message in the comment box.
+Also See:
+How to use Remix OS bootable USB with Virtualbox
+3 Easy ways to share files, folders & drives in VirtualBox.
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+5 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 6 ---
+Record videos with Oracle VM VirtualBox.
+Install a Guest OS in Oracle VirtualBox.
+Enable-disable internet in VirtualBox.
+How to check Remix OS on VirtualBox without USB drive.
+Filed Under: PC Tech
+Subscribe Free Updates Via Email.
+First Name
+E-Mail Address
+SIGN UP NOW
+I'm Pramod Kumar Yaduvanshi, creator and editor in chief of PCMobitech. I mostly
+write about Computer, Smartphone, VPN, Security related articles and tips & tricks etc.
+Follow me on: Twitter.
+Matt Hall says
+May 7, 2019 at 23:56
+I have two virtual machines running on Virtualbox hosted by Xububtu 18.04. Neither
+displays correctly in full-screen mode when I switch to it. My Windows 7 VM opens a (not
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+6 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 7 ---
+full-screen) window at the top left of the screen which displays part of the Win 7 desktop.
+My Windows XP VM opens a (not full-screen) window at the bottom right of the screen
+which displays part of the XP desktop.
+By repeatedly pressing F I can get them both to fill the whole screen. It’s very annoying
+that both show only part of the guest desktop.
+I’ve tried re-installing Guest Additions without success.
+Anyone know the answer?
+Reply
+CHARLES FITCH says
+April 30, 2019 at 23:17
+Doesn’t work for me on either WinXP or Ubuntu. Ubuntu doesn’t even have the tabs across
+the top so I can’t click on the devices tab.
+Reply
+Dave says
+April 5, 2019 at 23:59
+It does not give me a security dialog box to confirm driver installation, but it seems to
+install and then prompts me to reboot. After the reboot, I cannot change the resolution.
+Reply
+Mahmoud Elhakeem says
+July 15, 2018 at 23:00
+An error occurred during installation vbox windows additions.. Any help please ??
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+7 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 8 ---
+Reply
+Pramod Kumar says
+July 17, 2018 at 10:40
+Have you tried to download and use latest VirtualBox Guest additions: Check here. You
+will need to check latest Virtual box directory and then download the latest Virtual Box
+Guest Additions.
+Reply
+francis says
+July 1, 2018 at 13:02
+hii,
+i have mac book air,
+guest additon wont work for mac os.
+is it posiible to fix full screen issue in mac?
+installed virtula disk os is kali linux
+Reply
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+8 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 9 ---
+Joseph Silvia says
+March 14, 2019 at 22:52
+Perhaps I should install Kali since I want to learn more about Penetration testing. I did
+you use the scale feature as a work around in Centos, not ideal but it works for me at
+this point.
+Reply
+rohan modi says
+June 27, 2018 at 19:04
+Worked Like a Charm. Thanks for sharing this.
+Reply
+Prit says
+June 26, 2018 at 12:44
+I have some queries regarding virtual box. I have core i3 processor and 4GB ram .
+Q1). Which drive is better to install Virtual box ? Is it C drive or D drive ?
+Is the drive needs to have more free storage ?
+Q2). Will allocating 1.3 GB ram to virtual box sufficient, if I use painting software which
+require minimum 1GB ram. ?
+Q3) How much CPU or cores should I give to virtual box ? ( as I have core i3)
+Awaiting your reply at the earliest.
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+9 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 10 ---
+Reply
+Pramod Kumar says
+June 27, 2018 at 15:23
+A1). You can install the Virtual box where you want but VirtualBox VDI size always
+dynamically increases, so when you install it in C drive then it must have good amount
+of free memory otherwise in the future you’ll face low storage problem. Another thing
+is you can install the Virtual box setup in the C Drive but when you setup and create
+any OS VDI or VHD in the virtual box then you can choose a different drive, So it will
+not create any space related issue in the future.
+A2) If you are going to use Windows in it then You should use at least 2gb ram, you
+can also use this on 1.3 GB but I can say you’ll feel very slow experience or sometimes
+OS may be freeze.
+A3) It will automatically chose appropriate value, so you don’t need change anything.
+When you create new VDI and select OS type then Virtual Box will automatically select
+necessary Ram and CPU size. I will suggest you don’t change the settings. If you think
+allotted Memory exceeds requirement then you can anytime change the value after
+completely shutting down the OS.
+Reply
+Mimi says
+May 1, 2018 at 22:32
+Perfect! Thank you!
+Reply
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+10 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 11 ---
+Jason says
+March 9, 2018 at 22:33
+I have the virtualbox 5.2.8 but all my virtual machines have a big screen that doesn’t fit in
+my computer (4k screen resolution). The default resolution that better bit is 1067×509 but
+the icons are kind of blurry. I installed the Guest Additions and tried another methods but
+any of those work. Any suggestions when the screen resolution is too big?
+thanks,
+Reply
+aDude says
+May 2, 2018 at 19:11
+I’ve got the exact same problem, running arch linux host OS, virtualbox 5.2.10 r121806.
+The Gui is WAY too huge, I can’t get a decent resolution in my guests (guest additions
+installed), stuck with 1280×600 although I’m running 2560×1440 resolution at my
+host. Nothing is helping to resolve the issue, Oracle broke the guest additions and the
+gui with the update to version 5.2.6. This is REALLY ANNOYING! I can’t downgrade my
+version on arch, compile always fails (another problem unsolved). Running Windows as
+Host OS I get normal high resolution in my guests, everything is working fine. Many
+Mac users also have this issue -> Virtualbox guest additions are broken for Linux and
+MacOS, working on Windows.
+Reply
+jimt222 says
+December 20, 2017 at 23:45
+Works great on Windows 10 VirtualBox VM running on 27″ iMac w Mac OS / High Sierra ..
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+11 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 12 ---
+full screen @ 2560×1440, thank you!
+Reply
+Pramod Kumar says
+December 21, 2017 at 17:57
+You’re Welcome!
+Reply
+bob says
+April 30, 2018 at 02:36
+it worked thanks
+Reply
+Tony says
+October 12, 2016 at 02:45
+I have Windows 98SE installed in VB version 5.1.6. I tried to install the VB Guest addition
+(for version 5.1.6) in order to get a full screen. Alas, I get an error message saying that the
+VB Guest addition cannot be installed on this version of Windows. In my research, I came a
+cross a blog that said that VB guest additions does not support Windows 98. If true, is
+there another solution? PS I am using the Scitech video driver but can’t get full screen.
+Reply
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+12 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 13 ---
+Your email address will not be published. Required fields are marked *
+Comment
+Name *
+Email *
+Website
+POST COMMENT
+Search the site ...
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+13 of 14
+2019-09-07, 9:05 a.m.
+
+--- page 14 ---
+5 Best Screen Capturing Tools for Windows Free
+& Paid (2019).
+5 Best Online Torrent Downloader Sites Free &
+Paid
+Do You Really Need An Antivirus for Android In
+2019?
+How to Take Screenshots In Windows 10
+Without Snipping Tool?
+RTX 2060 Review and Gaming Performance Test
+with Core i5 8600K.
+5 Best Free VPN For Windows & Mac
+5 Best File Sharing Apps Android & iOS (Share
+Files Offline in 2019).
+How to Get ExpressVPN TRIAL?
+How to Get NordVPN Free Trial For 7 days?
+5 Best Screen Recording Software for Windows
+(2019)
+Virtualbox: Fix full screen problem for all OS (2019).
+https://www.pcmobitech.com/virtualbox-fix-full-screen-problem-for-all-os/
+14 of 14
+2019-09-07, 9:05 a.m.

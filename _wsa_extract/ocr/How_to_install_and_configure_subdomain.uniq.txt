@@ -1,0 +1,199 @@
+===== frame_0001
+Press Ctrl+AJt+De1ete to
+Sunday, September 78
+===== frame_0007
+type hereto search
+MicrcMt Azure S—
+===== frame_0008
+WELCOME TO SERVER MANAGER
+Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+===== frame_0011
+• Server Manager Dashboard
+F and Storage Services
+ROLES AND SERVER GROUPS
+Create a server grc»up
+9," 8/2022 942
+===== frame_0012
+Select server roles
+===== frame_0013
+Press Ctrt+AJt*De1ete to
+Sunday, September 18
+===== frame_0014
+Installation progress
+ping your domain controller and svr2.
+in order to install and your subdo•aln controller ,
+you do not need to join the
+===== frame_0015
+•nd Storage Servic«
+===== frame_0016
+fr• 192.168.239.1; bytes
+192.168.239.1: bytes
+192.168.239.1: byt s
+with 32 of data:
+4, Lost e (ox loss),
+Tinging 192.168.239.2 Kith 32 bytes of data:
+192.168.239.2: bytes-32
+192.168.239.2: byt
+ning statistics 192.168.239.2:
+. e (ax loss).
+===== frame_0017
+Deployment Configuration
+Credentials for deployment operation
+S.opiy credentials the
+to, S. tusG7 @ B.
+9/102022 92636
+===== frame_0018
+need to install ad ds
+n to install do need to Join the It is
+to, s. tusG7 @ i'. tusc7
+click to ptuide user
+===== frame_0019
+n to install do need to loin the d
+click to ptuide
+Your dcmain If you use different do—aid
+===== frame_0020
+to, S. tusG7 @ to,
+do need to loin the d
+Your do—ain If you use different you need to use your do—ain
+"ovide your subdo.aln You can use WY Van.
+===== frame_0022
+"ovide your subdo.aln You can use WY or Van. In lab is BEY. You can use different
+If you want to create a nm. tree, you can use the tree option. I
+===== frame_0024
+need to Instan ad ds
+In to Install do to join dæ1n.
+You need to your Ip address.
+You need to select parent dc.ain na—. the select. You need to provide
+user administrator &
+Your If you use different you need to use your
+your sub-dc—ain none. You can use SBY Van. In Jab You can use different
+The second Opti" : Tre. domain.
+If you to create a tree, pu can use the tree option. For exaele, I want to create a tree,
+If you *ant to deploy you have to use
+===== frame_0025
+Prerequisites Check
+===== frame_0030
+• Server Manager
+A CA-VAN. 90.2
+provide your sub-dc—ain none. You can use SBY Van. In Jab You can use different
+If you to deploy you have to use credentials
+can find the or
+===== frame_0032
+In to Install do to join dæin.
+you need to Ip address.
+You need to select parent na—. the select. You need to provide
+user administrator passwrd
+Your If you use different you need to use your nane.
+your sub-dc.ain You can use SBY or Van. In your lab B". You can use different
+The second domain.
+It is required
+can find the or can not. hN you? tan you? Could you explain I can not find
+===== frame_0035
+• Virtual Machine Details
+===== frame_0036
+Applying computer settings
+===== frame_0037
+fff •cvT3.Q0-v•pN
+===== frame_0039
+p Type here to Search
+===== frame_0043
+Group Policy Management
+Microsoft Azure Se Nices
+===== frame_0045
+ping dæin cmtroller• Svel and
+n to install and
+I he second option: Tree
+do —d to join the dwin. It is
+. click need to
+If you want to create a ne tree, you can use the tree For I want to create a
+Note: if wnt to deploy you to
+log In your controller, or sve2
+do you Svr3 Is a
+I _ you can check dns. You should find the bby
+3 _ your —anagen,
+check the replication Info your
+can your the subdwin or here? i can not, can you? Could you explain I can not find
+can r use the domain account to log In ny suEH1æaIn?
+===== frame_0046
+Qing dæin cmtroller Sw•1 and
+—d to join the dwin. It is
+second option: Tree
+you want to create a ne tree, you can use the tree For
+I want to create
+ucte: if wnt to deploy you to
+your the subdwin or here? i can not, can you? Could you
+J _ you can check dns. You should find the bby
+can use the domain account to log In ny subdÄa1n (boy
+use account to log •y parent (adatu•)
+===== frame_0047
+can use the domain achinistratcw account to log In ny subdÄa1n (boy
+use account to log •y parent (adatu•.co•)? NO "hy?
+if you the answers,
+===== frame_0052
+Press Ctrl+Alt+Delete to unlock.
+===== frame_0053
+9/1812022 Itr03
+===== frame_0054
+gnv2022 '002:"
+===== frame_0057
+Ping your dwin
+to install ad ds service.
+in to install nd
+to sw•3 ip addNss.
+You need to select parent do.ain click the select.
+u administrator &
+do næd to join dæin
+need to use your dmIn
+lab is BBM. can
+If you want to create a can use the tree option. want to create a tree,
+Note: you want to deploy you have to use do—aln credentials
+log En your svr2
+your find the subdomain or ca.van.svr3 can not. hw about you? can you? Could you explain can not find
+you can check dns. You should the bby
+manager, ca.van.sw•3 you can see so
+Double check the replication info your
+the account to log my subdomain Yes Why?
+can use •y account (bby\adninistrator) to log parent NO
+i f do not the discuss with
+use the bby (bby\administrator) to login bby domain
+I use the parent domain to log in my Sub do—ain
+I try to use to login •y parent
+===== frame_0058
+u see administrator
+The second option: Tree
+do næd to join
+If you want to create a can use the opticm. exnple, want to create a tree,
+"ote: you want to deploy you have to use do—aln credentials
+log In your dæain sw•2
+can your find the subdomain or ca.van.svr3 can not, hw about you? can you? Could you explain can not find
+do you Svr3 Ls a
+I Can Check dns. You find the boy
+O•oubl• Check the replication info your
+Can the account to log my subdomain Yes
+Can i use ny subdo•aln account (bby\adninistrator) to log parent NO
+I use the bby (bby\administrator) to login bby domain
+use the parent domain to log in my Sub do—ain Yes
+try to use to login parent
+===== frame_0060
+your controller and svr•2.
+we need to Install ad ds sere.'it:e.
+to install and your controller, you do not need to join the
+You need to configure your ip address.
+Y Ou need to parent Click the You need to provide
+If use different you need to use
+It not required.
+Subd«ain use BOY or Van. your lab iS ddY. You use different
+IF you to a new tree, you Can use the optiM. want to a new
+xant to deploy you have to use
+kog in your controller, Sw•1 Or Svr2
+dns. stuld find subdwin bby
+e the acæt to log in (bby Yes
+can i use subdmain account to log in 'y parent do—ain
+if you do not the answers, discuss with
+bby dæin to login —y bby dæin yes
+use the administrntr to log in ny sub Yes 1 can login
+I try to use subdo.ain to login my parent domain

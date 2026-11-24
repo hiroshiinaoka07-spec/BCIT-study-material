@@ -1,0 +1,75 @@
+DHCP Policies
+With Windows Server 2016 DHCP Policies, you can create policies that deliver specific IP addresses and optional information to clients based on a set of conditions.
+Pre-requirement:
+Two servers (Domain controller and DHCP) and 1 client (Domain-joined: Optional). Make sure they can ping each other.
+Define a new Classes
+GET READY. To create a vendor class, perform the following steps.
+Log on to a DHCP server as Domain administrator (adatum\administrator).
+Click Start and click Server Manager.
+In Server Manager, click Tools > DHCP. The DHCP console opens.
+In the DHCP console, right-click IPv4 and choose Define user Class.
+
+Note: You define vendor classes for IPv4 node and IPv6 node but you can not define user class for IPv6. 
+In the DHCP User Classes dialog box, click Add. The New Class dialog box opens.
+
+In the Display name text box, type Sales. In the Description text box, type Sales Class.
+
+Click under the ASCII field name and type sales (see figure above). Click OK.
+Click Close to close the DHCP User Classes dialog box.
+Create a DCHP Policy for a Scope
+GET READY. To create a DHCP policy for a scope, perform the following steps.
+Log on to a DHCP server as domain administrator.
+Click Start and click Server Manager.
+In Server Manager, click Tools > DHCP. The DHCP console opens.
+In the DHCP console, right-click IPv4 and choose New Scope.
+In the New Scope Wizard, click Next.
+On the Scope Name page, in the Name text box, type Office and click Next.
+On the IP Address Range page, type 192.168239.100 for the Start IP address and type 192.168.239.200 for the End IP address. For the subnet mask, type 255.255.255.0. Click Next.
+On the Add Exclusions and Delay page, click Next.
+On the Lease Duration page, click Next.
+On the Configure DHCP Options page, click Next.
+On the Router (Default Gateway) page, type 192.168.239.1 for the IP address and click Add. Click Next.
+On the Domain Name and DNS Servers page, click Next.
+On the WINS Servers page, click Next.
+On the Activate Scope page, click Next.
+When the wizard is complete, click Finish.
+Under the Office scope, right-click the Policies node and choose New Policy.
+
+In the DHCP Policy Configuration Wizard, type sales for the Policy name and click Next.
+
+On the Configure Conditions for the Policy page, click Add.
+
+In the Add/Edit Condition dialog box, select the following and click Add:
+Criteria: User Class
+Operator: Equals
+Value: Sales
+
+Click OK to close the Add/Edit Condition dialog box.
+Back on the Configure Conditions for the Policy page, click Next. 
+
+
+
+On the Configure Settings for the Policy page, in the Start IP address text box, type 192.168.239.190. In the End IP address text box, type 192.168.239.200. Click Next. 
+
+If you need different options for the Sales, you would specify them. For now, click Next.
+
+
+On the Summary page, click Finish.
+
+Right-click Sales and choose Properties.
+
+In the Properties dialog box, click to select the Set lease duration for the policy option.
+Change the lease time to 8 hours. Click OK.
+
+Login your client machine and run the following cmdlet to setup the class id.
+Cmdlet: ipconfig /setclassid  “Ethernet” sales
+
+28 . run the following cmdlet in order to check the IP.
+Cmdlet: ipconfig /release
+Cmdlet: ipconfig /renew.
+
+Note: IP range is correct but the leasing time is not correct.
+Challenge question: could you explain why the leasing time is not 8 hours instead of 1 hour?
+Hint: DHCP relay agent.  
+Task 1: Create a new VM and sign new classid “Finance”. 
+Task 2: Create a new policy and make sure that all the devices in finance department will get IP in the range of 192.168.239.100-192.168.239.150. 

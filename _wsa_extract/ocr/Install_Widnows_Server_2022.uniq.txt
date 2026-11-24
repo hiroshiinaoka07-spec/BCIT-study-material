@@ -1,0 +1,331 @@
+===== frame_0002
+• Virtual Machine Details
+===== frame_0003
+Step Configure
+You need to Create 8 and 9.
+===== frame_0004
+a Virtual adapter to this
+===== frame_0006
+t a Virtual adapter to this
+===== frame_0007
+Step 1 ; Configure
+to Switches, 8 9.
+only, a Virtual adapter to this use dhCP.
+vmet Hake to bridged to wifi —dule.
+If you internet access, you Can Connect your to OthQNiSe,
+===== frame_0008
+• Virtual Details
+===== frame_0010
+• Virtual MachirE Details
+===== frame_0012
+need to Switches, 8 9.
+Host only, a Virtual adapter to this use dhCP.
+v.et e: hake to bridged to wifi —dule.
+If you need internet access, you Can Connect your to OthQNiSe, always Connect to v•net9.
+Step install Server 2B221
+===== frame_0014
+• Virtual Machirr Details
+===== frame_0015
+[tl Windows server 2019
+===== frame_0016
+v.et Hake to bridged to wifi —dule.
+f you internet access, you Can Connect your to
+'bdify acit342e-CIient1
+step install Server 2022
+Can not find 2022 profile, SO 2@19.
+a folder. Each v• uses one folder. not the. together.
+OthQNiSe, always Connect to
+===== frame_0018
+Activate Microsoft Serve r Operating System Setup
+===== frame_0019
+a host to this dhcp.
+Vou not find 'ko 2019.
+a folder. Each
+===== frame_0020
+Select th• you to
+===== frame_0021
+Select th• system you to
+===== frame_0022
+a hMt adapte to this
+Vou can find •2 so
+h to . , a s to
+===== frame_0023
+Installing Microsoft Server System
+===== frame_0024
+Installing Microsoft Sewer System
+===== frame_0026
+. Sewer Operating System
+===== frame_0028
+host virtual adapter to this use dhcp.
+e: bridged. to to
+you tan to . to m•t9.
+Each not together.
+===== frame_0030
+only, uncheck a adapter to this , us.
+[ to _ connect to
+Step sysprep to Really I
+===== frame_0031
+Customize settings
+a password for the built-in account that you use to sign in to trus computer.
+Reenter pagword
+===== frame_0032
+host virtual .d.pt« to this dhcp.
+Wednesday, August 17
+===== frame_0033
+Vou need to Create Switches, 8 and 9.
+Vmet8: Host Mly, a host virtual adapter to this use dhCP.
+to bridged to your Mdule. double Check wifi
+f you internet access, you Connect your v• to Otherwise, alvayS Connect to v•et9.
+yow- at i t34N-CIient1
+step Server 2022
+Can not find 2022 profile, so the 2B19.
+uses one folder. not the•
+rake sure anykey as fast as
+do not use 2e22 . You need full WI (Desktop).
+Yw a base image so you not to enter key.
+Basic You to Create a local aCCOwt.
+Ctrl Alt *Delete :
+you Can press *Alt *End on your
+Step 3: i"ta11
+Step sysprep to your IO. Really
+===== frame_0035
+Files Currently on the Disc (7)
+===== frame_0037
+V"t8; Host Mly, a host Virtual adapter to this use dhCP.
+bridged. to bridged to your Mdule. double check wifi
+f you internet access, you Can Connect your v• to Otherwise, always connect to
+a new folder. Each
+uses one folder. not
+rake Suræ press Mykey as fast as
+do not use 2022 Core) . You full GUI (Desktop) .
+V w Nke a base image SO you not to key.
+Basic You to a local
+have access, that'S normal because you are a Switch.
+Ctrl Alt you Can press here
+Step 3: install
+===== frame_0039
+Sysprep Generalize Drivers
+Mi crosott-Windows- Pmver-Sy•sprep- Package- 31 bt 3856a d364e35—amd64- — 10.0.20348„
+Microsoft- Windows-Pmver-Sy•sprep-Package- 31 bf 3856ad364e35-amd64- US— 10.0„
+===== frame_0040
+Vnnet8: Host only, uncheck a host Virtual adapter to this use local dhcp.
+vmnet 9: as above.
+vmnet Hake sure to bridged to your double check your
+If you need access. can connect pour to Otherwise, connect to
+your acEt3Z2e.ciEent1
+Step 2: install 2B22
+You can not find 2022 profile, so choose the
+a folder. Each one folder. 00 not together.
+rake sure press anykey as fast as possible
+do not use 2-022 Core) YN need full GRJI (Desktop).
+You rake a base I—age so you need to enter your key.
+Basic configuration: You need to create a local administrator account.
+You have Internet access, that's because you are connecting a switch.
+Ctrl • Ait you Can press here
+or press •Ait •End on your keyboard
+Step 4: sysprep to renve your •achine IO. Really Inportant.
+choose generalizi
+===== frame_0043
+Step Configure network.
+V.net8: Host only, uncheck a host Virtual adapter to this use local dhcp.
+•.•nnet bridged. Hake sure to bridgea to your double check your
+your acEt342e.ciEent1
+sure press anykey as fast as possible
+enter key later.
+do not use (Server need full GOI (Desktop).
+You rake a base I—age so you not need to enter your
+Basic configuration: You need to Create a local
+stratoc accou't.
+have Internet access, that's beca
+AI t you Can press here
+can press *Ait *End on your keyboard
+• sysprep to re—ve your •achine IO.
+VÄ Instance go to
+===== frame_0045
+Win2022 Basel mage
+===== frame_0046
+Virtual Machiræ Details
+===== frame_0047
+Win2022 Baselma e
+You to create Switches, 8 and 9.
+bridged. make Sure to bridged to your your Hifi
+your acit342e•CHent1
+step install 2022
+to alnys to mt9.
+You Can not find 2022 profile, so the 2Ø19.
+Ea h folder. mix
+s anykey as fast as possible
+I "ill enter "y key
+r Yw full (Desktop)
+You Nke a base image SO you do not need to enter your key.
+You do not have access, that • S you are Connecting a Switch.
+you Can press Ctrl *Alt *End on keyboard
+Step 4: sysprep to your ID. Really
+not on this instance.
+Step S; a Snapshot. You Can it in S
+Machine Details
+instance will go to
+===== frame_0049
+Step 1; netw•k.
+bridged. make Sure to bridged to your your "if i
+*Chirw to Ottwrwise,
+Ea h folder. not mix
+Y full (Desktop).
+You do not have access, that • S nor.al you are a Switch.
+aluays —ct to mt9.
+Step S; a Snapshot. You Can it in S Seconds
+Step 6: Can a instance. I
+===== frame_0050
+You need to "itches, 8 and 9.
+VmnetS: Host only, uncheck connect a host virtual adapter to this use dhcp.
+vmnet 9: sane as above.
+bridged. sure to bridged to your double check your
+• If you need access, Can Connect your machine to Otherwise, Connect to
+%.dify your acit342e•cIientI
+step 2: install 2022
+You can not find 2022 profile, so Choose the 2019.
+create a folder. Each uses one folder. not the. together.
+nake sure press anykey 's fast as
+I enter —y key
+do not use Windows 2022 Core) You need full (thsktop).
+You nake a base so you not need to enter your key.
+configuration: You need to create a local account.
+You do have access, that • s because you connecting a
+or Can press Ctrl *End on your keyboard
+3: install v—are tools.
+4: sysprep to your machine Really
+S: create a snapshot. You can recover in 5 seconds
+6: you can clone a instance.
+Your instance go to CmE
+if have encrugh space. you can use the full clone. I to the full clone.
+If do not have space,
+just create a linked Clone. That can
+===== frame_0051
+Vmnet8: Host only, uncheck connect a host Virtual adapter to this use dhcp.
+bridged. Rake sure to bridged to your check
+If you need internet access. can connect your machine to Otherwise. connect to
+:-bdify acEt342e.c1ient1
+a folder. Each one folder. not the. together.
+rake sure press anykey as fast as
+I enter key later.
+do not use *indows 2-022 Yew need full (Desktop).
+You nake a base Image so you not need to enter key.
+You do have Internet access, that •s because are connecting a
+or you press .End on your keyboard
+4: sysprep to your Really
+S: create a snapshot. You can recover it in S seconds
+6: can clone a instance.
+cha»se generalize.
+Your Instance 80 to
+if you have space, you Can use the full clone. I to use the full 'Ione.
+linked clone: just difference disk 2
+If you do not have enough space,
+just create a linked clone.
+That Can Save you a lot of
+===== frame_0054
+Win2Q±2 aaseimage
+===== frame_0055
+[tl ACIT34c•o-DC1
+Vmnet8: Host only, connect a host virtual adapter to this use dhcp.
+bridged. Hake Sure to bridged to your double Check your
+If you need intemet access, can your machine to connect to
+your acit342e•cIientI
+step 2: install Windows 2022
+nake sure anykey 's fast as
+do not use 2-022 (Sen•er Core) You need full (Desktop).
+You nake a base Inage so you do not need to enter your key.
+configuration: You need to create a local administrator
+You do have internet access, that's nonal because are connecting a suitch.
+or you Can press Ctrl •End on your keyboard
+S: a snapshot. You can recover it in 5 seconds
+Your instance go to
+if you have enough space, you Can use the full I to the full
+fun clone: sa— as your instance. 188b.
+linked clone: just difference disk I•2gb.
+That Can Save you a of
+===== frame_0058
+you need access. can connect your machine to Otherwise, connect to
+your acEt342e.c1ient1
+can not find 2022 so choose the 2019.
+a folder. Each one folder. not then together.
+nake sure press anykey as fast as
+do not use You need full
+nake a base so you not need to enter key.
+have internet access, that •s because are connecting a switch.
+Ait •Delete: you can press here
+can press *End on your
+• sysprep to your machine Really
+Step S: Create a snapshot. You can recover 5 seconds
+i F you have space, you can use the full clone. I to use the full clone.
+clone: sae as original instance. 188b.
+I Lnked crone: just difference disk around 1-28b.
+If you do not have erou8h space,
+step 7: you need internet access so connect ywr instance to vmete to active sem•er 2e221
+===== frame_0059
+can not find 2022 profile, so choose the 2019.
+( peate a new folder. Each uses one folder. 00 not mix then together.
+rake sure anvkey as fast as
+do not use HindOWS Server 2e22 (Server You need full
+nake a base so you do not need to enter key.
+"sic configuration: You need to create a local administrator account.
+have Internet access, that •s because you are connecting a switch.
+• sysprep to your machine
+Done. not on this
+step 6: can a instance.
+if you have space. can use the full 'Ione. I to use the full clone.
+clone: as ycwr• instance. 188b.
+1 Inked clone: just difference disk
+step 7: you need internet access so instance to to active your 2Ø22
+it IS the as your brand new You need to configure your
+===== frame_0061
+Please wait for the Windows Modules Installer
+===== frame_0062
+d ministr*a/or
+===== frame_0066
+WI N • Sx3ÜHNGCLA
+WIN - SX3C3HNGCLA
+===== frame_0067
+GS;) • Server Manager
+• Local Server
+===== frame_0068
+Depending on you got
+xxxxx- xxxn-xxxxx-66RQM
+update product key
+Windows is activated
+We've activated this copy of Windows.
+===== frame_0070
+and Storage Services
+is-I 15-1 tasG7 g
+===== frame_0074
+Applying computer settings
+===== frame_0075
+p Type here to search
+===== frame_0076
+No results fourd for •cm'
+===== frame_0077
+WELCOME TO SERVER MANAGER
+p Type rære to search
+O Configure this local server
+ROLES AND SERVER GROUPS
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+Man .geab.l.ty
+===== frame_0078
+a folder. Each v' one folder. not then together.
+do not use (Server You need full GOI
+nake a base image so you do not need to enter key.
+Sasic configuration: You need to create a local administrator account.
+have internet access, that •s because you are connecting a
+4: sysprep to your machine
+5: Create a snapshot. You can recover 5 seconds
+6: you can a instance.
+if you have space, you can use the full 'Ione. I to use the full clone.
+Clone: as your instance. 188b.
+1 lnked clone: just difference disk aeound 1-28b.
+If you do not have space,
+just create a linked clone. That can save you a lot of
+step 7: you need Internet access so instance to vmete to active your 2e22
+t the as your brand new
+You need to configure

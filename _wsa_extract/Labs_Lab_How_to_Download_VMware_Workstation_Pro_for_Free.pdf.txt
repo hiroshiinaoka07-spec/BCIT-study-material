@@ -1,0 +1,43 @@
+--- page 1 ---
+1 
+How to Download VMware Workstation Pro for Free 
+1. Register an account on Broadcom here: https://profile.broadcom.com/web/registration/
+Note: Do not use your BCIT email. You need to use your personal email either gmail or 
+outlook. 
+2. Check your email to get the verification code and then complete your registration.
+3. Login your Broadcom account by your email above,
+https://profile.broadcom.com/web/registration
+or
+https://access.broadcom.com/default/ui/v1/signin/
+Note: if you get the following error, switch to Chrome browser and try. 
+
+--- page 2 ---
+2 
+ 
+4. After you log in to your account, navigate to My Dashboard. 
+ 
+5. Search VMware workstation Pro and find an appropriate version of VMware. 
+ 
+ 
+Note: download the correct version based on your current OS. 
+6. Since Broadcom offers a free edition for home users, you need to choose VMware 
+Workstation Pro 17 for personal use. Click on it, and you should see the dropdown list. 
+
+--- page 3 ---
+3 
+ 
+ 
+7. Click the current version (17.5.2). You need to agree to Broadcom terms and conditions 
+before you can download the software. 
+ 
+ 
+ 
+8. Back to download page. You can download it now. 
+
+--- page 4 ---
+4 
+ 
+ 
+ 
+9. Check your download folder and then install the application. Feel free to ask me if you 
+have any questions. 

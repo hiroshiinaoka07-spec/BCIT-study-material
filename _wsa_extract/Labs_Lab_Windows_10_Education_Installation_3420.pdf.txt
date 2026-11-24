@@ -1,0 +1,156 @@
+--- page 1 ---
+ACIT 3420 
+1 
+Windows 10 Education Installation 
+Description 
+Upon completing this activity, you will create a virtual machine and install Windows 10 Education (x64) 
+as the Client Operating System, which will be utilized in subsequent labs. 
+Task 1: Download Windows 10 Education ISO (Newest version) Note: You can also install Windows 11 
+Click to download it through Microsoft Azure Portal. 
+Note: Please read the download instruction here, Content->Labs->Lab1(A)->Software Download 
+Windows (10) 
+Task 2: Create One VM on VMware Workstation Pro 
+Create one virtual machine 
+Virtual Machine Name: ACIT3420-Win10
+Computer name: Ca-Van-C1
+Type: Windows 10
+RAM: VM1: 2048 MB (2GB) or above
+Disk: 60GB or above
+How to Create a Virtual Machine 
+1. Launch the VMware Workstation Pro 17 (Linux Centos:
+Centos/Applications/System Tools/VMware Workstation)
+2. Click Create a New Virtual Machine. In the installation wizard window, Select Typical
+and then click Next.
+
+--- page 2 ---
+ACIT 3420 
+2 
+3. In the Guest Operating System Installation Window, you can select Installer disc image
+file (iso) (Not Recommended) and then click Next or Choose I will install operating
+system later (Suggested).
+Note: For Linux users, you have to select “I will install the operating system later”. (Do 
+not directly select Use ISO image.) 
+
+--- page 3 ---
+ACIT 3420 
+3 
+4. On Select a Guest Operating System, Guest Operating System: Microsoft Windows and
+Version: Windows 10.
+5. On the Name the Virtual Machine Windows, Type your Virtual Machine Name: ACIT-
+3420-C1 or other names.
+Note: For better organization of your virtual machines, create a separate folder for each
+VM rather than using the default location. For instance, I created a folder named "Win10"
+on the C drive specifically for storing the Windows 10 Education VM.
+
+--- page 4 ---
+ACIT 3420 
+4 
+6. On Specify Disk Capacity Window, Maximum disk size is 60GB.
+Question: split virtual disk into multiple files vs. single file?
+7. On the Ready to Create Virtual Machine window, review the summary of your VM and
+then click Finish
+8. Select your virtual machine (ACIT-1420-C1), right-click, and choose Settings. Note:
+You can adjust and configure the hardware resources of your VM from this menu.
+
+--- page 5 ---
+ACIT 3420 
+5 
+
+--- page 6 ---
+ACIT 3420 
+6 
+9. In the Virtual Machine Settings window, click on Processors to adjust the virtualization
+engine.
+Question: Why is it necessary to enable options such as "Virtualize Intel VT-x/EPT or
+AMD-V/RVI" and "Virtualize CPU performance counters"?
+Note: Your host machine (Laptop) must support and enable virtualization
+engine.
+Note: Do not enable Virtualization engine due to potential complications with
+WSL2
+Note: If you have more than one monitor, you can also adjust the Display settings 
+accordingly. 
+
+--- page 7 ---
+ACIT 3420 
+7 
+
+--- page 8 ---
+ACIT 3420 
+8 
+10. Click CD/DVD (SATA) and select ISO image. Note: If you have physical DVD drive,
+you can choose “Use Physical Drive”. Otherwise, select use ISO image file.
+Task 3. Install Windows 10/11 Education To 
+install Windows 10/11 Education: 
+1. Insert the Windows 10 disc into the DVD drive and turn on the computer. Press any key
+to boot from the DVD (if necessary) (Physical drive only).
+2. Power on the VM. Press any key to boot from cd or DVD (VMware workstation).
+
+--- page 9 ---
+ACIT 3420 
+9 
+Note: Press any key promptly during startup to avoid PXE boot selection. If PXE boot is selected, 
+shut down your VM and restart it to try again. 
+3. Use the drop-down lists to select the appropriate language, time and currency format,
+and keyboard or input method. Then, click Next.
+3. On the Windows 10 Install Now page, click Install now.
+Note: You may have an issue below:
+
+--- page 10 ---
+ACIT 3420 
+10 
+
+--- page 11 ---
+ACIT 3420 
+11 
+Questions: 
+•
+What is the reason for the issue above?
+•
+How can the problem be resolved?
+4. When the Activate Windows page appears, in the text box, type the Windows 10
+activation key and then click Next.
+5. On the Select the Operating System to Install page, select Windows 10 Education. Click
+Next.
+6. On the License Terms page, select the I accept the license terms option and then click
+Next.
+7. Click the Custom: Install Windows only (advanced) option.
+8. The Where Do You Want to Install Windows? page appears. From the list
+provided, select the partition on which you want to install Windows 10, or choose an
+area of unallocated disk space where the Setup program can create a new partition.
+Then, click Next.
+9. After several minutes, during which the Setup program installs Windows 10, the
+computer will reboot. When the Customize Settings page appears, type your
+password in the Password and Reenter password text boxes. Click Finish.
+Note: Make sure to create complex password.
+10. Active your windows 10. Note: Make sure your computer has internet access. Otherwise,
+check you VM settings. Challenge question: Bridget vs. NAT?
+
+--- page 12 ---
+ACIT 3420 
+12 
+Task 4: Update Windows 10 
+Start->Setting->Update & Security and then click Download updates only, using Windows 
+update? 
+Task 5: Change your VM’s Computer Name to Ca-Van-C1 and paste your screenshot of your 
+new computer name below. 
+hints: 
+
+--- page 13 ---
+ACIT 3420 
+13 
+Task 6 (Optional): Update your Windows OS and run the following cmdlet, wmic qfe list. Paste 
+your screenshot here (see an example below) 
+Challenge Questions: 
+a.
+Does your virtual machine have internet access? Try pinging 8.8.8.8 to check.
+b. If there is no internet access, review your network adapter configuration. Which type of
+adapter—Bridged, NAT, or Host-only—should you select? Explain your choice.
+Errors 
+If you have errors above, uncheck all virtualization engine. 
+
+--- page 14 ---
+ACIT 3420 
+14 
+Lab Submission 
+Submit your Task 5 Screenshot to Learning Hub->Activities->Assignments->Week 1 Lab 1A. 
+See an example below. 

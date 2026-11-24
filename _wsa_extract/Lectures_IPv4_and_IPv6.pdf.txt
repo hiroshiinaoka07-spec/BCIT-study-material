@@ -1,0 +1,269 @@
+--- page 1 ---
+Implementing 
+IPv4 and IPv6 
+Addressing 
+
+--- page 2 ---
+Overview
+Implement IPv4 and IPv6.
+Configure IPv4 addresses and options
+Determine and configure appropriate IPv6 
+addresses
+Configure IPv4 or IPv6 subnetting
+Implement IPv6 stateless addressing
+Configure interoperability between IPv4 and 
+IPv6 by using ISATAP, 6to4, and Teredo 
+scenarios
+2
+
+--- page 3 ---
+Connecting to a Network
+Designing network connectivity in today’s networks requires you to make 
+decisions about:
+Using IPv4/IPv6
+Designing a name resolution strategy
+Understanding how to configure your wired and wireless network for 
+security
+3
+
+--- page 4 ---
+Implementing IPv4 and IPv6 
+Addressing 
+When accessing computers on a network, you typically communicate by 
+using their host names. 
+Every device that connects to your network or the Internet must have 
+an Internet Protocol (IP) address. 
+You also need a way to associate these names to their assigned IP 
+address. 
+4
+
+--- page 5 ---
+Implementing IPv4 and IPv6 
+Addressing 
+Internet Protocol (IP) is the key protocol in the TCP/IP suite. It is 
+responsible for adding addressing information to the packets for the 
+sender and the receiver, as well as adding data to help route and deliver 
+the packet. Windows 10 uses TCP/IP as its default networking protocol. 
+Transmission Control Protocol/Internet Protocol (TCP/IP) is a set of 
+protocols that allows computers to exchange data within a network and 
+between networks. These protocols (or rules) manage the content, 
+format, timing, sequencing, and error control of the messages that are 
+exchanged between the devices. 
+5
+
+--- page 6 ---
+Exploring IPv4 Addressing 
+Microsoft, along with other industry leaders, is working hard to make 
+IPv6 the next standard for IP addressing. 
+In the meantime, you have a mixture of IPv4 and IPv6 devices on your 
+network, so you need to understand how these devices are configured 
+and how they interact with each other. 
+6
+
+--- page 7 ---
+Exploring IPv4 Addressing 
+A portion of the 32 bits is associated with the network on which the 
+computer is physically located. This portion of bits is called the network 
+ID. 
+The remaining bits, allocated to the host, are called the host ID. All 
+computers on the same local network/subnet share the same network 
+ID, but each computer within the local network/subnet has its own 
+unique host ID. 
+7
+
+--- page 8 ---
+Exploring IPv4 Addressing 
+8
+
+--- page 9 ---
+Exploring IPv4 Addressing 
+9
+
+--- page 10 ---
+Configuring IPv4 Subnetting 
+Subnetting is the process used to break a larger network into smaller 
+segments. 
+For example, a Class B IP address has more than 65,000 host addresses 
+for a single, logical segment. Adding that many computers to a single 
+network isn’t feasible. If you organize the larger network into smaller 
+segments (for example, 254 subnetworks), each can host up to 254 
+hosts. You accomplish subnetting by stealing bits from the host portion 
+of an address to create a new subnet section. 
+10
+
+--- page 11 ---
+Configuring IPv4 Subnetting 
+11
+
+--- page 12 ---
+Understanding CIDR 
+In practical use, the IP address classes proved to be wasteful, and when 
+the Internet first experienced a massive period of growth in the 1990s, 
+it was feared that there might at some time be a shortage of addresses. 
+To avoid assigning entire addresses of a particular class to networks that 
+didn’t have that many hosts, the IETF eventually published a new 
+standard for assigning IP addresses called classless interdomain routing 
+(CIDR). 
+12
+
+--- page 13 ---
+Implementing NAT 
+Although CIDR helped use the IPv4 addresses more efficiently, 
+additional steps had to prevent the exhaustion of IPv4 addresses. 
+Network Address Translation (NAT) is used with masquerading to hide 
+an entire address space behind a single IP address. 
+In other words, it allows multiple computers on a network to connect to 
+the Internet through a single IP address. 
+13
+
+--- page 14 ---
+Understanding IPv6 and IPv6 
+Addressing 
+IPv6 provides a number of benefits for TCP/IP-based networking 
+connectivity, including:
+A 128-bit address space to provide addressing for every device on the 
+Internet with a globally unique address
+More efficient routing than IPv4
+Support for automatic configuration
+Enhanced security to protect against address and port scanning attacks 
+and utilization of IPsec to protect IPv6 traffic
+14
+
+--- page 15 ---
+Understanding IPv6 and IPv6 
+Addressing 
+IPv6 supports three address types:
+Unicast provides one-to-one transmission service to individual 
+interfaces, including server farms sharing a single address. 
+Multicast provides one-to-many transmission service to groups of 
+interfaces identified by a single multicast address.
+Anycast provides one-to-one-of-many transmission service to groups of 
+interfaces, only the nearest of which (measured by the number of 
+intermediate routers) receives the transmission. You typically use this 
+for locating services or the nearest router.
+15
+
+--- page 16 ---
+Understanding IPv6 and IPv6 
+Addressing 
+With IPv6, you still have unicast and multicast addressing. However, 
+unicast addressing can be divided into:
+Global unicast addresses: Public addresses that are globally routable 
+and reachable on the IPv6 portion of the Internet. They are equivalent 
+to a registered IPv4 address and unique on the Internet.
+Link-local addresses: Private nonroutable addresses confined to a single 
+subnet. 
+Unique local addresses: Meant for private addressing, with the addition 
+of being unique, so that joining two subnets does not cause address 
+collisions.
+16
+
+--- page 17 ---
+Understanding IPv6 and IPv6 
+Addressing 
+Although you can assign IPv6 addresses manually, IPv6 is usually configured 
+automatically via autoconfiguration. For IPv6, there are three types of 
+autoconfiguration:
+Stateless autoconfiguration: Configuration is based on Router Advertisement 
+messages, which include the stateless address prefixes. When you are using 
+stateless autoconfiguration, you are using native IPv6 connectivity.
+Stateful autoconfiguration: Configuration is based on a stateful address 
+configuration protocol, such as DHCPv6, to obtain addresses and other 
+configuration options. 
+Both autoconfiguration: Although configuration is based on Router 
+Advertisement messages to provide stateless address prefixes, it also requests 
+hosts to use a stateful address configuration protocol.
+17
+
+--- page 18 ---
+Using the Default Gateway 
+A default gateway is a device, usually a router, which connects the local 
+network to other networks. 
+When you need to communicate with a host on another subnet, you forward 
+all packets to the default gateway. 
+18
+
+--- page 19 ---
+Understanding Name 
+Resolution 
+Name resolution is the process of converting friendly names to IP addresses. 
+The primary name resolution system is DNS. 
+Domain Name System (DNS), a naming service used by the TCP/IP network, is 
+an essential service used by the Internet and can be integrated with other 
+services, such as WINS, DHCP, and Active Directory. 
+DNS servers are used to associate a computer name such as 
+Server01.Support.contoso.com to an IP address. 
+19
+
+--- page 20 ---
+Understanding Name 
+Resolution 
+DNS uses fully qualified domain names (FQDNs) to map a host name to an IP 
+address. 
+An FQDN describes the exact relationship between a host and its DNS domain. 
+For example, computer1.sales.microsoft.com represents an FQDN; the 
+computer1 host is located in the sales domain, which is located in the 
+Microsoft second-level domain, which is located in the .com top-level domain. 
+20
+
+--- page 21 ---
+Configuring IPv4 and IPv6 
+Settings and Options 
+Network settings can be configured either manually or automatically using 
+DHCP. 
+Using manual settings can introduce configuration issues that can affect 
+communications. 
+Using a centralized approach to IP address management requires you to 
+have a solid understanding of DHCP. 
+21
+
+--- page 22 ---
+Using IPv4/IPv6 Transition 
+Technologies 
+The transition from IPv4 to IPv6 is expected to take several more years. 
+In the meantime, expect to see a mix of IPv4, IPv4/IPv6 (dual stack), and IPv6-
+only networks. 
+To help with the transition from IPv4 to IPv6, several methods were developed, 
+including 6to4, Teredo, and Intra-Site Automatic Tunnel Addressing Protocol 
+(IPv6). 
+22
+
+--- page 23 ---
+Configuring 6to4 
+The 6to4 transition mechanism allows IPv6 packets to be transmitted over 
+an IPv4 network, such as the current Internet. 
+Instead of configuring an explicit tunnel, you define the IPv4 addresses in 
+IPv6 format and then encapsulate IPv6 traffic into IPv4 packets. 
+Because IPv4 is the underlying technology, you must have a global IPv4 
+address connected. The sending host and receiving host run both IPv4 and 
+IPv6. 
+The sending host is responsible for encapsulating outgoing IPv6 packets 
+and the receiving host is responsible for encapsulating incoming 6to4 
+packets. 
+A router could be configured as the sending or receiving host, which would 
+then forward packets to other clients. 
+23
+
+--- page 24 ---
+Configuring ISATAP 
+ISATAP is an automatic tunneling protocol used by the Windows 
+workstation operating systems, which allows you to use IPv6 
+applications on an IPv4 network by emulating an IPv6 link using an IPv4 
+network. 
+The ISATAP address consists of a valid 64-bit unicast address prefix and 
+the interface identifier, such as a link-local address prefix (FE80::/64), 
+site-local prefix, or global prefix. 
+The last 64 bits are ISATAP addresses, which are the locally administered 
+interface ID ::0:5EFE:w.x.y.z, where w.x.y.z is any unicast IPv4 address in 
+hexadecimal form. 
+24
+
+--- page 25 ---
+Configuring Teredo 
+Teredo, an IPv4 Network Address Translation-Traversal (NAT-T) for IPv6, is 
+an address assignment and automatic tunneling technology that provides 
+unicast IPv6 connectivity across the IPv4 Internet by encapsulating IPv6 
+packets within User Datagram Protocol (UDP) datagrams. 
+One advantage of Teredo is that it will function even when the IPv6/IPv4 
+hosts are located behind one or multiple IPv4 NATs. 
+25

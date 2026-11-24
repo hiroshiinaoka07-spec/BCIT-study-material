@@ -1,0 +1,198 @@
+===== frame_0001
+CJ W,n2016S Base Image
+CJ ACIB420.SDC
+To d:rect input to th:s VM click inside cr
+===== frame_0002
+@ACIT3420.Dc VMware workstation
+E:' My Corn puter
+(4 • Server Manager • AD DS
+To d:rect input to thls VM click inside
+===== frame_0003
+@ACIT3420.C1 - VMware
+===== frame_0004
+CJ ACIT3420.SDC
+To dirat {nout to th:s VM inside o:
+===== frame_0005
+@ACIT3420.DC - VMware wc„kstation
+EJ My Computer
+To d:rect input to th:s
+move lhe rrcose oointer Inside or mess (tri-6
+===== frame_0006
+Q @ File Edit View VM Tabs Helo
+and Storage Services
+===== frame_0007
+@ File Edit View
+Add Roles Featwes Wizard
+Installation progress
+O Feature i nation
+started on CA-
+Remote Sewer Administration
+Role Administration Tools
+can close this wizard without interrupting tasks. task progress or open this
+page again by dicking Notifications in the command bar, and then Task Details.
+Export figuration settings
+11/4/2018 4S7•So PM
+11/4/2018 4S2;49 PM
+CA-VAN-WRI 1202 Error
+CA-VAN-SVRI 1202 Erm.r
+CA-VAN-SVRI W'aming
+All semcesl total
+Wind cnws Time
+Active OirEtOry 'Web
+Automatic (Triggered)
+===== frame_0008
+DHCP Configuration wizard
+Specify the credentials to be used to authorize the server in AD DS.
+@ use the user' s credentials
+C) Use alternate credentials
+C) Skip AD authorization
+All semcesl 14 total
+===== frame_0009
+@ File Edit View VM Tabs Helo
+9) Server Manager DHCP
+Active D.rectory users and Computers
+Action View Help
+Active Directory Com
+Man.ged Service
+Netwotk Configuration
+ROS Endpoint Servers
+ROS Management Servers
+ROS Remote Access
+Server Operators
+Security Group
+Members Of this group
+Mernb«s Of this group
+Members in this grot.w
+Can •drninistem
+Supports file repbc•tion
+Users prevented from
+Mernbers Of this group. „
+CA-VAN-WRI warning Microsoft-windows-DHCP-Se,ve, System
+CA-VAN-SVRI 1056 warning Microsoft-Windows-DHCP-Server System 11/4/2018 SOO-SS
+CA-VAN-SVRI 1036 Error
+All semcesl I total
+Server Na Display Na me
+CA-VAN-WRI DHCP server
+Microsoft-Windows-DHCP-Server PM
+===== frame_0010
+Server Manacer DHCP
+mspOy "atisticsm
+Configure Faibvem
+nge ot IP addresses assigned
+'questing dynamic IP
+tust create and '0Migure a
+•ynamic IP an be
+on the Action menu
+M tt -Windows- DHCP-
+M jCrcr50 ft-Windows- DHCP- Server
+M ft -Windows- DHCP- Server
+iCroso ft-Windows- DHCP- Server
+M icrcr50 ft -Windows- DHCP-
+M jcroso ft-Windows- DHCP-
+11/4/2018 SOO-SS
+===== frame_0011
+Server Manaaer DHCP
+New Scope Wizard
+===== frame_0012
+Contents Of DHCP Server
+sc 1192. BCIT Downtown
+v Scope (1*2.168.239.01
+===== frame_0013
+@ File Edit View VM Tabs Help
+9) Server Manager Local Server
+(c) 2016 Microsoft Corporation.
+ii All Server,
+All rights reserved.
+v Search Network
+nem item selected
+Warning Microsoft-Windows-Time-service
+is-8350UCPU @ 1.70GHz
+===== frame_0014
+i Local Server
+ii All Servers
+Network Corvnecr:cnn
+(Hcp Enabled. .
+em item selected
+Autoconfiguration Enabled .
+Link •local IPV6 Address .
+Autoconfiguration IPv4 Address.
+Subnet Mask . . . . . . . . . .
+Default Gateuay
+client LXJID. .
+unnel adapter isatap.{AD43ce95-5BD7-4FDc-83F6-25362D3BB189):
+. disconnected
+Connection-specific DNS Suffix
+Micmsoft Adapter
+physical Address. .
+IP Configuration
+: Intel(R) 82574L Gigabit Connection
+. : 255.255.e.e
+: ee-e1-oe-e1-»-71-3e-5F-ee-ec-29-89-55-62
+===== frame_0015
+Network Corvnecncnn
+Administrator: Command 'rompt
+-unnei adapter isatap. (NWC095-5BD7-aFtx-83F6-2S362D3BB189):
+Media State . .
+Connect • Spec Suffix
+Description _ _ . .
+• ISATAP Mapter•
+: ee-ee-ee-ee-ee-ee-ee-€e
+t*KP Enabled. . . . . . . . . .
+"ind.yas IP Configuration
+i : thernet adapter Ethernete:
+Link-local Address . . . .
+unnel adapter isatap.Adatu..
+Connection- specific mlS Suffix
+192.168 _ 239. so
+: 192.168.239.2'»1
+===== frame_0016
+Remote manager-ner
+Remote Desktop
+Administrator: Command
+-unnel adapter isatap. (ADa3ce95-5BD7-aFtX-83F6-25362D3BB189):
+t • Spec if iC Suffix
+AutoconfiguraticN' Enabled .
+. lindtxs IP Configuration
+Oøeratsng system
+All events | 79 total
+- unnel adapter isatap.Adatu..cc*:
+Connection-spec ific Suffix
+Microsoft ISATAP Adapter
+: 192.168.239.50
+Microsoft-Windows-Service Control Manage
+M icroso ft- Windows- Tim eService
+core(TM) is-8350UCPU @ 1.,'OGHz
+===== frame_0017
+Last installed umtates
+Windows u # ate
+Last Checked 'Ot updates
+Windtnys Defend
+Feedback & Diagnostics
+IE Enhanced Security Configuration
+Installed memory (RAM)
+W i n dows Firewall
+Remote management
+Operating system version
+Hardware m fomation
+IP-v4 address assigned by OHCP, IPv6 enabled
+M•aosott Windows Server 2016 Standard
+VMware. VMware7.1
+Microsoft- Wndows-Service Control Manager
+Microsoft-Windows- Service Control Manager
+Microsoft- Windows-Time-ServSce
+9/9/2018615 PM
+updates only, using Windmvs update
+Real • Protection: On
+(urc.ogcx)) Pacifrc lime CUS & Canada)
+C0376-30727-59679-AA475 (activated)
+15-83500 CPU @ I.Joc,Hz. core(TU) is-8350U @ 1.70GHz
+===== frame_0018
+Client IP Address
+11/12/2018 5%27PM
+k ACIT3420•0C A ACIT3420•C1
+Network AK cess P
+Sunday. November 4, 2018
+November 201 g
+Set up your calendars to see
+where you need to be
+Hide agenda setup

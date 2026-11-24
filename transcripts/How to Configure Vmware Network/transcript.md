@@ -1,0 +1,162 @@
+# Transcript: How to Configure Vmware Network.mp4
+
+- Source: `C:\Users\hiros\BCIT Study stuff for cursor\Window-server-admin\Labs\Lab - Copy (2)\How to Configure Vmware Network.mp4`
+- Duration: 00:13:11
+- Segments: 152, screenshots: 26
+- Whisper model: `small` (auto-generated; may contain recognition errors)
+
+## [00:00:00]
+
+![screenshot at 00:00:00](frames/frame_0001.jpg)
+
+`[00:00:00]` OK, today I am going to teach you how to configure Wimware Workstation Network. `[00:00:07]` For the whole term, you have to follow my instructions to configure the network properly. `[00:00:14]` OK, so first step, go to Edit Wimware Network Editor. `[00:00:25]` OK, from here, Wimware Network Editor, `[00:00:28]` you're going to see the current virtual network, which is VM91 and VM98. `[00:00:36]` So how do you know I have a VM91, VM98? `[00:00:41]` So first, you can go to your network configuration.
+
+## [00:00:43]
+
+![screenshot at 00:00:43](frames/frame_0002.jpg)
+
+`[00:00:46]` You're going to see virtual network card from here, so VM91 and VM98. `[00:01:03]` And you're also going to see the Internet9, and that is for my computer. `[00:01:10]` I have a Wi-Fi module, also I have a docking station. `[00:01:14]` So you're going to have two virtual adapter cards. `[00:01:19]` And also you can use command line.
+
+## [00:01:22]
+
+![screenshot at 00:01:22](frames/frame_0003.jpg)
+
+`[00:01:24]` I pick config. `[00:01:26]` You will see the two network cards, which is virtualized network card. `[00:01:34]` Let me double check. `[00:01:36]` So you will see VM91 and VM98.
+
+## [00:01:37]
+
+![screenshot at 00:01:37](frames/frame_0004.jpg)
+
+`[00:01:44]` Yeah, VM91 and VM98.
+
+## [00:01:46]
+
+![screenshot at 00:01:46](frames/frame_0005.jpg)
+
+`[00:01:50]` So right now I need you to config, VM90 and VM9. `[00:01:57]` OK, change the setting. `[00:02:00]` VM90, which is bridge.
+
+## [00:02:00]
+
+![screenshot at 00:02:00](frames/frame_0006.jpg)
+
+`[00:02:07]` You need it to modify by yourself. `[00:02:12]` You cannot use automatic. `[00:02:15]` So automatic means VMware workstation will automatically select one of options from here, from the drop list. `[00:02:26]` If you have an Internet module or Wi-Fi module, sometimes you get Internet, sometimes you will not, because it's automatic. `[00:02:41]` OK, a VMware workstation is not smart enough to select the network card that is using to access the Internet.
+
+## [00:02:45]
+
+![screenshot at 00:02:45](frames/frame_0007.jpg)
+
+`[00:02:54]` VMware don't know that. `[00:02:56]` So if you want to use Wi-Fi module, so you need to tell VMware, I'm going to use Wi-Fi module. `[00:03:04]` For example, I'm going to use Wi-Fi module. `[00:03:06]` Or if you use the Internet, you're going to tell VMware workstation you're going to use the Internet module. `[00:03:13]` They have Intel Internet module. `[00:03:15]` Because I told you before, I have a docking station, Lenovo USB docking station. `[00:03:23]` So I'm going to choose the Lenovo USB Internet. `[00:03:27]` But if you only have one wireless module, so you will select the wireless one.
+
+## [00:03:30]
+
+![screenshot at 00:03:30](frames/frame_0008.jpg)
+
+`[00:03:35]` And some students are going to ask me, how should I find the name of my Wi-Fi module? `[00:03:44]` So you can go to the control panel, or you can right-click, go to the Disk Manager, Device Manager, not Disk Manager, Device Manager. `[00:03:57]` Go to the Device Manager, expand your network adapters. `[00:04:03]` From here you will find your Internet or Wi-Fi module. `[00:04:10]` So you will see I have an Internet, wireless, AC8265.
+
+## [00:04:15]
+
+![screenshot at 00:04:15](frames/frame_0009.jpg)
+
+`[00:04:17]` I also have Internet and USB. `[00:04:23]` So I'm going to use the Lenovo USB Internet.
+
+## [00:04:23]
+
+![screenshot at 00:04:23](frames/frame_0010.jpg)
+
+`[00:04:28]` Maybe I use Wi-Fi. `[00:04:31]` I'm going to choose Wi-Fi. `[00:04:33]` And then you can choose to apply it. `[00:04:37]` But right now I want you to configure another one also. `[00:04:41]` So I don't need a VMnet one, but that's fine. `[00:04:44]` You can remove that one or you can leave in there. `[00:04:47]` So I'm probably going to remove that one. `[00:04:49]` I don't need a VMnet 8. `[00:04:51]` I'm going to use the host only. `[00:04:54]` Make sure you understand the difference between the host only, net and bridged. `[00:05:00]` So host only also is one of the net types.
+
+## [00:05:08]
+
+![screenshot at 00:05:08](frames/frame_0011.jpg)
+
+`[00:05:10]` So what is net? `[00:05:14]` So the net, if you select the net, so that means your VM can talk to your virtual machine, `[00:05:22]` which is your host can talk to your virtual machine. `[00:05:26]` And also other virtual machine also can talk to your virtual machine `[00:05:37]` if you set up a port forwarding. `[00:05:40]` If you set up port forwarding. `[00:05:47]` Bridged, that means your VMware, your virtual machines `[00:05:54]` can join the SimSumNet as your local host.
+
+## [00:05:54]
+
+![screenshot at 00:05:54](frames/frame_0012.jpg)
+
+`[00:06:04]` So that means your local host can talk to your VMware `[00:06:08]` and other local hosts also can talk to your VMware without extra configurations. `[00:06:15]` If you cannot pin, that means the firewall issues. `[00:06:19]` You have to enable the firewall.
+
+## [00:06:21]
+
+![screenshot at 00:06:21](frames/frame_0013.jpg)
+
+`[00:06:25]` Go to the firewall.
+
+## [00:06:27]
+
+![screenshot at 00:06:27](frames/frame_0014.jpg)
+
+`[00:06:27]` You can select advanced configuration. `[00:06:30]` Look at the inbound row. `[00:06:43]` You can find ICMPv4. `[00:06:49]` ICMPv4. `[00:06:54]` So you have to enable that one. `[00:07:01]` After you enable ICMPv4 and you can pin. `[00:07:06]` So echo request, so make sure allowed. `[00:07:10]` Because I have Kaspersky, so I use Kaspersky firewall.
+
+## [00:07:12]
+
+![screenshot at 00:07:12](frames/frame_0015.jpg)
+
+`[00:07:22]` VM98, I want you to choose host only and uncheck the two options. `[00:07:28]` If you leave the two options, that means your VM98 `[00:07:34]` can automatically get the IP address from the VMware DCP. `[00:07:41]` The subnet is 192.168.134.0. `[00:07:48]` So you can look at your VM98. `[00:07:54]` Let me look at your VM98.
+
+## [00:07:57]
+
+![screenshot at 00:07:57](frames/frame_0016.jpg)
+
+`[00:08:02]` You will see the IP address 192.168.134.1. `[00:08:15]` Because of the VMware DCP. `[00:08:21]` Also you can modify the scope. `[00:08:30]` You can modify the scope. `[00:08:32]` Also you can modify how many days you want to list to your VMware. `[00:08:39]` Your virtual machine. `[00:08:41]` You can modify from here.
+
+## [00:08:42]
+
+![screenshot at 00:08:42](frames/frame_0017.jpg)
+
+`[00:08:43]` I need you to uncheck these two. `[00:08:46]` Add another one. `[00:08:48]` VM99. `[00:08:50]` Click OK. `[00:08:52]` I need you to config the same as VM98. `[00:08:57]` Host only. `[00:08:59]` Click apply. `[00:09:01]` Click OK. `[00:09:06]` After you config, you can use IP config.
+
+## [00:09:06]
+
+![screenshot at 00:09:06](frames/frame_0018.jpg)
+
+`[00:09:11]` You can find release and renewal my IP address. `[00:09:20]` Use IP config. `[00:09:47]` You will see. `[00:09:49]` Let me double check my network.
+
+## [00:09:52]
+
+![screenshot at 00:09:52](frames/frame_0019.jpg)
+
+`[00:10:03]` Look at my IP network. `[00:10:08]` OK. `[00:10:09]` Right now I use Wi-Fi. `[00:10:11]` It's fine. `[00:10:12]` Wi-Fi has the IP address to no IP address. `[00:10:24]` Which is Kaspersky. `[00:10:26]` And you cannot find the IP address for VM99, VM98.
+
+## [00:10:37]
+
+![screenshot at 00:10:37](frames/frame_0020.jpg)
+
+`[00:10:37]` If you cannot find. `[00:10:39]` That means you set up correctly. `[00:10:42]` If you cannot find. `[00:10:44]` That means you set up correctly. `[00:10:46]` I'm going to create a VM.
+
+## [00:10:47]
+
+![screenshot at 00:10:47](frames/frame_0021.jpg)
+
+`[00:10:52]` I'm going to install later. `[00:11:02]` Windows Server 2019. `[00:11:04]` Next. `[00:11:06]` I'm going to call Windows Server ACIT 3420. `[00:11:16]` The master image. `[00:11:27]` Put to here. `[00:11:29]` D drive. `[00:11:30]` Base image.
+
+## [00:11:32]
+
+![screenshot at 00:11:32](frames/frame_0022.jpg)
+
+`[00:11:36]` UEFI security boot. `[00:11:38]` Give you 4GB. `[00:11:48]` Use NIT. `[00:11:49]` You can use NIT right now. `[00:11:51]` That's fine. `[00:11:57]` You can use default. `[00:11:59]` NVMe. `[00:12:00]` Yes. `[00:12:01]` I want to create a new disk. `[00:12:03]` Yes. `[00:12:04]` 120. `[00:12:08]` OK. `[00:12:09]` You can use the multiple file in order to get the better performance. `[00:12:13]` Next. `[00:12:15]` This is a virtual disk names.
+
+## [00:12:17]
+
+![screenshot at 00:12:17](frames/frame_0023.jpg)
+
+`[00:12:18]` OK. `[00:12:20]` Finish. `[00:12:22]` So after you finish.
+
+## [00:12:22]
+
+![screenshot at 00:12:22](frames/frame_0024.jpg)
+
+`[00:12:24]` I want to connect to VM99. `[00:12:26]` Customer. `[00:12:27]` VM99. `[00:12:28]` I also want you to go to the network.
+
+## [00:12:34]
+
+![screenshot at 00:12:34](frames/frame_0025.jpg)
+
+`[00:12:37]` To double check. `[00:12:44]` OK. `[00:12:45]` That's normal.
+
+## [00:12:49]
+
+![screenshot at 00:12:49](frames/frame_0026.jpg)
+
+`[00:12:52]` I'm going to double check again before I overcome my stop. `[00:12:58]` Customer. `[00:12:59]` Customer. `[00:13:00]` Yes. `[00:13:05]` That's normal. `[00:13:06]` OK. `[00:13:07]` If you have questions. `[00:13:08]` Talk to me or email me. `[00:13:10]` Bye.

@@ -1,0 +1,193 @@
+===== frame_0001
+- AdoO* Armbar DC
+Share Permission.pdf
+===== frame_0002
+Share Perrnission.pdf
+===== frame_0005
+IP: 192.168.239.1/24
+DNS: 127.0.0.1
+IP: 192.168.239.6/24
+DNS: 192.168.239.1
+IP: 192.168.239.20/24
+===== frame_0006
+@ ACIT3420-FiIe Server - VMware VWkstation
+Eile Edit Yiew VM Tabs Help
+C] ACIT3420-SuoDC
+ACIT3420-File Server
+ACIT - *420-GW'Ptsense)
+C] VMware Esxi 7 (Svr9)
+t ACIT-3420-WDS
+To retun to computer. "ess Ctrl.
+===== frame_0007
+@ ACIT3420-FiIe Server - VMware Whitstation
+To retun to your computer. press Ctrl
+===== frame_0008
+Command Prompt
+Remote Desktop n
+To retun to your computer. press Ctrl A'
+===== frame_0009
+Eile Edit Yiew vy Tabs Help II • O
+To return to your computer. press Ctrl
+e GS) • Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+i Local Server
+O Configure this local server
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+Roles:' Serverqroups.•l Servers total: I
+ii All Servers
+===== frame_0010
+@ ACIT3420-DC1 - VMware
+To direct input to ttüS VM. Click insi& or
+===== frame_0011
+@ ACIT3420-DC1 - VMware V,orkstation
+C] ACIT3420-Sub0C
+Cl ACIB420-VPN
+To retun to your computer. move the
+• Server Manager • Dashboard
+Roles: | Server groups.' I I Servers total: I
+===== frame_0012
+Active Directory Users and Computers
+Disable U Sers
+===== frame_0013
+SMB Share • Advanced
+NFS Share • Advanced
+New Share Wizard
+Select the profile for this share
+- Applications
+NFS Share - Qu.ck
+This basic profile represents the fastest way to Create an
+SMB file share, typically used to share files with
+Windows- based computers.
+• Suitable for general file sharing
+• Advanced options C an configured by
+using the dialog
+Select a share to display related
+Select o to display quota.
+===== frame_0014
+Configure share settings
+Select Profile
+Share Lo:ation
+CD EVIe access-based enumeration
+Access-based enumeration displays only the files and folders that a user has permissions to
+access. If a does not have (Or equivalent) pemSSiOnS a folder, WmdOwS hides the
+folder from the users view.
+•J Anow caching of share
+Caching makes the Contents Of the share available to Offlü-ve use'S. If the BtarKhCache
+NetwCwk File-S role Service iS installed. you Can enable BranchCache on the Share.
+granchCa& on the file Share
+enable-S Computers in a branch Offre Cache this Share,
+and then allows the files to be securely available to other computers in the branch.
+C] Encrypt data
+When enabled. remote file access to this share will be encrypted. This secures the data against
+unauthorized While the data iS transferred to and the Share. If this is Checked
+and grayed an administrator has turned encryption the entire
+===== frame_0015
+Share Lccation
+EVIe access-based enumeration
+access. If a does not have (Or equivalent) a folder, WmdowS hides the
+•J Allow caching of share
+Caching makes the Contents Of the share available to Offlive use'S. If the BtarKhCache
+NetwCwk File-S role Service iS installed, you Can BranchCache the Share.
+Enable on the file Share
+enables COrnputerS a branch Offre to cache files
+Encrypt data ECES
+unauthorized While the data iS transferred to and the Share. If this box is Checked
+and grayed administrator has turned encryption the entire
+===== frame_0016
+Specify permis
+Cther Setting:
+Advanced Security Settings for Faculty
+Administrators (CA-VAN-SVR61Administrators) Change
+Auditing Effective Access
+For additional information double-click a permission entry. To modify a permission entry, Elect entry and click Edit (if available).
+Permission entries:
+Type Principal
+Allow Full Control
+j¯Add liii—€iil
+Replace all child object permissim entries with inheritable permission entries from Object
+This folder only
+===== frame_0017
+user, Computer, Account, or Group
+From s locabon
+he object name select (eumolQS)
+===== frame_0018
+All shares I total
+Facult on Ca-Van-Svr6
+Volumes New Share Wizard
+Sele:t Profile
+access-based enumeration
+access. If a does not have (Ot equivalent) a Windows hides
+Allow Of Share
+Caching makes the cmtents of the share available to offline users. If the BranchCache for
+Network Files service is å'Stalled, you Can enable BranchCache on the Share.
+Enable BranchCache on the file share
+BranchCa& enables computers in a branch office to mes downloaded from this share.
+and then allows the to be secure-ly available to other computers in the branch.
+Encrypt data access
+W'hen file access to this Share will be encrypted. This the data against
+unauthorized access while the data is transferred to and from the share. If this is checked
+grayed an has turned on errryption the entire
+hip Manager must be "'Stalled.
+Start the Add ROWS and Features
+===== frame_0019
+*mission Entry for Assignments
+principal: Students (AOATUMiStudents) Select a principal
+Applies to: This folder, subfolders and files
+Basic permissions:
+Ü Full control
+@Read & execute
+@List folder contents
+Spec. a' pert" g ions
+Only appty permissions to objects and/or containers Within this contairw
+a to limit prir%ipai Will granted specified permissioru only if are met.
+Add a condition
+Show advanced permissions
+===== frame_0020
+Principal: Students (AOATUM\Students) Select a principal
+===== frame_0021
+All shares | 2 total
+Faculty on Ca-Van-Svr6
+TO quotas hip Resource Manager must be "'Stalled.
+===== frame_0022
+' Ca.Van-Svr6(2)
+DAS es*ss.gnmen ts
+Ava.lability Type
+99.4 GB Free Space
+GO to VO I urvB
+TO quotas Manager must be "'Stalled.
+TO File Server Resource Start the Add ROWS and Features
+===== frame_0023
+@ ACIT3420-CIient - VMwa re Workstation
+===== frame_0024
+CJ VMware Esxi 7 (Svr9)
+CJ ACIB420-VPN
+===== frame_0026
+Server Marager
+To retun to computer. moVe the mow
+GO to Overview
+TO hip Resource Manager must be
+TO File Server Start the Add and Features
+===== frame_0027
+* Qlick access
+Search Assignments
+10/13/2021 908
+===== frame_0029
+To retun to your computer. move the mou •e
+===== frame_0030
+To retun to your computer. move the m t
+===== frame_0032
+To retun to your computer. press Ctrl • A' 1
+===== frame_0033
+To retun to computer. press Ctrl • A -
+===== frame_0035
+p Type here to h
+===== frame_0038
+To computer. move the mou •e
+You need to mdify
+===== frame_0040
+@ ACIT3420-FiI e Server - VMware Workstation
+To direct input to VM. Click insi& or

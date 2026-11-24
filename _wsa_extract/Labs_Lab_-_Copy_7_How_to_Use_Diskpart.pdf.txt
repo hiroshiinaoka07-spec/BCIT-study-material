@@ -1,0 +1,113 @@
+--- page 1 ---
+ACIT 3420 
+Johnny Zhang 1 
+ 
+How to Use Diskpart 
+Before you practice this cmdlet, you have to add an extra disk (5 GB) to your server.  
+Task 1: Add another disk to your server. 
+ 
+ 
+
+--- page 2 ---
+ACIT 3420 
+Johnny Zhang 2 
+ 
+ 
+ 
+ 
+Task 2:  Wiping and formatting a storage device by using old program Diskpart.exe. The commands 
+includes as following: 
+ 
+list disk  
+ 
+select disk (id)  
+ 
+online disk (if the disk is not online)  
+ 
+attributes disk clear readonly  
+ 
+clean  
+ 
+convert MBR (or GPT)  
+ 
+create partition primary  
+ 
+select part 1  
+ 
+active (if this is the boot partition)  
+ 
+format fs=ntfs label=(name) quick  
+ 
+assign letter (letter)  
+
+--- page 3 ---
+ACIT 3420 
+Johnny Zhang 3 
+ 
+ 
+list volume 
+1. Run Cmdlet as an Administrator 
+2. Run diskpart 
+Cmdlet: Diskpart 
+ 
+3. Show all the disks. 
+Cmdlet: list disk 
+ 
+4. Select the disk Note. Make sure that you select the correct one. 
+Cmdlet: select disk 4 
+ 
+5. Setup it online if the disk is offline. 
+Cmdlet: online disk 
+ 
+
+--- page 4 ---
+ACIT 3420 
+Johnny Zhang 4 
+ 
+6. Clear any read-only attributes 
+Cmdlet: attributes disk clear readonly 
+ 
+7. Clean the disk Note: This step will completely wipe all the files located on the disk. There is no a 
+confirmation asking you to confirm.  
+Cmdlet: Clean 
+ 
+8. Cmdlet: list disk   Note: check partition table format of your disk? GPT vs. MBR 
+ 
+9. Convert GPT. 
+Cmdlet: convert gpt 
+ 
+ 
+Cmdlet: convert mbr 
+ 
+
+--- page 5 ---
+ACIT 3420 
+Johnny Zhang 5 
+ 
+ 
+10. Create partition primary 
+Cmdlet: create partition primary 
+ 
+Note: If you do not set a size in megabytes, then all available space on the disk will be used for 
+the partition. For example, If you only want to use part of space such as 5GB, you have to add 
+size parameter, create partition primary size = 5120.  (5Gb: 1024x5=5120) 
+11. Select partition and active it.  
+Cmdlet: select partition 1 
+Cmdlet: active 
+ 
+12. Format the disk 
+Cmdlet: format fs=ntfs  label=test quick  Note: fs: file system. 
+ 
+13. Assign letter Z.  
+Cmdlet: assign letter Z 
+ 
+
+--- page 6 ---
+ACIT 3420 
+Johnny Zhang 6 
+ 
+ 
+14. List Volume 
+Cmdlet: list volume 
+ 
+Task 3 Practice and redo it.  

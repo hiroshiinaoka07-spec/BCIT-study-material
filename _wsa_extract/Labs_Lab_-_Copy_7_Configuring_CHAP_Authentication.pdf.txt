@@ -1,0 +1,28 @@
+--- page 1 ---
+Configuring CHAP Authentication (Windows) 
+This procedure describes how to configure CHAP authentication. 
+1. Open the iSCSI Initiator Properties window. 
+2. In the iSCSI Initiator Properties window, click the Targets tab and select the Volumes 
+target. 
+3. Click Properties to configure CHAP Authentication. 
+a. Ensure that Enable Chap log on is cleared (not selected). 
+b. Use the default Name as the initiator name 
+c. Type the same password in the Target Secret field as the one you used in the 
+Target Password field in the Prism web console Create Volume Group dialog box. 
+d. For mutual CHAP authentication, select Perform mutual authentication. 
+Otherwise, leave this setting cleared for one-way CHAP authentication. 
+e. Click OK. 
+Figure: Configuring CHAP Authentication 
+ 
+
+--- page 2 ---
+f. [Mutual CHAP configuration only; otherwise skip this step.] In the iSCSI Initiator 
+Properties window, click the Configuration tab. 
+g. Click CHAP..., type a password (or secret) in the Initiator CHAP Secret field, and 
+click OK. 
+Figure: Windows Initiator Name 
+ 
+Link:  
+https://portal.nutanix.com/#/page/docs/details?targetId=Web-Console-Guide-Prism-v50:wc-block-
+services-chap-windows-t.html 
+ 

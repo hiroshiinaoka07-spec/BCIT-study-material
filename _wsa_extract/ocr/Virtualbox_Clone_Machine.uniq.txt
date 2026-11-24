@@ -1,0 +1,27 @@
+===== frame_0003
+Vitttnl Machi ne
+New machine name and path
+===== frame_0004
+New Text Docunænt_txt -
+===== frame_0005
+New Text • Notepad
+make sure that you have to run
+will get the same machine Sid.
+sysprep before you clone it. Otherwise, you
+You will be ask to run sysprep for eachl
+===== frame_0006
+make sure that you have to run sysprep before you
+will get the same machine Sid. You will be ask to
+run sysprep before you clone it. Really important
+clone it. Otherwise,
+run sysprep for each
+===== frame_0007
+New Text Document. txt • Notepad
+will get the same machine sid as your base image.
+sysprep for each cloned machine.
+Problem: The cloned machine will
+===== frame_0008
+make sure that you have to run sysprep before you clone it.
+will get the same machine sid as your base image. You will
+Problem: The cloned machine will not be allowed to join the domain. Some
+students will see the problem soon (Week 2?) .

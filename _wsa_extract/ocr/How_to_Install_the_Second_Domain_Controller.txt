@@ -1,0 +1,539 @@
+===== frame_0001
+O •anazo-oca -
+Eik Edit Yim VM J•bs Help I I •
+ii
+File
+0
+Server Manager • Local Server
+PROPERTIES
+sæ-v
+CA-VWSvg,2
+US &
+022
+Stat*
+e.
+===== frame_0002
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii
+File
+0
+Server Manager • Local Server
+PROPERTIES
+type nere to searcn
+US &
+Microsoft Azure S.
+&tformarxe Mon.
+E '2022
+E '2022
+e.
+===== frame_0003
+O •anazo-oca -
+Eik Edit Yim VM J•bs Help I I •
+ii
+File
+0
+Server Manager • Local Server
+PROPERTIES
+42
+CA-VAN-SV'R,2
+c.-vwsw2
+sæ-v
+US &
+Stat*
+===== frame_0004
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii Ans,
+File
+0
+Server Manager • Local Server
+Confirm installation selections
+Optel they
+click
+AD DS nd
+CA-VAN-SV'R,2
+lurcucol us &
+Stat*
+e.
+===== frame_0005
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii Ans,
+File
+0
+Server Manager • Local Server
+Installation progress
+poley
+Role
+AD DS AO LDS
+CA-VAN-SV'R,2
+update
+lurcucol us &
+,itrspø
+Stat*
+===== frame_0006
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii Ans,
+File
+0
+Server Manager • Local Server
+Installation progress
+poley
+Role
+AD DS AO LDS
+CA-VAN-SV'R,2
+lurcucol us &
+,itrspø
+Stat*
+===== frame_0007
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii Ans,
+File
+0
+Server Manager • Local Server
+Installation progress
+poley
+Role
+AD DS AO LDS
+CA-VAN-SV'R,2
+lurcucol us &
+,itrspø
+Stat*
+e.
+===== frame_0008
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii
+Server Manager • Local Server
+PROPERTIES
+Acti„
+Deployment Configuration
+Add outing
+Iou
+219 tot*
+CA-VAN-SV'R,2
+update
+Vile and Storage
+US &
+Stat*
+0
+e.
+===== frame_0009
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii
+Server Manager • Local Server
+Vile and Storage
+PROPERTIES
+Deployment Configuration
+w„iB9
+Iou
+219 tot*
+CA-VAN-SV'R,2
+US &
+to
+Stat*
+0
+e.
+===== frame_0010
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii
+Server Manager • Local Server
+Vile and Storage
+PROPERTIES
+Deployment Configuration
+Smet}
+Iou
+t On
+US &
+to
+Stat*
+0
+e.
+===== frame_0011
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ii
+Server Manager • Local Server
+PROPERTIES
+Acti„
+Prerequisites Check
+Iou
+219 tot*
+CA-Van-SV'R,2
+update
+Vile and Storage
+to is this
+Stat*
+US &
+0
+===== frame_0012
+O •anazo-oca -
+Eik Edit VM J•bs Help
+ACIT34zo-CQ
+===== frame_0013
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help
+f: Esx, 7
+0
+e.
+===== frame_0014
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+Esx, 7
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+CNS
+and Storage
+2
+4
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+File and Storage
+@ Manageablty
+L O eal Server
+ii
+P
+0
+===== frame_0015
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help
+f: Esx, 7
+0
+Help
+c an you find the
+===== frame_0016
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help
+f: Esx, 7
+===== frame_0017
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help
+ACIT34zo-CQ
+===== frame_0018
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help
+f: Esx, 7
+===== frame_0019
+O •anazo-oca -
+Eik Edit Yim VM J•bs Help
+0
+Restarting
+===== frame_0020
+O •anazo-oca -
+Eik Edit VM J•bs Help
+ACIT34zo-CQ
+Help
+Can the
+t dwin will
+DO want to save to
+===== frame_0021
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+AO DS
+CNS
+and
+Server Manager
+• Dashboard
+CA-van-SvR2
+ii Allse,vers
+e.
+===== frame_0022
+O •anazo-oca
+Edit
+VM J.bs
+f: Esx, 7
+===== frame_0023
+O •anazo-oca -
+Eik Edit VM J•bs Help
+rt Esx, 7
+Applying computer settings
+===== frame_0024
+Eik Edit VM J•bs Help
+v,ew
+===== frame_0025
+O •anazo-oca -
+Eik Edit VM J•bs Help
+Applying computer settings
+Edit
+===== frame_0026
+O •anazo-oca -
+Eik Edit VM J•bs Help
+Applying computer settings
+Edit
+let'S test data replication after install the
+===== frame_0027
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+ACIT34zo-CQ
+let •s test the dat. inst-I
+•Alt+Delete to unlock.
+6 44
+ay, September 18
+DO you want to save to Untitled?
+: 49.
+===== frame_0028
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+ACIT3mac2
+Server Manager • Dashboard
+AO DS
+Aduumx
+CNS
+and
+CA-van-SvR2
+ii Allse,vers
+e.
+===== frame_0029
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+Server Manager • Dashboard
+AO DS jj
+Aduumx
+CNS
+and
+cit
+ii
+===== frame_0030
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+Server Manager • Dashboard
+0
+e.
+===== frame_0031
+O •anazo-oca -
+Eik Edit Kim VM J•bs •
+AO DS
+CNS
+and
+0
+Server Manager • Dashboard
+Cevy„
+cit
+BPA Its
+here to sea 'Ch
+Server
+8 PA results
+9,' '02022
+ii
+e.
+===== frame_0032
+O •anazo-oca -
+Eik Edit Yim VM J•bs Help
+ACIT34zo-CQ
+===== frame_0033
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+Server Manager
+• Dashboard
+AO DS jj
+Aduumx
+CNS
+and
+cit
+ii
+===== frame_0034
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+AO DS
+CNS
+and
+Server Manager • Dashboard
+cit
+ii
+===== frame_0035
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+Server Manager
+• Dashboard
+AO DS jj
+CNS
+and
+Aduumx
+cit
+ii
+0
+===== frame_0036
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+Server Manager
+• Dashboard
+f: Esx, 7
+0
+Local
+CNS
+and
+WELCOME TO SERVER MANAGER
+Site
+BPA Its
+L O eal Server
+ii
+SPA Its
+===== frame_0037
+O ACJTu&OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+40 DS
+CNS
+and
+0
+Server Manager • Dashboard
+Aduumx
+cit
+ii
+===== frame_0038
+O ACJTu&OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+i Ser
+ii
+40 DS
+CNS
+and
+0
+Server Manager
+• Dashboard
+ii
+===== frame_0039
+O ACJTu&OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+ii
+40 DS
+CNS
+and
+0
+Server Manager
+• Dashboard
+request the to re.repucate ALL changes for
+the Both the and
+lingering objects on destination DC.
+use Ehen USN Rollbacks suspected.
+enables Change notification the and
+is used the destination holds a read-only COPY Of the
+partition being repucated
+The replicate the Contoso
+to dest.dcøl
+'replicate dest•dcet
+The following a—and replicate the to
+dest-dcel specifying that is the
+ii
+/ replica t
+source-den / readonly
+Ca•van.svrl
+===== frame_0040
+O ACJTu&OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+ii
+40 DS
+CNS
+and
+Server Manager
+• Dashboard
+request the to re.repucate ALL changes for
+the Both the and
+lingering objects on destination DC.
+use Ehen USN Rollbacks suspected.
+enables Change notification the and
+is used the destination holds a read-only COPY Of the
+partition being repucated
+The following replicate the Contoso
+to dest-dcøl
+"replicate dest•dcet
+The "—and the hayberry to
+dest-dcel specifying that is the destination
+/ replica t
+Ca•van.svrl
+ii All servers
+===== frame_0041
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+Server Manager • Dashboard
+WELCOME TO SERVER MANAGER
+f: Esx, 7
+O
+Configure this local server
+DNS
+CNS
+and Storage
+2
+4
+ROLES AND SERVER GROUPS
+ADDS
+@ Manageability
+BPA Its
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+M ity
+BPA Its
+File and Storage
+Manageablty
+ii
+0
+===== frame_0042
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+ii
+CNS
+and S'
+0
+Server Manager
+• Dashboard
+request the to re.repucate ALL changes for
+the Both the and
+lingering objects on the destination DC.
+use Ehen USN Rollbacks are suspected.
+enables Change notification the and destination.
+is used destination holds a read-only COPY Of the
+partition being
+The replicate the Contoso •deer
+to dest.dcel
+'replicate dest•dcet source-den
+The replicate the Rayberry to
+dest-dcel specifying that the the
+dest•dcel
+ii
+===== frame_0043
+O ACJTu20-OC1 -
+Eik Edit Yim VM J•bs Help I I •
+f: Esx, 7
+Server Manager
+• Dashboard
+WELCOME TO SERVER MANAGER
+O
+Configure this local server
+CNS
+and Storage
+2
+4
+ROLES AND SERVER GROUPS
+ADDS
+Add roles and features
+Add other servers to manage
+Create a server group
+Connect this server to cloud services
+DNS
+EPA Its
+File and Storage
+Manageablty
+L O eal Server
+a PA results
+ii
+0

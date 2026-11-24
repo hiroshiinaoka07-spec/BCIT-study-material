@@ -1,0 +1,456 @@
+===== frame_0001
+Lab J Secondary DNS Zone C L
+Getting Started
+httpsz/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
+ACIT-3420-O - Windows Server Administra...
+Content Activities Grades Course Tools myTools
+E-Mail HELP! Edit Course
+TableofContents Labs Lab6: DNS Lab7Secondary DNSZone(E)
+Lab 7 Secondary DNS Zone (E) v
+Lab 7: Planning and Installing Secondary DNS Zone
+The Domain Name System (DNS) is the foundation name service in the Win2012 OS. A
+DNS server responds to name and IP address resolution quenes (recursive queries and iterative
+queries) from the DEN client service (Services. MSc->DNS Client). IT also enables DNS clients
+to locate network services, such as Active Directory Domain Services (AD DS) domain
+controllers, Global Catalog services (GC), and messaging servers. If you configure your DNS
+infrastructure inappropriately or it is not working correctly, these important network service will
+be inaccessible to your network servers and clients. Therefore, it is vital that you understand how
+to deploy, configure, manage, and troubleshoot this critical service.
+Learning Objectives
+After completing this lab, you will be able to:
+Install and configure the DNS server role
+===== frame_0010
+Network Top010kY
+subnet: 255.255.255.0
+DNS: 127.0.0.1
+switch (NAT 9)
+The five basic steps in deploying DNS are:
+DNS: 127.001 ; 192.168.239.1
+Install DNS on one or more servers.
+Configure the DNS servers.
+Create forward and reverse lookup zones.
+===== frame_0011
+@ File Edit View VM Tabs Help II -
+===== frame_0012
+59 @ File Edit View VM Tabs Help
+===== frame_0013
+j S) Type hete to sealch
+Win2022 Base Image
+on this virtual machine
+upgrade this virtual machine
+ACIT3420-DQ Win2022 Base Image
+CJ ACIT3420.Sub0C Image\Wn2022 gase 'mage_vmx
+CJ ACIT3420-HyperV
+[t] ACIT3420.File Sewer
+C] ACIT3420-Client
+CJ ACIT-3420-GW(Ptsense)
+[t] VMware 7 CSV,9)
+C] ACIT3420.VPN
+g Hard Disk (NVMe)
+Network Adapter
+B USB controller
+Custom (VMnet9)
+Type here to enter a description ot this virtual
+• Virtual Machine Details
+State: Powered Off
+Snapshot 'O r ACIT3420• Hyper-V
+Configuration tile: ImagelWn2022 Base Image.vmx
+Hardware compatibility: Workstation virtual machine
+===== frame_0014
+C] ACIT3420.Sub0C
+ACIT3420.File Server
+C] ACIB420-Client
+(t] VMware Esxj 7 CSV,9)
+Edat Virtual settings
+Hard Disk (NVMe)
+Netv•ork Adapter
+B use controller
+Type here to enter a description ot thas virtual
+Brome For Folder
+• Wrtual Machine Details
+Snapshot; Snapshot
+Configuration tile: Image\Wn2022 Base Image.vmx
+===== frame_0015
+'Ower on this virtual machine
+===== frame_0016
+Edat Virtual machine Sett.ngs
+upgrade this virtual
+Snapshot IO r ACIT3420• Hyper-V
+Configuration tile: CWMware\Win2022Waster ImagelWn2022 Base Image.vmx
+===== frame_0017
+Snapshot IO r Hyper-V
+Configuration tile: CWMware\Win2022XMaster Image\Wn2022 Base Image.vmx
+===== frame_0018
+@ Workstation •
+CJ ACIT-3420-WDS
+CJ ACIT3420-DNS(Snd)
+===== frame_0019
+Mar* as Favorite
+Open directory
+@ Removable Devices
+send Ctrl.Alt*Del
+update VMware TOO's.
+g fcaturc is globally disabled
+on this system. and not be X
+===== frame_0020
+Q @ Workstation •
+Virtual Macn.ne
+===== frame_0022
+@ File Edit View VM Tabs Help
+Press Ctrl+Alt+Delete to unlock.
+Sunday, October 24
+===== frame_0023
+fi• @ File Edit View VM Tabs Help II •
+i I cral Sewer
+All events 1 3S total
+Online - Performarxe counters not started
+Windows Activa tion
+10/24/2021 (Activated)
+M ndows- buted COM
+Microsoft- W ndows- Securitr SPP
+Microsoft- W ndows- Distributed COM
+M icrosoft• Windows- Secu ritv SPP
+Microsoft• Wndows•DNS Client Events
+Microsoft- Windows-Complus
+• Windows Remote M
+All services total
+Server Display Name
+CA-VAN-SVRS Application Identity
+10/24/2021 50632
+10/24/2021 506:25 PM
+10/24/2021 50616
+Status Start Type
+Stopped Manual (Triggered)
+===== frame_0025
+i I Oral Servpr
+For C. -Van-Svrl
+Microsoft Defender firewall
+Operating system version
+All events | 6 total
+Microsoft Windcnws Server 2022 Standard
+Last Installed
+Windcw.•s Update
+Last checked for updates
+Microsoft Defender Antivirus
+Feedback & D.a.qnOstiCS
+Enhanced Secunty Configuration
+Download up-dates only, Wing Windows Update
+Real-fime Protection: On
+curc-08:w Pacific Time (US & Canada)
+Intel(RJ core(TMJ is-83SOU CPU @ Intel(R) coregu 15-83500 CPU 1.70GHz
+All services | 220 total
+M -Wi ndOwS • Mib
+M i CrMOft -Wi ndOw•S
+M i CrMOft DNS Events
+ONS Client EventS
+10/24/2021 4-36-45 PM
+10/24/2021 4-56-08 PM
+10/24/2021 4-56-04 PM
+10,124/2021 PM
+===== frame_0026
+For Ca-Van-Svr1
+t Control Network and Internet Network Cornections
+Disable this netm»rk device Diagnose this connection Renarne this connection
+Last Installed uiX3ates
+10,'24/2021 PM
+Char»e settings of this conræction
+15-83500 CPU @ 1.70GHz
+===== frame_0027
+t Control Networkandlntemet NetworkConnections
+Disable this network device Diagnose this connection Renarne this connection
+Last •nstalled
+9/25/2021 5:41 PM
+Cha* settings of this conræction
+Intel(R) az574L Gigab,t C,'
+I item I item selected
+i5-8350U CPU @ 1.70GHz
+===== frame_0028
+Please wait for the Windows Modules Installer
+===== frame_0034
+ii All Servers
+t Control Networkand Internet Network Connections
+Disable this network device Diagnose this connection
+Renarne this connection
+Last installed ucdates
+WIN-A19PCTMV6CA 134
+'5-83500 cpu e 1,70GH:
+===== frame_0035
+192 . 239 . 254
+Computer narne
+Control Networkand Internet
+Last installed updates
+Disable this network device Diagnose this
+Search Netwotk Connections
+Intel(R) 825741 Gigabit Network C,'
+WIN-AJ9ecTMV6CA ' 34
+Network Co nnections
+Internet protocol Wrsion 4 (TCP/P.4) properties
+qop«-ts Demise, ask
+===== frame_0036
+Remote Desktop
+192168239.5, enabled
+updates Wi'Ows Update
+(uTc-0800) tus & Canada)
+CPU core(TM) i5-8350U CPU
+===== frame_0037
+Command prompt
+Microsoft Azure Services
+Performance Monitor
+Quick searches
+1921632395 IPv6 enabled
+IE E ed Security On
+is-83SOU CPU e coreffM) i5-8350U cpc e 170GH:
+===== frame_0038
+i local Server
+insulted updates
+Select Administrator Command Prompt • adatumtom
+microsoft Corporation. All rights reserved.
+WIN-AJ9PcTMv«A 8198 Error Microsoft-Windows-security-SPP Application 10.'24,'2021 5:4022 PM
+W'N-A19PCTMV6CA Warning Microsoft-Windows-Distr,butedCOM system 10/24/2021 PM
+WIN-AJ9PCTMV6CA 8198 Error Microsoft-Windows-secur,t-y-spp Appletion ICV24.Q021 PM
+WIN-AJ9PCTMV6CA Warning system PM
+Ir,teKR) core(TM) i5-83SOU e 170GHz corefTM) '5-83500 cpu 1.7cGH:
+===== frame_0039
+fi• @ File Edit View VM Tabs Help
+WIN. A19PCTMV6CA
+Se'ect Administrator Command Prompt • adatLmtom
+{ c ) Microsoft Corporation. All rights resen•ed.
+: Wserswministrator>ping adatu•.cc•
+WIN-ABPCTMV6CA Warning Microsoft-Windows-Distr,butedCOM system PM
+Windows Update
+9/19/2021 9:09
+(uTc-0800) PKif,c US & Canada)
+is.83"J cpu e com(TM) i5.osou CPU
+===== frame_0040
+*Stalled updates
+Feedback & Oognc•stics
+IE E ed Security Configuration On
+192168239.5. IPv6 enabled
+Microsoft W.ru±ows Senet 2022 Standard
+W24,'2021 54231 PM
+W24/2021 5:4217 PM
+10/24/2021 54022 PM
+W24/2021 540;05 PM
+(urc.ogm) rime (US
+is-83SOU CPU e coreffM) i5-8350U cpc e
+===== frame_0041
+Administrator: Prompt
+Pine request could not find host adatu•.«•.
+request could not find host adatu•.cc•.
+W'N.AJ9pCTMvKA 8198
+WIN-AJ9PCTMV6CA 8198
+WIN-A19PCTMV6CA 8198
+Please check the name and try again.
+Application W24,'2021 54217 PM
+Application 54022
+system W24,'2021 PM
+(uTc-0800) Puific Time US & Canada)
+cpu C i5-050U e
+===== frame_0042
+Opeating system version
+1921632395 IP-v6
+M i crown Server 2022 Standard
+core(TM) is-83SOU cpu e 1.70GHz coreßM) '5-83500 cpu e 1
+rot.' disk spue
+W24,'2021 54303 PM
+W24/2021 5:4224 PM
+W24,'2021 5:4022 PM
+WW2021 54006 PM
+Microsoft-WvndmwDNS Cbent Events
+===== frame_0043
+C omputer name
+Sotem Prover'..e•s
+Computer Name/Oomain Cha
+Microsoft-Wvnd0M-DNS Cbent Events
+IE Configuration On
+i5-83SOU e core(TM) '5-83500 cpu e
+Tot.l disk space
+W24,'2021 542.•31
+===== frame_0047
+10'24,'2021 5:4224 PM
+10/24/2021 5:4217
+10/24/2021 54006 PM
+===== frame_0048
+M i æft Defende
+192.168.2395 IPv6
+IE E ed Configuration On
+You must restart your computer to apply these
+Wore restarting. save any files and close a" programs
+core(TM) i5-83SOU e 170GHz corefTM) '5-83500 cpu 1.7cGH:
+ndOWS•DNS Client Events
+ICV24,Q021 5:4022 PM
+===== frame_0050
+Please wait for the gpsvc
+===== frame_0052
+Sign in to: adatum
+I-I'"' do Sion in to another domain?
+===== frame_0053
+How do I sign in to another domain?
+===== frame_0055
+@ File Edit View VM Tabs
+Actrve LhteCtO•ry and
+Vile Action Help
+tel(R3 coregu 15-83500 CPU @ 1.70GHz
+===== frame_0058
+WELCOME TO SERVER MANAGER
+O Configure this local server
+2 Add roles and features
+3 Add other servers to manage
+4 Create a server group
+S Connect this server to cloud services
+ROLES ANO SERVER GROUPS
+===== frame_0060
+Add roles and features
+Add Other servers to manage
+Create a server group
+Connect this server to cloud services
+ROLES AND SERVER GROUPS
+| groups: | total:
+@ Manageability
+24/2021 548 PM
+===== frame_0062
+i Locat Server
+Configure this local server
+It' AcrrJ420•DC1
+===== frame_0063
+Microsoft Azure S...
+performance Monm
+===== frame_0064
+Servers total:
+===== frame_0066
+Before you begin
+Server Selection
+Wizard or features.
+To add roles, rok services. features:
+Stan the Add Roles Features
+Before you continue. that the foUOWing tasks have been completed:
+• Decide if you want to save ot delete role data
+• Migrate *ttings data to another
+• Schedule downtime for affected services
+• users Of Service mtetruptions
+C] Skip this by default
+37 (Activated)
+CA-VAN-SVRS 4440 Warning Microsoft-Windows-Complus
+Application 10/24/2021 PM
+CA-VAN.SVRS 10149
+Wired AutoConfig
+Service N a me
+Stopped Manual
+===== frame_0071
+Add Roles and Features Wizard
+Installation progress
+Wew instalation progress
+O Feature installation
+Installation started Ca•
+Role Administration Tools
+you can close th is wizard wit i nterrupting ru nning tasks. Vsew task progress or open this
+page again by Notifxations in the command bar. and then Task Details.
+Export settings
+VAN-SVRS 1 149
+-Windcn•vs Remote M ement
+===== frame_0072
+start«i on Svr5Adat
+Administratm TOOB
+you can close th is wizard wit hout interrupting ru nning tasks. View task progress or open this
+page again by dicking Notifxations in command bar. and then Task Details.
+Export tion settings
+===== frame_0076
+New Zone Wizard
+9/19/2021 9:16 PM
+Download up-dates only. using Windows Update
+9,119/2021 9:09
+Real-Vime Protection: On
+Pacific Time (US & Canada)
+Not activa ted
+A rever* bokup zone ranoes IP aæroes runes.
+Last Installed ugx3ates
+Windcwvs Update
+Enharyed Secunty Configuration
+Intel(RJ core(TMJ is-83SOU CPU @ 1.70GHz Intel(R) core(TM) 15-83500 CPU 1.70GHz
+M Wi ndOWS• SPP
+M iCrOSOft• Wi ndOwS- Distri butedCOM
+iCrOSO ft-Wi ndOwS- rity- SPP
+M icrOSOft-Wi ndOwS-
+M •croSO ft-Wi ndows- SPP
+10/24/2021 5-47-_50 PM
+10/24/2021 5:47-A2
+10/24/2021 sgs:33 PM
+All services | 211 total
+===== frame_0077
+Real-Vtme Protection: On
+Total disk space
+M ft-Wi ndows- SPP
+===== frame_0078
+Windcvvs Update
+M Wi ndOwS- Distri butedCOM
+10/24/2021 5:5224
+10/24/2021 5-47-42
+10/24/2021 54731 PM
+===== frame_0079
+Forward Look up Zones
+The a atternpting to load the Zone The transfe Of
+data from the rnast« server
+FS or on the Adion dick
+===== frame_0081
+ONSV, @ File Edit View
+n me as parent
+[Sa me as parent folde)
+[Sa me as parent
+Adatum.com Properties
+'0/24/2021 smmPM
+10,4/2021 9mcn AM
+===== frame_0084
+din System mS) a to be into Zone
+formation about one or rt»re cont•guous [NS domains.
+zone on the dick Zone
+===== frame_0085
+Forward Look up Zon«
+F o restDnsZones
+as parent folds)
+( as parent fol&j
+Barne as patent folder)
+(same as patent folder'
+St&t Of Q'thority
+===== frame_0088
+@ File Edit View
+Disk M anagen—'t
+===== frame_0090
+59 @ File Edit View
+Revese Lookup Zones
+j Conditional Forwarders
+as parent 'Olde)
+n (Sa me as parent folde
+===== frame_0091
+ONSV, @ File Edit
+Reese Lmkup Zones
+Trust poi n ts
+n (Sa me as parent
+(same as parent 'owe)
+===== frame_0092
+DNSV. @ File Edit
+===== frame_0093
+van• Svr2adatMTLCOm
+===== frame_0096
+Microsoft Defender
+Operating system
+All events | 31 total
+n (Sa as folder)
+n (same as parent folder)
+as parent folder)
+*art of Rathority
+Name Sever B S)
+1831 ca static
+tel(R3 coreßM) 15-83500 CPU @ 1.70GHz
+M Wi ndows- Secu SPP
+Application 10/24/2021 5-4±33 PM
+===== frame_0097
+For Ca-Van-SvrSQ
+Adaturncom Progenes
+Change Zone Type
+coreßM) 15-83500 CPU 1.70GHz
+M ft- Wi ndows- Secu SPP
+===== frame_0100
+Cond' tional Foreorders
+===== frame_0101
+'Lab 7 secondaryDNSZone1EI x
+https:/,'Iearnbcit.ca/d21,'le/content/181051 /viewContent/619130SNiew
