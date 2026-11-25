@@ -1,0 +1,160 @@
+--- page 1 ---
+Active Directory: Account Lockout Policy – 
+Think Twice Before Applying 
+The Account Lockout Policy in Active Directory is not what it seems. Oh sure, at first glance it 
+appears simple enough. Set a threshold, set a counter, and when that threshold is tripped in 
+the allotted time, account locked out. What could be simpler right? Well, as with most things in 
+IT, what should be simple isn’t. Maybe the account lockout policy was a “set it and forget it” 
+exercise 10 years ago, but with more and more services relying on Active Directory credentials, 
+it might be time to reconsider the trusty account lockout policy in favor of a better approach. 
+ 
+The problem with the account lockout policy in many environments is that there are numerous 
+things that can trip it. It’s not just a user manually trying to logon with the wrong password,  or a 
+hacker attempting a brute force attack, there are also background services and automatic 
+credentialing that can trip up your account lockout policy. 
+At my company, iPhones configured to receive Exchange email were the biggest problem. Once 
+an iPhone user’s password expired, the iPhone would keep trying to log them in. With most 
+normal account lockout policies set to 5 or 6 attempts, the iPhone WILL trip the policy. This gets 
+even worse if a user has more than one mobile device. What happens if their iPad, also 
+configured to receive Exchange email, was left home today? You are basically SOL. The only 
+way to resolve that problem until the password can be changed on all mobile devices would be to 
+put that user account in an “exceptions” policy that does not have account lockout configured. 
+
+--- page 2 ---
+Some additional examples of things that can trip an account lockout policy include: 
+• 
+Stale credentials for Windows Service accounts. 
+• 
+Stale credentials used to run Scheduled tasks. 
+• 
+Multiple Citrix XenApp or Remote Desktop Services sessions open when a user initiates 
+a password change. 
+• 
+User logged into multiple computers when initiating a password change. 
+• 
+Disconnected Citrix XenApp or Remote Desktop Services sessions that are not 
+configured to timeout. 
+• 
+Administrative Remote Desktop Connections to Windows servers left disconnected. 
+• 
+Applications with their own credential stores that authenticate against Active Directory 
+with stale credentials. 
+And I’m sure this is just the tip of the iceberg. 
+WHY IMPLEMENT AN ACCOUNT LOCKOUT POLICY? 
+The biggest argument in favor of applying an Account Lockout Policy is to impede brute force 
+attacks. For that reason, common account lockout settings like 5 or 6 failed tries until the account 
+locks will likely lead to increased help desk calls instead of increased security. Since a brute 
+force attack will result in many more failed logon attempts than a user will ever generate, it’s not 
+unreasonable to set the “Account lockout threshold” to a fairly high number. Instead of the usual 
+5 or 6, why not go with 50, or 100? Even 500 would suffice for this purpose. (Keep in mind the 
+highest value for this setting is 999.) Again, the purpose here is to thwart a brute force attempt, 
+not increase your help desk call log. And the reason I think you should set the threshold to a high 
+value is not because users will manually attempt to logon with a bad password 30 times, it’s 
+because of the above mentioned background services that can trip up your lockout policy. You’d 
+be surprised how high the “bad password count” can get. 
+ACCOUNT LOCKOUT POLICY SETTINGS IN DETAIL 
+First, for those who are unfamiliar, the Account Lockout Policy can be found in any Group 
+Policy Object in Active Directory. However, it’s usually best set in the Default Domain Policy. 
+Open the GPO and navigate to Computer Configuration | Policies | Windows Settings | Security 
+Settings | Account Policies | Account Lockout Policy. 
+Account lockout duration — This security setting determines the number of minutes a locked-
+out account remains locked out before automatically becoming unlocked. The available range is 
+from 0 minutes through 99,999 minutes. If you set the account lockout duration to 0, the account 
+will be locked out until an administrator explicitly unlocks it. If an account lockout threshold is 
+defined, the account lockout duration must be greater than or equal to the reset time. Default: 
+None, because this policy setting only has meaning when an Account lockout threshold is 
+specified. 
+
+--- page 3 ---
+Once an account is locked out, the “Account lockout duration” is length of time the account will 
+be locked out until resetting. If set to “0” the lockout status will not automatically reset and an 
+administrator will need to unlock the account manually. 
+Account lockout threshold — This security setting determines the number of failed logon 
+attempts that causes a user account to be locked out. A locked-out account cannot be used until it 
+is reset by an administrator or until the lockout duration for the account has expired. You can set 
+a value between 0 and 999 failed logon attempts. If you set the value to 0, the account will never 
+be locked out. Failed password attempts against workstations or member servers that have been 
+locked using either CTRL+ALT+DELETE or password-protected screen savers count as failed 
+logon attempts. Default: 0. 
+The “Account lockout threshold” determines how many failed logon attempts will result in a 
+locked account. It works in connection with the “Reset account lockout counter after” setting. If 
+the value specified for “Account lockout threshold” is met before the counter resets, the account 
+is locked out. 
+Reset account lockout counter after — This security setting determines the number of minutes 
+that must elapse after a failed logon attempt before the failed logon attempt counter is reset to 0 
+bad logon attempts. The available range is 1 minute to 99,999 minutes. If an account lockout 
+threshold is defined, this reset time must be less than or equal to the Account lockout 
+duration. Default: None, because this policy setting only has meaning when an Account lockout 
+threshold is specified. 
+This is the trickiest setting in the account lockout policy. One way to interpret this setting is that 
+there is a window of time and in that window of time you can have (x) amount of failed logons 
+before your account is locked out. However, that’s NOT how this setting works. This setting 
+specifies the amount of time BETWEEN failed logon attempts. If you attempt to logon to an 
+account with the wrong password, the “badPwdCount” attribute for your account is incremented 
+by 1. This starts the clock. If the clock reaches the value specified in the “Reset account lockout 
+counter after” setting, then the process starts from scratch. If another failed logon attempt is 
+recorded before the “Reset account lockout counter after” setting is reached, then the 
+“badPwdCount” attribute is incremented (again) by 1. If the “badPwdCount” attribute reaches 
+the value specified for the “Account lockout threshold” the account will be locked. 
+Again, the important takeaway for this counter is that it’s counting BETWEEN failed logon 
+attempts. And because of this, you should seriously consider setting this value to it’s lowest 
+setting of 1 minute. That is assuming you ultimately decide to implement the account lockout 
+policy. More on that in a moment. 
+EXAMPLE ACCOUNT LOCKOUT POLICY SCENARIO 
+Account lockout duration: 5 minutes 
+Account lockout threshold: 50 invalid logon attempts 
+Reset account lockout counter after: 1 minutes 
+
+--- page 4 ---
+Let’s walk through this. If a brute force attack against your Active Directory domain is 
+underway, it will require 50 failed logon attempts without more than a minute between each 
+failed logon attempt to lock an account. As you can see, that would thwart ANY effective brute 
+force attack. Sure, the attack could be slowed down enough not to trip this example account 
+lockout policy, but who would do that, and to what end? If you have a strong enough password 
+policy in place, there’s no way a massively slowed down brute force attack would bear fruit for a 
+potential hacker. There would be no reason to even try. And that assumes the hacker even knows 
+what your account lockout policy is set to in the first place. 
+In this example I specified a “lockout duration” of 5 minutes. This is the length of time an 
+account will be locked out once the lockout policy is tripped. The default is 30 minutes, and I 
+think that’s way too high. If your lockout policy does trip for non-malicious reasons, why 
+lockout the user for a half hour? There’s certainly no reason to lockout an account that long to 
+impede a brute force attack. A setting of 5 minutes seems reasonable. Again, we aren’t trying to 
+increase help desk calls with this policy. 
+So if your company demands you implement an account lockout policy, I would seriously 
+consider the settings in the above example as a good starting point. With 50 invalid logon 
+attempts required to lockout an account, the lockout policy is unlikely to be tripped unless an 
+actual brute force attack is underway. 
+AN ARGUMENT AGAINST THE ACCOUNT LOCKOUT POLICY 
+Because it’s still possible to trip up an account lockout policy even with a threshold of 50 invalid 
+logon attempts (trust me, I’ve experienced it), you might want to consider scrapping the idea 
+altogether. That is assuming you can convince management. My suggestion is simple, make sure 
+your password policy is strong. If you require strong passwords that must be changed often it 
+reduces the need for an account lockout policy. If you still need some kind of lockout policy I 
+would suggest looking into an edge solution. That is, something that sits between the outside 
+world and your Active Directory domain. For the sake of this suggestion I’m assuming you 
+aren’t worried about LAN-based brute force attacks. An example of an edge solution is the 
+following write-up for the Citrix Netscaler product: 
+Preventing Brute Force logon Attacks to the Citrix NetScaler Access Gateway or AAA for TM 
+logon Page 
+One of the more common requests I see is how to prevent brute force logon attacks to the Citrix 
+Access Gateway or NetScaler AAA for Traffic Management logon pages. Like many other web 
+applications that have a public facing HTML form used for logon, this is an assumed risk. 
+Part 1 of this article looks at how you can use the NetScaler HTTP Rate Limiting feature in 
+conjunction with the Responder module to detect and respond to a potential brute force attack. 
+This is a good method in that it locks out the source public IP address after a specified number of 
+failed logon attempts instead of an Active Directory account. This is a better way to implement a 
+lockout policy on your network because it avoids the vulnerability of traditional account lockout 
+
+--- page 5 ---
+policies to DoS attacks designed to trip the policy. And by the way, this is yet another reason to 
+tell management that account lockout policies are old school and have worn out their welcome. 
+But first you must sell them on the idea of strong passwords! 
+TIP: This PowerShell command will show you all locked out accounts. 
+Search-ADAccount –LockedOut 
+If you haven’t previously done so, you must run the below command to import the Active 
+Directory module before the above command will work. 
+Import-Module activedirectory 
+Link: 
+https://ravingroo.com/295/active-directory-account-lockout-policy-threshold-counter-strong-
+password/ 
+ 

@@ -1,0 +1,149 @@
+--- page 1 ---
+ACIT 3420 
+1 
+ 
+How to create and configure Group Policy  
+In this lab, we will learn the steps to deploy desktop wallpaper through group policies in Server 
+2019. The Group Policy as one of the simplest methods is being used by many organizations to 
+deploy a required desktop wallpaper on user desktops and laptops. Any JPG or Bitmap file can 
+be used to deploy desktop wallpaper through Group Policy Object (GPO).  
+Pre-requirements:  
+1. Create two Organizational Unit (Finance and Lab). 
+2. Create two domain users (Finance: test1, Lab: test2) in the OU.  
+3. One servers (Domain Controller (CA-VAN-Svr1)  
+4. Client computer (domain-joined, windows server 2019 or windows 10 or windows 7 or 8 
+Professional or Enterprise)) 
+ 
+Note: If you sign static IP for your client computers, you do not need a DHCP server. Otherwise, 
+you have to setup DHCP server. 
+Question: How to delete the OU? 
+Network Topology 
+ 
+
+--- page 2 ---
+ACIT 3420 
+2 
+ 
+The main tasks for this exercise are as follows: 
+1. Create a new Group Policy Object (GPO), and link it to the Organizational Unit (OU). 
+2. Edit the default Domain Policy with the required Group Policy preferences. 
+3. Test the preferences 
+Create and Link a GPO to an OU 
+GET READY. To create and link a GPO to an OU, perform the following steps. 
+1. Log on to a domain controller as Domain administrator or Enterprise administrator  
+2. Open Server Manager  
+3. In Server Manager, click Tools > Group Policy Management. The Group Policy 
+Management console opens. 
+ 
+4. Expand the forest container and browse your domain. Then, expand the domain container 
+and select the Group Policy Objects folder. The GPOs that currently exist in the domain 
+appear on the Contents tab. 
+ 
+
+--- page 3 ---
+ACIT 3420 
+3 
+Questions: 
+1. How many GPOs have been created?
+2. Who created these GPOs?
+3. What are default settings for the Default Domain Policy?
+5. Right-click the Group Policy Objects folder and choose New.
+6. In the New GPO dialog box, in the Name text box, type a name for the new GPO and, if
+desired, select a Source Starter GPO from the drop-down list and click OK. The new
+GPO appears in the Contents list.
+Note: You should use a starter GPO when you are going to create multiple similar GPOs 
+to deal with slight differences between Organizational Units. For example, if you are 
+asked to deploy a GPO to set Start menu and Taskbar restrictions throughout your Active 
+Directory network, but you need to make slight changes for different OUs, the starter 
+GPO would be a nice fit. You would build the starter GPO containing the bulk of the 
+
+--- page 4 ---
+ACIT 3420 
+4 
+settings that will apply to all users, then build GPOs from that starter GPO for each OU, 
+customizing as necessary. 
+7. To deploy desktop wallpaper through Group Policy, right click on the GPO “Set Desktop
+Wallpaper” and click on “Edit” to modify the GPO settings. Default Group Policy
+Objects are blank templates, we have to define the policy to make it work.
+8. To Set Desktop Wallpaper via Group Policy, on Group Policy Management Editor
+Console, under User Configuration expand Policies then expand Administrative
+Templates. Under Desktop, click on Desktop to expand all policies. Now double click
+on Desktop Wallpaper to open its settings.
+
+--- page 5 ---
+ACIT 3420 
+5 
+9. Create a folder (Dep_Wallpaper). Share this folder and share the permission to everyone
+Read Only.  Note: Under share name type $ (Dep_Wallpaper$) at the end of the name to
+create a hidden share.
+Note: Login your client machine and make sure that you can see the folder (\\CA-VAN-
+Svr1\Dep_Wallpaper\). 
+10. Under Desktop wallpaper console, we have to give the fully qualified path and name of
+the file that stores the wallpaper image. If the specified file is not available when the user
+logs on, no wallpaper is displayed. Moreover, users cannot specify alternative wallpaper.
+Select Enabled to enable the policy and specify the UNC path \\CA-VAN-
+
+--- page 6 ---
+ACIT 3420 
+6 
+Svr1\Dep_Wallpaper\Finance.jpg. You can also use the setting to specify that the 
+wallpaper image be centered, tiled, or stretched.  Users cannot change this specification. 
+11. In the left pane, right-click the domain, site, or OU object to which you want to link the
+new GPO and choose Link an existing GPO.
+12. In the Select GPO dialog box, select the GPO you want to link to the object and click
+OK. The GPO appears on the object’s Linked Group Policy Objects tab.
+
+--- page 7 ---
+ACIT 3420 
+7 
+
+--- page 8 ---
+ACIT 3420 
+8 
+13. Close the Group Policy Management Console.
+14. Now go to the client machine and login with the Domain User (test1). You can see new
+Desktop Wallpaper would be deployed for all the users created in Finance OU.
+15. Sign out your client machine and login with the Domain User (test2). Can you see the
+new Desktop Wallpaper? If you can not see it, why?
+16. Link the new group policy object to the Domain controller, Adatum.com. Log out your
+client machine and use the test2 login again. Can you see the desktop wallpaper? Why?
+Issue 
+
+--- page 9 ---
+ACIT 3420 
+9 
+1. Reboot domain controller and client.
+2. Turn off client’s firewall.
+Lab Assignment 
+I.
+Login your client 1 by using the account, test1. Take a screenshot of your Desktop
+Background and Paste it here.
+II.
+Run the following cmdlet, gpresult /r /scope:user. Paste your screenshot here.
+
+--- page 10 ---
+ACIT 3420 
+10 
+III.
+(Optional Lab) Suppose that you work for BCIT as a Windows Server Administrator.
+You are asked to design an appropriate computing environment for CIT students in
+computer labs.
+1. Discuss with your group members and list all the GPOs that you have to
+deploy
+2. Deploy all the GPO. Paste your screenshots here.
+Hint 1: Disable control panel by using GPO for Lab. 
+Hint 2: Disable to access Registry Editor 
+Hint 3: Desktop Wallpaper 
+Hint 4: Disable to use USB devices 
+…… 
+
+--- page 11 ---
+ACIT 3420 
+11 
+Note: Log on client machine by using test2 account. When you click control panel, you will 
+receive the windows above. 
+
+--- page 12 ---
+ACIT 3420 
+12 
+IV. (Challenge Lab) Folder redirection (Optional)

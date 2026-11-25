@@ -1,0 +1,331 @@
+--- page 1 ---
+Module 10: 
+Implementing 
+Group Policy
+Lei Zhang (Johnny)
+
+--- page 2 ---
+Module Overview
+Introducing Group Policy
+Implementing and administering GPOs
+Group Policy scope and Group Policy processing
+Troubleshooting the application of GPOs
+
+--- page 3 ---
+Definition of Group Policy
+Group Policy is a mechanism for controlling and deploying 
+operating system settings to computers all over your network.
+Provides centralized control for user settings and computer 
+settings
+Control and deployment of Applications
+Controls user experience
+Introducing Group Policy
+
+--- page 4 ---
+Types of GPO
+There are three types of GPOs:
+Local GPOs (GPEDIT.MSC): On the local computer only
+Domain GPOs(GPMC & GPME): Created in Active Directory
+Starter GPOs: Template GPO based on a standard collection of 
+settings. These objects enable an administrator to create and 
+have a pre-configured group of settings that represent a 
+baseline for any future policy to be created.
+
+--- page 5 ---
+Group Policy
+Consists of user and computer settings for the various 
+Microsoft Windows operating systems. 
+Implemented during computer startup and shutdown 
+and user logon and logoff.
+Configure one or more Group Policy objects (GPOs) 
+and then use a process called linking to associate them 
+with specific Active Directory Domain System (AD DS) 
+objects.
+When you link a GPO to a container object, all of the 
+objects in that container receive the settings you 
+configured in the GPO.
+
+--- page 6 ---
+Characteristics of Group Policy
+Group policy can be set for a site, domain, OU, or local computer
+Group policy cannot be set for non-OU folder containers
+Group policy settings are stored in group policy objects (GPOs)
+GPOs can be local (C:\Windows\PolicyDefinitions) and nonlocal (Central Store)
+Group policy can be set up to affect user accounts and computers
+When group policy is updated, old policies are removed or updated for all clients
+How about this folder 
+(C:\Windows\System32\GroupPolicy\Datastore)?
+Why?
+
+--- page 7 ---
+Benefits of Using Group Policy
+Group Policy is a very powerful administrative tool. You can use 
+it to enforce various types of settings to a large number of users 
+and computers
+Typically, you use GPOs to:
+Apply security settings (Firewall)
+Manage desktop application settings
+Deploy application software (WDS vs. GPOs)
+Manage Folder Redirection
+Configure network settings
+
+--- page 8 ---
+Why Group Policy is Important
+Text Based Configure File
+Registry
+Group Policy
+Difficult to keep update to date
+Changes can not be rolled back
+Centralized management 
+
+--- page 9 ---
+The Limitations of GPO
+The limitations of Group Policy Objects include:
+• They run sequentially: GPOs process actions one after 
+another. (Note: It can take a long time for users to log on)
+• Flexibility is limited.
+• Limited triggers (Computer Startup or user logs on or at 
+set intervals)
+• Difficult to maintain
+• No Version control: Changes made to GPO settings aren’t 
+audited.
+
+--- page 10 ---
+New features in Group Policy in 
+Windows Server 2016/2019/2022
+Windows Server 2016/2019/2022 introduces a few 
+changes and improvements to Group Policy, including:
+Importing the following types of policy settings on 
+Nano Server(2016):
+Registry settings (.pol)
+Security settings (.INF)
+Audit settings (.CSV)
+Including Windows 10/11 administrative templates
+
+--- page 11 ---
+Group Policy Objects (GPO)
+Group Policy objects (GPOs) contain all the Group 
+Policy settings that administrators can deploy to user 
+and computer objects within a site, domain, or 
+organizational unit. 
+To deploy a GPO, an administrator must associate it 
+with the container to which it is deployed (linking).
+
+--- page 12 ---
+Common GPO Management 
+Tasks
+You can manage GPOs by using GPMC or Windows 
+PowerShell. These are some of the options for managing 
+the state of GPOs:
+Back up GPOs
+Restore GPOs
+Import GPOs
+Copy GPOs
+
+--- page 13 ---
+Viewing Group Policy Templates
+The Group Policy Templates (GPT) is a folder structure that 
+is located in the shared SYSVOL folder on a domain 
+controller.
+Contains the default settings for a new GPO.
+The path to the default GPT structure for a domain is: 
+%systemroot%\SYSVOL\sysvol\<domain 
+name>\Policies
+
+--- page 14 ---
+Management Console
+The Group Policy Management Console is the Microsoft 
+Management Console (MMC) snap-in that administrators 
+use to create Group Policy objects and manage their 
+deployment to Active Directory Domain Services objects. 
+The Group Policy Management Editor is a separate snap-in 
+that opens GPOs and enables you to modify their settings. 
+
+--- page 15 ---
+GPO Policy Management
+
+--- page 16 ---
+Group Policy Processing
+You can have local policies, site policies, 
+domain policies, and OU policies within 
+your domain structure.
+Windows systems receiving GPOs from 
+multiple sources process them in the 
+following order, typically referred to as 
+LSDOU:
+1. Local policies
+2. Site policies
+3. Domain policies
+4. OU policies
+Local
+Site
+Domain
+Organization Unit (OU)
+
+--- page 17 ---
+Configuring 
+Exceptions 
+to GPO 
+Processing
+The Enforce setting on an individual GPO link 
+forces a particular GPO's settings to flow down 
+through the AD DS hierarchy, without being 
+blocked by any child OUs.
+The Block Policy Inheritance setting on a 
+container object such as a site, domain, or OU 
+blocks all policies from parent containers from 
+flowing to this container.
+Loopback Processing is a Group Policy option 
+that provides an alternative method of obtaining 
+the ordered list of GPOs to be processed for the 
+user. When set to Enabled, this setting has two 
+options: merge and replace.
+
+--- page 18 ---
+Factors for 
+Determining the 
+Groups
+Specific business requirements and how to 
+achieve them
+The objectives for each Group Policy 
+implementation vary depending on user 
+location, job needs, computer experience 
+and corporate security requirement. 
+
+--- page 19 ---
+Policy States
+To work with Administrative Template settings, you must 
+understand the three different states of each policy 
+setting:
+Not Configured: No modification to the registry from its 
+default state occurs as a result of the policy. Not 
+Configured is the default setting for the majority of 
+GPO settings. When a system processes a GPO with a 
+Not Configured setting, the registry key affected by the 
+setting is not modified or overwritten, no matter what 
+its current value might be.
+Enabled: The policy function is explicitly activated in 
+the registry, whatever its previous state. 
+Disabled: The policy function is explicitly deactivated in 
+the registry, whatever its previous state.
+
+--- page 20 ---
+Overview of GPO Scope
+The scope of a GPO is the collection of users and computers 
+that will apply the settings in the GPO
+You can use several methods to scope a GPO:
+Link the GPO to a container, such as an OU
+Filter by using security settings
+Filter by using WMI filters
+For Group Policy preferences:
+You can filter or target the settings that you configure by 
+Group Policy preferences within a GPO based on several 
+criteria
+
+--- page 21 ---
+Scoping (Restricting) a GPO
+
+--- page 22 ---
+What Are WMI Filters?
+WMI, or Windows Management Instrumentation, is available 
+on every modern Windows OS. It provides a standard method 
+of accessing device data in the enterprise. It other words, it 
+gives an Administrator a common way to extract hardware 
+and software information.
+
+--- page 23 ---
+WMI
+WMI queries can filter GPOs based on 
+system characteristics, including:
+RAM
+Processor speed
+Disk capacity
+IP address
+Operating system version
+WMI filters can be expensive in terms of 
+Group Policy processing performance
+
+--- page 24 ---
+WMI Filters
+
+--- page 25 ---
+WMI
+SELECT * FROM Win32_Battery WHERE (BatteryStatus <> 
+0)
+SELECT * FROM Win32_ComputerSystem WHERE 
+PCSystemType = "2“
+select * from Win32_OperatingSystem where Version like 
+"10.%" and ProductType="1“
+select * from Win32_OperatingSystem where Version like 
+"10.%" and ProductType=“3"
+
+--- page 26 ---
+What are domain-based GPOs?
+
+--- page 27 ---
+Group Policy 
+Results
+Firewall issues (Inbound Rules):
+Windows Remote Management (WRM)
+WMI
+Remote Service Management (RSM)
+
+--- page 28 ---
+Delegating Administration of 
+Group Policy
+• Delegation of GPO-related tasks allows the administrative 
+workload to be distributed across the enterprise
+• You can delegate the following Group Policy tasks independently:
+• Creating GPOs
+•
+Editing GPOs
+•
+Managing Group Policy links for a site, domain, or OU
+•
+Performing Group Policy modeling analysis in a domain or 
+OU
+•
+Reading Group Policy results data in a domain or OU
+•
+Creating WMI filters in a domain 
+
+--- page 29 ---
+Specify Who Can Create GPOs
+
+--- page 30 ---
+Considerations for Slow Links 
+and Disconnected Systems
+Slow link detection:
+By default, connection speeds below 500 kbps
+The following CSEs apply by default:
+Security Settings
+Administrative Templates
+Disconnected computers:
+Cache Group Policy so that settings still apply
+Perform Group Policy refresh when reconnecting 
+with the domain network if a background refresh 
+has been missed
+
+--- page 31 ---
+
+--- page 32 ---
+
+--- page 33 ---
+
+--- page 34 ---
+
+--- page 35 ---
+
+--- page 36 ---
+
+--- page 37 ---
+
+--- page 38 ---
+
+--- page 39 ---
+
+--- page 40 ---
+
+--- page 41 ---
+
+--- page 42 ---

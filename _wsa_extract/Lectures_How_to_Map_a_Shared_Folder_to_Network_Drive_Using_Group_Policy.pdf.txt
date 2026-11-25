@@ -1,0 +1,7 @@
+--- page 1 ---
+ACIT3420 
+How to Map a Shared Folder to Network Drive Using Group Policy 
+Network Topology 
+ 
+Scenario 
+ 

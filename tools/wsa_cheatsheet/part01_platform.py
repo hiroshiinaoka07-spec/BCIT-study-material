@@ -27,9 +27,9 @@ STUDY_GUIDE_MAP = [
     ("23", "Storage pool; media types; parity vs two-way vs three-way mirror", "Part 6", "Course"),
     ("24", "Block-level vs file-level storage", "Part 6", "Course"),
     ("25", "RAID 0 / 1 / 5", "Part 6", "Course"),
-    ("26", "GPO and why we use it", "Part 7", "Supplemental"),
-    ("27", "Security policies: default values", "Part 7", "Supplemental (some course values)"),
-    ("28", "User Rights Assignment, Security Options, Security Templates, Audit Policy", "Part 7", "Supplemental"),
+    ("26", "GPO and why we use it", "Part 7", "Course"),
+    ("27", "Security policies: default values", "Part 7", "Course"),
+    ("28", "User Rights Assignment, Security Options, Security Templates, Audit Policy", "Part 7", "Course + Supplemental"),
     ("29", "DHCP, its services, scope", "Part 8", "Course"),
     ("30", "DHCP lease generation (DORA)", "Part 8", "Course"),
     ("31", "When clients renew", "Part 8", "Course"),
@@ -73,7 +73,7 @@ def front_matter(s):
         ["Marker", "Meaning"],
         [
             ["No tag", "Content taken from course files (slides, labs, videos, handouts). A gray Sources: line names the files."],
-            [SUPP_TAG, "The study guide lists this topic, but no lecture, lab or video covering it was in the course folder yet (e.g. Week 12 Group Policy, Nano Server, VPN). Written from standard Microsoft documentation and practice."],
+            [SUPP_TAG, "The study guide lists this topic, but no lecture, lab or video covering it was in the course folder yet (e.g. Nano Server, VPN). Written from standard Microsoft documentation and practice."],
             [EXTRA_TAG, "Extra detail added to a topic the course does cover (e.g. exact upgrade paths, cmdlet syntax not shown on a slide)."],
             [MODEL_TAG, "The course asked the question (discussion forum, lab review, slide quiz) but the folder had no answer key, so this is a written model answer."],
             ["EXAM TRAP box (red)", "A distinction that is easy to get wrong on a multiple-choice or short-answer question."],
@@ -88,7 +88,6 @@ def front_matter(s):
     s.h3("Course material not yet unlocked by the instructor")
     s.p("These study-guide topics had no lecture, lab or video in the course folder when this sheet was built. They're still fully covered, but every such section carries the red tag. **Check them against the instructor's slides once they're released** and trust the instructor's version if anything differs.", size=9)
     s.table(["Locked / missing material", "Study-guide items affected", "Where covered here"], [
-        ["Week 12 Group Policy lecture and lab (only discussion titles available)", "SG-26, SG-27, SG-28", "Part 7"],
         ["Week 15 Maintenance, Monitoring and Hybrid Cloud (only discussion titles)", "— (discussion only)", "Part 12"],
         ["Makeup: Server Hardening and Security bonus (titles only)", "— (discussion only)", "Part 7 (model answers)"],
         ["Remote Access / VPN lecture", "SG-38", "Part 11"],

@@ -1,0 +1,282 @@
+--- page 1 ---
+Install Administrative Template files
+for Microsoft Office
+Updated on February 14, 2021
+Windows Server
+0 Comments
+We like to manage Microsoft Office with Group Policy. To do that,
+we have to install Administrative Template files for Microsoft Office.
+Good to know is that this will work for Microsoft Office and
+Microsoft 365. If you like to install different Administrative
+Templates, the steps are the same.
+Table of contents
+Download Administrative Template files for Microsoft Office
+Extract Administrative Template files
+Administrative Templates extracted files
+Copy ADMX files to Windows PolicyDefinitions folder
+Copy ADML files to Windows PolicyDefinitions language
+folder
+Verify Administrative Template files in Group Policy
+Management Editor
+Before installing Administrative Template files
+After installing Administrative Template files
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+1 of 15
+3/21/2021, 10:08 PM
+
+--- page 2 ---
+Download Administrative Template files for
+Microsoft Office
+First, we have to download Administrative Template files (Microsoft).
+The files are regularly updated to have the latest settings.
+Choose whether you want to download the 32-bit (x86) or 64-bit
+(x64) files, or both. For example, if you’re using the Office
+Customization Tool (OCT) to customize the 64-bit version of Office
+installations, download the 64-bit (x64) files. If you need the
+ADMX/AMDL files, you can download either the 32-bit (x86) or 64-
+bit (x64) files. The ADMX/ADML files are the same for both.
+In our example, we did select the 64-bit. Click Next.
+Administrative Templates (ADMX/ADML) for Microsoft Office
+and Microsoft 365 are not installed by default.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+2 of 15
+3/21/2021, 10:08 PM
+
+--- page 3 ---
+Extract Administrative Template files
+Right-click the downloaded file and run as administrator.
+Accept the Microsoft Software License Terms and click Continue.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+3 of 15
+3/21/2021, 10:08 PM
+
+--- page 4 ---
+Make a new folder with the name Office ADMX and select the
+folder. Click OK to start the extraction.
+Extracting the files to the folder, give it a couple of seconds.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+4 of 15
+3/21/2021, 10:08 PM
+
+--- page 5 ---
+Administrative Templates extracted files
+Do you have a Central Store for Group Policy Administrative
+Templates? Place the files in there. In our example, we only have one
+domain controller running, and we will place the Administrative
+Templates in the local store of the Domain Controller.
+Go to the extracted folder, and you will see two folders and one file.
+Open the folder admx.
+We recommend having at least two domain controllers
+running in an organization for High Availability. A central
+store will make it easier because you don’t have to place the
+files in both of the domain controllers. It will load the
+administrative templates from the central store.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+5 of 15
+3/21/2021, 10:08 PM
+
+--- page 6 ---
+ADMX files that you will see:
+Name
+Microsoft application
+access16.admx
+Access 2016
+excel16.admx
+Excel 2016
+lync16.admx
+Lync/Skype for Business 2016
+office16.admx
+Microsoft Office general settings
+onent16.admx
+OneNote 2016
+outlk16.admx
+Outlook 2016
+ppt16.admx
+PowerPoint 2016
+proj16.admx
+Project 2016
+pub16.admx
+Publisher 2016
+teams16.admx
+Teams 2016
+visio16.admx
+Visio 2016
+word16.admx
+Word 2016
+In the next step we will install Administrative Templates for
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+6 of 15
+3/21/2021, 10:08 PM
+
+--- page 7 ---
+PolicyDefinitions folder
+Copy all the ADMX files to install the Administrative Template of all
+the Office applications (recommend). If you like to have the group
+policy of only one application, copy only the ADMX file that you
+need. For example, outlk16.admx (Microsoft Outlook).
+Start File Explorer and go to the path C:\Windows
+\PolicyDefinitions. Have a look at the items count. The items count
+can show differently on your end, but in our example, the count is
+196 before pasting the ADMX files.
+The ADMX file defines the Group Policy settings.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+7 of 15
+3/21/2021, 10:08 PM
+
+--- page 8 ---
+Paste the ADMX files that you copied in the folder C:\Windows
+\PolicyDefinitions. The total item count is 208 items. That’s correct
+because we did copy and paste 12 items. If you already have files
+with these names, a prompt will show you to overwrite the files.
+Click Yes to All.
+Copy ADML files to Windows
+Overwrite the files to have the latest Microsoft Office and
+Microsoft 365 Policy settings.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+8 of 15
+3/21/2021, 10:08 PM
+
+--- page 9 ---
+folder that you want. It depends on which Microsoft Office language
+you have installed. In my example, it’s en-us (English – United
+States). Select all the files and click Copy.
+Go back to the folder path C:\Windows\PolicyDefinitions. Open
+the language folder. In my example, en-US. The total count is 195
+items.
+The ADML file contains the language to be used with the
+ADMX file.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+9 of 15
+3/21/2021, 10:08 PM
+
+--- page 10 ---
+Paste the copied ADML language files. The total count is 207
+items. That’s correct because we did copy 12 items. If you already
+have files with these names, a prompt will show you to overwrite the
+files. Click Yes to All.
+In the next step, we will verify that we did install Administrative
+Templates correctly.
+Overwrite the files to have the latest Microsoft Office and
+Microsoft 365 Policy language settings.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+10 of 15
+3/21/2021, 10:08 PM
+
+--- page 11 ---
+It’s always good to verify that the Administrative Templates
+installation went successful. Start Group Policy Management.
+Right-click the Default Domain Policy and click Edit.
+Expand the folders:
+Computer Configuration > Policies > Administrative Templates
+User Configuration > Policies > Administrative Templates
+Before installing Administrative Template files
+Before copy and pasting the ADMX and ADML files, no Microsoft
+Office folders are showing.
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+11 of 15
+3/21/2021, 10:08 PM
+
+--- page 12 ---
+After installing Administrative Template files
+After copy and pasting the ADMX and ADML files, we do see the
+Microsoft Office folders.
+We did install Group Policy Administrative Template files for
+Microsoft Office. In the next step, we will configure a policy for a
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+12 of 15
+3/21/2021, 10:08 PM
+
+--- page 13 ---
+Check free disk
+space on Windows
+Install and
+configure Azure
+Active Directory
+country code list
+Conclusion
+In this article, you learned how to install Administrative Template
+files for Microsoft Office. Download Administrative Templates setup
+and extract the files. After that, copy ADMX and ADML
+Administrative Template files to the local or central store
+PolicyDefinitions folder. As of last, you can verify the Administrative
+Templates in Group Policy Management Editor. Keep an eye on the
+Administrative Templates download link because Microsoft keeps
+the setup up to date with the latest Microsoft Office features.
+Did you enjoy this article? You may also like Count mailboxes per
+Exchange Server with PowerShell. Don’t forget to follow us and
+share this article.
+
+Tweet
+
+Share
+
+Share
+
+Email
+ALI TAJRAN is a passionate IT Architect, IT
+Consultant, and Microsoft Certified Trainer.
+He started Information Technology at a very
+young age, and his goal is to teach and
+inspire others. Read more »
+
+
+What Others Are Reading
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+13 of 15
+3/21/2021, 10:08 PM
+
+--- page 14 ---
+domain-joined
+Windows systems.
+These are…
+such as duplicates…
+add…
+Name 
+Email 
+This Post Has 0 Comments
+Leave a Reply
+Comment
+Post Comment
+*
+*
+x
+Your email address will not be published. Required fields are marked *
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+14 of 15
+3/21/2021, 10:08 PM
+
+--- page 15 ---
+Remove message header in Exchange Server
+Copy members from one AD group to another 
+x
+Install Administrative Template files for Microsoft Office - ALI TAJRAN
+https://www.alitajran.com/install-administrative-template-files-for-micro...
+15 of 15
+3/21/2021, 10:08 PM
