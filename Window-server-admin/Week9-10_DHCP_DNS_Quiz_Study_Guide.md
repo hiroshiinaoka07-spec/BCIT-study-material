@@ -1,4 +1,4 @@
-# ACIT 3420 quiz study guide — Week 9 (Module 8: DNS) and Week 10 (Module 9: DHCP)
+﻿# ACIT 3420 quiz study guide — Week 9 (Module 8: DNS) and Week 10 (Module 9: DHCP)
 
 Sources: Module 8 slides (`ACIT3420 DNS`), DNS Topics, *9 Windows DNS mistakes to avoid*, Linux DNS handout, Week 9 Lab 6 (secondary zone, namespace design, DNSSEC, DNS exercise), Module 9 slides (`ACIT3420 DHCP`), DHCP Lease Time, Superscopes handout, and Week 10 Lab 7 (deploy DHCP, relay agent, failover, policies).
 
@@ -170,571 +170,427 @@ Add-DnsServerResourceRecordA -ZoneName Adatum.com -Name CA-VAN-Svr3 -IpAddress 1
 
 The slide’s SOA contents are: one per zone, primary name server, administrator email, serial number, and refresh time.
 
-**SRV records on the DNS Manager screenshot (`_msdcs.Adatum.com`)**
+### How to read the SRV screenshot
 
-| Name | Folder on the screenshot | Data shown |
-|---|---|---|
-| `_gc` | tcp | `[0][100][3268]` |
-| `_kerberos` | tcp and udp | `[0][100][88]` |
-| `_kpasswd` | tcp and udp | `[0][100][464]` |
-| `_ldap` | tcp | `[0][100][389]` |
+Open DNS Manager on **CA-VAN-SVR1**. Under Forward Lookup Zones, open **`_msdcs.Adatum.com`**. The rows in that zone are SRV records. An SRV record answers one question: which computer offers this service, and on which port?
 
-The host on those rows is `CA-VAN-Svr1.Adatum.com` or `CA-VAN-Svr2.Adatum.com`. One `_gc` row is `[0][100][3268] CA-BBY-Svr2.BBY.Adatum.com`.
+The slide says an SRV record holds the service, the target port, the priority, and a normal host (A) record. Domain controllers create these rows themselves.
 
-**Why SRV records matter (slide benefits):**
+One line on the screenshot looks like this:
 
-- Domain controllers register SRV records **dynamically, by service and by site**.
-- A client uses the SRV records for **its own site** first, and only then tries a DC across a WAN link.
-- That keeps inter-site traffic down.
+`[0][100][3268] CA-VAN-Svr2.Adatum.com`
 
-### The alnorthamerica.com record problem (slides “DNS Record Issues”)
+Read it from the right. The name at the end is the server. The last number inside the brackets is the port. The folder the row sits in is either **tcp** or **udp**.
 
-**Before:** the zone’s only MX is `10 mail.alnorthamerica.com.`, and `mail` is an **A** record at **72.10.34.68**, the same address as the apex, the wildcard, `ftp`, and `www`.
+Four names are on that screenshot:
 
-**After:** the `mail` A record is gone. Mail is five Google MX records, and a TXT verification record is present:
+- **`_gc`**, folder tcp, port **3268**. Most of these point at CA-VAN-Svr1 or CA-VAN-Svr2. One points at `CA-BBY-Svr2.BBY.Adatum.com`, a server in the BBY site. The lab says clients use DNS to find a global catalog. This is that row.
+- **`_kerberos`**, folders tcp and udp, port **88**. Hosts are the two VAN servers.
+- **`_kpasswd`**, folders tcp and udp, port **464**. Same two VAN servers.
+- **`_ldap`**, folder tcp, port **389**. Same two VAN servers.
 
-| Preference | Mail exchanger |
-|---|---|
-| **1** | `ASPMX.L.GOOGLE.COM.` |
-| **5** | `ALT1.ASPMX.L.GOOGLE.COM.` |
-| **5** | `ALT2.ASPMX.L.GOOGLE.COM.` |
-| **10** | `ALT3.ASPMX.L.GOOGLE.COM.` |
-| **10** | `ALT4.ASPMX.L.GOOGLE.COM.` |
+The benefits slide gives the reason these rows exist:
 
-TTL on those rows is **43200**.
+- A domain controller registers them itself, by service and by site.
+- A computer looks for a domain controller in its own site first.
+- Only if that fails does it try a domain controller across the WAN. That keeps traffic off the WAN link.
 
-The slide asks which tools can identify the problem. It does not list the tools.
+### The mail-record screenshots (alnorthamerica.com)
 
-### Forwarder vs conditional forwarder vs stub zone
+Two slides show the same zone before and after a fix.
 
-This is a listed discussion question. Learn the difference cold.
+**Before.** The only MX record is `10 mail.alnorthamerica.com.` The name `mail` is an A record at **72.10.34.68**. That same address is also used by the zone name itself, the `*` wildcard, `ftp`, and `www`.
 
-By default, if the DNS server does not know the answer it walks the tree itself (root → TLD → authoritative). A **forwarder** changes that.
+**After.** The `mail` A record is gone. In its place are five MX records, all with TTL **43200**:
 
-| Mechanism | When it is used | How it behaves |
-|---|---|---|
-| **Forwarder** | External or offsite names this server does not answer itself | The forwarding slide: a forwarder is a DNS server designated to resolve external or offsite names. You control where queries and traffic go |
-| **Conditional forwarder** | **One domain name**, which can be in a **different top-level domain** | The guidance slide: use it when you want all resolution for that name to take one path |
-| **Stub zone** | A name **below** a higher-level domain, described as a **delegation below a delegation** | SOA, NS, and glue host (A) only. Not authoritative. The lab says this saves bandwidth |
+- preference 1: `ASPMX.L.GOOGLE.COM.`
+- preference 5: `ALT1.ASPMX.L.GOOGLE.COM.` and `ALT2.ASPMX.L.GOOGLE.COM.`
+- preference 10: `ALT3.ASPMX.L.GOOGLE.COM.` and `ALT4.ASPMX.L.GOOGLE.COM.`
 
-**Why forwarders exist (slide question):** you control where queries go and how much traffic leaves the network, which makes resolution faster and more predictable for internal computers.
+A TXT record that starts with `google-site-verification=` is on both screenshots. The second slide asks which tools can identify the problem. It does not name any tools.
 
-**Root hints:** the list a DNS server uses to find the root servers when it performs an iterative query. A root server answers records in the root zone, and for other requests it returns the authoritative servers for the right TLD. The slide says root hints matter for servers that are authoritative only for a lower part of the namespace and still have to find the authoritative server for another zone.
+### Forwarder, conditional forwarder, and stub zone
 
-**Zone delegation:** a subdomain is a child of a parent and shares that parent’s suffix. It can be its own zone on another server. The slide says that spreads the query load across servers.
+This is one of the discussion questions. The three are different ways to send a query somewhere else.
 
-**Slide guidance, worded as a rule:**
+If your DNS server does not know a name, the default is to start at the root and walk down until it finds the server that does. A forwarder replaces that walk.
 
-- Conditional forwarder: the name is a **different domain** (it can even be a different top-level domain), and you want **all** resolution for it to take one path.
-- Stub zone: the name sits **below** a higher-level domain (a delegation below a delegation).
+**Forwarder.** Use this for names outside your network. You pick another DNS server and send those queries there. The slide’s reason: you control where the queries go, and that makes resolution faster and more predictable for your computers.
+
+**Conditional forwarder.** Use this for one domain name only. That name can even be in a different top-level domain. Every query for that one name takes the single path you chose.
+
+**Stub zone.** Use this when the other name sits under a domain you already know, which the slide calls a delegation below a delegation. The stub holds only three kinds of records: SOA, NS, and glue host (A). It is not authoritative. The lab says this saves bandwidth because the whole zone is not copied.
+
+**Root hints** are the list your server uses to find the root servers when it does that default walk. A root server can answer for the root zone. For anything else it tells you which servers are authoritative for the right top-level domain. You need root hints when your server is authoritative only for its own lower part of the namespace and still has to find other zones.
+
+**Zone delegation** is a subdomain that keeps the parent’s suffix, stored as its own zone on another server. The slide says this spreads the query load.
 
 ### Split DNS
 
-Organizations keep **internal DNS** and **external DNS** separate.
+Most organizations keep internal DNS and external DNS apart, for security.
 
-1. Internal clients and servers send **all** queries to the **AD-integrated DNS servers** on the domain controllers, inside the firewall.
-2. Those servers answer with internal addresses (and they must still be able to resolve the company’s own public names, such as mail and web).
-3. An **external DNS server in the perimeter network** answers Internet clients. It hosts **only** records that are resolved from the outside, such as the mail and web servers.
+1. Computers inside the firewall send every query to the AD-integrated DNS servers on the domain controllers.
+2. Those servers answer with the internal addresses. People inside still have to be able to resolve the company’s own public names, such as mail and web.
+3. A separate DNS server in the perimeter network answers people on the Internet. It holds only the records that must be visible from outside, such as mail and web.
 
-The internal zone stays unreachable from outside the firewall so internal host names and IPs are not published. External records still have to resolve for internal users.
+The internal zone cannot be reached from outside the firewall. Internal names and addresses stay unpublished.
 
-### Secondary zone lab (what the quiz can pull from the steps)
+### Secondary zone lab
 
-Topology in the lab: primary is the domain controller (**CA-VAN-SVR1**, 192.168.239.1, zone `adatum.com`). Secondary is **CA-VAN-SVR4**.
+The primary is the domain controller **CA-VAN-SVR1** (192.168.239.1), zone `adatum.com`. The secondary is **CA-VAN-SVR4**.
 
 1. Install the DNS role on Svr4.
-2. DNS Manager → Forward Lookup Zones → **New Zone** → **Secondary** → zone name `adatum.com` → master IP **192.168.239.1**.
-3. The zone shows **“Zone not loaded by DNS server.”** The lab asks you to explain that error, then continues with the primary.
-4. On the **primary**: zone → Properties → **Zone Transfers** → **Allow zone transfers** → **Only to the following servers** → add Svr4’s IP → **Notify** those same servers.
-5. Back on Svr4, refresh DNS Manager and check whether the secondary zone is there.
-6. The lab asks whether you can add a record on the secondary, and why or why not. The zone-type notes call the secondary a read-only copy.
+2. On Svr4: Forward Lookup Zones → New Zone → Secondary → zone name `adatum.com` → master IP 192.168.239.1.
+3. The zone says **“Zone not loaded by DNS server.”** The lab asks you why. The next step is the fix: the primary has not been told it may send the zone.
+4. On the primary: zone Properties → Zone Transfers → Allow zone transfers → Only to the following servers → add Svr4’s IP. Then Notify, and add that same IP.
+5. Refresh DNS Manager on Svr4. The zone should be there.
+6. The lab asks whether you can add a record on the secondary. The zone notes call a secondary read-only, so the answer they are aiming at is no. You add records on the primary.
 
-### Advanced server settings (Advanced tab)
+### Advanced tab
 
-Defaults that are **already on**:
+Three options are already turned on:
 
-- **Round robin** — if several A records exist for one name, the server **rotates** which address it returns first. That spreads load.
-- **Netmask ordering** — if several addresses exist, prefer the one on the **client’s subnet**.
-- **Secure cache against pollution** — ignore extra records in a referral that are not for the name that was queried (anti cache-poisoning).
+- **Round robin.** If one name has several A records, the server rotates which address it hands out first. That spreads the load.
+- **Netmask ordering.** If several addresses exist, prefer the one on the client’s own subnet.
+- **Secure cache against pollution.** Ignore extra records stuffed into a referral when those records are not for the name that was asked.
 
-You can also enable or disable **recursion** on this tab. The slide lists that with the other Advanced options. The Linux handout, not this slide, is where recursion on an authoritative server is discussed.
+You can also turn **recursion** on or off on this tab. The Linux handout is the place that says an authoritative server should not recurse.
 
-### Debug logging
+**Debug logging** writes a detailed file of DNS packets. It is for troubleshooting. The slide warns that it costs processing and disk.
 
-DNS **debug logging** is a troubleshooting tool for detailed, file-based analysis of DNS packets and messages. The slide says it has a processing and storage overhead.
+### TTL, aging, and scavenging
 
-### TTL, aging, scavenging
+**TTL** is how long a resolver may keep a record in cache.
 
-| Term | Meaning |
-|---|---|
-| **TTL** | How long a resolver may **cache** a record. Shorten it before you change an address so old data dies quickly |
-| **Aging** | Applies to **dynamic** records (you can turn it on for static ones too). Each dynamic record has a **timestamp** |
-| **No-refresh interval** | The **timestamp cannot be updated**. Other changes are still allowed (an IP address change, or a service change such as a port). This reduces replication traffic and keeps records from being removed too quickly |
-| **Refresh interval** | **Any** data can change, including the timestamp |
-| **Scavenging** | Removes outdated records after the no-refresh interval plus the refresh interval. The slide’s default total is **14 days**. **Not configured by default.** It requires several settings, and it can appear to happen at random |
+**Aging** applies to dynamic records. You can also turn it on for static ones. A dynamic record has a timestamp.
+
+Two timers follow:
+
+- **No-refresh interval.** The timestamp cannot be updated. Other changes are still allowed, such as a new IP or a new port. This cuts replication traffic and stops records from being deleted too soon.
+- **Refresh interval.** Anything can change, including the timestamp.
+
+**Scavenging** deletes records that were not refreshed after both intervals have passed. The slide’s default for that total is **14 days**. Scavenging is off until you configure it. It needs several settings, and it can look like it runs at random.
 
 ### How you protect DNS
 
-The security goal: stop false records from being added, and stop clients from being sent to the wrong address (phishing).
+The security slide’s goal: stop false records from being added, and stop clients from being sent to the wrong address.
 
-| Control | What it stops | How |
-|---|---|---|
-| **DNSSEC** | Forged or altered records | Proves **identity** of the records and gives a **verified denial** (“this name really does not exist”). It does **not** provide confidentiality or availability |
-| **Socket pool** | An attacker guessing the source port of a query (cache poisoning) | Random source ports. `dnscmd /Config /SocketPoolSize` with a value from **0 to 10,000** |
-| **Cache locking** | Overwriting a cached record while its TTL is still valid | `dnscmd /Config /CacheLockingPercent` or `Set-DnsServerCache -LockingPercent`. **100** means the record cannot be overwritten for the whole TTL |
-| **Secure cache against pollution** | Bogus extra records stuck into a referral | Advanced tab, on by default |
-| **Secure dynamic updates** | Named on the AD-integrated benefits slide | AD-integrated zones |
-| **Restrict zone transfers** | The mistakes article: an outsider can download the whole zone | Allow transfers internally to the servers you name. Do not allow them to arbitrary external hosts. The lab uses “Only to the following servers” |
-| **Least privilege** | The delegated-administration slide | Restrict DNS administration to the people who need it |
-| **Split DNS** | Publishing internal names outside | Separate internal and external zones |
+- **DNSSEC** proves the records are really from that zone, and it can prove a name really does not exist. It does not provide confidentiality or availability.
+- **Socket pool** randomizes the source port of a query so an attacker has a harder time guessing it. Command on the slide: `dnscmd /Config /SocketPoolSize`, value 0 to 10,000.
+- **Cache locking** stops someone from replacing a cached record while its TTL is still running. Commands on the slide: `dnscmd /Conifg /CatcheLockingPercent 100` and `Set-DnsServerCache -LockingPercent`. 100 means the record stays locked for the whole TTL. The dnscmd spelling on the slide is missing letters; that is how the slide prints it.
+- **Secure cache against pollution** is the Advanced-tab option above. It is on by default.
+- **Secure dynamic updates** are listed with AD-integrated zones.
+- **Zone transfers** should be allowed only to the servers you name. The mistakes article says an open transfer lets an outsider download the whole zone. The lab uses “Only to the following servers.”
+- **Least privilege:** only people who need to administer DNS should be able to. AD-integrated zones can also use ACLs.
+- **Split DNS** keeps internal names off the Internet. That section is above.
 
-**DNSSEC lab (optional, still fair game):**
+**DNSSEC lab, the short version.** Signing the zone and telling clients to check the signature are two separate jobs.
 
-1. DNS Manager → zone `adatum.com` → **DNSSEC → Sign the Zone** → **Customize zone signing parameters**.
-2. **Key Master** is the DNS server (the DC) that generates and manages the keys.
-3. Add the **Key Signing Key** and the **Zone Signing Key**, accepting the default values.
-4. Choose **nsce3** with the default values. That is the spelling in the lab.
-5. Enable distribution of trust anchors. Check that **DNSKEY** records were created in the **Trust Points** zone.
-6. You can **unsign** the zone later.
-7. In GPMC, create a GPO, then Computer Configuration → Policies → Windows Settings → **Name Resolution Policy** (NRPT). The lab’s own examples:
-   - **Suffix** `microsoft.com` covers that name and its child domains.
-   - **Prefix** `www` covers a query for any server named www in any domain.
-   - **FQDN** is one complete name.
-   - **Subnet (IPv4 or IPv6)** applies to reverse lookups.
-   - **Any** is the default rule for anything another rule does not cover.
-8. On the DNSSEC tab: **Enable DNSSEC in this rule**, and require clients to check that name and address data has been validated. The lab notes that IPsec can be required between the client and the DNS server for that namespace.
-9. On the client: `gpupdate /force`, then `gpresult /r`, and confirm the DNSSEC GPO applied.
+Sign `adatum.com` in DNS Manager: DNSSEC → Sign the Zone → Customize zone signing parameters. The Key Master is the domain controller. Add a Key Signing Key and a Zone Signing Key, both with the defaults. Choose **nsce3** (that is the spelling in the lab) with the defaults. Turn on distribution of trust anchors, then check that DNSKEY records showed up under Trust Points. You can unsign the zone later.
 
-### Delegated administration
+Clients do not check signatures until a GPO says so. Create a GPO and open Computer Configuration → Policies → Windows Settings → Name Resolution Policy. A rule can match a suffix (the lab’s example is `microsoft.com`, which also covers its child domains), a prefix (the lab’s example is `www`), one exact FQDN, an IPv4 or IPv6 subnet (used for reverse lookups), or Any (everything else). On the DNSSEC tab, enable DNSSEC for the rule and require clients to check that the name and address were validated. The lab also notes IPsec can be required between the client and the DNS server. On the client, run `gpupdate /force`, then `gpresult /r`, and confirm the GPO applied.
 
-The slide says DNS administration should be restricted to the people who need it, and that least privilege applies. The AD-integrated benefits slide adds delegated administration of zones and ACLs.
+### Who is allowed to change DNS
 
-### Namespace design exercise (Adatum)
+Only the people who actually need to administer DNS should be able to. That is the least-privilege slide. On an AD-integrated zone you can also delegate a zone and set ACLs.
 
-Rules from the lab:
+### Adatum namespace worksheet
 
-- Root name is **adatum.com**. Every other domain is **under** it.
-- Internal network uses a **different domain** from the external network.
-- Three internal divisions, each its **own subdomain**: Sales, Human Resources, Production.
-- Host names describe the **function** (file, db, www, mail, wk for workstation).
-- Three perimeter servers (Web, FTP, email) stay in **adatum.com**, the external name.
+The lab’s rules:
 
-The worksheet figure already fills in these names:
+- Everything hangs under **adatum.com**.
+- The internal network uses a different domain from the external one.
+- Sales, Human Resources, and Production each get their own subdomain.
+- A host name says what the computer does: file, db, www, mail, or wk for a workstation.
+- The web, FTP, and email servers on the perimeter stay in **adatum.com**.
 
-| Place | Domain | Example FQDNs |
-|---|---|---|
-| External / perimeter | `adatum.com` | `www.adatum.com`, `ftp.adatum.com`, `mail.adatum.com` |
-| Internal root | `int.adatum.com` | (the internal parent; not published outside) |
-| Human Resources | `hr.int.adatum.com` | `file1.hr.int.adatum.com`, `www.hr.int.adatum.com` |
-| Sales | `sl.int.adatum.com` | `file1.sl.int.adatum.com`, `db.sl.int.adatum.com` |
-| Production | `pr.int.adatum.com` | `file1.pr.int.adatum.com`, `wk2.pr.int.adatum.com` |
+The figure on the worksheet already uses these names:
 
-External hosts on that figure stay in `adatum.com`: `www`, `ftp`, and `mail`. Each division is a child of `int.adatum.com`.
+- Outside: `www.adatum.com`, `ftp.adatum.com`, `mail.adatum.com`
+- Internal parent: `int.adatum.com`
+- Human Resources: `hr.int.adatum.com`, for example `file1.hr.int.adatum.com`
+- Sales: `sl.int.adatum.com`, for example `db.sl.int.adatum.com`
+- Production: `pr.int.adatum.com`, for example `wk2.pr.int.adatum.com`
 
-### Nine Windows DNS mistakes
+### Nine DNS mistakes
 
-| # | Mistake | Do this instead |
-|---|---|---|
-| 1 | **Lonely island.** A DC uses only itself (`127.0.0.1` or its own IP) for DNS. With AD-integrated DNS it can become an island and replication fails | Point each DC at **another DC first**, itself second. The first DC may point at itself only until the second DC exists |
-| 2 | DNS servers too far from clients | Keep a DNS server local. Aim for under 25 ms, under 50 ms is acceptable. A caching-only DNS server on a file/print server is enough if the site has no DC |
-| 3 | AD zones stored as files instead of in AD | Use **AD-integrated** zones for internal DNS: multi-master, replicated, secure updates |
-| 4 | **Secure updates only**, in a network that also has Linux or Mac | Those clients cannot register. Allow DHCP to register them, or allow nonsecure updates on a zone that needs them. The article’s point is that more registered names make machines easier to find. (Secure-only is still the right default for a pure Windows domain.) |
-| 5 | No **PTR** / no `in-addr.arpa` zone | Build the reverse zone. Logs and many apps need IP → name |
-| 6 | Forwarding to a DNS server on the other side of the world | Forward to a **nearby** resolver. A Tokyo DC that forwards to Dallas gets slow lookups and non-local CDN answers |
-| 7 | **Forwarding loop.** A forwards to B and B forwards to A | Queries are stateless, so the two servers bounce the same question forever and can fill a WAN link. Forward one way, or use root hints |
-| 8 | Aging and scavenging left off | Stale dynamic records pile up (machines that were shut down years ago). Turn scavenging on |
-| 9 | Zone transfers open to the world, or blocked from your own secondaries | Allow transfers **internally to the servers you name**. Do not allow them to arbitrary external hosts |
+1. **Lonely island.** A domain controller uses only itself for DNS (`127.0.0.1` or its own IP). With AD-integrated DNS it can become an island and replication fails. The first DC has to point at itself until a second DC exists. After that, point each DC at another DC.
+2. **DNS is too far from users.** The article wants answers in under 25 ms, and says under 50 ms is acceptable. If a site has no domain controller, a caching DNS server on the file and print server is enough.
+3. **AD zones stored as files.** For internal DNS, store the zone in AD.
+4. **Secure updates only, while Linux or Mac machines also exist.** Those machines cannot register. Let DHCP register them, or allow nonsecure updates on that zone. The article’s point is that more registered names make machines easier to find. Secure-only is fine when every machine is domain-joined Windows.
+5. **No reverse zone.** Build the `in-addr.arpa` zone so PTR records can turn an IP back into a name.
+6. **Forwarding to a far-away DNS server.** A Tokyo DC that forwards to Dallas gets slow answers, and the answers are often not local to Tokyo.
+7. **A forwarding loop.** A forwards to B and B forwards to A. DNS queries have no memory of who already asked, so the two servers bounce the same question until the link fills up. Forward one way only.
+8. **Aging and scavenging left off.** Old dynamic records stay forever, including PCs that were shut down years ago. Turn scavenging on.
+9. **Zone transfers.** Allow them to your own servers. Do not allow them to the outside world, because that hands someone the whole zone.
 
-### Linux DNS (BIND) — enough to recognize the handout
+### Linux DNS handout
 
-The handout builds BIND (`named`) on `Ca-Van-Ns1` at **192.168.239.10**.
+The handout installs BIND, whose service name is `named`, on **Ca-Van-Ns1** at **192.168.239.10**.
 
-- Config: `/etc/named.conf`
-- Zone files: `/var/named` (example `Adatum.com.db`)
-- `listen-on port 53 { 127.0.0.1; 192.168.239.10; };`
-- `recursion yes;` and `dnssec-validation yes;` for a recursive resolver. The file’s own comment: an **authoritative** server should **not** recurse, and a public recursive server must limit `allow-query` or it becomes an amplification amplifier
-- Root hints zone: `zone "." IN { type hint; file "named.ca"; };`
-- A master zone: `type master; file "Adatum.com.db";`
-- Open the firewall: `firewall-cmd --permanent --add-port=53/udp` and `53/tcp`, then `--reload`
-- `systemctl restart named`, then `netstat` shows TCP 53 on 192.168.239.10 and 127.0.0.1. The same output also shows TCP 953 on 127.0.0.1
-- A Windows DNS server can be a **secondary** of this BIND primary if the zone allows transfers to the Windows server’s IP
+The config file is `/etc/named.conf`. Zone files go in `/var/named`. The example zone file is `Adatum.com.db`.
 
-The secondary-zone lab names **nslookup** as the tool for managing and troubleshooting DNS. It does not give a command list. The DNSSEC lab uses `gpupdate /force` and `gpresult /r`.
+It listens on port 53 at 127.0.0.1 and at 192.168.239.10. Recursion and DNSSEC validation are turned on for this resolver. The file’s own comment says an authoritative server should not recurse, and a public recursive server must limit who can query it or it gets used in an amplification attack.
 
-### Week 9 discussion — short answers
+The root-hints zone in that file is `zone "." IN { type hint; file "named.ca"; };`. The Adatum zone is `type master; file "Adatum.com.db";`.
 
-**What is DNS? Why do we need it? What does it do?**
-DNS is the TCP/IP naming service (port 53 TCP and UDP) that maps a name to an IP, the way a phone book maps a name to a number. The lab adds that clients use it to find domain controllers, global catalog servers, and messaging servers. If it is wrong, those services are inaccessible.
+Open the firewall for 53/udp and 53/tcp, reload the firewall, then `systemctl restart named`. `netstat` then shows TCP 53 on 192.168.239.10 and on 127.0.0.1, and also TCP 953 on 127.0.0.1.
 
-**Primary vs secondary vs stub vs AD-integrated?**
-Primary is the writable copy in a zone file. Secondary is a read-only transferred copy for load and fault tolerance. Stub holds only SOA, NS, and glue A records and is not authoritative. AD-integrated stores the zone in AD on domain controllers, is multi-master, replicates with AD, and supports secure dynamic updates.
+A Windows DNS server can be a secondary of a Unix primary. That is on the Windows zone-type slide.
 
-**Explain each record.**
-Use the record table above: A and AAAA, PTR, CNAME, MX, SRV, NS, SOA, and TXT/SPF.
+The Windows lab names **nslookup** as the troubleshooting tool and does not give a command list. The DNSSEC lab uses `gpupdate /force` and `gpresult /r`.
 
-**How do you protect DNS?**
-DNSSEC (identity of the records and verified denial of existence; not availability or confidentiality), socket pool, cache locking, secure cache against pollution, secure dynamic updates, zone transfers limited to named servers, least privilege, and split DNS.
+### Week 9 discussion, in one pass
 
-**Forwarder vs conditional forwarder vs stub?**
-A forwarder resolves external or offsite names and lets you control query traffic. A conditional forwarder is for one domain, even a different top-level domain, when all resolution for that name should take one path. A stub zone is for a name below a higher-level domain. It holds SOA, NS, and glue A records, is not authoritative, and does not transfer the whole zone.
+**What is DNS, and why do you need it?** It turns a name into an IP, on port 53 TCP and UDP. Clients also use it to find domain controllers, global catalog servers, and mail servers. If DNS is wrong, those services cannot be found.
+
+**Four zone types.** Primary: the writable file, and the only place you edit. Secondary: a read-only copy for load and fault tolerance. Stub: SOA, NS, and glue A only, not authoritative. AD-integrated: stored in AD on domain controllers, multi-master, secure dynamic updates.
+
+**The records.** A and AAAA are host to IP. PTR is IP to name. CNAME is an alias. MX is the mail server. SRV is a service plus a port, which is how a PC finds a domain controller. NS says who is authoritative. SOA is the one record that describes the zone. TXT/SPF is the text record the slide groups with email spoofing.
+
+**How you protect it.** DNSSEC, socket pool, cache locking, secure cache against pollution, secure dynamic updates, zone transfers limited to named servers, least privilege, and split DNS.
+
+**Forwarder vs conditional forwarder vs stub.** A forwarder handles names outside your network. A conditional forwarder handles one domain, even one in another top-level domain, and sends all of those queries down one path. A stub is for a name underneath a domain you already have. It keeps only SOA, NS, and glue A, and it does not copy the whole zone.
 
 ---
 
 ## Part 2 — Week 10, Module 9: DHCP
 
-### Module map
+DHCP hands out IP settings automatically: address, subnet mask, default gateway, DNS servers, and the DNS domain name. The Microsoft DHCP service also supports IPv6.
 
-- Overview of the DHCP server role
-- Deploying DHCP (install, authorize, scopes, options, relay)
-- Managing and troubleshooting (security, policies, superscopes, multicast, high availability, failover, database, migration)
+Doing it by hand means typing every address. A typo, a wrong gateway, or a wrong DNS server breaks the machine, and every time a computer moves you have to edit it again. DHCP does that from one place.
 
-### What DHCP does
+Routers, switches, and printers normally keep a static address. The lease article says a printer left on DHCP can come back with a different address after a long shutdown, and then every PC that was pointed at the old address breaks. Leave those addresses outside the DHCP pool.
 
-**Dynamic Host Configuration Protocol** hands out IP configuration automatically: address, subnet mask, default gateway, DNS servers, DNS domain name, and other options.
+The deploy lab asks whether a client has to join the domain before it can use DHCP. The lab does not answer that.
 
-The benefits slide says the Microsoft DHCP service also supports **IPv6**.
+### Getting an address: DORA
 
-| Automatic (DHCP) | Manual (static) |
-|---|---|
-| Supplies addresses automatically | You type every address |
-| Pushes a consistent set of options | A typo is easy |
-| Change an option once and clients pick it up | A wrong gateway or DNS server breaks communication |
-| Computers can move without a renumbering project | Every move is admin work |
+All four messages on the generation slide are broadcasts.
 
-The allocation slide shows a **non-DHCP client** with a static configuration next to the DHCP clients. The lease article says routers, switches, and printers typically use a static address, and that a printer left on DHCP can change address after a long shutdown.
+1. **DHCPDISCOVER.** The client broadcasts: is there a DHCP server?
+2. **DHCPOFFER.** Every server that has a free address broadcasts an offer.
+3. **DHCPREQUEST.** The client broadcasts which offer it accepts.
+4. **DHCPACK.** The chosen server broadcasts that the lease is the client’s.
 
-The deploy lab asks whether the client must join the domain before it can use Windows DHCP. The lab does not answer that question.
+The lab tests this with `ipconfig /release` and `ipconfig /renew`. The scope wizard can also add a delay between the server hearing DISCOVER and sending OFFER.
 
-### Lease generation — DORA
+### Keeping the address: 50%, 87.5%, 100%
 
-The generation slide says all four messages are **broadcasts**.
+The lease article calls the halfway point **T1** and the later point **T2**.
 
-| Step | Message | What the slide says |
-|---|---|---|
-| 1 | **DHCPDISCOVER** | The client broadcasts it |
-| 2 | **DHCPOFFER** | The DHCP servers broadcast it |
-| 3 | **DHCPREQUEST** | The client broadcasts it |
-| 4 | **DHCPACK** | The chosen server broadcasts it |
+Think of an 8-day lease.
 
-Memory hook: **D**iscover, **O**ffer, **R**equest, **A**cknowledge. The DHCP lab uses `ipconfig /release` and `ipconfig /renew` to test a client. The scope wizard can set a delay between receiving DISCOVER and sending OFFER.
+- At **50%** (day 4) the client sends DHCPREQUEST to try to keep the same address. The server answers with DHCPACK. If that works, both timers reset and the 8 days start over. The article’s example: the client reaches the server on day 5, so a fresh 8-day lease begins that day.
+- If the 50% attempt fails, the client tries again at **87.5%**. The article calls this rebinding: it will take an answer from any DHCP server that is up.
+- At **100%** the lease is over. The client starts from the beginning with DHCPDISCOVER.
 
-### Lease renewal — 50%, 87.5%, 100%
+If the computer boots while the lease is still valid, it checks that same lease instead of asking for a brand-new one.
 
-The lease article calls the halfway timer **T1** and the later timer **T2**. For an 8-day lease, halfway is day 4.
+A 1-hour guest lease tries to renew at 30 minutes. In the article’s coffee-shop math, a renewal at 35 minutes resets the clock, so the address stays reserved for about 95 minutes total.
 
-| Point | What the materials say |
-|---|---|
-| **50%** (T1) | The renewal slide: the client sends **DHCPREQUEST**, and the server sends **DHCPACK**. The article says the client tries to keep the same address. If that renewal succeeds, T1 and T2 reset and the lease starts over |
-| **87.5%** (T2) | The 50% renewal failed. The article calls this rebinding: the client tries to extend the lease with **any** active DHCP server. The slide says the renewal process begins again at 87.5% |
-| **100%** | The slide says lease generation starts over with a broadcast **DHCPDISCOVER** |
-| Boot while a lease is still valid | The article says the client confirms that existing lease and resumes it, instead of starting a brand-new lease |
+### How long the lease should be
 
-The slide’s wording: if renewal fails after 50%, the renewal process runs again after 87.5%. If that also fails, generation starts over with DISCOVER.
+- Wired office: **8 days**. Machines stay put, and a shorter lease only adds DHCP traffic. The scope wizard’s default is also 8 days.
+- Home: **24 hours** (1440 minutes, 86400 seconds) is the usual router default. 8 days is also fine, because a home does not gain and lose devices all day.
+- Wireless: **about 24 hours**. Phones leave, and a long lease holds their addresses.
+- Office guest network: **about 8 hours**, one work day.
+- Café or hotspot: **about 1 hour**.
 
-Worked example from the lease article: lease = 8 days. At day 4 the client tries to renew. If it succeeds on day 5, the 8-day clock starts over. A 1-hour guest lease tries to renew at 30 minutes; if it succeeds at 35 minutes, that address stays reserved until the new hour ends (about 95 minutes total in the article’s coffee-shop math).
+Keep about **20%** of the pool free. Count the devices, add 20%, and if it does not fit, make the pool bigger or the lease shorter.
 
-### How long should the lease be?
+The café in the article has 400 visitors a day, each staying 30 to 60 minutes, and only 200 addresses (192.168.0.10 through 192.168.0.210). A 24-hour lease means the first 200 guests hold every address for the rest of the day. A 1-hour lease gives them back. The article says that same pool can then serve on the order of 130 guests an hour.
 
-| Network | Lease | Why |
-|---|---|---|
-| Wired / enterprise | **8 days** | The article calls this typical for wired devices. The scope wizard’s default lease is also 8 days. A shorter lease only adds DHCP traffic |
-| Home | **24 hours** (1440 minutes, 86400 seconds) is the usual router default; 8 days is also fine | The device count barely changes |
-| Wireless | **About 24 hours or less** | Devices leave and hold addresses if the lease is long |
-| Office guest | **About 8 hours** | One visit is about a work day |
-| Hotspot / café | **About 1 hour** | High turnover |
+Leave room outside the pool for static devices. The article’s pattern is a pool from .10 to .200, with printers and similar devices at .201 and above.
 
-Keep about **20% of the pool free**. Size the pool for the number of devices and add 20%, or shorten the lease until it fits.
+When you run DHCP and DNS together, the article says to turn on DNS scavenging so dynamic DNS records do not live forever.
 
-Café example: 400 visitors a day, 30–60 minutes each, pool of 200 addresses (192.168.0.10–192.168.0.210). A 24-hour lease fills the pool after the first 200 guests and everyone else is stuck. A **1-hour** lease returns addresses fast enough that the same 200 addresses can serve on the order of 130 guests an hour.
+### Install, then authorize
 
-Leave addresses **outside** the pool for static devices. A common pattern is a pool from `.10` to `.200`, with servers and printers at `.201` and above (or below `.10`). A printer left on DHCP can change address after a long shutdown, and every PC that was pointed at the old address breaks.
+The DHCP server needs a static IP. In the lab that server is **CA-VAN-SVR1**, 192.168.239.1.
 
-The lease article’s last line: when you build DHCP and DNS together in a company, also turn on **DNS scavenging** so dynamic registrations do not live forever.
+Install it from Server Manager → Add Roles and Features → DHCP Server, or with `Add-WindowsFeature DHCP`.
 
-### Install and post-install
+After install, in this order:
 
-The DHCP server itself needs a **static IP**. Lab server: **CA-VAN-SVR1, 192.168.239.1**.
-
-Install:
-
-- Server Manager → Add Roles and Features → **DHCP Server**, or
-- `Add-WindowsFeature DHCP`
-
-**Post-install tasks on the slide, in this order:**
-
-1. Create the DHCP security groups. The lab asks what the **DHCP Administrators** group and the **DHCP Users** group are. It does not define them.
+1. Create the DHCP security groups. The lab asks what **DHCP Administrators** and **DHCP Users** are. It does not define them.
 2. Restart the DHCP Server service.
-3. Authorize the DHCP server in AD DS.
+3. Authorize the server in Active Directory. Do this logged on as **Adatum\Administrator**.
 
-The lab says to do that authorization while logged on as the domain administrator, `Adatum\Administrator`.
+If you are not that account, “use the following user’s credentials” is greyed out and you get **error 20079**. Sign in as the domain administrator and authorize it yourself. Before you retire a DHCP server, unauthorize it. The lab says `netsh` can list authorized servers. It does not print the command.
 
-### Authorization
+What authorization actually checks: when the service starts, the server asks a domain controller whether its own IP is on the authorized list. If it is, it serves clients. If it is not, it does not.
 
-A domain-joined Windows DHCP server asks a domain controller for the list of authorized servers when the service starts.
+That only stops a rogue **domain-joined Windows** DHCP server. It does not stop a rogue access point or some other device that is not in the domain. The lab says to limit those with port security. The security slide also says to unplug unused network jacks and to require authenticated Layer 2 connections.
 
-- If **its own IP is on the list**, the service starts and answers clients.
-- If **its IP is not on the list**, the service does **not** start serving clients.
+### A scope
 
-The lab says this blocks a rogue **domain-joined Windows** DHCP server. It does **not** stop rogue access points, non-domain-joined devices, or other devices from handing out addresses. Those have to be limited with **port security**. The security slide also says to disconnect unused LAN drops and to require authenticated Layer 2 connections.
+A scope is the pool for one subnet. Nothing is handed out until you create one, and nothing is handed out if you leave it inactive. The last page of the wizard is Activate Scope, and the lab says you have to choose Yes.
 
-If you are not logged on as `Adatum\Administrator`, “use the following user’s credentials” is greyed out and authorization returns **error 20079**. Sign in as the domain administrator and authorize manually. **Unauthorize** a server in Manage Authorized Servers before you retire it. The lab says **netsh** can list the DHCP servers. It does not print the command.
+A scope must have a start and end address, a subnet mask, and a lease duration.
 
-### Scopes — required vs optional
+It can also have exclusions, a delay between DISCOVER and OFFER, a reservation (one address pinned to one MAC), and options.
 
-You must create a **scope** before any address is handed out. An **inactive** scope hands out nothing. The lab’s last wizard page is **Activate Scope: Yes**.
+The wizard order in the lab:
 
-| A scope must have | A scope may have |
-|---|---|
-| A **range** of IP addresses (start and end) | An exclusion range |
-| A **subnet mask** | A reservation (one IP pinned to one **MAC**) |
-| A **lease duration** (the wizard default is **8 days**) | A delay between DISCOVER and OFFER |
-| | | Options: router, DNS servers, DNS domain name. The wizard also has a WINS page |
-
-New Scope Wizard order (lab):
-
-1. Name and description. The lab says to use a meaningful name and a description.
-2. Start address, end address, and subnet mask. The lab also says you can use the whole range (1–254) and then exclude addresses for member servers. The policy lab’s office range is 192.168.239.100–200 with mask 255.255.255.0.
+1. A meaningful name and a description.
+2. Start address, end address, and mask. You can use the whole subnet (1–254) and then exclude the servers. The policy lab’s office range is 192.168.239.100–200, mask 255.255.255.0.
 3. Exclusions and delay.
-4. Lease duration.
-5. Configure options: **Yes**.
-6. Router (default gateway), then domain name and DNS servers. The WINS Servers page is next. The lab asks what WINS is and how it differs from DNS. It does not answer that.
-7. Activate.
+4. Lease duration. The default shown is 8 days. The lab asks what you would use for wireless, and why. The lease article’s answer is about 24 hours.
+5. Configure options: Yes.
+6. Router, then DNS domain and DNS servers. The next page is WINS. The lab asks what WINS is and how it differs from DNS. It does not answer.
+7. Activate the scope.
 
-The relay lab also builds a scope per remote subnet (Houston 172.16.30.0/24, Mexico 172.16.40.0/24, Portland 172.16.50.0/24) on the central server 192.168.239.1.
+The relay lab also needs one scope per remote subnet: Houston 172.16.30.0/24, Mexico 172.16.40.0/24, Portland 172.16.50.0/24. The DHCP server is still 192.168.239.1.
 
-Check a client with `ipconfig /release`, `ipconfig /renew`, `ipconfig /all`. **DHCP Server** should be 192.168.239.1, and the lease should appear under the scope’s **Address Leases**.
+On a client, run `ipconfig /release`, `ipconfig /renew`, and `ipconfig /all`. Then look under Address Leases in DHCP Manager and confirm the lease is there.
 
-### DHCP options and precedence
+**Options** are the extra settings inside the lease. The slide says you can set them at four levels: the whole server, one scope, a class, or one reservation. The common scope options it names are the router (default gateway), the DNS domain name, and the DNS servers. It does not give option numbers, and it does not say which level wins.
 
-The options slide says DHCP options are common configuration values, and they can be set at the **server**, **scope**, **class**, and **reservation** levels. The common scope options it names are the **router (default gateway)**, the **DNS domain name**, and the **DNS servers**. The slide does not give option numbers or a precedence order.
+**Exclusion** means those addresses are kept out of the pool. Use that for member servers, and for the static routers, switches, and printers in the lease article.
 
-### Reservations vs exclusions
+**Reservation** means one address is tied to one MAC address. That is the allocation slide.
 
-- **Exclusion:** the scope wizard has an exclusions page. The deploy lab says to exclude addresses for member servers. The lease article says to leave addresses outside the pool for static devices such as routers, switches, and printers.
-- **Reservation:** the allocation slide says an address can be reserved based on the client’s MAC address.
+### Relay agent
 
-### DHCP relay agent
+DHCPDISCOVER is a broadcast. A router that is not RFC 1542 compliant does not forward broadcasts, so clients on another subnet never hear the server.
 
-DISCOVER is a broadcast. A router that is **not RFC 1542 compliant** drops it, so clients on another subnet never hear the server.
+A relay agent sits on the clients’ subnet, hears the broadcast, and sends it on to the DHCP server. The slide marks that forwarded path as unicast. On the picture, Subnet A has the DHCP server, Subnet B has the clients and the relay, and the router between them does not pass the broadcast.
 
-A **DHCP relay agent** sits on the clients’ subnet, hears the broadcast, and relays it to a DHCP server on another subnet. The relay slide marks the forwarded path as **unicast**.
+In the lab you install the Remote Access role with the Routing role service, enable Routing and Remote Access as a LAN router, add the DHCP Relay Agent routing protocol, put 192.168.239.1 in the relay’s properties, and add the network interface that faces the clients.
 
-Slide picture: Subnet A has the DHCP server, Subnet B has the clients and the relay, and the router between them does not forward the broadcasts.
+You need a relay whenever the server and the clients are on different subnets and the router will not forward the DHCP broadcast. That is how one server in the lab serves Houston, Mexico, and Portland, with one scope per subnet.
 
-Install path in the lab:
+### Policies
 
-1. Install the **Remote Access** role, role service **Routing**.
-2. Routing and Remote Access → Configure and Enable → custom → **LAN routing** → start the service.
-3. IPv4 → General → New Routing Protocol → **DHCP Relay Agent**.
-4. Relay agent → Properties → add the DHCP server IP (**192.168.239.1**).
-5. Relay agent → **New Interface** → the NIC that faces the clients.
+A policy can give different addresses, options, or lease times based on vendor class, user class, MAC address, FQDN, or relay-agent information. Vendor class comes from the hardware maker. User class is one you define.
 
-The deploy lab’s challenge is to discuss when you have to deploy a relay. The topology for that lab has remote subnets (Houston 172.16.30.0/24, Mexico 172.16.40.0/24, Portland 172.16.50.0/24) and the DHCP server at 192.168.239.1. The slide’s case is a router that is not RFC 1542 compliant, so it does not forward the DHCP broadcast.
+The lab:
 
-### Policies (policy-based assignment)
+1. IPv4 → Define User Classes → Add → name **Sales**, data `sales`. You can define vendor classes for IPv4 and IPv6. You cannot define a user class for IPv6.
+2. On the office scope (192.168.239.100–200), new policy **sales**, condition User Class equals Sales, address range 192.168.239.190–200, lease **8 hours**.
+3. On the client: `ipconfig /setclassid "Ethernet" sales`, then release and renew.
+4. The follow-up is a **Finance** class whose addresses are 192.168.239.100–150.
 
-A policy gives different addresses, options, or lease times based on:
+The lab’s own puzzle: the client can get an address in the right range and still get a 1-hour lease instead of 8 hours. The only hint written in the lab is “DHCP relay agent.” It does not explain further.
 
-- **Vendor class** (set by the hardware vendor)
-- **User class** (defined by the administrator)
-- **MAC address**
-- **FQDN**
-- **Relay agent information** (which subnet the request came from)
+### Superscope
 
-Lab pattern:
+A superscope is a group of scopes, called member scopes, so one DHCP server can hand out addresses from more than one scope on a single physical network. The handout calls that network a **multinet**: more than one IP subnet on the same wire.
 
-1. IPv4 → **Define User Classes** → Add → display name **Sales**, ASCII data `sales`. User classes are an IPv4 feature in this lab.
-2. On the Office scope (192.168.239.100–200) → Policies → New Policy **sales** → condition **User Class equals Sales** → address range **.190–.200** → lease **8 hours**.
-3. On the client the lab uses `ipconfig /setclassid "Ethernet" sales`, then `/release` and `/renew`.
-4. The follow-up task is a **Finance** class whose policy range is 192.168.239.100–192.168.239.150.
+Use one when:
 
-The lab’s challenge: the address range can be right while the lease time is still 1 hour instead of the policy’s 8 hours. The only hint in the lab is **DHCP relay agent**. It does not explain further. The lab also says you can define vendor classes for IPv4 and IPv6, but you cannot define a user class for IPv6.
+- the current pool is almost empty and you add a second subnet on the same wire
+- the first scope already used the whole classful network, so you need another range on that same segment
+- you are slowly moving clients from an old subnet to a new one
+- the clients are behind a relay, and the far network is itself a multinet
+- two DHCP servers on the same segment each own a different logical network
 
-### Superscopes and multicast scopes
+The module slide also mentions multicast scopes. The superscope handout does not define them.
 
-**Superscope** = an administrative group of scopes (**member scopes**) so one DHCP server can lease from **more than one scope onto one physical network**.
+### Two DHCP servers
 
-That physical network is using more than one logical IP subnet. The handout calls this a **multinet**.
+The slides show three designs.
 
-Uses:
+**Cluster.** Two cluster members, and the DHCP database sits on shared storage. You have to build the cluster.
 
-- The current scope is almost **out of addresses**, and you add a second subnet on the same wire.
-- The original scope already covers the entire classful network, so you need another range on the same segment.
-- Clients are being **renumbered** from an old subnet to a new one over time.
-- Clients sit behind a relay, and the far network is itself a multinet.
-- Two DHCP servers on the same segment each manage a different logical network, grouped under a superscope.
+**Split scope.** Two servers divide one subnet so their ranges do not overlap. The slide’s example is server A with 192.168.0.1–150 and server B with 192.168.0.151–254. The delay is **500 milliseconds**, so one server usually answers first. The steps are: install DHCP on the second server, right-click the scope, Advanced → Split-Scope, name the second server, then set the percentage and the delay.
 
-The module slide is titled configuring superscopes and multicast scopes. The superscope handout is the text that defines a superscope. That handout does not define a multicast scope.
+**Failover.** Two servers serve the same scopes. The relationship name has to be unique. The slide’s example is `Svr1-Svr2`, and then it asks “Any problem?” The two modes are **hot standby** and **load sharing**. The slide does not give a percentage for either mode.
 
-### High availability
+Four failover settings are on the slide:
 
-Three designs are on the slides. **DHCP failover** is the one Microsoft wants for Server 2012 and later.
+- **MCLT** (Maximum Client Lead Time): when the partner takes over the scope.
+- **Auto state switchover interval**: how long contact can be lost before the partner is treated as down.
+- **Shared secret**: a password that checks the failover messages.
+- **TCP 647**: the firewall rules created when you install DHCP, named Microsoft-Windows-DHCP-Failover-TCP-In and TCP-Out.
 
-| Design | How it works | Tradeoff |
-|---|---|---|
-| **DHCP cluster** | Failover Clustering, DHCP database on **shared storage**, two cluster members | Real failover, but you must build a cluster and shared storage |
-| **Split scope** | Two servers each own a **non-overlapping** piece of the **same** subnet. The slide’s example is Server A **192.168.0.1–150** and Server B **192.168.0.151–254**, with the delay set to **500 ms** | The two ranges do not overlap. The slide does not say the servers share a lease database |
-| **DHCP failover** | Two DHCP servers provide addresses and options to the **same** subnets or scopes | The slide names two modes: hot standby and load sharing. Each relationship needs a unique name |
+### The database
 
-**How to split a scope (slide steps):**
+The file is **Dhcp.mdb**. It holds the scopes, leases, reservations, and the rest of the configuration. It lives in `%systemroot%\System32\DHCP`.
 
-1. Install DHCP on the second server.
-2. On the server that has the scope, open the DHCP console and select the scope.
-3. Right-click → **Advanced → Split-Scope**.
-4. Next past the intro.
-5. Type the second server’s name or IP (or Add Server) → Next, then set the percentage and the delay.
+It backs itself up every 60 minutes. You can also back it up manually. **Reconcile** repairs inconsistencies. To move the service, export the data to a file on the old server and import that file on the new one. The slide says PowerShell or NetShell can do that. It does not show the commands.
 
-**DHCP failover:**
+### Security, then the discussion questions
 
-- The **relationship name must be unique**. The slide’s example is `Svr1-Svr2`, followed by “Any problem?”
-- The two modes on the slide are **hot standby** and **load sharing**. The slide does not give a split percentage for either mode.
+- Unplug unused jacks. Require authenticated Layer 2 connections.
+- Turn on the DHCP audit log: Event Viewer → Applications and Services Logs → Microsoft → Windows → DHCP-Server.
+- **Name protection** stops a non-Windows computer from overwriting a Windows computer’s DNS name when both want the same name. It records the original machine with a **DHCID** record.
+- Authorization, covered above. Port security covers the devices authorization does not stop.
 
-| Failover setting | What the slide says |
-|---|---|
-| **MCLT (Maximum Client Lead Time)** | Determines when a failover partner assumes control of the subnet or scope |
-| **Auto state switchover interval** | Determines when a failover partner is considered to be down |
-| **Shared secret** | A password that can validate the failover messages |
-| **TCP 647** | Installing DHCP auto-configures the firewall rules **Microsoft-Windows-DHCP-Failover-TCP-In** and **TCP-Out** |
+The troubleshooting slide lists five problems and does not print the fixes. These facts from the rest of the module are the ones that match some of them:
 
-### Database, backup, migration
-
-| Item | Fact |
-|---|---|
-| File | **`Dhcp.mdb`** (leases, scopes, reservations, options) |
-| Folder | **`%systemroot%\System32\DHCP`** |
-| Automatic backup | Every **60 minutes**, or you can back it up manually |
-| Repair | **Reconcile** the database to repair inconsistencies |
-| Move the service | Export the data from the old server to a file and import that file on the new server. The slide says you can use PowerShell or NetShell. It does not show the commands |
-
-### DHCP security
-
-1. **Limit physical access.** Disconnect unused LAN drops. Require authenticated Layer 2 connections.
-2. **Audit.** Enable DHCP auditing in the DHCP-Operational log: Event Viewer → Applications and Services Logs → Microsoft → Windows → **DHCP-Server**.
-3. **Name protection.** Stops a non-Windows OS from overwriting a Windows computer’s DNS name when both want the same name. It uses a **DHCID** resource record for the device that originally requested the name.
-4. **Authorization** in AD, covered above. The lab adds port security for devices that authorization does not stop.
-
-### Troubleshooting (the slide’s discussion list)
-
-The slide asks how you address these when DHCP is not configured properly. It does not print the answers. Related facts that are in the module:
-
-- **Failure to obtain an address.** An unauthorized domain-joined server does not service clients. A scope that was not activated does not provide service. A relay is required when the router does not forward the broadcast.
-- **Database corruption or loss.** The database is backed up every 60 minutes, or manually, and reconcile repairs inconsistencies. You can also export it and import it on another server.
-- **Pool exhausted.** The lease article says to shorten the lease or enlarge the pool, and to keep about 20% free. The superscope handout covers a scope whose pool is nearly depleted.
-- **Address conflicts** and **an address from the wrong scope** are on the discussion list. The materials do not give a cause list for either one.
-
-### Week 10 short answers
-
-**What is DHCP?**
-It hands out IP configuration automatically. Clients get an address with DORA (all four messages are broadcasts on the slide). Renewal is attempted at 50% of the lease. If that fails, it is attempted again at 87.5%. At 100% the client starts over with DISCOVER.
-
-**Scope vs superscope?**
-A scope is the pool, mask, lease, and options for **one subnet**. A superscope groups several scopes so one server can serve **one physical segment that has several logical subnets** (a multinet).
-
-**What is split-scope?**
-The slide splits one subnet across two servers, for example 192.168.0.1–150 and 192.168.0.151–254, and sets a 500 ms delay. Failover is the other design on that slide: two servers serve the same scopes, in hot standby or load sharing.
-
-**What is a relay agent?**
-It listens for DHCP broadcasts and relays them to a DHCP server on another subnet. The slide shows that forwarded path as unicast. You need it when the router is not RFC 1542 compliant.
+- A client gets no address if the server is not authorized, if the scope was never activated, or if the clients are on another subnet and there is no relay.
+- A damaged database can be restored from the 60-minute backup, repaired with Reconcile, or replaced by importing an export from the other server.
+- An empty pool is the lease article’s problem: shorten the lease or make the pool bigger, and keep about 20% free. A superscope is the handout’s answer when the current pool is almost gone.
+- Address conflicts, and a client getting an address from the wrong scope, are on the list. The module does not give the causes.
 
 ---
 
-## Part 3 — practice questions
+## Check yourself
 
-Answer from memory, then check the sections above.
+Answer, then read the line under the question.
 
 **DNS**
 
-1. What port and protocols does DNS use?
-2. Build the FQDN for a host named `computer1` in the `sales` domain of `contoso` under `.com`.
-3. List the five deployment steps.
-4. What three things make a response authoritative?
-5. Compare primary, secondary, stub, and AD-integrated zones in one sentence each. Which one is multi-master? Which one is not authoritative?
-6. Which records are in a stub zone?
-7. A secondary zone says “Zone not loaded by DNS server.” What do you change, and on which server?
-8. Can you add an A record on a secondary zone?
-9. What does the slide say an SOA record contains?
-10. On the first alnorthamerica.com screenshot, where does the MX point? What replaced it on the second screenshot?
-11. What does the slide say an SRV record contains, and why do site-specific SRV records reduce WAN traffic?
-12. What ports do `_ldap`, `_kerberos`, `_gc`, and `_kpasswd` use?
-13. Which tools does the record-issues slide say you should use?
-14. A client asks its DNS server for `www.bcit.ca` and that server asks the root. Which query is recursive and which is iterative?
-15. When do you pick a forwarder, a conditional forwarder, and a stub zone?
-16. What are root hints used for?
-17. Describe split DNS in three steps. What is allowed to exist on the external server?
-18. What does DNSSEC prove, and what does it deliberately not provide?
-19. What do socket pool and cache locking protect against? What is the cache-locking cmdlet?
-20. No-refresh interval vs refresh interval vs scavenging. What is the 14-day figure? Is scavenging on by default?
-21. Round robin vs netmask ordering. Which three Advanced-tab options are on by default?
-22. State all nine DNS mistakes in a few words each.
-23. Why must the internal domain in the Adatum worksheet differ from `adatum.com`, and where do www, ftp, and mail go?
-24. A DC’s only DNS server is 127.0.0.1. What fails, and how do you fix the NIC DNS settings once a second DC exists?
+1. What port does DNS use?
+   Port 53, both TCP and UDP, on Windows and Linux.
+
+2. What is `computer1.sales.contoso.com` made of?
+   Host `computer1`, domain `sales` under `contoso`, top-level domain `com`. That is the hierarchy slide.
+
+3. Primary, secondary, stub, AD-integrated: one line each.
+   Primary is the writable copy. Secondary is a read-only copy. Stub holds only SOA, NS, and glue A, and is not authoritative. AD-integrated is stored in AD, only on a domain controller, and any of those domain controllers can accept a change.
+
+4. A new secondary says “Zone not loaded.” What do you change, and where?
+   On the primary, allow zone transfers only to the secondary’s IP, and notify that same IP. Then refresh the secondary. You add records on the primary, not on the secondary.
+
+5. What is on the SRV screenshot, in plain words?
+   In `_msdcs.Adatum.com`, `_gc` is tcp port 3268, `_kerberos` is tcp and udp port 88, `_kpasswd` is tcp and udp port 464, and `_ldap` is tcp port 389. The name at the end of the row is the server, usually CA-VAN-Svr1 or CA-VAN-Svr2. Clients use the records for their own site before they cross the WAN.
+
+6. Forwarder, conditional forwarder, or stub?
+   Forwarder: names outside your network. Conditional forwarder: one domain, sent down one path. Stub: a name under a domain you already have; only SOA, NS, and glue A.
+
+7. What does split DNS keep off the Internet?
+   The internal zone. The external server publishes only what outside clients must see, such as mail and web.
+
+8. What does DNSSEC prove, and what does it not prove?
+   That the records are authentic, and that a missing name is really missing. It does not provide confidentiality or availability.
+
+9. No-refresh, refresh, scavenging.
+   No-refresh: the timestamp stays put. Refresh: the timestamp may be updated. Scavenging deletes the record after both have passed. The slide’s total is 14 days, and scavenging is off until you turn it on.
+
+10. The lonely-island mistake.
+    A domain controller that uses only itself for DNS can fail replication. After the second domain controller exists, point each one at the other.
 
 **DHCP**
 
-25. Write the four DORA messages in order and say which ones are broadcasts.
-26. At 50%, 87.5%, and 100% of the lease, what does the client do?
-27. A wireless scope is set to 8 days and the pool keeps filling up with devices that left yesterday. What lease do you use instead, and why?
-28. A café has 200 addresses and 400 short visits a day. Why does a 24-hour lease fail?
-29. List the three post-install tasks. What does the lab ask about the two DHCP security groups?
-30. Authorization fails with a greyed-out credentials option. What is the error, and which account does the lab say to use?
-31. What must a scope contain? What happens if you leave the scope inactive?
-32. Which scope options does the options slide name?
-33. At which four levels can DHCP options be set?
-34. Exclusion vs reservation.
-35. When does the relay slide say you need a DHCP relay agent?
-36. What is a superscope, and name two situations that need one?
-37. What address split and delay does the split-scope slide show? What are the two failover modes, and what do MCLT, the state switchover interval, the shared secret, and TCP 647 mean on the slide?
-38. Where is `Dhcp.mdb`, how often is it backed up, and what does Reconcile do?
-39. What is DHCP name protection, and which record does it add?
-40. Name two module facts that explain a client getting no address.
-41. The discussion asks how you address address conflicts. Does the module give the causes?
-42. The pool is exhausted. Give two fixes that are in the lease article or the superscope handout.
-43. Does the deploy lab say whether a client must join the domain to get a lease?
-44. Does the scope lab define WINS?
+11. Write DORA, and say how those packets are sent.
+    Discover, Offer, Request, Ack. The generation slide says all four are broadcasts.
 
-### Answer key (compressed)
+12. What happens at 50%, 87.5%, and 100% of an 8-day lease?
+    Day 4: the client asks to keep the address (DHCPREQUEST, then DHCPACK). If that fails, at 87.5% it asks any DHCP server. At 100% it starts over with DISCOVER.
 
-1. Port 53, TCP and UDP, on Windows and Linux.
-2. `computer1.sales.contoso.com`.
-3. Install DNS, configure the servers, create forward and reverse zones, add records, point clients at the servers.
-4. A complete zone copy: valid SOA, valid NS records, and those NS records match the SOA.
-5. Primary: writable file. Secondary: read-only copy. Stub: SOA, NS, and glue A only, and not authoritative. AD-integrated: stored in AD, multi-master, domain controllers only. Multi-master is AD-integrated. Not authoritative is the stub.
-6. SOA, NS, glue host (A).
-7. On the **primary**: Zone Transfers → allow → only the secondary’s IP → Notify. Then refresh the secondary.
-8. The lab asks you to check. The zone notes call a secondary read-only.
-9. One per zone, primary name server, administrator email, serial number, and refresh time.
-10. Before: MX `10 mail.alnorthamerica.com.` and `mail` is an A record at 72.10.34.68, the same address as www. After: that mail A record is gone, and the MX rows are the five Google hosts with preferences 1, 5, 5, 10, and 10.
-11. Service, target port, priority, and a host A record. Clients use the SRV records for their own site before crossing a WAN link.
-12. On the screenshot: `_ldap` tcp 389, `_kerberos` tcp and udp 88, `_gc` tcp 3268, `_kpasswd` tcp and udp 464.
-13. The slide asks the question and does not name the tools.
-14. The forwarders slide calls the walk from the local server to the root, then .ca, then bcit.ca an iterative query. The lab says the DNS server answers both recursive and iterative queries. The diagram’s first step is the workstation asking the local server.
-15. Forwarder: external or offsite names. Conditional forwarder: one domain, even a different top-level domain, all resolution taking one path. Stub: a name below a higher-level domain; SOA, NS, and glue A only.
-16. Finding the root servers so a server can perform an iterative query.
-17. Internal clients use AD-integrated DNS inside the firewall; that DNS answers them; the external DNS answers Internet clients and hosts only records resolved from outside, such as mail and web.
-18. Proof of identity of the records, and verified denial of existence. Not availability or confidentiality.
-19. Guessing the source port of a query, and replacing a cached record while its TTL is still in force. `Set-DnsServerCache -LockingPercent`. The slide’s dnscmd line is `dnscmd /Conifg /CatcheLockingPercent 100`.
-20. No-refresh: the timestamp cannot be updated. Refresh: any data, including the timestamp, can change. Scavenging runs after both intervals. The slide’s combined default is 14 days. Scavenging is not configured by default.
-21. Round robin rotates which address is returned first. Netmask ordering prefers the address on the client’s subnet. Both, plus secure cache against pollution, are on by default.
-22. DC DNS points only at itself; DNS too far from users; zones not in AD; secure-only updates with non-Windows clients; no PTRs; forwarders too far away; forwarder loop; no scavenging; zone transfers open externally.
-23. The worksheet requires the internal domain to differ from the external one. On the figure, www, ftp, and mail stay in `adatum.com`.
-24. The DC can become an island and replication can fail. Point each DC at another DC, not only at itself.
-25. DISCOVER, OFFER, REQUEST, ACK. The generation slide says all four are broadcasts.
-26. 50%: DHCPREQUEST, then DHCPACK; the article says this is the attempt to keep the same address. 87.5%: the renewal process runs again, and the article says the client tries any active DHCP server. 100%: DHCPDISCOVER.
-27. About 24 hours, because wireless devices leave and a long lease holds their addresses.
-28. The first 200 guests hold every address for a full day.
-29. Create the DHCP security groups, restart the DHCP service, authorize in AD. The lab asks what DHCP Administrators and DHCP Users are, and it does not define them.
-30. Error 20079. Log on as `Adatum\Administrator`.
-31. A range of addresses, a subnet mask, and a lease duration. The lab says you have to activate the scope or DHCP will not provide service.
-32. Router (default gateway), DNS domain name, and DNS servers.
-33. Server, scope, class, and reservation. The slide does not rank them.
-34. An exclusion is a range the scope wizard keeps out of the pool. A reservation pins an address to a MAC address. The allocation slide says addresses can be reserved by MAC.
-35. When the router is not RFC 1542 compliant and does not forward DHCP broadcasts to the server on another subnet.
-36. A group of member scopes so one server can lease from more than one scope onto one physical network (a multinet). Two cases from the handout: the current pool is nearly depleted, or clients are being renumbered onto a new scope.
-37. The slide’s split is 192.168.0.1–150 and 192.168.0.151–254, with a 500 ms delay. Failover modes are hot standby and load sharing. MCLT is when the partner assumes control of the scope. The switchover interval is when the partner is considered down. The shared secret validates failover messages. TCP 647 is the failover firewall rule created when DHCP is installed.
-38. `%systemroot%\System32\DHCP\Dhcp.mdb`. Backed up every 60 minutes, or manually. Reconcile repairs inconsistencies in the database.
-39. It stops a non-Windows host from overwriting a Windows host’s DNS name. It uses a DHCID record.
-40. An unauthorized server does not service clients. A scope that is not activated does not provide service. A relay is required when the router does not forward the broadcast. Any two.
-41. No. The discussion lists address conflicts and does not give the causes.
-42. Shorten the lease, or enlarge the pool (the superscope handout is the case where the current pool is nearly depleted). Also keep about 20% of the pool free.
-43. The lab asks. It does not answer.
-44. No. The scope wizard has a WINS page, and the lab asks what WINS is and how it differs from DNS, without defining it.
+13. Wireless devices are filling an 8-day pool. What lease do you use?
+    About 24 hours, so addresses come back when the devices leave.
+
+14. Why does the café’s 24-hour lease fail?
+    200 addresses and 400 visitors. The first 200 guests hold every address all day.
+
+15. A scope will not hand out addresses. What two lab facts explain that?
+    The server was not authorized (error 20079 if you were not Adatum\Administrator), or the scope was not activated.
+
+16. When do you need a relay?
+    Clients and the DHCP server are on different subnets, and the router does not forward DHCP broadcasts.
+
+17. What is a superscope for?
+    Several scopes on one physical network that has more than one IP subnet. One case is a pool that is almost empty. Another is moving clients from an old range to a new one.
+
+18. Split scope versus failover.
+    Split scope divides one subnet, for example .1–150 and .151–254, with a 500 ms delay. Failover lets two servers serve the same scopes, either hot standby or load sharing. MCLT is when the partner takes the scope. The switchover interval is when the partner is considered down. The shared secret checks the messages. TCP 647 is the firewall rule.
+
+19. Where is the DHCP database, and how often is it backed up?
+    `%systemroot%\System32\DHCP\Dhcp.mdb`, every 60 minutes. Reconcile repairs inconsistencies.
+
+20. What is name protection?
+    It stops a non-Windows computer from taking a Windows computer’s DNS name. It uses a DHCID record.
