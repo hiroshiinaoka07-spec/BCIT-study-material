@@ -1,0 +1,73 @@
+--- page 1 ---
+ACIT3420 
+ 
+Group Policy WMI filters for Windows 7/8/8.1/10 
+Windows 10 1703 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.15063” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.15063” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.15063” AND 
+ProductType=”1″ 
+Windows 10 1607 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.14393” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.14393” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.14393” AND 
+ProductType=”1″ 
+Windows 10 1511 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.10586” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.10586” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.10586” AND 
+ProductType=”1″ 
+Windows 10 1507 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.10240” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.10240” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.0.10240” AND 
+ProductType=”1″ 
+Windows 10 all builds 
+select Version from Win32_OperatingSystem WHERE Version like “10.%” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “10.%” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+
+--- page 2 ---
+ACIT3420 
+ 
+select Version from Win32_OperatingSystem WHERE Version like “10.%” AND 
+ProductType=”1″ 
+Windows 7, 8 and 8.1 (all versions before 10) 
+select Version from Win32_OperatingSystem WHERE Version like “6.%” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.%” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.%” AND 
+ProductType=”1″ 
+Windows 8.1 
+select Version from Win32_OperatingSystem WHERE Version like “6.3%” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.3%” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.3%” AND 
+ProductType=”1″ 
+Windows 8 
+select Version from Win32_OperatingSystem WHERE Version like “6.2%” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.2%” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.2%” AND 
+ProductType=”1″ 
+Windows 7 
+select Version from Win32_OperatingSystem WHERE Version like “6.1%” AND 
+ProductType=”1″ AND OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.1%” AND 
+ProductType=”1″ AND NOT OSArchitecture = “64-bit” 
+select Version from Win32_OperatingSystem WHERE Version like “6.1%” AND 
+ProductType=”1″ 
+  
+ 

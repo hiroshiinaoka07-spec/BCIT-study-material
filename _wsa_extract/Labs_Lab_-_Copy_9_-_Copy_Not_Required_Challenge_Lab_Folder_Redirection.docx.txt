@@ -1,0 +1,95 @@
+Folder Redirection
+Folder redirection allows you to redirect the content of a certain folder to a network location or to another location on the user’s local computer. 
+Benefits: 
+The Documents folder can be redirected to the user’s home folder on a centralized server. By having the Documents folder on a centralized server, you can perform a centralized backup of all the user’s personal files and the personal files can be available no matter which client computer the user logs on to. 
+By redirecting a folder to a separate drive on the local computer, you can separate the data files from the operating system files, so that when you have to reinstall a computer, you only need to reinstall the operating system drive without touching the data file drive.
+Pre-requirements:
+
+Three VMs (DC, DHCP, Client (Windows 7, 8, 8.1, 10 professional and above, not Windows server 2016 Why?)
+Create an OU Finance
+In Finance OU, create two accounts (For example: test1, and test2)
+Create a group in finance OU, finance.
+Client (Domain-joined)
+
+GET READY. To configure folder redirection, perform the following steps.
+Task 1: Create a folder and assign permissions to one or more groups.
+Log on to DC (domain controller) as domain administrator.
+On the taskbar, click the File Explorer icon. In the navigation pane, click This PC.
+
+Double-click one of your Local Disks (Win2016S(C:)), and then create a New folder (Employee_Redir).
+
+Server Manager->File and Storage Services->Shares->Tasks->New Share
+
+Select the SMB share-Quick profile.
+
+Note: Click SMB Share-Advanced and find out the differences.
+Click the Browse to select your folder. (Note: You can also create a new Folder.)
+
+The next step is to specify the share name. (Note: By default, the folder name will be used as share name. You can modify it if you want.). For the security purpose, I suggest you to create hidden share ($). Copy the Remote path to share (\\CA-VAN-Svr1\Employee_Redir$) and click Next.
+
+Qs: What is Remote path to share? What is local path to share?
+In Configure share settings windows, select the enable access-based enumeration (Read the description). Click the Next button to modify the NTFS permission to conclude the access of the share folder (Modify the ACL).
+
+In Specify permissions to control access windows, click the Customize permissions. 
+
+Q: Who has the full control? Why?
+In advanced security settings, in order to remove Users (ADATUM\Users), you have to disable inheritance. Otherwise, you will get the warning message below. After you disable folder permission inheritance, delete two Users. 
+
+
+Q: What does the “explicit permissions” mean?
+
+Click on Add and then setup the permission entry for groups.
+
+In the permission entry windows, click Select a Principle and then choose an appropriate group (Finance). 
+
+
+
+Click the Show advanced permissions and then check the Create folders/ append data. Otherwise, a user cannot create folders. Click OK.
+
+
+Click Next and Confirm sections and then Create. 
+Q: how to give the read and write (R/W) permission for Everyone?
+Task 2: Create a GPO
+Open the Group Policy Management and create a GPO.
+Note: all the steps are the same with the lab “how to set up default wallpaper?”
+
+Right click the GPO (Fianace_Folder_Redirection) and select Edit. You will open Group Policy Management Editor to modify it.
+Navigate to the \User Configuration\Policies\Windows Settings\Folder Redirection node.
+
+In the left window pane, right-click the Documents folder and choose Properties. The Documents Properties dialog box opens.
+On the target tab, select one of the following options:
+Basic—Redirect everyone’s folder to the same location: Redirects the Documents folder to the location you specify.
+Advanced—Specify locations for various user groups: Redirects the Documents folder to a different place depending on a particular user’s group membership.
+Not configured—The folder will not be redirected.
+
+If you chose Basic–Redirect everyone’s folder to the same location, specify the Target folder location using a UNC in the Settings dialog box. Choose from the following options:
+Redirect to the user’s home directory: Redirects the Documents folder to the user’s home directory, specified on the Active Directory account tab for the user. This option is available only if you are redirecting the Documents folder. By allowing the system to create the subfolder structure automatically, the system will automatically assign appropriate permissions on the shared folder.
+Create a folder for each user under the root path: Allows you to specify the path to a folder, whereas the group policy creates a subfolder for each user based on the %username% variable and the folder name of the redirected folder (such as Documents or Music), and redirects the appropriate folder there.
+Redirect to the following location: Allows you to redirect a folder to a specific folder, which is the same for all users. You might use this if you want the same items to appear for every user.
+Redirect to the local user profile location: Redirects to the user’s local profile located on the local computer and copies the contents of the redirected folder back to the user profile location. The redirected folder contents are not deleted. 
+If you chose Advanced–Specify locations for various user groups, you specify the target folder location for each group that you add in the Settings dialog box. You will then select one of the options listed in the previous step. Click Add to select the groups and choose the target folder location for redirected files. The Specify Group and Location dialog box opens. Click OK to close the Specify Group and Location dialog box.
+Click the Settings tab.
+Click to enable the Grant the user exclusive rights to Documents check box, to automatically configure the permissions for the user to access the folder.
+Click to enable the Move the contents of Documents to the new location check box if you need to move the current content of the Documents to the new location.
+If you will be supporting down-level clients such as Windows XP, click Also apply redirection policy to Windows 2000, Windows 2000 Server, Windows XP, and Windows Server 2003 operating systems.
+To configure the Policy Removal settings, select one of the following options: 
+Leave the folder in the new location when policy is removed.
+Redirect the folder back to the local userprofile location when policy is removed.
+Click OK to close the Documents Properties dialog box.
+Close the Group Policy Management Editor console. 
+Task 3: Test the folder redirection
+Login your client use one of the accounts (I used the account, johnny.). Run the following cmdlet: gpupdate /force. Type Y and your computer will log off.
+
+29. Login and you should find the Documents folder is synchronizing. You can create a folder to test.
+
+
+Login your DC as domain administrator. Go to the share folder (Employee_Redir) and could you see a folder (Note: The folder named is the same as user account name)? 
+
+
+When you click the Documents, you will get the following warning window. Why?
+
+Q: How to fix the issue in order to see the files and folders?
+
+Task 4: Login your client1 by using a different account and check your share folder (Employee_Redir) from your server. Could you find the second folder?
+Task 5:  Create a new client (Client2, domain joined) and use the same account to login your client2. Could you get all the documents synchronize from your server?
+Task 6: Create a GPO to redirect your picture folder.

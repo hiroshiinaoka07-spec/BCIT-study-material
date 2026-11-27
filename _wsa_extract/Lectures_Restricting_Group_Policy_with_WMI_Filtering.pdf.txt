@@ -1,0 +1,192 @@
+--- page 1 ---
+ACIT3420 
+1 
+ 
+Restricting Group Policy with WMI Filtering 
+WMI filters in Group Policy (GPO) allow you to more flexibly apply policies to clients by using 
+different rules. A WMI filter is a set of WMI queries (the WMI Query Language / WQL  is 
+used) that you can use to target computers to which a specific group policy should be applied. 
+For example, using the WMI GPO filter, you can apply a policy linked to an OU only to 
+computers running Windows 10 (a policy with such a WMI filter won’t apply to computers with 
+other Windows versions).  
+Contents: 
+ 
+• 
+What are the WMI GPO filters used for? 
+• 
+Create a New WMI Filter and Link it to a GPO 
+• 
+GPO WMI Filtering Examples 
+• 
+Test GPO WMI Filters using PowerShell 
+What are the WMI GPO filters used for? 
+Typically, group policy filtering using WMI (Windows Management Instrumentation) can be 
+used when multiple domain objects (users or computers) are located in the flat AD structure 
+instead of the separate OU, or if you need to apply group policies, according to the OS version, 
+network settings, installed software or any other criteria that can be selected using WMI. When 
+the client processes such a group policy, Windows will check its state for compliance with the 
+specified WMI query, and if the filter conditions are met, the GPO will be applied to this 
+computer. 
+WMI group policy filters first appeared in Windows XP/Server 2003, and are available in the 
+latest Windows versions (Windows Server 2019, 2016 and Windows 10, 8.1). 
+Create a New WMI Filter and Link it to a GPO 
+To create a new WMI filter, open the Group Policy Management console (gpmc.msc and go to 
+Forest -> Domains -> woshub.com -> WMI Filters. This section contains all WMI filters in the 
+AD domain. Create a new WMI filter (New). 
+ 
+
+--- page 2 ---
+ACIT3420 
+2 
+ 
+Type the filter name and its description (optional). To add a WMI query code to the filter, click 
+the Add button, specify the name of the WMI namespace (by default, root\CIMv2) and specify 
+the WMI code. 
+The following WMI query format is used: 
+Select * from <WMI Class> WHERE <Property> = <Value> 
+In this example, I want to create a WMI filter that allows to apply GPO only to computers 
+running Windows 10. The WMI query may look like this: 
+Select * from Win32_OperatingSystem where Version like "10.%" and ProductType="1" 
+ 
+The created WMI filters are stored in the msWMI-Som class objects of the Active Directory 
+domain in the section DC=…, CN=System, CN=WMIPolicy, CN=SOM, you can find and edit 
+them using the adsiedit.msc.  
+
+--- page 3 ---
+ACIT3420 
+3 
+ 
+ 
+After you have created a WMI filter, you can link it to a specific GPO. Find the desired policy in 
+the GPMC console and on the Scope tab, in the WMI Filtering section drop-down list, select 
+your WMI filter. In this example, I want to apply the printer assignment policy only to computers 
+running Windows 10. 
+ 
+Wait for this policy to apply to clients, or update it manually with the command gpupdate /force. 
+When analyzing the applied policies on the client, use the gpresult /r command. If the policy 
+affects the client, but doesn’t apply due to the WMI filter restrictions, such a policy will have the 
+status Filtering: Denied (WMI Filter) in the gpresult report. 
+
+--- page 4 ---
+ACIT3420 
+4 
+ 
+ 
+GPO WMI Filtering Examples 
+Let’s take a look at the various examples of WMI GPO filters that are most commonly used. 
+With the help of the WMI filter, you can choose the OS type:  
+• 
+ProductType=1 – any desktop Windows edition; 
+• 
+ProductType=2 – Active Directory domain controller; 
+• 
+ProductType=3 – Windows Server. 
+Windows versions: 
+• 
+Windows Server 2016 and Windows 10 — 10.% 
+• 
+Windows Server 2012 R2 and Windows 8.1 — 6.3% 
+• 
+Windows Server 2012 and Windows 8 — 6.2% 
+• 
+Windows Server 2008 R2 and Windows 7 — 6.1% 
+• 
+Windows Server 2008 and Windows Vista — 6.0% 
+• 
+Windows Server 2003 — 5.2% 
+• 
+Windows XP — 5.1% 
+• 
+Windows 2000 — 5.0% 
+You can combine conditions in a WMI query using the logical operators AND and OR. To apply 
+the policy only to servers running Windows Server 2016, the WMI query code will be as 
+follows: 
+select * from Win32_OperatingSystem WHERE Version LIKE "10.%" AND (ProductType = 
+"2" or ProductType = "3" ) 
+To select 32-bit versions of Windows 8.1: 
+ 
+select * from Win32_OperatingSystem WHERE Version like "6.3%" AND ProductType="1" 
+AND OSArchitecture = "32-bit" 
+To apply the GPO to 64-bit OS only: 
+Select * from Win32_Processor where AddressWidth = "64" 
+
+--- page 5 ---
+ACIT3420 
+5 
+ 
+You can select Windows 10 with a specific build number, for example Windows 10 1803:  
+select Version from Win32_OperatingSystem WHERE Version like “10.0.17134” AND 
+ProductType=”1″ 
+Apply policy to VMWare virtual machines only: 
+SELECT Model FROM Win32_ComputerSystem WHERE Model = “VMWare Virtual 
+Platform” 
+Apply policy only to laptops (see the article WMI Query to Find Laptops in SCCM): 
+select * from Win32_SystemEnclosure where ChassisTypes = "8" or ChassisTypes = "9" or 
+ChassisTypes = "10" or ChassisTypes = "11" or ChassisTypes = "12" or ChassisTypes = "14" or 
+ChassisTypes = "18" or ChassisTypes = "21" 
+WMI filter, which applies only to computers whose names begin with “lon-pc“(for example, to 
+disable USB drives on these devices): 
+SELECT Name FROM Win32_ComputerSystem WHERE Name LIKE ‘lon-pc%’ 
+Another example of using a WMI filter for targeting GPO to IP subnets is described in the article 
+Use WMI Filter to Apply GPO to IP Subnet. For example, to apply a policy to clients in the 
+multiple IP subnets, use the WMI query: 
+Select * FROM Win32_IP4RouteTable WHERE (Mask='255.255.255.255' AND (Destination 
+Like 10.1.1.%' OR Destination Like '10.1.2.%')) 
+To select only devices with the RAM over 1 GB: 
+Select * from WIN32_ComputerSystem where TotalPhysicalMemory >= 1073741824 
+WMI filter to verify that Internet Explorer 11 is installed: 
+ 
+SELECT path,filename,extension,version FROM CIM_DataFile WHERE path="\\Program 
+Files\\Internet Explorer\\" AND filename="iexplore" AND extension="exe" AND 
+version>"11.0" 
+Test GPO WMI Filters using PowerShell 
+When creating WMI queries, sometimes you need to get the values of various WMI parameters 
+on the computer. You can get this info using the Get-WMIObject cmdlet. For example, I need 
+to display the WMI attributes and values of the Win32_OperatingSystem class: 
+Get-WMIObject Win32_OperatingSystem 
+
+--- page 6 ---
+ACIT3420 
+6 
+ 
+SystemDirectory : C:\WINDOWS\system32 
+Organization    : 
+BuildNumber     : 17134 
+RegisteredUser  : Windows User 
+SerialNumber    : 00331-10000-00001-AA146 
+Version         : 10.0.17134 
+To display all available class properties: 
+Get-WMIObject Win32_OperatingSystem| Select * 
+ 
+You can use the PowerShell to test WMI filters on a computer. Suppose you have written a 
+complex WMI query and want to check if the computer matches this query or not. For example, 
+you created a WMI filter to check for the IE 11 on a computer.  You can test this WMI query on 
+the target computer using the get-wmiobject cmdlet: 
+get-wmiobject -query 'SELECT * FROM CIM_DataFile WHERE path="\\Program 
+Files\\Internet Explorer\\" AND filename="iexplore" AND extension="exe" AND version LIKE 
+"11.%"' 
+If this command returns something, then the computer meets the query conditions. If the get-
+wmiobject command returns nothing, the computer doesn’t match the WMI filter query. 
+For example, when running the specified command on a computer with Windows 10 and IE 11, 
+the command will return: 
+
+--- page 7 ---
+ACIT3420 
+7 
+ 
+Compressed : False 
+Encrypted  : False 
+Size       : 
+Hidden     : False 
+Name       : c:\program files\internet explorer\iexplore.exe 
+Readable   : True 
+System     : False 
+Version    : 11.0.17134.1 
+Writeable  : True 
+ 
+This means that IE 11 is installed on the computer and a GPO with such a WMI filter will be 
+applied to this computer. 
+So, we looked at how to use WMI filters to apply GPOs only to computers that meet the different 
+WMI queries. It is necessary to take into account the presence of WMI filters when analyzing the 
+reasons for which the certain GPO is not applied on the computer. 
+Reference: http://woshub.com/group-policy-filtering-using-wmi-filters/ 
