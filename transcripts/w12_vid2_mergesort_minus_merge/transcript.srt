@@ -1,0 +1,391 @@
+1
+00:00:01,360 --> 00:00:06,720
+hello in this video i'm going to talk about merge sort relative to the sorting we did
+
+2
+00:00:06,720 --> 00:00:12,400
+previously merge sort is a little bit of an increase in complexity but for that extra
+
+3
+00:00:12,400 --> 00:00:20,000
+complexity we get some better performance at least in some circumstances so merge sort is a
+
+4
+00:00:20,640 --> 00:00:27,840
+example of a divide and conquer algorithm this is a general sort of algorithm
+
+5
+00:00:28,480 --> 00:00:32,240
+paradigm strategy whatever you want to call it where you take the problem
+
+6
+00:00:32,240 --> 00:00:37,360
+and you split it up and i don't know how i should illustrate this just to help you along but you
+
+7
+00:00:37,360 --> 00:00:46,060
+know you've you've got some problem and you split it up and then you go solve the part separately
+
+8
+00:00:50,530 --> 00:01:00,160
+and then you combine your solutions to those sub-problems okay divide and conquer um
+
+9
+00:01:03,310 --> 00:01:06,590
+it sometimes it's a really nice way to solve a problem and this is one
+
+10
+00:01:06,590 --> 00:01:06,670
+of the things that i like about merge sort is that it's a really nice way to solve a problem
+
+11
+00:01:06,670 --> 00:01:12,190
+those examples as with many divide and conquer algorithms this is also a nice match for
+
+12
+00:01:12,190 --> 00:01:19,230
+recursion because there's a little bit of a thing going on here where you know like this diagram
+
+13
+00:01:19,230 --> 00:01:23,790
+doesn't show it but there's a solve the sub problem here and so this could be recursion
+
+14
+00:01:26,660 --> 00:01:34,210
+oh wow that's really bad writing sorry could be recursion there
+
+15
+00:01:34,850 --> 00:01:43,600
+right and then you get your answer back and then it goes on to the combination step okay now
+
+16
+00:01:44,320 --> 00:01:48,560
+merge sort has a helper function that is very important and i'm just going to talk about that
+
+17
+00:01:48,560 --> 00:01:55,650
+briefly now that helper function is called merge you might wonder where merge got the name well
+
+18
+00:01:55,650 --> 00:02:03,970
+here's a hint maybe we call the arguments left and right so the complete correct implementation
+
+19
+00:02:03,970 --> 00:02:08,370
+of merge is out of scope for this video uh what i'm going to do is i'm going to talk about
+
+20
+00:02:08,930 --> 00:02:17,280
+what merge's job is and then implementation will come later so merge let's see where's my terminal
+
+21
+00:02:18,320 --> 00:02:25,520
+good merge takes two parameters uh which we might call left and right here's an example
+
+22
+00:02:25,520 --> 00:02:31,440
+and each parameter is a list and they must both be sorted right so this is a correctly
+
+23
+00:02:31,440 --> 00:02:37,760
+sorted list this is also a correctly sorted list if you supply merge with unsorted lists
+
+24
+00:02:37,760 --> 00:02:42,880
+then it's not merge's fault when everything goes bad like it's that's not part of his
+
+25
+00:02:42,880 --> 00:02:47,040
+responsibility to make sure that you did that it just trusts that the arguments are sorted
+
+26
+00:02:47,840 --> 00:02:52,240
+and what it does is it combines them in such a way that the result is also sorted
+
+27
+00:02:53,840 --> 00:02:58,160
+right so there's all those digits together and in this example i gave here
+
+28
+00:02:58,960 --> 00:03:03,600
+the inputs are kind of going to have to be interleaved together but it doesn't have to
+
+29
+00:03:03,600 --> 00:03:08,240
+be that way maybe they're going to be like all the lesser ones are on the left and all
+
+30
+00:03:08,240 --> 00:03:13,040
+the greater ones are on the right no problem or maybe the other way around all the greater ones
+
+31
+00:03:13,040 --> 00:03:17,520
+are on the left all the lesser ones on the right but they're still sorted right the left side is
+
+32
+00:03:17,520 --> 00:03:24,080
+sorted the right side is sorted that's good right or maybe it's something goofy like where i have
+
+33
+00:03:24,080 --> 00:03:28,880
+another example here yeah here where you see the left side has got like the low ones and the high
+
+34
+00:03:28,880 --> 00:03:35,120
+ones but be that as it may if you just look at it if you just look at this sub list this sub list
+
+35
+00:03:35,120 --> 00:03:40,640
+is sorted right and this sub list is also sorted and this sub list has to get like put like in here
+
+36
+00:03:40,640 --> 00:03:46,960
+in between these two no problem merge will do that for you right and in all these examples i've given
+
+37
+00:03:47,520 --> 00:03:53,040
+there are the same number on both sides that's not one of the requirements right so now they
+
+38
+00:03:53,040 --> 00:04:00,720
+have different sizes still works right one two three four five nine ten that all came out here
+
+39
+00:04:01,520 --> 00:04:08,000
+right or i could go to this one and then just completely delete the left hand side still need
+
+40
+00:04:08,000 --> 00:04:13,120
+a list but it could be an empty list empty lists are always sorted so that list is sorted great
+
+41
+00:04:14,080 --> 00:04:19,440
+no problem okay so merge takes two parameters each assorted list could be the same size or
+
+42
+00:04:19,440 --> 00:04:23,360
+different or very very different or whatever one could even be empty but they both have to
+
+43
+00:04:23,360 --> 00:04:29,120
+be sorted it then returns a new list which has all the same elements as the combination of the
+
+44
+00:04:29,120 --> 00:04:36,640
+two inputs and sorted if you want a really goofy implementation of merge do i have it my history
+
+45
+00:04:36,640 --> 00:04:47,170
+here this is sort of correct in a way right that will
+
+46
+00:04:47,250 --> 00:04:51,490
+combine the two lists and then sort the outcome this of course is cheating it's cheating from a
+
+47
+00:04:51,490 --> 00:04:55,410
+performance standpoint right but this does produce the right answers that is in fact
+
+48
+00:04:55,410 --> 00:05:00,290
+the implementation that produced all these answers up here this cheating implementation here okay so
+
+49
+00:05:01,410 --> 00:05:05,970
+this if we do this then there's no point in merge sort because the total result will be
+
+50
+00:05:05,970 --> 00:05:10,370
+like super slow no good but this at least lets us understand what merge is supposed to do
+
+51
+00:05:11,170 --> 00:05:17,260
+okay there's a fancier implementation that we'll look at later okay
+
+52
+00:05:19,100 --> 00:05:25,020
+so where does that get us right not obvious why that is useful and so it's like this
+
+53
+00:05:27,020 --> 00:05:30,060
+we're going to try to do some kind of divide and conquer
+
+54
+00:05:31,660 --> 00:05:35,980
+right and we're going to have this merge available and i told you that it was going
+
+55
+00:05:35,980 --> 00:05:42,140
+to be recursive so how would that work well what if we did it like this we take the list we want
+
+56
+00:05:42,140 --> 00:05:50,130
+to sort and we actually let me back up sorry i had this prepped and then i screwed up
+
+57
+00:05:51,090 --> 00:06:01,310
+first of all what's our base case right we have a recursive implementation we need a base case
+
+58
+00:06:03,390 --> 00:06:09,550
+and so our base case will be any list that has length one or less right
+
+59
+00:06:11,310 --> 00:06:14,350
+i don't know why i'm switching back and forth between the text tool okay i can't
+
+60
+00:06:14,350 --> 00:06:28,750
+stand this my writing's too terrible oh sorry any lits any list of length one or less
+
+61
+00:06:29,790 --> 00:06:36,910
+right in that case just make a copy of the list and return it easy enough right okay so in every
+
+62
+00:06:36,910 --> 00:06:44,430
+recursive case there must be length at least two so here's the idea we're going to what color should
+
+63
+00:06:44,430 --> 00:06:57,660
+use we're going to split the list in half for the moment we'll do it with slicing and then later
+
+64
+00:06:57,660 --> 00:07:02,060
+we'll think about a better way okay we're going to split the list in half so now we've got two lists
+
+65
+00:07:04,400 --> 00:07:08,960
+each of half length we're then going to make a recursive call on
+
+66
+00:07:08,960 --> 00:07:21,620
+both sides that's merge sort damn it i'm going to do the handwriting once in a while
+
+67
+00:07:22,260 --> 00:07:39,280
+right so on both sides we do merge sort and this is now sorted right that's a little too small
+
+68
+00:07:40,080 --> 00:07:46,910
+how big should that be right so after the merge sort this is sorted so we made a recursive call
+
+69
+00:07:46,910 --> 00:07:53,710
+here right and now we've got two sorted lists well what do we do to sort lists well guess what
+
+70
+00:07:54,510 --> 00:07:55,550
+we've got a tool for that
+
+71
+00:07:59,810 --> 00:08:07,330
+and so we use merge to combine them okay that's really kind of the entire plan
+
+72
+00:08:10,690 --> 00:08:21,090
+really the kind of the entire plan we're gonna check the base case if the base case doesn't apply
+
+73
+00:08:21,090 --> 00:08:26,770
+we're gonna split in half with slicing then we're gonna recursively call merge sort
+
+74
+00:08:28,290 --> 00:08:39,650
+twice and then we use merge to combine them okay and you gotta remember that merge sort and merge
+
+75
+00:08:39,970 --> 00:08:44,930
+are not the same merge sort is a sorting algorithm merge just does that thing i described earlier
+
+76
+00:08:46,370 --> 00:08:49,810
+i guess you could say it's a sorting algorithm as long as actually no that's a stupid way to
+
+77
+00:08:49,810 --> 00:08:53,730
+say it i'm not gonna say that okay and so the thing we have to remember here
+
+78
+00:08:54,450 --> 00:09:07,650
+is that this is a recursive call so this in turn cuts it in half but like that long
+
+79
+00:09:09,810 --> 00:09:19,120
+and this is a recursive call here results in a sorted version and those things merge into i should
+
+80
+00:09:19,120 --> 00:09:30,060
+do all this a different color oh let me just redo a different color right like that and so here we
+
+81
+00:09:30,060 --> 00:09:41,840
+cut it in half here we do a recursive merge sort here we merge i have to remember this
+
+82
+00:09:41,840 --> 00:09:55,280
+here is sorted where's my cursor like there okay it's the same process just smaller
+
+83
+00:09:56,800 --> 00:10:09,630
+right and then the same thing happens again where this recursive merge sort here oh sorry i forgot to
+
+84
+00:10:09,630 --> 00:10:19,400
+forgot an arrow this is what is here right and then this recursive merge sort here is actually
+
+85
+00:10:19,400 --> 00:10:28,120
+another version of another copy of that right split whoops little short one here do recursive
+
+86
+00:10:28,120 --> 00:10:37,890
+merge sort do a merge down here and you get this thing sorted and then that goes back to there
+
+87
+00:10:37,890 --> 00:10:44,170
+right so there's this like recursive nesting but it doesn't just go one way because this one has
+
+88
+00:10:44,170 --> 00:10:49,650
+to also go to a recursive call and this one also has to go to a recursive call and this one has to
+
+89
+00:10:49,650 --> 00:10:53,290
+go to a recursive call so there's like lots of recursive calls here right but you don't kind of
+
+90
+00:10:53,290 --> 00:10:58,250
+think about that right like all this over here happens but all you think about is this part here
+
+91
+00:10:58,250 --> 00:11:04,590
+and this part here says split should i go back to purple maybe it's a different purple split
+
+92
+00:11:04,590 --> 00:11:15,020
+two recursive calls and then merge and that's merge sort it's surprisingly easy and surprisingly
+
+93
+00:11:15,020 --> 00:11:15,820
+baffling at the same time
+
+94
+00:11:15,840 --> 00:11:23,570
+okay so if you just are willing to code that you're just going to do the base case you're going
+
+95
+00:11:23,570 --> 00:11:28,850
+to be able to split with slicing right i should write split here you'll be able to do the split
+
+96
+00:11:28,850 --> 00:11:36,570
+with slicing and then you're going to be able to make the recursive calls and then you'll be able
+
+97
+00:11:36,570 --> 00:11:41,190
+to merge and that's going to be sorted then you already do merge sort except that in class we
+
+98
+00:11:41,190 --> 00:11:46,250
+will talk about how to do merge okay and that's pretty much the whole thing i'll see you in class
