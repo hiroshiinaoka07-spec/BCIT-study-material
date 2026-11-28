@@ -1,0 +1,751 @@
+1
+00:00:01,150 --> 00:00:06,350
+Hello! This is a video about logarithms. We've looked at a few things about logarithms previously.
+
+2
+00:00:09,220 --> 00:00:35,840
+We've looked at sort of improving our intuition about what logarithms are even for. And we looked
+
+3
+00:00:35,840 --> 00:00:58,690
+at how to do empirical estimation of a logarithm when we've got a bunch of timing data. So anyway,
+
+4
+00:00:58,690 --> 00:01:03,410
+that's all well and good. Currently, we're interested in two things. We're interested in
+
+5
+00:01:06,610 --> 00:01:14,830
+spotting logarithmic behavior in code or in pseudocode. And we're interested in
+
+6
+00:01:25,950 --> 00:01:29,230
+sort of, is it just logarithms on their own or can other stuff happen too?
+
+7
+00:01:30,030 --> 00:01:35,860
+Okay, so that's kind of what's on the on the schedule for this video.
+
+8
+00:01:37,780 --> 00:01:40,260
+So I want to remind you back here,
+
+9
+00:01:40,340 --> 00:01:46,180
+in terms of our intuition about this, that a logarithm is the mathematical phrasing of
+
+10
+00:01:46,180 --> 00:02:00,800
+the question, you know, if I say log base b of x, what that means is how many times would I have to
+
+11
+00:02:04,500 --> 00:02:24,190
+multiply by b to get from 1 to x? Or alternately, if I was going the other direction,
+
+12
+00:02:24,190 --> 00:02:27,470
+then it would be dividing instead of multiplying. So you have that line
+
+13
+00:02:27,470 --> 00:02:30,030
+up the same number of letters just because I did that underlying thing.
+
+14
+00:02:31,710 --> 00:02:36,830
+So this is what logarithms are for. Is there the math that matches this? Well,
+
+15
+00:02:36,830 --> 00:02:40,350
+this is sort of math still, but it's a bit more, a bit less formal math.
+
+16
+00:02:41,550 --> 00:02:47,790
+So for example, if I ask for the log base 2, let me see, I have to look this number up.
+
+17
+00:02:47,790 --> 00:02:58,420
+I should have it memorized, but I don't. It's 32,768. That is to say how many twos to get to 32k.
+
+18
+00:03:00,100 --> 00:03:10,580
+Let's see. One, two, sorry, one, I mean there. Two, three, four, five, six. Should I keep going?
+
+19
+00:03:11,140 --> 00:03:18,820
+Anyway, it's 15, I think. So, you know, we're going to have to do this 15 numbers here,
+
+20
+00:03:18,820 --> 00:03:25,140
+plus the one at the beginning, and that's going to get us up to there. So that's what logs are.
+
+21
+00:03:25,140 --> 00:03:31,140
+That's old news though, right? So the question here is, what does this look like in code, right?
+
+22
+00:03:31,140 --> 00:03:35,540
+When we see code, what sort of code is going to make us think that this might be happening and
+
+23
+00:03:35,540 --> 00:03:40,420
+think that our asymptotic complexity might be a logarithm? And don't get me wrong, it can look
+
+24
+00:03:40,420 --> 00:03:44,580
+like all sorts of things. There's not like one pattern. You're like, ah, I saw the pattern.
+
+25
+00:03:44,580 --> 00:03:49,460
+That's it. Or I didn't see the pattern. It's not a log. Like, I don't want to pretend everything's
+
+26
+00:03:49,460 --> 00:03:55,140
+always simple, but it is pretty common that we see something that actually involves something
+
+27
+00:03:55,140 --> 00:04:00,020
+getting cut in half over and over and over again, or cut more or less than half, or occasionally it
+
+28
+00:04:00,020 --> 00:04:01,100
+gets cut into some other ratio. So that's something that's going to make us think that this might be
+
+29
+00:04:01,100 --> 00:04:06,580
+like thirds or quarters, or sometimes it gets doubled. You know, this kind of like literally
+
+30
+00:04:06,580 --> 00:04:12,260
+matching this pattern is not that rare, right? So it's not a hundred percent of the story,
+
+31
+00:04:12,260 --> 00:04:30,540
+but it's a big chunk. And the most common example of that is cutting a list in half.
+
+32
+00:04:32,460 --> 00:04:39,500
+And that's the example that we're going to review. Okay. So I've got a function.
+
+33
+00:04:46,720 --> 00:04:50,400
+I'm going to start off. In this case, I'm going to implement this recursively.
+
+34
+00:04:56,700 --> 00:04:57,100
+If
+
+35
+00:04:57,780 --> 00:05:03,980
+the haystack has no capacity, then the needle can't be in it. So we're going to return
+
+36
+00:05:03,980 --> 00:05:09,970
+a failure indicator, which I've decided to use none here. And then I'm going to say,
+
+37
+00:05:09,970 --> 00:05:19,150
+well, what's the halfway index? Okay. So that's the index that's halfway through the haystack
+
+38
+00:05:20,750 --> 00:05:33,470
+letting us say something like this, right? So if we can find the needle at this location,
+
+39
+00:05:33,470 --> 00:05:48,720
+and that's the thing we should return. There hand, if it's not right there and the thing we find there
+
+40
+00:05:48,720 --> 00:05:54,480
+is bigger than the needle then if we happen to know that the haystack is a sorted list which
+
+41
+00:05:54,480 --> 00:06:10,810
+is a thing i haven't told you until now then we could cut it in half and then we go looking in
+
+42
+00:06:10,810 --> 00:06:26,250
+that second half on the other hand if it's not finding it and it's not gonna go left
+
+43
+00:06:26,250 --> 00:06:47,950
+then we it could go right like i got that minus one there correct i hope anyway uh i i think
+
+44
+00:06:47,950 --> 00:06:53,290
+that's right but if it's wrong just pretend it's right okay now two facts about this function before
+
+45
+00:06:53,290 --> 00:07:00,150
+we get going in our real work the first is have you recognized this yet right is this a function
+
+46
+00:07:00,150 --> 00:07:03,430
+that we've already studied that you should recognize that i gave a stupid name to on purpose
+
+47
+00:07:03,430 --> 00:07:09,850
+okay and second there's actually a bug in this implementation uh and i'm not counting
+
+48
+00:07:09,850 --> 00:07:13,290
+the possibility of off by one error here or somebody somewhere else uh
+
+49
+00:07:13,890 --> 00:07:19,190
+maybe i mean that actually anyway look i'm not counting it off by one error here
+
+50
+00:07:19,190 --> 00:07:19,310
+i'm not counting it off by one error here i'm not counting it off by one error here
+
+51
+00:07:19,710 --> 00:07:25,310
+there's another bug here right this will not correctly find the index of the needle
+
+52
+00:07:25,310 --> 00:07:33,470
+in the input list except in certain special cases and this is not uh purely hypothetical when we
+
+53
+00:07:33,470 --> 00:07:39,950
+studied this function earlier in the semester some students tried to do it more or less this way and
+
+54
+00:07:39,950 --> 00:07:44,590
+they got an error and i said i want you to solve without recursion there's two reasons one is that
+
+55
+00:07:44,590 --> 00:07:49,170
+i want to study recursion later and the other is that the way you're doing it it's easy to make a
+
+56
+00:07:49,170 --> 00:07:51,970
+mistake and i don't want to just give you the answer i want you to figure out for yourself and
+
+57
+00:07:51,970 --> 00:07:56,130
+it's hard to figure out if you're doing recursively blah blah blah this isn't really recursion's fault
+
+58
+00:07:56,130 --> 00:08:00,850
+it just kind of works out clumsiness anyway it's all a bit of a digression so maybe at this point
+
+59
+00:08:00,850 --> 00:08:06,770
+in the semester you're sophisticated enough that you can fix this bug um as this implementation of
+
+60
+00:08:06,770 --> 00:08:16,180
+this well-known function binary search obviously if you look it up you're not learning anything so
+
+61
+00:08:16,180 --> 00:08:23,820
+i don't you know why bother you have to figure it out for yourself okay so moving on to our real thing
+
+62
+00:08:24,540 --> 00:08:29,180
+let's count let's do an analysis of this asymptotically right so we're gonna start
+
+63
+00:08:29,180 --> 00:08:32,220
+by just not counting the recursive calls and look at all the rest of it
+
+64
+00:08:33,820 --> 00:08:41,260
+okay so this is linear work len is linear um it's some magic i don't actually understand
+
+65
+00:08:41,260 --> 00:08:47,020
+but it is linear oh sorry oh my goodness i'm saying all wrong let me just back that up i
+
+66
+00:08:47,020 --> 00:08:53,260
+was just testing you i was just testing you that wasn't me being confused len is constant time
+
+67
+00:08:54,060 --> 00:08:58,620
+some kind of magic but it is true checking for equality is constant time doing if is constant
+
+68
+00:08:58,620 --> 00:09:04,300
+time do lan again still constant time divide by two constant time assigned to a variable constant time
+
+69
+00:09:05,580 --> 00:09:10,060
+look up something in a list to find out if it is something or not test equality do an if more
+
+70
+00:09:10,060 --> 00:09:15,420
+constant time more constant time more constant time more constant whoop hate it when that happens
+
+71
+00:09:15,420 --> 00:09:23,420
+more constant time more constant time okay so it's all constant actually i lied this slice is linear time
+
+72
+00:09:38,460 --> 00:09:45,660
+so for reasons we're going to both ignore the recursive calls for a second but only for well
+
+73
+00:09:45,660 --> 00:09:51,260
+just for one minute we're also going over the slices well the slices actually are linear but
+
+74
+00:09:51,260 --> 00:09:54,780
+it turns out there's a way to get rid of the slicing here but it makes the rest of the code
+
+75
+00:09:54,780 --> 00:10:02,700
+a little bit harder to read so to keep this code easier to read i'm not fixing this problem right
+
+76
+00:10:02,700 --> 00:10:07,820
+so hopefully i get around to discussing that later like maybe in class or maybe another week how to do
+
+77
+00:10:07,820 --> 00:10:13,820
+this in the equivalent of this in actually constant time but doing it actually like this
+
+78
+00:10:13,820 --> 00:10:19,420
+is linear and it makes the whole thing a lot slower so just pretend i did it the fancy way
+
+79
+00:10:20,060 --> 00:10:35,120
+it's harder to read and so this is just pretend that this is constant time right and that applies
+
+80
+00:10:39,920 --> 00:10:48,820
+up here as well okay if we ignore those two things then this is all constant time
+
+81
+00:10:53,810 --> 00:10:58,610
+so i you know so what right so i said i was only ignore the recursion for a minute so now we're not
+
+82
+00:10:58,610 --> 00:11:05,490
+ignoring the recursion so if we stop ignoring the recursion then we can see that it starts
+
+83
+00:11:05,490 --> 00:11:11,170
+somewhere it does a bunch of constant time work and it might either do this recursive
+
+84
+00:11:11,170 --> 00:11:15,330
+call or this recursive call and then it goes up to the top and it does some stuff and it does
+
+85
+00:11:15,330 --> 00:11:21,010
+either it just stops or stops or it does a recursive call on a recursive call
+
+86
+00:11:22,370 --> 00:11:28,450
+right so the total cost is big o of one times the number of recursive
+
+87
+00:11:28,610 --> 00:11:41,410
+calls it makes how many recursive calls does it make right does that make sense in a video i can't
+
+88
+00:11:41,410 --> 00:11:50,100
+wait for you to uh say yes or no oh i put this on the wrong line okay so except for the slices which
+
+89
+00:11:50,100 --> 00:11:57,340
+we could fix and the recursive calls it's all constant time so when we bring the recursive
+
+90
+00:11:57,340 --> 00:12:03,100
+calls back in the total cost is the constant times the number of recursive calls how many
+
+91
+00:12:03,100 --> 00:12:07,180
+recursive calls does it make becomes the important question right and so if you imagine that
+
+92
+00:12:07,180 --> 00:12:17,180
+initially i run this on a haystack say i have a haystack with length right that's a weird choice
+
+93
+00:12:17,180 --> 00:12:38,850
+jeremy 16. and after it hits one if it hasn't stopped by now then when it splits it again
+
+94
+00:12:39,410 --> 00:12:54,190
+it'll go down to zero then that's got to be the last one my spelling mistakes plague me right so
+
+95
+00:12:55,870 --> 00:12:58,590
+and if you go all the way up to 32 it's really just one more step
+
+96
+00:12:58,990 --> 00:13:12,640
+right so the point is how many recursive calls does it make makes big o of log base 2 of n
+
+97
+00:13:14,910 --> 00:13:23,950
+which we tend to write as just big o of login and that's how we write that okay so
+
+98
+00:13:24,510 --> 00:13:29,630
+that's the sort of pattern you know i mean it's not the only one by far but i said that we will
+
+99
+00:13:29,630 --> 00:13:35,980
+often see in our code just something literally being cut in half over and over again until it
+
+100
+00:13:35,980 --> 00:13:40,860
+eventually hits one and then maybe it goes one more round to go to zero and this is just like
+
+101
+00:13:40,860 --> 00:13:41,900
+that we have this cutting
+
+102
+00:13:41,980 --> 00:13:50,540
+in half here and so therefore the next call is on half as much list and then it goes round again
+
+103
+00:13:51,100 --> 00:13:55,580
+and then the next call maybe it's this one this time is on half as much list another time and so
+
+104
+00:13:55,580 --> 00:13:59,820
+on the list shrinks by halves so it takes logarithmic number of times to get all the
+
+105
+00:13:59,820 --> 00:14:09,900
+way down to the base okay now i don't want you to get into some trap and think oh i see recursion
+
+106
+00:14:09,900 --> 00:14:13,820
+and i see dividing by two of course it's logarithms so i'm going to show you another example
+
+107
+00:14:14,540 --> 00:14:16,380
+that looks kind of similar but actually
+
+108
+00:14:18,620 --> 00:14:29,540
+it's a trick okay so so watch for the trick so i'm going to find the minimum element of a list
+
+109
+00:14:35,630 --> 00:14:39,150
+now this is even aside from the fact that i'm going to trick you pretend that's you know
+
+110
+00:14:39,870 --> 00:14:43,070
+pretend that we don't care about that right this is not a better way
+
+111
+00:14:43,790 --> 00:14:47,630
+than the obvious way to find a minimum where you just make a loop and you
+
+112
+00:14:47,630 --> 00:14:52,030
+have a best and you keep going until you find the something better and as long as you find a better
+
+113
+00:14:52,190 --> 00:14:59,950
+you preserve it and so on this is not better than that it's not really worse either it's just
+
+114
+00:15:00,670 --> 00:15:07,390
+different i guess but anyway it's just what it is so pretend somebody wrote this code
+
+115
+00:15:07,390 --> 00:15:14,420
+and then you were going to try to um uh try to guess its big o complexity right
+
+116
+00:15:18,540 --> 00:15:30,050
+if the number of numbers is zero then you shouldn't be trying to find the minimum that's a that's a
+
+117
+00:15:30,050 --> 00:15:30,610
+mess up right
+
+118
+00:15:31,490 --> 00:15:41,180
+if the number of numbers is one then the minimum of a list of one is that value right the minimum
+
+119
+00:15:41,180 --> 00:15:45,100
+the maximum the average are all the same there's only one thing in the list so these are going to
+
+120
+00:15:45,100 --> 00:15:52,540
+be our base case well this is our sort of proper base case and this is our um explosion base case
+
+121
+00:15:52,540 --> 00:16:11,970
+um and then we're gonna do this business up here again right where we grab some of this
+
+122
+00:16:11,970 --> 00:16:16,930
+code actually i'm just gonna grab a bunch of this code and edit it let's grab a bunch of this code
+
+123
+00:16:16,930 --> 00:16:17,810
+let's see i want
+
+124
+00:16:17,890 --> 00:16:18,930
+all right so i have this one
+
+125
+00:16:21,490 --> 00:16:38,850
+and i want this one and i want this one and i want this one maybe that's it for now um
+
+126
+00:16:41,170 --> 00:16:43,170
+okay so because there's
+
+127
+00:16:45,330 --> 00:16:48,610
+more than one here these must have at least
+
+128
+00:16:49,650 --> 00:16:55,410
+oh i changed the name gotta fix all this oops okay because there's more than one there's only
+
+129
+00:16:55,410 --> 00:16:57,490
+one we stopped here so there's more than one so there's either these two have the same one we're
+
+130
+00:16:57,650 --> 00:17:01,990
+So, these will each have, oh, I got to change this part here.
+
+131
+00:17:02,010 --> 00:17:02,710
+It doesn't apply anymore.
+
+132
+00:17:03,930 --> 00:17:05,190
+These will each have at least one of them.
+
+133
+00:17:05,270 --> 00:17:06,550
+So, I can safely call mid on them.
+
+134
+00:17:06,850 --> 00:17:08,250
+So, I'm going to do that, right?
+
+135
+00:17:08,310 --> 00:17:35,560
+I'm going to go, so, what did I do?
+
+136
+00:17:36,240 --> 00:17:42,820
+I cut the list in half, and then I went and checked the left, and I checked the right, right?
+
+137
+00:17:42,820 --> 00:17:47,180
+And then whichever one of those two is smaller, that's my overall smallest one, right?
+
+138
+00:17:47,440 --> 00:17:51,840
+Now, this is a correct implementation of minimum, and it is recursive.
+
+139
+00:17:52,000 --> 00:17:52,640
+I mean, I think it is.
+
+140
+00:17:52,640 --> 00:17:52,940
+I don't know.
+
+141
+00:17:52,960 --> 00:17:53,520
+I didn't test it.
+
+142
+00:17:53,840 --> 00:17:54,740
+Maybe you should test it for me.
+
+143
+00:17:55,180 --> 00:18:02,020
+It is recursive, as it happens, and there is something sort of logarithmic about it.
+
+144
+00:18:02,480 --> 00:18:04,980
+But nonetheless, the total is not logarithmic.
+
+145
+00:18:05,440 --> 00:18:05,840
+Why?
+
+146
+00:18:06,120 --> 00:18:15,200
+Well, because if I first do it on eight things, then when that gets split in half, the first
+
+147
+00:18:15,200 --> 00:18:19,080
+four have to be done, but also the next four have to be done.
+
+148
+00:18:22,940 --> 00:18:26,600
+And when I split those in half, those have to be done, and those have to be done, and
+
+149
+00:18:26,600 --> 00:18:27,200
+those have to be done.
+
+150
+00:18:27,280 --> 00:18:27,460
+And those have to be done.
+
+151
+00:18:27,460 --> 00:18:27,480
+And those have to be done.
+
+152
+00:18:27,780 --> 00:18:29,760
+And I split those in half, that has to be done, that has to be done, that has to be
+
+153
+00:18:29,760 --> 00:18:31,040
+done, that has to be done, that has to be done, that has to be done, that has to be
+
+154
+00:18:31,040 --> 00:18:32,160
+done, that has to be done, that has to be done, right?
+
+155
+00:18:32,200 --> 00:18:34,200
+And so the point is, they all eventually get done.
+
+156
+00:18:41,520 --> 00:18:49,560
+So this does not end up just going eight, four, two, one, down one of the paths.
+
+157
+00:18:49,600 --> 00:18:51,080
+It has to go down all the paths.
+
+158
+00:18:52,020 --> 00:18:57,600
+And because it goes down all the paths, it's not only not logarithmic, it's in fact slower
+
+159
+00:18:57,600 --> 00:18:58,040
+than linear.
+
+160
+00:18:59,180 --> 00:19:02,580
+We'll come back to that in class.
+
+161
+00:19:02,580 --> 00:19:09,720
+So, you know, I want you to, like, remember to apply your critical thinking, right?
+
+162
+00:19:10,060 --> 00:19:14,140
+I've had people in past exams just say, it's recursive, so it's logarithmic.
+
+163
+00:19:15,340 --> 00:19:19,380
+That is not only the correct, not the correct answer, it's not a good way to get part marks
+
+164
+00:19:19,380 --> 00:19:20,900
+either, right?
+
+165
+00:19:21,220 --> 00:19:25,220
+You have to apply your brain a little bit and think about, you know, does it go down
+
+166
+00:19:25,220 --> 00:19:26,460
+one path or something else?
+
+167
+00:19:26,800 --> 00:19:32,460
+But that said, when you see this halving, I'm not saying that guarantees logarithmic,
+
+168
+00:19:32,580 --> 00:19:37,860
+but it should make you think about logarithms and you should be, like, looking, you should
+
+169
+00:19:37,860 --> 00:19:39,820
+be on the alert for the possibility it's logarithmic.
+
+170
+00:19:39,960 --> 00:19:40,540
+That's what I'm saying.
+
+171
+00:19:42,080 --> 00:19:42,400
+Okay?
+
+172
+00:19:44,100 --> 00:19:49,440
+So that's a short introduction to the most common pattern in code that causes big O of
+
+173
+00:19:49,440 --> 00:19:57,480
+log n behavior with both a genuine example and a kind of a false alarm example.
+
+174
+00:19:58,220 --> 00:19:58,440
+Okay?
+
+175
+00:19:58,440 --> 00:20:02,440
+So just in parting, here's a sort of a...
+
+176
+00:20:02,580 --> 00:20:06,080
+Parting question for you.
+
+177
+00:20:06,380 --> 00:20:08,760
+I feel sort of like I'm fumbling my words tonight.
+
+178
+00:20:18,890 --> 00:20:30,170
+What is the asymptotic behavior if you do big O of log n loops, or like, if you do a
+
+179
+00:20:30,170 --> 00:20:39,170
+loop that goes, that runs big O of log n times, and inside that loop, here, I'll just put
+
+180
+00:20:39,170 --> 00:20:40,670
+it inside in the file here.
+
+181
+00:20:41,210 --> 00:20:41,910
+You do...
+
+182
+00:20:41,930 --> 00:20:48,290
+You do big O of log, big O of n work, right?
+
+183
+00:20:48,830 --> 00:20:56,090
+And actually I have another question as well, which is what is the asymptotic behavior if you have a loop,
+
+184
+00:20:56,090 --> 00:21:07,330
+an outer loop that runs n times, and inside that loop, you do big O of log n work.
+
+185
+00:21:07,950 --> 00:21:08,350
+Okay?
+
+186
+00:21:08,350 --> 00:21:11,890
+So these are just little things for you to think about, set up to prepare you for class.
+
+187
+00:21:12,710 --> 00:21:14,710
+And I'm just going to leave you with those two thoughts.
+
+188
+00:21:16,450 --> 00:21:16,950
+And that's it.

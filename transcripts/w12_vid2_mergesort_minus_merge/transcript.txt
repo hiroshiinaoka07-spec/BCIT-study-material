@@ -1,0 +1,98 @@
+[00:00:01] hello in this video i'm going to talk about merge sort relative to the sorting we did
+[00:00:06] previously merge sort is a little bit of an increase in complexity but for that extra
+[00:00:12] complexity we get some better performance at least in some circumstances so merge sort is a
+[00:00:20] example of a divide and conquer algorithm this is a general sort of algorithm
+[00:00:28] paradigm strategy whatever you want to call it where you take the problem
+[00:00:32] and you split it up and i don't know how i should illustrate this just to help you along but you
+[00:00:37] know you've you've got some problem and you split it up and then you go solve the part separately
+[00:00:50] and then you combine your solutions to those sub-problems okay divide and conquer um
+[00:01:03] it sometimes it's a really nice way to solve a problem and this is one
+[00:01:06] of the things that i like about merge sort is that it's a really nice way to solve a problem
+[00:01:06] those examples as with many divide and conquer algorithms this is also a nice match for
+[00:01:12] recursion because there's a little bit of a thing going on here where you know like this diagram
+[00:01:19] doesn't show it but there's a solve the sub problem here and so this could be recursion
+[00:01:26] oh wow that's really bad writing sorry could be recursion there
+[00:01:34] right and then you get your answer back and then it goes on to the combination step okay now
+[00:01:44] merge sort has a helper function that is very important and i'm just going to talk about that
+[00:01:48] briefly now that helper function is called merge you might wonder where merge got the name well
+[00:01:55] here's a hint maybe we call the arguments left and right so the complete correct implementation
+[00:02:03] of merge is out of scope for this video uh what i'm going to do is i'm going to talk about
+[00:02:08] what merge's job is and then implementation will come later so merge let's see where's my terminal
+[00:02:18] good merge takes two parameters uh which we might call left and right here's an example
+[00:02:25] and each parameter is a list and they must both be sorted right so this is a correctly
+[00:02:31] sorted list this is also a correctly sorted list if you supply merge with unsorted lists
+[00:02:37] then it's not merge's fault when everything goes bad like it's that's not part of his
+[00:02:42] responsibility to make sure that you did that it just trusts that the arguments are sorted
+[00:02:47] and what it does is it combines them in such a way that the result is also sorted
+[00:02:53] right so there's all those digits together and in this example i gave here
+[00:02:58] the inputs are kind of going to have to be interleaved together but it doesn't have to
+[00:03:03] be that way maybe they're going to be like all the lesser ones are on the left and all
+[00:03:08] the greater ones are on the right no problem or maybe the other way around all the greater ones
+[00:03:13] are on the left all the lesser ones on the right but they're still sorted right the left side is
+[00:03:17] sorted the right side is sorted that's good right or maybe it's something goofy like where i have
+[00:03:24] another example here yeah here where you see the left side has got like the low ones and the high
+[00:03:28] ones but be that as it may if you just look at it if you just look at this sub list this sub list
+[00:03:35] is sorted right and this sub list is also sorted and this sub list has to get like put like in here
+[00:03:40] in between these two no problem merge will do that for you right and in all these examples i've given
+[00:03:47] there are the same number on both sides that's not one of the requirements right so now they
+[00:03:53] have different sizes still works right one two three four five nine ten that all came out here
+[00:04:01] right or i could go to this one and then just completely delete the left hand side still need
+[00:04:08] a list but it could be an empty list empty lists are always sorted so that list is sorted great
+[00:04:14] no problem okay so merge takes two parameters each assorted list could be the same size or
+[00:04:19] different or very very different or whatever one could even be empty but they both have to
+[00:04:23] be sorted it then returns a new list which has all the same elements as the combination of the
+[00:04:29] two inputs and sorted if you want a really goofy implementation of merge do i have it my history
+[00:04:36] here this is sort of correct in a way right that will
+[00:04:47] combine the two lists and then sort the outcome this of course is cheating it's cheating from a
+[00:04:51] performance standpoint right but this does produce the right answers that is in fact
+[00:04:55] the implementation that produced all these answers up here this cheating implementation here okay so
+[00:05:01] this if we do this then there's no point in merge sort because the total result will be
+[00:05:05] like super slow no good but this at least lets us understand what merge is supposed to do
+[00:05:11] okay there's a fancier implementation that we'll look at later okay
+[00:05:19] so where does that get us right not obvious why that is useful and so it's like this
+[00:05:27] we're going to try to do some kind of divide and conquer
+[00:05:31] right and we're going to have this merge available and i told you that it was going
+[00:05:35] to be recursive so how would that work well what if we did it like this we take the list we want
+[00:05:42] to sort and we actually let me back up sorry i had this prepped and then i screwed up
+[00:05:51] first of all what's our base case right we have a recursive implementation we need a base case
+[00:06:03] and so our base case will be any list that has length one or less right
+[00:06:11] i don't know why i'm switching back and forth between the text tool okay i can't
+[00:06:14] stand this my writing's too terrible oh sorry any lits any list of length one or less
+[00:06:29] right in that case just make a copy of the list and return it easy enough right okay so in every
+[00:06:36] recursive case there must be length at least two so here's the idea we're going to what color should
+[00:06:44] use we're going to split the list in half for the moment we'll do it with slicing and then later
+[00:06:57] we'll think about a better way okay we're going to split the list in half so now we've got two lists
+[00:07:04] each of half length we're then going to make a recursive call on
+[00:07:08] both sides that's merge sort damn it i'm going to do the handwriting once in a while
+[00:07:22] right so on both sides we do merge sort and this is now sorted right that's a little too small
+[00:07:40] how big should that be right so after the merge sort this is sorted so we made a recursive call
+[00:07:46] here right and now we've got two sorted lists well what do we do to sort lists well guess what
+[00:07:54] we've got a tool for that
+[00:07:59] and so we use merge to combine them okay that's really kind of the entire plan
+[00:08:10] really the kind of the entire plan we're gonna check the base case if the base case doesn't apply
+[00:08:21] we're gonna split in half with slicing then we're gonna recursively call merge sort
+[00:08:28] twice and then we use merge to combine them okay and you gotta remember that merge sort and merge
+[00:08:39] are not the same merge sort is a sorting algorithm merge just does that thing i described earlier
+[00:08:46] i guess you could say it's a sorting algorithm as long as actually no that's a stupid way to
+[00:08:49] say it i'm not gonna say that okay and so the thing we have to remember here
+[00:08:54] is that this is a recursive call so this in turn cuts it in half but like that long
+[00:09:09] and this is a recursive call here results in a sorted version and those things merge into i should
+[00:09:19] do all this a different color oh let me just redo a different color right like that and so here we
+[00:09:30] cut it in half here we do a recursive merge sort here we merge i have to remember this
+[00:09:41] here is sorted where's my cursor like there okay it's the same process just smaller
+[00:09:56] right and then the same thing happens again where this recursive merge sort here oh sorry i forgot to
+[00:10:09] forgot an arrow this is what is here right and then this recursive merge sort here is actually
+[00:10:19] another version of another copy of that right split whoops little short one here do recursive
+[00:10:28] merge sort do a merge down here and you get this thing sorted and then that goes back to there
+[00:10:37] right so there's this like recursive nesting but it doesn't just go one way because this one has
+[00:10:44] to also go to a recursive call and this one also has to go to a recursive call and this one has to
+[00:10:49] go to a recursive call so there's like lots of recursive calls here right but you don't kind of
+[00:10:53] think about that right like all this over here happens but all you think about is this part here
+[00:10:58] and this part here says split should i go back to purple maybe it's a different purple split
+[00:11:04] two recursive calls and then merge and that's merge sort it's surprisingly easy and surprisingly
+[00:11:15] baffling at the same time
+[00:11:15] okay so if you just are willing to code that you're just going to do the base case you're going
+[00:11:23] to be able to split with slicing right i should write split here you'll be able to do the split
+[00:11:28] with slicing and then you're going to be able to make the recursive calls and then you'll be able
+[00:11:36] to merge and that's going to be sorted then you already do merge sort except that in class we
+[00:11:41] will talk about how to do merge okay and that's pretty much the whole thing i'll see you in class
