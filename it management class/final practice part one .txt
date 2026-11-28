@@ -1,0 +1,19 @@
+Case Study
+
+You have been asked to create a plan for a project to add new functionality to system used by a Sales team.
+
+A Sales team wants to extract historical sales data from their third party cloud-based Sales Force Automation (SFA) tool into an on-premise data warehouse
+They want to use the data warehouse for historical analysis and to apply AI to improve forecasting and budgeting
+The Sales team wants to update the data in the data warehouse in batches at least once per hour
+The IT support team has not extracted data from the third party system like this before but the vendor says there is ample documentation to explain how it can be done
+The IT support team has not used the AI tools that the Sales team wants to use in the data warehouse
+The Sales team wants to do "analysis" (i.e. mining historical data for information) and "forecasting" (i.e. making estimates about the future, based on past experience and guesses)
+But there is no specification defined for the kinds of questions the team is looking to answer
+There is an on-premise data centre where the data warehouse can be built
+Assume that it is January 1st and the Sales team wants the project completed and the updates in production by May 31st (i.e. five months later) in planning for the next fiscal year, which begins on July 1st
+Sales team Managers do the planning for the upcoming fiscal year
+Sales team members will be 100% committed to closing sales in the month of June
+
+Instructions:
+
+Complete this take home portion of your final exam in writing, the length should be between 750-1250 words, approximately 3-5 pages. You should make a compelling case for your selection of either Agile SCRUM, or Linear SDLC methodology for successfully completing the project outlined above. Your analysis MUST include at least five references to separate videos, and from separate weeks, contained in the course content. The videos and accompanying analysis should highlight concepts introduced in the course that are highly relevant and significant to your choice of methodology. The analysis should include points about the alternate methodology's strengths and weaknesses. 
